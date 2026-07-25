@@ -1,0 +1,18 @@
+capability informatiebeheer {
+    naam: "Informatiebeheer"
+    doel: "Informatie beheersen over de volledige levenscyclus."
+    levert: ["Betrouwbare informatie", "Vindbare informatie", "Herleidbare informatie"]
+}
+
+capability tweede-brein {
+    naam: "Tweede Brein"
+    doel: "Ideeën, kennis en besluiten vastleggen, verbinden en terugvinden."
+    hangt_af_van: [informatiebeheer]
+}
+
+dienst architectuur-synchronisatie {
+    naam: "Architectuur Synchronisatie"
+    doel: "Ideeën omzetten in gecontroleerde voorstellen voor het architectuurmodel."
+    ondersteunt: [tweede-brein]
+    vereist: [menselijke-goedkeuring]
+}
