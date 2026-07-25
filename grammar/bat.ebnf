@@ -1,0 +1,13 @@
+(* Beckeringh Architectuurtaal — minimale M3-grammatica *)
+
+document        = declaration, { declaration } ;
+declaration     = kind, identifier, "{", { property }, "}" ;
+kind            = "capability" | "dienst" | "proces" | "representatie" | "agent" ;
+property        = identifier, ":", value ;
+value           = scalar | list ;
+list            = "[", [ scalar, { ",", scalar } ], "]" ;
+scalar          = quoted_string | identifier ;
+identifier      = letter, { letter | digit | "_" | "-" | "." } ;
+quoted_string   = '"', { ? ieder teken behalve een dubbel aanhalingsteken ? }, '"' ;
+letter          = "A"…"Z" | "a"…"z" | "À"…"ÿ" ;
+digit           = "0"…"9" ;

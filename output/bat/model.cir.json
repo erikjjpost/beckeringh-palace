@@ -1,0 +1,40 @@
+[
+  {
+    "eigenschappen": {
+      "doel": "Informatie beheersen over de volledige levenscyclus.",
+      "levert": [
+        "Betrouwbare informatie",
+        "Vindbare informatie",
+        "Herleidbare informatie"
+      ],
+      "naam": "Informatiebeheer"
+    },
+    "id": "informatiebeheer",
+    "soort": "capability"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Ideeën, kennis en besluiten vastleggen, verbinden en terugvinden.",
+      "hangt_af_van": [
+        "informatiebeheer"
+      ],
+      "naam": "Tweede Brein"
+    },
+    "id": "tweede-brein",
+    "soort": "capability"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Ideeën omzetten in gecontroleerde voorstellen voor het architectuurmodel.",
+      "naam": "Architectuur Synchronisatie",
+      "ondersteunt": [
+        "tweede-brein"
+      ],
+      "vereist": [
+        "menselijke-goedkeuring"
+      ]
+    },
+    "id": "architectuur-synchronisatie",
+    "soort": "dienst"
+  }
+]
