@@ -5,17 +5,18 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate model
-        run: python tools/validate.py
-      - name: Generate outputs
-        run: python tools/generate.py
-      - name: Verify reproducible working tree
-        run: git diff --exit-code
+      - name: Validate, generate and test
+        run: python tools/bp.py check
