@@ -30,8 +30,9 @@ def repository_status() -> list[str]:
 
 
 def check() -> int:
-    """Validate, generate, test and verify reproducibility."""
+    """Validate, compile, generate, test and verify reproducibility."""
     run([sys.executable, "tools/validate.py"])
+    run([sys.executable, "tools/compile_bat.py"])
     run([sys.executable, "tools/generate.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
 
