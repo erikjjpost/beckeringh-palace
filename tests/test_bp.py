@@ -33,7 +33,7 @@ class RepositoryStatusTests(unittest.TestCase):
         self, run: mock.Mock, repository_status: mock.Mock
     ) -> None:
         self.assertEqual(bp.check(), 0)
-        self.assertEqual(run.call_count, 3)
+        self.assertEqual(run.call_count, 4)
         repository_status.assert_called_once_with()
 
     @mock.patch.object(bp, "repository_status", return_value=["?? output/new.md"])
@@ -42,7 +42,7 @@ class RepositoryStatusTests(unittest.TestCase):
         self, run: mock.Mock, repository_status: mock.Mock
     ) -> None:
         self.assertEqual(bp.check(), 1)
-        self.assertEqual(run.call_count, 3)
+        self.assertEqual(run.call_count, 4)
         repository_status.assert_called_once_with()
 
 
