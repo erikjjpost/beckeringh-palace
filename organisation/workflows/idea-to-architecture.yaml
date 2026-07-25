@@ -1,0 +1,19 @@
+{
+  "id": "bp.workflow.idea_to_architecture",
+  "type": "Workflow",
+  "name": "Idea to Architecture",
+  "trigger": "new_workspace_idea",
+  "steps": [
+    {"order": 1, "role": "bp.role.intake_agent", "action": "analyse_idea"},
+    {"order": 2, "role": "bp.role.capability_agent", "action": "elaborate_proposal"},
+    {"order": 3, "role": "bp.role.architect", "action": "review_proposal"},
+    {"order": 4, "actor": "human.product_owner", "action": "approve_or_reject"},
+    {"order": 5, "role": "bp.role.validator", "action": "validate_approved_change"},
+    {"order": 6, "system": "bp-core", "action": "apply_change"},
+    {"order": 7, "system": "generator", "action": "regenerate_outputs"}
+  ],
+  "guards": [
+    "No model change before human approval",
+    "Validation must pass before generation"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "bp.contract.validate_proposal",
+  "type": "AgentContract",
+  "task": "validate_model_and_proposal",
+  "input": ["proposal", "model", "workflow"],
+  "output": ["valid", "errors", "warnings"],
+  "rules": [
+    "Alle verwijzingen moeten bestaan",
+    "Iedere service ondersteunt exact één capability",
+    "Iedere agentrol heeft een contract",
+    "Architectuurbestanden bevatten geen provider- of modelnamen"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "bp.capability.second_brain",
+  "type": "Capability",
+  "name": "Second Brain",
+  "domain": "bp.domain.information",
+  "purpose": "Ideeën, kennis en besluiten vastleggen, verbinden en terugvinden.",
+  "depends_on": ["bp.capability.information_management"],
+  "services": ["bp.service.architecture_synchronisation"],
+  "representation": "bp.representation.library"
+}

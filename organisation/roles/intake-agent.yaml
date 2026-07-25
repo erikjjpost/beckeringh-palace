@@ -1,0 +1,14 @@
+{
+  "id": "bp.role.intake_agent",
+  "type": "AgentRole",
+  "name": "Intake Agent",
+  "responsibilities": [
+    "Ideeën analyseren",
+    "Mogelijk geraakte architectuurobjecten identificeren",
+    "Een voorstel voorbereiden"
+  ],
+  "permissions": ["read_workspace", "read_model", "create_proposal"],
+  "prohibited": ["modify_model", "approve_proposal"],
+  "contract": "bp.contract.analyse_idea",
+  "model_profile": {"reasoning": "medium", "structured_output": true}
+}

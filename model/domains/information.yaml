@@ -1,0 +1,10 @@
+{
+  "id": "bp.domain.information",
+  "type": "Domain",
+  "name": "Information",
+  "purpose": "Data omzetten in bruikbare informatie, kennis, inzicht en besluitvorming.",
+  "capabilities": [
+    "bp.capability.information_management",
+    "bp.capability.second_brain"
+  ]
+}

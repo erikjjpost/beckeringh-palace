@@ -1,0 +1,8 @@
+{
+  "id": "bp.capability.information_management",
+  "type": "Capability",
+  "name": "Information Management",
+  "domain": "bp.domain.information",
+  "purpose": "Informatie beheersen over de volledige levenscyclus.",
+  "outcomes": ["Betrouwbare informatie", "Vindbare informatie", "Herleidbare informatie"]
+}
