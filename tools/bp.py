@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -12,9 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def run(command: Sequence[str]) -> None:
-    """Run a project command from the repository root."""
+    """Run a project command from the repository root without bytecode side effects."""
     print(f"\n$ {' '.join(command)}", flush=True)
-    subprocess.run(command, cwd=ROOT, check=True)
+    environment = os.environ.copy()
+    environment["PYTHONDONTWRITEBYTECODE"] = "1"
+    subprocess.run(command, cwd=ROOT, check=True, env=environment)
 
 
 def repository_status() -> list[str]:
