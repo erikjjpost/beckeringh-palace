@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import unittest
 
+from compiler.cir import Architectuurobject
 from compiler.parser import parseer
 from compiler.semantic import SemantischeFout, analyseer
 
@@ -57,13 +58,17 @@ capability second-brain {
 '''))
 
     def test_weigert_ongeldige_relatievorm(self):
-        objecten = parseer('''
-capability informatiebeheer {
-    naam: "Informatiebeheer"
-    doel: "Informatie beheersen."
-    eigenaar: [architect, 42]
-}
-''')
+        objecten = [
+            Architectuurobject(
+                soort="capability",
+                id="informatiebeheer",
+                eigenschappen={
+                    "naam": "Informatiebeheer",
+                    "doel": "Informatie beheersen.",
+                    "eigenaar": 42,
+                },
+            )
+        ]
         with self.assertRaisesRegex(SemantischeFout, "Een relatie moet"):
             analyseer(objecten)
 
