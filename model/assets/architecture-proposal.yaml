@@ -1,0 +1,10 @@
+{
+  "id": "bp.asset.architecture_proposal",
+  "type": "Asset",
+  "name": "Architectuurvoorstel",
+  "purpose": "Controleerbare beschrijving van een voorgestelde architectuurwijziging.",
+  "owned_by": "bp.capability.second_brain",
+  "required_fields": [
+    "id", "status", "impact", "summary", "changes", "risks", "controls"
+  ]
+}
