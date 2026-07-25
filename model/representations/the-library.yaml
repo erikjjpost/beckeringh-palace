@@ -1,0 +1,7 @@
+{
+  "id": "bp.representation.library",
+  "type": "Representation",
+  "name": "The Library",
+  "represents": "bp.capability.second_brain",
+  "description": "De visuele en narratieve representatie van het Second Brain in Beckeringh Palace."
+}
