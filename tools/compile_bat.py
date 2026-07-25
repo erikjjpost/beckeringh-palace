@@ -10,6 +10,7 @@ sys.path.insert(0, str(ROOT))
 
 from compiler.parser import parseer_bestand
 from compiler.renderers import naar_json, naar_markdown
+from compiler.semantic import analyseer
 
 BRON = ROOT / "architectuur"
 UITVOER = ROOT / "output" / "bat"
@@ -20,11 +21,13 @@ def main() -> None:
     for pad in sorted(BRON.rglob("*.bp")):
         objecten.extend(parseer_bestand(pad))
 
-    UITVOER.mkdir(parents=True, exist_ok=True)
-    (UITVOER / "model.cir.json").write_text(naar_json(objecten), encoding="utf-8")
-    (UITVOER / "architectuur.md").write_text(naar_markdown(objecten), encoding="utf-8")
+    model = analyseer(objecten)
 
-    print(f"BAT gecompileerd: {len(objecten)} object(en)")
+    UITVOER.mkdir(parents=True, exist_ok=True)
+    (UITVOER / "model.cir.json").write_text(naar_json(model.objecten), encoding="utf-8")
+    (UITVOER / "architectuur.md").write_text(naar_markdown(model.objecten), encoding="utf-8")
+
+    print(f"BAT gecompileerd: {len(model.objecten)} object(en)")
     print("  output/bat/model.cir.json")
     print("  output/bat/architectuur.md")
 
