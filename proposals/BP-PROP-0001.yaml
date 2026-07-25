@@ -1,0 +1,26 @@
+{
+  "id": "BP-PROP-0001",
+  "type": "ArchitectureProposal",
+  "title": "Architectuur Synchronisatie toevoegen aan Second Brain",
+  "status": "approved",
+  "source": "workspace/ideas/architectuur-synchronisatie.md",
+  "created_by_role": "bp.role.intake_agent",
+  "reviewed_by_role": "bp.role.architect",
+  "approved_by": "Erik",
+  "impact": "medium",
+  "summary": "Voegt een service toe die ideeën omzet in gecontroleerde architectuurvoorstellen.",
+  "changes": [
+    {"action": "add", "object": "bp.service.architecture_synchronisation"},
+    {"action": "add", "object": "bp.asset.architecture_proposal"},
+    {"action": "add", "object": "bp.asset.synchronisation_log"}
+  ],
+  "risks": [
+    "Onjuiste classificatie van ideeën",
+    "Onbedoelde duplicatie van capabilities of services"
+  ],
+  "controls": [
+    "Architectuurreview verplicht",
+    "Menselijke goedkeuring verplicht",
+    "Validatie vóór generatie"
+  ]
+}
