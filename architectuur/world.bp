@@ -146,14 +146,23 @@ token typography-family-forge-interface {
     waarde: "Aptos"
 }
 
+appearance forge-panel-appearance {
+    naam: "Forge Panel Appearance"
+    doel: "Semantisch appearance-contract voor verhoogde Forge-panelen."
+    material: "raised"
+    foreground: "foreground"
+    accent: "accent"
+    border: "regular"
+    radius: "medium"
+    shadow: "medium"
+    motion: "normal"
+}
+
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel voor dashboards en productdocumentatie."
-    surface: "{color-iron}"
-    foreground: "{color-smoke}"
-    accent: "{color-accent}"
+    appearance: "forge-panel-appearance"
     padding: "{spacing-unit}"
-    radius: "{radius-medium}"
 }
 
 compositie forge-dashboard {
