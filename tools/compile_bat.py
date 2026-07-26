@@ -20,7 +20,6 @@ from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.renderers import naar_json, naar_markdown
 from compiler.semantic import analyseer
-from compiler.spatial_html_renderer import naar_spatial_html
 from compiler.token_json_renderer import naar_token_json
 
 BRON = ROOT / "architectuur"
@@ -44,8 +43,6 @@ def main() -> None:
     (PRODUCTUITVOER / "compositions.css").write_text(naar_compositie_css(model.objecten), encoding="utf-8")
     (PRODUCTUITVOER / "compositions.html").write_text(naar_compositie_html(model.objecten), encoding="utf-8")
     (PRODUCTUITVOER / "compositions.svg").write_text(naar_compositie_svg(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "spatial.html").write_text(naar_spatial_html(model.objecten), encoding="utf-8")
-
     productpaden = []
     for product in compileer_producten(model.objecten, standaard_backend_registry()):
         pad = ROOT / product.definitie.pad
@@ -59,7 +56,7 @@ def main() -> None:
         "output/products/tokens.css", "output/products/tokens.json",
         "output/products/components.css", "output/products/components.html",
         "output/products/compositions.css", "output/products/compositions.html",
-        "output/products/compositions.svg", "output/products/spatial.html",
+        "output/products/compositions.svg",
         *productpaden,
     ):
         print(f"  {pad}")

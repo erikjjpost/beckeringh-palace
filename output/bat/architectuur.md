@@ -430,17 +430,18 @@ Eerste reproduceerbare productsamenstelling.
 
 ### Doel
 
-Backend-onafhankelijk canvas voor het Forge-dashboard.
+Ordent de drie Forge-dashboardpanelen in een semantisch grid.
 
 ### Eigenschappen
 
-- **canvas-height:** 1080
-- **canvas-width:** 3840
-- **compositie:** forge-dashboard
+- **columns:** 3
+- **regions:** forge-dashboard-left, forge-dashboard-center, forge-dashboard-right
+- **rows:** 1
+- **type:** grid
 
 ## Linkerpaneel
 
-**Soort:** regio
+**Soort:** region
 
 **Identifier:** `forge-dashboard-left`
 
@@ -450,16 +451,16 @@ Linker dashboardregio.
 
 ### Eigenschappen
 
+- **column:** 1
+- **column-span:** 1
 - **component:** forge-panel
-- **height:** 840
 - **layout:** forge-dashboard-ultrawide
-- **width:** 1120
-- **x:** 80
-- **y:** 120
+- **row:** 1
+- **row-span:** 1
 
 ## Middenpaneel
 
-**Soort:** regio
+**Soort:** region
 
 **Identifier:** `forge-dashboard-center`
 
@@ -469,16 +470,16 @@ Centrale dashboardregio.
 
 ### Eigenschappen
 
+- **column:** 2
+- **column-span:** 1
 - **component:** forge-panel
-- **height:** 840
 - **layout:** forge-dashboard-ultrawide
-- **width:** 1120
-- **x:** 1360
-- **y:** 120
+- **row:** 1
+- **row-span:** 1
 
 ## Rechterpaneel
 
-**Soort:** regio
+**Soort:** region
 
 **Identifier:** `forge-dashboard-right`
 
@@ -488,12 +489,12 @@ Rechter dashboardregio.
 
 ### Eigenschappen
 
+- **column:** 3
+- **column-span:** 1
 - **component:** forge-panel
-- **height:** 840
 - **layout:** forge-dashboard-ultrawide
-- **width:** 1120
-- **x:** 2640
-- **y:** 120
+- **row:** 1
+- **row-span:** 1
 
 ## Forge Dashboard HTML
 
@@ -616,18 +617,3 @@ Composities als reproduceerbaar vectorcanvas genereren.
 
 - **formaat:** svg
 - **pad:** output/products/compositions.svg
-
-## Spatial HTML product
-
-**Soort:** renderdoel
-
-**Identifier:** `html-spatial`
-
-### Doel
-
-Het Spatial Model als exact gepositioneerd HTML-product genereren.
-
-### Eigenschappen
-
-- **formaat:** html
-- **pad:** output/products/spatial.html
