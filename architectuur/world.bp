@@ -62,6 +62,13 @@ component forge-panel {
     radius: "{radius-medium}"
 }
 
+compositie forge-dashboard {
+    naam: "Forge Dashboard"
+    doel: "Eerste reproduceerbare productsamenstelling."
+    componenten: ["forge-panel", "forge-panel", "forge-panel"]
+    richting: "row"
+}
+
 renderdoel css-tokens {
     naam: "CSS design tokens"
     doel: "Design tokens als CSS custom properties genereren."
@@ -88,4 +95,25 @@ renderdoel html-components {
     doel: "Een minimale componentcatalogus genereren."
     formaat: "html"
     pad: "output/products/components.html"
+}
+
+renderdoel css-compositions {
+    naam: "CSS compositions"
+    doel: "Compositielayouts als CSS genereren."
+    formaat: "css"
+    pad: "output/products/compositions.css"
+}
+
+renderdoel html-compositions {
+    naam: "HTML compositions"
+    doel: "Composities als zelfstandig HTML-product genereren."
+    formaat: "html"
+    pad: "output/products/compositions.html"
+}
+
+renderdoel svg-compositions {
+    naam: "SVG compositions"
+    doel: "Composities als reproduceerbaar vectorcanvas genereren."
+    formaat: "svg"
+    pad: "output/products/compositions.svg"
 }

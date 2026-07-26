@@ -176,6 +176,21 @@ Basispaneel voor dashboards en productdocumentatie.
 - **radius:** {radius-medium}
 - **surface:** {color-iron}
 
+## Forge Dashboard
+
+**Soort:** compositie
+
+**Identifier:** `forge-dashboard`
+
+### Doel
+
+Eerste reproduceerbare productsamenstelling.
+
+### Eigenschappen
+
+- **componenten:** forge-panel, forge-panel, forge-panel
+- **richting:** row
+
 ## CSS design tokens
 
 **Soort:** renderdoel
@@ -235,3 +250,48 @@ Een minimale componentcatalogus genereren.
 
 - **formaat:** html
 - **pad:** output/products/components.html
+
+## CSS compositions
+
+**Soort:** renderdoel
+
+**Identifier:** `css-compositions`
+
+### Doel
+
+Compositielayouts als CSS genereren.
+
+### Eigenschappen
+
+- **formaat:** css
+- **pad:** output/products/compositions.css
+
+## HTML compositions
+
+**Soort:** renderdoel
+
+**Identifier:** `html-compositions`
+
+### Doel
+
+Composities als zelfstandig HTML-product genereren.
+
+### Eigenschappen
+
+- **formaat:** html
+- **pad:** output/products/compositions.html
+
+## SVG compositions
+
+**Soort:** renderdoel
+
+**Identifier:** `svg-compositions`
+
+### Doel
+
+Composities als reproduceerbaar vectorcanvas genereren.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **pad:** output/products/compositions.svg
