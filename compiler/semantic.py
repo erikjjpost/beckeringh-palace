@@ -7,6 +7,7 @@ from typing import Iterable
 
 from compiler.cir import Architectuurobject
 from compiler.diagnostics import Diagnostic
+from compiler.graph import DependencyGraph, Relatie, bouw_dependency_graph, vind_cycli
 
 
 class RelatieVorm(str, Enum):
@@ -17,16 +18,17 @@ class RelatieVorm(str, Enum):
 class RelatieType:
     naam: str
     vorm: RelatieVorm = RelatieVorm.ENKELVOUDIG_OF_LIJST
+    acyclisch: bool = False
 
 
 RELATIETYPEN = {
-    naam: RelatieType(naam)
-    for naam in (
-        "afhankelijk_van",
-        "eigenaar",
-        "gebruikt",
-        "realiseert",
-        "ondersteunt",
+    relatietype.naam: relatietype
+    for relatietype in (
+        RelatieType("afhankelijk_van", acyclisch=True),
+        RelatieType("eigenaar"),
+        RelatieType("gebruikt"),
+        RelatieType("realiseert"),
+        RelatieType("ondersteunt"),
     )
 }
 
@@ -43,10 +45,11 @@ class SemantischeFout(ValueError):
 
 @dataclass(frozen=True)
 class SemantischModel:
-    """Gevalideerde objecten en hun symbolentabel."""
+    """Gevalideerde objecten, symbolen en hun dependency graph."""
 
     objecten: tuple[Architectuurobject, ...]
     symbolen: dict[str, Architectuurobject]
+    dependency_graph: DependencyGraph
 
 
 def _referenties(waarde: object) -> tuple[str, ...] | None:
@@ -57,11 +60,31 @@ def _referenties(waarde: object) -> tuple[str, ...] | None:
     return None
 
 
+def _cycluslocatie(
+    cyclus: tuple[str, ...],
+    relatietype: str,
+    relaties: tuple[Relatie, ...],
+):
+    bron_id = cyclus[-2]
+    doel_id = cyclus[-1]
+    return next(
+        (
+            relatie.locatie
+            for relatie in relaties
+            if relatie.bron_id == bron_id
+            and relatie.doel_id == doel_id
+            and relatie.relatietype == relatietype
+        ),
+        None,
+    )
+
+
 def analyseer(objecten: Iterable[Architectuurobject]) -> SemantischModel:
-    """Bouw een symbolentabel en verzamel alle semantische diagnostics."""
+    """Compileer objecten naar symbolentabel en dependency graph."""
     vaste_objecten = tuple(objecten)
     symbolen: dict[str, Architectuurobject] = {}
     diagnostics: list[Diagnostic] = []
+    relaties: list[Relatie] = []
 
     for obj in vaste_objecten:
         if obj.id in symbolen:
@@ -77,7 +100,8 @@ def analyseer(objecten: Iterable[Architectuurobject]) -> SemantischModel:
 
     for obj in vaste_objecten:
         for eigenschap, waarde in obj.eigenschappen.items():
-            if eigenschap not in RELATIETYPEN:
+            relatietype = RELATIETYPEN.get(eigenschap)
+            if relatietype is None:
                 continue
             locatie = obj.eigenschaplocaties.get(eigenschap, obj.bronlocatie)
             referenties = _referenties(waarde)
@@ -105,8 +129,41 @@ def analyseer(objecten: Iterable[Architectuurobject]) -> SemantischModel:
                             locatie=locatie,
                         )
                     )
+                    continue
+                relaties.append(
+                    Relatie(
+                        bron_id=obj.id,
+                        relatietype=relatietype.naam,
+                        doel_id=doel_id,
+                        locatie=locatie,
+                    )
+                )
+
+    dependency_graph = bouw_dependency_graph(symbolen, relaties)
+
+    if not diagnostics:
+        for relatietype in RELATIETYPEN.values():
+            if not relatietype.acyclisch:
+                continue
+            for cyclus in vind_cycli(dependency_graph, relatietype.naam):
+                diagnostics.append(
+                    Diagnostic(
+                        code="BP2201",
+                        boodschap=(
+                            f"Cyclische relatie '{relatietype.naam}': "
+                            + " -> ".join(cyclus)
+                        ),
+                        locatie=_cycluslocatie(
+                            cyclus, relatietype.naam, dependency_graph.relaties
+                        ),
+                    )
+                )
 
     if diagnostics:
         raise SemantischeFout(diagnostics)
 
-    return SemantischModel(objecten=vaste_objecten, symbolen=symbolen)
+    return SemantischModel(
+        objecten=vaste_objecten,
+        symbolen=symbolen,
+        dependency_graph=dependency_graph,
+    )

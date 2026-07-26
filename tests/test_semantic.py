@@ -28,6 +28,30 @@ dienst architectuur-synchronisatie {
         )
         self.assertEqual(2, len(model.objecten))
 
+    def test_compileert_geresolveerde_relaties_naar_dependency_graph(self):
+        model = analyseer(parseer('''
+capability informatiebeheer {
+    naam: "Informatiebeheer"
+    doel: "Informatie beheersen."
+}
+
+capability second-brain {
+    naam: "Second Brain"
+    doel: "Kennis bruikbaar maken."
+    afhankelijk_van: [informatiebeheer]
+}
+''', bron="architectuur/capabilities.bp"))
+
+        self.assertEqual(
+            ("informatiebeheer", "second-brain"),
+            model.dependency_graph.knopen,
+        )
+        relatie = model.dependency_graph.relaties[0]
+        self.assertEqual("second-brain", relatie.bron_id)
+        self.assertEqual("afhankelijk_van", relatie.relatietype)
+        self.assertEqual("informatiebeheer", relatie.doel_id)
+        self.assertEqual("architectuur/capabilities.bp:10:1", str(relatie.locatie))
+
     def test_accepteert_lijst_met_referenties(self):
         model = analyseer(parseer('''
 capability informatiebeheer {
@@ -107,6 +131,47 @@ capability second-brain {
             ["BP2101", "BP2102"],
             [diagnostic.code for diagnostic in context.exception.diagnostics],
         )
+
+    def test_weigert_cyclische_afhankelijkheid(self):
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer('''
+capability alpha {
+    naam: "Alpha"
+    doel: "Alpha leveren."
+    afhankelijk_van: beta
+}
+
+capability beta {
+    naam: "Beta"
+    doel: "Beta leveren."
+    afhankelijk_van: alpha
+}
+''', bron="architectuur/cyclus.bp"))
+
+        diagnostic = context.exception.diagnostics[0]
+        self.assertEqual("BP2201", diagnostic.code)
+        self.assertEqual(
+            "Cyclische relatie 'afhankelijk_van': alpha -> beta -> alpha",
+            diagnostic.boodschap,
+        )
+        self.assertEqual("architectuur/cyclus.bp:11:1", str(diagnostic.locatie))
+
+    def test_laat_cycli_toe_voor_niet_acyclische_relaties(self):
+        model = analyseer(parseer('''
+agent alpha {
+    naam: "Alpha"
+    doel: "Alpha vertegenwoordigen."
+    gebruikt: beta
+}
+
+agent beta {
+    naam: "Beta"
+    doel: "Beta vertegenwoordigen."
+    gebruikt: alpha
+}
+'''))
+
+        self.assertEqual(2, len(model.dependency_graph.relaties))
 
 
 if __name__ == "__main__":
