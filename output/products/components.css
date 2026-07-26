@@ -1,0 +1,8 @@
+/* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */
+.bp-forge-panel {
+  background-color: var(--bp-color-iron);
+  color: var(--bp-color-smoke);
+  border-color: var(--bp-color-accent);
+  padding: var(--bp-spacing-unit);
+  border-radius: var(--bp-radius-medium);
+}
