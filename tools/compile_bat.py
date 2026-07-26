@@ -13,6 +13,7 @@ from compiler.parser import parseer_bestand
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.renderers import naar_json, naar_markdown
 from compiler.semantic import analyseer
+from compiler.token_json_renderer import naar_token_json
 
 BRON = ROOT / "architectuur"
 UITVOER = ROOT / "output" / "bat"
@@ -31,11 +32,15 @@ def main() -> None:
     (UITVOER / "model.cir.json").write_text(naar_json(model.objecten), encoding="utf-8")
     (UITVOER / "architectuur.md").write_text(naar_markdown(model.objecten), encoding="utf-8")
     (PRODUCTUITVOER / "tokens.css").write_text(naar_css(model.objecten), encoding="utf-8")
+    (PRODUCTUITVOER / "tokens.json").write_text(
+        naar_token_json(model.objecten), encoding="utf-8"
+    )
 
     print(f"BAT gecompileerd: {len(model.objecten)} object(en)")
     print("  output/bat/model.cir.json")
     print("  output/bat/architectuur.md")
     print("  output/products/tokens.css")
+    print("  output/products/tokens.json")
 
 
 if __name__ == "__main__":
