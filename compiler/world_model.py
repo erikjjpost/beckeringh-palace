@@ -38,6 +38,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("radius", Domeinstatus.NATIVE, "Definieert normatieve hoekafrondingen."),
     ObjectsoortDefinitie("shadow", Domeinstatus.NATIVE, "Definieert normatieve diepteniveaus als schaduwwaarden."),
     ObjectsoortDefinitie("motion", Domeinstatus.NATIVE, "Definieert normatieve duur- en easingrollen."),
+    ObjectsoortDefinitie("spacing", Domeinstatus.NATIVE, "Definieert een normatieve schaal voor tussenruimte en interne ruimte."),
     ObjectsoortDefinitie("thema", Domeinstatus.NATIVE, "Koppelt alle ontwerpprimitieven tot één ontwerpidentiteit."),
     ObjectsoortDefinitie("appearance", Domeinstatus.NATIVE, "Koppelt een component aan semantische theme-rollen en primitiveprofielen."),
     ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),

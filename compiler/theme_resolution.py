@@ -102,6 +102,19 @@ class ResolvedMotion:
 
 
 @dataclass(frozen=True)
+class ResolvedSpacing:
+    id: str
+    naam: str
+    doel: str
+    none: str
+    xs: str
+    small: str
+    medium: str
+    large: str
+    xl: str
+
+
+@dataclass(frozen=True)
 class ResolvedTheme:
     wereld_id: str
     wereld_naam: str
@@ -116,6 +129,7 @@ class ResolvedTheme:
     radius: ResolvedRadius | None = None
     shadow: ResolvedShadow | None = None
     motion: ResolvedMotion | None = None
+    spacing: ResolvedSpacing | None = None
 
 
 def _indexeer(objecten: Iterable[Architectuurobject]) -> dict[str, dict[str, Architectuurobject]]:
@@ -175,6 +189,7 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
     radius = _optioneel_object(index, thema, "radius")
     shadow = _optioneel_object(index, thema, "shadow")
     motion = _optioneel_object(index, thema, "motion")
+    spacing = _optioneel_object(index, thema, "spacing")
 
     palet_kleuren = tuple(
         (rol, _resolved_color(index, str(palet.eigenschappen[rol]), f"Palet '{palet.id}'"))
@@ -218,6 +233,10 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
         motion=None if motion is None else ResolvedMotion(
             motion.id, _tekst(motion, "naam"), _tekst(motion, "doel"),
             **_waarden(motion, ("fast", "normal", "slow", "easing")),
+        ),
+        spacing=None if spacing is None else ResolvedSpacing(
+            spacing.id, _tekst(spacing, "naam"), _tekst(spacing, "doel"),
+            **_waarden(spacing, ("none", "xs", "small", "medium", "large", "xl")),
         ),
     )
 
