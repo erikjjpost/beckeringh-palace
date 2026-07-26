@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import unittest
-
 from compiler.component_css_renderer import naar_component_css
 from compiler.component_html_renderer import naar_component_html
 from compiler.parser import parseer
@@ -10,13 +9,6 @@ from compiler.semantic import SemantischeFout, analyseer
 
 
 BRON = '''
-token spacing-unit {
-    naam: "Spacing"
-    doel: "Padding."
-    type: "dimension"
-    waarde: "8px"
-}
-
 appearance forge-panel-appearance {
     naam: "Forge Panel Appearance"
     doel: "Verhoogd paneelprofiel."
@@ -27,13 +19,13 @@ appearance forge-panel-appearance {
     radius: "medium"
     shadow: "medium"
     motion: "normal"
+    spacing: "small"
 }
 
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel."
     appearance: "forge-panel-appearance"
-    padding: "{spacing-unit}"
 }
 '''
 
@@ -51,27 +43,27 @@ class ComponentSliceTests(unittest.TestCase):
         self.assertIn("border-radius: var(--bp-radius-medium);", css)
         self.assertIn("box-shadow: var(--bp-shadow-medium);", css)
         self.assertIn("transition-duration: var(--bp-motion-normal);", css)
-        self.assertIn("padding: var(--bp-spacing-unit);", css)
+        self.assertIn("padding: var(--bp-spacing-small);", css)
         html = naar_component_html(model.objecten)
         self.assertIn('class="bp-forge-panel"', html)
 
     def test_weigert_direct_visueel_componentveld(self):
         bron = BRON.replace(
             '    appearance: "forge-panel-appearance"',
-            '    appearance: "forge-panel-appearance"\n    surface: "{spacing-unit}"',
+            '    appearance: "forge-panel-appearance"\n    surface: "raised"',
         )
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3201", {item.code for item in context.exception.diagnostics})
 
     def test_weigert_onvolledig_appearance_contract(self):
-        bron = BRON.replace('    motion: "normal"\n', '')
+        bron = BRON.replace('    spacing: "small"\n', '')
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3212", {item.code for item in context.exception.diagnostics})
 
     def test_weigert_onbekende_semantische_rol(self):
-        bron = BRON.replace('    radius: "medium"', '    radius: "enorm"')
+        bron = BRON.replace('    spacing: "small"', '    spacing: "enorm"')
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3211", {item.code for item in context.exception.diagnostics})
