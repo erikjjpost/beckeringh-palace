@@ -29,25 +29,13 @@ class DesignComponentConstraint:
                 if naam in {"naam", "doel"}:
                     continue
                 if naam not in APPEARANCE_EIGENSCHAPPEN:
-                    diagnostics.append(Diagnostic(
-                        code="BP3210",
-                        boodschap=f"Appearance '{appearance.id}' heeft onbekende eigenschap '{naam}'",
-                        locatie=appearance.eigenschaplocaties.get(naam, appearance.bronlocatie),
-                    ))
+                    diagnostics.append(Diagnostic("BP3210", f"Appearance '{appearance.id}' heeft onbekende eigenschap '{naam}'", locatie=appearance.eigenschaplocaties.get(naam, appearance.bronlocatie)))
                     continue
                 if waarde not in APPEARANCE_ROLLEN[naam]:
-                    diagnostics.append(Diagnostic(
-                        code="BP3211",
-                        boodschap=f"Appearance '{appearance.id}.{naam}' heeft onbekende semantische rol '{waarde}'",
-                        locatie=appearance.eigenschaplocaties.get(naam, appearance.bronlocatie),
-                    ))
+                    diagnostics.append(Diagnostic("BP3211", f"Appearance '{appearance.id}.{naam}' heeft onbekende semantische rol '{waarde}'", locatie=appearance.eigenschaplocaties.get(naam, appearance.bronlocatie)))
             for naam in APPEARANCE_EIGENSCHAPPEN:
                 if naam not in appearance.eigenschappen:
-                    diagnostics.append(Diagnostic(
-                        code="BP3212",
-                        boodschap=f"Appearance '{appearance.id}' vereist rol '{naam}'",
-                        locatie=appearance.bronlocatie,
-                    ))
+                    diagnostics.append(Diagnostic("BP3212", f"Appearance '{appearance.id}' vereist rol '{naam}'", locatie=appearance.bronlocatie))
 
         for obj in context.objecten:
             if obj.soort != "component":
@@ -56,48 +44,24 @@ class DesignComponentConstraint:
                 if naam in {"naam", "doel"}:
                     continue
                 if naam not in COMPONENTEIGENSCHAPPEN:
-                    diagnostics.append(Diagnostic(
-                        code="BP3201",
-                        boodschap=f"Component '{obj.id}' heeft onbekende eigenschap '{naam}'",
-                        locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie),
-                    ))
+                    diagnostics.append(Diagnostic("BP3201", f"Component '{obj.id}' heeft onbekende eigenschap '{naam}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
                     continue
                 if naam == "appearance":
                     if not isinstance(waarde, str) or waarde not in appearances:
-                        diagnostics.append(Diagnostic(
-                            code="BP3205",
-                            boodschap=f"Component '{obj.id}' verwijst naar onbekende appearance '{waarde}'",
-                            locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie),
-                        ))
+                        diagnostics.append(Diagnostic("BP3205", f"Component '{obj.id}' verwijst naar onbekende appearance '{waarde}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
                     continue
                 verwacht_type = COMPONENTEIGENSCHAPPEN[naam]
                 referentie = tokenreferentie(waarde) if isinstance(waarde, str) else None
                 if referentie is None:
-                    diagnostics.append(Diagnostic(
-                        code="BP3202",
-                        boodschap=f"Component '{obj.id}.{naam}' vereist een tokenreferentie in de vorm '{{token-id}}'",
-                        locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie),
-                    ))
+                    diagnostics.append(Diagnostic("BP3202", f"Component '{obj.id}.{naam}' vereist een tokenreferentie in de vorm '{{token-id}}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
                     continue
                 token = tokens.get(referentie)
                 if token is None:
-                    diagnostics.append(Diagnostic(
-                        code="BP3203",
-                        boodschap=f"Component '{obj.id}.{naam}' verwijst naar onbekend token '{referentie}'",
-                        locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie),
-                    ))
+                    diagnostics.append(Diagnostic("BP3203", f"Component '{obj.id}.{naam}' verwijst naar onbekend token '{referentie}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
                     continue
                 werkelijk_type = token.eigenschappen.get("type")
                 if werkelijk_type != verwacht_type.value:
-                    diagnostics.append(Diagnostic(
-                        code="BP3204",
-                        boodschap=f"Component '{obj.id}.{naam}' verwacht token-type '{verwacht_type.value}', maar '{referentie}' is '{werkelijk_type}'",
-                        locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie),
-                    ))
-            if "appearance" not in obj.eigenschappen:
-                diagnostics.append(Diagnostic(
-                    code="BP3206",
-                    boodschap=f"Component '{obj.id}' vereist een expliciete appearance",
-                    locatie=obj.bronlocatie,
-                ))
+                    diagnostics.append(Diagnostic("BP3204", f"Component '{obj.id}.{naam}' verwacht token-type '{verwacht_type.value}', maar '{referentie}' is '{werkelijk_type}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
+            if appearances and "appearance" not in obj.eigenschappen:
+                diagnostics.append(Diagnostic("BP3206", f"Component '{obj.id}' vereist een expliciete appearance zodra het model appearances bevat", locatie=obj.bronlocatie))
         return tuple(diagnostics)
