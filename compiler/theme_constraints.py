@@ -38,7 +38,8 @@ class ThemeFoundationConstraint:
                             locatie=obj.eigenschaplocaties.get(veld, obj.bronlocatie),
                         ))
 
-        for kleur in objecten_per_soort["kleur"].values():
+        kleuren = objecten_per_soort["kleur"]
+        for kleur in kleuren.values():
             waarde = kleur.eigenschappen.get("waarde")
             if not isinstance(waarde, str) or not waarde.startswith("#") or len(waarde) not in {4, 7, 9}:
                 diagnostics.append(Diagnostic(
@@ -47,8 +48,8 @@ class ThemeFoundationConstraint:
                     locatie=kleur.eigenschaplocaties.get("waarde", kleur.bronlocatie),
                 ))
 
-        kleuren = objecten_per_soort["kleur"]
-        for palet in objecten_per_soort["palet"].values():
+        paletten = objecten_per_soort["palet"]
+        for palet in paletten.values():
             rollen = toegestane_velden["palet"] - {"naam", "doel"}
             for rol in rollen:
                 referentie = palet.eigenschappen.get(rol)
@@ -59,9 +60,9 @@ class ThemeFoundationConstraint:
                         locatie=palet.eigenschaplocaties.get(rol, palet.bronlocatie),
                     ))
 
-        paletten = objecten_per_soort["palet"]
         typografieen = objecten_per_soort["typografie"]
-        for thema in objecten_per_soort["thema"].values():
+        themas = objecten_per_soort["thema"]
+        for thema in themas.values():
             palet = thema.eigenschappen.get("palet")
             typografie = thema.eigenschappen.get("typografie")
             if palet not in paletten:
@@ -77,14 +78,15 @@ class ThemeFoundationConstraint:
                     locatie=thema.eigenschaplocaties.get("typografie", thema.bronlocatie),
                 ))
 
-        themas = objecten_per_soort["thema"]
-        for wereld in objecten_per_soort["wereld"].values():
-            thema = wereld.eigenschappen.get("thema")
-            if thema not in themas:
-                diagnostics.append(Diagnostic(
-                    code="BP3606",
-                    boodschap=f"Wereld '{wereld.id}' verwijst naar onbekend thema '{thema}'",
-                    locatie=wereld.eigenschaplocaties.get("thema", wereld.bronlocatie),
-                ))
+        theme_foundation_actief = bool(kleuren or paletten or typografieen or themas)
+        if theme_foundation_actief:
+            for wereld in objecten_per_soort["wereld"].values():
+                thema = wereld.eigenschappen.get("thema")
+                if thema not in themas:
+                    diagnostics.append(Diagnostic(
+                        code="BP3606",
+                        boodschap=f"Wereld '{wereld.id}' verwijst naar onbekend thema '{thema}'",
+                        locatie=wereld.eigenschaplocaties.get("thema", wereld.bronlocatie),
+                    ))
 
         return tuple(diagnostics)
