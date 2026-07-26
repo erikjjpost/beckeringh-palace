@@ -83,6 +83,21 @@ Donkere structurele basiskleur.
 - **type:** color
 - **waarde:** #171A1F
 
+## Smoke
+
+**Soort:** token
+
+**Identifier:** `color-smoke`
+
+### Doel
+
+Lichte voorgrondkleur voor donkere oppervlakken.
+
+### Eigenschappen
+
+- **type:** color
+- **waarde:** #ECECEC
+
 ## Accent
 
 **Soort:** token
@@ -113,6 +128,21 @@ Basiseenheid voor reproduceerbare tussenruimte.
 - **type:** dimension
 - **waarde:** 8px
 
+## Medium radius
+
+**Soort:** token
+
+**Identifier:** `radius-medium`
+
+### Doel
+
+Standaard afronding voor productcomponenten.
+
+### Eigenschappen
+
+- **type:** dimension
+- **waarde:** 12px
+
 ## Default font family
 
 **Soort:** token
@@ -127,6 +157,24 @@ Standaardlettertype voor de digitale wereld.
 
 - **type:** font-family
 - **waarde:** Aptos
+
+## Forge Panel
+
+**Soort:** component
+
+**Identifier:** `forge-panel`
+
+### Doel
+
+Basispaneel voor dashboards en productdocumentatie.
+
+### Eigenschappen
+
+- **accent:** {color-accent}
+- **foreground:** {color-smoke}
+- **padding:** {spacing-unit}
+- **radius:** {radius-medium}
+- **surface:** {color-iron}
 
 ## CSS design tokens
 
@@ -157,3 +205,33 @@ Design tokens platformneutraal als JSON genereren.
 
 - **formaat:** json
 - **pad:** output/products/tokens.json
+
+## CSS components
+
+**Soort:** renderdoel
+
+**Identifier:** `css-components`
+
+### Doel
+
+Componenten als reproduceerbare CSS-klassen genereren.
+
+### Eigenschappen
+
+- **formaat:** css
+- **pad:** output/products/components.css
+
+## HTML component catalogue
+
+**Soort:** renderdoel
+
+**Identifier:** `html-components`
+
+### Doel
+
+Een minimale componentcatalogus genereren.
+
+### Eigenschappen
+
+- **formaat:** html
+- **pad:** output/products/components.html
