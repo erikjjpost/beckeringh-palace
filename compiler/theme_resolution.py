@@ -8,16 +8,10 @@ from compiler.cir import Architectuurobject
 
 
 PALET_ROLLEN = (
-    "primary",
-    "secondary",
-    "background",
-    "surface",
-    "foreground",
-    "accent",
-    "success",
-    "warning",
-    "error",
+    "primary", "secondary", "background", "surface", "foreground",
+    "accent", "success", "warning", "error",
 )
+MATERIAAL_ROLLEN = ("canvas", "surface", "raised", "foreground", "accent")
 
 
 class ThemeResolutionError(ValueError):
@@ -40,8 +34,6 @@ class ResolvedPalette:
     kleuren: tuple[tuple[str, ResolvedColor], ...]
 
     def kleur(self, rol: str) -> ResolvedColor | None:
-        """Geef de opgeloste kleur voor een semantische paletrol."""
-
         return next((kleur for naam, kleur in self.kleuren if naam == rol), None)
 
 
@@ -56,6 +48,60 @@ class ResolvedTypography:
 
 
 @dataclass(frozen=True)
+class ResolvedMaterial:
+    id: str
+    naam: str
+    doel: str
+    kleuren: tuple[tuple[str, ResolvedColor], ...]
+
+    def kleur(self, rol: str) -> ResolvedColor | None:
+        return next((kleur for naam, kleur in self.kleuren if naam == rol), None)
+
+
+@dataclass(frozen=True)
+class ResolvedBorder:
+    id: str
+    naam: str
+    doel: str
+    hairline: str
+    regular: str
+    strong: str
+    style: str
+
+
+@dataclass(frozen=True)
+class ResolvedRadius:
+    id: str
+    naam: str
+    doel: str
+    small: str
+    medium: str
+    large: str
+    pill: str
+
+
+@dataclass(frozen=True)
+class ResolvedShadow:
+    id: str
+    naam: str
+    doel: str
+    low: str
+    medium: str
+    high: str
+
+
+@dataclass(frozen=True)
+class ResolvedMotion:
+    id: str
+    naam: str
+    doel: str
+    fast: str
+    normal: str
+    slow: str
+    easing: str
+
+
+@dataclass(frozen=True)
 class ResolvedTheme:
     wereld_id: str
     wereld_naam: str
@@ -65,23 +111,21 @@ class ResolvedTheme:
     thema_doel: str
     palet: ResolvedPalette
     typografie: ResolvedTypography
+    materiaal: ResolvedMaterial
+    border: ResolvedBorder
+    radius: ResolvedRadius
+    shadow: ResolvedShadow
+    motion: ResolvedMotion
 
 
-def _indexeer(
-    objecten: Iterable[Architectuurobject],
-) -> dict[str, dict[str, Architectuurobject]]:
+def _indexeer(objecten: Iterable[Architectuurobject]) -> dict[str, dict[str, Architectuurobject]]:
     index: dict[str, dict[str, Architectuurobject]] = {}
     for obj in objecten:
         index.setdefault(obj.soort, {})[obj.id] = obj
     return index
 
 
-def _vereis(
-    index: dict[str, dict[str, Architectuurobject]],
-    soort: str,
-    object_id: str,
-    context: str,
-) -> Architectuurobject:
+def _vereis(index, soort: str, object_id: str, context: str) -> Architectuurobject:
     try:
         return index[soort][object_id]
     except KeyError as exc:
@@ -99,6 +143,20 @@ def _tekst(obj: Architectuurobject, veld: str) -> str:
     return waarde
 
 
+def _resolved_color(index, kleur_id: str, context: str) -> ResolvedColor:
+    kleur = _vereis(index, "kleur", kleur_id, context)
+    return ResolvedColor(
+        id=kleur.id,
+        naam=_tekst(kleur, "naam"),
+        doel=_tekst(kleur, "doel"),
+        waarde=_tekst(kleur, "waarde"),
+    )
+
+
+def _resolved_waarden(obj: Architectuurobject, velden: tuple[str, ...]) -> dict[str, str]:
+    return {veld: _tekst(obj, veld) for veld in velden}
+
+
 def resolveer_thema(
     objecten: Iterable[Architectuurobject],
     wereld_id: str,
@@ -107,50 +165,25 @@ def resolveer_thema(
 
     index = _indexeer(objecten)
     wereld = _vereis(index, "wereld", wereld_id, "Theme-resolutie")
-    thema_id = _tekst(wereld, "thema")
-    thema = _vereis(index, "thema", thema_id, f"Wereld '{wereld.id}'")
+    thema = _vereis(index, "thema", _tekst(wereld, "thema"), f"Wereld '{wereld.id}'")
 
-    palet_id = _tekst(thema, "palet")
-    typografie_id = _tekst(thema, "typografie")
-    palet = _vereis(index, "palet", palet_id, f"Thema '{thema.id}'")
-    typografie = _vereis(
-        index,
-        "typografie",
-        typografie_id,
-        f"Thema '{thema.id}'",
+    palet = _vereis(index, "palet", _tekst(thema, "palet"), f"Thema '{thema.id}'")
+    typografie = _vereis(index, "typografie", _tekst(thema, "typografie"), f"Thema '{thema.id}'")
+    materiaal = _vereis(index, "materiaal", _tekst(thema, "materiaal"), f"Thema '{thema.id}'")
+    border = _vereis(index, "border", _tekst(thema, "border"), f"Thema '{thema.id}'")
+    radius = _vereis(index, "radius", _tekst(thema, "radius"), f"Thema '{thema.id}'")
+    shadow = _vereis(index, "shadow", _tekst(thema, "shadow"), f"Thema '{thema.id}'")
+    motion = _vereis(index, "motion", _tekst(thema, "motion"), f"Thema '{thema.id}'")
+
+    palet_kleuren = tuple(
+        (rol, _resolved_color(index, str(palet.eigenschappen[rol]), f"Palet '{palet.id}'"))
+        for rol in PALET_ROLLEN if rol in palet.eigenschappen
+    )
+    materiaal_kleuren = tuple(
+        (rol, _resolved_color(index, str(materiaal.eigenschappen[rol]), f"Materiaal '{materiaal.id}'"))
+        for rol in MATERIAAL_ROLLEN if rol in materiaal.eigenschappen
     )
 
-    opgeloste_kleuren = []
-    for rol in PALET_ROLLEN:
-        kleur_id = palet.eigenschappen.get(rol)
-        if kleur_id is None:
-            continue
-        if not isinstance(kleur_id, str) or not kleur_id.strip():
-            raise ThemeResolutionError(
-                f"Palet '{palet.id}' heeft ongeldige kleurreferentie voor '{rol}'"
-            )
-        kleur = _vereis(index, "kleur", kleur_id, f"Palet '{palet.id}'")
-        opgeloste_kleuren.append((rol, ResolvedColor(
-            id=kleur.id,
-            naam=_tekst(kleur, "naam"),
-            doel=_tekst(kleur, "doel"),
-            waarde=_tekst(kleur, "waarde"),
-        )))
-
-    resolved_palette = ResolvedPalette(
-        id=palet.id,
-        naam=_tekst(palet, "naam"),
-        doel=_tekst(palet, "doel"),
-        kleuren=tuple(opgeloste_kleuren),
-    )
-    resolved_typography = ResolvedTypography(
-        id=typografie.id,
-        naam=_tekst(typografie, "naam"),
-        doel=_tekst(typografie, "doel"),
-        heading=_tekst(typografie, "heading"),
-        body=_tekst(typografie, "body"),
-        mono=_tekst(typografie, "mono"),
-    )
     return ResolvedTheme(
         wereld_id=wereld.id,
         wereld_naam=_tekst(wereld, "naam"),
@@ -158,16 +191,36 @@ def resolveer_thema(
         thema_id=thema.id,
         thema_naam=_tekst(thema, "naam"),
         thema_doel=_tekst(thema, "doel"),
-        palet=resolved_palette,
-        typografie=resolved_typography,
+        palet=ResolvedPalette(palet.id, _tekst(palet, "naam"), _tekst(palet, "doel"), palet_kleuren),
+        typografie=ResolvedTypography(
+            typografie.id, _tekst(typografie, "naam"), _tekst(typografie, "doel"),
+            **_resolved_waarden(typografie, ("heading", "body", "mono")),
+        ),
+        materiaal=ResolvedMaterial(
+            materiaal.id, _tekst(materiaal, "naam"), _tekst(materiaal, "doel"), materiaal_kleuren,
+        ),
+        border=ResolvedBorder(
+            border.id, _tekst(border, "naam"), _tekst(border, "doel"),
+            **_resolved_waarden(border, ("hairline", "regular", "strong", "style")),
+        ),
+        radius=ResolvedRadius(
+            radius.id, _tekst(radius, "naam"), _tekst(radius, "doel"),
+            **_resolved_waarden(radius, ("small", "medium", "large", "pill")),
+        ),
+        shadow=ResolvedShadow(
+            shadow.id, _tekst(shadow, "naam"), _tekst(shadow, "doel"),
+            **_resolved_waarden(shadow, ("low", "medium", "high")),
+        ),
+        motion=ResolvedMotion(
+            motion.id, _tekst(motion, "naam"), _tekst(motion, "doel"),
+            **_resolved_waarden(motion, ("fast", "normal", "slow", "easing")),
+        ),
     )
 
 
 def resolveer_alle_themas(
     objecten: Iterable[Architectuurobject],
 ) -> tuple[ResolvedTheme, ...]:
-    """Los alle expliciete werelden in stabiele ID-volgorde op."""
-
     objecten = tuple(objecten)
     wereld_ids = sorted(obj.id for obj in objecten if obj.soort == "wereld")
     return tuple(resolveer_thema(objecten, wereld_id) for wereld_id in wereld_ids)
