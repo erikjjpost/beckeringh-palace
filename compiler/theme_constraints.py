@@ -12,7 +12,7 @@ PRIMITIEF_SOORTEN = ("materiaal", "border", "radius", "shadow", "motion")
 
 @dataclass(frozen=True)
 class ThemeFoundationConstraint:
-    """Valideer alle objecten en referenties van een expliciet thema."""
+    """Valideer alle objecten en expliciete referenties van een thema."""
 
     sleutel: str = "world-model.theme-foundation"
 
@@ -81,18 +81,18 @@ class ThemeFoundationConstraint:
 
         themas = objecten_per_soort["thema"]
         thema_referenties = {
-            "palet": ("palet", "BP3604"),
-            "typografie": ("typografie", "BP3605"),
-            "materiaal": ("materiaal", "BP3608"),
-            "border": ("border", "BP3609"),
-            "radius": ("radius", "BP3610"),
-            "shadow": ("shadow", "BP3611"),
-            "motion": ("motion", "BP3612"),
+            "palet": ("palet", "BP3604", True),
+            "typografie": ("typografie", "BP3605", True),
+            "materiaal": ("materiaal", "BP3608", False),
+            "border": ("border", "BP3609", False),
+            "radius": ("radius", "BP3610", False),
+            "shadow": ("shadow", "BP3611", False),
+            "motion": ("motion", "BP3612", False),
         }
         for thema in themas.values():
-            for veld, (soort, code) in thema_referenties.items():
+            for veld, (soort, code, vereist) in thema_referenties.items():
                 referentie = thema.eigenschappen.get(veld)
-                if referentie not in objecten_per_soort[soort]:
+                if (vereist or referentie is not None) and referentie not in objecten_per_soort[soort]:
                     diagnostics.append(Diagnostic(
                         code=code,
                         boodschap=f"Thema '{thema.id}' verwijst naar onbekende {soort} '{referentie}'",
