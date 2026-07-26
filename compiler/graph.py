@@ -7,7 +7,7 @@ from typing import Iterable
 from compiler.cir import Bronlocatie
 
 
-@dataclass(frozen=True, order=True)
+@dataclass(frozen=True)
 class Relatie:
     """Een gevalideerde, geresolveerde relatie tussen twee objecten."""
 
@@ -37,7 +37,16 @@ def bouw_dependency_graph(knopen: Iterable[str], relaties: Iterable[Relatie]) ->
     """Bouw een canoniek geordende graaf uit gevalideerde semantische gegevens."""
     return DependencyGraph(
         knopen=tuple(sorted(set(knopen))),
-        relaties=tuple(sorted(relaties)),
+        relaties=tuple(
+            sorted(
+                relaties,
+                key=lambda relatie: (
+                    relatie.bron_id,
+                    relatie.relatietype,
+                    relatie.doel_id,
+                ),
+            )
+        ),
     )
 
 
@@ -50,7 +59,7 @@ def _canonieke_cyclus(cyclus: tuple[str, ...]) -> tuple[str, ...]:
 
 
 def vind_cycli(graaf: DependencyGraph, relatietype: str) -> tuple[tuple[str, ...], ...]:
-    """Vind alle DFS-terugkoppelingen voor één relatietype, deterministisch genormaliseerd."""
+    """Vind DFS-terugkoppelingen voor één relatietype, deterministisch genormaliseerd."""
     buren = {
         knoop: tuple(
             sorted(relatie.doel_id for relatie in graaf.uitgaand(knoop, relatietype))
