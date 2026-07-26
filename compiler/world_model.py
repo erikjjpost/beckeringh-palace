@@ -35,6 +35,8 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
     ObjectsoortDefinitie("compositie", Domeinstatus.NATIVE, "Ordent componenten tot een product."),
+    ObjectsoortDefinitie("layout", Domeinstatus.NATIVE, "Definieert een backend-onafhankelijk canvas."),
+    ObjectsoortDefinitie("regio", Domeinstatus.NATIVE, "Plaatst een component in een layoutcanvas."),
     ObjectsoortDefinitie("variant", Domeinstatus.NATIVE, "Legt een gecontroleerde afwijking vast."),
     ObjectsoortDefinitie("renderdoel", Domeinstatus.NATIVE, "Beschrijft een te genereren representatie."),
     ObjectsoortDefinitie("capability", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),

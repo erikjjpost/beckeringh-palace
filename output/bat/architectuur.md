@@ -191,6 +191,79 @@ Eerste reproduceerbare productsamenstelling.
 - **componenten:** forge-panel, forge-panel, forge-panel
 - **richting:** row
 
+## Forge Dashboard Ultrawide
+
+**Soort:** layout
+
+**Identifier:** `forge-dashboard-ultrawide`
+
+### Doel
+
+Backend-onafhankelijk canvas voor het Forge-dashboard.
+
+### Eigenschappen
+
+- **canvas-height:** 1080
+- **canvas-width:** 3840
+- **compositie:** forge-dashboard
+
+## Linkerpaneel
+
+**Soort:** regio
+
+**Identifier:** `forge-dashboard-left`
+
+### Doel
+
+Linker dashboardregio.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **height:** 840
+- **layout:** forge-dashboard-ultrawide
+- **width:** 1120
+- **x:** 80
+- **y:** 120
+
+## Middenpaneel
+
+**Soort:** regio
+
+**Identifier:** `forge-dashboard-center`
+
+### Doel
+
+Centrale dashboardregio.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **height:** 840
+- **layout:** forge-dashboard-ultrawide
+- **width:** 1120
+- **x:** 1360
+- **y:** 120
+
+## Rechterpaneel
+
+**Soort:** regio
+
+**Identifier:** `forge-dashboard-right`
+
+### Doel
+
+Rechter dashboardregio.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **height:** 840
+- **layout:** forge-dashboard-ultrawide
+- **width:** 1120
+- **x:** 2640
+- **y:** 120
+
 ## CSS design tokens
 
 **Soort:** renderdoel
@@ -295,3 +368,18 @@ Composities als reproduceerbaar vectorcanvas genereren.
 
 - **formaat:** svg
 - **pad:** output/products/compositions.svg
+
+## Spatial HTML product
+
+**Soort:** renderdoel
+
+**Identifier:** `html-spatial`
+
+### Doel
+
+Het Spatial Model als exact gepositioneerd HTML-product genereren.
+
+### Eigenschappen
+
+- **formaat:** html
+- **pad:** output/products/spatial.html

@@ -144,6 +144,59 @@
   },
   {
     "eigenschappen": {
+      "canvas-height": "1080",
+      "canvas-width": "3840",
+      "compositie": "forge-dashboard",
+      "doel": "Backend-onafhankelijk canvas voor het Forge-dashboard.",
+      "naam": "Forge Dashboard Ultrawide"
+    },
+    "id": "forge-dashboard-ultrawide",
+    "soort": "layout"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "doel": "Linker dashboardregio.",
+      "height": "840",
+      "layout": "forge-dashboard-ultrawide",
+      "naam": "Linkerpaneel",
+      "width": "1120",
+      "x": "80",
+      "y": "120"
+    },
+    "id": "forge-dashboard-left",
+    "soort": "regio"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "doel": "Centrale dashboardregio.",
+      "height": "840",
+      "layout": "forge-dashboard-ultrawide",
+      "naam": "Middenpaneel",
+      "width": "1120",
+      "x": "1360",
+      "y": "120"
+    },
+    "id": "forge-dashboard-center",
+    "soort": "regio"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "doel": "Rechter dashboardregio.",
+      "height": "840",
+      "layout": "forge-dashboard-ultrawide",
+      "naam": "Rechterpaneel",
+      "width": "1120",
+      "x": "2640",
+      "y": "120"
+    },
+    "id": "forge-dashboard-right",
+    "soort": "regio"
+  },
+  {
+    "eigenschappen": {
       "doel": "Design tokens als CSS custom properties genereren.",
       "formaat": "css",
       "naam": "CSS design tokens",
@@ -210,6 +263,16 @@
       "pad": "output/products/compositions.svg"
     },
     "id": "svg-compositions",
+    "soort": "renderdoel"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Het Spatial Model als exact gepositioneerd HTML-product genereren.",
+      "formaat": "html",
+      "naam": "Spatial HTML product",
+      "pad": "output/products/spatial.html"
+    },
+    "id": "html-spatial",
     "soort": "renderdoel"
   }
 ]
