@@ -7,7 +7,7 @@ from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
 
 
-PRIMITIEF_SOORTEN = ("materiaal", "border", "radius", "shadow", "motion", "spacing")
+PRIMITIEF_SOORTEN = ("materiaal", "border", "radius", "shadow", "motion", "spacing", "typeschaal")
 
 
 @dataclass(frozen=True)
@@ -29,6 +29,7 @@ class ThemeFoundationConstraint:
             "kleur": {"naam", "doel", "waarde"},
             "palet": {"naam", "doel", "primary", "secondary", "background", "surface", "foreground", "accent", "success", "warning", "error"},
             "typografie": {"naam", "doel", "heading", "body", "mono"},
+            "typeschaal": {"naam", "doel", "display", "title", "heading", "body", "label", "caption"},
             "materiaal": {"naam", "doel", "canvas", "surface", "raised", "foreground", "accent"},
             "border": {"naam", "doel", "hairline", "regular", "strong", "style"},
             "radius": {"naam", "doel", "small", "medium", "large", "pill"},
@@ -90,6 +91,7 @@ class ThemeFoundationConstraint:
             "shadow": ("shadow", "BP3611", False),
             "motion": ("motion", "BP3612", False),
             "spacing": ("spacing", "BP3613", False),
+            "typeschaal": ("typeschaal", "BP3614", False),
         }
         for thema in themas.values():
             for veld, (soort, code, vereist) in thema_referenties.items():
