@@ -79,6 +79,17 @@ motion forge-motion {
     easing: "cubic-bezier(0.2, 0.8, 0.2, 1)"
 }
 
+spacing forge-spacing {
+    naam: "Forge Spacing"
+    doel: "Ruimtelijke schaal voor Forge-componenten en composities."
+    none: "0"
+    xs: "4px"
+    small: "8px"
+    medium: "16px"
+    large: "24px"
+    xl: "40px"
+}
+
 thema forge {
     naam: "Forge"
     doel: "Nordic forge-ontwerpidentiteit voor Beckeringh Palace."
@@ -89,6 +100,7 @@ thema forge {
     radius: "forge-radius"
     shadow: "forge-shadows"
     motion: "forge-motion"
+    spacing: "forge-spacing"
 }
 
 wereld beckeringh-palace {
@@ -125,13 +137,6 @@ token color-accent {
     waarde: "{color-ember}"
 }
 
-token spacing-unit {
-    naam: "Spacing unit"
-    doel: "Basiseenheid voor reproduceerbare tussenruimte."
-    type: "dimension"
-    waarde: "8px"
-}
-
 token radius-medium {
     naam: "Medium radius"
     doel: "Standaard afronding voor productcomponenten."
@@ -156,13 +161,13 @@ appearance forge-panel-appearance {
     radius: "medium"
     shadow: "medium"
     motion: "normal"
+    spacing: "small"
 }
 
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel voor dashboards en productdocumentatie."
     appearance: "forge-panel-appearance"
-    padding: "{spacing-unit}"
 }
 
 compositie forge-dashboard {
