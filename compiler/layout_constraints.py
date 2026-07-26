@@ -55,7 +55,7 @@ class NativeLayoutConstraint:
         layouts = {
             obj.id: obj
             for obj in context.objecten
-            if obj.soort == "layout" and "type" in obj.eigenschappen
+            if obj.soort == "layout"
         }
         regions = {obj.id: obj for obj in context.objecten if obj.soort == "region"}
         componenten = {obj.id for obj in context.objecten if obj.soort == "component"}

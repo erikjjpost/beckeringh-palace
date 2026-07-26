@@ -145,19 +145,20 @@ compositie forge-dashboard {
 layout forge-dashboard-ultrawide {
     naam: "Forge Dashboard Ultrawide"
     doel: "Canvas."
-    compositie: "forge-dashboard"
-    canvas-width: "3840"
-    canvas-height: "1080"
+    type: "grid"
+    regions: ["forge-dashboard-left"]
+    columns: "1"
+    rows: "1"
 }
-regio forge-dashboard-left {
+region forge-dashboard-left {
     naam: "Linkerpaneel"
     doel: "Regio."
     layout: "forge-dashboard-ultrawide"
     component: "forge-panel"
-    x: "80"
-    y: "120"
-    width: "1120"
-    height: "840"
+    column: "1"
+    row: "1"
+    column-span: "1"
+    row-span: "1"
 }
 product forge-dashboard-html {
     naam: "Forge Dashboard HTML"
