@@ -68,6 +68,24 @@ capability second-brain {
 
         self.assertIn("second-brain", model.symbolen)
 
+    def test_accepteert_getypeerde_eigenaarrelatie(self):
+        model = analyseer(parseer('''
+agent erik {
+    naam: "Erik"
+    doel: "Architectuur beheren."
+}
+
+capability informatiebeheer {
+    naam: "Informatiebeheer"
+    doel: "Informatie beheersen."
+    eigenaar: erik
+}
+'''))
+
+        relatie = model.dependency_graph.relaties[0]
+        self.assertEqual("eigenaar", relatie.relatietype)
+        self.assertEqual("erik", relatie.doel_id)
+
     def test_weigert_onbekende_referentie(self):
         with self.assertRaisesRegex(
             SemantischeFout,
@@ -95,6 +113,70 @@ capability second-brain {
         ]
         with self.assertRaisesRegex(SemantischeFout, "Een relatie moet"):
             analyseer(objecten)
+
+    def test_weigert_verkeerd_brontype(self):
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer('''
+capability informatiebeheer {
+    naam: "Informatiebeheer"
+    doel: "Informatie beheersen."
+}
+
+capability second-brain {
+    naam: "Second Brain"
+    doel: "Kennis bruikbaar maken."
+    ondersteunt: informatiebeheer
+}
+''', bron="architectuur/types.bp"))
+
+        diagnostic = context.exception.diagnostics[0]
+        self.assertEqual("BP2301", diagnostic.code)
+        self.assertEqual(
+            "Relatie 'ondersteunt' verwacht als bron dienst, "
+            "maar 'second-brain' is capability",
+            diagnostic.boodschap,
+        )
+        self.assertEqual("architectuur/types.bp:10:1", str(diagnostic.locatie))
+
+    def test_weigert_verkeerd_doeltype(self):
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer('''
+agent erik {
+    naam: "Erik"
+    doel: "Architectuur beheren."
+}
+
+dienst architectuur-synchronisatie {
+    naam: "Architectuur Synchronisatie"
+    doel: "Architectuur representaties synchroniseren."
+    ondersteunt: erik
+}
+'''))
+
+        diagnostic = context.exception.diagnostics[0]
+        self.assertEqual("BP2302", diagnostic.code)
+        self.assertEqual(
+            "Relatie 'ondersteunt' verwacht als doel capability, "
+            "maar 'erik' is agent",
+            diagnostic.boodschap,
+        )
+
+    def test_weigert_verkeerd_eigenaartype(self):
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer('''
+capability eigenaar-capability {
+    naam: "Eigenaar capability"
+    doel: "Testdoel."
+}
+
+capability informatiebeheer {
+    naam: "Informatiebeheer"
+    doel: "Informatie beheersen."
+    eigenaar: eigenaar-capability
+}
+'''))
+
+        self.assertEqual("BP2302", context.exception.diagnostics[0].code)
 
     def test_diagnostic_bevat_bronlocatie_en_code(self):
         with self.assertRaises(SemantischeFout) as context:
