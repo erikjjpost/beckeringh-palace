@@ -204,6 +204,25 @@ Tijds- en easingprofiel voor rustige Forge-interacties.
 - **normal:** 220ms
 - **slow:** 420ms
 
+## Forge Spacing
+
+**Soort:** spacing
+
+**Identifier:** `forge-spacing`
+
+### Doel
+
+Ruimtelijke schaal voor Forge-componenten en composities.
+
+### Eigenschappen
+
+- **large:** 24px
+- **medium:** 16px
+- **none:** 0
+- **small:** 8px
+- **xl:** 40px
+- **xs:** 4px
+
 ## Forge
 
 **Soort:** thema
@@ -222,6 +241,7 @@ Nordic forge-ontwerpidentiteit voor Beckeringh Palace.
 - **palet:** ember-forge
 - **radius:** forge-radius
 - **shadow:** forge-shadows
+- **spacing:** forge-spacing
 - **typografie:** forge-interface
 
 ## Beckeringh Palace
@@ -298,21 +318,6 @@ Semantische accentkleur die naar de Forge-kleur verwijst.
 - **type:** color
 - **waarde:** {color-ember}
 
-## Spacing unit
-
-**Soort:** token
-
-**Identifier:** `spacing-unit`
-
-### Doel
-
-Basiseenheid voor reproduceerbare tussenruimte.
-
-### Eigenschappen
-
-- **type:** dimension
-- **waarde:** 8px
-
 ## Medium radius
 
 **Soort:** token
@@ -362,6 +367,7 @@ Semantisch appearance-contract voor verhoogde Forge-panelen.
 - **motion:** normal
 - **radius:** medium
 - **shadow:** medium
+- **spacing:** small
 
 ## Forge Panel
 
@@ -376,7 +382,6 @@ Basispaneel voor dashboards en productdocumentatie.
 ### Eigenschappen
 
 - **appearance:** forge-panel-appearance
-- **padding:** {spacing-unit}
 
 ## Forge Dashboard
 

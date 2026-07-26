@@ -150,6 +150,20 @@
   },
   {
     "eigenschappen": {
+      "doel": "Ruimtelijke schaal voor Forge-componenten en composities.",
+      "large": "24px",
+      "medium": "16px",
+      "naam": "Forge Spacing",
+      "none": "0",
+      "small": "8px",
+      "xl": "40px",
+      "xs": "4px"
+    },
+    "id": "forge-spacing",
+    "soort": "spacing"
+  },
+  {
+    "eigenschappen": {
       "border": "forge-borders",
       "doel": "Nordic forge-ontwerpidentiteit voor Beckeringh Palace.",
       "materiaal": "forge-materials",
@@ -158,6 +172,7 @@
       "palet": "ember-forge",
       "radius": "forge-radius",
       "shadow": "forge-shadows",
+      "spacing": "forge-spacing",
       "typografie": "forge-interface"
     },
     "id": "forge",
@@ -214,16 +229,6 @@
   },
   {
     "eigenschappen": {
-      "doel": "Basiseenheid voor reproduceerbare tussenruimte.",
-      "naam": "Spacing unit",
-      "type": "dimension",
-      "waarde": "8px"
-    },
-    "id": "spacing-unit",
-    "soort": "token"
-  },
-  {
-    "eigenschappen": {
       "doel": "Standaard afronding voor productcomponenten.",
       "naam": "Medium radius",
       "type": "dimension",
@@ -252,7 +257,8 @@
       "motion": "normal",
       "naam": "Forge Panel Appearance",
       "radius": "medium",
-      "shadow": "medium"
+      "shadow": "medium",
+      "spacing": "small"
     },
     "id": "forge-panel-appearance",
     "soort": "appearance"
@@ -261,8 +267,7 @@
     "eigenschappen": {
       "appearance": "forge-panel-appearance",
       "doel": "Basispaneel voor dashboards en productdocumentatie.",
-      "naam": "Forge Panel",
-      "padding": "{spacing-unit}"
+      "naam": "Forge Panel"
     },
     "id": "forge-panel",
     "soort": "component"
