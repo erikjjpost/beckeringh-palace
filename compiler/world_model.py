@@ -1,0 +1,63 @@
+"""Domeingrens voor het Beckeringh Palace World Model.
+
+BAT is een product- en ontwerpcompiler. Dit module legt vast welke objectsoorten
+native onderdeel zijn van dat domein en welke soorten alleen tijdens de migratie
+of via externe adapters mogen voorkomen.
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from enum import Enum
+
+
+class Domeinstatus(str, Enum):
+    """Plaats van een objectsoort ten opzichte van het BAT-kernmodel."""
+
+    NATIVE = "native"
+    EXTERN = "extern"
+    MIGRATIE = "migratie"
+
+
+@dataclass(frozen=True)
+class ObjectsoortDefinitie:
+    """Normatieve definitie van één objectsoort."""
+
+    naam: str
+    status: Domeinstatus
+    doel: str
+
+
+_OBJECTSOORTEN = (
+    ObjectsoortDefinitie("wereld", Domeinstatus.NATIVE, "Begrenst één digitale wereld."),
+    ObjectsoortDefinitie("merk", Domeinstatus.NATIVE, "Beschrijft identiteit en merkregels."),
+    ObjectsoortDefinitie("thema", Domeinstatus.NATIVE, "Bundelt visuele en semantische varianten."),
+    ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),
+    ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
+    ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
+    ObjectsoortDefinitie("compositie", Domeinstatus.NATIVE, "Ordent componenten tot een product."),
+    ObjectsoortDefinitie("variant", Domeinstatus.NATIVE, "Legt een gecontroleerde afwijking vast."),
+    ObjectsoortDefinitie("renderdoel", Domeinstatus.NATIVE, "Beschrijft een te genereren representatie."),
+    ObjectsoortDefinitie("capability", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
+    ObjectsoortDefinitie("dienst", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
+    ObjectsoortDefinitie("agent", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
+    ObjectsoortDefinitie("archimate", Domeinstatus.EXTERN, "Extern architectuurmodel dat uitsluitend via een adapter binnenkomt."),
+)
+
+OBJECTSOORTEN = {definitie.naam: definitie for definitie in _OBJECTSOORTEN}
+NATIVE_OBJECTSOORTEN = frozenset(
+    definitie.naam
+    for definitie in _OBJECTSOORTEN
+    if definitie.status is Domeinstatus.NATIVE
+)
+
+
+def objectsoortdefinitie(naam: str) -> ObjectsoortDefinitie | None:
+    """Geef de domeindefinitie van een objectsoort terug."""
+
+    return OBJECTSOORTEN.get(naam)
+
+
+def is_native_objectsoort(naam: str) -> bool:
+    """Bepaal of een objectsoort tot de BAT-kern behoort."""
+
+    return naam in NATIVE_OBJECTSOORTEN
