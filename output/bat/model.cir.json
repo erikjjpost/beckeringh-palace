@@ -130,6 +130,20 @@
   },
   {
     "eigenschappen": {
+      "componenten": [
+        "forge-panel",
+        "forge-panel",
+        "forge-panel"
+      ],
+      "doel": "Eerste reproduceerbare productsamenstelling.",
+      "naam": "Forge Dashboard",
+      "richting": "row"
+    },
+    "id": "forge-dashboard",
+    "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
       "doel": "Design tokens als CSS custom properties genereren.",
       "formaat": "css",
       "naam": "CSS design tokens",
@@ -166,6 +180,36 @@
       "pad": "output/products/components.html"
     },
     "id": "html-components",
+    "soort": "renderdoel"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Compositielayouts als CSS genereren.",
+      "formaat": "css",
+      "naam": "CSS compositions",
+      "pad": "output/products/compositions.css"
+    },
+    "id": "css-compositions",
+    "soort": "renderdoel"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Composities als zelfstandig HTML-product genereren.",
+      "formaat": "html",
+      "naam": "HTML compositions",
+      "pad": "output/products/compositions.html"
+    },
+    "id": "html-compositions",
+    "soort": "renderdoel"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Composities als reproduceerbaar vectorcanvas genereren.",
+      "formaat": "svg",
+      "naam": "SVG compositions",
+      "pad": "output/products/compositions.svg"
+    },
+    "id": "svg-compositions",
     "soort": "renderdoel"
   }
 ]
