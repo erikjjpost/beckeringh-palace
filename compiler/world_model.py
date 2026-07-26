@@ -39,6 +39,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("shadow", Domeinstatus.NATIVE, "Definieert normatieve diepteniveaus als schaduwwaarden."),
     ObjectsoortDefinitie("motion", Domeinstatus.NATIVE, "Definieert normatieve duur- en easingrollen."),
     ObjectsoortDefinitie("thema", Domeinstatus.NATIVE, "Koppelt alle ontwerpprimitieven tot één ontwerpidentiteit."),
+    ObjectsoortDefinitie("appearance", Domeinstatus.NATIVE, "Koppelt een component aan semantische theme-rollen en primitiveprofielen."),
     ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
@@ -63,7 +64,7 @@ NATIVE_OBJECTSOORTEN = frozenset(
 
 
 def objectsoortdefinitie(naam: str) -> ObjectsoortDefinitie | None:
-    """Geef de domeindefinitie van een objectsoort terug."""
+    """Geef de domeindefinitie van één objectsoort terug."""
 
     return OBJECTSOORTEN.get(naam)
 
