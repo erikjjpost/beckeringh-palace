@@ -4,10 +4,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import PurePosixPath
 
+from compiler.backend_discovery import backend_namen
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
-
-TOEGESTANE_BACKENDS = frozenset({"html"})
 
 
 @dataclass(frozen=True)
@@ -17,6 +16,7 @@ class ProductDefinitionConstraint:
     def evalueer(self, context: ConstraintContext):
         diagnostics = []
         layouts = {obj.id for obj in context.objecten if obj.soort == "layout"}
+        toegestane_backends = backend_namen()
         toegestane_velden = {"naam", "doel", "backend", "layout", "pad"}
         for obj in context.objecten:
             if obj.soort != "product":
@@ -29,7 +29,7 @@ class ProductDefinitionConstraint:
                         locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie),
                     ))
             backend = obj.eigenschappen.get("backend")
-            if backend not in TOEGESTANE_BACKENDS:
+            if backend not in toegestane_backends:
                 diagnostics.append(Diagnostic(
                     code="BP3502",
                     boodschap=f"Product '{obj.id}' heeft onbekende backend '{backend}'",
