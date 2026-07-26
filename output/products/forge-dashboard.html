@@ -15,6 +15,26 @@
       --bp-font-heading: "Aptos Display";
       --bp-font-body: "Aptos";
       --bp-font-mono: "JetBrains Mono";
+      --bp-material-canvas: #171A1F;
+      --bp-material-surface: #171A1F;
+      --bp-material-raised: #171A1F;
+      --bp-material-foreground: #ECECEC;
+      --bp-material-accent: #D86A35;
+      --bp-border-hairline: 1px;
+      --bp-border-regular: 2px;
+      --bp-border-strong: 3px;
+      --bp-border-style: solid;
+      --bp-radius-small: 4px;
+      --bp-radius-medium: 12px;
+      --bp-radius-large: 24px;
+      --bp-radius-pill: 999px;
+      --bp-shadow-low: 0 2px 8px #00000040;
+      --bp-shadow-medium: 0 8px 24px #00000059;
+      --bp-shadow-high: 0 20px 48px #00000073;
+      --bp-motion-fast: 120ms;
+      --bp-motion-normal: 220ms;
+      --bp-motion-slow: 420ms;
+      --bp-motion-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     body {
       margin: 0;
@@ -24,6 +44,15 @@
     }
     h1, h2, h3, h4, h5, h6 { font-family: var(--bp-font-heading); }
     code, pre, kbd, samp { font-family: var(--bp-font-mono); }
+    .bp-canvas { background: var(--bp-material-canvas); }
+    .bp-region {
+      background: var(--bp-material-raised);
+      color: var(--bp-material-foreground);
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-accent);
+      border-radius: var(--bp-radius-medium);
+      box-shadow: var(--bp-shadow-low);
+      transition: box-shadow var(--bp-motion-normal) var(--bp-motion-easing);
+    }
     .bp-canvas { position: relative; overflow: hidden; }
     .bp-region { position: absolute; box-sizing: border-box; }
   </style>

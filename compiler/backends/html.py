@@ -25,6 +25,40 @@ def _theme_css(product: ProductDefinition) -> str:
         f"      --bp-font-heading: {_css_string(thema.typografie.heading)};",
         f"      --bp-font-body: {_css_string(thema.typografie.body)};",
         f"      --bp-font-mono: {_css_string(thema.typografie.mono)};",
+    ])
+
+    if thema.materiaal is not None:
+        for rol, kleur in thema.materiaal.kleuren:
+            regels.append(f"      --bp-material-{rol}: {kleur.waarde};")
+    if thema.border is not None:
+        regels.extend([
+            f"      --bp-border-hairline: {thema.border.hairline};",
+            f"      --bp-border-regular: {thema.border.regular};",
+            f"      --bp-border-strong: {thema.border.strong};",
+            f"      --bp-border-style: {thema.border.style};",
+        ])
+    if thema.radius is not None:
+        regels.extend([
+            f"      --bp-radius-small: {thema.radius.small};",
+            f"      --bp-radius-medium: {thema.radius.medium};",
+            f"      --bp-radius-large: {thema.radius.large};",
+            f"      --bp-radius-pill: {thema.radius.pill};",
+        ])
+    if thema.shadow is not None:
+        regels.extend([
+            f"      --bp-shadow-low: {thema.shadow.low};",
+            f"      --bp-shadow-medium: {thema.shadow.medium};",
+            f"      --bp-shadow-high: {thema.shadow.high};",
+        ])
+    if thema.motion is not None:
+        regels.extend([
+            f"      --bp-motion-fast: {thema.motion.fast};",
+            f"      --bp-motion-normal: {thema.motion.normal};",
+            f"      --bp-motion-slow: {thema.motion.slow};",
+            f"      --bp-motion-easing: {thema.motion.easing};",
+        ])
+
+    regels.extend([
         "    }",
         "    body {",
         "      margin: 0;",
@@ -35,6 +69,21 @@ def _theme_css(product: ProductDefinition) -> str:
         "    h1, h2, h3, h4, h5, h6 { font-family: var(--bp-font-heading); }",
         "    code, pre, kbd, samp { font-family: var(--bp-font-mono); }",
     ])
+
+    if thema.materiaal is not None:
+        regels.append("    .bp-canvas { background: var(--bp-material-canvas); }")
+    if all((thema.materiaal, thema.border, thema.radius, thema.shadow, thema.motion)):
+        regels.extend([
+            "    .bp-region {",
+            "      background: var(--bp-material-raised);",
+            "      color: var(--bp-material-foreground);",
+            "      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-accent);",
+            "      border-radius: var(--bp-radius-medium);",
+            "      box-shadow: var(--bp-shadow-low);",
+            "      transition: box-shadow var(--bp-motion-normal) var(--bp-motion-easing);",
+            "    }",
+        ])
+
     return "\n".join(regels) + "\n"
 
 
