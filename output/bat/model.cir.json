@@ -244,13 +244,25 @@
   },
   {
     "eigenschappen": {
-      "accent": "{color-accent}",
+      "accent": "accent",
+      "border": "regular",
+      "doel": "Semantisch appearance-contract voor verhoogde Forge-panelen.",
+      "foreground": "foreground",
+      "material": "raised",
+      "motion": "normal",
+      "naam": "Forge Panel Appearance",
+      "radius": "medium",
+      "shadow": "medium"
+    },
+    "id": "forge-panel-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-panel-appearance",
       "doel": "Basispaneel voor dashboards en productdocumentatie.",
-      "foreground": "{color-smoke}",
       "naam": "Forge Panel",
-      "padding": "{spacing-unit}",
-      "radius": "{radius-medium}",
-      "surface": "{color-iron}"
+      "padding": "{spacing-unit}"
     },
     "id": "forge-panel",
     "soort": "component"
