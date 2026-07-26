@@ -1,50 +1,6 @@
-kleur ember-orange {
-    naam: "Ember Orange"
-    doel: "Primaire warme accentkleur van de Forge-ontwerpidentiteit."
-    waarde: "#D86A35"
-}
-
-kleur iron-black {
-    naam: "Iron Black"
-    doel: "Donkere structurele basiskleur van de Forge-ontwerpidentiteit."
-    waarde: "#171A1F"
-}
-
-kleur smoke-white {
-    naam: "Smoke White"
-    doel: "Lichte voorgrondkleur voor donkere Forge-oppervlakken."
-    waarde: "#ECECEC"
-}
-
-palet ember-forge {
-    naam: "Ember Forge"
-    doel: "Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld."
-    primary: "ember-orange"
-    background: "iron-black"
-    surface: "iron-black"
-    foreground: "smoke-white"
-    accent: "ember-orange"
-}
-
-typografie forge-interface {
-    naam: "Forge Interface"
-    doel: "Typografische rollen voor digitale Forge-producten."
-    heading: "Aptos Display"
-    body: "Aptos"
-    mono: "JetBrains Mono"
-}
-
-thema forge {
-    naam: "Forge"
-    doel: "Nordic forge-ontwerpidentiteit voor Beckeringh Palace."
-    palet: "ember-forge"
-    typografie: "forge-interface"
-}
-
 wereld beckeringh-palace {
     naam: "Beckeringh Palace"
     doel: "Eén reproduceerbare digitale ontwerpwereld leveren."
-    thema: "forge"
 }
 
 token color-ember {
@@ -89,9 +45,9 @@ token radius-medium {
     waarde: "12px"
 }
 
-token typography-family-forge-interface {
-    naam: "Forge interface font family"
-    doel: "Hoofdlettertype voor digitale Forge-producten."
+token typography-family-default {
+    naam: "Default font family"
+    doel: "Standaardlettertype voor de digitale wereld."
     type: "font-family"
     waarde: "Aptos"
 }
