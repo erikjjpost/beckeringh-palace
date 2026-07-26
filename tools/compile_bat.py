@@ -8,6 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from compiler.component_css_renderer import naar_component_css
+from compiler.component_html_renderer import naar_component_html
 from compiler.css_renderer import naar_css
 from compiler.parser import parseer_bestand
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
@@ -35,12 +37,20 @@ def main() -> None:
     (PRODUCTUITVOER / "tokens.json").write_text(
         naar_token_json(model.objecten), encoding="utf-8"
     )
+    (PRODUCTUITVOER / "components.css").write_text(
+        naar_component_css(model.objecten), encoding="utf-8"
+    )
+    (PRODUCTUITVOER / "components.html").write_text(
+        naar_component_html(model.objecten), encoding="utf-8"
+    )
 
     print(f"BAT gecompileerd: {len(model.objecten)} object(en)")
     print("  output/bat/model.cir.json")
     print("  output/bat/architectuur.md")
     print("  output/products/tokens.css")
     print("  output/products/tokens.json")
+    print("  output/products/components.css")
+    print("  output/products/components.html")
 
 
 if __name__ == "__main__":

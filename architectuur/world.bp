@@ -17,6 +17,13 @@ token color-iron {
     waarde: "#171A1F"
 }
 
+token color-smoke {
+    naam: "Smoke"
+    doel: "Lichte voorgrondkleur voor donkere oppervlakken."
+    type: "color"
+    waarde: "#ECECEC"
+}
+
 token color-accent {
     naam: "Accent"
     doel: "Semantische accentkleur die naar de Forge-kleur verwijst."
@@ -31,11 +38,28 @@ token spacing-unit {
     waarde: "8px"
 }
 
+token radius-medium {
+    naam: "Medium radius"
+    doel: "Standaard afronding voor productcomponenten."
+    type: "dimension"
+    waarde: "12px"
+}
+
 token typography-family-default {
     naam: "Default font family"
     doel: "Standaardlettertype voor de digitale wereld."
     type: "font-family"
     waarde: "Aptos"
+}
+
+component forge-panel {
+    naam: "Forge Panel"
+    doel: "Basispaneel voor dashboards en productdocumentatie."
+    surface: "{color-iron}"
+    foreground: "{color-smoke}"
+    accent: "{color-accent}"
+    padding: "{spacing-unit}"
+    radius: "{radius-medium}"
 }
 
 renderdoel css-tokens {
@@ -50,4 +74,18 @@ renderdoel json-tokens {
     doel: "Design tokens platformneutraal als JSON genereren."
     formaat: "json"
     pad: "output/products/tokens.json"
+}
+
+renderdoel css-components {
+    naam: "CSS components"
+    doel: "Componenten als reproduceerbare CSS-klassen genereren."
+    formaat: "css"
+    pad: "output/products/components.css"
+}
+
+renderdoel html-components {
+    naam: "HTML component catalogue"
+    doel: "Een minimale componentcatalogus genereren."
+    formaat: "html"
+    pad: "output/products/components.html"
 }

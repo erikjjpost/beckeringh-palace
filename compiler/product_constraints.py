@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from compiler.component_constraints import DesignComponentConstraint
 from compiler.constraints import ConstraintContext
 from compiler.design_tokens import TokenType, token_uit_object, waarde_past_bij_type
 from compiler.diagnostics import Diagnostic
@@ -136,4 +137,5 @@ WORLD_MODEL_CONSTRAINTS = (
     BekendeObjectsoortenConstraint(),
     NativeVeldenConstraint(),
     DesignTokenConstraint(),
+    DesignComponentConstraint(),
 )
