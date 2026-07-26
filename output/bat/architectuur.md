@@ -43,6 +43,97 @@ Ideeën omzetten in gecontroleerde voorstellen voor het architectuurmodel.
 - **ondersteunt:** tweede-brein
 - **vereist:** menselijke-goedkeuring
 
+## Ember Orange
+
+**Soort:** kleur
+
+**Identifier:** `ember-orange`
+
+### Doel
+
+Primaire warme accentkleur van de Forge-ontwerpidentiteit.
+
+### Eigenschappen
+
+- **waarde:** #D86A35
+
+## Iron Black
+
+**Soort:** kleur
+
+**Identifier:** `iron-black`
+
+### Doel
+
+Donkere structurele basiskleur van de Forge-ontwerpidentiteit.
+
+### Eigenschappen
+
+- **waarde:** #171A1F
+
+## Smoke White
+
+**Soort:** kleur
+
+**Identifier:** `smoke-white`
+
+### Doel
+
+Lichte voorgrondkleur voor donkere Forge-oppervlakken.
+
+### Eigenschappen
+
+- **waarde:** #ECECEC
+
+## Ember Forge
+
+**Soort:** palet
+
+**Identifier:** `ember-forge`
+
+### Doel
+
+Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld.
+
+### Eigenschappen
+
+- **accent:** ember-orange
+- **background:** iron-black
+- **foreground:** smoke-white
+- **primary:** ember-orange
+- **surface:** iron-black
+
+## Forge Interface
+
+**Soort:** typografie
+
+**Identifier:** `forge-interface`
+
+### Doel
+
+Typografische rollen voor digitale Forge-producten.
+
+### Eigenschappen
+
+- **body:** Aptos
+- **heading:** Aptos Display
+- **mono:** JetBrains Mono
+
+## Forge
+
+**Soort:** thema
+
+**Identifier:** `forge`
+
+### Doel
+
+Nordic forge-ontwerpidentiteit voor Beckeringh Palace.
+
+### Eigenschappen
+
+- **palet:** ember-forge
+- **typografie:** forge-interface
+
 ## Beckeringh Palace
 
 **Soort:** wereld
@@ -52,6 +143,10 @@ Ideeën omzetten in gecontroleerde voorstellen voor het architectuurmodel.
 ### Doel
 
 Eén reproduceerbare digitale ontwerpwereld leveren.
+
+### Eigenschappen
+
+- **thema:** forge
 
 ## Ember
 
@@ -143,15 +238,15 @@ Standaard afronding voor productcomponenten.
 - **type:** dimension
 - **waarde:** 12px
 
-## Default font family
+## Forge interface font family
 
 **Soort:** token
 
-**Identifier:** `typography-family-default`
+**Identifier:** `typography-family-forge-interface`
 
 ### Doel
 
-Standaardlettertype voor de digitale wereld.
+Hoofdlettertype voor digitale Forge-producten.
 
 ### Eigenschappen
 
@@ -279,6 +374,7 @@ Het ultrawide Forge-dashboard via de HTML-backend genereren.
 - **backend:** html
 - **layout:** forge-dashboard-ultrawide
 - **pad:** output/products/forge-dashboard.html
+- **wereld:** beckeringh-palace
 
 ## CSS design tokens
 
