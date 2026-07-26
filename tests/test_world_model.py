@@ -19,6 +19,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "compositie",
                 "layout",
                 "merk",
+                "product",
                 "regio",
                 "renderdoel",
                 "thema",
