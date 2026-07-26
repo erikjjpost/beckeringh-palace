@@ -46,14 +46,15 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
     ObjectsoortDefinitie("compositie", Domeinstatus.NATIVE, "Ordent componenten tot een product."),
-    ObjectsoortDefinitie("layout", Domeinstatus.NATIVE, "Definieert een backend-onafhankelijk canvas."),
-    ObjectsoortDefinitie("regio", Domeinstatus.NATIVE, "Plaatst een component in een layoutcanvas."),
+    ObjectsoortDefinitie("layout", Domeinstatus.NATIVE, "Beschrijft backend-onafhankelijke layoutintentie."),
+    ObjectsoortDefinitie("region", Domeinstatus.NATIVE, "Plaatst een component expliciet binnen een native layout."),
     ObjectsoortDefinitie("product", Domeinstatus.NATIVE, "Koppelt een layout aan een backend en artifactpad."),
     ObjectsoortDefinitie("variant", Domeinstatus.NATIVE, "Legt een gecontroleerde afwijking vast."),
     ObjectsoortDefinitie("renderdoel", Domeinstatus.NATIVE, "Beschrijft een te genereren representatie."),
     ObjectsoortDefinitie("capability", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
     ObjectsoortDefinitie("dienst", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
     ObjectsoortDefinitie("agent", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
+    ObjectsoortDefinitie("regio", Domeinstatus.MIGRATIE, "Bestaande absolute canvasregio tot productrenderers naar native layouts migreren."),
     ObjectsoortDefinitie("archimate", Domeinstatus.EXTERN, "Extern architectuurmodel dat uitsluitend via een adapter binnenkomt."),
 )
 

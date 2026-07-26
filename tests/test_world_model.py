@@ -27,7 +27,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "palet",
                 "product",
                 "radius",
-                "regio",
+                "region",
                 "renderdoel",
                 "shadow",
                 "spacing",
@@ -42,7 +42,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
         )
 
     def test_architectuurconcepten_zijn_geen_native_bat(self):
-        for soort in ("capability", "dienst", "agent"):
+        for soort in ("capability", "dienst", "agent", "regio"):
             with self.subTest(soort=soort):
                 definitie = objectsoortdefinitie(soort)
                 self.assertIsNotNone(definitie)

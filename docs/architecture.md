@@ -11,8 +11,34 @@ World Model + Organisatie + Voorstellen
                   ↓
               Renderers
                   ↓
- Markdown / Mermaid / SVG / HTML / Grafana / Figma
+Markdown / Mermaid / SVG / HTML / Grafana / Figma
 ```
+
+De productcompiler groeit langs de volgende normatieve keten:
+
+```text
+BAT
+ ↓
+World
+ ↓
+Theme
+ ↓
+ResolvedTheme
+ ↓
+Appearance
+ ↓
+Components
+ ↓
+Composition
+ ↓
+Products
+ ↓
+Renderers
+```
+
+Native layouts zijn onderdeel van het productmodel. Zij beschrijven uitsluitend
+intentie. Zie [product-model.md](product-model.md) voor het contract van
+`layout`, `region`, `grid`, `stack`, `flow` en `layer`.
 
 BAT is geen algemene enterprise-architectuurtaal. ArchiMate en andere externe modellen worden uitsluitend via expliciete adapters gekoppeld. De domeingrens staat in [world-model.md](world-model.md).
 

@@ -27,7 +27,11 @@ class SpatialModelConstraint:
 
     def evalueer(self, context: ConstraintContext):
         diagnostics = []
-        layouts = {obj.id: obj for obj in context.objecten if obj.soort == "layout"}
+        layouts = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "layout" and "type" not in obj.eigenschappen
+        }
         composities = {obj.id for obj in context.objecten if obj.soort == "compositie"}
         componenten = {obj.id for obj in context.objecten if obj.soort == "component"}
 

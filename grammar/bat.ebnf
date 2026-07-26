@@ -1,8 +1,8 @@
-(* Beckeringh Architectuurtaal — minimale M3-grammatica *)
+(* Beckeringh Architectuurtaal — generieke syntaxis; semantiek staat in het World Model *)
 
 document        = declaration, { declaration } ;
 declaration     = kind, identifier, "{", { property }, "}" ;
-kind            = "capability" | "dienst" | "proces" | "representatie" | "agent" ;
+kind            = identifier ;
 property        = identifier, ":", value ;
 value           = scalar | list ;
 list            = "[", [ scalar, { ",", scalar } ], "]" ;
