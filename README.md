@@ -1,15 +1,18 @@
 # Beckeringh Palace
 
-Beckeringh Palace is een reproduceerbare digitale wereld en **architectural compiler**. Een normatief model vormt de bron voor documentatie, diagrammen en toekomstige ontwerpoutputs zoals SVG, HTML, Grafana en Figma-componenten.
+Beckeringh Palace is een reproduceerbare digitale wereld en **product- en ontwerpcompiler**. Een normatief World Model vormt de bron voor documentatie, diagrammen en ontwerpoutputs zoals SVG, HTML, Grafana en Figma-componenten.
+
+BAT is geen vervanging voor ArchiMate. Enterprise-architectuurmodellen blijven externe bronnen en kunnen via expliciete adapters worden gekoppeld.
 
 ## Huidige vertical slice
 
 De repository bevat nu:
 
-- Information Management en Second Brain als eerste capabilities;
-- Architectuur Synchronisatie als eerste service;
+- Information Management en Second Brain als bestaande migratieconcepten;
+- Architectuur Synchronisatie als bestaande service;
 - modelonafhankelijke rollen, contracten en workflow;
-- validatie van architectuurregels;
+- parser, semantische validatie, dependency-analyse en constraints;
+- een expliciete grens voor het Beckeringh Palace World Model;
 - generatie van Markdown en Mermaid;
 - reproduceerbaarheidscontrole in lokale tooling en CI.
 
@@ -24,14 +27,16 @@ python tools/bp.py check
 ## Structuur
 
 ```text
-model/          normatieve architectuurobjecten
+architectuur/   BAT-bronnen tijdens de migratie naar het World Model
+compiler/       parser, semantisch model, constraints en renderers
+model/          bestaande architectuurobjecten tijdens de migratie
 organisation/   rollen, contracten en workflows
 proposals/      gecontroleerde wijzigingsvoorstellen
 tools/          validator, generator en project-CLI
 tests/          geautomatiseerde tests
 output/         reproduceerbare gegenereerde output
-docs/           architectuur- en ontwikkelrichtlijnen
+docs/           ontwerpbesluiten en ontwikkelrichtlijnen
 workspace/      werkruimte voor nieuwe ideeën
 ```
 
-Lees [docs/architecture.md](docs/architecture.md) voor de architectuur en [CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels.
+Lees [docs/world-model.md](docs/world-model.md) voor de domeingrens, [docs/architecture.md](docs/architecture.md) voor de compilerarchitectuur en [CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels.
