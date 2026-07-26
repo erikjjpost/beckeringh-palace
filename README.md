@@ -13,6 +13,7 @@ De repository bevat nu:
 - modelonafhankelijke rollen, contracten en workflow;
 - parser, semantische validatie, dependency-analyse en constraints;
 - een expliciete grens voor het Beckeringh Palace World Model;
+- een native layout-engine voor `grid`, `stack`, `flow` en `layer`;
 - generatie van Markdown en Mermaid;
 - reproduceerbaarheidscontrole in lokale tooling en CI.
 
@@ -39,4 +40,7 @@ docs/           ontwerpbesluiten en ontwikkelrichtlijnen
 workspace/      werkruimte voor nieuwe ideeën
 ```
 
-Lees [docs/world-model.md](docs/world-model.md) voor de domeingrens, [docs/architecture.md](docs/architecture.md) voor de compilerarchitectuur en [CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels.
+Lees [docs/world-model.md](docs/world-model.md) voor de domeingrens,
+[docs/architecture.md](docs/architecture.md) voor de compilerarchitectuur,
+[docs/product-model.md](docs/product-model.md) voor native layouts en
+[CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels.

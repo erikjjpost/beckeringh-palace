@@ -35,7 +35,7 @@ Renderers
 
 Renderers mogen uitsluitend de CIR lezen. Zij kennen de syntaxis van BAT niet.
 
-## Eerste syntaxis
+## Syntaxis
 
 ```bp
 capability informatiebeheer {
@@ -45,15 +45,13 @@ capability informatiebeheer {
 }
 ```
 
-Ondersteunde soorten in M3:
+De syntaxis accepteert generieke declaraties. Het World Model bepaalt
+semantisch welke objectsoorten en velden geldig zijn. Daardoor kent de parser
+geen verborgen domeincatalogus.
 
-- `capability`
-- `dienst`
-- `proces`
-- `representatie`
-- `agent`
-
-Ieder object heeft minimaal `naam` en `doel`. Identifiers zijn technisch stabiel en waarden zijn Nederlandstalig.
+Native objecten hebben minimaal `naam` en `doel`. Identifiers zijn technisch
+stabiel. Het native layoutcontract staat in
+[product-model.md](product-model.md).
 
 ## Compileren en controleren
 
