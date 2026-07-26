@@ -24,6 +24,10 @@ APPEARANCE_EIGENSCHAPPEN = (
     "shadow",
     "motion",
     "spacing",
+    "heading-style",
+    "body-style",
+    "label-style",
+    "caption-style",
 )
 APPEARANCE_ROLLEN = {
     "material": frozenset({"canvas", "surface", "raised"}),
@@ -34,6 +38,10 @@ APPEARANCE_ROLLEN = {
     "shadow": frozenset({"low", "medium", "high"}),
     "motion": frozenset({"fast", "normal", "slow"}),
     "spacing": frozenset({"none", "xs", "small", "medium", "large", "xl"}),
+    "heading-style": frozenset({"display", "title", "heading"}),
+    "body-style": frozenset({"body"}),
+    "label-style": frozenset({"label"}),
+    "caption-style": frozenset({"caption"}),
 }
 
 
