@@ -78,6 +78,16 @@ motion forge-motion {
     slow: "480ms"
     easing: "cubic-bezier(0.2, 0, 0, 1)"
 }
+spacing forge-spacing {
+    naam: "Forge Spacing"
+    doel: "Ruimtelijke schaal."
+    none: "0"
+    xs: "4px"
+    small: "8px"
+    medium: "16px"
+    large: "24px"
+    xl: "40px"
+}
 thema forge {
     naam: "Forge"
     doel: "Forge-ontwerpidentiteit."
@@ -88,6 +98,7 @@ thema forge {
     radius: "forge-corners"
     shadow: "forge-depth"
     motion: "forge-motion"
+    spacing: "forge-spacing"
 }
 wereld beckeringh-palace {
     naam: "Beckeringh Palace"
@@ -109,6 +120,8 @@ class ThemePrimitiveTests(unittest.TestCase):
         self.assertEqual("0 12px 32px #00000060", thema.shadow.high)
         self.assertEqual("240ms", thema.motion.normal)
         self.assertEqual("cubic-bezier(0.2, 0, 0, 1)", thema.motion.easing)
+        self.assertEqual("16px", thema.spacing.medium)
+        self.assertEqual("40px", thema.spacing.xl)
 
     def test_afwezige_primitieven_worden_niet_verzonnen(self):
         bron = BRON
@@ -118,6 +131,7 @@ class ThemePrimitiveTests(unittest.TestCase):
             '    radius: "forge-corners"\n',
             '    shadow: "forge-depth"\n',
             '    motion: "forge-motion"\n',
+            '    spacing: "forge-spacing"\n',
         ):
             bron = bron.replace(regel, "")
         model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
@@ -128,6 +142,13 @@ class ThemePrimitiveTests(unittest.TestCase):
         self.assertIsNone(thema.radius)
         self.assertIsNone(thema.shadow)
         self.assertIsNone(thema.motion)
+        self.assertIsNone(thema.spacing)
+
+    def test_weigert_onbekend_spacingprofiel(self):
+        bron = BRON.replace('spacing: "forge-spacing"', 'spacing: "missing-spacing"')
+        with self.assertRaises(Exception) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertEqual("BP3613", context.exception.diagnostics[0].code)
 
 
 if __name__ == "__main__":
