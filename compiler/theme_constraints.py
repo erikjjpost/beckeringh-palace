@@ -1,4 +1,4 @@
-"""Semantische regels voor expliciete ontwerpwerelden en themafundamenten."""
+"""Semantische regels voor expliciete ontwerpwerelden en theme-primitieven."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -7,24 +7,34 @@ from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
 
 
+PRIMITIEF_SOORTEN = ("materiaal", "border", "radius", "shadow", "motion")
+
+
 @dataclass(frozen=True)
 class ThemeFoundationConstraint:
-    """Valideer kleur-, palet-, typografie-, thema- en wereldreferenties."""
+    """Valideer alle objecten en expliciete referenties van een thema."""
 
     sleutel: str = "world-model.theme-foundation"
 
     def evalueer(self, context: ConstraintContext):
         diagnostics = []
+        soorten = (
+            "kleur", "palet", "typografie", *PRIMITIEF_SOORTEN, "thema", "wereld",
+        )
         objecten_per_soort = {
             soort: {obj.id: obj for obj in context.objecten if obj.soort == soort}
-            for soort in ("kleur", "palet", "typografie", "thema", "wereld")
+            for soort in soorten
         }
-
         toegestane_velden = {
             "kleur": {"naam", "doel", "waarde"},
             "palet": {"naam", "doel", "primary", "secondary", "background", "surface", "foreground", "accent", "success", "warning", "error"},
             "typografie": {"naam", "doel", "heading", "body", "mono"},
-            "thema": {"naam", "doel", "palet", "typografie"},
+            "materiaal": {"naam", "doel", "canvas", "surface", "raised", "foreground", "accent"},
+            "border": {"naam", "doel", "hairline", "regular", "strong", "style"},
+            "radius": {"naam", "doel", "small", "medium", "large", "pill"},
+            "shadow": {"naam", "doel", "low", "medium", "high"},
+            "motion": {"naam", "doel", "fast", "normal", "slow", "easing"},
+            "thema": {"naam", "doel", "palet", "typografie", *PRIMITIEF_SOORTEN},
             "wereld": {"naam", "doel", "thema"},
         }
 
@@ -50,8 +60,7 @@ class ThemeFoundationConstraint:
 
         paletten = objecten_per_soort["palet"]
         for palet in paletten.values():
-            rollen = toegestane_velden["palet"] - {"naam", "doel"}
-            for rol in rollen:
+            for rol in toegestane_velden["palet"] - {"naam", "doel"}:
                 referentie = palet.eigenschappen.get(rol)
                 if referentie is not None and referentie not in kleuren:
                     diagnostics.append(Diagnostic(
@@ -60,26 +69,38 @@ class ThemeFoundationConstraint:
                         locatie=palet.eigenschaplocaties.get(rol, palet.bronlocatie),
                     ))
 
-        typografieen = objecten_per_soort["typografie"]
-        themas = objecten_per_soort["thema"]
-        for thema in themas.values():
-            palet = thema.eigenschappen.get("palet")
-            typografie = thema.eigenschappen.get("typografie")
-            if palet not in paletten:
-                diagnostics.append(Diagnostic(
-                    code="BP3604",
-                    boodschap=f"Thema '{thema.id}' verwijst naar onbekend palet '{palet}'",
-                    locatie=thema.eigenschaplocaties.get("palet", thema.bronlocatie),
-                ))
-            if typografie not in typografieen:
-                diagnostics.append(Diagnostic(
-                    code="BP3605",
-                    boodschap=f"Thema '{thema.id}' verwijst naar onbekende typografie '{typografie}'",
-                    locatie=thema.eigenschaplocaties.get("typografie", thema.bronlocatie),
-                ))
+        for materiaal in objecten_per_soort["materiaal"].values():
+            for rol in toegestane_velden["materiaal"] - {"naam", "doel"}:
+                referentie = materiaal.eigenschappen.get(rol)
+                if referentie is not None and referentie not in kleuren:
+                    diagnostics.append(Diagnostic(
+                        code="BP3607",
+                        boodschap=f"Materiaal '{materiaal.id}' verwijst voor '{rol}' naar onbekende kleur '{referentie}'",
+                        locatie=materiaal.eigenschaplocaties.get(rol, materiaal.bronlocatie),
+                    ))
 
-        theme_foundation_actief = bool(kleuren or paletten or typografieen or themas)
-        if theme_foundation_actief:
+        themas = objecten_per_soort["thema"]
+        thema_referenties = {
+            "palet": ("palet", "BP3604", True),
+            "typografie": ("typografie", "BP3605", True),
+            "materiaal": ("materiaal", "BP3608", False),
+            "border": ("border", "BP3609", False),
+            "radius": ("radius", "BP3610", False),
+            "shadow": ("shadow", "BP3611", False),
+            "motion": ("motion", "BP3612", False),
+        }
+        for thema in themas.values():
+            for veld, (soort, code, vereist) in thema_referenties.items():
+                referentie = thema.eigenschappen.get(veld)
+                if (vereist or referentie is not None) and referentie not in objecten_per_soort[soort]:
+                    diagnostics.append(Diagnostic(
+                        code=code,
+                        boodschap=f"Thema '{thema.id}' verwijst naar onbekende {soort} '{referentie}'",
+                        locatie=thema.eigenschaplocaties.get(veld, thema.bronlocatie),
+                    ))
+
+        foundation_actief = any(objecten_per_soort[soort] for soort in soorten[:-1])
+        if foundation_actief:
             for wereld in objecten_per_soort["wereld"].values():
                 thema = wereld.eigenschappen.get("thema")
                 if thema not in themas:
