@@ -111,11 +111,11 @@ class ResolvedTheme:
     thema_doel: str
     palet: ResolvedPalette
     typografie: ResolvedTypography
-    materiaal: ResolvedMaterial
-    border: ResolvedBorder
-    radius: ResolvedRadius
-    shadow: ResolvedShadow
-    motion: ResolvedMotion
+    materiaal: ResolvedMaterial | None = None
+    border: ResolvedBorder | None = None
+    radius: ResolvedRadius | None = None
+    shadow: ResolvedShadow | None = None
+    motion: ResolvedMotion | None = None
 
 
 def _indexeer(objecten: Iterable[Architectuurobject]) -> dict[str, dict[str, Architectuurobject]]:
@@ -145,44 +145,50 @@ def _tekst(obj: Architectuurobject, veld: str) -> str:
 
 def _resolved_color(index, kleur_id: str, context: str) -> ResolvedColor:
     kleur = _vereis(index, "kleur", kleur_id, context)
-    return ResolvedColor(
-        id=kleur.id,
-        naam=_tekst(kleur, "naam"),
-        doel=_tekst(kleur, "doel"),
-        waarde=_tekst(kleur, "waarde"),
-    )
+    return ResolvedColor(kleur.id, _tekst(kleur, "naam"), _tekst(kleur, "doel"), _tekst(kleur, "waarde"))
 
 
-def _resolved_waarden(obj: Architectuurobject, velden: tuple[str, ...]) -> dict[str, str]:
+def _waarden(obj: Architectuurobject, velden: tuple[str, ...]) -> dict[str, str]:
     return {veld: _tekst(obj, veld) for veld in velden}
 
 
-def resolveer_thema(
-    objecten: Iterable[Architectuurobject],
-    wereld_id: str,
-) -> ResolvedTheme:
+def _optioneel_object(index, thema: Architectuurobject, soort: str) -> Architectuurobject | None:
+    object_id = thema.eigenschappen.get(soort)
+    if object_id is None:
+        return None
+    if not isinstance(object_id, str) or not object_id.strip():
+        raise ThemeResolutionError(f"Thema '{thema.id}' heeft ongeldige {soort}referentie")
+    return _vereis(index, soort, object_id, f"Thema '{thema.id}'")
+
+
+def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> ResolvedTheme:
     """Los één expliciet gekozen wereldthema volledig en deterministisch op."""
 
     index = _indexeer(objecten)
     wereld = _vereis(index, "wereld", wereld_id, "Theme-resolutie")
     thema = _vereis(index, "thema", _tekst(wereld, "thema"), f"Wereld '{wereld.id}'")
-
     palet = _vereis(index, "palet", _tekst(thema, "palet"), f"Thema '{thema.id}'")
     typografie = _vereis(index, "typografie", _tekst(thema, "typografie"), f"Thema '{thema.id}'")
-    materiaal = _vereis(index, "materiaal", _tekst(thema, "materiaal"), f"Thema '{thema.id}'")
-    border = _vereis(index, "border", _tekst(thema, "border"), f"Thema '{thema.id}'")
-    radius = _vereis(index, "radius", _tekst(thema, "radius"), f"Thema '{thema.id}'")
-    shadow = _vereis(index, "shadow", _tekst(thema, "shadow"), f"Thema '{thema.id}'")
-    motion = _vereis(index, "motion", _tekst(thema, "motion"), f"Thema '{thema.id}'")
+
+    materiaal = _optioneel_object(index, thema, "materiaal")
+    border = _optioneel_object(index, thema, "border")
+    radius = _optioneel_object(index, thema, "radius")
+    shadow = _optioneel_object(index, thema, "shadow")
+    motion = _optioneel_object(index, thema, "motion")
 
     palet_kleuren = tuple(
         (rol, _resolved_color(index, str(palet.eigenschappen[rol]), f"Palet '{palet.id}'"))
         for rol in PALET_ROLLEN if rol in palet.eigenschappen
     )
-    materiaal_kleuren = tuple(
-        (rol, _resolved_color(index, str(materiaal.eigenschappen[rol]), f"Materiaal '{materiaal.id}'"))
-        for rol in MATERIAAL_ROLLEN if rol in materiaal.eigenschappen
-    )
+    resolved_materiaal = None
+    if materiaal is not None:
+        resolved_materiaal = ResolvedMaterial(
+            materiaal.id, _tekst(materiaal, "naam"), _tekst(materiaal, "doel"),
+            tuple(
+                (rol, _resolved_color(index, str(materiaal.eigenschappen[rol]), f"Materiaal '{materiaal.id}'"))
+                for rol in MATERIAAL_ROLLEN if rol in materiaal.eigenschappen
+            ),
+        )
 
     return ResolvedTheme(
         wereld_id=wereld.id,
@@ -194,33 +200,29 @@ def resolveer_thema(
         palet=ResolvedPalette(palet.id, _tekst(palet, "naam"), _tekst(palet, "doel"), palet_kleuren),
         typografie=ResolvedTypography(
             typografie.id, _tekst(typografie, "naam"), _tekst(typografie, "doel"),
-            **_resolved_waarden(typografie, ("heading", "body", "mono")),
+            **_waarden(typografie, ("heading", "body", "mono")),
         ),
-        materiaal=ResolvedMaterial(
-            materiaal.id, _tekst(materiaal, "naam"), _tekst(materiaal, "doel"), materiaal_kleuren,
-        ),
-        border=ResolvedBorder(
+        materiaal=resolved_materiaal,
+        border=None if border is None else ResolvedBorder(
             border.id, _tekst(border, "naam"), _tekst(border, "doel"),
-            **_resolved_waarden(border, ("hairline", "regular", "strong", "style")),
+            **_waarden(border, ("hairline", "regular", "strong", "style")),
         ),
-        radius=ResolvedRadius(
+        radius=None if radius is None else ResolvedRadius(
             radius.id, _tekst(radius, "naam"), _tekst(radius, "doel"),
-            **_resolved_waarden(radius, ("small", "medium", "large", "pill")),
+            **_waarden(radius, ("small", "medium", "large", "pill")),
         ),
-        shadow=ResolvedShadow(
+        shadow=None if shadow is None else ResolvedShadow(
             shadow.id, _tekst(shadow, "naam"), _tekst(shadow, "doel"),
-            **_resolved_waarden(shadow, ("low", "medium", "high")),
+            **_waarden(shadow, ("low", "medium", "high")),
         ),
-        motion=ResolvedMotion(
+        motion=None if motion is None else ResolvedMotion(
             motion.id, _tekst(motion, "naam"), _tekst(motion, "doel"),
-            **_resolved_waarden(motion, ("fast", "normal", "slow", "easing")),
+            **_waarden(motion, ("fast", "normal", "slow", "easing")),
         ),
     )
 
 
-def resolveer_alle_themas(
-    objecten: Iterable[Architectuurobject],
-) -> tuple[ResolvedTheme, ...]:
+def resolveer_alle_themas(objecten: Iterable[Architectuurobject]) -> tuple[ResolvedTheme, ...]:
     objecten = tuple(objecten)
     wereld_ids = sorted(obj.id for obj in objecten if obj.soort == "wereld")
     return tuple(resolveer_thema(objecten, wereld_id) for wereld_id in wereld_ids)
