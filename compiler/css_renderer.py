@@ -5,6 +5,7 @@ import re
 from collections.abc import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.design_tokens import DesignToken, verzamel_tokens
 
 
 def _css_naam(identifier: str) -> str:
@@ -12,18 +13,17 @@ def _css_naam(identifier: str) -> str:
     return naam or "token"
 
 
-def naar_css(objecten: Iterable[Architectuurobject]) -> str:
-    """Render tokenobjecten deterministisch naar CSS custom properties."""
+def _css_waarde(token: DesignToken) -> str:
+    if token.referentie is not None:
+        return f"var(--bp-{_css_naam(token.referentie)})"
+    return token.waarde
 
-    tokens = sorted(
-        (obj for obj in objecten if obj.soort == "token"),
-        key=lambda obj: obj.id,
-    )
+
+def naar_css(objecten: Iterable[Architectuurobject]) -> str:
+    """Render gevalideerde tokenobjecten deterministisch naar CSS custom properties."""
+
     regels = ["/* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */", ":root {"]
-    for token in tokens:
-        waarde = token.eigenschappen.get("waarde")
-        if waarde is None:
-            continue
-        regels.append(f"  --bp-{_css_naam(token.id)}: {waarde};")
+    for token in verzamel_tokens(objecten):
+        regels.append(f"  --bp-{_css_naam(token.id)}: {_css_waarde(token)};")
     regels.extend(["}", ""])
     return "\n".join(regels)
