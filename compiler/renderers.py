@@ -9,7 +9,7 @@ from compiler.cir import Architectuurobject
 
 def naar_json(objecten: Iterable[Architectuurobject]) -> str:
     gegevens = [obj.als_dict() for obj in objecten]
-    return json.dumps(gegevens, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    return json.dumps(gegevens, ensure_ascii=False, indent=2, sort_keys=True)
 
 
 def naar_markdown(objecten: Iterable[Architectuurobject]) -> str:
@@ -35,4 +35,4 @@ def naar_markdown(objecten: Iterable[Architectuurobject]) -> str:
                 getoond = ", ".join(map(str, waarde)) if isinstance(waarde, list) else str(waarde)
                 delen.append(f"- **{naam}:** {getoond}")
             delen.append("")
-    return "\n".join(delen)
+    return "\n".join(delen).rstrip("\n")
