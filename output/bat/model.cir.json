@@ -67,6 +67,16 @@
   },
   {
     "eigenschappen": {
+      "doel": "Lichte voorgrondkleur voor donkere oppervlakken.",
+      "naam": "Smoke",
+      "type": "color",
+      "waarde": "#ECECEC"
+    },
+    "id": "color-smoke",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
       "doel": "Semantische accentkleur die naar de Forge-kleur verwijst.",
       "naam": "Accent",
       "type": "color",
@@ -87,6 +97,16 @@
   },
   {
     "eigenschappen": {
+      "doel": "Standaard afronding voor productcomponenten.",
+      "naam": "Medium radius",
+      "type": "dimension",
+      "waarde": "12px"
+    },
+    "id": "radius-medium",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
       "doel": "Standaardlettertype voor de digitale wereld.",
       "naam": "Default font family",
       "type": "font-family",
@@ -94,6 +114,19 @@
     },
     "id": "typography-family-default",
     "soort": "token"
+  },
+  {
+    "eigenschappen": {
+      "accent": "{color-accent}",
+      "doel": "Basispaneel voor dashboards en productdocumentatie.",
+      "foreground": "{color-smoke}",
+      "naam": "Forge Panel",
+      "padding": "{spacing-unit}",
+      "radius": "{radius-medium}",
+      "surface": "{color-iron}"
+    },
+    "id": "forge-panel",
+    "soort": "component"
   },
   {
     "eigenschappen": {
@@ -113,6 +146,26 @@
       "pad": "output/products/tokens.json"
     },
     "id": "json-tokens",
+    "soort": "renderdoel"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Componenten als reproduceerbare CSS-klassen genereren.",
+      "formaat": "css",
+      "naam": "CSS components",
+      "pad": "output/products/components.css"
+    },
+    "id": "css-components",
+    "soort": "renderdoel"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Een minimale componentcatalogus genereren.",
+      "formaat": "html",
+      "naam": "HTML component catalogue",
+      "pad": "output/products/components.html"
+    },
+    "id": "html-components",
     "soort": "renderdoel"
   }
 ]
