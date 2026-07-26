@@ -28,9 +28,12 @@ class ObjectsoortDefinitie:
 
 
 _OBJECTSOORTEN = (
-    ObjectsoortDefinitie("wereld", Domeinstatus.NATIVE, "Begrenst één digitale wereld."),
+    ObjectsoortDefinitie("wereld", Domeinstatus.NATIVE, "Begrenst één digitale wereld en kiest expliciet een thema."),
     ObjectsoortDefinitie("merk", Domeinstatus.NATIVE, "Beschrijft identiteit en merkregels."),
-    ObjectsoortDefinitie("thema", Domeinstatus.NATIVE, "Bundelt visuele en semantische varianten."),
+    ObjectsoortDefinitie("kleur", Domeinstatus.NATIVE, "Definieert één canonieke kleurwaarde."),
+    ObjectsoortDefinitie("palet", Domeinstatus.NATIVE, "Koppelt semantische kleurrollen aan canonieke kleuren."),
+    ObjectsoortDefinitie("typografie", Domeinstatus.NATIVE, "Bundelt expliciete typografische rollen."),
+    ObjectsoortDefinitie("thema", Domeinstatus.NATIVE, "Koppelt een palet en typografie tot een ontwerpidentiteit."),
     ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),

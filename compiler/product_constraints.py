@@ -10,6 +10,7 @@ from compiler.design_tokens import TokenType, token_uit_object, waarde_past_bij_
 from compiler.diagnostics import Diagnostic
 from compiler.product_definition_constraints import ProductDefinitionConstraint
 from compiler.spatial_constraints import SpatialModelConstraint
+from compiler.theme_constraints import ThemeFoundationConstraint
 from compiler.world_model import Domeinstatus, objectsoortdefinitie
 
 
@@ -89,6 +90,7 @@ WORLD_MODEL_CONSTRAINTS = (
     BekendeObjectsoortenConstraint(),
     NativeVeldenConstraint(),
     DesignTokenConstraint(),
+    ThemeFoundationConstraint(),
     DesignComponentConstraint(),
     DesignCompositionConstraint(),
     SpatialModelConstraint(),
