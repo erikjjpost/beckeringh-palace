@@ -8,6 +8,7 @@ from typing import Iterable
 from compiler.cir import Architectuurobject
 from compiler.diagnostics import Diagnostic
 from compiler.graph import DependencyGraph, Relatie, bouw_dependency_graph, vind_cycli
+from compiler.type_system import RELATIESIGNATUREN
 
 
 class RelatieVorm(str, Enum):
@@ -58,6 +59,12 @@ def _referenties(waarde: object) -> tuple[str, ...] | None:
     if isinstance(waarde, list) and all(isinstance(item, str) for item in waarde):
         return tuple(waarde)
     return None
+
+
+def _verwachte_soorten(soorten: frozenset[str] | None) -> str:
+    if soorten is None:
+        return "elk objecttype"
+    return " of ".join(sorted(soorten))
 
 
 def _cycluslocatie(
@@ -117,14 +124,44 @@ def analyseer(objecten: Iterable[Architectuurobject]) -> SemantischModel:
                     )
                 )
                 continue
+
+            signatuur = RELATIESIGNATUREN.get(relatietype.naam)
+            if signatuur is not None and not signatuur.accepteert_bron(obj.soort):
+                diagnostics.append(
+                    Diagnostic(
+                        code="BP2301",
+                        boodschap=(
+                            f"Relatie '{relatietype.naam}' verwacht als bron "
+                            f"{_verwachte_soorten(signatuur.bronsoorten)}, "
+                            f"maar '{obj.id}' is {obj.soort}"
+                        ),
+                        locatie=locatie,
+                    )
+                )
+                continue
+
             for doel_id in referenties:
-                if doel_id not in symbolen:
+                doel = symbolen.get(doel_id)
+                if doel is None:
                     diagnostics.append(
                         Diagnostic(
                             code="BP2102",
                             boodschap=(
                                 f"Onbekende referentie '{doel_id}' in "
                                 f"{obj.id}.{eigenschap}"
+                            ),
+                            locatie=locatie,
+                        )
+                    )
+                    continue
+                if signatuur is not None and not signatuur.accepteert_doel(doel.soort):
+                    diagnostics.append(
+                        Diagnostic(
+                            code="BP2302",
+                            boodschap=(
+                                f"Relatie '{relatietype.naam}' verwacht als doel "
+                                f"{_verwachte_soorten(signatuur.doelsoorten)}, "
+                                f"maar '{doel.id}' is {doel.soort}"
                             ),
                             locatie=locatie,
                         )
