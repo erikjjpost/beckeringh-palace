@@ -197,6 +197,17 @@
   },
   {
     "eigenschappen": {
+      "backend": "html",
+      "doel": "Het ultrawide Forge-dashboard via de HTML-backend genereren.",
+      "layout": "forge-dashboard-ultrawide",
+      "naam": "Forge Dashboard HTML",
+      "pad": "output/products/forge-dashboard.html"
+    },
+    "id": "forge-dashboard-html",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
       "doel": "Design tokens als CSS custom properties genereren.",
       "formaat": "css",
       "naam": "CSS design tokens",

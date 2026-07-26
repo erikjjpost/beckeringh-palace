@@ -15,6 +15,8 @@ from compiler.composition_html_renderer import naar_compositie_html
 from compiler.composition_svg_renderer import naar_compositie_svg
 from compiler.css_renderer import naar_css
 from compiler.parser import parseer_bestand
+from compiler.product_backends import standaard_backend_registry
+from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.renderers import naar_json, naar_markdown
 from compiler.semantic import analyseer
@@ -44,6 +46,13 @@ def main() -> None:
     (PRODUCTUITVOER / "compositions.svg").write_text(naar_compositie_svg(model.objecten), encoding="utf-8")
     (PRODUCTUITVOER / "spatial.html").write_text(naar_spatial_html(model.objecten), encoding="utf-8")
 
+    productpaden = []
+    for product in compileer_producten(model.objecten, standaard_backend_registry()):
+        pad = ROOT / product.definitie.pad
+        pad.parent.mkdir(parents=True, exist_ok=True)
+        pad.write_text(product.inhoud, encoding="utf-8")
+        productpaden.append(product.definitie.pad)
+
     print(f"BAT gecompileerd: {len(model.objecten)} object(en)")
     for pad in (
         "output/bat/model.cir.json", "output/bat/architectuur.md",
@@ -51,6 +60,7 @@ def main() -> None:
         "output/products/components.css", "output/products/components.html",
         "output/products/compositions.css", "output/products/compositions.html",
         "output/products/compositions.svg", "output/products/spatial.html",
+        *productpaden,
     ):
         print(f"  {pad}")
 

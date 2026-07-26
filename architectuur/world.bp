@@ -110,6 +110,14 @@ regio forge-dashboard-right {
     height: "840"
 }
 
+product forge-dashboard-html {
+    naam: "Forge Dashboard HTML"
+    doel: "Het ultrawide Forge-dashboard via de HTML-backend genereren."
+    backend: "html"
+    layout: "forge-dashboard-ultrawide"
+    pad: "output/products/forge-dashboard.html"
+}
+
 renderdoel css-tokens {
     naam: "CSS design tokens"
     doel: "Design tokens als CSS custom properties genereren."

@@ -37,6 +37,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("compositie", Domeinstatus.NATIVE, "Ordent componenten tot een product."),
     ObjectsoortDefinitie("layout", Domeinstatus.NATIVE, "Definieert een backend-onafhankelijk canvas."),
     ObjectsoortDefinitie("regio", Domeinstatus.NATIVE, "Plaatst een component in een layoutcanvas."),
+    ObjectsoortDefinitie("product", Domeinstatus.NATIVE, "Koppelt een layout aan een backend en artifactpad."),
     ObjectsoortDefinitie("variant", Domeinstatus.NATIVE, "Legt een gecontroleerde afwijking vast."),
     ObjectsoortDefinitie("renderdoel", Domeinstatus.NATIVE, "Beschrijft een te genereren representatie."),
     ObjectsoortDefinitie("capability", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
