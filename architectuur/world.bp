@@ -1,0 +1,29 @@
+wereld beckeringh-palace {
+    naam: "Beckeringh Palace"
+    doel: "Eén reproduceerbare digitale ontwerpwereld leveren."
+}
+
+token color-ember {
+    naam: "Ember"
+    doel: "Primaire warme accentkleur voor de Forge-identiteit."
+    waarde: "#D86A35"
+}
+
+token color-iron {
+    naam: "Iron"
+    doel: "Donkere structurele basiskleur."
+    waarde: "#171A1F"
+}
+
+token spacing-unit {
+    naam: "Spacing unit"
+    doel: "Basiseenheid voor reproduceerbare tussenruimte."
+    waarde: "8px"
+}
+
+renderdoel css-tokens {
+    naam: "CSS design tokens"
+    doel: "Design tokens als CSS custom properties genereren."
+    formaat: "css"
+    pad: "output/products/tokens.css"
+}
