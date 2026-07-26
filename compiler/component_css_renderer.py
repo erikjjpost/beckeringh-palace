@@ -24,7 +24,8 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
     regels = ["/* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */"]
     for component in verzamel_componenten(objecten):
         appearance = appearances.get(component.appearance or "")
-        regels.append(f".bp-{_css_naam(component.id)} {{")
+        selector = f".bp-{_css_naam(component.id)}"
+        regels.append(f"{selector} {{")
         if appearance is not None:
             material = appearance.rol("material")
             foreground = appearance.rol("foreground")
@@ -49,4 +50,29 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
             if padding is not None:
                 regels.append(f"  padding: {_tokenwaarde(padding)};")
         regels.extend(["}", ""])
+
+        if appearance is not None:
+            heading = appearance.rol("heading-style")
+            body = appearance.rol("body-style")
+            label = appearance.rol("label-style")
+            caption = appearance.rol("caption-style")
+            regels.extend([
+                f"{selector} h1, {selector} h2, {selector} h3, {selector} h4, {selector} h5, {selector} h6 {{",
+                "  font-family: var(--bp-font-heading);",
+                f"  font-size: var(--bp-type-{heading});",
+                "}",
+                f"{selector} p {{",
+                "  font-family: var(--bp-font-body);",
+                f"  font-size: var(--bp-type-{body});",
+                "}",
+                f"{selector} label {{",
+                "  font-family: var(--bp-font-body);",
+                f"  font-size: var(--bp-type-{label});",
+                "}",
+                f"{selector} small, {selector} figcaption {{",
+                "  font-family: var(--bp-font-body);",
+                f"  font-size: var(--bp-type-{caption});",
+                "}",
+                "",
+            ])
     return "\n".join(regels)
