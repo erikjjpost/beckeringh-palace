@@ -49,6 +49,7 @@
     "eigenschappen": {
       "doel": "Primaire warme accentkleur voor de Forge-identiteit.",
       "naam": "Ember",
+      "type": "color",
       "waarde": "#D86A35"
     },
     "id": "color-ember",
@@ -58,6 +59,7 @@
     "eigenschappen": {
       "doel": "Donkere structurele basiskleur.",
       "naam": "Iron",
+      "type": "color",
       "waarde": "#171A1F"
     },
     "id": "color-iron",
@@ -65,11 +67,32 @@
   },
   {
     "eigenschappen": {
+      "doel": "Semantische accentkleur die naar de Forge-kleur verwijst.",
+      "naam": "Accent",
+      "type": "color",
+      "waarde": "{color-ember}"
+    },
+    "id": "color-accent",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
       "doel": "Basiseenheid voor reproduceerbare tussenruimte.",
       "naam": "Spacing unit",
+      "type": "dimension",
       "waarde": "8px"
     },
     "id": "spacing-unit",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Standaardlettertype voor de digitale wereld.",
+      "naam": "Default font family",
+      "type": "font-family",
+      "waarde": "Aptos"
+    },
+    "id": "typography-family-default",
     "soort": "token"
   },
   {
@@ -80,6 +103,16 @@
       "pad": "output/products/tokens.css"
     },
     "id": "css-tokens",
+    "soort": "renderdoel"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Design tokens platformneutraal als JSON genereren.",
+      "formaat": "json",
+      "naam": "Portable design tokens",
+      "pad": "output/products/tokens.json"
+    },
+    "id": "json-tokens",
     "soort": "renderdoel"
   }
 ]

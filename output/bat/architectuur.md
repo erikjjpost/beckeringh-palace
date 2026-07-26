@@ -65,6 +65,7 @@ Primaire warme accentkleur voor de Forge-identiteit.
 
 ### Eigenschappen
 
+- **type:** color
 - **waarde:** #D86A35
 
 ## Iron
@@ -79,7 +80,23 @@ Donkere structurele basiskleur.
 
 ### Eigenschappen
 
+- **type:** color
 - **waarde:** #171A1F
+
+## Accent
+
+**Soort:** token
+
+**Identifier:** `color-accent`
+
+### Doel
+
+Semantische accentkleur die naar de Forge-kleur verwijst.
+
+### Eigenschappen
+
+- **type:** color
+- **waarde:** {color-ember}
 
 ## Spacing unit
 
@@ -93,7 +110,23 @@ Basiseenheid voor reproduceerbare tussenruimte.
 
 ### Eigenschappen
 
+- **type:** dimension
 - **waarde:** 8px
+
+## Default font family
+
+**Soort:** token
+
+**Identifier:** `typography-family-default`
+
+### Doel
+
+Standaardlettertype voor de digitale wereld.
+
+### Eigenschappen
+
+- **type:** font-family
+- **waarde:** Aptos
 
 ## CSS design tokens
 
@@ -109,3 +142,18 @@ Design tokens als CSS custom properties genereren.
 
 - **formaat:** css
 - **pad:** output/products/tokens.css
+
+## Portable design tokens
+
+**Soort:** renderdoel
+
+**Identifier:** `json-tokens`
+
+### Doel
+
+Design tokens platformneutraal als JSON genereren.
+
+### Eigenschappen
+
+- **formaat:** json
+- **pad:** output/products/tokens.json
