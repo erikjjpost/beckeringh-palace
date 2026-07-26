@@ -187,8 +187,13 @@ contracten.
 
 M9.0b behoudt het bestaande HTML-pad voor producten die expliciet naar een M6
 spatial layout verwijzen. Een native product gebruikt de native HTML-vertaling;
-een spatial product gebruikt de bestaande spatial renderer. De canonieke Forge
-productbron blijft in deze milestone bewust op het spatial migratiecontract.
+een spatial product gebruikt de bestaande spatial renderer.
+
+M9.0c migreert de canonieke Forge productbron naar een native grid-layout. De
+drie dashboardpanelen zijn expliciete `region`-objecten en de normatieve
+`regions`-lijst bepaalt hun volgorde. De oude pixelcoördinaten worden niet
+vertaald naar impliciete presentatievelden. Het M6 spatial contract blijft
+uitsluitend beschikbaar voor expliciete legacyproducten.
 
 ## Diagnostics
 

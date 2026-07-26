@@ -307,56 +307,61 @@
   },
   {
     "eigenschappen": {
-      "canvas-height": "1080",
-      "canvas-width": "3840",
-      "compositie": "forge-dashboard",
-      "doel": "Backend-onafhankelijk canvas voor het Forge-dashboard.",
-      "naam": "Forge Dashboard Ultrawide"
+      "columns": "3",
+      "doel": "Ordent de drie Forge-dashboardpanelen in een semantisch grid.",
+      "naam": "Forge Dashboard Ultrawide",
+      "regions": [
+        "forge-dashboard-left",
+        "forge-dashboard-center",
+        "forge-dashboard-right"
+      ],
+      "rows": "1",
+      "type": "grid"
     },
     "id": "forge-dashboard-ultrawide",
     "soort": "layout"
   },
   {
     "eigenschappen": {
+      "column": "1",
+      "column-span": "1",
       "component": "forge-panel",
       "doel": "Linker dashboardregio.",
-      "height": "840",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Linkerpaneel",
-      "width": "1120",
-      "x": "80",
-      "y": "120"
+      "row": "1",
+      "row-span": "1"
     },
     "id": "forge-dashboard-left",
-    "soort": "regio"
+    "soort": "region"
   },
   {
     "eigenschappen": {
+      "column": "2",
+      "column-span": "1",
       "component": "forge-panel",
       "doel": "Centrale dashboardregio.",
-      "height": "840",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Middenpaneel",
-      "width": "1120",
-      "x": "1360",
-      "y": "120"
+      "row": "1",
+      "row-span": "1"
     },
     "id": "forge-dashboard-center",
-    "soort": "regio"
+    "soort": "region"
   },
   {
     "eigenschappen": {
+      "column": "3",
+      "column-span": "1",
       "component": "forge-panel",
       "doel": "Rechter dashboardregio.",
-      "height": "840",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Rechterpaneel",
-      "width": "1120",
-      "x": "2640",
-      "y": "120"
+      "row": "1",
+      "row-span": "1"
     },
     "id": "forge-dashboard-right",
-    "soort": "regio"
+    "soort": "region"
   },
   {
     "eigenschappen": {
@@ -438,16 +443,6 @@
       "pad": "output/products/compositions.svg"
     },
     "id": "svg-compositions",
-    "soort": "renderdoel"
-  },
-  {
-    "eigenschappen": {
-      "doel": "Het Spatial Model als exact gepositioneerd HTML-product genereren.",
-      "formaat": "html",
-      "naam": "Spatial HTML product",
-      "pad": "output/products/spatial.html"
-    },
-    "id": "html-spatial",
     "soort": "renderdoel"
   }
 ]
