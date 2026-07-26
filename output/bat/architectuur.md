@@ -119,6 +119,91 @@ Typografische rollen voor digitale Forge-producten.
 - **heading:** Aptos Display
 - **mono:** JetBrains Mono
 
+## Forge Materials
+
+**Soort:** materiaal
+
+**Identifier:** `forge-materials`
+
+### Doel
+
+Materiële kleurrollen voor Forge-oppervlakken en accenten.
+
+### Eigenschappen
+
+- **accent:** ember-orange
+- **canvas:** iron-black
+- **foreground:** smoke-white
+- **raised:** iron-black
+- **surface:** iron-black
+
+## Forge Borders
+
+**Soort:** border
+
+**Identifier:** `forge-borders`
+
+### Doel
+
+Lijndiktes en lijnstijl voor Forge-producten.
+
+### Eigenschappen
+
+- **hairline:** 1px
+- **regular:** 2px
+- **strong:** 3px
+- **style:** solid
+
+## Forge Radius
+
+**Soort:** radius
+
+**Identifier:** `forge-radius`
+
+### Doel
+
+Afrondingsschaal voor Forge-componenten.
+
+### Eigenschappen
+
+- **large:** 24px
+- **medium:** 12px
+- **pill:** 999px
+- **small:** 4px
+
+## Forge Shadows
+
+**Soort:** shadow
+
+**Identifier:** `forge-shadows`
+
+### Doel
+
+Diepteschaal voor Forge-oppervlakken.
+
+### Eigenschappen
+
+- **high:** 0 20px 48px #00000073
+- **low:** 0 2px 8px #00000040
+- **medium:** 0 8px 24px #00000059
+
+## Forge Motion
+
+**Soort:** motion
+
+**Identifier:** `forge-motion`
+
+### Doel
+
+Tijds- en easingprofiel voor rustige Forge-interacties.
+
+### Eigenschappen
+
+- **easing:** cubic-bezier(0.2, 0.8, 0.2, 1)
+- **fast:** 120ms
+- **normal:** 220ms
+- **slow:** 420ms
+
 ## Forge
 
 **Soort:** thema
@@ -131,7 +216,12 @@ Nordic forge-ontwerpidentiteit voor Beckeringh Palace.
 
 ### Eigenschappen
 
+- **border:** forge-borders
+- **materiaal:** forge-materials
+- **motion:** forge-motion
 - **palet:** ember-forge
+- **radius:** forge-radius
+- **shadow:** forge-shadows
 - **typografie:** forge-interface
 
 ## Beckeringh Palace

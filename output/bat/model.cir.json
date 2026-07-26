@@ -90,9 +90,74 @@
   },
   {
     "eigenschappen": {
+      "accent": "ember-orange",
+      "canvas": "iron-black",
+      "doel": "Materiële kleurrollen voor Forge-oppervlakken en accenten.",
+      "foreground": "smoke-white",
+      "naam": "Forge Materials",
+      "raised": "iron-black",
+      "surface": "iron-black"
+    },
+    "id": "forge-materials",
+    "soort": "materiaal"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Lijndiktes en lijnstijl voor Forge-producten.",
+      "hairline": "1px",
+      "naam": "Forge Borders",
+      "regular": "2px",
+      "strong": "3px",
+      "style": "solid"
+    },
+    "id": "forge-borders",
+    "soort": "border"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Afrondingsschaal voor Forge-componenten.",
+      "large": "24px",
+      "medium": "12px",
+      "naam": "Forge Radius",
+      "pill": "999px",
+      "small": "4px"
+    },
+    "id": "forge-radius",
+    "soort": "radius"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Diepteschaal voor Forge-oppervlakken.",
+      "high": "0 20px 48px #00000073",
+      "low": "0 2px 8px #00000040",
+      "medium": "0 8px 24px #00000059",
+      "naam": "Forge Shadows"
+    },
+    "id": "forge-shadows",
+    "soort": "shadow"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Tijds- en easingprofiel voor rustige Forge-interacties.",
+      "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "fast": "120ms",
+      "naam": "Forge Motion",
+      "normal": "220ms",
+      "slow": "420ms"
+    },
+    "id": "forge-motion",
+    "soort": "motion"
+  },
+  {
+    "eigenschappen": {
+      "border": "forge-borders",
       "doel": "Nordic forge-ontwerpidentiteit voor Beckeringh Palace.",
+      "materiaal": "forge-materials",
+      "motion": "forge-motion",
       "naam": "Forge",
       "palet": "ember-forge",
+      "radius": "forge-radius",
+      "shadow": "forge-shadows",
       "typografie": "forge-interface"
     },
     "id": "forge",
