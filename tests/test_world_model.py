@@ -30,6 +30,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "regio",
                 "renderdoel",
                 "shadow",
+                "spacing",
                 "thema",
                 "token",
                 "typografie",
