@@ -38,6 +38,16 @@ typografie forge-interface {
     body: "Aptos"
     mono: "JetBrains Mono"
 }
+typeschaal forge-type-scale {
+    naam: "Forge Type Scale"
+    doel: "Semantische tekstgroottes."
+    display: "64px"
+    title: "40px"
+    heading: "28px"
+    body: "16px"
+    label: "14px"
+    caption: "12px"
+}
 materiaal forged-iron {
     naam: "Forged Iron"
     doel: "Oppervlaktes van de Forge-wereld."
@@ -93,6 +103,7 @@ thema forge {
     doel: "Forge-ontwerpidentiteit."
     palet: "ember-forge"
     typografie: "forge-interface"
+    typeschaal: "forge-type-scale"
     materiaal: "forged-iron"
     border: "forge-lines"
     radius: "forge-corners"
@@ -122,6 +133,8 @@ class ThemePrimitiveTests(unittest.TestCase):
         self.assertEqual("cubic-bezier(0.2, 0, 0, 1)", thema.motion.easing)
         self.assertEqual("16px", thema.spacing.medium)
         self.assertEqual("40px", thema.spacing.xl)
+        self.assertEqual("64px", thema.typeschaal.display)
+        self.assertEqual("12px", thema.typeschaal.caption)
 
     def test_afwezige_primitieven_worden_niet_verzonnen(self):
         bron = BRON
@@ -132,6 +145,7 @@ class ThemePrimitiveTests(unittest.TestCase):
             '    shadow: "forge-depth"\n',
             '    motion: "forge-motion"\n',
             '    spacing: "forge-spacing"\n',
+            '    typeschaal: "forge-type-scale"\n',
         ):
             bron = bron.replace(regel, "")
         model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
@@ -143,12 +157,19 @@ class ThemePrimitiveTests(unittest.TestCase):
         self.assertIsNone(thema.shadow)
         self.assertIsNone(thema.motion)
         self.assertIsNone(thema.spacing)
+        self.assertIsNone(thema.typeschaal)
 
     def test_weigert_onbekend_spacingprofiel(self):
         bron = BRON.replace('spacing: "forge-spacing"', 'spacing: "missing-spacing"')
         with self.assertRaises(Exception) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertEqual("BP3613", context.exception.diagnostics[0].code)
+
+    def test_weigert_onbekende_typeschaal(self):
+        bron = BRON.replace('typeschaal: "forge-type-scale"', 'typeschaal: "missing-type-scale"')
+        with self.assertRaises(Exception) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertEqual("BP3614", context.exception.diagnostics[0].code)
 
 
 if __name__ == "__main__":
