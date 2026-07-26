@@ -6,6 +6,7 @@ from dataclasses import dataclass, replace
 
 from compiler.backend import BackendRegistry
 from compiler.cir import Architectuurobject
+from compiler.layout_model import ResolvedLayout, resolveer_layouts
 from compiler.product_model import ProductDefinition, verzamel_producten
 from compiler.theme_resolution import resolveer_thema
 
@@ -16,13 +17,17 @@ class CompiledProduct:
     inhoud: str
 
 
-def _met_opgelost_thema(
+def _los_productcontext_op(
     objecten: tuple[Architectuurobject, ...],
     product: ProductDefinition,
+    layouts: dict[str, ResolvedLayout],
 ) -> ProductDefinition:
-    if not product.wereld:
-        return product
-    return replace(product, thema=resolveer_thema(objecten, product.wereld))
+    thema = resolveer_thema(objecten, product.wereld) if product.wereld else None
+    return replace(
+        product,
+        thema=thema,
+        opgeloste_layout=layouts.get(product.layout),
+    )
 
 
 def compileer_producten(
@@ -30,11 +35,12 @@ def compileer_producten(
     registry: BackendRegistry,
 ) -> tuple[CompiledProduct, ...]:
     objecten = tuple(objecten)
+    layouts = {layout.id: layout for layout in resolveer_layouts(objecten)}
     return tuple(
         CompiledProduct(
             definitie=opgelost,
             inhoud=registry.resolveer(opgelost.backend).render(objecten, opgelost),
         )
         for product in verzamel_producten(objecten)
-        for opgelost in (_met_opgelost_thema(objecten, product),)
+        for opgelost in (_los_productcontext_op(objecten, product, layouts),)
     )

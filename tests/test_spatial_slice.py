@@ -62,6 +62,29 @@ class SpatialSliceTests(unittest.TestCase):
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3416", {item.code for item in context.exception.diagnostics})
 
+    def test_spatial_model_negeert_native_layout_explicit(self):
+        bron = BRON + '''
+layout native-stack {
+    naam: "Native stack"
+    doel: "Native M9-contract."
+    type: "stack"
+    regions: ["native-content"]
+    direction: "vertical"
+}
+region native-content {
+    naam: "Native content"
+    doel: "Native M9-region."
+    layout: "native-stack"
+    component: "panel"
+}
+'''
+        model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertEqual(
+            ("widescreen",),
+            tuple(layout.id for layout in bouw_spatial_model(model.objecten)),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -17,6 +17,8 @@ Semantische validatie
  ↓
 ResolvedLayout
  ↓
+ProductDefinition
+ ↓
 Renderers
 ```
 
@@ -24,9 +26,32 @@ De parser bewaart de declaraties en waarden ongewijzigd in de CIR. De
 semantische laag controleert het volledige layoutcontract. Alleen gevalideerde
 CIR wordt omgezet naar `ResolvedLayout` en `ResolvedRegion`.
 
-M9.0a voegt geen rendererondersteuning toe. Iedere renderer vertaalt deze
-backend-onafhankelijke intentie in een latere milestone naar zijn eigen
-layoutmechanisme.
+M9.0a voegt geen rendererondersteuning toe. M9.0b levert de eerste verticale
+backendintegratie: de productcompiler koppelt de `ResolvedLayout` expliciet aan
+de `ProductDefinition` en de HTML-backend vertaalt die intentie naar HTML en
+CSS. Andere backends krijgen later een eigen vertaling van hetzelfde resolved
+contract.
+
+## Productcontext
+
+Een product blijft in BAT naar een layout-id verwijzen. Na semantische
+validatie lost de productcompiler een native layout één keer op en levert deze
+als `opgeloste_layout` aan de backend. Een backend hoeft daardoor geen
+layoutsemantiek opnieuw uit losse CIR-objecten af te leiden.
+
+Het resolved contract bevat geen HTML- of CSS-velden. De HTML-backend vertaalt
+de layouttypen als volgt:
+
+| BAT-intentie | HTML-backend |
+|---|---|
+| `grid` | CSS Grid met expliciete rijen, kolommen en spans |
+| `stack` | Flexbox langs de expliciete richting |
+| `flow` | Flexbox met expliciete richting en wrapkeuze |
+| `layer` | Overlappende gridgebieden met het expliciete laagniveau |
+
+De normatieve `regions`-lijst bepaalt voor alle typen de DOM-volgorde. CSS is
+uitsluitend backenduitvoer en wordt niet teruggeschreven naar BAT, CIR,
+`ResolvedLayout` of `ProductDefinition`.
 
 ## Native objecten
 
@@ -159,6 +184,11 @@ coördinaten. Dat contract blijft uitsluitend als expliciet migratieobject
 bestaan zolang bestaande productrenderers ervan afhankelijk zijn. `region` is
 het native M9-object. Er bestaat geen automatische omzetting tussen beide
 contracten.
+
+M9.0b behoudt het bestaande HTML-pad voor producten die expliciet naar een M6
+spatial layout verwijzen. Een native product gebruikt de native HTML-vertaling;
+een spatial product gebruikt de bestaande spatial renderer. De canonieke Forge
+productbron blijft in deze milestone bewust op het spatial migratiecontract.
 
 ## Diagnostics
 

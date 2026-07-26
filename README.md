@@ -14,6 +14,7 @@ De repository bevat nu:
 - parser, semantische validatie, dependency-analyse en constraints;
 - een expliciete grens voor het Beckeringh Palace World Model;
 - een native layout-engine voor `grid`, `stack`, `flow` en `layer`;
+- een HTML-backend die gevalideerde native layoutintentie vertaalt;
 - generatie van Markdown en Mermaid;
 - reproduceerbaarheidscontrole in lokale tooling en CI.
 
