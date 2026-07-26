@@ -33,6 +33,7 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
             radius = appearance.rol("radius")
             shadow = appearance.rol("shadow")
             motion = appearance.rol("motion")
+            spacing = appearance.rol("spacing")
             regels.extend([
                 f"  background-color: var(--bp-material-{material});",
                 f"  color: var(--bp-material-{foreground});",
@@ -41,9 +42,11 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
                 f"  box-shadow: var(--bp-shadow-{shadow});",
                 f"  transition-duration: var(--bp-motion-{motion});",
                 "  transition-timing-function: var(--bp-motion-easing);",
+                f"  padding: var(--bp-spacing-{spacing});",
             ])
-        padding = component.eigenschappen.get("padding")
-        if padding is not None:
-            regels.append(f"  padding: {_tokenwaarde(padding)};")
+        else:
+            padding = component.eigenschappen.get("padding")
+            if padding is not None:
+                regels.append(f"  padding: {_tokenwaarde(padding)};")
         regels.extend(["}", ""])
     return "\n".join(regels)

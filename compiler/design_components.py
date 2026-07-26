@@ -10,6 +10,7 @@ from compiler.design_tokens import TokenType
 
 TOKEN_REFERENTIE = re.compile(r"^\{(?P<id>[\w.-]+)\}$")
 
+# Legacy padding blijft uitsluitend beschikbaar voor geïsoleerde pre-appearance fixtures.
 COMPONENTEIGENSCHAPPEN = {
     "appearance": None,
     "padding": TokenType.DIMENSION,
@@ -22,6 +23,7 @@ APPEARANCE_EIGENSCHAPPEN = (
     "radius",
     "shadow",
     "motion",
+    "spacing",
 )
 APPEARANCE_ROLLEN = {
     "material": frozenset({"canvas", "surface", "raised"}),
@@ -31,6 +33,7 @@ APPEARANCE_ROLLEN = {
     "radius": frozenset({"small", "medium", "large", "pill"}),
     "shadow": frozenset({"low", "medium", "high"}),
     "motion": frozenset({"fast", "normal", "slow"}),
+    "spacing": frozenset({"none", "xs", "small", "medium", "large", "xl"}),
 }
 
 
