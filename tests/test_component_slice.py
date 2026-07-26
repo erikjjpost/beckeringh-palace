@@ -20,6 +20,10 @@ appearance forge-panel-appearance {
     shadow: "medium"
     motion: "normal"
     spacing: "small"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
 }
 
 component forge-panel {
@@ -44,6 +48,11 @@ class ComponentSliceTests(unittest.TestCase):
         self.assertIn("box-shadow: var(--bp-shadow-medium);", css)
         self.assertIn("transition-duration: var(--bp-motion-normal);", css)
         self.assertIn("padding: var(--bp-spacing-small);", css)
+        self.assertIn("font-family: var(--bp-font-heading);", css)
+        self.assertIn("font-size: var(--bp-type-heading);", css)
+        self.assertIn("font-size: var(--bp-type-body);", css)
+        self.assertIn("font-size: var(--bp-type-label);", css)
+        self.assertIn("font-size: var(--bp-type-caption);", css)
         html = naar_component_html(model.objecten)
         self.assertIn('class="bp-forge-panel"', html)
 
@@ -57,13 +66,13 @@ class ComponentSliceTests(unittest.TestCase):
         self.assertIn("BP3201", {item.code for item in context.exception.diagnostics})
 
     def test_weigert_onvolledig_appearance_contract(self):
-        bron = BRON.replace('    spacing: "small"\n', '')
+        bron = BRON.replace('    caption-style: "caption"\n', '')
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3212", {item.code for item in context.exception.diagnostics})
 
     def test_weigert_onbekende_semantische_rol(self):
-        bron = BRON.replace('    spacing: "small"', '    spacing: "enorm"')
+        bron = BRON.replace('    heading-style: "heading"', '    heading-style: "enorm"')
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3211", {item.code for item in context.exception.diagnostics})

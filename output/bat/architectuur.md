@@ -119,6 +119,25 @@ Typografische rollen voor digitale Forge-producten.
 - **heading:** Aptos Display
 - **mono:** JetBrains Mono
 
+## Forge Type Scale
+
+**Soort:** typeschaal
+
+**Identifier:** `forge-type-scale`
+
+### Doel
+
+Semantische tekstgroottes voor digitale Forge-producten.
+
+### Eigenschappen
+
+- **body:** 16px
+- **caption:** 12px
+- **display:** 64px
+- **heading:** 28px
+- **label:** 14px
+- **title:** 40px
+
 ## Forge Materials
 
 **Soort:** materiaal
@@ -242,6 +261,7 @@ Nordic forge-ontwerpidentiteit voor Beckeringh Palace.
 - **radius:** forge-radius
 - **shadow:** forge-shadows
 - **spacing:** forge-spacing
+- **typeschaal:** forge-type-scale
 - **typografie:** forge-interface
 
 ## Beckeringh Palace
@@ -361,8 +381,12 @@ Semantisch appearance-contract voor verhoogde Forge-panelen.
 ### Eigenschappen
 
 - **accent:** accent
+- **body-style:** body
 - **border:** regular
+- **caption-style:** caption
 - **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
 - **material:** raised
 - **motion:** normal
 - **radius:** medium

@@ -34,6 +34,17 @@ typografie forge-interface {
     mono: "JetBrains Mono"
 }
 
+typeschaal forge-type-scale {
+    naam: "Forge Type Scale"
+    doel: "Semantische tekstgroottes voor digitale Forge-producten."
+    display: "64px"
+    title: "40px"
+    heading: "28px"
+    body: "16px"
+    label: "14px"
+    caption: "12px"
+}
+
 materiaal forge-materials {
     naam: "Forge Materials"
     doel: "Materiële kleurrollen voor Forge-oppervlakken en accenten."
@@ -95,6 +106,7 @@ thema forge {
     doel: "Nordic forge-ontwerpidentiteit voor Beckeringh Palace."
     palet: "ember-forge"
     typografie: "forge-interface"
+    typeschaal: "forge-type-scale"
     materiaal: "forge-materials"
     border: "forge-borders"
     radius: "forge-radius"
@@ -162,6 +174,10 @@ appearance forge-panel-appearance {
     shadow: "medium"
     motion: "normal"
     spacing: "small"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
 }
 
 component forge-panel {

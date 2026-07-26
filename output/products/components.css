@@ -9,3 +9,20 @@
   transition-timing-function: var(--bp-motion-easing);
   padding: var(--bp-spacing-small);
 }
+
+.bp-forge-panel h1, .bp-forge-panel h2, .bp-forge-panel h3, .bp-forge-panel h4, .bp-forge-panel h5, .bp-forge-panel h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel small, .bp-forge-panel figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}

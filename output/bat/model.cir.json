@@ -90,6 +90,20 @@
   },
   {
     "eigenschappen": {
+      "body": "16px",
+      "caption": "12px",
+      "display": "64px",
+      "doel": "Semantische tekstgroottes voor digitale Forge-producten.",
+      "heading": "28px",
+      "label": "14px",
+      "naam": "Forge Type Scale",
+      "title": "40px"
+    },
+    "id": "forge-type-scale",
+    "soort": "typeschaal"
+  },
+  {
+    "eigenschappen": {
       "accent": "ember-orange",
       "canvas": "iron-black",
       "doel": "Materiële kleurrollen voor Forge-oppervlakken en accenten.",
@@ -173,6 +187,7 @@
       "radius": "forge-radius",
       "shadow": "forge-shadows",
       "spacing": "forge-spacing",
+      "typeschaal": "forge-type-scale",
       "typografie": "forge-interface"
     },
     "id": "forge",
@@ -250,9 +265,13 @@
   {
     "eigenschappen": {
       "accent": "accent",
+      "body-style": "body",
       "border": "regular",
+      "caption-style": "caption",
       "doel": "Semantisch appearance-contract voor verhoogde Forge-panelen.",
       "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
       "material": "raised",
       "motion": "normal",
       "naam": "Forge Panel Appearance",

@@ -27,6 +27,15 @@ def _theme_css(product: ProductDefinition) -> str:
         f"      --bp-font-mono: {_css_string(thema.typografie.mono)};",
     ])
 
+    if thema.typeschaal is not None:
+        regels.extend([
+            f"      --bp-type-display: {thema.typeschaal.display};",
+            f"      --bp-type-title: {thema.typeschaal.title};",
+            f"      --bp-type-heading: {thema.typeschaal.heading};",
+            f"      --bp-type-body: {thema.typeschaal.body};",
+            f"      --bp-type-label: {thema.typeschaal.label};",
+            f"      --bp-type-caption: {thema.typeschaal.caption};",
+        ])
     if thema.materiaal is not None:
         for rol, kleur in thema.materiaal.kleuren:
             regels.append(f"      --bp-material-{rol}: {kleur.waarde};")
