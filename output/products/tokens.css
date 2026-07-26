@@ -3,6 +3,8 @@
   --bp-color-accent: var(--bp-color-ember);
   --bp-color-ember: #D86A35;
   --bp-color-iron: #171A1F;
+  --bp-color-smoke: #ECECEC;
+  --bp-radius-medium: 12px;
   --bp-spacing-unit: 8px;
   --bp-typography-family-default: Aptos;
 }
