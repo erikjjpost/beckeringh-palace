@@ -1,4 +1,4 @@
-"""Kleine, afhankelijkheidsvrije parser voor de eerste BAT-slice."""
+"""Kleine, afhankelijkheidsvrije parser voor BAT."""
 from __future__ import annotations
 
 import re
@@ -6,13 +6,12 @@ from pathlib import Path
 
 from compiler.cir import Architectuurobject, Bronlocatie
 
-SOORTEN = {"capability", "dienst", "proces", "representatie", "agent"}
 KOP = re.compile(r"^(?P<soort>\w+)\s+(?P<id>[\w.-]+)\s*\{$")
 EIGENSCHAP = re.compile(r"^(?P<naam>[\w-]+)\s*:\s*(?P<waarde>.+)$")
 
 
 class BATFout(ValueError):
-    """Ongeldige Beckeringh Architectuurtaal."""
+    """Ongeldige BAT-brontekst."""
 
 
 def _waarde(tekst: str):
@@ -26,6 +25,12 @@ def _waarde(tekst: str):
 
 
 def parseer(tekst: str, bron: str = "<geheugen>") -> list[Architectuurobject]:
+    """Parseer BAT uitsluitend syntactisch naar de canonieke tussenrepresentatie.
+
+    De parser kent bewust geen objectcatalogus of verplichte domeinvelden. Die
+    regels horen bij de semantische analyse en het World Model.
+    """
+
     regels = [
         (nummer, regel.strip())
         for nummer, regel in enumerate(tekst.splitlines(), start=1)
@@ -36,7 +41,7 @@ def parseer(tekst: str, bron: str = "<geheugen>") -> list[Architectuurobject]:
     while index < len(regels):
         regelnummer, regel = regels[index]
         match = KOP.match(regel)
-        if not match or match.group("soort") not in SOORTEN:
+        if not match:
             raise BATFout(f"Ongeldige declaratie op regel {regelnummer}: {regel}")
         soort, object_id = match.group("soort"), match.group("id")
         eigenschappen = {}
@@ -58,8 +63,6 @@ def parseer(tekst: str, bron: str = "<geheugen>") -> list[Architectuurobject]:
             index += 1
         if index >= len(regels):
             raise BATFout(f"Ontbrekende sluitaccolade voor {object_id}")
-        if "naam" not in eigenschappen or "doel" not in eigenschappen:
-            raise BATFout(f"{object_id} vereist de eigenschappen 'naam' en 'doel'")
         objecten.append(
             Architectuurobject(
                 soort,
