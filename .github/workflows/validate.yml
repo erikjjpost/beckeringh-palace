@@ -19,4 +19,10 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate, generate and test
-        run: python tools/bp.py check
+        shell: bash
+        run: |
+          if ! python tools/bp.py check > bp-check.log 2>&1; then
+            tail -n 120 bp-check.log
+            exit 1
+          fi
+          cat bp-check.log
