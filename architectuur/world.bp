@@ -6,19 +6,36 @@ wereld beckeringh-palace {
 token color-ember {
     naam: "Ember"
     doel: "Primaire warme accentkleur voor de Forge-identiteit."
+    type: "color"
     waarde: "#D86A35"
 }
 
 token color-iron {
     naam: "Iron"
     doel: "Donkere structurele basiskleur."
+    type: "color"
     waarde: "#171A1F"
+}
+
+token color-accent {
+    naam: "Accent"
+    doel: "Semantische accentkleur die naar de Forge-kleur verwijst."
+    type: "color"
+    waarde: "{color-ember}"
 }
 
 token spacing-unit {
     naam: "Spacing unit"
     doel: "Basiseenheid voor reproduceerbare tussenruimte."
+    type: "dimension"
     waarde: "8px"
+}
+
+token typography-family-default {
+    naam: "Default font family"
+    doel: "Standaardlettertype voor de digitale wereld."
+    type: "font-family"
+    waarde: "Aptos"
 }
 
 renderdoel css-tokens {
@@ -26,4 +43,11 @@ renderdoel css-tokens {
     doel: "Design tokens als CSS custom properties genereren."
     formaat: "css"
     pad: "output/products/tokens.css"
+}
+
+renderdoel json-tokens {
+    naam: "Portable design tokens"
+    doel: "Design tokens platformneutraal als JSON genereren."
+    formaat: "json"
+    pad: "output/products/tokens.json"
 }
