@@ -264,6 +264,22 @@ Rechter dashboardregio.
 - **x:** 2640
 - **y:** 120
 
+## Forge Dashboard HTML
+
+**Soort:** product
+
+**Identifier:** `forge-dashboard-html`
+
+### Doel
+
+Het ultrawide Forge-dashboard via de HTML-backend genereren.
+
+### Eigenschappen
+
+- **backend:** html
+- **layout:** forge-dashboard-ultrawide
+- **pad:** output/products/forge-dashboard.html
+
 ## CSS design tokens
 
 **Soort:** renderdoel
