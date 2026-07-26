@@ -16,8 +16,10 @@ class ProductDefinitionConstraint:
     def evalueer(self, context: ConstraintContext):
         diagnostics = []
         layouts = {obj.id for obj in context.objecten if obj.soort == "layout"}
+        werelden = {obj.id for obj in context.objecten if obj.soort == "wereld"}
+        heeft_themalaag = any(obj.soort == "thema" for obj in context.objecten)
         toegestane_backends = backend_namen()
-        toegestane_velden = {"naam", "doel", "backend", "layout", "pad"}
+        toegestane_velden = {"naam", "doel", "backend", "layout", "pad", "wereld"}
         for obj in context.objecten:
             if obj.soort != "product":
                 continue
@@ -49,5 +51,12 @@ class ProductDefinitionConstraint:
                     code="BP3504",
                     boodschap=f"Product '{obj.id}' vereist een veilig relatief uitvoerpad",
                     locatie=obj.eigenschaplocaties.get("pad", obj.bronlocatie),
+                ))
+            wereld = obj.eigenschappen.get("wereld")
+            if heeft_themalaag and wereld not in werelden:
+                diagnostics.append(Diagnostic(
+                    code="BP3505",
+                    boodschap=f"Product '{obj.id}' verwijst naar onbekende of ontbrekende wereld '{wereld}'",
+                    locatie=obj.eigenschaplocaties.get("wereld", obj.bronlocatie),
                 ))
         return tuple(diagnostics)
