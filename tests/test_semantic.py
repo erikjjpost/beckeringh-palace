@@ -72,6 +72,42 @@ capability second-brain {
         with self.assertRaisesRegex(SemantischeFout, "Een relatie moet"):
             analyseer(objecten)
 
+    def test_diagnostic_bevat_bronlocatie_en_code(self):
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer('''
+capability second-brain {
+    naam: "Second Brain"
+    doel: "Kennis bruikbaar maken."
+    afhankelijk_van: niet-bestaand
+}
+''', bron="architectuur/second-brain.bp"))
+
+        diagnostic = context.exception.diagnostics[0]
+        self.assertEqual("BP2102", diagnostic.code)
+        self.assertEqual("architectuur/second-brain.bp:5:1", str(diagnostic.locatie))
+
+    def test_verzamelt_meerdere_semantische_fouten(self):
+        objecten = [
+            Architectuurobject(
+                soort="capability",
+                id="informatiebeheer",
+                eigenschappen={
+                    "naam": "Informatiebeheer",
+                    "doel": "Informatie beheersen.",
+                    "eigenaar": 42,
+                    "gebruikt": "niet-bestaand",
+                },
+            )
+        ]
+
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(objecten)
+
+        self.assertEqual(
+            ["BP2101", "BP2102"],
+            [diagnostic.code for diagnostic in context.exception.diagnostics],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

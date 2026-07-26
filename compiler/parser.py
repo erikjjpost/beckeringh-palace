@@ -4,7 +4,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from compiler.cir import Architectuurobject
+from compiler.cir import Architectuurobject, Bronlocatie
 
 SOORTEN = {"capability", "dienst", "proces", "representatie", "agent"}
 KOP = re.compile(r"^(?P<soort>\w+)\s+(?P<id>[\w.-]+)\s*\{$")
@@ -25,31 +25,50 @@ def _waarde(tekst: str):
     return tekst
 
 
-def parseer(tekst: str) -> list[Architectuurobject]:
-    regels = [regel.strip() for regel in tekst.splitlines() if regel.strip() and not regel.strip().startswith("#")]
+def parseer(tekst: str, bron: str = "<geheugen>") -> list[Architectuurobject]:
+    regels = [
+        (nummer, regel.strip())
+        for nummer, regel in enumerate(tekst.splitlines(), start=1)
+        if regel.strip() and not regel.strip().startswith("#")
+    ]
     objecten: list[Architectuurobject] = []
     index = 0
     while index < len(regels):
-        match = KOP.match(regels[index])
+        regelnummer, regel = regels[index]
+        match = KOP.match(regel)
         if not match or match.group("soort") not in SOORTEN:
-            raise BATFout(f"Ongeldige declaratie op regel {index + 1}: {regels[index]}")
+            raise BATFout(f"Ongeldige declaratie op regel {regelnummer}: {regel}")
         soort, object_id = match.group("soort"), match.group("id")
         eigenschappen = {}
+        eigenschaplocaties: dict[str, Bronlocatie] = {}
+        objectlocatie = Bronlocatie(bron, regelnummer)
         index += 1
-        while index < len(regels) and regels[index] != "}":
-            eigenschap = EIGENSCHAP.match(regels[index])
+        while index < len(regels) and regels[index][1] != "}":
+            eigenschapregel, eigenschaptekst = regels[index]
+            eigenschap = EIGENSCHAP.match(eigenschaptekst)
             if not eigenschap:
-                raise BATFout(f"Ongeldige eigenschap op regel {index + 1}: {regels[index]}")
+                raise BATFout(
+                    f"Ongeldige eigenschap op regel {eigenschapregel}: {eigenschaptekst}"
+                )
             naam = eigenschap.group("naam")
             if naam in eigenschappen:
                 raise BATFout(f"Dubbele eigenschap '{naam}' in {object_id}")
             eigenschappen[naam] = _waarde(eigenschap.group("waarde"))
+            eigenschaplocaties[naam] = Bronlocatie(bron, eigenschapregel)
             index += 1
         if index >= len(regels):
             raise BATFout(f"Ontbrekende sluitaccolade voor {object_id}")
         if "naam" not in eigenschappen or "doel" not in eigenschappen:
             raise BATFout(f"{object_id} vereist de eigenschappen 'naam' en 'doel'")
-        objecten.append(Architectuurobject(soort, object_id, eigenschappen))
+        objecten.append(
+            Architectuurobject(
+                soort,
+                object_id,
+                eigenschappen,
+                bronlocatie=objectlocatie,
+                eigenschaplocaties=eigenschaplocaties,
+            )
+        )
         index += 1
     ids = [obj.id for obj in objecten]
     if len(ids) != len(set(ids)):
@@ -58,4 +77,4 @@ def parseer(tekst: str) -> list[Architectuurobject]:
 
 
 def parseer_bestand(pad: Path) -> list[Architectuurobject]:
-    return parseer(pad.read_text(encoding="utf-8"))
+    return parseer(pad.read_text(encoding="utf-8"), bron=pad.as_posix())
