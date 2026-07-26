@@ -69,6 +69,47 @@ compositie forge-dashboard {
     richting: "row"
 }
 
+layout forge-dashboard-ultrawide {
+    naam: "Forge Dashboard Ultrawide"
+    doel: "Backend-onafhankelijk canvas voor het Forge-dashboard."
+    compositie: "forge-dashboard"
+    canvas-width: "3840"
+    canvas-height: "1080"
+}
+
+regio forge-dashboard-left {
+    naam: "Linkerpaneel"
+    doel: "Linker dashboardregio."
+    layout: "forge-dashboard-ultrawide"
+    component: "forge-panel"
+    x: "80"
+    y: "120"
+    width: "1120"
+    height: "840"
+}
+
+regio forge-dashboard-center {
+    naam: "Middenpaneel"
+    doel: "Centrale dashboardregio."
+    layout: "forge-dashboard-ultrawide"
+    component: "forge-panel"
+    x: "1360"
+    y: "120"
+    width: "1120"
+    height: "840"
+}
+
+regio forge-dashboard-right {
+    naam: "Rechterpaneel"
+    doel: "Rechter dashboardregio."
+    layout: "forge-dashboard-ultrawide"
+    component: "forge-panel"
+    x: "2640"
+    y: "120"
+    width: "1120"
+    height: "840"
+}
+
 renderdoel css-tokens {
     naam: "CSS design tokens"
     doel: "Design tokens als CSS custom properties genereren."
@@ -116,4 +157,11 @@ renderdoel svg-compositions {
     doel: "Composities als reproduceerbaar vectorcanvas genereren."
     formaat: "svg"
     pad: "output/products/compositions.svg"
+}
+
+renderdoel html-spatial {
+    naam: "Spatial HTML product"
+    doel: "Het Spatial Model als exact gepositioneerd HTML-product genereren."
+    formaat: "html"
+    pad: "output/products/spatial.html"
 }
