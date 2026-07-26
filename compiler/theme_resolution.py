@@ -48,6 +48,19 @@ class ResolvedTypography:
 
 
 @dataclass(frozen=True)
+class ResolvedTypeScale:
+    id: str
+    naam: str
+    doel: str
+    display: str
+    title: str
+    heading: str
+    body: str
+    label: str
+    caption: str
+
+
+@dataclass(frozen=True)
 class ResolvedMaterial:
     id: str
     naam: str
@@ -130,6 +143,7 @@ class ResolvedTheme:
     shadow: ResolvedShadow | None = None
     motion: ResolvedMotion | None = None
     spacing: ResolvedSpacing | None = None
+    typeschaal: ResolvedTypeScale | None = None
 
 
 def _indexeer(objecten: Iterable[Architectuurobject]) -> dict[str, dict[str, Architectuurobject]]:
@@ -190,6 +204,7 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
     shadow = _optioneel_object(index, thema, "shadow")
     motion = _optioneel_object(index, thema, "motion")
     spacing = _optioneel_object(index, thema, "spacing")
+    typeschaal = _optioneel_object(index, thema, "typeschaal")
 
     palet_kleuren = tuple(
         (rol, _resolved_color(index, str(palet.eigenschappen[rol]), f"Palet '{palet.id}'"))
@@ -237,6 +252,10 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
         spacing=None if spacing is None else ResolvedSpacing(
             spacing.id, _tekst(spacing, "naam"), _tekst(spacing, "doel"),
             **_waarden(spacing, ("none", "xs", "small", "medium", "large", "xl")),
+        ),
+        typeschaal=None if typeschaal is None else ResolvedTypeScale(
+            typeschaal.id, _tekst(typeschaal, "naam"), _tekst(typeschaal, "doel"),
+            **_waarden(typeschaal, ("display", "title", "heading", "body", "label", "caption")),
         ),
     )
 

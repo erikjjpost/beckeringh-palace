@@ -34,6 +34,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "thema",
                 "token",
                 "typografie",
+                "typeschaal",
                 "variant",
                 "wereld",
             },
