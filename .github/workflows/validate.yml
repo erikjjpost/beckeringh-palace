@@ -18,11 +18,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate, generate and test
-        shell: bash
+      - name: Validate source model
+        run: python tools/validate.py
+      - name: Compile BAT
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python tools/compile_bat.py
+      - name: Generate legacy outputs
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python tools/generate.py
+      - name: Run tests
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m unittest discover -s tests -v
+      - name: Verify reproducibility
         run: |
-          if ! python tools/bp.py check > bp-check.log 2>&1; then
-            tail -n 120 bp-check.log
+          changes="$(git status --porcelain --untracked-files=all)"
+          if [ -n "$changes" ]; then
+            echo "RESULTAAT: NIET REPRODUCEERBAAR"
+            printf '%s\n' "$changes"
             exit 1
           fi
-          cat bp-check.log
+          echo "RESULTAAT: GELDIG EN REPRODUCEERBAAR"
