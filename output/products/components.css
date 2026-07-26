@@ -1,8 +1,11 @@
 /* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */
 .bp-forge-panel {
-  background-color: var(--bp-color-iron);
-  color: var(--bp-color-smoke);
-  border-color: var(--bp-color-accent);
-  padding: var(--bp-spacing-unit);
+  background-color: var(--bp-material-raised);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-accent);
   border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-medium);
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-unit);
 }
