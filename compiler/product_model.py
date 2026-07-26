@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from typing import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.layout_model import ResolvedLayout
 from compiler.theme_resolution import ResolvedTheme
 
 
@@ -19,6 +20,7 @@ class ProductDefinition:
     bron: Architectuurobject
     wereld: str = ""
     thema: ResolvedTheme | None = None
+    opgeloste_layout: ResolvedLayout | None = None
 
 
 def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:

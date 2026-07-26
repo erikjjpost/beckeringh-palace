@@ -5,6 +5,7 @@ from collections.abc import Iterable
 
 from compiler.backend import Backend
 from compiler.cir import Architectuurobject
+from compiler.native_layout_html_renderer import naar_native_layout_html
 from compiler.product_model import ProductDefinition
 from compiler.spatial_html_renderer import naar_spatial_html
 
@@ -109,7 +110,10 @@ def _render(
     objecten: Iterable[Architectuurobject],
     product: ProductDefinition,
 ) -> str:
-    inhoud = naar_spatial_html(objecten, layout_id=product.layout, titel=product.naam)
+    if product.opgeloste_layout is not None:
+        inhoud = naar_native_layout_html(product.opgeloste_layout, titel=product.naam)
+    else:
+        inhoud = naar_spatial_html(objecten, layout_id=product.layout, titel=product.naam)
     if product.thema is None:
         return inhoud
 

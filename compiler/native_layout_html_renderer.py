@@ -1,0 +1,106 @@
+"""HTML-vertaling van gevalideerde native layoutintentie."""
+from __future__ import annotations
+
+import html
+import re
+
+from compiler.layout_model import LayoutDirection, LayoutType, ResolvedLayout, ResolvedRegion
+
+
+def _css_naam(identifier: str) -> str:
+    naam = re.sub(r"[^a-zA-Z0-9_-]+", "-", identifier).strip("-").lower()
+    return naam or "object"
+
+
+def _layout_css(layout: ResolvedLayout) -> tuple[str, ...]:
+    if layout.type is LayoutType.GRID:
+        return (
+            "display:grid",
+            f"grid-template-columns:repeat({layout.columns},minmax(0,1fr))",
+            f"grid-template-rows:repeat({layout.rows},minmax(0,1fr))",
+        )
+    if layout.type is LayoutType.STACK:
+        return (
+            "display:flex",
+            f"flex-direction:{_flex_direction(layout.direction)}",
+        )
+    if layout.type is LayoutType.FLOW:
+        return (
+            "display:flex",
+            f"flex-direction:{_flex_direction(layout.direction)}",
+            f"flex-wrap:{'wrap' if layout.wrap else 'nowrap'}",
+        )
+    return ("display:grid",)
+
+
+def _flex_direction(direction: LayoutDirection | None) -> str:
+    if direction is LayoutDirection.HORIZONTAL:
+        return "row"
+    if direction is LayoutDirection.VERTICAL:
+        return "column"
+    raise ValueError("Gevalideerde stack- of flow-layout vereist een richting")
+
+
+def _region_css(layout: ResolvedLayout, region: ResolvedRegion) -> tuple[str, ...]:
+    if layout.type is LayoutType.GRID:
+        return (
+            f"grid-column:{region.column} / span {region.column_span}",
+            f"grid-row:{region.row} / span {region.row_span}",
+        )
+    if layout.type is LayoutType.LAYER:
+        return (
+            "grid-area:1 / 1",
+            f"z-index:{region.layer}",
+        )
+    return ()
+
+
+def _style(regels: tuple[str, ...]) -> str:
+    return ";".join(regels)
+
+
+def naar_native_layout_html(
+    layout: ResolvedLayout,
+    titel: str = "Beckeringh Palace product",
+) -> str:
+    """Vertaal één resolved layout deterministisch naar HTML en CSS."""
+
+    regels = [
+        "<!doctype html>",
+        '<html lang="nl">',
+        "<head>",
+        '  <meta charset="utf-8">',
+        f"  <title>{html.escape(titel)}</title>",
+        '  <link rel="stylesheet" href="tokens.css">',
+        '  <link rel="stylesheet" href="components.css">',
+        "  <style>",
+        "    .bp-layout { box-sizing: border-box; }",
+        "    .bp-region { box-sizing: border-box; }",
+        "  </style>",
+        "</head>",
+        "<body>",
+        f"  <header><h1>{html.escape(layout.naam)}</h1></header>",
+        (
+            f'  <main class="bp-layout bp-layout-{_css_naam(layout.id)}" '
+            f'data-layout-type="{layout.type.value}" '
+            f'style="{_style(_layout_css(layout))}">'
+        ),
+    ]
+    for region in layout.regions:
+        region_style = _style(_region_css(layout, region))
+        style_attribute = f' style="{region_style}"' if region_style else ""
+        regels.extend([
+            (
+                f'    <section class="bp-region bp-{_css_naam(region.component_id)}" '
+                f'data-region="{html.escape(region.id)}"{style_attribute}>'
+            ),
+            f"      <h2>{html.escape(region.naam)}</h2>",
+            "    </section>",
+        ])
+    regels.extend([
+        "  </main>",
+        "</body>",
+        "</html>",
+        "",
+    ])
+    return "\n".join(regels)

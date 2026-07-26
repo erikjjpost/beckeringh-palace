@@ -40,6 +40,11 @@ Native layouts zijn onderdeel van het productmodel. Zij beschrijven uitsluitend
 intentie. Zie [product-model.md](product-model.md) voor het contract van
 `layout`, `region`, `grid`, `stack`, `flow` en `layer`.
 
+De productcompiler lost een native layout vóór backendselectie op. Backends
+ontvangen daardoor een getypeerde `ResolvedLayout` via de productcontext en
+vertalen deze naar hun eigen mechanisme. De eerste implementatie is de
+HTML-backend. Het domeinmodel bevat geen HTML- of CSS-eigenschappen.
+
 BAT is geen algemene enterprise-architectuurtaal. ArchiMate en andere externe modellen worden uitsluitend via expliciete adapters gekoppeld. De domeingrens staat in [world-model.md](world-model.md).
 
 ## Ontwerpprincipes

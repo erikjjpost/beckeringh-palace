@@ -45,7 +45,7 @@ def bouw_spatial_model(objecten: Iterable[Architectuurobject]) -> tuple[SpatialL
     regio_objecten = [obj for obj in objecten if obj.soort == "regio"]
     layouts = []
     for obj in objecten:
-        if obj.soort != "layout":
+        if obj.soort != "layout" or "type" in obj.eigenschappen:
             continue
         regions = tuple(
             SpatialRegion(
