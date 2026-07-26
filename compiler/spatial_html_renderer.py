@@ -14,13 +14,20 @@ def _css_naam(identifier: str) -> str:
     return naam or "object"
 
 
-def naar_spatial_html(objecten: Iterable[Architectuurobject]) -> str:
+def naar_spatial_html(
+    objecten: Iterable[Architectuurobject],
+    layout_id: str | None = None,
+    titel: str = "Beckeringh Palace spatial products",
+) -> str:
+    layouts = bouw_spatial_model(objecten)
+    if layout_id is not None:
+        layouts = tuple(layout for layout in layouts if layout.id == layout_id)
     regels = [
         "<!doctype html>",
         '<html lang="nl">',
         "<head>",
         '  <meta charset="utf-8">',
-        "  <title>Beckeringh Palace spatial products</title>",
+        f"  <title>{html.escape(titel)}</title>",
         '  <link rel="stylesheet" href="tokens.css">',
         '  <link rel="stylesheet" href="components.css">',
         "  <style>",
@@ -30,7 +37,7 @@ def naar_spatial_html(objecten: Iterable[Architectuurobject]) -> str:
         "</head>",
         "<body>",
     ]
-    for layout in bouw_spatial_model(objecten):
+    for layout in layouts:
         regels.append(
             f'  <main class="bp-canvas bp-layout-{_css_naam(layout.id)}" '
             f'style="width:{layout.canvas_width}px;height:{layout.canvas_height}px" '
