@@ -10,6 +10,9 @@ sys.path.insert(0, str(ROOT))
 
 from compiler.component_css_renderer import naar_component_css
 from compiler.component_html_renderer import naar_component_html
+from compiler.composition_css_renderer import naar_compositie_css
+from compiler.composition_html_renderer import naar_compositie_html
+from compiler.composition_svg_renderer import naar_compositie_svg
 from compiler.css_renderer import naar_css
 from compiler.parser import parseer_bestand
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
@@ -26,31 +29,28 @@ def main() -> None:
     objecten = []
     for pad in sorted(BRON.rglob("*.bp")):
         objecten.extend(parseer_bestand(pad))
-
     model = analyseer(objecten, constraints=WORLD_MODEL_CONSTRAINTS)
-
     UITVOER.mkdir(parents=True, exist_ok=True)
     PRODUCTUITVOER.mkdir(parents=True, exist_ok=True)
     (UITVOER / "model.cir.json").write_text(naar_json(model.objecten), encoding="utf-8")
     (UITVOER / "architectuur.md").write_text(naar_markdown(model.objecten), encoding="utf-8")
     (PRODUCTUITVOER / "tokens.css").write_text(naar_css(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "tokens.json").write_text(
-        naar_token_json(model.objecten), encoding="utf-8"
-    )
-    (PRODUCTUITVOER / "components.css").write_text(
-        naar_component_css(model.objecten), encoding="utf-8"
-    )
-    (PRODUCTUITVOER / "components.html").write_text(
-        naar_component_html(model.objecten), encoding="utf-8"
-    )
+    (PRODUCTUITVOER / "tokens.json").write_text(naar_token_json(model.objecten), encoding="utf-8")
+    (PRODUCTUITVOER / "components.css").write_text(naar_component_css(model.objecten), encoding="utf-8")
+    (PRODUCTUITVOER / "components.html").write_text(naar_component_html(model.objecten), encoding="utf-8")
+    (PRODUCTUITVOER / "compositions.css").write_text(naar_compositie_css(model.objecten), encoding="utf-8")
+    (PRODUCTUITVOER / "compositions.html").write_text(naar_compositie_html(model.objecten), encoding="utf-8")
+    (PRODUCTUITVOER / "compositions.svg").write_text(naar_compositie_svg(model.objecten), encoding="utf-8")
 
     print(f"BAT gecompileerd: {len(model.objecten)} object(en)")
-    print("  output/bat/model.cir.json")
-    print("  output/bat/architectuur.md")
-    print("  output/products/tokens.css")
-    print("  output/products/tokens.json")
-    print("  output/products/components.css")
-    print("  output/products/components.html")
+    for pad in (
+        "output/bat/model.cir.json", "output/bat/architectuur.md",
+        "output/products/tokens.css", "output/products/tokens.json",
+        "output/products/components.css", "output/products/components.html",
+        "output/products/compositions.css", "output/products/compositions.html",
+        "output/products/compositions.svg",
+    ):
+        print(f"  {pad}")
 
 
 if __name__ == "__main__":
