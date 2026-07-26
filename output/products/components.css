@@ -7,5 +7,5 @@
   box-shadow: var(--bp-shadow-medium);
   transition-duration: var(--bp-motion-normal);
   transition-timing-function: var(--bp-motion-easing);
-  padding: var(--bp-spacing-unit);
+  padding: var(--bp-spacing-small);
 }
