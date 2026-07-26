@@ -57,6 +57,15 @@ def _theme_css(product: ProductDefinition) -> str:
             f"      --bp-motion-slow: {thema.motion.slow};",
             f"      --bp-motion-easing: {thema.motion.easing};",
         ])
+    if thema.spacing is not None:
+        regels.extend([
+            f"      --bp-spacing-none: {thema.spacing.none};",
+            f"      --bp-spacing-xs: {thema.spacing.xs};",
+            f"      --bp-spacing-small: {thema.spacing.small};",
+            f"      --bp-spacing-medium: {thema.spacing.medium};",
+            f"      --bp-spacing-large: {thema.spacing.large};",
+            f"      --bp-spacing-xl: {thema.spacing.xl};",
+        ])
 
     regels.extend([
         "    }",
