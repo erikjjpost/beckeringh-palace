@@ -6,6 +6,7 @@ from enum import Enum
 from typing import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.constraints import Constraint, ConstraintContext, evalueer_constraints
 from compiler.diagnostics import Diagnostic
 from compiler.graph import DependencyGraph, Relatie, bouw_dependency_graph, vind_cycli
 from compiler.type_system import RELATIESIGNATUREN
@@ -86,9 +87,13 @@ def _cycluslocatie(
     )
 
 
-def analyseer(objecten: Iterable[Architectuurobject]) -> SemantischModel:
-    """Compileer objecten naar symbolentabel en dependency graph."""
+def analyseer(
+    objecten: Iterable[Architectuurobject],
+    constraints: Iterable[Constraint] = (),
+) -> SemantischModel:
+    """Compileer objecten naar een gevalideerd semantisch model."""
     vaste_objecten = tuple(objecten)
+    vaste_constraints = tuple(constraints)
     symbolen: dict[str, Architectuurobject] = {}
     diagnostics: list[Diagnostic] = []
     relaties: list[Relatie] = []
@@ -195,6 +200,18 @@ def analyseer(objecten: Iterable[Architectuurobject]) -> SemantischModel:
                         ),
                     )
                 )
+
+    if not diagnostics:
+        diagnostics.extend(
+            evalueer_constraints(
+                ConstraintContext(
+                    objecten=vaste_objecten,
+                    symbolen=symbolen,
+                    dependency_graph=dependency_graph,
+                ),
+                vaste_constraints,
+            )
+        )
 
     if diagnostics:
         raise SemantischeFout(diagnostics)
