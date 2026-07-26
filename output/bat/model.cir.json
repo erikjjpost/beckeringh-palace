@@ -39,8 +39,70 @@
   },
   {
     "eigenschappen": {
+      "doel": "Primaire warme accentkleur van de Forge-ontwerpidentiteit.",
+      "naam": "Ember Orange",
+      "waarde": "#D86A35"
+    },
+    "id": "ember-orange",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Donkere structurele basiskleur van de Forge-ontwerpidentiteit.",
+      "naam": "Iron Black",
+      "waarde": "#171A1F"
+    },
+    "id": "iron-black",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Lichte voorgrondkleur voor donkere Forge-oppervlakken.",
+      "naam": "Smoke White",
+      "waarde": "#ECECEC"
+    },
+    "id": "smoke-white",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "accent": "ember-orange",
+      "background": "iron-black",
+      "doel": "Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld.",
+      "foreground": "smoke-white",
+      "naam": "Ember Forge",
+      "primary": "ember-orange",
+      "surface": "iron-black"
+    },
+    "id": "ember-forge",
+    "soort": "palet"
+  },
+  {
+    "eigenschappen": {
+      "body": "Aptos",
+      "doel": "Typografische rollen voor digitale Forge-producten.",
+      "heading": "Aptos Display",
+      "mono": "JetBrains Mono",
+      "naam": "Forge Interface"
+    },
+    "id": "forge-interface",
+    "soort": "typografie"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Nordic forge-ontwerpidentiteit voor Beckeringh Palace.",
+      "naam": "Forge",
+      "palet": "ember-forge",
+      "typografie": "forge-interface"
+    },
+    "id": "forge",
+    "soort": "thema"
+  },
+  {
+    "eigenschappen": {
       "doel": "Eén reproduceerbare digitale ontwerpwereld leveren.",
-      "naam": "Beckeringh Palace"
+      "naam": "Beckeringh Palace",
+      "thema": "forge"
     },
     "id": "beckeringh-palace",
     "soort": "wereld"
@@ -107,12 +169,12 @@
   },
   {
     "eigenschappen": {
-      "doel": "Standaardlettertype voor de digitale wereld.",
-      "naam": "Default font family",
+      "doel": "Hoofdlettertype voor digitale Forge-producten.",
+      "naam": "Forge interface font family",
       "type": "font-family",
       "waarde": "Aptos"
     },
-    "id": "typography-family-default",
+    "id": "typography-family-forge-interface",
     "soort": "token"
   },
   {
@@ -201,7 +263,8 @@
       "doel": "Het ultrawide Forge-dashboard via de HTML-backend genereren.",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Forge Dashboard HTML",
-      "pad": "output/products/forge-dashboard.html"
+      "pad": "output/products/forge-dashboard.html",
+      "wereld": "beckeringh-palace"
     },
     "id": "forge-dashboard-html",
     "soort": "product"
