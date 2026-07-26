@@ -41,11 +41,56 @@ typografie forge-interface {
     body: "Aptos"
     mono: "JetBrains Mono"
 }
+materiaal forge-materials {
+    naam: "Forge Materials"
+    doel: "Forge-materialen."
+    canvas: "iron-black"
+    surface: "iron-black"
+    raised: "iron-black"
+    foreground: "smoke-white"
+    accent: "ember-orange"
+}
+border forge-borders {
+    naam: "Forge Borders"
+    doel: "Forge-borders."
+    hairline: "1px"
+    regular: "2px"
+    strong: "3px"
+    style: "solid"
+}
+radius forge-radius {
+    naam: "Forge Radius"
+    doel: "Forge-radius."
+    small: "4px"
+    medium: "12px"
+    large: "24px"
+    pill: "999px"
+}
+shadow forge-shadows {
+    naam: "Forge Shadows"
+    doel: "Forge-schaduwen."
+    low: "0 2px 8px #00000040"
+    medium: "0 8px 24px #00000059"
+    high: "0 20px 48px #00000073"
+}
+motion forge-motion {
+    naam: "Forge Motion"
+    doel: "Forge-motion."
+    fast: "120ms"
+    normal: "220ms"
+    slow: "420ms"
+    easing: "cubic-bezier(0.2, 0.8, 0.2, 1)"
+}
 thema forge {
     naam: "Forge"
     doel: "Forge-identiteit."
     palet: "ember-forge"
     typografie: "forge-interface"
+    materiaal: "forge-materials"
+    border: "forge-borders"
+    radius: "forge-radius"
+    shadow: "forge-shadows"
+    motion: "forge-motion"
 }
 wereld beckeringh-palace {
     naam: "Beckeringh Palace"
@@ -136,6 +181,16 @@ class HtmlThemeBackendTests(unittest.TestCase):
         self.assertIn('--bp-font-heading: "Aptos Display";', product.inhoud)
         self.assertIn('--bp-font-body: "Aptos";', product.inhoud)
         self.assertIn('--bp-font-mono: "JetBrains Mono";', product.inhoud)
+        self.assertIn('--bp-material-canvas: #171A1F;', product.inhoud)
+        self.assertIn('--bp-material-accent: #D86A35;', product.inhoud)
+        self.assertIn('--bp-border-hairline: 1px;', product.inhoud)
+        self.assertIn('--bp-border-style: solid;', product.inhoud)
+        self.assertIn('--bp-radius-medium: 12px;', product.inhoud)
+        self.assertIn('--bp-shadow-low: 0 2px 8px #00000040;', product.inhoud)
+        self.assertIn('--bp-motion-normal: 220ms;', product.inhoud)
+        self.assertIn('--bp-motion-easing: cubic-bezier(0.2, 0.8, 0.2, 1);', product.inhoud)
+        self.assertIn('background: var(--bp-material-raised);', product.inhoud)
+        self.assertIn('border-radius: var(--bp-radius-medium);', product.inhoud)
         self.assertIn('data-world="beckeringh-palace"', product.inhoud)
         self.assertIn('data-theme="forge"', product.inhoud)
 
