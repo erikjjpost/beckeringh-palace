@@ -14,6 +14,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
     def test_native_world_model_is_productgericht(self):
         self.assertEqual(
             {
+                "appearance",
                 "asset",
                 "border",
                 "component",

@@ -10,13 +10,6 @@ from compiler.semantic import SemantischeFout, analyseer
 
 
 BRON = '''
-token color-iron {
-    naam: "Iron"
-    doel: "Surface."
-    type: "color"
-    waarde: "#171A1F"
-}
-
 token spacing-unit {
     naam: "Spacing"
     doel: "Padding."
@@ -24,47 +17,70 @@ token spacing-unit {
     waarde: "8px"
 }
 
+appearance forge-panel-appearance {
+    naam: "Forge Panel Appearance"
+    doel: "Verhoogd paneelprofiel."
+    material: "raised"
+    foreground: "foreground"
+    accent: "accent"
+    border: "regular"
+    radius: "medium"
+    shadow: "medium"
+    motion: "normal"
+}
+
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel."
-    surface: "{color-iron}"
+    appearance: "forge-panel-appearance"
     padding: "{spacing-unit}"
 }
 '''
 
 
 class ComponentSliceTests(unittest.TestCase):
-    def test_compileert_component_naar_css_en_html(self):
+    def test_compileert_component_via_semantisch_appearance_contract(self):
         model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
-        self.assertEqual(
-            "/* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */\n"
-            ".bp-forge-panel {\n"
-            "  background-color: var(--bp-color-iron);\n"
-            "  padding: var(--bp-spacing-unit);\n"
-            "}\n",
-            naar_component_css(model.objecten),
+        css = naar_component_css(model.objecten)
+        self.assertIn("background-color: var(--bp-material-raised);", css)
+        self.assertIn("color: var(--bp-material-foreground);", css)
+        self.assertIn(
+            "border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-accent);",
+            css,
         )
+        self.assertIn("border-radius: var(--bp-radius-medium);", css)
+        self.assertIn("box-shadow: var(--bp-shadow-medium);", css)
+        self.assertIn("transition-duration: var(--bp-motion-normal);", css)
+        self.assertIn("padding: var(--bp-spacing-unit);", css)
         html = naar_component_html(model.objecten)
         self.assertIn('class="bp-forge-panel"', html)
-        self.assertIn("<h2>Forge Panel</h2>", html)
 
-    def test_weigert_onbekende_componenteigenschap(self):
-        bron = BRON.replace('    padding: "{spacing-unit}"', '    schaduw: "{spacing-unit}"')
+    def test_weigert_direct_visueel_componentveld(self):
+        bron = BRON.replace(
+            '    appearance: "forge-panel-appearance"',
+            '    appearance: "forge-panel-appearance"\n    surface: "{spacing-unit}"',
+        )
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
-        self.assertEqual("BP3201", context.exception.diagnostics[0].code)
+        self.assertIn("BP3201", {item.code for item in context.exception.diagnostics})
 
-    def test_weigert_letterlijke_componentwaarde(self):
-        bron = BRON.replace('surface: "{color-iron}"', 'surface: "#171A1F"')
+    def test_weigert_onvolledig_appearance_contract(self):
+        bron = BRON.replace('    motion: "normal"\n', '')
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
-        self.assertEqual("BP3202", context.exception.diagnostics[0].code)
+        self.assertIn("BP3212", {item.code for item in context.exception.diagnostics})
 
-    def test_weigert_token_van_verkeerd_type(self):
-        bron = BRON.replace('surface: "{color-iron}"', 'surface: "{spacing-unit}"')
+    def test_weigert_onbekende_semantische_rol(self):
+        bron = BRON.replace('    radius: "medium"', '    radius: "enorm"')
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
-        self.assertEqual("BP3204", context.exception.diagnostics[0].code)
+        self.assertIn("BP3211", {item.code for item in context.exception.diagnostics})
+
+    def test_component_vereist_bestaande_appearance(self):
+        bron = BRON.replace('appearance: "forge-panel-appearance"', 'appearance: "missing"')
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3205", {item.code for item in context.exception.diagnostics})
 
 
 if __name__ == "__main__":
