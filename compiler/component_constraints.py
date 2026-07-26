@@ -4,13 +4,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from compiler.constraints import ConstraintContext
-from compiler.design_components import (
-    APPEARANCE_EIGENSCHAPPEN,
-    APPEARANCE_ROLLEN,
-    COMPONENTEIGENSCHAPPEN,
-    tokenreferentie,
-)
+from compiler.design_components import APPEARANCE_EIGENSCHAPPEN, APPEARANCE_ROLLEN, COMPONENTEIGENSCHAPPEN, tokenreferentie
 from compiler.diagnostics import Diagnostic
+
+LEGACY_VISUELE_VELDEN = frozenset({"surface", "foreground", "accent", "radius"})
 
 
 @dataclass(frozen=True)
@@ -42,6 +39,8 @@ class DesignComponentConstraint:
                 continue
             for naam, waarde in obj.eigenschappen.items():
                 if naam in {"naam", "doel"}:
+                    continue
+                if not appearances and naam in LEGACY_VISUELE_VELDEN:
                     continue
                 if naam not in COMPONENTEIGENSCHAPPEN:
                     diagnostics.append(Diagnostic("BP3201", f"Component '{obj.id}' heeft onbekende eigenschap '{naam}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
