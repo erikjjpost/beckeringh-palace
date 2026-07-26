@@ -343,6 +343,26 @@ Hoofdlettertype voor digitale Forge-producten.
 - **type:** font-family
 - **waarde:** Aptos
 
+## Forge Panel Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-panel-appearance`
+
+### Doel
+
+Semantisch appearance-contract voor verhoogde Forge-panelen.
+
+### Eigenschappen
+
+- **accent:** accent
+- **border:** regular
+- **foreground:** foreground
+- **material:** raised
+- **motion:** normal
+- **radius:** medium
+- **shadow:** medium
+
 ## Forge Panel
 
 **Soort:** component
@@ -355,11 +375,8 @@ Basispaneel voor dashboards en productdocumentatie.
 
 ### Eigenschappen
 
-- **accent:** {color-accent}
-- **foreground:** {color-smoke}
+- **appearance:** forge-panel-appearance
 - **padding:** {spacing-unit}
-- **radius:** {radius-medium}
-- **surface:** {color-iron}
 
 ## Forge Dashboard
 
