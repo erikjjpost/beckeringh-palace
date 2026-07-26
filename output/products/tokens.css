@@ -1,6 +1,8 @@
 /* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */
 :root {
+  --bp-color-accent: var(--bp-color-ember);
   --bp-color-ember: #D86A35;
   --bp-color-iron: #171A1F;
   --bp-spacing-unit: 8px;
+  --bp-typography-family-default: Aptos;
 }
