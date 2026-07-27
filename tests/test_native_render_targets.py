@@ -5,6 +5,10 @@ import unittest
 from compiler.design_render_targets import resolveer_renderdoelen
 from compiler.parser import parseer
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
+from compiler.render_target_renderer import (
+    RenderTargetRendererRegistry,
+    render_renderdoelen,
+)
 from compiler.semantic import SemantischeFout, analyseer
 
 
@@ -40,6 +44,42 @@ class NativeRenderTargetTests(unittest.TestCase):
             "output/products/components.css",
             renderdoelen[0].pad,
         )
+
+    def test_rendert_doelen_via_expliciete_id_binding(self):
+        model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
+        registry = RenderTargetRendererRegistry(
+            {
+                "css-components": lambda _objecten: "components",
+                "html-components": lambda _objecten: "catalogue",
+            }
+        )
+
+        artifacts = render_renderdoelen(model.objecten, registry)
+
+        self.assertEqual(
+            [
+                ("css-components", "output/products/components.css", "components"),
+                ("html-components", "output/products/components.html", "catalogue"),
+            ],
+            [
+                (artifact.definitie.id, artifact.definitie.pad, artifact.inhoud)
+                for artifact in artifacts
+            ],
+        )
+
+    def test_leidt_renderer_niet_af_uit_formaat(self):
+        model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
+        registry = RenderTargetRendererRegistry(
+            {
+                "css-components": lambda _objecten: "components",
+            }
+        )
+
+        with self.assertRaisesRegex(
+            KeyError,
+            "Renderdoel 'html-components' heeft geen geregistreerde renderer",
+        ):
+            render_renderdoelen(model.objecten, registry)
 
     def test_weigert_onbekend_renderdoelveld(self):
         bron = BRON.replace(
