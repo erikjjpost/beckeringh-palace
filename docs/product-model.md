@@ -458,6 +458,15 @@ product heeft geen tijdcontext: HTML maakt dit machineleesbaar met
 refreshgedrag weg. Een interactief product behoudt tijdcontext en HTML markeert
 dit als `data-time-context="applicable"`.
 
+M10.3d geeft iedere statische snapshot een deterministische identiteit. De
+compiler berekent daarvoor een SHA-256 hash over de canoniek geordende,
+gevalideerde architectuurobjecten, zonder bronlocaties of uitvoeromgeving.
+HTML en Grafana tonen dezelfde eerste twaalf hexadecimale tekens als compacte
+snapshotidentiteit. HTML bewaart daarnaast de volledige hash in
+`data-snapshot-id`. Dezelfde architectuurinhoud levert daardoor steeds dezelfde
+identiteit op en iedere inhoudswijziging een andere. Interactieve producten
+hebben geen snapshotidentiteit.
+
 ## Diagnostics
 
 | Code | Betekenis |

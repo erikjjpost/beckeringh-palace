@@ -73,6 +73,7 @@ def naar_native_layout_html(
     wereld_naam: str | None = None,
     thema_naam: str | None = None,
     mode_label: str | None = None,
+    snapshot_label: str | None = None,
 ) -> str:
     """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
 
@@ -116,10 +117,15 @@ def naar_native_layout_html(
             if mode_label is not None
             else ""
         )
+        snapshot_suffix = (
+            f" · {html.escape(snapshot_label)}"
+            if snapshot_label is not None
+            else ""
+        )
         regels.append(
             f'    <p class="bp-product-kicker">{html.escape(wereld_naam)}'
             f' · {html.escape(thema_naam)} · Gegenereerd uit BAT'
-            f"{mode_suffix}</p>"
+            f"{mode_suffix}{snapshot_suffix}</p>"
         )
     regels.extend([
         f"    <h1>{html.escape(compositie.naam)}</h1>",

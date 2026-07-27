@@ -3,6 +3,8 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 from dataclasses import dataclass, replace
+import hashlib
+import json
 
 from compiler.backend import BackendRegistry
 from compiler.cir import Architectuurobject
@@ -22,7 +24,6 @@ PRODUCT_MODE_TIME_CONTEXT = {
     "static": False,
 }
 
-
 @dataclass(frozen=True)
 class CompiledProduct:
     definitie: ProductDefinition
@@ -40,10 +41,28 @@ def _los_productcontext_op(
         product,
         mode_label=PRODUCT_MODE_LABELS[product.mode],
         has_time_context=PRODUCT_MODE_TIME_CONTEXT[product.mode],
+        snapshot_id=(
+            _snapshot_id(objecten)
+            if product.mode == "static"
+            else ""
+        ),
         thema=thema,
         opgeloste_compositie=composities.get(product.compositie),
         opgeloste_layout=layouts.get(product.layout),
     )
+
+
+def _snapshot_id(objecten: tuple[Architectuurobject, ...]) -> str:
+    canoniek = json.dumps(
+        [
+            obj.als_dict()
+            for obj in sorted(objecten, key=lambda obj: (obj.soort, obj.id))
+        ],
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return hashlib.sha256(canoniek).hexdigest()
 
 
 def compileer_producten(

@@ -10,7 +10,7 @@ from compiler.cir import Architectuurobject
 from compiler.design_components import ComponentAppearance, verzamel_appearances
 from compiler.design_compositions import ResolvedComponentInstance
 from compiler.layout_model import LayoutType, ResolvedLayout, ResolvedRegion
-from compiler.product_model import ProductDefinition
+from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
 from compiler.theme_resolution import ResolvedTheme
 
 GRAFANA_GRID_COLUMNS = 24
@@ -387,6 +387,12 @@ def _dashboard_header(
                                 "fixed": (
                                     f"{thema.wereld_naam} · {thema.thema_naam} "
                                     f"· Gegenereerd uit BAT · {product.mode_label}"
+                                    + (
+                                        f" · Snapshot "
+                                        f"{product.snapshot_id[:SNAPSHOT_ID_LENGTH]}"
+                                        if product.snapshot_id
+                                        else ""
+                                    )
                                 ),
                                 "mode": "fixed",
                             },

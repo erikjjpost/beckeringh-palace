@@ -9,6 +9,8 @@ from compiler.design_compositions import ResolvedComposition
 from compiler.layout_model import ResolvedLayout
 from compiler.theme_resolution import ResolvedTheme
 
+SNAPSHOT_ID_LENGTH = 12
+
 
 @dataclass(frozen=True)
 class ProductDefinition:
@@ -23,6 +25,7 @@ class ProductDefinition:
     mode: str = "interactive"
     mode_label: str = ""
     has_time_context: bool = True
+    snapshot_id: str = ""
     wereld: str = ""
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None
