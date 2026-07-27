@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "project": "Beckeringh Palace",
+  "overall_progress": 40,
+  "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
+  "current_milestone": {
+    "id": "M10.4a",
+    "name": "Reproduceerbare projectstatus",
+    "state": "in uitvoering"
+  },
+  "last_completed_milestone": {
+    "id": "M10.3e",
+    "name": "Gedeelde snapshotverificatie",
+    "pull_request": 58
+  },
+  "next_step": {
+    "id": "M10.4b",
+    "name": "Status als native productcontext",
+    "purpose": "De normatieve voortgang ontsluiten voor toekomstige HTML en Grafana statusproducten."
+  },
+  "areas": [
+    {
+      "id": "compiler",
+      "name": "Compiler en reproduceerbaarheid",
+      "progress": 80,
+      "evidence": "Validatie, deterministische generatie, CI en 115 regressietests vormen een werkende kwaliteitsketen.",
+      "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
+    },
+    {
+      "id": "world-model",
+      "name": "World Model en productcontracten",
+      "progress": 70,
+      "evidence": "Thema's, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd.",
+      "remaining": "De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen."
+    },
+    {
+      "id": "design-system",
+      "name": "Design System",
+      "progress": 55,
+      "evidence": "Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar.",
+      "remaining": "Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig."
+    },
+    {
+      "id": "dashboard",
+      "name": "Dashboard UI en Grafana",
+      "progress": 60,
+      "evidence": "HTML en importeerbare Grafana output delen layout, thema, semantiek en snapshotverificatie.",
+      "remaining": "Het dashboard is nog vooral een architectuursnapshot en nog geen volledige operationele productervaring."
+    },
+    {
+      "id": "visual-world",
+      "name": "Visuele wereld en art direction",
+      "progress": 25,
+      "evidence": "De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig.",
+      "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
+    },
+    {
+      "id": "svg-library",
+      "name": "SVG component library en icon set",
+      "progress": 20,
+      "evidence": "De compiler kan componenten en SVG gerichte producten dragen.",
+      "remaining": "Een brede, consistente en gedocumenteerde bibliotheek ontbreekt nog."
+    },
+    {
+      "id": "logos-wallpapers",
+      "name": "Logo's en wallpapers",
+      "progress": 10,
+      "evidence": "De visuele richting en producteisen zijn bekend.",
+      "remaining": "De reproduceerbare logo en wallpaperfamilies moeten nog als compilerproducten worden gerealiseerd."
+    },
+    {
+      "id": "homepage",
+      "name": "HTML homepage",
+      "progress": 15,
+      "evidence": "HTML generatie en een gedeelde productshell bestaan.",
+      "remaining": "Een volwaardige Beckeringh Palace homepage met eigen informatiearchitectuur ontbreekt nog."
+    },
+    {
+      "id": "figma",
+      "name": "Figma masterbestand",
+      "progress": 10,
+      "evidence": "Figma is onderdeel van de doelarchitectuur.",
+      "remaining": "Het masterbestand en de reproduceerbare synchronisatie zijn nog niet gerealiseerd."
+    },
+    {
+      "id": "world-bible",
+      "name": "World Bible",
+      "progress": 25,
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd.",
+      "remaining": "De normatieve wereldbeschrijving, stijltaal, symboliek en ontwerpregels moeten nog worden samengebracht."
+    }
+  ]
+}
