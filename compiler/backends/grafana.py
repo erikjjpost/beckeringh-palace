@@ -318,6 +318,35 @@ def _canvasopties(
             }
         )
         body_top += navigatiehoogte + 12
+    if instantie.content_anchors:
+        inhoudhoogte = bodygrootte * 2 * len(instantie.content_anchors)
+        elementen.append(
+            {
+                "config": {
+                    "align": "left",
+                    "color": {"fixed": voorgrond},
+                    "size": bodygrootte,
+                    "text": {
+                        "fixed": "\n".join(
+                            f"{anker.naam} · {anker.object_kind}\n{anker.doel}"
+                            for anker in instantie.content_anchors
+                        ),
+                        "mode": "fixed",
+                    },
+                    "valign": "top",
+                },
+                "constraint": {"horizontal": "left", "vertical": "top"},
+                "name": f"{instantie.id}-content-anchors",
+                "placement": {
+                    "height": inhoudhoogte,
+                    "left": tekstlinks,
+                    "top": body_top,
+                    "width": 360,
+                },
+                "type": "text",
+            }
+        )
+        body_top += inhoudhoogte + 12
     elementen.append(
         {
             "config": {

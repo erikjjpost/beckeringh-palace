@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 7367725bd0c1",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 57b6007e5c00",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 228,
+                "height": 272,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -344,6 +344,32 @@
               "config": {
                 "align": "left",
                 "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-content-anchors",
+              "placement": {
+                "height": 32,
+                "left": 20,
+                "top": 188,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
                   "fixed": "#AEB4BD"
                 },
                 "size": 16,
@@ -361,7 +387,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 188,
+                "top": 232,
                 "width": 360
               },
               "type": "text"
@@ -420,7 +446,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 420,
+                "height": 528,
                 "left": 4,
                 "top": 4,
                 "width": 4
@@ -958,6 +984,32 @@
               "config": {
                 "align": "left",
                 "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nMateriële kleurrollen voor Forge-oppervlakken en accenten.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-content-anchors",
+              "placement": {
+                "height": 96,
+                "left": 16,
+                "top": 376,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
                   "fixed": "#AEB4BD"
                 },
                 "size": 16,
@@ -975,7 +1027,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 376,
+                "top": 484,
                 "width": 360
               },
               "type": "text"
@@ -1034,7 +1086,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 288,
+                "height": 396,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1337,6 +1389,32 @@
               "config": {
                 "align": "left",
                 "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-content-anchors",
+              "placement": {
+                "height": 96,
+                "left": 20,
+                "top": 248,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
                   "fixed": "#AEB4BD"
                 },
                 "size": 16,
@@ -1354,7 +1432,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 248,
+                "top": 356,
                 "width": 360
               },
               "type": "text"
@@ -1375,7 +1453,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:7367725bd0c1842ef344d706825b7f47e51d42bf5217eeed28d92e95c38592de"
+    "sha256:57b6007e5c00a8a88693d25976313bdcd5bdfd8fc3c0c393a1733e250edf3f27"
   ],
   "templating": {
     "list": []

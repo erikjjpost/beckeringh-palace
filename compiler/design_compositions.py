@@ -7,6 +7,7 @@ from typing import Iterable
 from compiler.cir import Architectuurobject
 from compiler.design_variants import ResolvedComponentVariant, resolveer_varianten
 from compiler.information_architecture import (
+    ResolvedContentAnchor,
     ResolvedInformationArea,
     ResolvedNavigationTarget,
     resolveer_informatiegebieden,
@@ -32,6 +33,7 @@ class ResolvedComponentInstance:
     metric_kind: str | None
     metric_value: int | None
     metric_details: tuple[ResolvedMetricDetail, ...]
+    content_anchors: tuple[ResolvedContentAnchor, ...]
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
 
 
@@ -140,6 +142,11 @@ def _instantie_uit_object(
             else None
         ),
         metric_details=metric_details,
+        content_anchors=(
+            informatiegebied.content_anchors
+            if informatiegebied is not None
+            else ()
+        ),
         navigation_targets=(
             informatiegebied.navigation_targets
             if informatiegebied is not None

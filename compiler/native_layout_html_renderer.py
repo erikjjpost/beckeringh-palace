@@ -194,6 +194,16 @@ def naar_native_layout_html(
                     f"{waarde}</li>"
                 )
             regels.append("      </ul>")
+        if instantie.content_anchors:
+            regels.append('      <ul class="bp-content-anchors" aria-label="Kerninhoud">')
+            for anker in instantie.content_anchors:
+                regels.append(
+                    f'        <li data-content-anchor="{html.escape(anker.id)}" '
+                    f'data-object-kind="{html.escape(anker.object_kind)}">'
+                    f"<strong>{html.escape(anker.naam)}</strong>"
+                    f"<span>{html.escape(anker.doel)}</span></li>"
+                )
+            regels.append("      </ul>")
         if instantie.navigation_targets:
             regels.append('      <nav class="bp-product-navigation" aria-label="Productnavigatie">')
             regels.append("        <ul>")

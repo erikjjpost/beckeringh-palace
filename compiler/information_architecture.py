@@ -19,11 +19,20 @@ class ResolvedNavigationTarget:
 
 
 @dataclass(frozen=True)
+class ResolvedContentAnchor:
+    id: str
+    naam: str
+    object_kind: str
+    doel: str
+
+
+@dataclass(frozen=True)
 class ResolvedInformationArea:
     id: str
     naam: str
     doel: str
     object_kinds: tuple[str, ...]
+    content_anchors: tuple[ResolvedContentAnchor, ...]
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
 
 
@@ -37,11 +46,12 @@ class InformationArchitectureConstraint:
             obj for obj in context.objecten if obj.soort == "informatiegebied"
         )
         eigenaren: dict[str, str] = {}
+        inhoud_eigenaren: dict[str, str] = {}
         navigatie_eigenaren: dict[str, str] = {}
 
         for gebied in gebieden:
             for veld in gebied.eigenschappen:
-                if veld not in {"naam", "doel", "soorten", "navigatie"}:
+                if veld not in {"naam", "doel", "soorten", "inhoud", "navigatie"}:
                     diagnostics.append(Diagnostic(
                         code="BP4001",
                         boodschap=(
@@ -106,6 +116,66 @@ class InformationArchitectureConstraint:
                     ))
                 else:
                     eigenaren[soort] = gebied.id
+            inhoud = gebied.eigenschappen.get("inhoud")
+            geldig = (
+                isinstance(inhoud, list)
+                and bool(inhoud)
+                and all(
+                    isinstance(anker, str) and bool(anker.strip())
+                    for anker in inhoud
+                )
+                and len(inhoud) == len(set(inhoud))
+            )
+            if not geldig:
+                diagnostics.append(Diagnostic(
+                    code="BP4009",
+                    boodschap=(
+                        f"Informatiegebied '{gebied.id}' vereist een niet-lege, "
+                        "unieke lijst 'inhoud'"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "inhoud", gebied.bronlocatie
+                    ),
+                ))
+            else:
+                for anker_id in inhoud:
+                    anker = context.symbolen.get(anker_id)
+                    if anker is None:
+                        diagnostics.append(Diagnostic(
+                            code="BP4010",
+                            boodschap=(
+                                f"Informatiegebied '{gebied.id}' verwijst naar "
+                                f"onbekend inhoudsanker '{anker_id}'"
+                            ),
+                            locatie=gebied.eigenschaplocaties.get(
+                                "inhoud", gebied.bronlocatie
+                            ),
+                        ))
+                    elif anker.soort not in soorten:
+                        diagnostics.append(Diagnostic(
+                            code="BP4011",
+                            boodschap=(
+                                f"Inhoudsanker '{anker_id}' van informatiegebied "
+                                f"'{gebied.id}' valt buiten de gebiedssoorten"
+                            ),
+                            locatie=gebied.eigenschaplocaties.get(
+                                "inhoud", gebied.bronlocatie
+                            ),
+                        ))
+                    eigenaar = inhoud_eigenaren.get(anker_id)
+                    if eigenaar is not None:
+                        diagnostics.append(Diagnostic(
+                            code="BP4012",
+                            boodschap=(
+                                f"Inhoudsanker '{anker_id}' komt voor in zowel "
+                                f"informatiegebied '{eigenaar}' als '{gebied.id}'"
+                            ),
+                            locatie=gebied.eigenschaplocaties.get(
+                                "inhoud", gebied.bronlocatie
+                            ),
+                        ))
+                    else:
+                        inhoud_eigenaren[anker_id] = gebied.id
             navigatie = gebied.eigenschappen.get("navigatie")
             geldig = (
                 isinstance(navigatie, list)
@@ -179,14 +249,25 @@ def resolveer_informatiegebieden(
         if obj.soort != "informatiegebied":
             continue
         soorten = obj.eigenschappen["soorten"]
+        inhoud = obj.eigenschappen["inhoud"]
         navigatie = obj.eigenschappen["navigatie"]
         assert isinstance(soorten, list)
+        assert isinstance(inhoud, list)
         assert isinstance(navigatie, list)
         gebieden.append(ResolvedInformationArea(
             id=obj.id,
             naam=str(obj.eigenschappen["naam"]),
             doel=str(obj.eigenschappen["doel"]),
             object_kinds=tuple(sorted(str(soort) for soort in soorten)),
+            content_anchors=tuple(
+                ResolvedContentAnchor(
+                    id=anker_id,
+                    naam=str(symbolen[anker_id].eigenschappen["naam"]),
+                    object_kind=symbolen[anker_id].soort,
+                    doel=str(symbolen[anker_id].eigenschappen["doel"]),
+                )
+                for anker_id in inhoud
+            ),
             navigation_targets=tuple(
                 ResolvedNavigationTarget(
                     id=doel_id,

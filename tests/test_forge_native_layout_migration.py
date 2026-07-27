@@ -127,6 +127,13 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             'data-navigation-kind="product">Beckeringh Palace Projectstatus</a>',
             product.inhoud,
         )
+        self.assertIn(
+            '<li data-content-anchor="forge" data-object-kind="thema">'
+            "<strong>Forge</strong><span>Nordic forge-ontwerpidentiteit voor "
+            "Beckeringh Palace.</span></li>",
+            product.inhoud,
+        )
+        self.assertEqual(7, product.inhoud.count('data-content-anchor="'))
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
         self.assertIn('data-product-mode="static"', product.inhoud)
         self.assertIn('data-time-context="none"', product.inhoud)
