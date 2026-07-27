@@ -4,19 +4,19 @@
   "overall_progress": 40,
   "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
   "current_milestone": {
-    "id": "M10.4a",
-    "name": "Reproduceerbare projectstatus",
+    "id": "M10.4b",
+    "name": "Status als native productcontext",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M10.3e",
-    "name": "Gedeelde snapshotverificatie",
-    "pull_request": 58
+    "id": "M10.4a",
+    "name": "Reproduceerbare projectstatus",
+    "pull_request": 59
   },
   "next_step": {
-    "id": "M10.4b",
-    "name": "Status als native productcontext",
-    "purpose": "De normatieve voortgang ontsluiten voor toekomstige HTML en Grafana statusproducten."
+    "id": "M10.4c",
+    "name": "Native HTML statusproduct",
+    "purpose": "De normatieve voortgang als eerste zichtbaar, reproduceerbaar HTML product ontsluiten."
   },
   "areas": [
     {

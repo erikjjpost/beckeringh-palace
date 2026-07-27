@@ -58,6 +58,13 @@ compositie, wereld, thema en BAT-generatiestatus. HTML rendert deze als een
 responsieve productshell. Grafana rendert deze als een vaste Canvas-header
 boven de native gridplaatsingen.
 
+De normatieve projectstatus wordt als getypeerde `ProjectStatus` één keer
+gevalideerd en door de productcompiler aan de gedeelde productcontext
+toegevoegd. Backends krijgen daardoor dezelfde voortgang, milestones,
+onderbouwing en resterend werk zonder zelf `project/status.json` te lezen of
+eigen statuslogica toe te voegen. Productcompilatie zonder aangeleverde status
+blijft expliciet contextloos voor bestaande en externe compilatiepaden.
+
 Native composities beschrijven de inhoud van een product onafhankelijk van de
 layout. Zij ordenen benoemde componentinstanties en bevatten geen richting of
 backendpresentatie. Daardoor blijven hergebruik van een component, identiteit

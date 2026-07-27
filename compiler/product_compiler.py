@@ -11,6 +11,7 @@ from compiler.cir import Architectuurobject
 from compiler.design_compositions import ResolvedComposition, resolveer_composities
 from compiler.layout_model import ResolvedLayout, resolveer_layouts
 from compiler.product_model import ProductDefinition, verzamel_producten
+from compiler.project_status import ProjectStatus
 from compiler.theme_resolution import resolveer_thema
 
 
@@ -38,6 +39,7 @@ def _los_productcontext_op(
     product: ProductDefinition,
     composities: dict[str, ResolvedComposition],
     layouts: dict[str, ResolvedLayout],
+    project_status: ProjectStatus | None,
 ) -> ProductDefinition:
     thema = resolveer_thema(objecten, product.wereld) if product.wereld else None
     snapshot_id = _snapshot_id(objecten) if product.mode == "static" else ""
@@ -51,6 +53,7 @@ def _los_productcontext_op(
             if snapshot_id
             else ""
         ),
+        project_status=project_status,
         thema=thema,
         opgeloste_compositie=composities.get(product.compositie),
         opgeloste_layout=layouts.get(product.layout),
@@ -73,6 +76,7 @@ def _snapshot_id(objecten: tuple[Architectuurobject, ...]) -> str:
 def compileer_producten(
     objecten: Iterable[Architectuurobject],
     registry: BackendRegistry,
+    project_status: ProjectStatus | None = None,
 ) -> tuple[CompiledProduct, ...]:
     objecten = tuple(objecten)
     composities = {
@@ -87,6 +91,8 @@ def compileer_producten(
         )
         for product in verzamel_producten(objecten)
         for opgelost in (
-            _los_productcontext_op(objecten, product, composities, layouts),
+            _los_productcontext_op(
+                objecten, product, composities, layouts, project_status
+            ),
         )
     )

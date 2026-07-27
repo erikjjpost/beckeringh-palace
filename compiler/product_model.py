@@ -7,6 +7,7 @@ from typing import Iterable
 from compiler.cir import Architectuurobject
 from compiler.design_compositions import ResolvedComposition
 from compiler.layout_model import ResolvedLayout
+from compiler.project_status import ProjectStatus
 from compiler.theme_resolution import ResolvedTheme
 
 SNAPSHOT_ID_LENGTH = 12
@@ -27,6 +28,7 @@ class ProductDefinition:
     has_time_context: bool = True
     snapshot_id: str = ""
     snapshot_ref: str = ""
+    project_status: ProjectStatus | None = None
     wereld: str = ""
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None
