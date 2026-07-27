@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 7367725bd0c1",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 57b6007e5c00",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M10.5b · Dashboard productnavigatie (in uitvoering)\nVoltooid: M10.5a · Dashboard informatiearchitectuur (PR #63)\nVolgende stap: M10.5c · Dashboard inhoudelijke verdieping\nDe informatiegebieden uitbreiden met betekenisvolle objectinhoud naast tellingen en productnavigatie.",
+                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M10.5c · Dashboard inhoudelijke verdieping (in uitvoering)\nVoltooid: M10.5b · Dashboard productnavigatie (PR #64)\nVolgende stap: M10.5d · Dashboard toegankelijkheidscontract\nDe betekenisvolle labels en leesvolgorde van dashboardinformatie backendonafhankelijk vastleggen en toetsen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 129 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 130 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -784,7 +784,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling en expliciete navigatie naar zes producten en catalogi.\nResterend: De informatiegebieden hebben nog geen inhoudelijke objectverdieping.",
+                  "fixed": "Onderbouwing: HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven expliciete kernobjecten en navigatie naar zes producten en catalogi.\nResterend: Betekenisvolle labels en leesvolgorde zijn nog niet als expliciet toegankelijkheidscontract gemodelleerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1648,7 +1648,7 @@
     "generated",
     "project-status-schema:1",
     "overall-progress:40",
-    "sha256:7367725bd0c1842ef344d706825b7f47e51d42bf5217eeed28d92e95c38592de"
+    "sha256:57b6007e5c00a8a88693d25976313bdcd5bdfd8fc3c0c393a1733e250edf3f27"
   ],
   "templating": {
     "list": []

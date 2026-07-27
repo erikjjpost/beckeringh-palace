@@ -83,6 +83,7 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertIn("forge-dashboard-center-panel-metric-detail-values", middennamen)
         self.assertIn("forge-dashboard-center-panel-metric-detail-rule-15", middennamen)
         self.assertIn("forge-dashboard-center-panel-product-navigation", middennamen)
+        self.assertIn("forge-dashboard-center-panel-content-anchors", middennamen)
         navigatie = next(
             element
             for element in dashboard["panels"][2]["options"]["root"]["elements"]
@@ -93,8 +94,21 @@ class GrafanaBackendTests(unittest.TestCase):
             [link["url"] for link in navigatie["links"]],
         )
         self.assertEqual(
-            {"height": 420, "left": 4, "top": 4, "width": 4},
+            {"height": 528, "left": 4, "top": 4, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
+        )
+        inhoud = next(
+            element
+            for element in dashboard["panels"][2]["options"]["root"]["elements"]
+            if element["name"] == "forge-dashboard-center-panel-content-anchors"
+        )
+        self.assertEqual(
+            "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\n"
+            "Forge Materials · materiaal\nMateriële kleurrollen voor "
+            "Forge-oppervlakken en accenten.\n"
+            "Forge Panel · component\nBasispaneel voor dashboards en "
+            "productdocumentatie.",
+            inhoud["config"]["text"]["fixed"],
         )
         self.assertEqual(
             {

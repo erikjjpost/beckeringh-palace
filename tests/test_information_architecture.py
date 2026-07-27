@@ -14,6 +14,7 @@ informatiegebied wereld {
     naam: "Wereld"
     doel: "Wereldinhoud."
     soorten: ["wereld"]
+    inhoud: ["palace"]
     navigatie: ["dashboard-html"]
 }
 
@@ -82,6 +83,13 @@ class InformationArchitectureTests(unittest.TestCase):
 
         self.assertEqual(("wereld",), gebied.object_kinds)
         self.assertEqual(
+            (("palace", "Palace", "wereld", "Digitale wereld."),),
+            tuple(
+                (anker.id, anker.naam, anker.object_kind, anker.doel)
+                for anker in gebied.content_anchors
+            ),
+        )
+        self.assertEqual(
             (("dashboard-html", "Dashboard HTML", "product", "output/products/dashboard.html"),),
             tuple(
                 (doel.id, doel.naam, doel.target_kind, doel.artifact_path)
@@ -98,6 +106,7 @@ class InformationArchitectureTests(unittest.TestCase):
             tuple((detail.label, detail.value) for detail in instantie.metric_details),
         )
         self.assertEqual(gebied.navigation_targets, instantie.navigation_targets)
+        self.assertEqual(gebied.content_anchors, instantie.content_anchors)
 
     def test_weigert_onbekend_gebied(self):
         with self.assertRaises(SemantischeFout) as context:
@@ -176,6 +185,39 @@ wereld palace {''',
 wereld palace {''',
                 ),
                 "BP4008",
+            ),
+        )
+        for bron, code in varianten:
+            with self.subTest(code=code):
+                with self.assertRaises(SemantischeFout) as context:
+                    analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+                self.assertIn(code, {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_ongeldige_inhoudsankers(self):
+        varianten = (
+            (BRON.replace('inhoud: ["palace"]', "inhoud: []"), "BP4009"),
+            (
+                BRON.replace('inhoud: ["palace"]', 'inhoud: ["missing"]'),
+                "BP4010",
+            ),
+            (
+                BRON.replace('inhoud: ["palace"]', 'inhoud: ["dashboard-html"]'),
+                "BP4011",
+            ),
+            (
+                BRON.replace(
+                    "wereld palace {",
+                    '''informatiegebied dubbel {
+    naam: "Dubbel"
+    doel: "Dubbele inhoud."
+    soorten: ["wereld"]
+    inhoud: ["palace"]
+    navigatie: ["missing-product"]
+}
+
+wereld palace {''',
+                ),
+                "BP4012",
             ),
         )
         for bron, code in varianten:

@@ -511,6 +511,17 @@ productlinks en Grafana rendert dezelfde doelen als Canvas-links. Backends
 zoeken daardoor geen producten of catalogi en leiden geen paden af uit
 objectsoorten.
 
+M10.5c geeft ieder informatiegebied daarnaast een expliciete, geordende lijst
+`inhoud`. Ieder inhoudsanker verwijst naar een bestaand object waarvan de soort
+door dat informatiegebied wordt geclaimd. De informatielaag lost id, naam,
+objectsoort en doel vóór backendselectie op. Hetzelfde object mag niet door
+meerdere gebieden als inhoudsanker worden gebruikt.
+
+HTML en Grafana tonen dezelfde zeven geselecteerde kernobjecten naast tellingen,
+soortverdeling en productnavigatie. De selectie en volgorde komen volledig uit
+BAT. Backends kiezen daardoor geen voorbeelden op basis van aantallen,
+objectsoorten of toevallige bronvolgorde.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -565,3 +576,7 @@ objectsoorten.
 | `BP4006` | Informatiegebied verwijst naar een onbekend navigatiedoel |
 | `BP4007` | Navigatiedoel is geen product of renderdoel |
 | `BP4008` | Navigatiedoel komt voor in meerdere informatiegebieden |
+| `BP4009` | Informatiegebied heeft geen geldige unieke inhoudslijst |
+| `BP4010` | Informatiegebied verwijst naar een onbekend inhoudsanker |
+| `BP4011` | Inhoudsanker valt buiten de objectsoorten van het informatiegebied |
+| `BP4012` | Inhoudsanker komt voor in meerdere informatiegebieden |

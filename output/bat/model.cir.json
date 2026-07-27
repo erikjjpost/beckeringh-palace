@@ -362,6 +362,9 @@
   {
     "eigenschappen": {
       "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
+      "inhoud": [
+        "beckeringh-palace"
+      ],
       "naam": "Wereld en identiteit",
       "navigatie": [
         "forge-dashboard-html",
@@ -379,6 +382,11 @@
   {
     "eigenschappen": {
       "doel": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.",
+      "inhoud": [
+        "forge",
+        "forge-materials",
+        "forge-panel"
+      ],
       "naam": "Forge ontwerpsysteem",
       "navigatie": [
         "html-components",
@@ -410,6 +418,11 @@
   {
     "eigenschappen": {
       "doel": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.",
+      "inhoud": [
+        "forge-dashboard",
+        "forge-dashboard-ultrawide",
+        "project-status-html"
+      ],
       "naam": "Productfamilie",
       "navigatie": [
         "project-status-html",
