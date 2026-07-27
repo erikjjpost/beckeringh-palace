@@ -53,6 +53,11 @@ dashboardstijl. Component-, variant- en appearance-identiteit blijven in
 paneelbeschrijvingen traceerbaar. Het domeinmodel bevat geen HTML-, CSS- of
 Grafana-eigenschappen.
 
+HTML en Grafana tonen daarnaast dezelfde opgeloste dashboardidentiteit:
+compositie, wereld, thema en BAT-generatiestatus. HTML rendert deze als een
+responsieve productshell. Grafana rendert deze als een vaste Canvas-header
+boven de native gridplaatsingen.
+
 Native composities beschrijven de inhoud van een product onafhankelijk van de
 layout. Zij ordenen benoemde componentinstanties en bevatten geen richting of
 backendpresentatie. Daardoor blijven hergebruik van een component, identiteit

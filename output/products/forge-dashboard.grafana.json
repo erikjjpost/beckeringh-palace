@@ -9,14 +9,128 @@
   "links": [],
   "panels": [
     {
+      "description": "Eerste reproduceerbare productsamenstelling.",
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#171A1F"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#D86A35"
+            },
+            "width": 0
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-grafana-identity",
+              "placement": {
+                "height": 22,
+                "left": 16,
+                "top": 16,
+                "width": 720
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 40,
+                "text": {
+                  "fixed": "Forge Dashboard",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-grafana-title",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 38,
+                "width": 720
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Eerste reproduceerbare productsamenstelling.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-grafana-purpose",
+              "placement": {
+                "height": 24,
+                "left": 776,
+                "top": 46,
+                "width": 720
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Forge Dashboard",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
       "description": "Aantal objecten in het gevalideerde BAT wereldmodel.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
       "gridPos": {
         "h": 16,
         "w": 8,
         "x": 0,
-        "y": 0
+        "y": 4
       },
-      "id": 1,
+      "id": 2,
       "options": {
         "infinitePan": false,
         "inlineEditing": false,
@@ -179,9 +293,9 @@
         "h": 16,
         "w": 8,
         "x": 8,
-        "y": 0
+        "y": 4
       },
-      "id": 2,
+      "id": 3,
       "options": {
         "infinitePan": false,
         "inlineEditing": false,
@@ -344,9 +458,9 @@
         "h": 16,
         "w": 8,
         "x": 16,
-        "y": 0
+        "y": 4
       },
-      "id": 3,
+      "id": 4,
       "options": {
         "infinitePan": false,
         "inlineEditing": false,

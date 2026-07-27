@@ -70,6 +70,8 @@ def naar_native_layout_html(
     compositie: ResolvedComposition,
     layout: ResolvedLayout,
     titel: str = "Beckeringh Palace product",
+    wereld_naam: str | None = None,
+    thema_naam: str | None = None,
 ) -> str:
     """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
 
@@ -105,13 +107,23 @@ def naar_native_layout_html(
         "  </style>",
         "</head>",
         "<body>",
-        f"  <header><h1>{html.escape(layout.naam)}</h1></header>",
+        '  <header class="bp-product-header">',
+    ]
+    if wereld_naam is not None and thema_naam is not None:
+        regels.append(
+            f'    <p class="bp-product-kicker">{html.escape(wereld_naam)}'
+            f' · {html.escape(thema_naam)} · Gegenereerd uit BAT</p>'
+        )
+    regels.extend([
+        f"    <h1>{html.escape(compositie.naam)}</h1>",
+        f'    <p class="bp-product-purpose">{html.escape(compositie.doel)}</p>',
+        "  </header>",
         (
             f'  <main class="bp-layout bp-layout-{_css_naam(layout.id)}" '
             f'data-layout-type="{layout.type.value}" '
             f'style="{_style(_layout_css(layout))}">'
         ),
-    ]
+    ])
     for instantie, region in geordende_plaatsingen:
         region_style = _style(_region_css(layout, region))
         style_attribute = f' style="{region_style}"' if region_style else ""
