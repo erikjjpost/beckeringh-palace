@@ -11,6 +11,7 @@ from compiler.design_components import ComponentAppearance, verzamel_appearances
 from compiler.design_compositions import ResolvedComponentInstance
 from compiler.layout_model import LayoutType, ResolvedLayout, ResolvedRegion
 from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
+from compiler.project_status import ProductAreaStatus, ProjectStatus
 from compiler.theme_resolution import ResolvedTheme
 
 GRAFANA_GRID_COLUMNS = 24
@@ -456,10 +457,214 @@ def _dashboard_header(
     }
 
 
+def _status_canvas(
+    product: ProductDefinition,
+    *,
+    panel_id: int,
+    title: str,
+    lines: tuple[str, ...],
+    grid_pos: dict[str, int],
+    description: str,
+    progress: int | None = None,
+) -> dict[str, object]:
+    assert product.thema is not None
+    thema = product.thema
+    if thema.typeschaal is None or thema.spacing is None:
+        raise ValueError(
+            f"Grafana projectstatus vereist typeschaal en spacing voor "
+            f"product '{product.id}'"
+        )
+    voorgrond = _themakleur(thema, "materiaal", "foreground")
+    muted = _themakleur(thema, "materiaal", "muted")
+    accent = _themakleur(thema, "materiaal", "accent")
+    achtergrond = _themakleur(thema, "materiaal", "raised")
+    outline = _themakleur(thema, "materiaal", "outline")
+    padding = _pixels(thema.spacing.medium, "spacing.medium")
+    heading = _pixels(thema.typeschaal.heading, "typeschaal.heading")
+    body = _pixels(thema.typeschaal.body, "typeschaal.body")
+    elementen: list[dict[str, object]] = [
+        {
+            "config": {
+                "align": "left",
+                "color": {"fixed": voorgrond},
+                "size": heading,
+                "text": {"fixed": title, "mode": "fixed"},
+                "valign": "top",
+            },
+            "constraint": {"horizontal": "left", "vertical": "top"},
+            "name": f"{product.id}-panel-{panel_id}-title",
+            "placement": {
+                "height": heading + 8,
+                "left": padding,
+                "top": padding,
+                "width": 680,
+            },
+            "type": "text",
+        }
+    ]
+    top = padding + heading + 12
+    if progress is not None:
+        elementen.extend([
+            {
+                "background": {"color": {"fixed": outline}},
+                "border": {"color": {"fixed": outline}, "width": 0},
+                "constraint": {"horizontal": "left", "vertical": "top"},
+                "name": f"{product.id}-panel-{panel_id}-progress-track",
+                "placement": {
+                    "height": 10,
+                    "left": padding,
+                    "top": top,
+                    "width": 600,
+                },
+                "type": "rectangle",
+            },
+            {
+                "background": {"color": {"fixed": accent}},
+                "border": {"color": {"fixed": accent}, "width": 0},
+                "constraint": {"horizontal": "left", "vertical": "top"},
+                "name": f"{product.id}-panel-{panel_id}-progress-value",
+                "placement": {
+                    "height": 10,
+                    "left": padding,
+                    "top": top,
+                    "width": progress * 6,
+                },
+                "type": "rectangle",
+            },
+        ])
+        top += 22
+    elementen.append(
+        {
+            "config": {
+                "align": "left",
+                "color": {"fixed": muted},
+                "size": body,
+                "text": {"fixed": "\n".join(lines), "mode": "fixed"},
+                "valign": "top",
+            },
+            "constraint": {"horizontal": "left", "vertical": "top"},
+            "name": f"{product.id}-panel-{panel_id}-body",
+            "placement": {
+                "height": body * (len(lines) + 1),
+                "left": padding,
+                "top": top,
+                "width": 680,
+            },
+            "type": "text",
+        }
+    )
+    return {
+        "description": description,
+        "gridPos": grid_pos,
+        "id": panel_id,
+        "options": {
+            "infinitePan": False,
+            "inlineEditing": False,
+            "panZoom": False,
+            "root": {
+                "background": {"color": {"fixed": achtergrond}},
+                "border": {"color": {"fixed": outline}, "width": 1},
+                "elements": elementen,
+                "name": "Root",
+                "type": "frame",
+            },
+            "showAdvancedTypes": False,
+        },
+        "title": title,
+        "transparent": True,
+        "type": "canvas",
+    }
+
+
+def _status_area_panel(
+    product: ProductDefinition,
+    area: ProductAreaStatus,
+    index: int,
+) -> dict[str, object]:
+    column = index % 2
+    row = index // 2
+    return _status_canvas(
+        product,
+        panel_id=index + 3,
+        title=f"{area.name} · {area.progress}%",
+        lines=(f"Onderbouwing: {area.evidence}", f"Resterend: {area.remaining}"),
+        grid_pos={"h": 12, "w": 12, "x": column * 12, "y": 14 + row * 12},
+        description=f"project-status-area:{area.id};progress:{area.progress}",
+        progress=area.progress,
+    )
+
+
+def _render_project_status(product: ProductDefinition) -> str:
+    status = product.project_status
+    if status is None:
+        raise ValueError(f"Product '{product.id}' vereist projectstatuscontext")
+    assert isinstance(status, ProjectStatus)
+    stijl = _grafana_stijl(product)
+    panels = [
+        _dashboard_header(product, product.naam, product.doel),
+        _status_canvas(
+            product,
+            panel_id=2,
+            title=f"Totale voortgang · {status.overall_progress}%",
+            lines=(
+                status.overall_method,
+                (
+                    f"Actueel: {status.current_milestone.id} · "
+                    f"{status.current_milestone.name} "
+                    f"({status.current_milestone.state})"
+                ),
+                (
+                    f"Voltooid: {status.last_completed_milestone.id} · "
+                    f"{status.last_completed_milestone.name} "
+                    f"(PR #{status.last_completed_milestone.pull_request})"
+                ),
+                f"Volgende stap: {status.next_step.id} · {status.next_step.name}",
+                status.next_step.purpose,
+            ),
+            grid_pos={"h": 10, "w": 24, "x": 0, "y": 4},
+            description=(
+                f"project-status-schema:{status.schema_version};"
+                f"overall-progress:{status.overall_progress}"
+            ),
+            progress=status.overall_progress,
+        ),
+        *(
+            _status_area_panel(product, area, index)
+            for index, area in enumerate(status.areas)
+        ),
+    ]
+    dashboard = {
+        "annotations": {"list": []},
+        "editable": False,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": None,
+        "links": [],
+        "panels": panels,
+        "schemaVersion": 41,
+        "style": stijl,
+        "tags": [
+            "beckeringh-palace",
+            "generated",
+            f"project-status-schema:{status.schema_version}",
+            f"overall-progress:{status.overall_progress}",
+            *([product.snapshot_ref] if product.snapshot_ref else []),
+        ],
+        "templating": {"list": []},
+        "timepicker": {"hidden": True},
+        "title": product.naam,
+        "uid": product.id,
+        "version": 1,
+    }
+    return json.dumps(dashboard, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+
+
 def _render(
     objecten: Iterable[Architectuurobject],
     product: ProductDefinition,
 ) -> str:
+    if product.inhoud == "project-status":
+        return _render_project_status(product)
     objecten = tuple(objecten)
     compositie = product.opgeloste_compositie
     layout = product.opgeloste_layout

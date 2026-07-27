@@ -1,0 +1,1662 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": false,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "description": "De normatieve projectvoortgang als reproduceerbaar Grafana dashboard ontsluiten.",
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#20252C"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#D86A35"
+            },
+            "width": 0
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot dbd5a5142659",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-identity",
+              "placement": {
+                "height": 22,
+                "left": 16,
+                "top": 16,
+                "width": 720
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 40,
+                "text": {
+                  "fixed": "Beckeringh Palace Projectstatus Grafana",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-title",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 38,
+                "width": 720
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "De normatieve projectvoortgang als reproduceerbaar Grafana dashboard ontsluiten.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-purpose",
+              "placement": {
+                "height": 24,
+                "left": 776,
+                "top": 46,
+                "width": 720
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Beckeringh Palace Projectstatus Grafana",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-schema:1;overall-progress:40",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 2,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Totale voortgang · 40%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-2-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-2-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-2-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 240
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M10.4d · Native Grafana statusproduct (in uitvoering)\nVoltooid: M10.4c · Native HTML statusproduct (PR #61)\nVolgende stap: M10.5a · Dashboard informatiearchitectuur\nHet Forge Dashboard van een technische architectuursnapshot naar een inhoudelijk Beckeringh Palace productmodel ontwikkelen.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-2-body",
+              "placement": {
+                "height": 96,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Totale voortgang · 40%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:compiler;progress:80",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "id": 3,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Compiler en reproduceerbaarheid · 80%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-3-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-3-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-3-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 480
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 124 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-3-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Compiler en reproduceerbaarheid · 80%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:world-model;progress:70",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 14
+      },
+      "id": 4,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "World Model en productcontracten · 70%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-4-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-4-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-4-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 420
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: Thema's, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-4-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "World Model en productcontracten · 70%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:design-system;progress:55",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "id": 5,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Design System · 55%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-5-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-5-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-5-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 330
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar.\nResterend: Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-5-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Design System · 55%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:dashboard;progress:60",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 26
+      },
+      "id": 6,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Dashboard UI en Grafana · 60%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-6-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-6-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-6-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: HTML en importeerbare Grafana output delen layout, thema, semantiek en snapshotverificatie.\nResterend: Het dashboard is nog vooral een architectuursnapshot en nog geen volledige operationele productervaring.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-6-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Dashboard UI en Grafana · 60%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:visual-world;progress:25",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 38
+      },
+      "id": 7,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Visuele wereld en art direction · 25%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-7-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-7-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-7-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 150
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-7-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Visuele wereld en art direction · 25%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:svg-library;progress:20",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 38
+      },
+      "id": 8,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "SVG component library en icon set · 20%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-8-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-8-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-8-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 120
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: De compiler kan componenten en SVG gerichte producten dragen.\nResterend: Een brede, consistente en gedocumenteerde bibliotheek ontbreekt nog.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-8-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "SVG component library en icon set · 20%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:logos-wallpapers;progress:10",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 50
+      },
+      "id": 9,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Logo's en wallpapers · 10%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-9-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-9-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-9-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 60
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: De visuele richting en producteisen zijn bekend.\nResterend: De reproduceerbare logo en wallpaperfamilies moeten nog als compilerproducten worden gerealiseerd.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-9-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Logo's en wallpapers · 10%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:homepage;progress:15",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 50
+      },
+      "id": 10,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "HTML homepage · 15%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-10-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-10-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-10-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 90
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: HTML generatie en een gedeelde productshell bestaan.\nResterend: Een volwaardige Beckeringh Palace homepage met eigen informatiearchitectuur ontbreekt nog.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-10-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "HTML homepage · 15%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:figma;progress:10",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 62
+      },
+      "id": 11,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Figma masterbestand · 10%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-11-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-11-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-11-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 60
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: Figma is onderdeel van de doelarchitectuur.\nResterend: Het masterbestand en de reproduceerbare synchronisatie zijn nog niet gerealiseerd.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-11-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Figma masterbestand · 10%",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "project-status-area:world-bible;progress:25",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 62
+      },
+      "id": 12,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#282E36"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#46505C"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "World Bible · 25%",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-12-title",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 16,
+                "width": 680
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-12-progress-track",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 600
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-12-progress-value",
+              "placement": {
+                "height": 10,
+                "left": 16,
+                "top": 56,
+                "width": 150
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#AEB4BD"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd.\nResterend: De normatieve wereldbeschrijving, stijltaal, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "project-status-grafana-panel-12-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 78,
+                "width": 680
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "World Bible · 25%",
+      "transparent": true,
+      "type": "canvas"
+    }
+  ],
+  "schemaVersion": 41,
+  "style": "dark",
+  "tags": [
+    "beckeringh-palace",
+    "generated",
+    "project-status-schema:1",
+    "overall-progress:40",
+    "sha256:dbd5a5142659f4009087918580cd728533871598eaa91f85180d64566b07b697"
+  ],
+  "templating": {
+    "list": []
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "title": "Beckeringh Palace Projectstatus Grafana",
+  "uid": "project-status-grafana",
+  "version": 1
+}

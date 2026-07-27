@@ -483,6 +483,13 @@ ieder productgebied met bewijs en resterend werk. Compilatie zonder
 projectstatuscontext blijft bestaande producten ondersteunen en selecteert
 contextafhankelijke statusproducten niet.
 
+M10.4d ontsluit dezelfde getypeerde `ProjectStatus` als importeerbaar Grafana
+dashboard. De Grafana backend rendert de totale architectuurschatting, de
+milestoneketen en alle productgebieden zonder de normatieve JSON bron te lezen
+of percentages te berekenen. Schema en totale voortgang staan daarnaast als
+machineleesbare dashboardtags vast. HTML en Grafana blijven contextafhankelijke
+statusproducten en worden zonder statuscontext beide overgeslagen.
+
 ## Diagnostics
 
 | Code | Betekenis |
