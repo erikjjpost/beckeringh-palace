@@ -56,6 +56,10 @@ def _paneelbeschrijving(instantie: ResolvedComponentInstance) -> str:
     ]
     if instantie.variant_id is not None:
         identiteit.insert(1, f"BAT variant: {instantie.variant_id}")
+    if instantie.information_area_id is not None:
+        identiteit.append(
+            f"BAT informatiegebied: {instantie.information_area_id}"
+        )
     return f"{instantie.doel}\n\n" + "\n".join(identiteit)
 
 

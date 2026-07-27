@@ -56,9 +56,9 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual(
             [
                 "Forge Dashboard",
-                "Architectuurobjecten",
-                "Design tokens",
-                "Productuitvoer",
+                "Wereld en identiteit",
+                "Forge ontwerpsysteem",
+                "Productfamilie",
             ],
             [panel["title"] for panel in dashboard["panels"]],
         )
@@ -75,27 +75,15 @@ class GrafanaBackendTests(unittest.TestCase):
             {"color": {"fixed": "#46505C"}, "width": 2},
             dashboard["panels"][2]["options"]["root"]["border"],
         )
+        middennamen = [
+            element["name"]
+            for element in dashboard["panels"][2]["options"]["root"]["elements"]
+        ]
+        self.assertIn("forge-dashboard-center-panel-metric-detail-labels", middennamen)
+        self.assertIn("forge-dashboard-center-panel-metric-detail-values", middennamen)
+        self.assertIn("forge-dashboard-center-panel-metric-detail-rule-15", middennamen)
         self.assertEqual(
-            [
-                "forge-dashboard-center-panel-accent",
-                "forge-dashboard-center-panel-heading",
-                "forge-dashboard-center-panel-metric",
-                "forge-dashboard-center-panel-metric-detail-labels",
-                "forge-dashboard-center-panel-metric-detail-rule-1",
-                "forge-dashboard-center-panel-metric-detail-rule-2",
-                "forge-dashboard-center-panel-metric-detail-rule-3",
-                "forge-dashboard-center-panel-metric-detail-rule-4",
-                "forge-dashboard-center-panel-metric-detail-rule-5",
-                "forge-dashboard-center-panel-metric-detail-rule-6",
-                "forge-dashboard-center-panel-body",
-            ],
-            [
-                element["name"]
-                for element in dashboard["panels"][2]["options"]["root"]["elements"]
-            ],
-        )
-        self.assertEqual(
-            {"height": 252, "left": 4, "top": 4, "width": 4},
+            {"height": 360, "left": 4, "top": 4, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         self.assertEqual(
@@ -103,14 +91,14 @@ class GrafanaBackendTests(unittest.TestCase):
                 "align": "left",
                 "color": {"fixed": "#ECECEC"},
                 "size": 28,
-                "text": {"fixed": "Design tokens", "mode": "fixed"},
+                "text": {"fixed": "Forge ontwerpsysteem", "mode": "fixed"},
                 "valign": "top",
             },
             dashboard["panels"][2]["options"]["root"]["elements"][1]["config"],
         )
         self.assertEqual(
             {
-                "height": 84,
+                "height": 192,
                 "left": 16,
                 "top": 112,
                 "width": 280,
@@ -118,7 +106,8 @@ class GrafanaBackendTests(unittest.TestCase):
             dashboard["panels"][2]["options"]["root"]["elements"][3]["placement"],
         )
         self.assertEqual(
-            "Accent\nEmber\nIron\nSmoke\nMedium radius\nForge interface font family",
+            "appearance\nborder\ncomponent\nkleur\nmateriaal\nmotion\npalet\nradius\n"
+            "shadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant",
             dashboard["panels"][2]["options"]["root"]["elements"][3]["config"][
                 "text"
             ]["fixed"],
@@ -131,13 +120,17 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             {"fixed": "#AEB4BD"},
-            dashboard["panels"][2]["options"]["root"]["elements"][10]["config"][
+            dashboard["panels"][2]["options"]["root"]["elements"][-1]["config"][
                 "color"
             ],
         )
         self.assertEqual(
             {"color": {"fixed": "#46505C"}, "width": 0},
-            dashboard["panels"][2]["options"]["root"]["elements"][4]["border"],
+            next(
+                element
+                for element in dashboard["panels"][2]["options"]["root"]["elements"]
+                if element["name"] == "forge-dashboard-center-panel-metric-detail-rule-1"
+            )["border"],
         )
         linker_elementen = {
             element["name"]: element
@@ -162,13 +155,13 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["border"],
         )
         self.assertEqual(
-            "6",
+            "27",
             dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
-            ["44", "6", "4"],
+            ["1", "27", "16"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
@@ -177,10 +170,12 @@ class GrafanaBackendTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            "Aantal native tokens waaruit de Forge producten worden gegenereerd.\n\n"
+            "De ontwerpprimitieven, tokens en componentcontracten van de "
+            "Forge-identiteit.\n\n"
             "BAT component: forge-panel\n"
             "BAT variant: forge-panel-compact\n"
-            "BAT appearance: forge-panel-compact-appearance",
+            "BAT appearance: forge-panel-compact-appearance\n"
+            "BAT informatiegebied: forge-design-system",
             dashboard["panels"][2]["description"],
         )
         self.assertEqual(
@@ -192,7 +187,8 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["fixed"],
         )
         self.assertEqual(
-            "Eerste reproduceerbare productsamenstelling.",
+            "Informatiearchitectuur van de Beckeringh Palace wereld, het Forge "
+            "ontwerpsysteem en de productfamilie.",
             dashboard["panels"][0]["description"],
         )
         self.assertEqual(

@@ -45,6 +45,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
+    ObjectsoortDefinitie("informatiegebied", Domeinstatus.NATIVE, "Bundelt objectsoorten tot één benoemd informatiegebied voor producten."),
     ObjectsoortDefinitie("compositie", Domeinstatus.NATIVE, "Bundelt benoemde componentinstanties tot productinhoud."),
     ObjectsoortDefinitie("componentinstantie", Domeinstatus.NATIVE, "Beschrijft één benoemd gebruik van een component in een compositie."),
     ObjectsoortDefinitie("layout", Domeinstatus.NATIVE, "Beschrijft backend-onafhankelijke layoutintentie."),

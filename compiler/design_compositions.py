@@ -6,6 +6,10 @@ from typing import Iterable
 
 from compiler.cir import Architectuurobject
 from compiler.design_variants import ResolvedComponentVariant, resolveer_varianten
+from compiler.information_architecture import (
+    ResolvedInformationArea,
+    resolveer_informatiegebieden,
+)
 
 
 @dataclass(frozen=True)
@@ -23,6 +27,7 @@ class ResolvedComponentInstance:
     component_id: str
     variant_id: str | None
     appearance_id: str | None
+    information_area_id: str | None
     metric_kind: str | None
     metric_value: int | None
     metric_details: tuple[ResolvedMetricDetail, ...]
@@ -53,6 +58,7 @@ def _instantie_uit_object(
     obj: Architectuurobject,
     componenten: dict[str, Architectuurobject],
     varianten: dict[str, ResolvedComponentVariant],
+    informatiegebieden: dict[str, ResolvedInformationArea],
     objecten_per_soort: dict[str, int],
     aantal_objecten: int,
     objecten: tuple[Architectuurobject, ...],
@@ -63,15 +69,26 @@ def _instantie_uit_object(
     variant = varianten.get(variant_id) if variant_id is not None else None
     metric_waarde = obj.eigenschappen.get("metric-kind")
     metric_detail = obj.eigenschappen.get("metric-detail")
+    informatiegebied_waarde = obj.eigenschappen.get("informatiegebied")
+    informatiegebied = (
+        informatiegebieden.get(informatiegebied_waarde)
+        if isinstance(informatiegebied_waarde, str)
+        else None
+    )
     component = componenten[component_id]
     basisappearance = component.eigenschappen.get("appearance")
     matching_objects = tuple(
         item
         for item in objecten
-        if metric_waarde == "*" or item.soort == metric_waarde
+        if (
+            informatiegebied is not None
+            and item.soort in informatiegebied.object_kinds
+        )
+        or metric_waarde == "*"
+        or item.soort == metric_waarde
     )
     metric_details: tuple[ResolvedMetricDetail, ...] = ()
-    if metric_detail == "kinds":
+    if informatiegebied is not None or metric_detail == "kinds":
         aantallen: dict[str, int] = {}
         for item in matching_objects:
             aantallen[item.soort] = aantallen.get(item.soort, 0) + 1
@@ -93,8 +110,8 @@ def _instantie_uit_object(
         )
     return ResolvedComponentInstance(
         id=obj.id,
-        naam=_tekst(obj, "naam"),
-        doel=_tekst(obj, "doel"),
+        naam=informatiegebied.naam if informatiegebied is not None else _tekst(obj, "naam"),
+        doel=informatiegebied.doel if informatiegebied is not None else _tekst(obj, "doel"),
         composition_id=_tekst(obj, "compositie"),
         component_id=component_id,
         variant_id=variant_id,
@@ -103,9 +120,18 @@ def _instantie_uit_object(
             if variant is not None
             else basisappearance if isinstance(basisappearance, str) else None
         ),
-        metric_kind=metric_waarde if isinstance(metric_waarde, str) else None,
+        information_area_id=(
+            informatiegebied.id if informatiegebied is not None else None
+        ),
+        metric_kind=(
+            f"informatiegebied:{informatiegebied.id}"
+            if informatiegebied is not None
+            else metric_waarde if isinstance(metric_waarde, str) else None
+        ),
         metric_value=(
-            aantal_objecten
+            len(matching_objects)
+            if informatiegebied is not None
+            else aantal_objecten
             if metric_waarde == "*"
             else objecten_per_soort[metric_waarde]
             if isinstance(metric_waarde, str)
@@ -135,6 +161,10 @@ def resolveer_composities(
         variant.id: variant
         for variant in resolveer_varianten(objecten)
     }
+    informatiegebieden = {
+        gebied.id: gebied
+        for gebied in resolveer_informatiegebieden(objecten)
+    }
     objecten_per_soort: dict[str, int] = {}
     for obj in objecten:
         objecten_per_soort[obj.soort] = objecten_per_soort.get(obj.soort, 0) + 1
@@ -153,6 +183,7 @@ def resolveer_composities(
                     instanties[instance_id],
                     componenten,
                     varianten,
+                    informatiegebieden,
                     objecten_per_soort,
                     len(objecten),
                     objecten,

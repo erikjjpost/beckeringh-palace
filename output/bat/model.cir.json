@@ -361,7 +361,61 @@
   },
   {
     "eigenschappen": {
-      "doel": "Eerste reproduceerbare productsamenstelling.",
+      "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
+      "naam": "Wereld en identiteit",
+      "soorten": [
+        "wereld",
+        "merk",
+        "asset"
+      ]
+    },
+    "id": "palace-world",
+    "soort": "informatiegebied"
+  },
+  {
+    "eigenschappen": {
+      "doel": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.",
+      "naam": "Forge ontwerpsysteem",
+      "soorten": [
+        "kleur",
+        "palet",
+        "typografie",
+        "typeschaal",
+        "materiaal",
+        "border",
+        "radius",
+        "shadow",
+        "motion",
+        "spacing",
+        "thema",
+        "appearance",
+        "token",
+        "component",
+        "variant"
+      ]
+    },
+    "id": "forge-design-system",
+    "soort": "informatiegebied"
+  },
+  {
+    "eigenschappen": {
+      "doel": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.",
+      "naam": "Productfamilie",
+      "soorten": [
+        "compositie",
+        "componentinstantie",
+        "layout",
+        "region",
+        "product",
+        "renderdoel"
+      ]
+    },
+    "id": "palace-product-family",
+    "soort": "informatiegebied"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Informatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.",
       "instanties": [
         "forge-dashboard-left-panel",
         "forge-dashboard-center-panel",
@@ -376,10 +430,9 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "forge-dashboard",
-      "doel": "Aantal objecten in het gevalideerde BAT wereldmodel.",
-      "metric-detail": "kinds",
-      "metric-kind": "*",
-      "naam": "Architectuurobjecten"
+      "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
+      "informatiegebied": "palace-world",
+      "naam": "Wereld en identiteit"
     },
     "id": "forge-dashboard-left-panel",
     "soort": "componentinstantie"
@@ -388,10 +441,9 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "forge-dashboard",
-      "doel": "Aantal native tokens waaruit de Forge producten worden gegenereerd.",
-      "metric-detail": "items",
-      "metric-kind": "token",
-      "naam": "Design tokens",
+      "doel": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.",
+      "informatiegebied": "forge-design-system",
+      "naam": "Forge ontwerpsysteem",
       "variant": "forge-panel-compact"
     },
     "id": "forge-dashboard-center-panel",
@@ -401,10 +453,9 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "forge-dashboard",
-      "doel": "Aantal productdefinities met een expliciete backend.",
-      "metric-detail": "items",
-      "metric-kind": "product",
-      "naam": "Productuitvoer"
+      "doel": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.",
+      "informatiegebied": "palace-product-family",
+      "naam": "Productfamilie"
     },
     "id": "forge-dashboard-right-panel",
     "soort": "componentinstantie"

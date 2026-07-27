@@ -236,38 +236,53 @@ variant forge-panel-compact {
     appearance: "forge-panel-compact-appearance"
 }
 
+informatiegebied palace-world {
+    naam: "Wereld en identiteit"
+    doel: "De digitale wereld, haar merk en haar reproduceerbare bronassets."
+    soorten: ["wereld", "merk", "asset"]
+}
+
+informatiegebied forge-design-system {
+    naam: "Forge ontwerpsysteem"
+    doel: "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit."
+    soorten: ["kleur", "palet", "typografie", "typeschaal", "materiaal", "border", "radius", "shadow", "motion", "spacing", "thema", "appearance", "token", "component", "variant"]
+}
+
+informatiegebied palace-product-family {
+    naam: "Productfamilie"
+    doel: "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd."
+    soorten: ["compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
+}
+
 compositie forge-dashboard {
     naam: "Forge Dashboard"
-    doel: "Eerste reproduceerbare productsamenstelling."
+    doel: "Informatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie."
     instanties: ["forge-dashboard-left-panel", "forge-dashboard-center-panel", "forge-dashboard-right-panel"]
 }
 
 componentinstantie forge-dashboard-left-panel {
-    naam: "Architectuurobjecten"
-    doel: "Aantal objecten in het gevalideerde BAT wereldmodel."
+    naam: "Wereld en identiteit"
+    doel: "De digitale wereld, haar merk en haar reproduceerbare bronassets."
     compositie: "forge-dashboard"
     component: "forge-panel"
-    metric-kind: "*"
-    metric-detail: "kinds"
+    informatiegebied: "palace-world"
 }
 
 componentinstantie forge-dashboard-center-panel {
-    naam: "Design tokens"
-    doel: "Aantal native tokens waaruit de Forge producten worden gegenereerd."
+    naam: "Forge ontwerpsysteem"
+    doel: "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit."
     compositie: "forge-dashboard"
     component: "forge-panel"
     variant: "forge-panel-compact"
-    metric-kind: "token"
-    metric-detail: "items"
+    informatiegebied: "forge-design-system"
 }
 
 componentinstantie forge-dashboard-right-panel {
-    naam: "Productuitvoer"
-    doel: "Aantal productdefinities met een expliciete backend."
+    naam: "Productfamilie"
+    doel: "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd."
     compositie: "forge-dashboard"
     component: "forge-panel"
-    metric-kind: "product"
-    metric-detail: "items"
+    informatiegebied: "palace-product-family"
 }
 
 layout forge-dashboard-ultrawide {

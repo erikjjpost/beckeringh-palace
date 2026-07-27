@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot dbd5a5142659",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 71feaabf14e9",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M10.4d · Native Grafana statusproduct (in uitvoering)\nVoltooid: M10.4c · Native HTML statusproduct (PR #61)\nVolgende stap: M10.5a · Dashboard informatiearchitectuur\nHet Forge Dashboard van een technische architectuursnapshot naar een inhoudelijk Beckeringh Palace productmodel ontwikkelen.",
+                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M10.5a · Dashboard informatiearchitectuur (in uitvoering)\nVoltooid: M10.4d · Native Grafana statusproduct (PR #62)\nVolgende stap: M10.5b · Dashboard productnavigatie\nDe informatiegebieden verbinden met de bijbehorende Beckeringh Palace producten en catalogi.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 124 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 128 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Thema's, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "fixed": "Onderbouwing: Thema's, informatiegebieden, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -784,7 +784,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: HTML en importeerbare Grafana output delen layout, thema, semantiek en snapshotverificatie.\nResterend: Het dashboard is nog vooral een architectuursnapshot en nog geen volledige operationele productervaring.",
+                  "fixed": "Onderbouwing: HTML en Grafana delen drie native informatiegebieden voor wereld, ontwerpsysteem en productfamilie, naast layout, thema en snapshotverificatie.\nResterend: De informatiegebieden hebben nog geen productnavigatie of inhoudelijke verdieping.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1648,7 +1648,7 @@
     "generated",
     "project-status-schema:1",
     "overall-progress:40",
-    "sha256:dbd5a5142659f4009087918580cd728533871598eaa91f85180d64566b07b697"
+    "sha256:71feaabf14e9338d4b48f6d07d3dfd2a4c43eae5d167a72989e3aedf4a082ee5"
   ],
   "templating": {
     "list": []

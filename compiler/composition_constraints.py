@@ -21,6 +21,9 @@ class DesignCompositionConstraint:
             for obj in context.objecten
             if obj.soort == "componentinstantie"
         }
+        informatiegebieden = {
+            obj.id for obj in context.objecten if obj.soort == "informatiegebied"
+        }
 
         for obj in context.objecten:
             if obj.soort == "compositie":
@@ -88,6 +91,7 @@ class DesignCompositionConstraint:
                     "variant",
                     "metric-kind",
                     "metric-detail",
+                    "informatiegebied",
                 }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
@@ -142,6 +146,38 @@ class DesignCompositionConstraint:
                         locatie=obj.eigenschaplocaties.get("component", obj.bronlocatie),
                     ))
                 metric_kind = obj.eigenschappen.get("metric-kind")
+                informatiegebied = obj.eigenschappen.get("informatiegebied")
+                if (
+                    "informatiegebied" in obj.eigenschappen
+                    and informatiegebied not in informatiegebieden
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3717",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' verwijst naar "
+                            f"onbekend informatiegebied '{informatiegebied}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "informatiegebied", obj.bronlocatie
+                        ),
+                    ))
+                if (
+                    "informatiegebied" in obj.eigenschappen
+                    and (
+                        "metric-kind" in obj.eigenschappen
+                        or "metric-detail" in obj.eigenschappen
+                    )
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3718",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' combineert "
+                            "'informatiegebied' met legacy metriekvelden"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "informatiegebied", obj.bronlocatie
+                        ),
+                    ))
                 if (
                     "metric-kind" in obj.eigenschappen
                     and (
