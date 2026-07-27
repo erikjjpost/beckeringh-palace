@@ -242,6 +242,7 @@ class HtmlThemeBackendTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn('data-world="beckeringh-palace"', product.inhoud)
+        self.assertIn('data-product-mode="interactive"', product.inhoud)
         self.assertIn('data-theme="forge"', product.inhoud)
 
 

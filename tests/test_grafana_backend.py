@@ -38,6 +38,8 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual("forge-dashboard-grafana", dashboard["uid"])
         self.assertEqual(41, dashboard["schemaVersion"])
         self.assertEqual("dark", dashboard["style"])
+        self.assertFalse(dashboard["editable"])
+        self.assertEqual({"hidden": True}, dashboard["timepicker"])
         self.assertEqual(
             [
                 {"h": 4, "w": 24, "x": 0, "y": 0},

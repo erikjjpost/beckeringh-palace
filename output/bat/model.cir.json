@@ -473,6 +473,7 @@
       "compositie": "forge-dashboard",
       "doel": "Het ultrawide Forge-dashboard via de HTML-backend genereren.",
       "layout": "forge-dashboard-ultrawide",
+      "mode": "static",
       "naam": "Forge Dashboard HTML",
       "pad": "output/products/forge-dashboard.html",
       "wereld": "beckeringh-palace"
@@ -486,6 +487,7 @@
       "compositie": "forge-dashboard",
       "doel": "Het Forge-dashboard als importeerbaar Grafana dashboard genereren.",
       "layout": "forge-dashboard-ultrawide",
+      "mode": "static",
       "naam": "Forge Dashboard Grafana",
       "pad": "output/products/forge-dashboard.grafana.json",
       "wereld": "beckeringh-palace"

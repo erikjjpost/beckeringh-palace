@@ -508,7 +508,7 @@ def _render(
 
     dashboard = {
         "annotations": {"list": []},
-        "editable": True,
+        "editable": product.mode != "static",
         "fiscalYearStartMonth": 0,
         "graphTooltip": 0,
         "id": None,
@@ -520,7 +520,7 @@ def _render(
         "tags": ["beckeringh-palace", "generated"],
         "templating": {"list": []},
         "time": {"from": "now-6h", "to": "now"},
-        "timepicker": {},
+        "timepicker": {"hidden": product.mode == "static"},
         "timezone": "browser",
         "title": product.naam,
         "uid": product.id,

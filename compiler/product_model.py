@@ -20,6 +20,7 @@ class ProductDefinition:
     layout: str
     pad: str
     bron: Architectuurobject
+    mode: str = "interactive"
     wereld: str = ""
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None
@@ -38,6 +39,7 @@ def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
         layout=str(obj.eigenschappen.get("layout", "")),
         pad=str(obj.eigenschappen.get("pad", "")),
         bron=obj,
+        mode=str(obj.eigenschappen.get("mode", "interactive")),
         wereld=str(obj.eigenschappen.get("wereld", "")),
     )
 

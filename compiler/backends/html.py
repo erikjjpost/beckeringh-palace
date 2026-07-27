@@ -200,7 +200,8 @@ def _render(
     inhoud = inhoud.replace("  <style>\n", "  <style>\n" + _theme_css(product), 1)
     inhoud = inhoud.replace(
         "<body>",
-        f'<body data-world="{thema.wereld_id}" data-theme="{thema.thema_id}">',
+        f'<body data-world="{thema.wereld_id}" data-theme="{thema.thema_id}" '
+        f'data-product-mode="{product.mode}">',
         1,
     )
     return inhoud
