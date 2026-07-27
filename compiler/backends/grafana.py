@@ -514,18 +514,21 @@ def _render(
         "id": None,
         "links": [],
         "panels": panels,
-        "refresh": "",
         "schemaVersion": 41,
         "style": stijl,
         "tags": ["beckeringh-palace", "generated"],
         "templating": {"list": []},
-        "time": {"from": "now-6h", "to": "now"},
         "timepicker": {"hidden": product.mode == "static"},
-        "timezone": "browser",
         "title": product.naam,
         "uid": product.id,
         "version": 1,
     }
+    if product.has_time_context:
+        dashboard.update({
+            "refresh": "",
+            "time": {"from": "now-6h", "to": "now"},
+            "timezone": "browser",
+        })
     return json.dumps(dashboard, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 

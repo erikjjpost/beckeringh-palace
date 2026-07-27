@@ -66,6 +66,7 @@ class ProductBackendSliceTests(unittest.TestCase):
             "Interactief product",
             producten[0].definitie.mode_label,
         )
+        self.assertTrue(producten[0].definitie.has_time_context)
         self.assertIn("<title>Dashboard HTML</title>", producten[0].inhoud)
         self.assertIn("bp-layout-widescreen", producten[0].inhoud)
         self.assertIn('data-instance="dashboard-panel"', producten[0].inhoud)

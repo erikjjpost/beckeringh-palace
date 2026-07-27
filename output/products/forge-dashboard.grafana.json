@@ -1444,7 +1444,6 @@
       "type": "canvas"
     }
   ],
-  "refresh": "",
   "schemaVersion": 41,
   "style": "dark",
   "tags": [
@@ -1454,14 +1453,9 @@
   "templating": {
     "list": []
   },
-  "time": {
-    "from": "now-6h",
-    "to": "now"
-  },
   "timepicker": {
     "hidden": true
   },
-  "timezone": "browser",
   "title": "Forge Dashboard Grafana",
   "uid": "forge-dashboard-grafana",
   "version": 1

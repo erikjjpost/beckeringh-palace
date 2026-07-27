@@ -22,6 +22,7 @@ class ProductDefinition:
     bron: Architectuurobject
     mode: str = "interactive"
     mode_label: str = ""
+    has_time_context: bool = True
     wereld: str = ""
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None
