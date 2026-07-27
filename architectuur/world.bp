@@ -222,6 +222,7 @@ componentinstantie forge-dashboard-left-panel {
     compositie: "forge-dashboard"
     component: "forge-panel"
     metric-kind: "*"
+    metric-detail: "kinds"
 }
 
 componentinstantie forge-dashboard-center-panel {
@@ -231,6 +232,7 @@ componentinstantie forge-dashboard-center-panel {
     component: "forge-panel"
     variant: "forge-panel-compact"
     metric-kind: "token"
+    metric-detail: "items"
 }
 
 componentinstantie forge-dashboard-right-panel {
@@ -239,6 +241,7 @@ componentinstantie forge-dashboard-right-panel {
     compositie: "forge-dashboard"
     component: "forge-panel"
     metric-kind: "product"
+    metric-detail: "items"
 }
 
 layout forge-dashboard-ultrawide {

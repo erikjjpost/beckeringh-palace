@@ -11,7 +11,7 @@
     {
       "description": "Aantal objecten in het gevalideerde BAT wereldmodel.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
       "gridPos": {
-        "h": 8,
+        "h": 16,
         "w": 8,
         "x": 0,
         "y": 0
@@ -52,7 +52,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 56,
+                "height": 468,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -117,6 +117,32 @@
                 "color": {
                   "fixed": "#ECECEC"
                 },
+                "size": 12,
+                "text": {
+                  "fixed": "appearance  2\nborder  1\ncapability  2\ncomponent  1\ncomponentinstantie  3\ncompositie  1\ndienst  1\nkleur  3\nlayout  1\nmateriaal  1\nmotion  1\npalet  1\nproduct  2\nradius  1\nregion  3\nrenderdoel  4\nshadow  1\nspacing  1\nthema  1\ntoken  6\ntypeschaal  1\ntypografie  1\nvariant  1\nwereld  1",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-details",
+              "placement": {
+                "height": 300,
+                "left": 20,
+                "top": 116,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
                 "size": 16,
                 "text": {
                   "fixed": "Aantal objecten in het gevalideerde BAT wereldmodel.",
@@ -132,7 +158,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 116,
+                "top": 428,
                 "width": 360
               },
               "type": "text"
@@ -150,7 +176,7 @@
     {
       "description": "Aantal native tokens waaruit de Forge producten worden gegenereerd.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-compact-appearance",
       "gridPos": {
-        "h": 8,
+        "h": 16,
         "w": 8,
         "x": 8,
         "y": 0
@@ -191,7 +217,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 56,
+                "height": 252,
                 "left": 4,
                 "top": 4,
                 "width": 4
@@ -256,6 +282,32 @@
                 "color": {
                   "fixed": "#ECECEC"
                 },
+                "size": 12,
+                "text": {
+                  "fixed": "Accent\nEmber\nIron\nSmoke\nMedium radius\nForge interface font family",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-details",
+              "placement": {
+                "height": 84,
+                "left": 16,
+                "top": 112,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
                 "size": 16,
                 "text": {
                   "fixed": "Aantal native tokens waaruit de Forge producten worden gegenereerd.",
@@ -271,7 +323,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 112,
+                "top": 208,
                 "width": 360
               },
               "type": "text"
@@ -289,7 +341,7 @@
     {
       "description": "Aantal productdefinities met een expliciete backend.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
       "gridPos": {
-        "h": 8,
+        "h": 16,
         "w": 8,
         "x": 16,
         "y": 0
@@ -330,7 +382,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 56,
+                "height": 204,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -395,6 +447,32 @@
                 "color": {
                   "fixed": "#ECECEC"
                 },
+                "size": 12,
+                "text": {
+                  "fixed": "Forge Dashboard Grafana\nForge Dashboard HTML",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-details",
+              "placement": {
+                "height": 36,
+                "left": 20,
+                "top": 116,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
                 "size": 16,
                 "text": {
                   "fixed": "Aantal productdefinities met een expliciete backend.",
@@ -410,7 +488,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 116,
+                "top": 164,
                 "width": 360
               },
               "type": "text"

@@ -104,6 +104,7 @@ class NativeCompositionModelTests(unittest.TestCase):
         self.assertEqual("panel-default", compositie.instances[1].appearance_id)
         self.assertIsNone(compositie.instances[1].metric_kind)
         self.assertIsNone(compositie.instances[1].metric_value)
+        self.assertEqual((), compositie.instances[1].metric_details)
 
     def test_resolveert_en_valideert_optionele_modeltelling(self):
         bron = BRON.replace(
@@ -132,6 +133,31 @@ class NativeCompositionModelTests(unittest.TestCase):
             analyseer(parseer(onbekend), constraints=WORLD_MODEL_CONSTRAINTS)
 
         self.assertIn("BP3715", {item.code for item in context.exception.diagnostics})
+
+    def test_resolveert_en_valideert_metric_details(self):
+        bron = BRON.replace(
+            '    component: "forge-panel"\n}',
+            '    component: "forge-panel"\n'
+            '    metric-kind: "component"\n'
+            '    metric-detail: "items"\n}',
+            1,
+        )
+        model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        details = resolveer_composities(model.objecten)[0].instances[1].metric_details
+
+        self.assertEqual(("Forge Panel",), tuple(item.label for item in details))
+        self.assertTrue(all(item.value is None for item in details))
+
+        ongeldig = bron.replace('metric-detail: "items"', 'metric-detail: "anders"')
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(ongeldig), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3716", {item.code for item in context.exception.diagnostics})
+
+        zonder_metric = bron.replace('    metric-kind: "component"\n', "")
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(zonder_metric), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3716", {item.code for item in context.exception.diagnostics})
 
     def test_weigert_legacy_layoutvelden(self):
         bron = BRON.replace(

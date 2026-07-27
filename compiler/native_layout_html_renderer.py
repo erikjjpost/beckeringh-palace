@@ -147,6 +147,19 @@ def naar_native_layout_html(
                 f'data-metric-kind="{html.escape(instantie.metric_kind or "")}">'
                 f"{instantie.metric_value}</p>"
             )
+        if instantie.metric_details:
+            regels.append('      <ul class="bp-metric-details">')
+            for detail in instantie.metric_details:
+                waarde = (
+                    f'<span class="bp-metric-detail-value">{detail.value}</span>'
+                    if detail.value is not None
+                    else ""
+                )
+                regels.append(
+                    f'        <li><span>{html.escape(detail.label)}</span>'
+                    f"{waarde}</li>"
+                )
+            regels.append("      </ul>")
         regels.extend([
             f'      <p class="bp-description">{html.escape(instantie.doel)}</p>',
             "    </section>",

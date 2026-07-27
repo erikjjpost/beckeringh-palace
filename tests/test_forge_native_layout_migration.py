@@ -104,6 +104,12 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             '<p class="bp-metric" data-metric-kind="product">2</p>',
             product.inhoud,
         )
+        self.assertIn('<ul class="bp-metric-details">', product.inhoud)
+        self.assertIn('<li><span>Ember</span></li>', product.inhoud)
+        self.assertIn(
+            '<li><span>Forge Dashboard Grafana</span></li>',
+            product.inhoud,
+        )
         self.assertIn(
             '<p class="bp-description">Aantal objecten in het gevalideerde '
             "BAT wereldmodel.</p>",

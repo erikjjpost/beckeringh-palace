@@ -339,6 +339,7 @@
       "component": "forge-panel",
       "compositie": "forge-dashboard",
       "doel": "Aantal objecten in het gevalideerde BAT wereldmodel.",
+      "metric-detail": "kinds",
       "metric-kind": "*",
       "naam": "Architectuurobjecten"
     },
@@ -350,6 +351,7 @@
       "component": "forge-panel",
       "compositie": "forge-dashboard",
       "doel": "Aantal native tokens waaruit de Forge producten worden gegenereerd.",
+      "metric-detail": "items",
       "metric-kind": "token",
       "naam": "Design tokens",
       "variant": "forge-panel-compact"
@@ -362,6 +364,7 @@
       "component": "forge-panel",
       "compositie": "forge-dashboard",
       "doel": "Aantal productdefinities met een expliciete backend.",
+      "metric-detail": "items",
       "metric-kind": "product",
       "naam": "Productuitvoer"
     },

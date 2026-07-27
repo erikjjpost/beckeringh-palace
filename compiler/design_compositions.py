@@ -9,6 +9,12 @@ from compiler.design_variants import ResolvedComponentVariant, resolveer_variant
 
 
 @dataclass(frozen=True)
+class ResolvedMetricDetail:
+    label: str
+    value: int | None
+
+
+@dataclass(frozen=True)
 class ResolvedComponentInstance:
     id: str
     naam: str
@@ -19,6 +25,7 @@ class ResolvedComponentInstance:
     appearance_id: str | None
     metric_kind: str | None
     metric_value: int | None
+    metric_details: tuple[ResolvedMetricDetail, ...]
 
 
 @dataclass(frozen=True)
@@ -48,14 +55,42 @@ def _instantie_uit_object(
     varianten: dict[str, ResolvedComponentVariant],
     objecten_per_soort: dict[str, int],
     aantal_objecten: int,
+    objecten: tuple[Architectuurobject, ...],
 ) -> ResolvedComponentInstance:
     component_id = _tekst(obj, "component")
     variant_waarde = obj.eigenschappen.get("variant")
     variant_id = variant_waarde if isinstance(variant_waarde, str) else None
     variant = varianten.get(variant_id) if variant_id is not None else None
     metric_waarde = obj.eigenschappen.get("metric-kind")
+    metric_detail = obj.eigenschappen.get("metric-detail")
     component = componenten[component_id]
     basisappearance = component.eigenschappen.get("appearance")
+    matching_objects = tuple(
+        item
+        for item in objecten
+        if metric_waarde == "*" or item.soort == metric_waarde
+    )
+    metric_details: tuple[ResolvedMetricDetail, ...] = ()
+    if metric_detail == "kinds":
+        aantallen: dict[str, int] = {}
+        for item in matching_objects:
+            aantallen[item.soort] = aantallen.get(item.soort, 0) + 1
+        metric_details = tuple(
+            ResolvedMetricDetail(label=soort, value=aantal)
+            for soort, aantal in sorted(aantallen.items())
+        )
+    elif metric_detail == "items":
+        metric_details = tuple(
+            ResolvedMetricDetail(
+                label=(
+                    str(item.eigenschappen.get("naam"))
+                    if isinstance(item.eigenschappen.get("naam"), str)
+                    else item.id
+                ),
+                value=None,
+            )
+            for item in sorted(matching_objects, key=lambda item: item.id)
+        )
     return ResolvedComponentInstance(
         id=obj.id,
         naam=_tekst(obj, "naam"),
@@ -76,6 +111,7 @@ def _instantie_uit_object(
             if isinstance(metric_waarde, str)
             else None
         ),
+        metric_details=metric_details,
     )
 
 
@@ -119,6 +155,7 @@ def resolveer_composities(
                     varianten,
                     objecten_per_soort,
                     len(objecten),
+                    objecten,
                 )
                 for instance_id in instance_ids
             )

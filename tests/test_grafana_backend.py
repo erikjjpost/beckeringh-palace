@@ -40,9 +40,9 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual("dark", dashboard["style"])
         self.assertEqual(
             [
-                {"h": 8, "w": 8, "x": 0, "y": 0},
-                {"h": 8, "w": 8, "x": 8, "y": 0},
-                {"h": 8, "w": 8, "x": 16, "y": 0},
+                {"h": 16, "w": 8, "x": 0, "y": 0},
+                {"h": 16, "w": 8, "x": 8, "y": 0},
+                {"h": 16, "w": 8, "x": 16, "y": 0},
             ],
             [panel["gridPos"] for panel in dashboard["panels"]],
         )
@@ -68,6 +68,7 @@ class GrafanaBackendTests(unittest.TestCase):
                 "forge-dashboard-center-panel-accent",
                 "forge-dashboard-center-panel-heading",
                 "forge-dashboard-center-panel-metric",
+                "forge-dashboard-center-panel-metric-details",
                 "forge-dashboard-center-panel-body",
             ],
             [
@@ -76,7 +77,7 @@ class GrafanaBackendTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            {"height": 56, "left": 4, "top": 4, "width": 4},
+            {"height": 252, "left": 4, "top": 4, "width": 4},
             dashboard["panels"][1]["options"]["root"]["elements"][0]["placement"],
         )
         self.assertEqual(
@@ -91,12 +92,18 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             {
-                "height": 48,
+                "height": 84,
                 "left": 16,
                 "top": 112,
                 "width": 360,
             },
             dashboard["panels"][1]["options"]["root"]["elements"][3]["placement"],
+        )
+        self.assertEqual(
+            "Accent\nEmber\nIron\nSmoke\nMedium radius\nForge interface font family",
+            dashboard["panels"][1]["options"]["root"]["elements"][3]["config"][
+                "text"
+            ]["fixed"],
         )
         self.assertEqual(
             "6",

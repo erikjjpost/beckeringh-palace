@@ -77,6 +77,21 @@
       margin: var(--bp-spacing-small) 0 0;
       font-size: var(--bp-type-body);
     }
+    .bp-metric-details {
+      display: grid;
+      gap: var(--bp-spacing-xs);
+      margin: var(--bp-spacing-small) 0;
+      padding: 0;
+      list-style: none;
+      font-size: var(--bp-type-caption);
+    }
+    .bp-metric-details li {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--bp-spacing-small);
+      border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-accent);
+    }
+    .bp-metric-detail-value { color: var(--bp-material-accent); }
     .bp-layout { box-sizing: border-box; }
     .bp-region { box-sizing: border-box; }
   </style>
@@ -87,16 +102,54 @@
     <section class="bp-region bp-forge-panel" data-region="forge-dashboard-left" data-instance="forge-dashboard-left-panel" data-component="forge-panel" data-appearance="forge-panel-appearance" style="grid-column:1 / span 1;grid-row:1 / span 1">
       <h2>Architectuurobjecten</h2>
       <p class="bp-metric" data-metric-kind="*">41</p>
+      <ul class="bp-metric-details">
+        <li><span>appearance</span><span class="bp-metric-detail-value">2</span></li>
+        <li><span>border</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>capability</span><span class="bp-metric-detail-value">2</span></li>
+        <li><span>component</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>componentinstantie</span><span class="bp-metric-detail-value">3</span></li>
+        <li><span>compositie</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>dienst</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>kleur</span><span class="bp-metric-detail-value">3</span></li>
+        <li><span>layout</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>materiaal</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>motion</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>palet</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>product</span><span class="bp-metric-detail-value">2</span></li>
+        <li><span>radius</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>region</span><span class="bp-metric-detail-value">3</span></li>
+        <li><span>renderdoel</span><span class="bp-metric-detail-value">4</span></li>
+        <li><span>shadow</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>spacing</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>thema</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>token</span><span class="bp-metric-detail-value">6</span></li>
+        <li><span>typeschaal</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>typografie</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>variant</span><span class="bp-metric-detail-value">1</span></li>
+        <li><span>wereld</span><span class="bp-metric-detail-value">1</span></li>
+      </ul>
       <p class="bp-description">Aantal objecten in het gevalideerde BAT wereldmodel.</p>
     </section>
     <section class="bp-region bp-forge-panel bp-variant-forge-panel-compact" data-region="forge-dashboard-center" data-instance="forge-dashboard-center-panel" data-component="forge-panel" data-variant="forge-panel-compact" data-appearance="forge-panel-compact-appearance" style="grid-column:2 / span 1;grid-row:1 / span 1">
       <h2>Design tokens</h2>
       <p class="bp-metric" data-metric-kind="token">6</p>
+      <ul class="bp-metric-details">
+        <li><span>Accent</span></li>
+        <li><span>Ember</span></li>
+        <li><span>Iron</span></li>
+        <li><span>Smoke</span></li>
+        <li><span>Medium radius</span></li>
+        <li><span>Forge interface font family</span></li>
+      </ul>
       <p class="bp-description">Aantal native tokens waaruit de Forge producten worden gegenereerd.</p>
     </section>
     <section class="bp-region bp-forge-panel" data-region="forge-dashboard-right" data-instance="forge-dashboard-right-panel" data-component="forge-panel" data-appearance="forge-panel-appearance" style="grid-column:3 / span 1;grid-row:1 / span 1">
       <h2>Productuitvoer</h2>
       <p class="bp-metric" data-metric-kind="product">2</p>
+      <ul class="bp-metric-details">
+        <li><span>Forge Dashboard Grafana</span></li>
+        <li><span>Forge Dashboard HTML</span></li>
+      </ul>
       <p class="bp-description">Aantal productdefinities met een expliciete backend.</p>
     </section>
   </main>
