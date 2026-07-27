@@ -24,7 +24,7 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#171A1F"
+              "fixed": "#20252C"
             }
           },
           "border": {
@@ -138,7 +138,7 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#171A1F"
+              "fixed": "#282E36"
             }
           },
           "border": {
@@ -207,7 +207,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "41",
+                  "fixed": "43",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -233,7 +233,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "appearance  2\nborder  1\ncapability  2\ncomponent  1\ncomponentinstantie  3\ncompositie  1\ndienst  1\nkleur  3\nlayout  1\nmateriaal  1\nmotion  1\npalet  1\nproduct  2\nradius  1\nregion  3\nrenderdoel  4\nshadow  1\nspacing  1\nthema  1\ntoken  6\ntypeschaal  1\ntypografie  1\nvariant  1\nwereld  1",
+                  "fixed": "appearance  2\nborder  1\ncapability  2\ncomponent  1\ncomponentinstantie  3\ncompositie  1\ndienst  1\nkleur  5\nlayout  1\nmateriaal  1\nmotion  1\npalet  1\nproduct  2\nradius  1\nregion  3\nrenderdoel  4\nshadow  1\nspacing  1\nthema  1\ntoken  6\ntypeschaal  1\ntypografie  1\nvariant  1\nwereld  1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -303,7 +303,7 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#171A1F"
+              "fixed": "#282E36"
             }
           },
           "border": {
@@ -468,7 +468,7 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#171A1F"
+              "fixed": "#282E36"
             }
           },
           "border": {

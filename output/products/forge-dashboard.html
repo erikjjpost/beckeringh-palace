@@ -22,8 +22,8 @@
       --bp-type-label: 14px;
       --bp-type-caption: 12px;
       --bp-material-canvas: #171A1F;
-      --bp-material-surface: #171A1F;
-      --bp-material-raised: #171A1F;
+      --bp-material-surface: #20252C;
+      --bp-material-raised: #282E36;
       --bp-material-foreground: #ECECEC;
       --bp-material-accent: #D86A35;
       --bp-border-hairline: 1px;
@@ -62,6 +62,11 @@
     .bp-product-header {
       max-width: 72rem;
       margin-bottom: var(--bp-spacing-xl);
+      padding: var(--bp-spacing-large);
+      box-sizing: border-box;
+      background: var(--bp-material-surface);
+      border-left: var(--bp-border-strong) var(--bp-border-style) var(--bp-material-accent);
+      border-radius: var(--bp-radius-medium);
     }
     .bp-product-kicker {
       margin: 0 0 var(--bp-spacing-small);
@@ -137,7 +142,7 @@
   <main class="bp-layout bp-layout-forge-dashboard-ultrawide" data-layout-type="grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(1,minmax(0,1fr))">
     <section class="bp-region bp-forge-panel" data-region="forge-dashboard-left" data-instance="forge-dashboard-left-panel" data-component="forge-panel" data-appearance="forge-panel-appearance" style="grid-column:1 / span 1;grid-row:1 / span 1">
       <h2>Architectuurobjecten</h2>
-      <p class="bp-metric" data-metric-kind="*">41</p>
+      <p class="bp-metric" data-metric-kind="*">43</p>
       <ul class="bp-metric-details">
         <li><span>appearance</span><span class="bp-metric-detail-value">2</span></li>
         <li><span>border</span><span class="bp-metric-detail-value">1</span></li>
@@ -146,7 +151,7 @@
         <li><span>componentinstantie</span><span class="bp-metric-detail-value">3</span></li>
         <li><span>compositie</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>dienst</span><span class="bp-metric-detail-value">1</span></li>
-        <li><span>kleur</span><span class="bp-metric-detail-value">3</span></li>
+        <li><span>kleur</span><span class="bp-metric-detail-value">5</span></li>
         <li><span>layout</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>materiaal</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>motion</span><span class="bp-metric-detail-value">1</span></li>

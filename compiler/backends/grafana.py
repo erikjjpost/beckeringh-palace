@@ -319,7 +319,7 @@ def _dashboard_header(
         )
     voorgrond = _themakleur(thema, "materiaal", "foreground")
     accent = _themakleur(thema, "materiaal", "accent")
-    achtergrond = _themakleur(thema, "materiaal", "canvas")
+    achtergrond = _themakleur(thema, "materiaal", "surface")
     padding = _pixels(thema.spacing.medium, "spacing.medium")
     titelgrootte = _pixels(thema.typeschaal.title, "typeschaal.title")
     labelgrootte = _pixels(thema.typeschaal.label, "typeschaal.label")

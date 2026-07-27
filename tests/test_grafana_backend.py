@@ -58,8 +58,12 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertTrue(all(panel["type"] == "canvas" for panel in dashboard["panels"]))
         self.assertEqual(
-            "#171A1F",
+            "#282E36",
             dashboard["panels"][2]["options"]["root"]["background"]["color"]["fixed"],
+        )
+        self.assertEqual(
+            "#20252C",
+            dashboard["panels"][0]["options"]["root"]["background"]["color"]["fixed"],
         )
         self.assertEqual(
             {"color": {"fixed": "#D86A35"}, "width": 2},
@@ -114,7 +118,7 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["fixed"],
         )
         self.assertEqual(
-            ["38", "6", "2"],
+            ["40", "6", "2"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
