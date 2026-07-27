@@ -8,16 +8,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from compiler.component_css_renderer import naar_component_css
-from compiler.component_html_renderer import naar_component_html
-from compiler.css_renderer import naar_css
 from compiler.parser import parseer_bestand
 from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
+from compiler.render_target_renderer import render_renderdoelen
+from compiler.render_target_renderers import standaard_render_target_registry
 from compiler.renderers import naar_json, naar_markdown
 from compiler.semantic import analyseer
-from compiler.token_json_renderer import naar_token_json
 
 BRON = ROOT / "architectuur"
 UITVOER = ROOT / "output" / "bat"
@@ -33,10 +31,15 @@ def main() -> None:
     PRODUCTUITVOER.mkdir(parents=True, exist_ok=True)
     (UITVOER / "model.cir.json").write_text(naar_json(model.objecten), encoding="utf-8")
     (UITVOER / "architectuur.md").write_text(naar_markdown(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "tokens.css").write_text(naar_css(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "tokens.json").write_text(naar_token_json(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "components.css").write_text(naar_component_css(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "components.html").write_text(naar_component_html(model.objecten), encoding="utf-8")
+    renderdoelpaden = []
+    for artifact in render_renderdoelen(
+        model.objecten, standaard_render_target_registry()
+    ):
+        pad = ROOT / artifact.definitie.pad
+        pad.parent.mkdir(parents=True, exist_ok=True)
+        pad.write_text(artifact.inhoud, encoding="utf-8")
+        renderdoelpaden.append(artifact.definitie.pad)
+
     productpaden = []
     for product in compileer_producten(model.objecten, standaard_backend_registry()):
         pad = ROOT / product.definitie.pad
@@ -47,8 +50,7 @@ def main() -> None:
     print(f"BAT gecompileerd: {len(model.objecten)} object(en)")
     for pad in (
         "output/bat/model.cir.json", "output/bat/architectuur.md",
-        "output/products/tokens.css", "output/products/tokens.json",
-        "output/products/components.css", "output/products/components.html",
+        *renderdoelpaden,
         *productpaden,
     ):
         print(f"  {pad}")

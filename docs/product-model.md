@@ -363,6 +363,12 @@ renderdoelen deterministisch en blijft backendonafhankelijk. Deze stap leidt
 nog geen renderer impliciet af uit een formaat en verandert de bestaande
 productgeneratie niet.
 
+M9.3b koppelt ieder native renderdoel via zijn expliciete id aan exact één
+renderer. `compile_bat.py` doorloopt de opgeloste renderdoelen en schrijft ieder
+artifact naar het gedeclareerde pad. Formaat en bestandsextensie kiezen nooit
+impliciet een renderer. Een renderdoel zonder geregistreerde binding faalt
+expliciet. Productdefinities blijven via hun eigen backendcontract compileren.
+
 ## Diagnostics
 
 | Code | Betekenis |

@@ -67,7 +67,8 @@ backendselectie opgelost en bevatten geen backendpresentatie.
 Native renderdoelen beschrijven één benoemde representatie met een expliciet
 formaat en veilig relatief artifactpad. Het resolved contract blijft
 backendonafhankelijk en kiest geen renderer impliciet op basis van een
-bestandsformaat.
+bestandsformaat. De compiler koppelt ieder renderdoel via zijn expliciete id
+aan één renderer en schrijft de uitkomst naar het gedeclareerde artifactpad.
 
 BAT is geen algemene enterprise-architectuurtaal. ArchiMate en andere externe modellen worden uitsluitend via expliciete adapters gekoppeld. De domeingrens staat in [world-model.md](world-model.md).
 
