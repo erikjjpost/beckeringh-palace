@@ -365,6 +365,7 @@
       "inhoud": [
         "beckeringh-palace"
       ],
+      "leesvolgorde": "1",
       "naam": "Wereld en identiteit",
       "navigatie": [
         "forge-dashboard-html",
@@ -374,7 +375,8 @@
         "wereld",
         "merk",
         "asset"
-      ]
+      ],
+      "toegankelijkheidslabel": "Wereld en identiteit, overzicht van wereld, merk en bronassets"
     },
     "id": "palace-world",
     "soort": "informatiegebied"
@@ -387,6 +389,7 @@
         "forge-materials",
         "forge-panel"
       ],
+      "leesvolgorde": "2",
       "naam": "Forge ontwerpsysteem",
       "navigatie": [
         "html-components",
@@ -410,7 +413,8 @@
         "token",
         "component",
         "variant"
-      ]
+      ],
+      "toegankelijkheidslabel": "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten"
     },
     "id": "forge-design-system",
     "soort": "informatiegebied"
@@ -423,6 +427,7 @@
         "forge-dashboard-ultrawide",
         "project-status-html"
       ],
+      "leesvolgorde": "3",
       "naam": "Productfamilie",
       "navigatie": [
         "project-status-html",
@@ -435,7 +440,8 @@
         "region",
         "product",
         "renderdoel"
-      ]
+      ],
+      "toegankelijkheidslabel": "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
     },
     "id": "palace-product-family",
     "soort": "informatiegebied"

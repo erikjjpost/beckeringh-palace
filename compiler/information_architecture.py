@@ -31,6 +31,8 @@ class ResolvedInformationArea:
     id: str
     naam: str
     doel: str
+    accessibility_label: str
+    reading_order: int
     object_kinds: tuple[str, ...]
     content_anchors: tuple[ResolvedContentAnchor, ...]
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
@@ -48,10 +50,20 @@ class InformationArchitectureConstraint:
         eigenaren: dict[str, str] = {}
         inhoud_eigenaren: dict[str, str] = {}
         navigatie_eigenaren: dict[str, str] = {}
+        leesvolgorde_eigenaren: dict[int, str] = {}
+        geldige_leesvolgordes: list[int] = []
 
         for gebied in gebieden:
             for veld in gebied.eigenschappen:
-                if veld not in {"naam", "doel", "soorten", "inhoud", "navigatie"}:
+                if veld not in {
+                    "naam",
+                    "doel",
+                    "toegankelijkheidslabel",
+                    "leesvolgorde",
+                    "soorten",
+                    "inhoud",
+                    "navigatie",
+                }:
                     diagnostics.append(Diagnostic(
                         code="BP4001",
                         boodschap=(
@@ -62,6 +74,59 @@ class InformationArchitectureConstraint:
                             veld, gebied.bronlocatie
                         ),
                     ))
+            toegankelijkheidslabel = gebied.eigenschappen.get(
+                "toegankelijkheidslabel"
+            )
+            if (
+                not isinstance(toegankelijkheidslabel, str)
+                or not toegankelijkheidslabel.strip()
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP4013",
+                    boodschap=(
+                        f"Informatiegebied '{gebied.id}' vereist een betekenisvol "
+                        "tekstveld 'toegankelijkheidslabel'"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "toegankelijkheidslabel", gebied.bronlocatie
+                    ),
+                ))
+            leesvolgorde = gebied.eigenschappen.get("leesvolgorde")
+            try:
+                leespositie = int(leesvolgorde)
+            except (TypeError, ValueError):
+                leespositie = 0
+            if (
+                isinstance(leesvolgorde, bool)
+                or leespositie < 1
+                or str(leespositie) != str(leesvolgorde)
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP4014",
+                    boodschap=(
+                        f"Informatiegebied '{gebied.id}' vereist een positieve "
+                        "gehele 'leesvolgorde'"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "leesvolgorde", gebied.bronlocatie
+                    ),
+                ))
+            else:
+                eigenaar = leesvolgorde_eigenaren.get(leespositie)
+                if eigenaar is not None:
+                    diagnostics.append(Diagnostic(
+                        code="BP4015",
+                        boodschap=(
+                            f"Leesvolgorde '{leespositie}' komt voor in zowel "
+                            f"informatiegebied '{eigenaar}' als '{gebied.id}'"
+                        ),
+                        locatie=gebied.eigenschaplocaties.get(
+                            "leesvolgorde", gebied.bronlocatie
+                        ),
+                    ))
+                else:
+                    leesvolgorde_eigenaren[leespositie] = gebied.id
+                    geldige_leesvolgordes.append(leespositie)
             soorten = gebied.eigenschappen.get("soorten")
             geldig = (
                 isinstance(soorten, list)
@@ -236,6 +301,19 @@ class InformationArchitectureConstraint:
                     ))
                 else:
                     navigatie_eigenaren[doel_id] = gebied.id
+        if (
+            geldige_leesvolgordes
+            and sorted(geldige_leesvolgordes)
+            != list(range(1, len(gebieden) + 1))
+        ):
+            diagnostics.append(Diagnostic(
+                code="BP4016",
+                boodschap=(
+                    "Informatiegebieden vereisen een aaneengesloten leesvolgorde "
+                    f"van 1 tot en met {len(gebieden)}"
+                ),
+                locatie=gebieden[0].bronlocatie,
+            ))
         return tuple(diagnostics)
 
 
@@ -258,6 +336,10 @@ def resolveer_informatiegebieden(
             id=obj.id,
             naam=str(obj.eigenschappen["naam"]),
             doel=str(obj.eigenschappen["doel"]),
+            accessibility_label=str(
+                obj.eigenschappen["toegankelijkheidslabel"]
+            ),
+            reading_order=int(obj.eigenschappen["leesvolgorde"]),
             object_kinds=tuple(sorted(str(soort) for soort in soorten)),
             content_anchors=tuple(
                 ResolvedContentAnchor(

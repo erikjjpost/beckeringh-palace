@@ -56,9 +56,18 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual(
             [
                 "Forge Dashboard",
-                "Wereld en identiteit",
-                "Forge ontwerpsysteem",
-                "Productfamilie",
+                (
+                    "Wereld en identiteit, overzicht van wereld, merk en "
+                    "bronassets"
+                ),
+                (
+                    "Forge ontwerpsysteem, overzicht van ontwerpprimitieven "
+                    "en componenten"
+                ),
+                (
+                    "Productfamilie, overzicht van composities, layouts en "
+                    "uitvoerproducten"
+                ),
             ],
             [panel["title"] for panel in dashboard["panels"]],
         )
@@ -84,6 +93,14 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertIn("forge-dashboard-center-panel-metric-detail-rule-15", middennamen)
         self.assertIn("forge-dashboard-center-panel-product-navigation", middennamen)
         self.assertIn("forge-dashboard-center-panel-content-anchors", middennamen)
+        self.assertEqual(
+            "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten",
+            dashboard["panels"][2]["title"],
+        )
+        self.assertIn(
+            "Leesvolgorde: 2",
+            dashboard["panels"][2]["description"],
+        )
         navigatie = next(
             element
             for element in dashboard["panels"][2]["options"]["root"]["elements"]
@@ -199,7 +216,10 @@ class GrafanaBackendTests(unittest.TestCase):
             "BAT component: forge-panel\n"
             "BAT variant: forge-panel-compact\n"
             "BAT appearance: forge-panel-compact-appearance\n"
-            "BAT informatiegebied: forge-design-system",
+            "BAT informatiegebied: forge-design-system\n"
+            "Toegankelijkheidslabel: Forge ontwerpsysteem, overzicht van "
+            "ontwerpprimitieven en componenten\n"
+            "Leesvolgorde: 2",
             dashboard["panels"][2]["description"],
         )
         self.assertEqual(
