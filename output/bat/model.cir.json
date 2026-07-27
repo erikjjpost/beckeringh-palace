@@ -512,6 +512,21 @@
   },
   {
     "eigenschappen": {
+      "backend": "grafana",
+      "compositie": "forge-dashboard",
+      "doel": "De normatieve projectvoortgang als reproduceerbaar Grafana dashboard ontsluiten.",
+      "inhoud": "project-status",
+      "layout": "forge-dashboard-ultrawide",
+      "mode": "static",
+      "naam": "Beckeringh Palace Projectstatus Grafana",
+      "pad": "output/products/project-status.grafana.json",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "project-status-grafana",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
       "doel": "Design tokens als CSS custom properties genereren.",
       "formaat": "css",
       "naam": "CSS design tokens",

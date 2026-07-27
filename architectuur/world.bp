@@ -346,6 +346,18 @@ product project-status-html {
     pad: "output/products/project-status.html"
 }
 
+product project-status-grafana {
+    naam: "Beckeringh Palace Projectstatus Grafana"
+    doel: "De normatieve projectvoortgang als reproduceerbaar Grafana dashboard ontsluiten."
+    backend: "grafana"
+    mode: "static"
+    inhoud: "project-status"
+    wereld: "beckeringh-palace"
+    compositie: "forge-dashboard"
+    layout: "forge-dashboard-ultrawide"
+    pad: "output/products/project-status.grafana.json"
+}
+
 renderdoel css-tokens {
     naam: "CSS design tokens"
     doel: "Design tokens als CSS custom properties genereren."

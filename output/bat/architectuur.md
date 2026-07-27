@@ -703,6 +703,26 @@ De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.
 - **pad:** output/products/project-status.html
 - **wereld:** beckeringh-palace
 
+## Beckeringh Palace Projectstatus Grafana
+
+**Soort:** product
+
+**Identifier:** `project-status-grafana`
+
+### Doel
+
+De normatieve projectvoortgang als reproduceerbaar Grafana dashboard ontsluiten.
+
+### Eigenschappen
+
+- **backend:** grafana
+- **compositie:** forge-dashboard
+- **inhoud:** project-status
+- **layout:** forge-dashboard-ultrawide
+- **mode:** static
+- **pad:** output/products/project-status.grafana.json
+- **wereld:** beckeringh-palace
+
 ## CSS design tokens
 
 **Soort:** renderdoel
