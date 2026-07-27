@@ -1,4 +1,4 @@
-"""HTML-backendplugin voor ruimtelijke, theme-driven producten."""
+"""HTML-backendplugin voor native, theme-driven producten."""
 from __future__ import annotations
 
 from collections.abc import Iterable
@@ -7,7 +7,6 @@ from compiler.backend import Backend
 from compiler.cir import Architectuurobject
 from compiler.native_layout_html_renderer import naar_native_layout_html
 from compiler.product_model import ProductDefinition
-from compiler.spatial_html_renderer import naar_spatial_html
 
 
 def _css_string(waarde: str) -> str:
@@ -110,10 +109,11 @@ def _render(
     objecten: Iterable[Architectuurobject],
     product: ProductDefinition,
 ) -> str:
-    if product.opgeloste_layout is not None:
-        inhoud = naar_native_layout_html(product.opgeloste_layout, titel=product.naam)
-    else:
-        inhoud = naar_spatial_html(objecten, layout_id=product.layout, titel=product.naam)
+    if product.opgeloste_layout is None:
+        raise ValueError(
+            f"Product '{product.id}' vereist een opgeloste native layout"
+        )
+    inhoud = naar_native_layout_html(product.opgeloste_layout, titel=product.naam)
     if product.thema is None:
         return inhoud
 

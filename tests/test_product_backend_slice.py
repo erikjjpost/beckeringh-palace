@@ -6,6 +6,7 @@ from compiler.parser import parseer
 from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
+from compiler.product_model import verzamel_producten
 from compiler.semantic import SemantischeFout, analyseer
 
 
@@ -14,28 +15,23 @@ component panel {
     naam: "Panel"
     doel: "Testcomponent."
 }
-compositie dashboard {
-    naam: "Dashboard"
-    doel: "Testcompositie."
-    componenten: ["panel"]
-    richting: "row"
-}
 layout widescreen {
     naam: "Widescreen"
     doel: "Testlayout."
-    compositie: "dashboard"
-    canvas-width: "1920"
-    canvas-height: "1080"
+    type: "grid"
+    regions: ["content"]
+    columns: "1"
+    rows: "1"
 }
-regio content {
+region content {
     naam: "Content"
     doel: "Hoofdregio."
     layout: "widescreen"
     component: "panel"
-    x: "0"
-    y: "0"
-    width: "1920"
-    height: "1080"
+    column: "1"
+    row: "1"
+    column-span: "1"
+    row-span: "1"
 }
 product dashboard-html {
     naam: "Dashboard HTML"
@@ -55,6 +51,17 @@ class ProductBackendSliceTests(unittest.TestCase):
         self.assertEqual("output/products/dashboard.html", producten[0].definitie.pad)
         self.assertIn("<title>Dashboard HTML</title>", producten[0].inhoud)
         self.assertIn("bp-layout-widescreen", producten[0].inhoud)
+
+    def test_html_backend_heeft_geen_layout_fallback(self):
+        model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
+        product = verzamel_producten(model.objecten)[0]
+        backend = standaard_backend_registry().resolveer(product.backend)
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "vereist een opgeloste native layout",
+        ):
+            backend.render(model.objecten, product)
 
     def test_weigert_onbekende_backend(self):
         bron = BRON.replace('backend: "html"', 'backend: "figma"')

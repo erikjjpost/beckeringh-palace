@@ -42,12 +42,16 @@ class WorldModelBoundaryTests(unittest.TestCase):
         )
 
     def test_architectuurconcepten_zijn_geen_native_bat(self):
-        for soort in ("capability", "dienst", "agent", "regio"):
+        for soort in ("capability", "dienst", "agent"):
             with self.subTest(soort=soort):
                 definitie = objectsoortdefinitie(soort)
                 self.assertIsNotNone(definitie)
                 self.assertEqual(Domeinstatus.MIGRATIE, definitie.status)
                 self.assertFalse(is_native_objectsoort(soort))
+
+    def test_verwijderd_spatial_object_heeft_geen_impliciete_semantiek(self):
+        self.assertIsNone(objectsoortdefinitie("regio"))
+        self.assertFalse(is_native_objectsoort("regio"))
 
     def test_archimate_is_extern(self):
         definitie = objectsoortdefinitie("archimate")

@@ -9,7 +9,6 @@ from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import analyseer
-from compiler.spatial_model import bouw_spatial_model
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,12 +49,6 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         self.assertIn(
             "grid-template-columns:repeat(3,minmax(0,1fr))",
             product.inhoud,
-        )
-
-    def test_forge_dashboard_is_geen_spatial_layout_meer(self) -> None:
-        self.assertNotIn(
-            "forge-dashboard-ultrawide",
-            {layout.id for layout in bouw_spatial_model(self.model.objecten)},
         )
 
 

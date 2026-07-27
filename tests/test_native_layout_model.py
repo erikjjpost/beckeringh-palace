@@ -130,33 +130,16 @@ class NativeLayoutModelTests(unittest.TestCase):
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3616", {item.code for item in context.exception.diagnostics})
 
-    def test_bestaand_spatial_contract_blijft_explicit_geldig(self):
+    def test_weigert_layout_zonder_native_type(self):
         bron = COMPONENT + '''
-compositie dashboard {
-    naam: "Dashboard"
-    doel: "Testcompositie."
-    componenten: ["panel"]
-    richting: "row"
-}
 layout legacy-canvas {
     naam: "Legacy canvas"
-    doel: "Expliciet migratiecontract."
-    compositie: "dashboard"
-    canvas-width: "100"
-    canvas-height: "100"
-}
-regio legacy-region {
-    naam: "Legacy region"
-    doel: "Expliciet migratiecontract."
-    layout: "legacy-canvas"
-    component: "panel"
-    x: "0"
-    y: "0"
-    width: "100"
-    height: "100"
+    doel: "Verwijderd M6-contract."
 }
 '''
-        analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3601", {item.code for item in context.exception.diagnostics})
 
 
 if __name__ == "__main__":

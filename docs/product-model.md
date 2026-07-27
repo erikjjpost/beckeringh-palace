@@ -177,23 +177,18 @@ Een typegebonden veld wordt nooit afgeleid:
 Velden van een ander layouttype zijn eveneens ongeldig. Hierdoor blijft iedere
 BAT-declaratie volledig en eenduidig.
 
-## Migratiegrens
-
-Het bestaande M6 spatial contract gebruikt `regio`, canvasafmetingen en absolute
-coördinaten. Dat contract blijft uitsluitend als expliciet migratieobject
-bestaan zolang bestaande productrenderers ervan afhankelijk zijn. `region` is
-het native M9-object. Er bestaat geen automatische omzetting tussen beide
-contracten.
-
-M9.0b behoudt het bestaande HTML-pad voor producten die expliciet naar een M6
-spatial layout verwijzen. Een native product gebruikt de native HTML-vertaling;
-een spatial product gebruikt de bestaande spatial renderer.
+## Voltooide migratie
 
 M9.0c migreert de canonieke Forge productbron naar een native grid-layout. De
 drie dashboardpanelen zijn expliciete `region`-objecten en de normatieve
 `regions`-lijst bepaalt hun volgorde. De oude pixelcoördinaten worden niet
-vertaald naar impliciete presentatievelden. Het M6 spatial contract blijft
-uitsluitend beschikbaar voor expliciete legacyproducten.
+vertaald naar impliciete presentatievelden.
+
+M9.0d verwijdert daarna het volledige M6 spatial contract. `layout` vereist
+altijd een expliciet native type en `regio`, canvasafmetingen, absolute
+coördinaten en de spatial HTML-fallback bestaan niet meer. Er is geen
+automatische omzetting en geen backwards magic. Een productbackend ontvangt
+uitsluitend een gevalideerde `ResolvedLayout`.
 
 ## Diagnostics
 

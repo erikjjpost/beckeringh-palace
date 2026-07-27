@@ -54,7 +54,6 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("capability", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
     ObjectsoortDefinitie("dienst", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
     ObjectsoortDefinitie("agent", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
-    ObjectsoortDefinitie("regio", Domeinstatus.MIGRATIE, "Bestaande absolute canvasregio tot productrenderers naar native layouts migreren."),
     ObjectsoortDefinitie("archimate", Domeinstatus.EXTERN, "Extern architectuurmodel dat uitsluitend via een adapter binnenkomt."),
 )
 
