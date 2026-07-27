@@ -452,6 +452,12 @@ lost iedere gevalideerde modus op naar één vaste aanduiding:
 tonen die gedeelde aanduiding in hun productheader en formuleren de betekenis
 van de modus niet afzonderlijk in een backend.
 
+M10.3c lost daarnaast centraal op of een product tijdcontext heeft. Een statisch
+product heeft geen tijdcontext: HTML maakt dit machineleesbaar met
+`data-time-context="none"` en Grafana laat tijdzone, relatief tijdvenster en
+refreshgedrag weg. Een interactief product behoudt tijdcontext en HTML markeert
+dit als `data-time-context="applicable"`.
+
 ## Diagnostics
 
 | Code | Betekenis |

@@ -17,6 +17,11 @@ PRODUCT_MODE_LABELS = {
     "static": "Statische architectuursnapshot",
 }
 
+PRODUCT_MODE_TIME_CONTEXT = {
+    "interactive": True,
+    "static": False,
+}
+
 
 @dataclass(frozen=True)
 class CompiledProduct:
@@ -34,6 +39,7 @@ def _los_productcontext_op(
     return replace(
         product,
         mode_label=PRODUCT_MODE_LABELS[product.mode],
+        has_time_context=PRODUCT_MODE_TIME_CONTEXT[product.mode],
         thema=thema,
         opgeloste_compositie=composities.get(product.compositie),
         opgeloste_layout=layouts.get(product.layout),

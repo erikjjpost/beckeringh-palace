@@ -202,7 +202,8 @@ def _render(
     inhoud = inhoud.replace(
         "<body>",
         f'<body data-world="{thema.wereld_id}" data-theme="{thema.thema_id}" '
-        f'data-product-mode="{product.mode}">',
+        f'data-product-mode="{product.mode}" '
+        f'data-time-context="{"applicable" if product.has_time_context else "none"}">',
         1,
     )
     return inhoud

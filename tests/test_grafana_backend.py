@@ -40,6 +40,9 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual("dark", dashboard["style"])
         self.assertFalse(dashboard["editable"])
         self.assertEqual({"hidden": True}, dashboard["timepicker"])
+        self.assertNotIn("refresh", dashboard)
+        self.assertNotIn("time", dashboard)
+        self.assertNotIn("timezone", dashboard)
         self.assertEqual(
             [
                 {"h": 4, "w": 24, "x": 0, "y": 0},
@@ -206,6 +209,33 @@ class GrafanaBackendTests(unittest.TestCase):
             "output/products/forge-dashboard.grafana.json",
             product.definitie.pad,
         )
+
+    def test_interactief_product_behoudt_tijdcontext(self):
+        model = analyseer(
+            parseer_bestand(WORLD),
+            constraints=WORLD_MODEL_CONSTRAINTS,
+        )
+        product = {
+            product.definitie.id: product
+            for product in compileer_producten(
+                model.objecten,
+                standaard_backend_registry(),
+            )
+        }["forge-dashboard-grafana"]
+        interactief = replace(
+            product.definitie,
+            mode="interactive",
+            has_time_context=True,
+        )
+
+        dashboard = json.loads(backend.render(model.objecten, interactief))
+
+        self.assertEqual("", dashboard["refresh"])
+        self.assertEqual(
+            {"from": "now-6h", "to": "now"},
+            dashboard["time"],
+        )
+        self.assertEqual("browser", dashboard["timezone"])
 
     def test_weigert_niet_grid_layout_expliciet(self):
         bron = '''
