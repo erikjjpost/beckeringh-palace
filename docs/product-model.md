@@ -446,6 +446,12 @@ Grafana schakelt voor een statisch product handmatige dashboardbewerking uit en
 verbergt de tijdkiezer, omdat het dashboard geen tijdreeks of datasource bevat.
 Producten zonder `mode` blijven voor compatibiliteit `interactive`.
 
+M10.3b maakt dezelfde productmodus ook zichtbaar voor de gebruiker. De compiler
+lost iedere gevalideerde modus op naar één vaste aanduiding:
+`Statische architectuursnapshot` of `Interactief product`. HTML en Grafana
+tonen die gedeelde aanduiding in hun productheader en formuleren de betekenis
+van de modus niet afzonderlijk in een backend.
+
 ## Diagnostics
 
 | Code | Betekenis |

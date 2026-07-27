@@ -117,6 +117,11 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
         self.assertIn('data-product-mode="static"', product.inhoud)
+        self.assertIn(
+            "Beckeringh Palace · Forge · Gegenereerd uit BAT · "
+            "Statische architectuursnapshot",
+            product.inhoud,
+        )
         self.assertIn('<li><span>Ember</span></li>', product.inhoud)
         self.assertIn(
             '<li><span>Forge Dashboard Grafana</span></li>',

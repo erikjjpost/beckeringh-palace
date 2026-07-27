@@ -62,6 +62,10 @@ class ProductBackendSliceTests(unittest.TestCase):
         self.assertEqual(1, len(producten))
         self.assertEqual("output/products/dashboard.html", producten[0].definitie.pad)
         self.assertEqual("interactive", producten[0].definitie.mode)
+        self.assertEqual(
+            "Interactief product",
+            producten[0].definitie.mode_label,
+        )
         self.assertIn("<title>Dashboard HTML</title>", producten[0].inhoud)
         self.assertIn("bp-layout-widescreen", producten[0].inhoud)
         self.assertIn('data-instance="dashboard-panel"', producten[0].inhoud)
