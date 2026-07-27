@@ -10,6 +10,18 @@ kleur iron-black {
     waarde: "#171A1F"
 }
 
+kleur forged-iron {
+    naam: "Forged Iron"
+    doel: "Dragend oppervlak voor de Forge-ontwerpidentiteit."
+    waarde: "#20252C"
+}
+
+kleur raised-iron {
+    naam: "Raised Iron"
+    doel: "Verhoogd kaartoppervlak voor de Forge-ontwerpidentiteit."
+    waarde: "#282E36"
+}
+
 kleur smoke-white {
     naam: "Smoke White"
     doel: "Lichte voorgrondkleur voor donkere Forge-oppervlakken."
@@ -49,8 +61,8 @@ materiaal forge-materials {
     naam: "Forge Materials"
     doel: "Materiële kleurrollen voor Forge-oppervlakken en accenten."
     canvas: "iron-black"
-    surface: "iron-black"
-    raised: "iron-black"
+    surface: "forged-iron"
+    raised: "raised-iron"
     foreground: "smoke-white"
     accent: "ember-orange"
 }

@@ -20,6 +20,16 @@ kleur iron-black {
     doel: "Achtergrondkleur."
     waarde: "#171A1F"
 }
+kleur forged-iron {
+    naam: "Forged Iron"
+    doel: "Dragend oppervlak."
+    waarde: "#20252C"
+}
+kleur raised-iron {
+    naam: "Raised Iron"
+    doel: "Verhoogd oppervlak."
+    waarde: "#282E36"
+}
 kleur smoke-white {
     naam: "Smoke White"
     doel: "Voorgrondkleur."
@@ -45,8 +55,8 @@ materiaal forge-materials {
     naam: "Forge Materials"
     doel: "Forge-materialen."
     canvas: "iron-black"
-    surface: "iron-black"
-    raised: "iron-black"
+    surface: "forged-iron"
+    raised: "raised-iron"
     foreground: "smoke-white"
     accent: "ember-orange"
 }
@@ -189,6 +199,8 @@ class HtmlThemeBackendTests(unittest.TestCase):
         self.assertIn('--bp-font-body: "Aptos";', product.inhoud)
         self.assertIn('--bp-font-mono: "JetBrains Mono";', product.inhoud)
         self.assertIn('--bp-material-canvas: #171A1F;', product.inhoud)
+        self.assertIn('--bp-material-surface: #20252C;', product.inhoud)
+        self.assertIn('--bp-material-raised: #282E36;', product.inhoud)
         self.assertIn('--bp-material-accent: #D86A35;', product.inhoud)
         self.assertIn('--bp-border-hairline: 1px;', product.inhoud)
         self.assertIn('--bp-border-style: solid;', product.inhoud)
@@ -197,6 +209,12 @@ class HtmlThemeBackendTests(unittest.TestCase):
         self.assertIn('--bp-motion-normal: 220ms;', product.inhoud)
         self.assertIn('--bp-motion-easing: cubic-bezier(0.2, 0.8, 0.2, 1);', product.inhoud)
         self.assertIn('background: var(--bp-material-raised);', product.inhoud)
+        self.assertIn('background: var(--bp-material-surface);', product.inhoud)
+        self.assertIn(
+            'border-left: var(--bp-border-strong) var(--bp-border-style) '
+            'var(--bp-material-accent);',
+            product.inhoud,
+        )
         self.assertIn('border-radius: var(--bp-radius-medium);', product.inhoud)
         self.assertIn('data-world="beckeringh-palace"', product.inhoud)
         self.assertIn('data-theme="forge"', product.inhoud)

@@ -57,6 +57,24 @@
   },
   {
     "eigenschappen": {
+      "doel": "Dragend oppervlak voor de Forge-ontwerpidentiteit.",
+      "naam": "Forged Iron",
+      "waarde": "#20252C"
+    },
+    "id": "forged-iron",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Verhoogd kaartoppervlak voor de Forge-ontwerpidentiteit.",
+      "naam": "Raised Iron",
+      "waarde": "#282E36"
+    },
+    "id": "raised-iron",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
       "doel": "Lichte voorgrondkleur voor donkere Forge-oppervlakken.",
       "naam": "Smoke White",
       "waarde": "#ECECEC"
@@ -109,8 +127,8 @@
       "doel": "Materiële kleurrollen voor Forge-oppervlakken en accenten.",
       "foreground": "smoke-white",
       "naam": "Forge Materials",
-      "raised": "iron-black",
-      "surface": "iron-black"
+      "raised": "raised-iron",
+      "surface": "forged-iron"
     },
     "id": "forge-materials",
     "soort": "materiaal"

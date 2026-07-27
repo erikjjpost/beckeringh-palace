@@ -71,6 +71,34 @@ Donkere structurele basiskleur van de Forge-ontwerpidentiteit.
 
 - **waarde:** #171A1F
 
+## Forged Iron
+
+**Soort:** kleur
+
+**Identifier:** `forged-iron`
+
+### Doel
+
+Dragend oppervlak voor de Forge-ontwerpidentiteit.
+
+### Eigenschappen
+
+- **waarde:** #20252C
+
+## Raised Iron
+
+**Soort:** kleur
+
+**Identifier:** `raised-iron`
+
+### Doel
+
+Verhoogd kaartoppervlak voor de Forge-ontwerpidentiteit.
+
+### Eigenschappen
+
+- **waarde:** #282E36
+
 ## Smoke White
 
 **Soort:** kleur
@@ -153,8 +181,8 @@ Materiële kleurrollen voor Forge-oppervlakken en accenten.
 - **accent:** ember-orange
 - **canvas:** iron-black
 - **foreground:** smoke-white
-- **raised:** iron-black
-- **surface:** iron-black
+- **raised:** raised-iron
+- **surface:** forged-iron
 
 ## Forge Borders
 
