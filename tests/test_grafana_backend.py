@@ -40,14 +40,16 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual("dark", dashboard["style"])
         self.assertEqual(
             [
-                {"h": 16, "w": 8, "x": 0, "y": 0},
-                {"h": 16, "w": 8, "x": 8, "y": 0},
-                {"h": 16, "w": 8, "x": 16, "y": 0},
+                {"h": 4, "w": 24, "x": 0, "y": 0},
+                {"h": 16, "w": 8, "x": 0, "y": 4},
+                {"h": 16, "w": 8, "x": 8, "y": 4},
+                {"h": 16, "w": 8, "x": 16, "y": 4},
             ],
             [panel["gridPos"] for panel in dashboard["panels"]],
         )
         self.assertEqual(
             [
+                "Forge Dashboard",
                 "Architectuurobjecten",
                 "Design tokens",
                 "Productuitvoer",
@@ -57,11 +59,11 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertTrue(all(panel["type"] == "canvas" for panel in dashboard["panels"]))
         self.assertEqual(
             "#171A1F",
-            dashboard["panels"][1]["options"]["root"]["background"]["color"]["fixed"],
+            dashboard["panels"][2]["options"]["root"]["background"]["color"]["fixed"],
         )
         self.assertEqual(
             {"color": {"fixed": "#D86A35"}, "width": 2},
-            dashboard["panels"][1]["options"]["root"]["border"],
+            dashboard["panels"][2]["options"]["root"]["border"],
         )
         self.assertEqual(
             [
@@ -73,12 +75,12 @@ class GrafanaBackendTests(unittest.TestCase):
             ],
             [
                 element["name"]
-                for element in dashboard["panels"][1]["options"]["root"]["elements"]
+                for element in dashboard["panels"][2]["options"]["root"]["elements"]
             ],
         )
         self.assertEqual(
             {"height": 252, "left": 4, "top": 4, "width": 4},
-            dashboard["panels"][1]["options"]["root"]["elements"][0]["placement"],
+            dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         self.assertEqual(
             {
@@ -88,7 +90,7 @@ class GrafanaBackendTests(unittest.TestCase):
                 "text": {"fixed": "Design tokens", "mode": "fixed"},
                 "valign": "top",
             },
-            dashboard["panels"][1]["options"]["root"]["elements"][1]["config"],
+            dashboard["panels"][2]["options"]["root"]["elements"][1]["config"],
         )
         self.assertEqual(
             {
@@ -97,17 +99,17 @@ class GrafanaBackendTests(unittest.TestCase):
                 "top": 112,
                 "width": 360,
             },
-            dashboard["panels"][1]["options"]["root"]["elements"][3]["placement"],
+            dashboard["panels"][2]["options"]["root"]["elements"][3]["placement"],
         )
         self.assertEqual(
             "Accent\nEmber\nIron\nSmoke\nMedium radius\nForge interface font family",
-            dashboard["panels"][1]["options"]["root"]["elements"][3]["config"][
+            dashboard["panels"][2]["options"]["root"]["elements"][3]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
             "6",
-            dashboard["panels"][1]["options"]["root"]["elements"][2]["config"][
+            dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
@@ -117,7 +119,7 @@ class GrafanaBackendTests(unittest.TestCase):
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
                 ]
-                for panel in dashboard["panels"]
+                for panel in dashboard["panels"][1:]
             ],
         )
         self.assertEqual(
@@ -125,7 +127,17 @@ class GrafanaBackendTests(unittest.TestCase):
             "BAT component: forge-panel\n"
             "BAT variant: forge-panel-compact\n"
             "BAT appearance: forge-panel-compact-appearance",
-            dashboard["panels"][1]["description"],
+            dashboard["panels"][2]["description"],
+        )
+        self.assertEqual(
+            "Beckeringh Palace · Forge · Gegenereerd uit BAT",
+            dashboard["panels"][0]["options"]["root"]["elements"][0]["config"][
+                "text"
+            ]["fixed"],
+        )
+        self.assertEqual(
+            "Eerste reproduceerbare productsamenstelling.",
+            dashboard["panels"][0]["description"],
         )
         self.assertEqual(
             "output/products/forge-dashboard.grafana.json",

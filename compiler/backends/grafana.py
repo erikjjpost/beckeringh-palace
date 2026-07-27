@@ -15,6 +15,7 @@ from compiler.theme_resolution import ResolvedTheme
 
 GRAFANA_GRID_COLUMNS = 24
 GRAFANA_ROW_HEIGHT = 16
+GRAFANA_HEADER_HEIGHT = 4
 PIXELWAARDE = re.compile(r"^(?P<waarde>\d+(?:\.\d+)?)px$")
 
 
@@ -300,7 +301,110 @@ def _gridpositie(layout: ResolvedLayout, region: ResolvedRegion) -> dict[str, in
         "h": region.row_span * GRAFANA_ROW_HEIGHT,
         "w": einde - start,
         "x": start,
-        "y": (region.row - 1) * GRAFANA_ROW_HEIGHT,
+        "y": GRAFANA_HEADER_HEIGHT + (region.row - 1) * GRAFANA_ROW_HEIGHT,
+    }
+
+
+def _dashboard_header(
+    product: ProductDefinition,
+    compositie_naam: str,
+    compositie_doel: str,
+) -> dict[str, object]:
+    assert product.thema is not None
+    thema = product.thema
+    if thema.typeschaal is None or thema.spacing is None:
+        raise ValueError(
+            f"Grafana dashboardheader vereist typeschaal en spacing voor "
+            f"product '{product.id}'"
+        )
+    voorgrond = _themakleur(thema, "materiaal", "foreground")
+    accent = _themakleur(thema, "materiaal", "accent")
+    achtergrond = _themakleur(thema, "materiaal", "canvas")
+    padding = _pixels(thema.spacing.medium, "spacing.medium")
+    titelgrootte = _pixels(thema.typeschaal.title, "typeschaal.title")
+    labelgrootte = _pixels(thema.typeschaal.label, "typeschaal.label")
+    bodygrootte = _pixels(thema.typeschaal.body, "typeschaal.body")
+    return {
+        "description": compositie_doel,
+        "gridPos": {"h": GRAFANA_HEADER_HEIGHT, "w": 24, "x": 0, "y": 0},
+        "id": 1,
+        "options": {
+            "infinitePan": False,
+            "inlineEditing": False,
+            "panZoom": False,
+            "root": {
+                "background": {"color": {"fixed": achtergrond}},
+                "border": {"color": {"fixed": accent}, "width": 0},
+                "elements": [
+                    {
+                        "config": {
+                            "align": "left",
+                            "color": {"fixed": accent},
+                            "size": labelgrootte,
+                            "text": {
+                                "fixed": (
+                                    f"{thema.wereld_naam} · {thema.thema_naam} "
+                                    "· Gegenereerd uit BAT"
+                                ),
+                                "mode": "fixed",
+                            },
+                            "valign": "top",
+                        },
+                        "constraint": {"horizontal": "left", "vertical": "top"},
+                        "name": f"{product.id}-identity",
+                        "placement": {
+                            "height": labelgrootte + 8,
+                            "left": padding,
+                            "top": padding,
+                            "width": 720,
+                        },
+                        "type": "text",
+                    },
+                    {
+                        "config": {
+                            "align": "left",
+                            "color": {"fixed": voorgrond},
+                            "size": titelgrootte,
+                            "text": {"fixed": compositie_naam, "mode": "fixed"},
+                            "valign": "top",
+                        },
+                        "constraint": {"horizontal": "left", "vertical": "top"},
+                        "name": f"{product.id}-title",
+                        "placement": {
+                            "height": titelgrootte + 8,
+                            "left": padding,
+                            "top": padding + labelgrootte + 8,
+                            "width": 720,
+                        },
+                        "type": "text",
+                    },
+                    {
+                        "config": {
+                            "align": "left",
+                            "color": {"fixed": voorgrond},
+                            "size": bodygrootte,
+                            "text": {"fixed": compositie_doel, "mode": "fixed"},
+                            "valign": "top",
+                        },
+                        "constraint": {"horizontal": "left", "vertical": "top"},
+                        "name": f"{product.id}-purpose",
+                        "placement": {
+                            "height": bodygrootte + 8,
+                            "left": padding + 760,
+                            "top": padding + labelgrootte + 16,
+                            "width": 720,
+                        },
+                        "type": "text",
+                    },
+                ],
+                "name": "Root",
+                "type": "frame",
+            },
+            "showAdvancedTypes": False,
+        },
+        "title": compositie_naam,
+        "transparent": True,
+        "type": "canvas",
     }
 
 
@@ -334,8 +438,8 @@ def _render(
         region.instance_id: region
         for region in layout.regions
     }
-    panels = []
-    for panel_id, instantie in enumerate(compositie.instances, start=1):
+    panels = [_dashboard_header(product, compositie.naam, compositie.doel)]
+    for panel_id, instantie in enumerate(compositie.instances, start=2):
         region = regions_per_instantie[instantie.id]
         appearance = appearances.get(instantie.appearance_id or "")
         if appearance is None:

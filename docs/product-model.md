@@ -410,6 +410,14 @@ M10.1c voegt expliciete en backendonafhankelijke metriekdetails toe. Het veld
 `items` bewaart hun feitelijke namen in identifier-volgorde. HTML en Grafana
 renderen dezelfde opgeloste details en selecteren zelf geen objecten.
 
+M10.2a maakt ook de productidentiteit backendonafhankelijk zichtbaar. De
+opgeloste compositienaam en het compositiedoel vormen in HTML en Grafana de
+dashboardheader. Wereldnaam, themanaam en de deterministische status
+`Gegenereerd uit BAT` komen uit de reeds opgeloste productcontext. De
+HTML-backend vertaalt deze productshell responsief naar één kolom op smallere
+viewports. De Grafana-backend reserveert een Canvas-header boven het native
+grid en verschuift alle dashboardpanelen met een vaste headerhoogte.
+
 ## Diagnostics
 
 | Code | Betekenis |
