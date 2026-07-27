@@ -293,17 +293,46 @@
   },
   {
     "eigenschappen": {
-      "componenten": [
-        "forge-panel",
-        "forge-panel",
-        "forge-panel"
-      ],
       "doel": "Eerste reproduceerbare productsamenstelling.",
-      "naam": "Forge Dashboard",
-      "richting": "row"
+      "instanties": [
+        "forge-dashboard-left-panel",
+        "forge-dashboard-center-panel",
+        "forge-dashboard-right-panel"
+      ],
+      "naam": "Forge Dashboard"
     },
     "id": "forge-dashboard",
     "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "forge-dashboard",
+      "doel": "Benoemd paneel voor de linker dashboardinhoud.",
+      "naam": "Linker Forge-paneel"
+    },
+    "id": "forge-dashboard-left-panel",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "forge-dashboard",
+      "doel": "Benoemd paneel voor de centrale dashboardinhoud.",
+      "naam": "Centraal Forge-paneel"
+    },
+    "id": "forge-dashboard-center-panel",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "forge-dashboard",
+      "doel": "Benoemd paneel voor de rechter dashboardinhoud.",
+      "naam": "Rechter Forge-paneel"
+    },
+    "id": "forge-dashboard-right-panel",
+    "soort": "componentinstantie"
   },
   {
     "eigenschappen": {
@@ -413,36 +442,6 @@
       "pad": "output/products/components.html"
     },
     "id": "html-components",
-    "soort": "renderdoel"
-  },
-  {
-    "eigenschappen": {
-      "doel": "Compositielayouts als CSS genereren.",
-      "formaat": "css",
-      "naam": "CSS compositions",
-      "pad": "output/products/compositions.css"
-    },
-    "id": "css-compositions",
-    "soort": "renderdoel"
-  },
-  {
-    "eigenschappen": {
-      "doel": "Composities als zelfstandig HTML-product genereren.",
-      "formaat": "html",
-      "naam": "HTML compositions",
-      "pad": "output/products/compositions.html"
-    },
-    "id": "html-compositions",
-    "soort": "renderdoel"
-  },
-  {
-    "eigenschappen": {
-      "doel": "Composities als reproduceerbaar vectorcanvas genereren.",
-      "formaat": "svg",
-      "naam": "SVG compositions",
-      "pad": "output/products/compositions.svg"
-    },
-    "id": "svg-compositions",
     "soort": "renderdoel"
   }
 ]

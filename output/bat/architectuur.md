@@ -419,8 +419,52 @@ Eerste reproduceerbare productsamenstelling.
 
 ### Eigenschappen
 
-- **componenten:** forge-panel, forge-panel, forge-panel
-- **richting:** row
+- **instanties:** forge-dashboard-left-panel, forge-dashboard-center-panel, forge-dashboard-right-panel
+
+## Linker Forge-paneel
+
+**Soort:** componentinstantie
+
+**Identifier:** `forge-dashboard-left-panel`
+
+### Doel
+
+Benoemd paneel voor de linker dashboardinhoud.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** forge-dashboard
+
+## Centraal Forge-paneel
+
+**Soort:** componentinstantie
+
+**Identifier:** `forge-dashboard-center-panel`
+
+### Doel
+
+Benoemd paneel voor de centrale dashboardinhoud.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** forge-dashboard
+
+## Rechter Forge-paneel
+
+**Soort:** componentinstantie
+
+**Identifier:** `forge-dashboard-right-panel`
+
+### Doel
+
+Benoemd paneel voor de rechter dashboardinhoud.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** forge-dashboard
 
 ## Forge Dashboard Ultrawide
 
@@ -572,48 +616,3 @@ Een minimale componentcatalogus genereren.
 
 - **formaat:** html
 - **pad:** output/products/components.html
-
-## CSS compositions
-
-**Soort:** renderdoel
-
-**Identifier:** `css-compositions`
-
-### Doel
-
-Compositielayouts als CSS genereren.
-
-### Eigenschappen
-
-- **formaat:** css
-- **pad:** output/products/compositions.css
-
-## HTML compositions
-
-**Soort:** renderdoel
-
-**Identifier:** `html-compositions`
-
-### Doel
-
-Composities als zelfstandig HTML-product genereren.
-
-### Eigenschappen
-
-- **formaat:** html
-- **pad:** output/products/compositions.html
-
-## SVG compositions
-
-**Soort:** renderdoel
-
-**Identifier:** `svg-compositions`
-
-### Doel
-
-Composities als reproduceerbaar vectorcanvas genereren.
-
-### Eigenschappen
-
-- **formaat:** svg
-- **pad:** output/products/compositions.svg

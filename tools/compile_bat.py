@@ -10,9 +10,6 @@ sys.path.insert(0, str(ROOT))
 
 from compiler.component_css_renderer import naar_component_css
 from compiler.component_html_renderer import naar_component_html
-from compiler.composition_css_renderer import naar_compositie_css
-from compiler.composition_html_renderer import naar_compositie_html
-from compiler.composition_svg_renderer import naar_compositie_svg
 from compiler.css_renderer import naar_css
 from compiler.parser import parseer_bestand
 from compiler.product_backends import standaard_backend_registry
@@ -40,9 +37,6 @@ def main() -> None:
     (PRODUCTUITVOER / "tokens.json").write_text(naar_token_json(model.objecten), encoding="utf-8")
     (PRODUCTUITVOER / "components.css").write_text(naar_component_css(model.objecten), encoding="utf-8")
     (PRODUCTUITVOER / "components.html").write_text(naar_component_html(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "compositions.css").write_text(naar_compositie_css(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "compositions.html").write_text(naar_compositie_html(model.objecten), encoding="utf-8")
-    (PRODUCTUITVOER / "compositions.svg").write_text(naar_compositie_svg(model.objecten), encoding="utf-8")
     productpaden = []
     for product in compileer_producten(model.objecten, standaard_backend_registry()):
         pad = ROOT / product.definitie.pad
@@ -55,8 +49,6 @@ def main() -> None:
         "output/bat/model.cir.json", "output/bat/architectuur.md",
         "output/products/tokens.css", "output/products/tokens.json",
         "output/products/components.css", "output/products/components.html",
-        "output/products/compositions.css", "output/products/compositions.html",
-        "output/products/compositions.svg",
         *productpaden,
     ):
         print(f"  {pad}")

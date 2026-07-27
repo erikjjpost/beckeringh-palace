@@ -189,8 +189,28 @@ component forge-panel {
 compositie forge-dashboard {
     naam: "Forge Dashboard"
     doel: "Eerste reproduceerbare productsamenstelling."
-    componenten: ["forge-panel", "forge-panel", "forge-panel"]
-    richting: "row"
+    instanties: ["forge-dashboard-left-panel", "forge-dashboard-center-panel", "forge-dashboard-right-panel"]
+}
+
+componentinstantie forge-dashboard-left-panel {
+    naam: "Linker Forge-paneel"
+    doel: "Benoemd paneel voor de linker dashboardinhoud."
+    compositie: "forge-dashboard"
+    component: "forge-panel"
+}
+
+componentinstantie forge-dashboard-center-panel {
+    naam: "Centraal Forge-paneel"
+    doel: "Benoemd paneel voor de centrale dashboardinhoud."
+    compositie: "forge-dashboard"
+    component: "forge-panel"
+}
+
+componentinstantie forge-dashboard-right-panel {
+    naam: "Rechter Forge-paneel"
+    doel: "Benoemd paneel voor de rechter dashboardinhoud."
+    compositie: "forge-dashboard"
+    component: "forge-panel"
 }
 
 layout forge-dashboard-ultrawide {
@@ -270,25 +290,4 @@ renderdoel html-components {
     doel: "Een minimale componentcatalogus genereren."
     formaat: "html"
     pad: "output/products/components.html"
-}
-
-renderdoel css-compositions {
-    naam: "CSS compositions"
-    doel: "Compositielayouts als CSS genereren."
-    formaat: "css"
-    pad: "output/products/compositions.css"
-}
-
-renderdoel html-compositions {
-    naam: "HTML compositions"
-    doel: "Composities als zelfstandig HTML-product genereren."
-    formaat: "html"
-    pad: "output/products/compositions.html"
-}
-
-renderdoel svg-compositions {
-    naam: "SVG compositions"
-    doel: "Composities als reproduceerbaar vectorcanvas genereren."
-    formaat: "svg"
-    pad: "output/products/compositions.svg"
 }
