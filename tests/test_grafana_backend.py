@@ -9,6 +9,7 @@ from compiler.backends.grafana import backend
 from compiler.parser import parseer, parseer_bestand
 from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
+from compiler.product_model import SNAPSHOT_ID_LENGTH
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import analyseer
 
@@ -184,7 +185,8 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             "Beckeringh Palace · Forge · Gegenereerd uit BAT · "
-            "Statische architectuursnapshot",
+            "Statische architectuursnapshot · Snapshot "
+            f"{product.definitie.snapshot_id[:SNAPSHOT_ID_LENGTH]}",
             dashboard["panels"][0]["options"]["root"]["elements"][0]["config"][
                 "text"
             ]["fixed"],

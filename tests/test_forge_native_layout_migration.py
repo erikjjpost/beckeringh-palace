@@ -7,6 +7,7 @@ from compiler.layout_model import LayoutType
 from compiler.parser import parseer_bestand
 from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
+from compiler.product_model import SNAPSHOT_ID_LENGTH
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import analyseer
 
@@ -118,9 +119,15 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
         self.assertIn('data-product-mode="static"', product.inhoud)
         self.assertIn('data-time-context="none"', product.inhoud)
+        self.assertEqual(64, len(product.definitie.snapshot_id))
+        self.assertIn(
+            f'data-snapshot-id="{product.definitie.snapshot_id}"',
+            product.inhoud,
+        )
         self.assertIn(
             "Beckeringh Palace · Forge · Gegenereerd uit BAT · "
-            "Statische architectuursnapshot",
+            "Statische architectuursnapshot · Snapshot "
+            f"{product.definitie.snapshot_id[:SNAPSHOT_ID_LENGTH]}",
             product.inhoud,
         )
         self.assertIn('<li><span>Ember</span></li>', product.inhoud)

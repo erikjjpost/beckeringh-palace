@@ -6,7 +6,7 @@ from collections.abc import Iterable
 from compiler.backend import Backend
 from compiler.cir import Architectuurobject
 from compiler.native_layout_html_renderer import naar_native_layout_html
-from compiler.product_model import ProductDefinition
+from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
 
 
 def _css_string(waarde: str) -> str:
@@ -193,17 +193,28 @@ def _render(
         wereld_naam=product.thema.wereld_naam if product.thema else None,
         thema_naam=product.thema.thema_naam if product.thema else None,
         mode_label=product.mode_label,
+        snapshot_label=(
+            f"Snapshot {product.snapshot_id[:SNAPSHOT_ID_LENGTH]}"
+            if product.snapshot_id
+            else None
+        ),
     )
     if product.thema is None:
         return inhoud
 
     thema = product.thema
+    snapshot_attribuut = (
+        f' data-snapshot-id="{product.snapshot_id}"'
+        if product.snapshot_id
+        else ""
+    )
     inhoud = inhoud.replace("  <style>\n", "  <style>\n" + _theme_css(product), 1)
     inhoud = inhoud.replace(
         "<body>",
         f'<body data-world="{thema.wereld_id}" data-theme="{thema.thema_id}" '
         f'data-product-mode="{product.mode}" '
-        f'data-time-context="{"applicable" if product.has_time_context else "none"}">',
+        f'data-time-context="{"applicable" if product.has_time_context else "none"}"'
+        f"{snapshot_attribuut}>",
         1,
     )
     return inhoud

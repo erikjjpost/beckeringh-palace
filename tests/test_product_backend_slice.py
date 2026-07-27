@@ -67,9 +67,40 @@ class ProductBackendSliceTests(unittest.TestCase):
             producten[0].definitie.mode_label,
         )
         self.assertTrue(producten[0].definitie.has_time_context)
+        self.assertEqual("", producten[0].definitie.snapshot_id)
         self.assertIn("<title>Dashboard HTML</title>", producten[0].inhoud)
         self.assertIn("bp-layout-widescreen", producten[0].inhoud)
         self.assertIn('data-instance="dashboard-panel"', producten[0].inhoud)
+
+    def test_statische_snapshotidentiteit_is_deterministisch_en_inhoudsgevoelig(self):
+        statische_bron = BRON.replace(
+            'backend: "html"',
+            'backend: "html"\n    mode: "static"',
+        )
+        model = analyseer(
+            parseer(statische_bron),
+            constraints=WORLD_MODEL_CONSTRAINTS,
+        )
+        eerste = compileer_producten(
+            model.objecten,
+            standaard_backend_registry(),
+        )[0].definitie.snapshot_id
+        tweede = compileer_producten(
+            tuple(reversed(model.objecten)),
+            standaard_backend_registry(),
+        )[0].definitie.snapshot_id
+        gewijzigd_model = analyseer(
+            parseer(statische_bron.replace("Testcomponent.", "Gewijzigd.")),
+            constraints=WORLD_MODEL_CONSTRAINTS,
+        )
+        gewijzigd = compileer_producten(
+            gewijzigd_model.objecten,
+            standaard_backend_registry(),
+        )[0].definitie.snapshot_id
+
+        self.assertEqual(64, len(eerste))
+        self.assertEqual(eerste, tweede)
+        self.assertNotEqual(eerste, gewijzigd)
 
     def test_html_backend_heeft_geen_layout_fallback(self):
         model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
