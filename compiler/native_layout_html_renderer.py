@@ -97,6 +97,14 @@ def naar_native_layout_html(
         (instantie, regions_per_instantie[instantie.id])
         for instantie in compositie.instances
     )
+    if all(
+        instantie.reading_order is not None
+        for instantie, _ in geordende_plaatsingen
+    ):
+        geordende_plaatsingen = tuple(sorted(
+            geordende_plaatsingen,
+            key=lambda plaatsing: plaatsing[0].reading_order or 0,
+        ))
 
     regels = [
         "<!doctype html>",
@@ -163,6 +171,16 @@ def naar_native_layout_html(
             if instantie.information_area_id is not None
             else ""
         )
+        accessibility_attribute = (
+            f' aria-label="{html.escape(instantie.accessibility_label)}"'
+            if instantie.accessibility_label is not None
+            else ""
+        )
+        reading_order_attribute = (
+            f' data-reading-order="{instantie.reading_order}"'
+            if instantie.reading_order is not None
+            else ""
+        )
         regels.extend([
             (
                 f'    <section class="bp-region {componentklasse(instantie.component_id)}'
@@ -171,7 +189,8 @@ def naar_native_layout_html(
                 f'data-instance="{html.escape(instantie.id)}" '
                 f'data-component="{html.escape(instantie.component_id)}"'
                 f"{variant_attribute}{appearance_attribute}"
-                f"{information_area_attribute}{style_attribute}>"
+                f"{information_area_attribute}{reading_order_attribute}"
+                f"{accessibility_attribute}{style_attribute}>"
             ),
             f"      <h2>{html.escape(instantie.naam)}</h2>",
         ])

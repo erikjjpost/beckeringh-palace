@@ -239,6 +239,8 @@ variant forge-panel-compact {
 informatiegebied palace-world {
     naam: "Wereld en identiteit"
     doel: "De digitale wereld, haar merk en haar reproduceerbare bronassets."
+    toegankelijkheidslabel: "Wereld en identiteit, overzicht van wereld, merk en bronassets"
+    leesvolgorde: "1"
     soorten: ["wereld", "merk", "asset"]
     inhoud: ["beckeringh-palace"]
     navigatie: ["forge-dashboard-html", "forge-dashboard-grafana"]
@@ -247,6 +249,8 @@ informatiegebied palace-world {
 informatiegebied forge-design-system {
     naam: "Forge ontwerpsysteem"
     doel: "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit."
+    toegankelijkheidslabel: "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten"
+    leesvolgorde: "2"
     soorten: ["kleur", "palet", "typografie", "typeschaal", "materiaal", "border", "radius", "shadow", "motion", "spacing", "thema", "appearance", "token", "component", "variant"]
     inhoud: ["forge", "forge-materials", "forge-panel"]
     navigatie: ["html-components", "css-components", "css-tokens", "json-tokens"]
@@ -255,6 +259,8 @@ informatiegebied forge-design-system {
 informatiegebied palace-product-family {
     naam: "Productfamilie"
     doel: "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd."
+    toegankelijkheidslabel: "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
+    leesvolgorde: "3"
     soorten: ["compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
     inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "project-status-html"]
     navigatie: ["project-status-html", "project-status-grafana"]

@@ -518,8 +518,10 @@ De digitale wereld, haar merk en haar reproduceerbare bronassets.
 ### Eigenschappen
 
 - **inhoud:** beckeringh-palace
+- **leesvolgorde:** 1
 - **navigatie:** forge-dashboard-html, forge-dashboard-grafana
 - **soorten:** wereld, merk, asset
+- **toegankelijkheidslabel:** Wereld en identiteit, overzicht van wereld, merk en bronassets
 
 ## Forge ontwerpsysteem
 
@@ -534,8 +536,10 @@ De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.
 ### Eigenschappen
 
 - **inhoud:** forge, forge-materials, forge-panel
+- **leesvolgorde:** 2
 - **navigatie:** html-components, css-components, css-tokens, json-tokens
 - **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant
+- **toegankelijkheidslabel:** Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten
 
 ## Productfamilie
 
@@ -550,8 +554,10 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 ### Eigenschappen
 
 - **inhoud:** forge-dashboard, forge-dashboard-ultrawide, project-status-html
+- **leesvolgorde:** 3
 - **navigatie:** project-status-html, project-status-grafana
 - **soorten:** compositie, componentinstantie, layout, region, product, renderdoel
+- **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
 ## Forge Dashboard
 

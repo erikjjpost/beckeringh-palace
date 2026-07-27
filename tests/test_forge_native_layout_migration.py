@@ -118,6 +118,19 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
+            'data-information-area="palace-world" data-reading-order="1" '
+            'aria-label="Wereld en identiteit, overzicht van wereld, merk en bronassets"',
+            product.inhoud,
+        )
+        self.assertLess(
+            product.inhoud.index('data-reading-order="1"'),
+            product.inhoud.index('data-reading-order="2"'),
+        )
+        self.assertLess(
+            product.inhoud.index('data-reading-order="2"'),
+            product.inhoud.index('data-reading-order="3"'),
+        )
+        self.assertIn(
             '<a href="components.html" data-navigation-target="html-components" '
             'data-navigation-kind="renderdoel">HTML component catalogue</a>',
             product.inhoud,

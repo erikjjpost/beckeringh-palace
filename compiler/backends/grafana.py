@@ -61,6 +61,12 @@ def _paneelbeschrijving(instantie: ResolvedComponentInstance) -> str:
         identiteit.append(
             f"BAT informatiegebied: {instantie.information_area_id}"
         )
+    if instantie.accessibility_label is not None:
+        identiteit.append(
+            f"Toegankelijkheidslabel: {instantie.accessibility_label}"
+        )
+    if instantie.reading_order is not None:
+        identiteit.append(f"Leesvolgorde: {instantie.reading_order}")
     return f"{instantie.doel}\n\n" + "\n".join(identiteit)
 
 
@@ -762,7 +768,13 @@ def _render(
         for region in layout.regions
     }
     panels = [_dashboard_header(product, compositie.naam, compositie.doel)]
-    for panel_id, instantie in enumerate(compositie.instances, start=2):
+    instanties = compositie.instances
+    if all(instantie.reading_order is not None for instantie in instanties):
+        instanties = tuple(sorted(
+            instanties,
+            key=lambda instantie: instantie.reading_order or 0,
+        ))
+    for panel_id, instantie in enumerate(instanties, start=2):
         region = regions_per_instantie[instantie.id]
         appearance = appearances.get(instantie.appearance_id or "")
         if appearance is None:
@@ -781,7 +793,7 @@ def _render(
                     product.thema,
                     instantie.metric_value,
                 ),
-                "title": instantie.naam,
+                "title": instantie.accessibility_label or instantie.naam,
                 "transparent": True,
                 "type": "canvas",
             }

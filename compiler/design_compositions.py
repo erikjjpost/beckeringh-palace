@@ -30,6 +30,8 @@ class ResolvedComponentInstance:
     variant_id: str | None
     appearance_id: str | None
     information_area_id: str | None
+    accessibility_label: str | None
+    reading_order: int | None
     metric_kind: str | None
     metric_value: int | None
     metric_details: tuple[ResolvedMetricDetail, ...]
@@ -126,6 +128,16 @@ def _instantie_uit_object(
         ),
         information_area_id=(
             informatiegebied.id if informatiegebied is not None else None
+        ),
+        accessibility_label=(
+            informatiegebied.accessibility_label
+            if informatiegebied is not None
+            else None
+        ),
+        reading_order=(
+            informatiegebied.reading_order
+            if informatiegebied is not None
+            else None
         ),
         metric_kind=(
             f"informatiegebied:{informatiegebied.id}"

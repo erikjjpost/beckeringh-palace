@@ -522,6 +522,19 @@ soortverdeling en productnavigatie. De selectie en volgorde komen volledig uit
 BAT. Backends kiezen daardoor geen voorbeelden op basis van aantallen,
 objectsoorten of toevallige bronvolgorde.
 
+M10.5d legt voor ieder informatiegebied daarnaast een expliciet
+`toegankelijkheidslabel` en een positieve `leesvolgorde` vast. De leesposities
+zijn uniek en vormen over alle informatiegebieden een aaneengesloten reeks.
+De informatielaag draagt beide waarden via de opgeloste compositie naar iedere
+backend.
+
+HTML ordent de informatiegebieden in deze leesvolgorde in de DOM en schrijft
+het label als `aria-label` en de positie als `data-reading-order`. De visuele
+gridplaatsing blijft uit de native layout komen. Grafana gebruikt hetzelfde
+label als paneeltitel en bewaart label en leespositie in de paneelbeschrijving.
+Geen backend leidt toegankelijkheidssemantiek af uit kolompositie, naam of
+bronvolgorde.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -580,3 +593,7 @@ objectsoorten of toevallige bronvolgorde.
 | `BP4010` | Informatiegebied verwijst naar een onbekend inhoudsanker |
 | `BP4011` | Inhoudsanker valt buiten de objectsoorten van het informatiegebied |
 | `BP4012` | Inhoudsanker komt voor in meerdere informatiegebieden |
+| `BP4013` | Informatiegebied mist een betekenisvol toegankelijkheidslabel |
+| `BP4014` | Informatiegebied mist een positieve gehele leesvolgorde |
+| `BP4015` | Leesvolgorde komt voor in meerdere informatiegebieden |
+| `BP4016` | Leesvolgorde van informatiegebieden is niet aaneengesloten |

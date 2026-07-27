@@ -4,26 +4,26 @@
   "overall_progress": 40,
   "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
   "current_milestone": {
-    "id": "M10.5c",
-    "name": "Dashboard inhoudelijke verdieping",
+    "id": "M10.5d",
+    "name": "Dashboard toegankelijkheidscontract",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M10.5b",
-    "name": "Dashboard productnavigatie",
-    "pull_request": 64
+    "id": "M10.5c",
+    "name": "Dashboard inhoudelijke verdieping",
+    "pull_request": 65
   },
   "next_step": {
-    "id": "M10.5d",
-    "name": "Dashboard toegankelijkheidscontract",
-    "purpose": "De betekenisvolle labels en leesvolgorde van dashboardinformatie backendonafhankelijk vastleggen en toetsen."
+    "id": "M11.1a",
+    "name": "HTML homepage productcontract",
+    "purpose": "De Beckeringh Palace homepage als native compositie, layout en reproduceerbaar HTML product modelleren."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
       "progress": 80,
-      "evidence": "Validatie, deterministische generatie, CI en 130 regressietests vormen een werkende kwaliteitsketen.",
+      "evidence": "Validatie, deterministische generatie, CI en 133 regressietests vormen een werkende kwaliteitsketen.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
@@ -43,9 +43,9 @@
     {
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
-      "progress": 60,
-      "evidence": "HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven expliciete kernobjecten en navigatie naar zes producten en catalogi.",
-      "remaining": "Betekenisvolle labels en leesvolgorde zijn nog niet als expliciet toegankelijkheidscontract gemodelleerd."
+      "progress": 65,
+      "evidence": "HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven kernobjecten, zes navigatiedoelen en expliciete toegankelijkheidslabels en leesvolgorde.",
+      "remaining": "Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt."
     },
     {
       "id": "visual-world",

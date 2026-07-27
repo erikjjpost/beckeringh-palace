@@ -13,6 +13,8 @@ BRON = '''
 informatiegebied wereld {
     naam: "Wereld"
     doel: "Wereldinhoud."
+    toegankelijkheidslabel: "Wereld en identiteit"
+    leesvolgorde: "1"
     soorten: ["wereld"]
     inhoud: ["palace"]
     navigatie: ["dashboard-html"]
@@ -82,6 +84,8 @@ class InformationArchitectureTests(unittest.TestCase):
         instantie = resolveer_composities(model.objecten)[0].instances[0]
 
         self.assertEqual(("wereld",), gebied.object_kinds)
+        self.assertEqual("Wereld en identiteit", gebied.accessibility_label)
+        self.assertEqual(1, gebied.reading_order)
         self.assertEqual(
             (("palace", "Palace", "wereld", "Digitale wereld."),),
             tuple(
@@ -97,6 +101,8 @@ class InformationArchitectureTests(unittest.TestCase):
             ),
         )
         self.assertEqual("wereld", instantie.information_area_id)
+        self.assertEqual("Wereld en identiteit", instantie.accessibility_label)
+        self.assertEqual(1, instantie.reading_order)
         self.assertEqual("Wereld", instantie.naam)
         self.assertEqual("Wereldinhoud.", instantie.doel)
         self.assertEqual("informatiegebied:wereld", instantie.metric_kind)
@@ -225,6 +231,74 @@ wereld palace {''',
                 with self.assertRaises(SemantischeFout) as context:
                     analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
                 self.assertIn(code, {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_ongeldig_toegankelijkheidslabel(self):
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(
+                parseer(BRON.replace(
+                    'toegankelijkheidslabel: "Wereld en identiteit"',
+                    'toegankelijkheidslabel: ""',
+                )),
+                constraints=WORLD_MODEL_CONSTRAINTS,
+            )
+        self.assertIn("BP4013", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_ongeldige_of_dubbele_leesvolgorde(self):
+        varianten = (
+            (BRON.replace('leesvolgorde: "1"', 'leesvolgorde: "0"'), "BP4014"),
+            (BRON.replace('leesvolgorde: "1"', 'leesvolgorde: "twee"'), "BP4014"),
+            (
+                BRON.replace(
+                    "wereld palace {",
+                    '''informatiegebied dubbel {
+    naam: "Dubbel"
+    doel: "Tweede gebied."
+    toegankelijkheidslabel: "Tweede informatiegebied"
+    leesvolgorde: "1"
+    soorten: ["merk"]
+    inhoud: ["brand"]
+    navigatie: ["missing-product"]
+}
+
+merk brand {
+    naam: "Brand"
+    doel: "Merkidentiteit."
+}
+
+wereld palace {''',
+                ),
+                "BP4015",
+            ),
+        )
+        for bron, code in varianten:
+            with self.subTest(code=code):
+                with self.assertRaises(SemantischeFout) as context:
+                    analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+                self.assertIn(code, {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_niet_aaneengesloten_leesvolgorde(self):
+        bron = BRON.replace(
+            "wereld palace {",
+            '''informatiegebied tweede {
+    naam: "Tweede"
+    doel: "Tweede gebied."
+    toegankelijkheidslabel: "Tweede informatiegebied"
+    leesvolgorde: "3"
+    soorten: ["merk"]
+    inhoud: ["brand"]
+    navigatie: ["missing-product"]
+}
+
+merk brand {
+    naam: "Brand"
+    doel: "Merkidentiteit."
+}
+
+wereld palace {''',
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP4016", {item.code for item in context.exception.diagnostics})
 
 
 if __name__ == "__main__":
