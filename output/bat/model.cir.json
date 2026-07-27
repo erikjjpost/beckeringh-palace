@@ -338,8 +338,9 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "forge-dashboard",
-      "doel": "Benoemd paneel voor de linker dashboardinhoud.",
-      "naam": "Linker Forge-paneel"
+      "doel": "Aantal objecten in het gevalideerde BAT wereldmodel.",
+      "metric-kind": "*",
+      "naam": "Architectuurobjecten"
     },
     "id": "forge-dashboard-left-panel",
     "soort": "componentinstantie"
@@ -348,8 +349,9 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "forge-dashboard",
-      "doel": "Benoemd paneel voor de centrale dashboardinhoud.",
-      "naam": "Centraal Forge-paneel",
+      "doel": "Aantal native tokens waaruit de Forge producten worden gegenereerd.",
+      "metric-kind": "token",
+      "naam": "Design tokens",
       "variant": "forge-panel-compact"
     },
     "id": "forge-dashboard-center-panel",
@@ -359,8 +361,9 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "forge-dashboard",
-      "doel": "Benoemd paneel voor de rechter dashboardinhoud.",
-      "naam": "Rechter Forge-paneel"
+      "doel": "Aantal productdefinities met een expliciete backend.",
+      "metric-kind": "product",
+      "naam": "Productuitvoer"
     },
     "id": "forge-dashboard-right-panel",
     "soort": "componentinstantie"

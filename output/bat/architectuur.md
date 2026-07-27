@@ -461,7 +461,7 @@ Eerste reproduceerbare productsamenstelling.
 
 - **instanties:** forge-dashboard-left-panel, forge-dashboard-center-panel, forge-dashboard-right-panel
 
-## Linker Forge-paneel
+## Architectuurobjecten
 
 **Soort:** componentinstantie
 
@@ -469,14 +469,15 @@ Eerste reproduceerbare productsamenstelling.
 
 ### Doel
 
-Benoemd paneel voor de linker dashboardinhoud.
+Aantal objecten in het gevalideerde BAT wereldmodel.
 
 ### Eigenschappen
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
+- **metric-kind:** *
 
-## Centraal Forge-paneel
+## Design tokens
 
 **Soort:** componentinstantie
 
@@ -484,15 +485,16 @@ Benoemd paneel voor de linker dashboardinhoud.
 
 ### Doel
 
-Benoemd paneel voor de centrale dashboardinhoud.
+Aantal native tokens waaruit de Forge producten worden gegenereerd.
 
 ### Eigenschappen
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
+- **metric-kind:** token
 - **variant:** forge-panel-compact
 
-## Rechter Forge-paneel
+## Productuitvoer
 
 **Soort:** componentinstantie
 
@@ -500,12 +502,13 @@ Benoemd paneel voor de centrale dashboardinhoud.
 
 ### Doel
 
-Benoemd paneel voor de rechter dashboardinhoud.
+Aantal productdefinities met een expliciete backend.
 
 ### Eigenschappen
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
+- **metric-kind:** product
 
 ## Forge Dashboard Ultrawide
 

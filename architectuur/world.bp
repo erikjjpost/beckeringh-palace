@@ -217,25 +217,28 @@ compositie forge-dashboard {
 }
 
 componentinstantie forge-dashboard-left-panel {
-    naam: "Linker Forge-paneel"
-    doel: "Benoemd paneel voor de linker dashboardinhoud."
+    naam: "Architectuurobjecten"
+    doel: "Aantal objecten in het gevalideerde BAT wereldmodel."
     compositie: "forge-dashboard"
     component: "forge-panel"
+    metric-kind: "*"
 }
 
 componentinstantie forge-dashboard-center-panel {
-    naam: "Centraal Forge-paneel"
-    doel: "Benoemd paneel voor de centrale dashboardinhoud."
+    naam: "Design tokens"
+    doel: "Aantal native tokens waaruit de Forge producten worden gegenereerd."
     compositie: "forge-dashboard"
     component: "forge-panel"
     variant: "forge-panel-compact"
+    metric-kind: "token"
 }
 
 componentinstantie forge-dashboard-right-panel {
-    naam: "Rechter Forge-paneel"
-    doel: "Benoemd paneel voor de rechter dashboardinhoud."
+    naam: "Productuitvoer"
+    doel: "Aantal productdefinities met een expliciete backend."
     compositie: "forge-dashboard"
     component: "forge-panel"
+    metric-kind: "product"
 }
 
 layout forge-dashboard-ultrawide {

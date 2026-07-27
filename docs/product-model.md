@@ -391,6 +391,13 @@ naam en het bestaande doel van de componentinstantie. Radius en schaduw worden
 niet nagebootst, omdat het gebruikte Grafana Canvas-contract daarvoor geen
 gelijkwaardige paneeleigenschappen biedt.
 
+M10.1a voegt feitelijke, tijdens compilatie berekende modeltellingen toe aan
+componentinstanties. Het optionele veld `metric-kind` telt objecten van één
+expliciete BAT-soort; `*` telt alle gevalideerde architectuurobjecten. De
+Grafana Canvas-backend toont de uitkomst als statische waarde tussen kop en
+toelichting. Daardoor bevat het Forge-dashboard echte architectuurstatus zonder
+datasource, queries of verzonnen operationele meetwaarden.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -421,6 +428,8 @@ gelijkwaardige paneeleigenschappen biedt.
 | `BP3711` | Componentinstantie verwijst naar een onbekende compositie |
 | `BP3712` | Compositie noemt de componentinstantie niet |
 | `BP3713` | Componentinstantie verwijst naar een onbekend component |
+| `BP3714` | Componentinstantie heeft een ongeldige `metric-kind` |
+| `BP3715` | Componentinstantie telt een onbekende objectsoort |
 | `BP3801` | Variant heeft een onbekende eigenschap |
 | `BP3802` | Variant verwijst naar een onbekend component |
 | `BP3803` | Variant verwijst naar een onbekende appearance |

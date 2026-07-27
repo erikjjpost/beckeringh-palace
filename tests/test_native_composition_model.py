@@ -102,6 +102,34 @@ class NativeCompositionModelTests(unittest.TestCase):
         self.assertEqual("panel-compact", compositie.instances[0].appearance_id)
         self.assertIsNone(compositie.instances[1].variant_id)
         self.assertEqual("panel-default", compositie.instances[1].appearance_id)
+        self.assertIsNone(compositie.instances[1].metric_kind)
+
+    def test_resolveert_en_valideert_optionele_modeltelling(self):
+        bron = BRON.replace(
+            '    component: "forge-panel"\n}',
+            '    component: "forge-panel"\n    metric-kind: "component"\n}',
+            1,
+        )
+        model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        compositie = resolveer_composities(model.objecten)[0]
+
+        self.assertEqual("component", compositie.instances[1].metric_kind)
+
+        ongeldig = bron.replace('metric-kind: "component"', 'metric-kind: ""')
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(ongeldig), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3714", {item.code for item in context.exception.diagnostics})
+
+        onbekend = bron.replace(
+            'metric-kind: "component"',
+            'metric-kind: "onbekende-soort"',
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(onbekend), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3715", {item.code for item in context.exception.diagnostics})
 
     def test_weigert_legacy_layoutvelden(self):
         bron = BRON.replace(
