@@ -32,6 +32,13 @@ de `ProductDefinition` en de HTML-backend vertaalt die intentie naar HTML en
 CSS. Andere backends krijgen later een eigen vertaling van hetzelfde resolved
 contract.
 
+M9.1a introduceert daarnaast het native compositiecontract. Een compositie
+beschrijft productinhoud als een geordende lijst benoemde componentinstanties.
+Zij bevat geen richting, coördinaten of backendpresentatie. Alleen gevalideerde
+CIR wordt omgezet naar `ResolvedComposition` en `ResolvedComponentInstance`.
+De koppeling van een resolved compositie aan een product volgt in een
+afzonderlijke verticale milestone.
+
 ## Productcontext
 
 Een product blijft in BAT naar een layout-id verwijzen. Na semantische
@@ -54,6 +61,49 @@ uitsluitend backenduitvoer en wordt niet teruggeschreven naar BAT, CIR,
 `ResolvedLayout` of `ProductDefinition`.
 
 ## Native objecten
+
+### `compositie`
+
+Iedere compositie vereist:
+
+- `naam`: menselijke naam;
+- `doel`: beoogde productsamenstelling;
+- `instanties`: expliciete, geordende en unieke lijst componentinstantie-id's.
+
+De volgorde in `instanties` is de normatieve inhoudsvolgorde. Een compositie
+bevat geen layoutvelden. Plaatsing en visuele ordening behoren uitsluitend tot
+een native layout.
+
+```bp
+compositie overview {
+    naam: "Overview"
+    doel: "Bundelt de benoemde overzichtspanelen."
+    instanties: ["overview-primary", "overview-secondary"]
+}
+```
+
+### `componentinstantie`
+
+Iedere componentinstantie vereist:
+
+- `naam`: menselijke naam voor dit specifieke gebruik;
+- `doel`: semantische rol binnen de compositie;
+- `compositie`: de compositie waar de instantie bij hoort;
+- `component`: de herbruikbare componentdefinitie.
+
+De referentie is wederkerig: de compositie noemt de instantie en de instantie
+verwijst terug naar exact die compositie. Daardoor kunnen meerdere instanties
+van hetzelfde component afzonderlijk worden benoemd zonder hun identiteit uit
+lijstpositie of rendererstructuur af te leiden.
+
+```bp
+componentinstantie overview-primary {
+    naam: "Primair overzichtspaneel"
+    doel: "Toont de hoofdstatus."
+    compositie: "overview"
+    component: "status-panel"
+}
+```
 
 ### `layout`
 
@@ -190,6 +240,12 @@ coördinaten en de spatial HTML-fallback bestaan niet meer. Er is geen
 automatische omzetting en geen backwards magic. Een productbackend ontvangt
 uitsluitend een gevalideerde `ResolvedLayout`.
 
+M9.1a vervangt vervolgens het M6 compositiecontract. `componenten` en
+`richting` verdwijnen uit compositie. De zelfstandige compositie CSS-, HTML-
+en SVG-renderers en hun renderdoelen verdwijnen eveneens, omdat zij
+presentatiegedrag zonder product en zonder native layout vastlegden. De
+canonieke Forge-compositie gebruikt drie expliciete componentinstanties.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -209,3 +265,11 @@ uitsluitend een gevalideerde `ResolvedLayout`.
 | `BP3615` | Ongeldig of ontbrekend plaatsingsgetal |
 | `BP3616` | Grid-region valt buiten de kolommen |
 | `BP3617` | Grid-region valt buiten de rijen |
+| `BP3701` | Compositie heeft een onbekende eigenschap |
+| `BP3702` | `instanties` is niet expliciet, uniek of geldig |
+| `BP3703` | Compositie verwijst naar een onbekende componentinstantie |
+| `BP3704` | Componentinstantie verwijst niet terug naar de compositie |
+| `BP3710` | Componentinstantie heeft een onbekende eigenschap |
+| `BP3711` | Componentinstantie verwijst naar een onbekende compositie |
+| `BP3712` | Compositie noemt de componentinstantie niet |
+| `BP3713` | Componentinstantie verwijst naar een onbekend component |

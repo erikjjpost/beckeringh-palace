@@ -139,8 +139,13 @@ component forge-panel {
 compositie forge-dashboard {
     naam: "Forge Dashboard"
     doel: "Dashboard."
-    componenten: ["forge-panel"]
-    richting: "row"
+    instanties: ["forge-dashboard-panel"]
+}
+componentinstantie forge-dashboard-panel {
+    naam: "Forge Dashboard Panel"
+    doel: "Benoemd paneel."
+    compositie: "forge-dashboard"
+    component: "forge-panel"
 }
 layout forge-dashboard-ultrawide {
     naam: "Forge Dashboard Ultrawide"

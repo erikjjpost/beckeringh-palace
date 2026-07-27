@@ -18,7 +18,11 @@ De native objectsoorten zijn:
 | `token` | herbruikbare ontwerpwaarden |
 | `asset` | reproduceerbare bronassets |
 | `component` | herbruikbare productonderdelen |
-| `compositie` | ordening van componenten tot een product |
+| `componentinstantie` | benoemd gebruik van een component in één compositie |
+| `compositie` | geordende productinhoud zonder layoutpresentatie |
+| `layout` | backend-onafhankelijke plaatsingsintentie |
+| `region` | expliciete plaats binnen een native layout |
+| `product` | koppeling van wereld, productmodel, backend en artifactpad |
 | `variant` | gecontroleerde afwijkingen |
 | `renderdoel` | te genereren representaties |
 
