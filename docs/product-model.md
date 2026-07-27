@@ -342,6 +342,13 @@ alternatieve appearance na de basiscomponent onder een selector die zowel
 component als variant benoemt. De renderer leidt geen variant af en schrijft
 geen presentatie terug naar BAT of CIR.
 
+M9.2c maakt ook de gegenereerde HTML-componentcatalogus volledig. De catalogus
+toont ieder basiscomponent één keer en iedere expliciete variant daarnaast
+onder hetzelfde component. Variantitems gebruiken dezelfde component- en
+variantklassen als productuitvoer en bewaren component-id, variant-id en
+effectieve appearance-id als metadata. De catalogus leidt geen standaardvariant
+af.
+
 ## Diagnostics
 
 | Code | Betekenis |

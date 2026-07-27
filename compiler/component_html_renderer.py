@@ -7,6 +7,7 @@ from collections.abc import Iterable
 
 from compiler.cir import Architectuurobject
 from compiler.design_components import verzamel_componenten
+from compiler.design_variants import resolveer_varianten
 
 
 def _css_naam(identifier: str) -> str:
@@ -15,6 +16,11 @@ def _css_naam(identifier: str) -> str:
 
 
 def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
+    objecten = tuple(objecten)
+    varianten_per_component = {}
+    for variant in resolveer_varianten(objecten):
+        varianten_per_component.setdefault(variant.component_id, []).append(variant)
+
     regels = [
         "<!doctype html>",
         '<html lang="nl">',
@@ -31,11 +37,29 @@ def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
     for component in verzamel_componenten(objecten):
         regels.extend(
             [
-                f'    <section class="bp-{_css_naam(component.id)}">',
+                (
+                    f'    <section class="bp-{_css_naam(component.id)}" '
+                    f'data-component="{html.escape(component.id)}">'
+                ),
                 f"      <h2>{html.escape(component.naam)}</h2>",
                 f"      <p>{html.escape(component.doel)}</p>",
                 "    </section>",
             ]
         )
+        for variant in varianten_per_component.get(component.id, ()):
+            regels.extend(
+                [
+                    (
+                        f'    <section class="bp-{_css_naam(component.id)} '
+                        f'bp-variant-{_css_naam(variant.id)}" '
+                        f'data-component="{html.escape(component.id)}" '
+                        f'data-variant="{html.escape(variant.id)}" '
+                        f'data-appearance="{html.escape(variant.appearance_id)}">'
+                    ),
+                    f"      <h2>{html.escape(variant.naam)}</h2>",
+                    f"      <p>{html.escape(variant.doel)}</p>",
+                    "    </section>",
+                ]
+            )
     regels.extend(["  </main>", "</body>", "</html>", ""])
     return "\n".join(regels)
