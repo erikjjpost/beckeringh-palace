@@ -31,10 +31,21 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             )
         }
         product = producten["forge-dashboard-html"]
+        compositie = product.definitie.opgeloste_compositie
         layout = product.definitie.opgeloste_layout
 
+        self.assertIsNotNone(compositie)
         self.assertIsNotNone(layout)
+        assert compositie is not None
         assert layout is not None
+        self.assertEqual(
+            (
+                "forge-dashboard-left-panel",
+                "forge-dashboard-center-panel",
+                "forge-dashboard-right-panel",
+            ),
+            tuple(instantie.id for instantie in compositie.instances),
+        )
         self.assertEqual(LayoutType.GRID, layout.type)
         self.assertEqual((3, 1), (layout.columns, layout.rows))
         self.assertEqual(
@@ -44,6 +55,10 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
                 "forge-dashboard-right",
             ),
             tuple(region.id for region in layout.regions),
+        )
+        self.assertEqual(
+            tuple(instantie.id for instantie in compositie.instances),
+            tuple(region.instance_id for region in layout.regions),
         )
         self.assertIn('data-layout-type="grid"', product.inhoud)
         self.assertIn(

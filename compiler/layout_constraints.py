@@ -15,7 +15,7 @@ LAYOUT_TYPE_FIELDS = {
     LayoutType.FLOW: frozenset({"direction", "wrap"}),
     LayoutType.LAYER: frozenset(),
 }
-REGION_COMMON_FIELDS = frozenset({"naam", "doel", "layout", "component"})
+REGION_COMMON_FIELDS = frozenset({"naam", "doel", "layout", "instantie"})
 REGION_TYPE_FIELDS = {
     LayoutType.GRID: frozenset({"column", "row", "column-span", "row-span"}),
     LayoutType.STACK: frozenset(),
@@ -58,7 +58,11 @@ class NativeLayoutConstraint:
             if obj.soort == "layout"
         }
         regions = {obj.id: obj for obj in context.objecten if obj.soort == "region"}
-        componenten = {obj.id for obj in context.objecten if obj.soort == "component"}
+        instanties = {
+            obj.id
+            for obj in context.objecten
+            if obj.soort == "componentinstantie"
+        }
 
         for obj in layouts.values():
             type_waarde = obj.eigenschappen.get("type")
@@ -104,6 +108,24 @@ class NativeLayoutConstraint:
                         f"Region '{region_id}' verwijst niet terug naar layout '{obj.id}'",
                         locatie=region.eigenschaplocaties.get("layout", region.bronlocatie),
                     ))
+            geplaatste_instanties = [
+                regions[region_id].eigenschappen.get("instantie")
+                for region_id in region_ids
+                if region_id in regions
+            ]
+            geldige_geplaatste_instanties = [
+                instance_id
+                for instance_id in geplaatste_instanties
+                if isinstance(instance_id, str)
+            ]
+            if len(geldige_geplaatste_instanties) != len(
+                set(geldige_geplaatste_instanties)
+            ):
+                diagnostics.append(Diagnostic(
+                    "BP3609",
+                    f"Layout '{obj.id}' plaatst een componentinstantie meer dan één keer",
+                    locatie=obj.eigenschaplocaties.get("regions", obj.bronlocatie),
+                ))
 
             if layout_type is LayoutType.GRID:
                 for veld in ("columns", "rows"):
@@ -148,12 +170,12 @@ class NativeLayoutConstraint:
                     locatie=obj.bronlocatie,
                 ))
 
-            component_id = obj.eigenschappen.get("component")
-            if component_id not in componenten:
+            instance_id = obj.eigenschappen.get("instantie")
+            if not isinstance(instance_id, str) or instance_id not in instanties:
                 diagnostics.append(Diagnostic(
                     "BP3613",
-                    f"Region '{obj.id}' verwijst naar onbekend component '{component_id}'",
-                    locatie=obj.eigenschaplocaties.get("component", obj.bronlocatie),
+                    f"Region '{obj.id}' verwijst naar onbekende componentinstantie '{instance_id}'",
+                    locatie=obj.eigenschaplocaties.get("instantie", obj.bronlocatie),
                 ))
 
             try:

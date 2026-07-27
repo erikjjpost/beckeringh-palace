@@ -354,8 +354,8 @@
     "eigenschappen": {
       "column": "1",
       "column-span": "1",
-      "component": "forge-panel",
       "doel": "Linker dashboardregio.",
+      "instantie": "forge-dashboard-left-panel",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Linkerpaneel",
       "row": "1",
@@ -368,8 +368,8 @@
     "eigenschappen": {
       "column": "2",
       "column-span": "1",
-      "component": "forge-panel",
       "doel": "Centrale dashboardregio.",
+      "instantie": "forge-dashboard-center-panel",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Middenpaneel",
       "row": "1",
@@ -382,8 +382,8 @@
     "eigenschappen": {
       "column": "3",
       "column-span": "1",
-      "component": "forge-panel",
       "doel": "Rechter dashboardregio.",
+      "instantie": "forge-dashboard-right-panel",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Rechterpaneel",
       "row": "1",
@@ -395,6 +395,7 @@
   {
     "eigenschappen": {
       "backend": "html",
+      "compositie": "forge-dashboard",
       "doel": "Het ultrawide Forge-dashboard via de HTML-backend genereren.",
       "layout": "forge-dashboard-ultrawide",
       "naam": "Forge Dashboard HTML",

@@ -14,6 +14,35 @@ component panel {
     naam: "Panel"
     doel: "Testcomponent."
 }
+compositie layout-content {
+    naam: "Layout content"
+    doel: "Benoemde inhoud voor de vier layouttypen."
+    instanties: ["grid-panel", "stack-panel", "flow-panel", "layer-panel"]
+}
+componentinstantie grid-panel {
+    naam: "Grid panel"
+    doel: "Inhoud voor het grid."
+    compositie: "layout-content"
+    component: "panel"
+}
+componentinstantie stack-panel {
+    naam: "Stack panel"
+    doel: "Inhoud voor de stack."
+    compositie: "layout-content"
+    component: "panel"
+}
+componentinstantie flow-panel {
+    naam: "Flow panel"
+    doel: "Inhoud voor de flow."
+    compositie: "layout-content"
+    component: "panel"
+}
+componentinstantie layer-panel {
+    naam: "Layer panel"
+    doel: "Inhoud voor de layer."
+    compositie: "layout-content"
+    component: "panel"
+}
 '''
 
 LAYOUTS = COMPONENT + '''
@@ -29,7 +58,7 @@ region grid-main {
     naam: "Grid main"
     doel: "Hoofdinhoud."
     layout: "grid-layout"
-    component: "panel"
+    instantie: "grid-panel"
     column: "2"
     row: "1"
     column-span: "10"
@@ -46,7 +75,7 @@ region stack-main {
     naam: "Stack main"
     doel: "Eerste stackonderdeel."
     layout: "stack-layout"
-    component: "panel"
+    instantie: "stack-panel"
 }
 layout flow-layout {
     naam: "Flow"
@@ -60,7 +89,7 @@ region flow-main {
     naam: "Flow main"
     doel: "Eerste flowonderdeel."
     layout: "flow-layout"
-    component: "panel"
+    instantie: "flow-panel"
 }
 layout layer-layout {
     naam: "Layer"
@@ -72,7 +101,7 @@ region layer-main {
     naam: "Layer main"
     doel: "Onderste laag."
     layout: "layer-layout"
-    component: "panel"
+    instantie: "layer-panel"
     layer: "0"
 }
 '''
@@ -90,6 +119,10 @@ class NativeLayoutModelTests(unittest.TestCase):
         grid = next(layout for layout in layouts if layout.type is LayoutType.GRID)
         self.assertEqual((12, 4), (grid.columns, grid.rows))
         self.assertEqual((2, 10), (grid.regions[0].column, grid.regions[0].column_span))
+        self.assertEqual(("grid-panel", "panel"), (
+            grid.regions[0].instance_id,
+            grid.regions[0].component_id,
+        ))
         stack = next(layout for layout in layouts if layout.type is LayoutType.STACK)
         self.assertEqual(LayoutDirection.VERTICAL, stack.direction)
         flow = next(layout for layout in layouts if layout.type is LayoutType.FLOW)
@@ -129,6 +162,40 @@ class NativeLayoutModelTests(unittest.TestCase):
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3616", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_dubbele_plaatsing_van_dezelfde_instantie(self):
+        bron = LAYOUTS.replace(
+            'regions: ["stack-main"]',
+            'regions: ["stack-second", "stack-main"]',
+            1,
+        ).replace(
+            "region stack-main {",
+            '''region stack-second {
+    naam: "Stack second"
+    doel: "Dubbele plaatsing."
+    layout: "stack-layout"
+    instantie: "stack-panel"
+}
+region stack-main {''',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3609", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_directe_componentreferentie_in_region(self):
+        bron = LAYOUTS.replace(
+            'instantie: "stack-panel"',
+            'component: "panel"',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertTrue(
+            {"BP3613", "BP3614"}.issubset(
+                {item.code for item in context.exception.diagnostics}
+            )
+        )
 
     def test_weigert_layout_zonder_native_type(self):
         bron = COMPONENT + '''

@@ -16,6 +16,50 @@ component panel {
     naam: "Panel"
     doel: "Testcomponent."
 }
+compositie grid-content {
+    naam: "Grid content"
+    doel: "Gridinhoud."
+    instanties: ["grid-panel"]
+}
+componentinstantie grid-panel {
+    naam: "Grid panel"
+    doel: "Gridinhoud."
+    compositie: "grid-content"
+    component: "panel"
+}
+compositie stack-content {
+    naam: "Stack content"
+    doel: "Stackinhoud."
+    instanties: ["stack-panel"]
+}
+componentinstantie stack-panel {
+    naam: "Stack panel"
+    doel: "Stackinhoud."
+    compositie: "stack-content"
+    component: "panel"
+}
+compositie flow-content {
+    naam: "Flow content"
+    doel: "Flowinhoud."
+    instanties: ["flow-panel"]
+}
+componentinstantie flow-panel {
+    naam: "Flow panel"
+    doel: "Flowinhoud."
+    compositie: "flow-content"
+    component: "panel"
+}
+compositie layer-content {
+    naam: "Layer content"
+    doel: "Layerinhoud."
+    instanties: ["layer-panel"]
+}
+componentinstantie layer-panel {
+    naam: "Layer panel"
+    doel: "Layerinhoud."
+    compositie: "layer-content"
+    component: "panel"
+}
 layout dashboard-grid {
     naam: "Dashboard grid"
     doel: "Plaatst dashboardpanelen."
@@ -28,7 +72,7 @@ region grid-main {
     naam: "Grid main"
     doel: "Hoofdinhoud."
     layout: "dashboard-grid"
-    component: "panel"
+    instantie: "grid-panel"
     column: "2"
     row: "1"
     column-span: "10"
@@ -45,7 +89,7 @@ region stack-main {
     naam: "Stack main"
     doel: "Navigatie-inhoud."
     layout: "navigation-stack"
-    component: "panel"
+    instantie: "stack-panel"
 }
 layout card-flow {
     naam: "Card flow"
@@ -59,7 +103,7 @@ region flow-main {
     naam: "Flow main"
     doel: "Kaartinhoud."
     layout: "card-flow"
-    component: "panel"
+    instantie: "flow-panel"
 }
 layout hero-layer {
     naam: "Hero layer"
@@ -71,13 +115,14 @@ region layer-main {
     naam: "Layer main"
     doel: "Hero-inhoud."
     layout: "hero-layer"
-    component: "panel"
+    instantie: "layer-panel"
     layer: "3"
 }
 product grid-html {
     naam: "Grid HTML"
     doel: "Gridproduct."
     backend: "html"
+    compositie: "grid-content"
     layout: "dashboard-grid"
     pad: "output/products/grid.html"
 }
@@ -85,6 +130,7 @@ product stack-html {
     naam: "Stack HTML"
     doel: "Stackproduct."
     backend: "html"
+    compositie: "stack-content"
     layout: "navigation-stack"
     pad: "output/products/stack.html"
 }
@@ -92,6 +138,7 @@ product flow-html {
     naam: "Flow HTML"
     doel: "Flowproduct."
     backend: "html"
+    compositie: "flow-content"
     layout: "card-flow"
     pad: "output/products/flow.html"
 }
@@ -99,6 +146,7 @@ product layer-html {
     naam: "Layer HTML"
     doel: "Layerproduct."
     backend: "html"
+    compositie: "layer-content"
     layout: "hero-layer"
     pad: "output/products/layer.html"
 }
@@ -114,6 +162,7 @@ class NativeLayoutHtmlBackendTests(unittest.TestCase):
 
         def render(_objecten, product):
             self.assertIsInstance(product.opgeloste_layout, ResolvedLayout)
+            self.assertIsNotNone(product.opgeloste_compositie)
             return product.opgeloste_layout.type.value
 
         registry.registreer(Backend("html", render))
@@ -166,12 +215,26 @@ class NativeLayoutHtmlBackendTests(unittest.TestCase):
             'regions: ["stack-second", "stack-main"]',
             1,
         ).replace(
+            'instanties: ["stack-panel"]',
+            'instanties: ["stack-second-panel", "stack-panel"]',
+            1,
+        ).replace(
+            "componentinstantie stack-panel {",
+            '''componentinstantie stack-second-panel {
+    naam: "Stack second panel"
+    doel: "Eerste stackinhoud."
+    compositie: "stack-content"
+    component: "panel"
+}
+componentinstantie stack-panel {''',
+            1,
+        ).replace(
             "region stack-main {",
             '''region stack-second {
     naam: "Stack second"
     doel: "Eerste DOM-region."
     layout: "navigation-stack"
-    component: "panel"
+    instantie: "stack-second-panel"
 }
 region stack-main {''',
             1,

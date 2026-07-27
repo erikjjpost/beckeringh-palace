@@ -92,7 +92,9 @@ def naar_native_layout_html(
         regels.extend([
             (
                 f'    <section class="bp-region bp-{_css_naam(region.component_id)}" '
-                f'data-region="{html.escape(region.id)}"{style_attribute}>'
+                f'data-region="{html.escape(region.id)}" '
+                f'data-instance="{html.escape(region.instance_id)}" '
+                f'data-component="{html.escape(region.component_id)}"{style_attribute}>'
             ),
             f"      <h2>{html.escape(region.naam)}</h2>",
             "    </section>",
