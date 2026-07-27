@@ -66,7 +66,7 @@ class GrafanaBackendTests(unittest.TestCase):
             dashboard["panels"][0]["options"]["root"]["background"]["color"]["fixed"],
         )
         self.assertEqual(
-            {"color": {"fixed": "#D86A35"}, "width": 2},
+            {"color": {"fixed": "#46505C"}, "width": 2},
             dashboard["panels"][2]["options"]["root"]["border"],
         )
         self.assertEqual(
@@ -112,13 +112,25 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["fixed"],
         )
         self.assertEqual(
+            {"fixed": "#AEB4BD"},
+            dashboard["panels"][2]["options"]["root"]["elements"][3]["config"][
+                "color"
+            ],
+        )
+        self.assertEqual(
+            {"fixed": "#AEB4BD"},
+            dashboard["panels"][2]["options"]["root"]["elements"][4]["config"][
+                "color"
+            ],
+        )
+        self.assertEqual(
             "6",
             dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
-            ["40", "6", "2"],
+            ["42", "6", "2"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
@@ -142,6 +154,18 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual(
             "Eerste reproduceerbare productsamenstelling.",
             dashboard["panels"][0]["description"],
+        )
+        self.assertEqual(
+            {"fixed": "#ECECEC"},
+            dashboard["panels"][0]["options"]["root"]["elements"][1]["config"][
+                "color"
+            ],
+        )
+        self.assertEqual(
+            {"fixed": "#AEB4BD"},
+            dashboard["panels"][0]["options"]["root"]["elements"][2]["config"][
+                "color"
+            ],
         )
         self.assertEqual(
             "output/products/forge-dashboard.grafana.json",

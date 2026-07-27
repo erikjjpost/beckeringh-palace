@@ -11,7 +11,15 @@ PALET_ROLLEN = (
     "primary", "secondary", "background", "surface", "foreground",
     "accent", "success", "warning", "error",
 )
-MATERIAAL_ROLLEN = ("canvas", "surface", "raised", "foreground", "accent")
+MATERIAAL_ROLLEN = (
+    "canvas",
+    "surface",
+    "raised",
+    "foreground",
+    "muted",
+    "accent",
+    "outline",
+)
 
 
 class ThemeResolutionError(ValueError):

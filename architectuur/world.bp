@@ -28,6 +28,18 @@ kleur smoke-white {
     waarde: "#ECECEC"
 }
 
+kleur ash-grey {
+    naam: "Ash Grey"
+    doel: "Gedempte voorgrondkleur voor ondersteunende Forge-informatie."
+    waarde: "#AEB4BD"
+}
+
+kleur iron-edge {
+    naam: "Iron Edge"
+    doel: "Subtiele outlinekleur voor Forge-oppervlakken en scheidingslijnen."
+    waarde: "#46505C"
+}
+
 palet ember-forge {
     naam: "Ember Forge"
     doel: "Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld."
@@ -64,7 +76,9 @@ materiaal forge-materials {
     surface: "forged-iron"
     raised: "raised-iron"
     foreground: "smoke-white"
+    muted: "ash-grey"
     accent: "ember-orange"
+    outline: "iron-edge"
 }
 
 border forge-borders {
