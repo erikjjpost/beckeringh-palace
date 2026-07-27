@@ -232,6 +232,11 @@ class HtmlThemeBackendTests(unittest.TestCase):
         self.assertIn('border-radius: var(--bp-radius-medium);', product.inhoud)
         self.assertIn('color: var(--bp-material-muted);', product.inhoud)
         self.assertIn(
+            '.bp-metric-detail-value {\n'
+            '      color: var(--bp-material-foreground);',
+            product.inhoud,
+        )
+        self.assertIn(
             'border: var(--bp-border-hairline) var(--bp-border-style) '
             'var(--bp-material-outline);',
             product.inhoud,

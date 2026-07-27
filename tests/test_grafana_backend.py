@@ -74,7 +74,13 @@ class GrafanaBackendTests(unittest.TestCase):
                 "forge-dashboard-center-panel-accent",
                 "forge-dashboard-center-panel-heading",
                 "forge-dashboard-center-panel-metric",
-                "forge-dashboard-center-panel-metric-details",
+                "forge-dashboard-center-panel-metric-detail-labels",
+                "forge-dashboard-center-panel-metric-detail-rule-1",
+                "forge-dashboard-center-panel-metric-detail-rule-2",
+                "forge-dashboard-center-panel-metric-detail-rule-3",
+                "forge-dashboard-center-panel-metric-detail-rule-4",
+                "forge-dashboard-center-panel-metric-detail-rule-5",
+                "forge-dashboard-center-panel-metric-detail-rule-6",
                 "forge-dashboard-center-panel-body",
             ],
             [
@@ -101,7 +107,7 @@ class GrafanaBackendTests(unittest.TestCase):
                 "height": 84,
                 "left": 16,
                 "top": 112,
-                "width": 360,
+                "width": 280,
             },
             dashboard["panels"][2]["options"]["root"]["elements"][3]["placement"],
         )
@@ -119,9 +125,35 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             {"fixed": "#AEB4BD"},
-            dashboard["panels"][2]["options"]["root"]["elements"][4]["config"][
+            dashboard["panels"][2]["options"]["root"]["elements"][10]["config"][
                 "color"
             ],
+        )
+        self.assertEqual(
+            {"color": {"fixed": "#46505C"}, "width": 0},
+            dashboard["panels"][2]["options"]["root"]["elements"][4]["border"],
+        )
+        linker_elementen = {
+            element["name"]: element
+            for element in dashboard["panels"][1]["options"]["root"]["elements"]
+        }
+        self.assertEqual(
+            {"fixed": "#AEB4BD"},
+            linker_elementen[
+                "forge-dashboard-left-panel-metric-detail-labels"
+            ]["config"]["color"],
+        )
+        self.assertEqual(
+            {"fixed": "#ECECEC"},
+            linker_elementen[
+                "forge-dashboard-left-panel-metric-detail-values"
+            ]["config"]["color"],
+        )
+        self.assertEqual(
+            {"color": {"fixed": "#46505C"}, "width": 0},
+            linker_elementen[
+                "forge-dashboard-left-panel-metric-detail-rule-1"
+            ]["border"],
         )
         self.assertEqual(
             "6",

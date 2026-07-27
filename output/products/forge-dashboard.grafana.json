@@ -233,7 +233,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "appearance  2\nborder  1\ncapability  2\ncomponent  1\ncomponentinstantie  3\ncompositie  1\ndienst  1\nkleur  7\nlayout  1\nmateriaal  1\nmotion  1\npalet  1\nproduct  2\nradius  1\nregion  3\nrenderdoel  4\nshadow  1\nspacing  1\nthema  1\ntoken  6\ntypeschaal  1\ntypografie  1\nvariant  1\nwereld  1",
+                  "fixed": "appearance\nborder\ncapability\ncomponent\ncomponentinstantie\ncompositie\ndienst\nkleur\nlayout\nmateriaal\nmotion\npalet\nproduct\nradius\nregion\nrenderdoel\nshadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant\nwereld",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -242,14 +242,640 @@
                 "horizontal": "left",
                 "vertical": "top"
               },
-              "name": "forge-dashboard-left-panel-metric-details",
+              "name": "forge-dashboard-left-panel-metric-detail-labels",
               "placement": {
                 "height": 300,
                 "left": 20,
                 "top": 116,
-                "width": 360
+                "width": 280
               },
               "type": "text"
+            },
+            {
+              "config": {
+                "align": "right",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 12,
+                "text": {
+                  "fixed": "2\n1\n2\n1\n3\n1\n1\n7\n1\n1\n1\n1\n2\n1\n3\n4\n1\n1\n1\n6\n1\n1\n1\n1",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-values",
+              "placement": {
+                "height": 300,
+                "left": 300,
+                "top": 116,
+                "width": 80
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-1",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 128,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-2",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 140,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-3",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 152,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-4",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 164,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-5",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 176,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-6",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 188,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-7",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 200,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-8",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 212,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-9",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 224,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-10",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 236,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-11",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 248,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-12",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 260,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-13",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 272,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-14",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 284,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-15",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 296,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-16",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 308,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-17",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 320,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-18",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 332,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-19",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 344,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-20",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 356,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-21",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 368,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-22",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 380,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-23",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 392,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-24",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 404,
+                "width": 360
+              },
+              "type": "rectangle"
             },
             {
               "config": {
@@ -407,14 +1033,164 @@
                 "horizontal": "left",
                 "vertical": "top"
               },
-              "name": "forge-dashboard-center-panel-metric-details",
+              "name": "forge-dashboard-center-panel-metric-detail-labels",
               "placement": {
                 "height": 84,
                 "left": 16,
                 "top": 112,
-                "width": 360
+                "width": 280
               },
               "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-1",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 124,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-2",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 136,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-3",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 148,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-4",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 160,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-5",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 172,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-6",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 184,
+                "width": 360
+              },
+              "type": "rectangle"
             },
             {
               "config": {
@@ -572,14 +1348,64 @@
                 "horizontal": "left",
                 "vertical": "top"
               },
-              "name": "forge-dashboard-right-panel-metric-details",
+              "name": "forge-dashboard-right-panel-metric-detail-labels",
               "placement": {
                 "height": 36,
                 "left": 20,
                 "top": 116,
-                "width": 360
+                "width": 280
               },
               "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-1",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 128,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-2",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 140,
+                "width": 360
+              },
+              "type": "rectangle"
             },
             {
               "config": {

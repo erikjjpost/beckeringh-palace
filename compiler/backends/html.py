@@ -165,7 +165,10 @@ def _theme_css(product: ProductDefinition) -> str:
             "      gap: var(--bp-spacing-small);",
             "      border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);",
             "    }",
-            "    .bp-metric-detail-value { color: var(--bp-material-accent); }",
+            "    .bp-metric-detail-value {",
+            "      color: var(--bp-material-foreground);",
+            "      font-weight: 700;",
+            "    }",
         ])
 
     return "\n".join(regels) + "\n"

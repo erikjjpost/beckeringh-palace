@@ -431,6 +431,13 @@ gedempte voorgrond en kaart- en detailranden gebruiken de outlinekleur. HTML en
 Grafana selecteren deze kleuren niet zelf en consumeren dezelfde opgeloste
 rollen.
 
+M10.2d maakt de metriekdetails in beide backends semantisch gelijk. Detaillabels
+gebruiken de gedempte voorgrond, detailwaarden gebruiken de gewone voorgrond en
+scheidingslijnen gebruiken de outlinekleur. Het Ember accent blijft daardoor
+beperkt tot de hoofdmetriek en de identiteitsrail. Grafana vertaalt labels,
+waarden en regels naar afzonderlijke Canvas-elementen; HTML gebruikt dezelfde
+opgeloste materiaalrollen.
+
 ## Diagnostics
 
 | Code | Betekenis |
