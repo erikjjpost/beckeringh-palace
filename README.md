@@ -44,4 +44,5 @@ workspace/      werkruimte voor nieuwe ideeën
 Lees [docs/world-model.md](docs/world-model.md) voor de domeingrens,
 [docs/architecture.md](docs/architecture.md) voor de compilerarchitectuur,
 [docs/product-model.md](docs/product-model.md) voor native layouts en
-[CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels.
+[CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels. De actuele,
+reproduceerbare voortgang staat in [PROJECT_STATUS.md](PROJECT_STATUS.md).

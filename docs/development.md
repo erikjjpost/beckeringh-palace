@@ -16,9 +16,11 @@ python tools/bp.py check
 Dit commando voert achtereenvolgens uit:
 
 1. modelvalidatie;
-2. outputgeneratie;
-3. unit tests;
-4. controle op gewijzigde én nieuwe bestanden.
+2. BAT compilatie;
+3. product en documentatiegeneratie;
+4. generatie van de projectstatus;
+5. unit tests;
+6. controle op gewijzigde én nieuwe bestanden.
 
 Een succesvolle controle eindigt met:
 
@@ -31,6 +33,7 @@ RESULTAAT: GELDIG EN REPRODUCEERBAAR
 ```bash
 python tools/validate.py
 python tools/generate.py
+python tools/render_status.py
 python -m unittest discover -s tests -v
 ```
 

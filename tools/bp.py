@@ -37,6 +37,7 @@ def check() -> int:
     run([sys.executable, "tools/validate.py"])
     run([sys.executable, "tools/compile_bat.py"])
     run([sys.executable, "tools/generate.py"])
+    run([sys.executable, "tools/render_status.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
 
     changes = repository_status()
