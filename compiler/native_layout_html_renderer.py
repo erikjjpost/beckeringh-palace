@@ -140,6 +140,15 @@ def naar_native_layout_html(
                 f"{variant_attribute}{appearance_attribute}{style_attribute}>"
             ),
             f"      <h2>{html.escape(instantie.naam)}</h2>",
+        ])
+        if instantie.metric_value is not None:
+            regels.append(
+                f'      <p class="bp-metric" '
+                f'data-metric-kind="{html.escape(instantie.metric_kind or "")}">'
+                f"{instantie.metric_value}</p>"
+            )
+        regels.extend([
+            f'      <p class="bp-description">{html.escape(instantie.doel)}</p>',
             "    </section>",
         ])
     regels.extend([

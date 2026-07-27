@@ -103,6 +103,7 @@ class NativeCompositionModelTests(unittest.TestCase):
         self.assertIsNone(compositie.instances[1].variant_id)
         self.assertEqual("panel-default", compositie.instances[1].appearance_id)
         self.assertIsNone(compositie.instances[1].metric_kind)
+        self.assertIsNone(compositie.instances[1].metric_value)
 
     def test_resolveert_en_valideert_optionele_modeltelling(self):
         bron = BRON.replace(
@@ -115,6 +116,7 @@ class NativeCompositionModelTests(unittest.TestCase):
         compositie = resolveer_composities(model.objecten)[0]
 
         self.assertEqual("component", compositie.instances[1].metric_kind)
+        self.assertEqual(1, compositie.instances[1].metric_value)
 
         ongeldig = bron.replace('metric-kind: "component"', 'metric-kind: ""')
         with self.assertRaises(SemantischeFout) as context:

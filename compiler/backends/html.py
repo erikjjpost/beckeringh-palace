@@ -100,6 +100,18 @@ def _theme_css(product: ProductDefinition) -> str:
             "      box-shadow: var(--bp-shadow-low);",
             "      transition: box-shadow var(--bp-motion-normal) var(--bp-motion-easing);",
             "    }",
+            "    .bp-metric {",
+            "      margin: var(--bp-spacing-small) 0;",
+            "      color: var(--bp-material-accent);",
+            "      font-family: var(--bp-font-heading);",
+            "      font-size: calc(var(--bp-type-heading) * 2);",
+            "      font-weight: 700;",
+            "      line-height: 1;",
+            "    }",
+            "    .bp-description {",
+            "      margin: var(--bp-spacing-small) 0 0;",
+            "      font-size: var(--bp-type-body);",
+            "    }",
         ])
 
     return "\n".join(regels) + "\n"

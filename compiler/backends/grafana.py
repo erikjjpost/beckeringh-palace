@@ -292,10 +292,6 @@ def _render(
         appearance.id: appearance
         for appearance in verzamel_appearances(objecten)
     }
-    objecten_per_soort: dict[str, int] = {}
-    for obj in objecten:
-        objecten_per_soort[obj.soort] = objecten_per_soort.get(obj.soort, 0) + 1
-
     regions_per_instantie = {
         region.instance_id: region
         for region in layout.regions
@@ -318,13 +314,7 @@ def _render(
                     instantie,
                     appearance,
                     product.thema,
-                    (
-                        len(objecten)
-                        if instantie.metric_kind == "*"
-                        else objecten_per_soort.get(instantie.metric_kind, 0)
-                        if instantie.metric_kind is not None
-                        else None
-                    ),
+                    instantie.metric_value,
                 ),
                 "title": instantie.naam,
                 "transparent": True,
