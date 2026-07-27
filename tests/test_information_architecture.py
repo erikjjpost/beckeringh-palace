@@ -14,6 +14,7 @@ informatiegebied wereld {
     naam: "Wereld"
     doel: "Wereldinhoud."
     soorten: ["wereld"]
+    navigatie: ["dashboard-html"]
 }
 
 wereld palace {
@@ -40,6 +41,35 @@ componentinstantie world-panel {
     component: "panel"
     informatiegebied: "wereld"
 }
+
+product dashboard-html {
+    naam: "Dashboard HTML"
+    doel: "Dashboardproduct."
+    backend: "html"
+    compositie: "dashboard"
+    layout: "dashboard-layout"
+    pad: "output/products/dashboard.html"
+}
+
+layout dashboard-layout {
+    naam: "Dashboardlayout"
+    doel: "Testlayout."
+    type: "grid"
+    regions: ["world-region"]
+    columns: "1"
+    rows: "1"
+}
+
+region world-region {
+    naam: "Wereldregio"
+    doel: "Testregio."
+    layout: "dashboard-layout"
+    instantie: "world-panel"
+    column: "1"
+    row: "1"
+    column-span: "1"
+    row-span: "1"
+}
 '''
 
 
@@ -51,6 +81,13 @@ class InformationArchitectureTests(unittest.TestCase):
         instantie = resolveer_composities(model.objecten)[0].instances[0]
 
         self.assertEqual(("wereld",), gebied.object_kinds)
+        self.assertEqual(
+            (("dashboard-html", "Dashboard HTML", "product", "output/products/dashboard.html"),),
+            tuple(
+                (doel.id, doel.naam, doel.target_kind, doel.artifact_path)
+                for doel in gebied.navigation_targets
+            ),
+        )
         self.assertEqual("wereld", instantie.information_area_id)
         self.assertEqual("Wereld", instantie.naam)
         self.assertEqual("Wereldinhoud.", instantie.doel)
@@ -60,6 +97,7 @@ class InformationArchitectureTests(unittest.TestCase):
             (("wereld", 1),),
             tuple((detail.label, detail.value) for detail in instantie.metric_details),
         )
+        self.assertEqual(gebied.navigation_targets, instantie.navigation_targets)
 
     def test_weigert_onbekend_gebied(self):
         with self.assertRaises(SemantischeFout) as context:
@@ -107,6 +145,44 @@ wereld palace {''',
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3718", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_ongeldige_navigatie(self):
+        varianten = (
+            (BRON.replace('navigatie: ["dashboard-html"]', "navigatie: []"), "BP4005"),
+            (
+                BRON.replace(
+                    'navigatie: ["dashboard-html"]',
+                    'navigatie: ["missing"]',
+                ),
+                "BP4006",
+            ),
+            (
+                BRON.replace(
+                    'navigatie: ["dashboard-html"]',
+                    'navigatie: ["palace"]',
+                ),
+                "BP4007",
+            ),
+            (
+                BRON.replace(
+                    "wereld palace {",
+                    '''informatiegebied dubbel {
+    naam: "Dubbel"
+    doel: "Dubbele navigatie."
+    soorten: ["merk"]
+    navigatie: ["dashboard-html"]
+}
+
+wereld palace {''',
+                ),
+                "BP4008",
+            ),
+        )
+        for bron, code in varianten:
+            with self.subTest(code=code):
+                with self.assertRaises(SemantischeFout) as context:
+                    analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+                self.assertIn(code, {item.code for item in context.exception.diagnostics})
 
 
 if __name__ == "__main__":

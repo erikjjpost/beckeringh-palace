@@ -363,6 +363,10 @@
     "eigenschappen": {
       "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
       "naam": "Wereld en identiteit",
+      "navigatie": [
+        "forge-dashboard-html",
+        "forge-dashboard-grafana"
+      ],
       "soorten": [
         "wereld",
         "merk",
@@ -376,6 +380,12 @@
     "eigenschappen": {
       "doel": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.",
       "naam": "Forge ontwerpsysteem",
+      "navigatie": [
+        "html-components",
+        "css-components",
+        "css-tokens",
+        "json-tokens"
+      ],
       "soorten": [
         "kleur",
         "palet",
@@ -401,6 +411,10 @@
     "eigenschappen": {
       "doel": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.",
       "naam": "Productfamilie",
+      "navigatie": [
+        "project-status-html",
+        "project-status-grafana"
+      ],
       "soorten": [
         "compositie",
         "componentinstantie",

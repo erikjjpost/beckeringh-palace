@@ -503,6 +503,14 @@ doel, totaal en uitsplitsing per objectsoort backendonafhankelijk aan HTML en
 Grafana. Het Forge Dashboard bestaat daardoor uit Wereld en identiteit, Forge
 ontwerpsysteem en Productfamilie in plaats van drie losse technische tellingen.
 
+M10.5b verbindt ieder informatiegebied met een expliciete, geordende lijst
+`navigatie`. Een navigatiedoel is een bestaand `product` of `renderdoel` en
+wordt door maximaal één informatiegebied geclaimd. De informatielaag lost id,
+naam, doelsoort en artifactpad vóór backendselectie op. HTML rendert relatieve
+productlinks en Grafana rendert dezelfde doelen als Canvas-links. Backends
+zoeken daardoor geen producten of catalogi en leiden geen paden af uit
+objectsoorten.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -553,3 +561,7 @@ ontwerpsysteem en Productfamilie in plaats van drie losse technische tellingen.
 | `BP4002` | Informatiegebied heeft geen geldige unieke soortenlijst |
 | `BP4003` | Informatiegebied bevat een onbekende, niet-native of recursieve objectsoort |
 | `BP4004` | Objectsoort komt voor in meerdere informatiegebieden |
+| `BP4005` | Informatiegebied heeft geen geldige unieke navigatielijst |
+| `BP4006` | Informatiegebied verwijst naar een onbekend navigatiedoel |
+| `BP4007` | Navigatiedoel is geen product of renderdoel |
+| `BP4008` | Navigatiedoel komt voor in meerdere informatiegebieden |

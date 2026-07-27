@@ -4,26 +4,26 @@
   "overall_progress": 40,
   "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
   "current_milestone": {
-    "id": "M10.5a",
-    "name": "Dashboard informatiearchitectuur",
+    "id": "M10.5b",
+    "name": "Dashboard productnavigatie",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M10.4d",
-    "name": "Native Grafana statusproduct",
-    "pull_request": 62
+    "id": "M10.5a",
+    "name": "Dashboard informatiearchitectuur",
+    "pull_request": 63
   },
   "next_step": {
-    "id": "M10.5b",
-    "name": "Dashboard productnavigatie",
-    "purpose": "De informatiegebieden verbinden met de bijbehorende Beckeringh Palace producten en catalogi."
+    "id": "M10.5c",
+    "name": "Dashboard inhoudelijke verdieping",
+    "purpose": "De informatiegebieden uitbreiden met betekenisvolle objectinhoud naast tellingen en productnavigatie."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
       "progress": 80,
-      "evidence": "Validatie, deterministische generatie, CI en 128 regressietests vormen een werkende kwaliteitsketen.",
+      "evidence": "Validatie, deterministische generatie, CI en 129 regressietests vormen een werkende kwaliteitsketen.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
@@ -44,8 +44,8 @@
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
       "progress": 60,
-      "evidence": "HTML en Grafana delen drie native informatiegebieden voor wereld, ontwerpsysteem en productfamilie, naast layout, thema en snapshotverificatie.",
-      "remaining": "De informatiegebieden hebben nog geen productnavigatie of inhoudelijke verdieping."
+      "evidence": "HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling en expliciete navigatie naar zes producten en catalogi.",
+      "remaining": "De informatiegebieden hebben nog geen inhoudelijke objectverdieping."
     },
     {
       "id": "visual-world",

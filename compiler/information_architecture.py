@@ -11,11 +11,20 @@ from compiler.world_model import Domeinstatus, objectsoortdefinitie
 
 
 @dataclass(frozen=True)
+class ResolvedNavigationTarget:
+    id: str
+    naam: str
+    target_kind: str
+    artifact_path: str
+
+
+@dataclass(frozen=True)
 class ResolvedInformationArea:
     id: str
     naam: str
     doel: str
     object_kinds: tuple[str, ...]
+    navigation_targets: tuple[ResolvedNavigationTarget, ...]
 
 
 @dataclass(frozen=True)
@@ -28,10 +37,11 @@ class InformationArchitectureConstraint:
             obj for obj in context.objecten if obj.soort == "informatiegebied"
         )
         eigenaren: dict[str, str] = {}
+        navigatie_eigenaren: dict[str, str] = {}
 
         for gebied in gebieden:
             for veld in gebied.eigenschappen:
-                if veld not in {"naam", "doel", "soorten"}:
+                if veld not in {"naam", "doel", "soorten", "navigatie"}:
                     diagnostics.append(Diagnostic(
                         code="BP4001",
                         boodschap=(
@@ -96,22 +106,95 @@ class InformationArchitectureConstraint:
                     ))
                 else:
                     eigenaren[soort] = gebied.id
+            navigatie = gebied.eigenschappen.get("navigatie")
+            geldig = (
+                isinstance(navigatie, list)
+                and bool(navigatie)
+                and all(
+                    isinstance(doel, str) and bool(doel.strip())
+                    for doel in navigatie
+                )
+                and len(navigatie) == len(set(navigatie))
+            )
+            if not geldig:
+                diagnostics.append(Diagnostic(
+                    code="BP4005",
+                    boodschap=(
+                        f"Informatiegebied '{gebied.id}' vereist een niet-lege, "
+                        "unieke lijst 'navigatie'"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "navigatie", gebied.bronlocatie
+                    ),
+                ))
+                continue
+            for doel_id in navigatie:
+                doel = context.symbolen.get(doel_id)
+                if doel is None:
+                    diagnostics.append(Diagnostic(
+                        code="BP4006",
+                        boodschap=(
+                            f"Informatiegebied '{gebied.id}' verwijst naar "
+                            f"onbekend navigatiedoel '{doel_id}'"
+                        ),
+                        locatie=gebied.eigenschaplocaties.get(
+                            "navigatie", gebied.bronlocatie
+                        ),
+                    ))
+                elif doel.soort not in {"product", "renderdoel"}:
+                    diagnostics.append(Diagnostic(
+                        code="BP4007",
+                        boodschap=(
+                            f"Navigatiedoel '{doel_id}' van informatiegebied "
+                            f"'{gebied.id}' is geen product of renderdoel"
+                        ),
+                        locatie=gebied.eigenschaplocaties.get(
+                            "navigatie", gebied.bronlocatie
+                        ),
+                    ))
+                eigenaar = navigatie_eigenaren.get(doel_id)
+                if eigenaar is not None:
+                    diagnostics.append(Diagnostic(
+                        code="BP4008",
+                        boodschap=(
+                            f"Navigatiedoel '{doel_id}' komt voor in zowel "
+                            f"informatiegebied '{eigenaar}' als '{gebied.id}'"
+                        ),
+                        locatie=gebied.eigenschaplocaties.get(
+                            "navigatie", gebied.bronlocatie
+                        ),
+                    ))
+                else:
+                    navigatie_eigenaren[doel_id] = gebied.id
         return tuple(diagnostics)
 
 
 def resolveer_informatiegebieden(
     objecten: Iterable[Architectuurobject],
 ) -> tuple[ResolvedInformationArea, ...]:
+    objecten = tuple(objecten)
+    symbolen = {obj.id: obj for obj in objecten}
     gebieden = []
     for obj in objecten:
         if obj.soort != "informatiegebied":
             continue
         soorten = obj.eigenschappen["soorten"]
+        navigatie = obj.eigenschappen["navigatie"]
         assert isinstance(soorten, list)
+        assert isinstance(navigatie, list)
         gebieden.append(ResolvedInformationArea(
             id=obj.id,
             naam=str(obj.eigenschappen["naam"]),
             doel=str(obj.eigenschappen["doel"]),
             object_kinds=tuple(sorted(str(soort) for soort in soorten)),
+            navigation_targets=tuple(
+                ResolvedNavigationTarget(
+                    id=doel_id,
+                    naam=str(symbolen[doel_id].eigenschappen["naam"]),
+                    target_kind=symbolen[doel_id].soort,
+                    artifact_path=str(symbolen[doel_id].eigenschappen["pad"]),
+                )
+                for doel_id in navigatie
+            ),
         ))
     return tuple(sorted(gebieden, key=lambda gebied: gebied.id))
