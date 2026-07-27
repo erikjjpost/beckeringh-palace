@@ -45,9 +45,11 @@ en `layer`.
 
 De productcompiler lost een native compositie en layout vóór backendselectie
 op. Backends ontvangen daardoor `ResolvedComposition` en `ResolvedLayout` via
-de productcontext en vertalen deze naar hun eigen mechanisme. De eerste
-implementatie is de HTML-backend. Het domeinmodel bevat geen HTML- of
-CSS-eigenschappen.
+de productcontext en vertalen deze naar hun eigen mechanisme. HTML vertaalt
+native layouts naar browserpresentatie. De Grafana-backend vertaalt native
+grid-layouts naar het klassieke, importeerbare dashboard JSON model met een
+24-koloms `gridPos`. Het domeinmodel bevat geen HTML-, CSS- of
+Grafana-eigenschappen.
 
 Native composities beschrijven de inhoud van een product onafhankelijk van de
 layout. Zij ordenen benoemde componentinstanties en bevatten geen richting of

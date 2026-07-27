@@ -369,6 +369,13 @@ artifact naar het gedeclareerde pad. Formaat en bestandsextensie kiezen nooit
 impliciet een renderer. Een renderdoel zonder geregistreerde binding faalt
 expliciet. Productdefinities blijven via hun eigen backendcontract compileren.
 
+M10.0a voegt de eerste Grafana-productbackend toe. De backend vertaalt een
+opgeloste native grid-layout deterministisch naar het klassieke Grafana
+dashboard JSON model. BAT-gridkolommen worden proportioneel op Grafana's
+24-koloms raster geplaatst en iedere benoemde componentinstantie wordt een
+tekstpaneel. Niet-grid-layouts falen expliciet. Datasources, queries en
+operationele waarden worden niet afgeleid of verzonnen.
+
 ## Diagnostics
 
 | Code | Betekenis |

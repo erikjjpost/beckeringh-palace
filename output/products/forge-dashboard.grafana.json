@@ -1,0 +1,78 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "content": "### Linker Forge-paneel",
+        "mode": "markdown"
+      },
+      "title": "Linker Forge-paneel",
+      "transparent": false,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "content": "### Centraal Forge-paneel",
+        "mode": "markdown"
+      },
+      "title": "Centraal Forge-paneel",
+      "transparent": false,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "content": "### Rechter Forge-paneel",
+        "mode": "markdown"
+      },
+      "title": "Rechter Forge-paneel",
+      "transparent": false,
+      "type": "text"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [
+    "beckeringh-palace",
+    "generated"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Forge Dashboard Grafana",
+  "uid": "forge-dashboard-grafana",
+  "version": 1
+}

@@ -599,6 +599,24 @@ Het ultrawide Forge-dashboard via de HTML-backend genereren.
 - **pad:** output/products/forge-dashboard.html
 - **wereld:** beckeringh-palace
 
+## Forge Dashboard Grafana
+
+**Soort:** product
+
+**Identifier:** `forge-dashboard-grafana`
+
+### Doel
+
+Het Forge-dashboard als importeerbaar Grafana dashboard genereren.
+
+### Eigenschappen
+
+- **backend:** grafana
+- **compositie:** forge-dashboard
+- **layout:** forge-dashboard-ultrawide
+- **pad:** output/products/forge-dashboard.grafana.json
+- **wereld:** beckeringh-palace
+
 ## CSS design tokens
 
 **Soort:** renderdoel
