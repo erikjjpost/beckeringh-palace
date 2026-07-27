@@ -13,6 +13,45 @@ GRAFANA_GRID_COLUMNS = 24
 GRAFANA_ROW_HEIGHT = 8
 
 
+def _grafana_stijl(product: ProductDefinition) -> str:
+    thema = product.thema
+    if thema is None:
+        raise ValueError(
+            f"Grafana-product '{product.id}' vereist een opgelost native thema"
+        )
+    achtergrond = thema.palet.kleur("background")
+    if achtergrond is None:
+        raise ValueError(
+            f"Grafana-product '{product.id}' vereist de themarol 'background'"
+        )
+    waarde = achtergrond.waarde
+    if len(waarde) != 7 or not waarde.startswith("#"):
+        raise ValueError(
+            f"Grafana-product '{product.id}' vereist een hex backgroundkleur"
+        )
+    try:
+        rood, groen, blauw = (
+            int(waarde[index:index + 2], 16)
+            for index in (1, 3, 5)
+        )
+    except ValueError as exc:
+        raise ValueError(
+            f"Grafana-product '{product.id}' vereist een hex backgroundkleur"
+        ) from exc
+    luminantie = (299 * rood + 587 * groen + 114 * blauw) / 1000
+    return "dark" if luminantie < 128 else "light"
+
+
+def _paneelbeschrijving(instantie) -> str:
+    identiteit = [
+        f"BAT component: {instantie.component_id}",
+        f"BAT appearance: {instantie.appearance_id or 'none'}",
+    ]
+    if instantie.variant_id is not None:
+        identiteit.insert(1, f"BAT variant: {instantie.variant_id}")
+    return f"{instantie.doel}\n\n" + "\n".join(identiteit)
+
+
 def _gridpositie(layout: ResolvedLayout, region: ResolvedRegion) -> dict[str, int]:
     if None in (
         layout.columns,
@@ -72,10 +111,11 @@ def _render(
         region = regions_per_instantie[instantie.id]
         panels.append(
             {
+                "description": _paneelbeschrijving(instantie),
                 "gridPos": _gridpositie(layout, region),
                 "id": panel_id,
                 "options": {
-                    "content": f"### {instantie.naam}",
+                    "content": instantie.doel,
                     "mode": "markdown",
                 },
                 "title": instantie.naam,
@@ -94,6 +134,7 @@ def _render(
         "panels": panels,
         "refresh": "",
         "schemaVersion": 41,
+        "style": _grafana_stijl(product),
         "tags": ["beckeringh-palace", "generated"],
         "templating": {"list": []},
         "time": {"from": "now-6h", "to": "now"},

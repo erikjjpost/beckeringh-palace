@@ -9,6 +9,7 @@
   "links": [],
   "panels": [
     {
+      "description": "Benoemd paneel voor de linker dashboardinhoud.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
       "gridPos": {
         "h": 8,
         "w": 8,
@@ -17,7 +18,7 @@
       },
       "id": 1,
       "options": {
-        "content": "### Linker Forge-paneel",
+        "content": "Benoemd paneel voor de linker dashboardinhoud.",
         "mode": "markdown"
       },
       "title": "Linker Forge-paneel",
@@ -25,6 +26,7 @@
       "type": "text"
     },
     {
+      "description": "Benoemd paneel voor de centrale dashboardinhoud.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-compact-appearance",
       "gridPos": {
         "h": 8,
         "w": 8,
@@ -33,7 +35,7 @@
       },
       "id": 2,
       "options": {
-        "content": "### Centraal Forge-paneel",
+        "content": "Benoemd paneel voor de centrale dashboardinhoud.",
         "mode": "markdown"
       },
       "title": "Centraal Forge-paneel",
@@ -41,6 +43,7 @@
       "type": "text"
     },
     {
+      "description": "Benoemd paneel voor de rechter dashboardinhoud.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
       "gridPos": {
         "h": 8,
         "w": 8,
@@ -49,7 +52,7 @@
       },
       "id": 3,
       "options": {
-        "content": "### Rechter Forge-paneel",
+        "content": "Benoemd paneel voor de rechter dashboardinhoud.",
         "mode": "markdown"
       },
       "title": "Rechter Forge-paneel",
@@ -59,6 +62,7 @@
   ],
   "refresh": "",
   "schemaVersion": 41,
+  "style": "dark",
   "tags": [
     "beckeringh-palace",
     "generated"

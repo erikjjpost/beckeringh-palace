@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import json
 import unittest
+from dataclasses import replace
 from pathlib import Path
 
+from compiler.backends.grafana import backend
 from compiler.parser import parseer, parseer_bestand
 from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
@@ -35,6 +37,7 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual("Forge Dashboard Grafana", dashboard["title"])
         self.assertEqual("forge-dashboard-grafana", dashboard["uid"])
         self.assertEqual(41, dashboard["schemaVersion"])
+        self.assertEqual("dark", dashboard["style"])
         self.assertEqual(
             [
                 {"h": 8, "w": 8, "x": 0, "y": 0},
@@ -52,6 +55,17 @@ class GrafanaBackendTests(unittest.TestCase):
             [panel["title"] for panel in dashboard["panels"]],
         )
         self.assertTrue(all(panel["type"] == "text" for panel in dashboard["panels"]))
+        self.assertEqual(
+            "Benoemd paneel voor de centrale dashboardinhoud.",
+            dashboard["panels"][1]["options"]["content"],
+        )
+        self.assertEqual(
+            "Benoemd paneel voor de centrale dashboardinhoud.\n\n"
+            "BAT component: forge-panel\n"
+            "BAT variant: forge-panel-compact\n"
+            "BAT appearance: forge-panel-compact-appearance",
+            dashboard["panels"][1]["description"],
+        )
         self.assertEqual(
             "output/products/forge-dashboard.grafana.json",
             product.definitie.pad,
@@ -103,6 +117,29 @@ product dashboard-grafana {
             "ondersteunt alleen native grid-layouts",
         ):
             compileer_producten(model.objecten, standaard_backend_registry())
+
+    def test_weigert_product_zonder_native_thema(self):
+        model = analyseer(
+            parseer_bestand(WORLD),
+            constraints=WORLD_MODEL_CONSTRAINTS,
+        )
+        product = next(
+            product
+            for product in compileer_producten(
+                model.objecten,
+                standaard_backend_registry(),
+            )
+            if product.definitie.id == "forge-dashboard-grafana"
+        )
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "vereist een opgelost native thema",
+        ):
+            backend.render(
+                model.objecten,
+                replace(product.definitie, thema=None),
+            )
 
 
 if __name__ == "__main__":
