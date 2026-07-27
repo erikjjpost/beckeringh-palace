@@ -8,18 +8,18 @@
 
 Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.
 
-- Actuele milestone: **M10.4d — Native Grafana statusproduct** (in uitvoering)
-- Laatst voltooid: **M10.4c — Native HTML statusproduct** (PR #61)
-- Volgende stap: **M10.5a — Dashboard informatiearchitectuur**
+- Actuele milestone: **M10.5a — Dashboard informatiearchitectuur** (in uitvoering)
+- Laatst voltooid: **M10.4d — Native Grafana statusproduct** (PR #62)
+- Volgende stap: **M10.5b — Dashboard productnavigatie**
 
 ## Voortgang per productgebied
 
 | Productgebied | Voortgang | Onderbouwing | Resterend werk |
 |---|---:|---|---|
-| Compiler en reproduceerbaarheid | 80% | Validatie, deterministische generatie, CI en 124 regressietests vormen een werkende kwaliteitsketen. | Meer producttypen, adapters en volwassen foutdiagnostiek. |
-| World Model en productcontracten | 70% | Thema's, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd. | De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen. |
+| Compiler en reproduceerbaarheid | 80% | Validatie, deterministische generatie, CI en 128 regressietests vormen een werkende kwaliteitsketen. | Meer producttypen, adapters en volwassen foutdiagnostiek. |
+| World Model en productcontracten | 70% | Thema's, informatiegebieden, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd. | De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen. |
 | Design System | 55% | Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar. | Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig. |
-| Dashboard UI en Grafana | 60% | HTML en importeerbare Grafana output delen layout, thema, semantiek en snapshotverificatie. | Het dashboard is nog vooral een architectuursnapshot en nog geen volledige operationele productervaring. |
+| Dashboard UI en Grafana | 60% | HTML en Grafana delen drie native informatiegebieden voor wereld, ontwerpsysteem en productfamilie, naast layout, thema en snapshotverificatie. | De informatiegebieden hebben nog geen productnavigatie of inhoudelijke verdieping. |
 | Visuele wereld en art direction | 25% | De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig. | Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt. |
 | SVG component library en icon set | 20% | De compiler kan componenten en SVG gerichte producten dragen. | Een brede, consistente en gedocumenteerde bibliotheek ontbreekt nog. |
 | Logo's en wallpapers | 10% | De visuele richting en producteisen zijn bekend. | De reproduceerbare logo en wallpaperfamilies moeten nog als compilerproducten worden gerealiseerd. |
@@ -29,6 +29,6 @@ Architectuurschatting van het volledige einddoel; geen optelsom van pull request
 
 ## Eerstvolgende stap
 
-### M10.5a — Dashboard informatiearchitectuur
+### M10.5b — Dashboard productnavigatie
 
-Het Forge Dashboard van een technische architectuursnapshot naar een inhoudelijk Beckeringh Palace productmodel ontwikkelen.
+De informatiegebieden verbinden met de bijbehorende Beckeringh Palace producten en catalogi.

@@ -157,6 +157,11 @@ def naar_native_layout_html(
             if instantie.appearance_id is not None
             else ""
         )
+        information_area_attribute = (
+            f' data-information-area="{html.escape(instantie.information_area_id)}"'
+            if instantie.information_area_id is not None
+            else ""
+        )
         regels.extend([
             (
                 f'    <section class="bp-region {componentklasse(instantie.component_id)}'
@@ -164,7 +169,8 @@ def naar_native_layout_html(
                 f'data-region="{html.escape(region.id)}" '
                 f'data-instance="{html.escape(instantie.id)}" '
                 f'data-component="{html.escape(instantie.component_id)}"'
-                f"{variant_attribute}{appearance_attribute}{style_attribute}>"
+                f"{variant_attribute}{appearance_attribute}"
+                f"{information_area_attribute}{style_attribute}>"
             ),
             f"      <h2>{html.escape(instantie.naam)}</h2>",
         ])

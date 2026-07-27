@@ -9,7 +9,7 @@
   "links": [],
   "panels": [
     {
-      "description": "Eerste reproduceerbare productsamenstelling.",
+      "description": "Informatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.",
       "gridPos": {
         "h": 4,
         "w": 24,
@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot dbd5a5142659",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 71feaabf14e9",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -94,7 +94,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Eerste reproduceerbare productsamenstelling.",
+                  "fixed": "Informatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "Aantal objecten in het gevalideerde BAT wereldmodel.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
+      "description": "De digitale wereld, haar merk en haar reproduceerbare bronassets.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT informatiegebied: palace-world",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 468,
+                "height": 192,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -181,7 +181,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Architectuurobjecten",
+                  "fixed": "Wereld en identiteit",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -207,7 +207,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "47",
+                  "fixed": "1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -233,7 +233,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "appearance\nborder\ncapability\ncomponent\ncomponentinstantie\ncompositie\ndienst\nkleur\nlayout\nmateriaal\nmotion\npalet\nproduct\nradius\nregion\nrenderdoel\nshadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant\nwereld",
+                  "fixed": "wereld",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -244,7 +244,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-labels",
               "placement": {
-                "height": 300,
+                "height": 24,
                 "left": 20,
                 "top": 116,
                 "width": 280
@@ -259,7 +259,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "2\n1\n2\n1\n3\n1\n1\n7\n1\n1\n1\n1\n4\n1\n3\n4\n1\n1\n1\n6\n1\n1\n1\n1",
+                  "fixed": "1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -270,7 +270,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-values",
               "placement": {
-                "height": 300,
+                "height": 24,
                 "left": 300,
                 "top": 116,
                 "width": 80
@@ -303,581 +303,6 @@
               "type": "rectangle"
             },
             {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-2",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 140,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-3",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 152,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-4",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 164,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-5",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 176,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-6",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 188,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-7",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 200,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-8",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 212,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-9",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 224,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-10",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 236,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-11",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 248,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-12",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 260,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-13",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 272,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-14",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 284,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-15",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 296,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-16",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 308,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-17",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 320,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-18",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 332,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-19",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 344,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-20",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 356,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-21",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 368,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-22",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 380,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-23",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 392,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
-              "background": {
-                "color": {
-                  "fixed": "#46505C"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "#46505C"
-                },
-                "width": 0
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-left-panel-metric-detail-rule-24",
-              "placement": {
-                "height": 1,
-                "left": 20,
-                "top": 404,
-                "width": 360
-              },
-              "type": "rectangle"
-            },
-            {
               "config": {
                 "align": "left",
                 "color": {
@@ -885,7 +310,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Aantal objecten in het gevalideerde BAT wereldmodel.",
+                  "fixed": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -898,7 +323,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 428,
+                "top": 152,
                 "width": 360
               },
               "type": "text"
@@ -909,12 +334,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Architectuurobjecten",
+      "title": "Wereld en identiteit",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "Aantal native tokens waaruit de Forge producten worden gegenereerd.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-compact-appearance",
+      "description": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-compact-appearance\nBAT informatiegebied: forge-design-system",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -957,7 +382,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 252,
+                "height": 360,
                 "left": 4,
                 "top": 4,
                 "width": 4
@@ -972,7 +397,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Design tokens",
+                  "fixed": "Forge ontwerpsysteem",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -998,7 +423,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "6",
+                  "fixed": "27",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1024,7 +449,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Accent\nEmber\nIron\nSmoke\nMedium radius\nForge interface font family",
+                  "fixed": "appearance\nborder\ncomponent\nkleur\nmateriaal\nmotion\npalet\nradius\nshadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1035,10 +460,36 @@
               },
               "name": "forge-dashboard-center-panel-metric-detail-labels",
               "placement": {
-                "height": 84,
+                "height": 192,
                 "left": 16,
                 "top": 112,
                 "width": 280
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "right",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 12,
+                "text": {
+                  "fixed": "2\n1\n1\n7\n1\n1\n1\n1\n1\n1\n1\n6\n1\n1\n1",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-values",
+              "placement": {
+                "height": 192,
+                "left": 296,
+                "top": 112,
+                "width": 80
               },
               "type": "text"
             },
@@ -1193,6 +644,231 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-7",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 196,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-8",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 208,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-9",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 220,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-10",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 232,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-11",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 244,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-12",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 256,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-13",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 268,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-14",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 280,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-15",
+              "placement": {
+                "height": 1,
+                "left": 16,
+                "top": 292,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -1200,7 +876,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Aantal native tokens waaruit de Forge producten worden gegenereerd.",
+                  "fixed": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1213,7 +889,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 208,
+                "top": 316,
                 "width": 360
               },
               "type": "text"
@@ -1224,12 +900,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design tokens",
+      "title": "Forge ontwerpsysteem",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "Aantal productdefinities met een expliciete backend.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
+      "description": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT informatiegebied: palace-product-family",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -1272,7 +948,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 228,
+                "height": 252,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1287,7 +963,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Productuitvoer",
+                  "fixed": "Productfamilie",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1313,7 +989,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "4",
+                  "fixed": "16",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1339,7 +1015,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Forge Dashboard Grafana\nForge Dashboard HTML\nBeckeringh Palace Projectstatus Grafana\nBeckeringh Palace Projectstatus",
+                  "fixed": "componentinstantie\ncompositie\nlayout\nproduct\nregion\nrenderdoel",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1350,10 +1026,36 @@
               },
               "name": "forge-dashboard-right-panel-metric-detail-labels",
               "placement": {
-                "height": 60,
+                "height": 84,
                 "left": 20,
                 "top": 116,
                 "width": 280
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "right",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 12,
+                "text": {
+                  "fixed": "3\n1\n1\n4\n3\n4",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-values",
+              "placement": {
+                "height": 84,
+                "left": 300,
+                "top": 116,
+                "width": 80
               },
               "type": "text"
             },
@@ -1458,6 +1160,56 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-5",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 176,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-6",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 188,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -1465,7 +1217,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Aantal productdefinities met een expliciete backend.",
+                  "fixed": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1478,7 +1230,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 188,
+                "top": 212,
                 "width": 360
               },
               "type": "text"
@@ -1489,7 +1241,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Productuitvoer",
+      "title": "Productfamilie",
       "transparent": true,
       "type": "canvas"
     }
@@ -1499,7 +1251,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:dbd5a5142659f4009087918580cd728533871598eaa91f85180d64566b07b697"
+    "sha256:71feaabf14e9338d4b48f6d07d3dfd2a4c43eae5d167a72989e3aedf4a082ee5"
   ],
   "templating": {
     "list": []

@@ -1,0 +1,113 @@
+from __future__ import annotations
+
+import unittest
+
+from compiler.design_compositions import resolveer_composities
+from compiler.information_architecture import resolveer_informatiegebieden
+from compiler.parser import parseer
+from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
+from compiler.semantic import SemantischeFout, analyseer
+
+
+BRON = '''
+informatiegebied wereld {
+    naam: "Wereld"
+    doel: "Wereldinhoud."
+    soorten: ["wereld"]
+}
+
+wereld palace {
+    naam: "Palace"
+    doel: "Digitale wereld."
+    thema: "forge"
+}
+
+component panel {
+    naam: "Panel"
+    doel: "Informatiepaneel."
+}
+
+compositie dashboard {
+    naam: "Dashboard"
+    doel: "Dashboardinhoud."
+    instanties: ["world-panel"]
+}
+
+componentinstantie world-panel {
+    naam: "Overschreven naam"
+    doel: "Overschreven doel."
+    compositie: "dashboard"
+    component: "panel"
+    informatiegebied: "wereld"
+}
+'''
+
+
+class InformationArchitectureTests(unittest.TestCase):
+    def test_lost_gebied_backendonafhankelijk_op(self):
+        model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        gebied = resolveer_informatiegebieden(model.objecten)[0]
+        instantie = resolveer_composities(model.objecten)[0].instances[0]
+
+        self.assertEqual(("wereld",), gebied.object_kinds)
+        self.assertEqual("wereld", instantie.information_area_id)
+        self.assertEqual("Wereld", instantie.naam)
+        self.assertEqual("Wereldinhoud.", instantie.doel)
+        self.assertEqual("informatiegebied:wereld", instantie.metric_kind)
+        self.assertEqual(1, instantie.metric_value)
+        self.assertEqual(
+            (("wereld", 1),),
+            tuple((detail.label, detail.value) for detail in instantie.metric_details),
+        )
+
+    def test_weigert_onbekend_gebied(self):
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(
+                parseer(BRON.replace(
+                    'informatiegebied: "wereld"',
+                    'informatiegebied: "missing"',
+                )),
+                constraints=WORLD_MODEL_CONSTRAINTS,
+            )
+        self.assertIn("BP3717", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_lege_onbekende_en_overlappende_soorten(self):
+        varianten = (
+            (BRON.replace('soorten: ["wereld"]', "soorten: []"), "BP4002"),
+            (
+                BRON.replace('soorten: ["wereld"]', 'soorten: ["missing"]'),
+                "BP4003",
+            ),
+            (
+                BRON.replace(
+                    "wereld palace {",
+                    '''informatiegebied dubbel {
+    naam: "Dubbel"
+    doel: "Overlappend gebied."
+    soorten: ["wereld"]
+}
+
+wereld palace {''',
+                ),
+                "BP4004",
+            ),
+        )
+        for bron, code in varianten:
+            with self.subTest(code=code):
+                with self.assertRaises(SemantischeFout) as context:
+                    analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+                self.assertIn(code, {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_combinatie_met_legacy_metric(self):
+        bron = BRON.replace(
+            '    informatiegebied: "wereld"',
+            '    informatiegebied: "wereld"\n    metric-kind: "wereld"',
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3718", {item.code for item in context.exception.diagnostics})
+
+
+if __name__ == "__main__":
+    unittest.main()

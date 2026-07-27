@@ -78,8 +78,9 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertIn("<h1>Forge Dashboard</h1>", product.inhoud)
         self.assertIn(
-            "<p class=\"bp-product-purpose\">Eerste reproduceerbare "
-            "productsamenstelling.</p>",
+            "<p class=\"bp-product-purpose\">Informatiearchitectuur van de "
+            "Beckeringh Palace wereld, het Forge ontwerpsysteem en de "
+            "productfamilie.</p>",
             product.inhoud,
         )
         self.assertIn("@media (max-width: 960px)", product.inhoud)
@@ -98,22 +99,22 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertEqual(1, product.inhoud.count('data-variant="'))
         self.assertEqual(
-            ("44", "6", "4"),
+            ("1", "27", "16"),
             tuple(
                 str(instantie.metric_value)
                 for instantie in compositie.instances
             ),
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="*">44</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-world">1</p>',
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="token">6</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">27</p>',
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="product">4</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">16</p>',
             product.inhoud,
         )
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
@@ -134,14 +135,17 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             f"{product.definitie.snapshot_id[:SNAPSHOT_ID_LENGTH]}",
             product.inhoud,
         )
-        self.assertIn('<li><span>Ember</span></li>', product.inhoud)
         self.assertIn(
-            '<li><span>Forge Dashboard Grafana</span></li>',
+            'data-information-area="forge-design-system"',
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-description">Aantal objecten in het gevalideerde '
-            "BAT wereldmodel.</p>",
+            '<li><span>token</span><span class="bp-metric-detail-value">6</span></li>',
+            product.inhoud,
+        )
+        self.assertIn(
+            '<p class="bp-description">De digitale wereld, haar merk en haar '
+            "reproduceerbare bronassets.</p>",
             product.inhoud,
         )
 

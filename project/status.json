@@ -4,33 +4,33 @@
   "overall_progress": 40,
   "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
   "current_milestone": {
-    "id": "M10.4d",
-    "name": "Native Grafana statusproduct",
+    "id": "M10.5a",
+    "name": "Dashboard informatiearchitectuur",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M10.4c",
-    "name": "Native HTML statusproduct",
-    "pull_request": 61
+    "id": "M10.4d",
+    "name": "Native Grafana statusproduct",
+    "pull_request": 62
   },
   "next_step": {
-    "id": "M10.5a",
-    "name": "Dashboard informatiearchitectuur",
-    "purpose": "Het Forge Dashboard van een technische architectuursnapshot naar een inhoudelijk Beckeringh Palace productmodel ontwikkelen."
+    "id": "M10.5b",
+    "name": "Dashboard productnavigatie",
+    "purpose": "De informatiegebieden verbinden met de bijbehorende Beckeringh Palace producten en catalogi."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
       "progress": 80,
-      "evidence": "Validatie, deterministische generatie, CI en 124 regressietests vormen een werkende kwaliteitsketen.",
+      "evidence": "Validatie, deterministische generatie, CI en 128 regressietests vormen een werkende kwaliteitsketen.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
       "progress": 70,
-      "evidence": "Thema's, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd.",
+      "evidence": "Thema's, informatiegebieden, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd.",
       "remaining": "De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
@@ -44,8 +44,8 @@
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
       "progress": 60,
-      "evidence": "HTML en importeerbare Grafana output delen layout, thema, semantiek en snapshotverificatie.",
-      "remaining": "Het dashboard is nog vooral een architectuursnapshot en nog geen volledige operationele productervaring."
+      "evidence": "HTML en Grafana delen drie native informatiegebieden voor wereld, ontwerpsysteem en productfamilie, naast layout, thema en snapshotverificatie.",
+      "remaining": "De informatiegebieden hebben nog geen productnavigatie of inhoudelijke verdieping."
     },
     {
       "id": "visual-world",

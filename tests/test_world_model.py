@@ -20,6 +20,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "component",
                 "componentinstantie",
                 "compositie",
+                "informatiegebied",
                 "kleur",
                 "layout",
                 "materiaal",

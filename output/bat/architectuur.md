@@ -505,6 +505,48 @@ Gecontroleerde compacte appearance voor een Forge-paneel.
 - **appearance:** forge-panel-compact-appearance
 - **component:** forge-panel
 
+## Wereld en identiteit
+
+**Soort:** informatiegebied
+
+**Identifier:** `palace-world`
+
+### Doel
+
+De digitale wereld, haar merk en haar reproduceerbare bronassets.
+
+### Eigenschappen
+
+- **soorten:** wereld, merk, asset
+
+## Forge ontwerpsysteem
+
+**Soort:** informatiegebied
+
+**Identifier:** `forge-design-system`
+
+### Doel
+
+De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.
+
+### Eigenschappen
+
+- **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant
+
+## Productfamilie
+
+**Soort:** informatiegebied
+
+**Identifier:** `palace-product-family`
+
+### Doel
+
+De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.
+
+### Eigenschappen
+
+- **soorten:** compositie, componentinstantie, layout, region, product, renderdoel
+
 ## Forge Dashboard
 
 **Soort:** compositie
@@ -513,13 +555,13 @@ Gecontroleerde compacte appearance voor een Forge-paneel.
 
 ### Doel
 
-Eerste reproduceerbare productsamenstelling.
+Informatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.
 
 ### Eigenschappen
 
 - **instanties:** forge-dashboard-left-panel, forge-dashboard-center-panel, forge-dashboard-right-panel
 
-## Architectuurobjecten
+## Wereld en identiteit
 
 **Soort:** componentinstantie
 
@@ -527,16 +569,15 @@ Eerste reproduceerbare productsamenstelling.
 
 ### Doel
 
-Aantal objecten in het gevalideerde BAT wereldmodel.
+De digitale wereld, haar merk en haar reproduceerbare bronassets.
 
 ### Eigenschappen
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
-- **metric-detail:** kinds
-- **metric-kind:** *
+- **informatiegebied:** palace-world
 
-## Design tokens
+## Forge ontwerpsysteem
 
 **Soort:** componentinstantie
 
@@ -544,17 +585,16 @@ Aantal objecten in het gevalideerde BAT wereldmodel.
 
 ### Doel
 
-Aantal native tokens waaruit de Forge producten worden gegenereerd.
+De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.
 
 ### Eigenschappen
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
-- **metric-detail:** items
-- **metric-kind:** token
+- **informatiegebied:** forge-design-system
 - **variant:** forge-panel-compact
 
-## Productuitvoer
+## Productfamilie
 
 **Soort:** componentinstantie
 
@@ -562,14 +602,13 @@ Aantal native tokens waaruit de Forge producten worden gegenereerd.
 
 ### Doel
 
-Aantal productdefinities met een expliciete backend.
+De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.
 
 ### Eigenschappen
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
-- **metric-detail:** items
-- **metric-kind:** product
+- **informatiegebied:** palace-product-family
 
 ## Forge Dashboard Ultrawide
 

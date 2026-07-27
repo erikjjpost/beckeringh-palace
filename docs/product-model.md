@@ -490,6 +490,19 @@ of percentages te berekenen. Schema en totale voortgang staan daarnaast als
 machineleesbare dashboardtags vast. HTML en Grafana blijven contextafhankelijke
 statusproducten en worden zonder statuscontext beide overgeslagen.
 
+M10.5a introduceert native dashboardinformatiearchitectuur. Een
+`informatiegebied` bundelt een niet-lege, unieke lijst native objectsoorten
+onder één naam en doel. Objectsoorten mogen ook nog nul voorkomens hebben in de
+actuele snapshot, zodat de structuur stabiel blijft terwijl de wereld groeit.
+Verschillende informatiegebieden mogen dezelfde objectsoort niet claimen.
+
+Een componentinstantie kiest met `informatiegebied` exact één gebied. Dit veld
+kan niet worden gecombineerd met `metric-kind` of `metric-detail`. De
+compositieresolutie selecteert en telt de gebiedsinhoud één keer en levert naam,
+doel, totaal en uitsplitsing per objectsoort backendonafhankelijk aan HTML en
+Grafana. Het Forge Dashboard bestaat daardoor uit Wereld en identiteit, Forge
+ontwerpsysteem en Productfamilie in plaats van drie losse technische tellingen.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -525,6 +538,8 @@ statusproducten en worden zonder statuscontext beide overgeslagen.
 | `BP3714` | Componentinstantie heeft een ongeldige `metric-kind` |
 | `BP3715` | Componentinstantie telt een onbekende objectsoort |
 | `BP3716` | Componentinstantie heeft een ongeldige `metric-detail` |
+| `BP3717` | Componentinstantie verwijst naar een onbekend informatiegebied |
+| `BP3718` | Componentinstantie combineert een informatiegebied met legacy metriekvelden |
 | `BP3801` | Variant heeft een onbekende eigenschap |
 | `BP3802` | Variant verwijst naar een onbekend component |
 | `BP3803` | Variant verwijst naar een onbekende appearance |
@@ -534,3 +549,7 @@ statusproducten en worden zonder statuscontext beide overgeslagen.
 | `BP3902` | Renderdoel mist een geldig formaat |
 | `BP3903` | Renderdoel heeft geen veilig relatief artifactpad |
 | `BP3904` | Meerdere renderdoelen gebruiken hetzelfde artifactpad |
+| `BP4001` | Informatiegebied heeft een onbekende eigenschap |
+| `BP4002` | Informatiegebied heeft geen geldige unieke soortenlijst |
+| `BP4003` | Informatiegebied bevat een onbekende, niet-native of recursieve objectsoort |
+| `BP4004` | Objectsoort komt voor in meerdere informatiegebieden |
