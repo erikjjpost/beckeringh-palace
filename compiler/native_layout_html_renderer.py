@@ -4,6 +4,7 @@ from __future__ import annotations
 import html
 import re
 
+from compiler.component_css_identity import componentklasse, variantklasse
 from compiler.design_compositions import ResolvedComposition
 from compiler.layout_model import (
     LayoutDirection,
@@ -115,7 +116,7 @@ def naar_native_layout_html(
         region_style = _style(_region_css(layout, region))
         style_attribute = f' style="{region_style}"' if region_style else ""
         variant_class = (
-            f" bp-variant-{_css_naam(instantie.variant_id)}"
+            f" {variantklasse(instantie.variant_id)}"
             if instantie.variant_id is not None
             else ""
         )
@@ -131,7 +132,7 @@ def naar_native_layout_html(
         )
         regels.extend([
             (
-                f'    <section class="bp-region bp-{_css_naam(instantie.component_id)}'
+                f'    <section class="bp-region {componentklasse(instantie.component_id)}'
                 f'{variant_class}" '
                 f'data-region="{html.escape(region.id)}" '
                 f'data-instance="{html.escape(instantie.id)}" '

@@ -2,6 +2,11 @@ from __future__ import annotations
 
 import unittest
 from compiler.component_css_renderer import naar_component_css
+from compiler.component_css_identity import (
+    componentklasse,
+    componentselector,
+    variantklasse,
+)
 from compiler.component_html_renderer import naar_component_html
 from compiler.parser import parseer
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
@@ -61,6 +66,17 @@ variant forge-panel-compact {
 
 
 class ComponentSliceTests(unittest.TestCase):
+    def test_gebruikt_een_canonieke_css_identiteit_voor_componentvariant(self):
+        self.assertEqual("bp-status-panel-primary", componentklasse("Status Panel:Primary"))
+        self.assertEqual(
+            "bp-variant-status-panel-compact",
+            variantklasse("Status Panel:Compact"),
+        )
+        self.assertEqual(
+            ".bp-status-panel-primary.bp-variant-status-panel-compact",
+            componentselector("Status Panel:Primary", "Status Panel:Compact"),
+        )
+
     def test_compileert_component_via_semantisch_appearance_contract(self):
         model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
         css = naar_component_css(model.objecten)

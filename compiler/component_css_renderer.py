@@ -5,6 +5,7 @@ import re
 from collections.abc import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.component_css_identity import componentselector
 from compiler.design_variants import resolveer_varianten
 from compiler.design_components import (
     ComponentAppearance,
@@ -78,7 +79,7 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
     regels = ["/* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */"]
     for component in verzamel_componenten(objecten):
         appearance = appearances.get(component.appearance or "")
-        selector = f".bp-{_css_naam(component.id)}"
+        selector = componentselector(component.id)
         if appearance is not None:
             regels.extend(_appearance_regels(selector, appearance))
         else:
@@ -90,9 +91,6 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
 
     for variant in resolveer_varianten(objecten):
         appearance = appearances[variant.appearance_id]
-        selector = (
-            f'.bp-{_css_naam(variant.component_id)}'
-            f'.bp-variant-{_css_naam(variant.id)}'
-        )
+        selector = componentselector(variant.component_id, variant.id)
         regels.extend(_appearance_regels(selector, appearance))
     return "\n".join(regels)
