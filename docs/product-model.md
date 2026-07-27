@@ -66,9 +66,11 @@ de layouttypen als volgt:
 De normatieve `instanties`-lijst van de compositie bepaalt voor alle typen de
 inhouds- en DOM-volgorde. De `regions`-lijst legt uitsluitend expliciet vast
 welke regions bij de layout horen. De koppeling tussen beide gebeurt via
-instantie-id's en niet via lijstpositie. CSS is uitsluitend backenduitvoer en
-wordt niet teruggeschreven naar BAT, CIR, `ResolvedComposition`,
-`ResolvedLayout` of `ProductDefinition`.
+instantie-id's en niet via lijstpositie. De opgeloste instantie levert daarnaast
+de componentidentiteit en zichtbare instantienaam. Een `ResolvedRegion` bevat
+die gegevens niet opnieuw. CSS is uitsluitend backenduitvoer en wordt niet
+teruggeschreven naar BAT, CIR, `ResolvedComposition`, `ResolvedLayout` of
+`ProductDefinition`.
 
 ## Native objecten
 
@@ -285,6 +287,13 @@ M9.1c verwijdert de dubbele productvolgorde. De geordende instanties van de
 compositie bepalen de inhouds- en DOM-volgorde. De regions van de layout leggen
 alleen expliciete plaatsing en lidmaatschap vast. De HTML-backend koppelt beide
 op instantie-id en leidt niets af uit de positie van een item in beide lijsten.
+
+M9.1d verwijdert daarna de dubbele componentidentiteit uit het resolved
+layoutmodel. Een region bewaart uitsluitend de instantie-id en de
+typegebonden plaatsing. De HTML-backend koppelt de resolved instantie en region
+expliciet op id en gebruikt de compositie voor de componentklasse,
+`data-instance`, `data-component` en de zichtbare instantienaam. Layoutmetadata
+van de region wordt daardoor niet als instantie-inhoud gerenderd.
 
 ## Diagnostics
 

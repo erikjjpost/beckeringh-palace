@@ -85,9 +85,9 @@ def naar_native_layout_html(
             f"Compositie '{compositie.id}' en layout '{layout.id}' vereisen "
             "exact dezelfde componentinstanties"
         )
-    geordende_regions = tuple(
-        regions_per_instantie[instance_id]
-        for instance_id in instance_ids
+    geordende_plaatsingen = tuple(
+        (instantie, regions_per_instantie[instantie.id])
+        for instantie in compositie.instances
     )
 
     regels = [
@@ -111,17 +111,17 @@ def naar_native_layout_html(
             f'style="{_style(_layout_css(layout))}">'
         ),
     ]
-    for region in geordende_regions:
+    for instantie, region in geordende_plaatsingen:
         region_style = _style(_region_css(layout, region))
         style_attribute = f' style="{region_style}"' if region_style else ""
         regels.extend([
             (
-                f'    <section class="bp-region bp-{_css_naam(region.component_id)}" '
+                f'    <section class="bp-region bp-{_css_naam(instantie.component_id)}" '
                 f'data-region="{html.escape(region.id)}" '
-                f'data-instance="{html.escape(region.instance_id)}" '
-                f'data-component="{html.escape(region.component_id)}"{style_attribute}>'
+                f'data-instance="{html.escape(instantie.id)}" '
+                f'data-component="{html.escape(instantie.component_id)}"{style_attribute}>'
             ),
-            f"      <h2>{html.escape(region.naam)}</h2>",
+            f"      <h2>{html.escape(instantie.naam)}</h2>",
             "    </section>",
         ])
     regels.extend([

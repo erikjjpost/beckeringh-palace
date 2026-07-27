@@ -31,7 +31,6 @@ class ResolvedRegion:
     doel: str
     layout_id: str
     instance_id: str
-    component_id: str
     column: int | None = None
     row: int | None = None
     column_span: int | None = None
@@ -78,19 +77,14 @@ def _optioneel_getal(obj: Architectuurobject, veld: str) -> int | None:
     return _getal(obj, veld) if veld in obj.eigenschappen else None
 
 
-def _region_uit_object(
-    obj: Architectuurobject,
-    instanties: dict[str, Architectuurobject],
-) -> ResolvedRegion:
+def _region_uit_object(obj: Architectuurobject) -> ResolvedRegion:
     instance_id = _tekst(obj, "instantie")
-    instantie = instanties[instance_id]
     return ResolvedRegion(
         id=obj.id,
         naam=_tekst(obj, "naam"),
         doel=_tekst(obj, "doel"),
         layout_id=_tekst(obj, "layout"),
         instance_id=instance_id,
-        component_id=_tekst(instantie, "component"),
         column=_optioneel_getal(obj, "column"),
         row=_optioneel_getal(obj, "row"),
         column_span=_optioneel_getal(obj, "column-span"),
@@ -110,11 +104,6 @@ def resolveer_layouts(
         for obj in objecten
         if obj.soort == "region"
     }
-    instanties = {
-        obj.id: obj
-        for obj in objecten
-        if obj.soort == "componentinstantie"
-    }
     layouts = []
     for obj in objecten:
         if obj.soort != "layout" or "type" not in obj.eigenschappen:
@@ -127,7 +116,7 @@ def resolveer_layouts(
                     f"Layout '{obj.id}' vereist lijstveld 'regions'"
                 )
             resolved_regions = tuple(
-                _region_uit_object(regions[region_id], instanties)
+                _region_uit_object(regions[region_id])
                 for region_id in region_ids
             )
             direction = (

@@ -119,10 +119,8 @@ class NativeLayoutModelTests(unittest.TestCase):
         grid = next(layout for layout in layouts if layout.type is LayoutType.GRID)
         self.assertEqual((12, 4), (grid.columns, grid.rows))
         self.assertEqual((2, 10), (grid.regions[0].column, grid.regions[0].column_span))
-        self.assertEqual(("grid-panel", "panel"), (
-            grid.regions[0].instance_id,
-            grid.regions[0].component_id,
-        ))
+        self.assertEqual("grid-panel", grid.regions[0].instance_id)
+        self.assertFalse(hasattr(grid.regions[0], "component_id"))
         stack = next(layout for layout in layouts if layout.type is LayoutType.STACK)
         self.assertEqual(LayoutDirection.VERTICAL, stack.direction)
         flow = next(layout for layout in layouts if layout.type is LayoutType.FLOW)
