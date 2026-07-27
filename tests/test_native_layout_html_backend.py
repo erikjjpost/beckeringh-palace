@@ -209,10 +209,10 @@ class NativeLayoutHtmlBackendTests(unittest.TestCase):
             producten["layer-html"],
         )
 
-    def test_normatieve_regionvolgorde_bepaalt_de_domvolgorde(self):
+    def test_normatieve_compositievolgorde_bepaalt_de_domvolgorde(self):
         bron = BRON.replace(
             'regions: ["stack-main"]',
-            'regions: ["stack-second", "stack-main"]',
+            'regions: ["stack-main", "stack-second"]',
             1,
         ).replace(
             'instanties: ["stack-panel"]',

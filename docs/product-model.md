@@ -63,9 +63,12 @@ de layouttypen als volgt:
 | `flow` | Flexbox met expliciete richting en wrapkeuze |
 | `layer` | Overlappende gridgebieden met het expliciete laagniveau |
 
-De normatieve `regions`-lijst bepaalt voor alle typen de DOM-volgorde. CSS is
-uitsluitend backenduitvoer en wordt niet teruggeschreven naar BAT, CIR,
-`ResolvedComposition`, `ResolvedLayout` of `ProductDefinition`.
+De normatieve `instanties`-lijst van de compositie bepaalt voor alle typen de
+inhouds- en DOM-volgorde. De `regions`-lijst legt uitsluitend expliciet vast
+welke regions bij de layout horen. De koppeling tussen beide gebeurt via
+instantie-id's en niet via lijstpositie. CSS is uitsluitend backenduitvoer en
+wordt niet teruggeschreven naar BAT, CIR, `ResolvedComposition`,
+`ResolvedLayout` of `ProductDefinition`.
 
 ## Native objecten
 
@@ -119,10 +122,11 @@ Iedere native layout vereist:
 - `naam`: menselijke naam;
 - `doel`: beoogd gebruik;
 - `type`: exact `grid`, `stack`, `flow` of `layer`;
-- `regions`: expliciete, geordende lijst met unieke region-id's.
+- `regions`: expliciete lijst met unieke region-id's.
 
-De volgorde in `regions` is normatief. Een region die niet in deze lijst staat,
-behoort niet impliciet tot de layout.
+De lijst is de normatieve en wederkerige lidmaatschapsdeclaratie. Een region die
+niet in deze lijst staat, behoort niet impliciet tot de layout. De lijst bepaalt
+geen tweede inhoudsvolgorde naast de compositie.
 
 ### `region`
 
@@ -200,8 +204,8 @@ layout detail-stack {
 }
 ```
 
-`direction` is exact `horizontal` of `vertical`. De volgorde van de regions
-staat uitsluitend in de normatieve `regions`-lijst van de layout.
+`direction` is exact `horizontal` of `vertical`. De volgorde van de geplaatste
+inhoud staat uitsluitend in de normatieve `instanties`-lijst van de compositie.
 
 ### Flow
 
@@ -220,8 +224,8 @@ layout card-flow {
 ```
 
 `direction` is exact `horizontal` of `vertical`. `wrap` is verplicht en is exact
-`true` of `false`. De volgorde van de regions staat uitsluitend in de
-normatieve `regions`-lijst van de layout.
+`true` of `false`. De volgorde van de geplaatste inhoud staat uitsluitend in de
+normatieve `instanties`-lijst van de compositie.
 
 ### Layer
 
@@ -255,9 +259,8 @@ BAT-declaratie volledig en eenduidig.
 ## Voltooide migratie
 
 M9.0c migreert de canonieke Forge productbron naar een native grid-layout. De
-drie dashboardpanelen zijn expliciete `region`-objecten en de normatieve
-`regions`-lijst bepaalt hun volgorde. De oude pixelcoördinaten worden niet
-vertaald naar impliciete presentatievelden.
+drie dashboardpanelen zijn expliciete `region`-objecten. De oude
+pixelcoördinaten worden niet vertaald naar impliciete presentatievelden.
 
 M9.0d verwijdert daarna het volledige M6 spatial contract. `layout` vereist
 altijd een expliciet native type en `regio`, canvasafmetingen, absolute
@@ -277,6 +280,11 @@ componentdefinitie. De productcompiler levert zowel `ResolvedComposition` als
 `ResolvedLayout` aan de backend. De HTML-backend behoudt de instantie-identiteit
 in `data-instance` en gebruikt de opgeloste componentdefinitie voor
 `data-component` en de componentklasse.
+
+M9.1c verwijdert de dubbele productvolgorde. De geordende instanties van de
+compositie bepalen de inhouds- en DOM-volgorde. De regions van de layout leggen
+alleen expliciete plaatsing en lidmaatschap vast. De HTML-backend koppelt beide
+op instantie-id en leidt niets af uit de positie van een item in beide lijsten.
 
 ## Diagnostics
 

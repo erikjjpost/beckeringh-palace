@@ -4,7 +4,13 @@ from __future__ import annotations
 import html
 import re
 
-from compiler.layout_model import LayoutDirection, LayoutType, ResolvedLayout, ResolvedRegion
+from compiler.design_compositions import ResolvedComposition
+from compiler.layout_model import (
+    LayoutDirection,
+    LayoutType,
+    ResolvedLayout,
+    ResolvedRegion,
+)
 
 
 def _css_naam(identifier: str) -> str:
@@ -60,10 +66,29 @@ def _style(regels: tuple[str, ...]) -> str:
 
 
 def naar_native_layout_html(
+    compositie: ResolvedComposition,
     layout: ResolvedLayout,
     titel: str = "Beckeringh Palace product",
 ) -> str:
-    """Vertaal één resolved layout deterministisch naar HTML en CSS."""
+    """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
+
+    regions_per_instantie = {
+        region.instance_id: region
+        for region in layout.regions
+    }
+    instance_ids = tuple(instantie.id for instantie in compositie.instances)
+    if (
+        len(regions_per_instantie) != len(layout.regions)
+        or set(regions_per_instantie) != set(instance_ids)
+    ):
+        raise ValueError(
+            f"Compositie '{compositie.id}' en layout '{layout.id}' vereisen "
+            "exact dezelfde componentinstanties"
+        )
+    geordende_regions = tuple(
+        regions_per_instantie[instance_id]
+        for instance_id in instance_ids
+    )
 
     regels = [
         "<!doctype html>",
@@ -86,7 +111,7 @@ def naar_native_layout_html(
             f'style="{_style(_layout_css(layout))}">'
         ),
     ]
-    for region in layout.regions:
+    for region in geordende_regions:
         region_style = _style(_region_css(layout, region))
         style_attribute = f' style="{region_style}"' if region_style else ""
         regels.extend([
