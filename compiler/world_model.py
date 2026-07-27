@@ -50,7 +50,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("layout", Domeinstatus.NATIVE, "Beschrijft backend-onafhankelijke layoutintentie."),
     ObjectsoortDefinitie("region", Domeinstatus.NATIVE, "Plaatst een component expliciet binnen een native layout."),
     ObjectsoortDefinitie("product", Domeinstatus.NATIVE, "Koppelt een layout aan een backend en artifactpad."),
-    ObjectsoortDefinitie("variant", Domeinstatus.NATIVE, "Legt een gecontroleerde afwijking vast."),
+    ObjectsoortDefinitie("variant", Domeinstatus.NATIVE, "Legt een gecontroleerde componentappearance vast."),
     ObjectsoortDefinitie("renderdoel", Domeinstatus.NATIVE, "Beschrijft een te genereren representatie."),
     ObjectsoortDefinitie("capability", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),
     ObjectsoortDefinitie("dienst", Domeinstatus.MIGRATIE, "Bestaand architectuurconcept tijdens de BAT-migratie."),

@@ -46,6 +46,16 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             ),
             tuple(instantie.id for instantie in compositie.instances),
         )
+        self.assertIsNone(compositie.instances[0].variant_id)
+        self.assertEqual(
+            "forge-panel-compact",
+            compositie.instances[1].variant_id,
+        )
+        self.assertEqual(
+            "forge-panel-compact-appearance",
+            compositie.instances[1].appearance_id,
+        )
+        self.assertIsNone(compositie.instances[2].variant_id)
         self.assertEqual(LayoutType.GRID, layout.type)
         self.assertEqual((3, 1), (layout.columns, layout.rows))
         self.assertEqual(

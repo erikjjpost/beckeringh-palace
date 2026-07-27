@@ -11,6 +11,7 @@ from compiler.diagnostics import Diagnostic
 from compiler.layout_constraints import NativeLayoutConstraint
 from compiler.product_definition_constraints import ProductDefinitionConstraint
 from compiler.theme_constraints import ThemeFoundationConstraint
+from compiler.variant_constraints import ComponentVariantConstraint
 from compiler.world_model import Domeinstatus, objectsoortdefinitie
 
 
@@ -92,6 +93,7 @@ WORLD_MODEL_CONSTRAINTS = (
     DesignTokenConstraint(),
     ThemeFoundationConstraint(),
     DesignComponentConstraint(),
+    ComponentVariantConstraint(),
     DesignCompositionConstraint(),
     NativeLayoutConstraint(),
     ProductDefinitionConstraint(),

@@ -79,7 +79,13 @@ class DesignCompositionConstraint:
                             ))
 
             if obj.soort == "componentinstantie":
-                toegestane_velden = {"naam", "doel", "compositie", "component"}
+                toegestane_velden = {
+                    "naam",
+                    "doel",
+                    "compositie",
+                    "component",
+                    "variant",
+                }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
                         diagnostics.append(Diagnostic(
