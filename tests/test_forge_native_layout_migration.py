@@ -85,6 +85,30 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertEqual(1, product.inhoud.count('data-variant="'))
+        self.assertEqual(
+            ("38", "6", "2"),
+            tuple(
+                str(instantie.metric_value)
+                for instantie in compositie.instances
+            ),
+        )
+        self.assertIn(
+            '<p class="bp-metric" data-metric-kind="*">38</p>',
+            product.inhoud,
+        )
+        self.assertIn(
+            '<p class="bp-metric" data-metric-kind="token">6</p>',
+            product.inhoud,
+        )
+        self.assertIn(
+            '<p class="bp-metric" data-metric-kind="product">2</p>',
+            product.inhoud,
+        )
+        self.assertIn(
+            '<p class="bp-description">Aantal objecten in het gevalideerde '
+            "BAT wereldmodel.</p>",
+            product.inhoud,
+        )
 
 
 if __name__ == "__main__":

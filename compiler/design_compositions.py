@@ -18,6 +18,7 @@ class ResolvedComponentInstance:
     variant_id: str | None
     appearance_id: str | None
     metric_kind: str | None
+    metric_value: int | None
 
 
 @dataclass(frozen=True)
@@ -45,6 +46,8 @@ def _instantie_uit_object(
     obj: Architectuurobject,
     componenten: dict[str, Architectuurobject],
     varianten: dict[str, ResolvedComponentVariant],
+    objecten_per_soort: dict[str, int],
+    aantal_objecten: int,
 ) -> ResolvedComponentInstance:
     component_id = _tekst(obj, "component")
     variant_waarde = obj.eigenschappen.get("variant")
@@ -66,6 +69,13 @@ def _instantie_uit_object(
             else basisappearance if isinstance(basisappearance, str) else None
         ),
         metric_kind=metric_waarde if isinstance(metric_waarde, str) else None,
+        metric_value=(
+            aantal_objecten
+            if metric_waarde == "*"
+            else objecten_per_soort[metric_waarde]
+            if isinstance(metric_waarde, str)
+            else None
+        ),
     )
 
 
@@ -89,6 +99,9 @@ def resolveer_composities(
         variant.id: variant
         for variant in resolveer_varianten(objecten)
     }
+    objecten_per_soort: dict[str, int] = {}
+    for obj in objecten:
+        objecten_per_soort[obj.soort] = objecten_per_soort.get(obj.soort, 0) + 1
     composities = []
     for obj in objecten:
         if obj.soort != "compositie":
@@ -104,6 +117,8 @@ def resolveer_composities(
                     instanties[instance_id],
                     componenten,
                     varianten,
+                    objecten_per_soort,
+                    len(objecten),
                 )
                 for instance_id in instance_ids
             )

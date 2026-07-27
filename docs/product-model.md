@@ -398,6 +398,12 @@ Grafana Canvas-backend toont de uitkomst als statische waarde tussen kop en
 toelichting. Daardoor bevat het Forge-dashboard echte architectuurstatus zonder
 datasource, queries of verzonnen operationele meetwaarden.
 
+M10.1b maakt de opgeloste metriek backendonafhankelijk. De compositieresolutie
+berekent iedere gedeclareerde modeltelling exact één keer en bewaart soort en
+waarde op de opgeloste componentinstantie. Grafana consumeert uitsluitend die
+waarde. De HTML-productbackend toont dezelfde waarde en toelichting, zodat beide
+productuitvoeren dezelfde feitelijke dashboardinhoud uit één contract krijgen.
+
 ## Diagnostics
 
 | Code | Betekenis |
