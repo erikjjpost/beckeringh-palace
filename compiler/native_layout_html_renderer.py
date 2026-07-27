@@ -114,12 +114,29 @@ def naar_native_layout_html(
     for instantie, region in geordende_plaatsingen:
         region_style = _style(_region_css(layout, region))
         style_attribute = f' style="{region_style}"' if region_style else ""
+        variant_class = (
+            f" bp-variant-{_css_naam(instantie.variant_id)}"
+            if instantie.variant_id is not None
+            else ""
+        )
+        variant_attribute = (
+            f' data-variant="{html.escape(instantie.variant_id)}"'
+            if instantie.variant_id is not None
+            else ""
+        )
+        appearance_attribute = (
+            f' data-appearance="{html.escape(instantie.appearance_id)}"'
+            if instantie.appearance_id is not None
+            else ""
+        )
         regels.extend([
             (
-                f'    <section class="bp-region bp-{_css_naam(instantie.component_id)}" '
+                f'    <section class="bp-region bp-{_css_naam(instantie.component_id)}'
+                f'{variant_class}" '
                 f'data-region="{html.escape(region.id)}" '
                 f'data-instance="{html.escape(instantie.id)}" '
-                f'data-component="{html.escape(instantie.component_id)}"{style_attribute}>'
+                f'data-component="{html.escape(instantie.component_id)}"'
+                f"{variant_attribute}{appearance_attribute}{style_attribute}>"
             ),
             f"      <h2>{html.escape(instantie.naam)}</h2>",
             "    </section>",

@@ -33,6 +33,32 @@ component forge-panel {
 }
 '''
 
+VARIANT = BRON + '''
+appearance forge-panel-compact-appearance {
+    naam: "Compact Forge Panel Appearance"
+    doel: "Compact paneelprofiel."
+    material: "surface"
+    foreground: "foreground"
+    accent: "accent"
+    border: "hairline"
+    radius: "small"
+    shadow: "low"
+    motion: "fast"
+    spacing: "xs"
+    heading-style: "title"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
+variant forge-panel-compact {
+    naam: "Compact Forge Panel"
+    doel: "Past het compacte profiel toe."
+    component: "forge-panel"
+    appearance: "forge-panel-compact-appearance"
+}
+'''
+
 
 class ComponentSliceTests(unittest.TestCase):
     def test_compileert_component_via_semantisch_appearance_contract(self):
@@ -55,6 +81,17 @@ class ComponentSliceTests(unittest.TestCase):
         self.assertIn("font-size: var(--bp-type-caption);", css)
         html = naar_component_html(model.objecten)
         self.assertIn('class="bp-forge-panel"', html)
+
+    def test_genereert_variantappearance_onder_explicitiete_selector(self):
+        model = analyseer(parseer(VARIANT), constraints=WORLD_MODEL_CONSTRAINTS)
+        css = naar_component_css(model.objecten)
+        selector = ".bp-forge-panel.bp-variant-forge-panel-compact"
+
+        self.assertIn(f"{selector} {{", css)
+        self.assertIn("background-color: var(--bp-material-surface);", css)
+        self.assertIn("padding: var(--bp-spacing-xs);", css)
+        self.assertIn(f"{selector} h1, {selector} h2", css)
+        self.assertLess(css.index(".bp-forge-panel {"), css.index(selector))
 
     def test_weigert_direct_visueel_componentveld(self):
         bron = BRON.replace(
