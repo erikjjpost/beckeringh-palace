@@ -8,9 +8,9 @@
 
 Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.
 
-- Actuele milestone: **M10.4a — Reproduceerbare projectstatus** (in uitvoering)
-- Laatst voltooid: **M10.3e — Gedeelde snapshotverificatie** (PR #58)
-- Volgende stap: **M10.4b — Status als native productcontext**
+- Actuele milestone: **M10.4b — Status als native productcontext** (in uitvoering)
+- Laatst voltooid: **M10.4a — Reproduceerbare projectstatus** (PR #59)
+- Volgende stap: **M10.4c — Native HTML statusproduct**
 
 ## Voortgang per productgebied
 
@@ -29,6 +29,6 @@ Architectuurschatting van het volledige einddoel; geen optelsom van pull request
 
 ## Eerstvolgende stap
 
-### M10.4b — Status als native productcontext
+### M10.4c — Native HTML statusproduct
 
-De normatieve voortgang ontsluiten voor toekomstige HTML en Grafana statusproducten.
+De normatieve voortgang als eerste zichtbaar, reproduceerbaar HTML product ontsluiten.
