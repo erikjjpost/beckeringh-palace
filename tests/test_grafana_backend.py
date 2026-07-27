@@ -48,9 +48,9 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             [
-                "Linker Forge-paneel",
-                "Centraal Forge-paneel",
-                "Rechter Forge-paneel",
+                "Architectuurobjecten",
+                "Design tokens",
+                "Productuitvoer",
             ],
             [panel["title"] for panel in dashboard["panels"]],
         )
@@ -67,6 +67,7 @@ class GrafanaBackendTests(unittest.TestCase):
             [
                 "forge-dashboard-center-panel-accent",
                 "forge-dashboard-center-panel-heading",
+                "forge-dashboard-center-panel-metric",
                 "forge-dashboard-center-panel-body",
             ],
             [
@@ -83,7 +84,7 @@ class GrafanaBackendTests(unittest.TestCase):
                 "align": "left",
                 "color": {"fixed": "#ECECEC"},
                 "size": 28,
-                "text": {"fixed": "Centraal Forge-paneel", "mode": "fixed"},
+                "text": {"fixed": "Design tokens", "mode": "fixed"},
                 "valign": "top",
             },
             dashboard["panels"][1]["options"]["root"]["elements"][1]["config"],
@@ -92,13 +93,28 @@ class GrafanaBackendTests(unittest.TestCase):
             {
                 "height": 48,
                 "left": 16,
-                "top": 44,
+                "top": 112,
                 "width": 360,
             },
-            dashboard["panels"][1]["options"]["root"]["elements"][2]["placement"],
+            dashboard["panels"][1]["options"]["root"]["elements"][3]["placement"],
         )
         self.assertEqual(
-            "Benoemd paneel voor de centrale dashboardinhoud.\n\n"
+            "6",
+            dashboard["panels"][1]["options"]["root"]["elements"][2]["config"][
+                "text"
+            ]["fixed"],
+        )
+        self.assertEqual(
+            ["38", "6", "2"],
+            [
+                panel["options"]["root"]["elements"][2]["config"]["text"][
+                    "fixed"
+                ]
+                for panel in dashboard["panels"]
+            ],
+        )
+        self.assertEqual(
+            "Aantal native tokens waaruit de Forge producten worden gegenereerd.\n\n"
             "BAT component: forge-panel\n"
             "BAT variant: forge-panel-compact\n"
             "BAT appearance: forge-panel-compact-appearance",

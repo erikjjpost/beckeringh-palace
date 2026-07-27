@@ -17,6 +17,7 @@ class ResolvedComponentInstance:
     component_id: str
     variant_id: str | None
     appearance_id: str | None
+    metric_kind: str | None
 
 
 @dataclass(frozen=True)
@@ -49,6 +50,7 @@ def _instantie_uit_object(
     variant_waarde = obj.eigenschappen.get("variant")
     variant_id = variant_waarde if isinstance(variant_waarde, str) else None
     variant = varianten.get(variant_id) if variant_id is not None else None
+    metric_waarde = obj.eigenschappen.get("metric-kind")
     component = componenten[component_id]
     basisappearance = component.eigenschappen.get("appearance")
     return ResolvedComponentInstance(
@@ -63,6 +65,7 @@ def _instantie_uit_object(
             if variant is not None
             else basisappearance if isinstance(basisappearance, str) else None
         ),
+        metric_kind=metric_waarde if isinstance(metric_waarde, str) else None,
     )
 
 

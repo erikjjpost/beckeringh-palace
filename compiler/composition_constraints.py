@@ -13,6 +13,7 @@ class DesignCompositionConstraint:
 
     def evalueer(self, context: ConstraintContext):
         diagnostics = []
+        objectsoorten = {obj.soort for obj in context.objecten}
         componenten = {obj.id for obj in context.objecten if obj.soort == "component"}
         composities = {obj.id: obj for obj in context.objecten if obj.soort == "compositie"}
         instanties = {
@@ -85,6 +86,7 @@ class DesignCompositionConstraint:
                     "compositie",
                     "component",
                     "variant",
+                    "metric-kind",
                 }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
@@ -137,5 +139,40 @@ class DesignCompositionConstraint:
                             f"component '{component_id}'"
                         ),
                         locatie=obj.eigenschaplocaties.get("component", obj.bronlocatie),
+                    ))
+                metric_kind = obj.eigenschappen.get("metric-kind")
+                if (
+                    "metric-kind" in obj.eigenschappen
+                    and (
+                        not isinstance(metric_kind, str)
+                        or not metric_kind.strip()
+                    )
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3714",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' vereist een niet-lege "
+                            "tekst voor 'metric-kind'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "metric-kind",
+                            obj.bronlocatie,
+                        ),
+                    ))
+                elif (
+                    isinstance(metric_kind, str)
+                    and metric_kind != "*"
+                    and metric_kind not in objectsoorten
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3715",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' telt onbekende "
+                            f"objectsoort '{metric_kind}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "metric-kind",
+                            obj.bronlocatie,
+                        ),
                     ))
         return tuple(diagnostics)

@@ -92,6 +92,7 @@ def _canvasopties(
     instantie: ResolvedComponentInstance,
     appearance: ComponentAppearance,
     thema: ResolvedTheme,
+    metric_value: int | None,
 ) -> dict[str, object]:
     if None in (thema.border, thema.spacing, thema.typeschaal):
         raise ValueError(
@@ -139,6 +140,84 @@ def _canvasopties(
     accent = _themakleur(thema, "materiaal", accentrol)
     tekstlinks = padding + 12
 
+    elementen = [
+        {
+            "background": {"color": {"fixed": accent}},
+            "border": {"color": {"fixed": accent}, "width": 0},
+            "constraint": {"horizontal": "left", "vertical": "top"},
+            "name": f"{instantie.id}-accent",
+            "placement": {
+                "height": headinggrootte + bodygrootte + 12,
+                "left": padding,
+                "top": padding,
+                "width": 4,
+            },
+            "type": "rectangle",
+        },
+        {
+            "config": {
+                "align": "left",
+                "color": {"fixed": voorgrond},
+                "size": headinggrootte,
+                "text": {"fixed": instantie.naam, "mode": "fixed"},
+                "valign": "top",
+            },
+            "constraint": {"horizontal": "left", "vertical": "top"},
+            "name": f"{instantie.id}-heading",
+            "placement": {
+                "height": headinggrootte + 8,
+                "left": tekstlinks,
+                "top": padding,
+                "width": 360,
+            },
+            "type": "text",
+        },
+    ]
+    body_top = padding + headinggrootte + 12
+    if metric_value is not None:
+        metric_size = headinggrootte * 2
+        elementen.append(
+            {
+                "config": {
+                    "align": "left",
+                    "color": {"fixed": accent},
+                    "size": metric_size,
+                    "text": {"fixed": str(metric_value), "mode": "fixed"},
+                    "valign": "top",
+                },
+                "constraint": {"horizontal": "left", "vertical": "top"},
+                "name": f"{instantie.id}-metric",
+                "placement": {
+                    "height": metric_size + 8,
+                    "left": tekstlinks,
+                    "top": body_top,
+                    "width": 360,
+                },
+                "type": "text",
+            }
+        )
+        body_top += metric_size + 12
+    elementen.append(
+        {
+            "config": {
+                "align": "left",
+                "color": {"fixed": voorgrond},
+                "size": bodygrootte,
+                "text": {"fixed": instantie.doel, "mode": "fixed"},
+                "valign": "top",
+            },
+            "constraint": {"horizontal": "left", "vertical": "top"},
+            "name": f"{instantie.id}-body",
+            "placement": {
+                "height": bodygrootte * 3,
+                "left": tekstlinks,
+                "top": body_top,
+                "width": 360,
+            },
+            "type": "text",
+        }
+    )
+
     return {
         "infinitePan": False,
         "inlineEditing": False,
@@ -149,57 +228,7 @@ def _canvasopties(
                 "color": {"fixed": accent},
                 "width": borderbreedte,
             },
-            "elements": [
-                {
-                    "background": {"color": {"fixed": accent}},
-                    "border": {"color": {"fixed": accent}, "width": 0},
-                    "constraint": {"horizontal": "left", "vertical": "top"},
-                    "name": f"{instantie.id}-accent",
-                    "placement": {
-                        "height": headinggrootte + bodygrootte + 12,
-                        "left": padding,
-                        "top": padding,
-                        "width": 4,
-                    },
-                    "type": "rectangle",
-                },
-                {
-                    "config": {
-                        "align": "left",
-                        "color": {"fixed": voorgrond},
-                        "size": headinggrootte,
-                        "text": {"fixed": instantie.naam, "mode": "fixed"},
-                        "valign": "top",
-                    },
-                    "constraint": {"horizontal": "left", "vertical": "top"},
-                    "name": f"{instantie.id}-heading",
-                    "placement": {
-                        "height": headinggrootte + 8,
-                        "left": tekstlinks,
-                        "top": padding,
-                        "width": 360,
-                    },
-                    "type": "text",
-                },
-                {
-                    "config": {
-                        "align": "left",
-                        "color": {"fixed": voorgrond},
-                        "size": bodygrootte,
-                        "text": {"fixed": instantie.doel, "mode": "fixed"},
-                        "valign": "top",
-                    },
-                    "constraint": {"horizontal": "left", "vertical": "top"},
-                    "name": f"{instantie.id}-body",
-                    "placement": {
-                        "height": bodygrootte * 3,
-                        "left": tekstlinks,
-                        "top": padding + headinggrootte + 12,
-                        "width": 360,
-                    },
-                    "type": "text",
-                },
-            ],
+            "elements": elementen,
             "name": "Root",
             "type": "frame",
         },
@@ -263,6 +292,9 @@ def _render(
         appearance.id: appearance
         for appearance in verzamel_appearances(objecten)
     }
+    objecten_per_soort: dict[str, int] = {}
+    for obj in objecten:
+        objecten_per_soort[obj.soort] = objecten_per_soort.get(obj.soort, 0) + 1
 
     regions_per_instantie = {
         region.instance_id: region
@@ -286,6 +318,13 @@ def _render(
                     instantie,
                     appearance,
                     product.thema,
+                    (
+                        len(objecten)
+                        if instantie.metric_kind == "*"
+                        else objecten_per_soort.get(instantie.metric_kind, 0)
+                        if instantie.metric_kind is not None
+                        else None
+                    ),
                 ),
                 "title": instantie.naam,
                 "transparent": True,
