@@ -29,6 +29,8 @@ Appearance
  ↓
 Components
  ↓
+Variants
+ ↓
 Composition
  ↓
 Products
@@ -56,6 +58,11 @@ expliciet één instantie uit die compositie. De compositie bepaalt de
 inhoudsvolgorde, instantie-identiteit, componentkeuze en zichtbare
 instantienaam. De layout bepaalt uitsluitend de plaatsing en bewaart daarom
 geen opgeloste componentidentiteit.
+
+Native varianten beschrijven één expliciete appearance-afwijking voor exact één
+component. Een componentinstantie kiest zo'n variant alleen met een benoemde
+referentie. De gekozen variant en effectieve appearance worden vóór
+backendselectie opgelost en bevatten geen backendpresentatie.
 
 BAT is geen algemene enterprise-architectuurtaal. ArchiMate en andere externe modellen worden uitsluitend via expliciete adapters gekoppeld. De domeingrens staat in [world-model.md](world-model.md).
 

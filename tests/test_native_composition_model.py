@@ -9,9 +9,51 @@ from compiler.semantic import SemantischeFout, analyseer
 
 
 BRON = '''
+appearance panel-default {
+    naam: "Default panel"
+    doel: "Standaard paneelappearance."
+    material: "raised"
+    foreground: "foreground"
+    accent: "accent"
+    border: "regular"
+    radius: "medium"
+    shadow: "medium"
+    motion: "normal"
+    spacing: "small"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
+appearance panel-compact {
+    naam: "Compact panel"
+    doel: "Compacte paneelappearance."
+    material: "raised"
+    foreground: "foreground"
+    accent: "accent"
+    border: "regular"
+    radius: "medium"
+    shadow: "low"
+    motion: "normal"
+    spacing: "xs"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel."
+    appearance: "panel-default"
+}
+
+variant forge-panel-compact {
+    naam: "Compact Forge Panel"
+    doel: "Gecontroleerde compacte paneelafwijking."
+    component: "forge-panel"
+    appearance: "panel-compact"
 }
 
 compositie dashboard {
@@ -25,6 +67,7 @@ componentinstantie dashboard-left {
     doel: "Linker dashboardinhoud."
     compositie: "dashboard"
     component: "forge-panel"
+    variant: "forge-panel-compact"
 }
 
 componentinstantie dashboard-right {
@@ -55,6 +98,10 @@ class NativeCompositionModelTests(unittest.TestCase):
             instantie.composition_id == "dashboard"
             for instantie in compositie.instances
         ))
+        self.assertEqual("forge-panel-compact", compositie.instances[0].variant_id)
+        self.assertEqual("panel-compact", compositie.instances[0].appearance_id)
+        self.assertIsNone(compositie.instances[1].variant_id)
+        self.assertEqual("panel-default", compositie.instances[1].appearance_id)
 
     def test_weigert_legacy_layoutvelden(self):
         bron = BRON.replace(
@@ -112,22 +159,77 @@ class NativeCompositionModelTests(unittest.TestCase):
         )
 
     def test_weigert_onbekend_component(self):
-        bron = BRON.replace('    component: "forge-panel"', '    component: "missing"', 1)
-        with self.assertRaises(SemantischeFout) as context:
-            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
-
-        self.assertIn("BP3713", {item.code for item in context.exception.diagnostics})
-
-    def test_weigert_onbekend_instantieveld(self):
         bron = BRON.replace(
-            '    component: "forge-panel"',
-            '    component: "forge-panel"\n    variant: "compact"',
+            '''componentinstantie dashboard-right {
+    naam: "Rechterpaneel"
+    doel: "Rechter dashboardinhoud."
+    compositie: "dashboard"
+    component: "forge-panel"''',
+            '''componentinstantie dashboard-right {
+    naam: "Rechterpaneel"
+    doel: "Rechter dashboardinhoud."
+    compositie: "dashboard"
+    component: "missing"''',
             1,
         )
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
 
-        self.assertIn("BP3710", {item.code for item in context.exception.diagnostics})
+        self.assertIn("BP3713", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_onbekende_variant(self):
+        bron = BRON.replace(
+            '    variant: "forge-panel-compact"',
+            '    variant: "missing"',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3804", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_variant_van_ander_component(self):
+        bron = BRON.replace(
+            '    component: "forge-panel"\n    appearance: "panel-compact"',
+            '    component: "other-panel"\n    appearance: "panel-compact"',
+            1,
+        ).replace(
+            'component forge-panel {',
+            '''component other-panel {
+    naam: "Other Panel"
+    doel: "Ander paneel."
+    appearance: "panel-default"
+}
+
+component forge-panel {''',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3805", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_variant_met_onbekende_appearance(self):
+        bron = BRON.replace(
+            '    appearance: "panel-compact"',
+            '    appearance: "missing"',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3803", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_onbekend_variantveld(self):
+        bron = BRON.replace(
+            '    appearance: "panel-compact"',
+            '    appearance: "panel-compact"\n    padding: "small"',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3801", {item.code for item in context.exception.diagnostics})
 
 
 if __name__ == "__main__":

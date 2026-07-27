@@ -40,6 +40,11 @@ Zij bevat geen richting, coördinaten of backendpresentatie. Alleen gevalideerde
 CIR wordt omgezet naar `ResolvedComposition` en `ResolvedComponentInstance`.
 M9.1b koppelt deze resolved compositie expliciet aan het product.
 
+M9.2a voegt gecontroleerde componentvarianten toe. Een variant koppelt exact
+één component aan één alternatieve appearance. Een componentinstantie kan die
+variant expliciet kiezen. Zonder variant gebruikt de instantie de appearance
+van het component. Er is geen impliciete standaardvariant.
+
 ## Productcontext
 
 Een product verwijst in BAT verplicht naar één compositie en één layout. Na
@@ -102,6 +107,7 @@ Iedere componentinstantie vereist:
 - `doel`: semantische rol binnen de compositie;
 - `compositie`: de compositie waar de instantie bij hoort;
 - `component`: de herbruikbare componentdefinitie.
+- `variant`: optionele, expliciete variant van datzelfde component.
 
 De referentie is wederkerig: de compositie noemt de instantie en de instantie
 verwijst terug naar exact die compositie. Daardoor kunnen meerdere instanties
@@ -114,6 +120,29 @@ componentinstantie overview-primary {
     doel: "Toont de hoofdstatus."
     compositie: "overview"
     component: "status-panel"
+}
+```
+
+### `variant`
+
+Iedere variant vereist:
+
+- `naam`: menselijke naam;
+- `doel`: de gecontroleerde afwijking;
+- `component`: het component waarvoor de variant geldig is;
+- `appearance`: de alternatieve appearance.
+
+Een variant kan alleen worden gekozen door een componentinstantie die naar
+hetzelfde component verwijst. Het resolved compositiemodel bewaart zowel de
+variant-id als de effectieve appearance-id. M9.2a voegt nog geen
+renderervertaling toe.
+
+```bp
+variant status-panel-compact {
+    naam: "Compact status panel"
+    doel: "Gebruikt het compacte statuspaneelprofiel."
+    component: "status-panel"
+    appearance: "status-panel-compact-appearance"
 }
 ```
 
@@ -295,6 +324,13 @@ expliciet op id en gebruikt de compositie voor de componentklasse,
 `data-instance`, `data-component` en de zichtbare instantienaam. Layoutmetadata
 van de region wordt daardoor niet als instantie-inhoud gerenderd.
 
+M9.2a introduceert daarna het native componentvariantcontract. Een variant
+wijst één component en één alternatieve appearance aan. Een
+componentinstantie kiest de variant expliciet en de semantische laag weigert
+varianten van een ander component. `ResolvedComponentInstance` bevat de
+gekozen variant en effectieve appearance. Rendererintegratie volgt in een
+afzonderlijke verticale milestone.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -325,3 +361,8 @@ van de region wordt daardoor niet als instantie-inhoud gerenderd.
 | `BP3711` | Componentinstantie verwijst naar een onbekende compositie |
 | `BP3712` | Compositie noemt de componentinstantie niet |
 | `BP3713` | Componentinstantie verwijst naar een onbekend component |
+| `BP3801` | Variant heeft een onbekende eigenschap |
+| `BP3802` | Variant verwijst naar een onbekend component |
+| `BP3803` | Variant verwijst naar een onbekende appearance |
+| `BP3804` | Componentinstantie verwijst naar een onbekende variant |
+| `BP3805` | Variant hoort niet bij het component van de componentinstantie |

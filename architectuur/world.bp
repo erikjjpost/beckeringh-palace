@@ -180,10 +180,34 @@ appearance forge-panel-appearance {
     caption-style: "caption"
 }
 
+appearance forge-panel-compact-appearance {
+    naam: "Forge Panel Compact Appearance"
+    doel: "Compact paneelprofiel met minder ruimte en diepte."
+    material: "raised"
+    foreground: "foreground"
+    accent: "accent"
+    border: "regular"
+    radius: "medium"
+    shadow: "low"
+    motion: "normal"
+    spacing: "xs"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel voor dashboards en productdocumentatie."
     appearance: "forge-panel-appearance"
+}
+
+variant forge-panel-compact {
+    naam: "Forge Panel Compact"
+    doel: "Gecontroleerde compacte appearance voor een Forge-paneel."
+    component: "forge-panel"
+    appearance: "forge-panel-compact-appearance"
 }
 
 compositie forge-dashboard {
@@ -204,6 +228,7 @@ componentinstantie forge-dashboard-center-panel {
     doel: "Benoemd paneel voor de centrale dashboardinhoud."
     compositie: "forge-dashboard"
     component: "forge-panel"
+    variant: "forge-panel-compact"
 }
 
 componentinstantie forge-dashboard-right-panel {

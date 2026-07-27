@@ -393,6 +393,31 @@ Semantisch appearance-contract voor verhoogde Forge-panelen.
 - **shadow:** medium
 - **spacing:** small
 
+## Forge Panel Compact Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-panel-compact-appearance`
+
+### Doel
+
+Compact paneelprofiel met minder ruimte en diepte.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** raised
+- **motion:** normal
+- **radius:** medium
+- **shadow:** low
+- **spacing:** xs
+
 ## Forge Panel
 
 **Soort:** component
@@ -406,6 +431,21 @@ Basispaneel voor dashboards en productdocumentatie.
 ### Eigenschappen
 
 - **appearance:** forge-panel-appearance
+
+## Forge Panel Compact
+
+**Soort:** variant
+
+**Identifier:** `forge-panel-compact`
+
+### Doel
+
+Gecontroleerde compacte appearance voor een Forge-paneel.
+
+### Eigenschappen
+
+- **appearance:** forge-panel-compact-appearance
+- **component:** forge-panel
 
 ## Forge Dashboard
 
@@ -450,6 +490,7 @@ Benoemd paneel voor de centrale dashboardinhoud.
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
+- **variant:** forge-panel-compact
 
 ## Rechter Forge-paneel
 

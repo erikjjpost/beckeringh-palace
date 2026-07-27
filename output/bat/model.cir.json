@@ -284,12 +284,42 @@
   },
   {
     "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Compact paneelprofiel met minder ruimte en diepte.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "raised",
+      "motion": "normal",
+      "naam": "Forge Panel Compact Appearance",
+      "radius": "medium",
+      "shadow": "low",
+      "spacing": "xs"
+    },
+    "id": "forge-panel-compact-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
       "appearance": "forge-panel-appearance",
       "doel": "Basispaneel voor dashboards en productdocumentatie.",
       "naam": "Forge Panel"
     },
     "id": "forge-panel",
     "soort": "component"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-panel-compact-appearance",
+      "component": "forge-panel",
+      "doel": "Gecontroleerde compacte appearance voor een Forge-paneel.",
+      "naam": "Forge Panel Compact"
+    },
+    "id": "forge-panel-compact",
+    "soort": "variant"
   },
   {
     "eigenschappen": {
@@ -319,7 +349,8 @@
       "component": "forge-panel",
       "compositie": "forge-dashboard",
       "doel": "Benoemd paneel voor de centrale dashboardinhoud.",
-      "naam": "Centraal Forge-paneel"
+      "naam": "Centraal Forge-paneel",
+      "variant": "forge-panel-compact"
     },
     "id": "forge-dashboard-center-panel",
     "soort": "componentinstantie"

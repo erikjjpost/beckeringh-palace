@@ -23,7 +23,7 @@ De native objectsoorten zijn:
 | `layout` | backend-onafhankelijke plaatsingsintentie |
 | `region` | expliciete plaats van een componentinstantie binnen een native layout |
 | `product` | koppeling van wereld, compositie, layout, backend en artifactpad |
-| `variant` | gecontroleerde afwijkingen |
+| `variant` | gecontroleerde componentappearances |
 | `renderdoel` | te genereren representaties |
 
 Daaruit worden onder andere SVG, HTML, Grafana-thema's, documentatie, logo's, iconen, wallpapers en Figma-componenten afgeleid.
