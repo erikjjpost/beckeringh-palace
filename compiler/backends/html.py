@@ -205,6 +205,7 @@ def _render(
     thema = product.thema
     snapshot_attribuut = (
         f' data-snapshot-id="{product.snapshot_id}"'
+        f' data-snapshot-ref="{product.snapshot_ref}"'
         if product.snapshot_id
         else ""
     )

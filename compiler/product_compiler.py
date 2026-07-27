@@ -24,6 +24,9 @@ PRODUCT_MODE_TIME_CONTEXT = {
     "static": False,
 }
 
+SNAPSHOT_ALGORITHM = "sha256"
+
+
 @dataclass(frozen=True)
 class CompiledProduct:
     definitie: ProductDefinition
@@ -37,13 +40,15 @@ def _los_productcontext_op(
     layouts: dict[str, ResolvedLayout],
 ) -> ProductDefinition:
     thema = resolveer_thema(objecten, product.wereld) if product.wereld else None
+    snapshot_id = _snapshot_id(objecten) if product.mode == "static" else ""
     return replace(
         product,
         mode_label=PRODUCT_MODE_LABELS[product.mode],
         has_time_context=PRODUCT_MODE_TIME_CONTEXT[product.mode],
-        snapshot_id=(
-            _snapshot_id(objecten)
-            if product.mode == "static"
+        snapshot_id=snapshot_id,
+        snapshot_ref=(
+            f"{SNAPSHOT_ALGORITHM}:{snapshot_id}"
+            if snapshot_id
             else ""
         ),
         thema=thema,

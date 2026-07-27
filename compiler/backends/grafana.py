@@ -522,7 +522,13 @@ def _render(
         "panels": panels,
         "schemaVersion": 41,
         "style": stijl,
-        "tags": ["beckeringh-palace", "generated"],
+        "tags": [
+            "beckeringh-palace",
+            "generated",
+            *(
+                [product.snapshot_ref] if product.snapshot_ref else []
+            ),
+        ],
         "templating": {"list": []},
         "timepicker": {"hidden": product.mode == "static"},
         "title": product.naam,

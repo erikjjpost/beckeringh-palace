@@ -1448,7 +1448,8 @@
   "style": "dark",
   "tags": [
     "beckeringh-palace",
-    "generated"
+    "generated",
+    "sha256:e2aee6f925445fb003b2451d4a47d6fa2acfa8e9b68cec52975ff4e40e7e27d3"
   ],
   "templating": {
     "list": []
