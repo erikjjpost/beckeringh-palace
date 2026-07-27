@@ -438,6 +438,19 @@
   },
   {
     "eigenschappen": {
+      "backend": "grafana",
+      "compositie": "forge-dashboard",
+      "doel": "Het Forge-dashboard als importeerbaar Grafana dashboard genereren.",
+      "layout": "forge-dashboard-ultrawide",
+      "naam": "Forge Dashboard Grafana",
+      "pad": "output/products/forge-dashboard.grafana.json",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "forge-dashboard-grafana",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
       "doel": "Design tokens als CSS custom properties genereren.",
       "formaat": "css",
       "naam": "CSS design tokens",
