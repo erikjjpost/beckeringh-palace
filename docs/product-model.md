@@ -134,8 +134,12 @@ Iedere variant vereist:
 
 Een variant kan alleen worden gekozen door een componentinstantie die naar
 hetzelfde component verwijst. Het resolved compositiemodel bewaart zowel de
-variant-id als de effectieve appearance-id. M9.2a voegt nog geen
-renderervertaling toe.
+variant-id als de effectieve appearance-id. De HTML-backend bewaart beide als
+expliciete `data-variant` en `data-appearance` metadata en voegt een afgeleide
+variantklasse toe als CSS haak. De component CSS-renderer genereert de
+alternatieve appearance onder die selectorspecifieke variantregel na de
+basiscomponent. Zonder expliciete variant blijft uitsluitend de basisappearance
+actief.
 
 ```bp
 variant status-panel-compact {
@@ -330,6 +334,13 @@ componentinstantie kiest de variant expliciet en de semantische laag weigert
 varianten van een ander component. `ResolvedComponentInstance` bevat de
 gekozen variant en effectieve appearance. Rendererintegratie volgt in een
 afzonderlijke verticale milestone.
+
+M9.2b vertaalt die resolved variant daarna naar productuitvoer. De
+HTML-backend schrijft de expliciete variant en effectieve appearance als
+metadata op de componentinstantie. De component CSS-renderer genereert de
+alternatieve appearance na de basiscomponent onder een selector die zowel
+component als variant benoemt. De renderer leidt geen variant af en schrijft
+geen presentatie terug naar BAT of CIR.
 
 ## Diagnostics
 

@@ -75,6 +75,16 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             "grid-template-columns:repeat(3,minmax(0,1fr))",
             product.inhoud,
         )
+        self.assertIn(
+            'data-variant="forge-panel-compact" '
+            'data-appearance="forge-panel-compact-appearance"',
+            product.inhoud,
+        )
+        self.assertIn(
+            'class="bp-region bp-forge-panel bp-variant-forge-panel-compact"',
+            product.inhoud,
+        )
+        self.assertEqual(1, product.inhoud.count('data-variant="'))
 
 
 if __name__ == "__main__":

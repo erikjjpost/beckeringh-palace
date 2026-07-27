@@ -26,3 +26,31 @@
   font-family: var(--bp-font-body);
   font-size: var(--bp-type-caption);
 }
+
+.bp-forge-panel.bp-variant-forge-panel-compact {
+  background-color: var(--bp-material-raised);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-accent);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-low);
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-xs);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact h1, .bp-forge-panel.bp-variant-forge-panel-compact h2, .bp-forge-panel.bp-variant-forge-panel-compact h3, .bp-forge-panel.bp-variant-forge-panel-compact h4, .bp-forge-panel.bp-variant-forge-panel-compact h5, .bp-forge-panel.bp-variant-forge-panel-compact h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact small, .bp-forge-panel.bp-variant-forge-panel-compact figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
