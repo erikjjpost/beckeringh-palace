@@ -54,10 +54,48 @@ class GrafanaBackendTests(unittest.TestCase):
             ],
             [panel["title"] for panel in dashboard["panels"]],
         )
-        self.assertTrue(all(panel["type"] == "text" for panel in dashboard["panels"]))
+        self.assertTrue(all(panel["type"] == "canvas" for panel in dashboard["panels"]))
         self.assertEqual(
-            "Benoemd paneel voor de centrale dashboardinhoud.",
-            dashboard["panels"][1]["options"]["content"],
+            "#171A1F",
+            dashboard["panels"][1]["options"]["root"]["background"]["color"]["fixed"],
+        )
+        self.assertEqual(
+            {"color": {"fixed": "#D86A35"}, "width": 2},
+            dashboard["panels"][1]["options"]["root"]["border"],
+        )
+        self.assertEqual(
+            [
+                "forge-dashboard-center-panel-accent",
+                "forge-dashboard-center-panel-heading",
+                "forge-dashboard-center-panel-body",
+            ],
+            [
+                element["name"]
+                for element in dashboard["panels"][1]["options"]["root"]["elements"]
+            ],
+        )
+        self.assertEqual(
+            {"height": 56, "left": 4, "top": 4, "width": 4},
+            dashboard["panels"][1]["options"]["root"]["elements"][0]["placement"],
+        )
+        self.assertEqual(
+            {
+                "align": "left",
+                "color": {"fixed": "#ECECEC"},
+                "size": 28,
+                "text": {"fixed": "Centraal Forge-paneel", "mode": "fixed"},
+                "valign": "top",
+            },
+            dashboard["panels"][1]["options"]["root"]["elements"][1]["config"],
+        )
+        self.assertEqual(
+            {
+                "height": 48,
+                "left": 16,
+                "top": 44,
+                "width": 360,
+            },
+            dashboard["panels"][1]["options"]["root"]["elements"][2]["placement"],
         )
         self.assertEqual(
             "Benoemd paneel voor de centrale dashboardinhoud.\n\n"
@@ -139,6 +177,36 @@ product dashboard-grafana {
             backend.render(
                 model.objecten,
                 replace(product.definitie, thema=None),
+            )
+
+    def test_weigert_niet_pixelgebaseerde_canvas_spacing(self):
+        model = analyseer(
+            parseer_bestand(WORLD),
+            constraints=WORLD_MODEL_CONSTRAINTS,
+        )
+        product = next(
+            product
+            for product in compileer_producten(
+                model.objecten,
+                standaard_backend_registry(),
+            )
+            if product.definitie.id == "forge-dashboard-grafana"
+        )
+        thema = product.definitie.thema
+        assert thema is not None
+        assert thema.spacing is not None
+        ongeldige_spacing = replace(thema.spacing, xs="0.25rem")
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "vereist een px-waarde voor spacing.xs",
+        ):
+            backend.render(
+                model.objecten,
+                replace(
+                    product.definitie,
+                    thema=replace(thema, spacing=ongeldige_spacing),
+                ),
             )
 
 

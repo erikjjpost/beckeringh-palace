@@ -18,12 +18,108 @@
       },
       "id": 1,
       "options": {
-        "content": "Benoemd paneel voor de linker dashboardinhoud.",
-        "mode": "markdown"
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#171A1F"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#D86A35"
+            },
+            "width": 2
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-accent",
+              "placement": {
+                "height": 56,
+                "left": 8,
+                "top": 8,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Linker Forge-paneel",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-heading",
+              "placement": {
+                "height": 36,
+                "left": 20,
+                "top": 8,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Benoemd paneel voor de linker dashboardinhoud.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-body",
+              "placement": {
+                "height": 48,
+                "left": 20,
+                "top": 48,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
       },
       "title": "Linker Forge-paneel",
-      "transparent": false,
-      "type": "text"
+      "transparent": true,
+      "type": "canvas"
     },
     {
       "description": "Benoemd paneel voor de centrale dashboardinhoud.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-compact-appearance",
@@ -35,12 +131,108 @@
       },
       "id": 2,
       "options": {
-        "content": "Benoemd paneel voor de centrale dashboardinhoud.",
-        "mode": "markdown"
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#171A1F"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#D86A35"
+            },
+            "width": 2
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-accent",
+              "placement": {
+                "height": 56,
+                "left": 4,
+                "top": 4,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Centraal Forge-paneel",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-heading",
+              "placement": {
+                "height": 36,
+                "left": 16,
+                "top": 4,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Benoemd paneel voor de centrale dashboardinhoud.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 44,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
       },
       "title": "Centraal Forge-paneel",
-      "transparent": false,
-      "type": "text"
+      "transparent": true,
+      "type": "canvas"
     },
     {
       "description": "Benoemd paneel voor de rechter dashboardinhoud.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance",
@@ -52,12 +244,108 @@
       },
       "id": 3,
       "options": {
-        "content": "Benoemd paneel voor de rechter dashboardinhoud.",
-        "mode": "markdown"
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#171A1F"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#D86A35"
+            },
+            "width": 2
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#D86A35"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#D86A35"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-accent",
+              "placement": {
+                "height": 56,
+                "left": 8,
+                "top": 8,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 28,
+                "text": {
+                  "fixed": "Rechter Forge-paneel",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-heading",
+              "placement": {
+                "height": 36,
+                "left": 20,
+                "top": 8,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ECECEC"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Benoemd paneel voor de rechter dashboardinhoud.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-body",
+              "placement": {
+                "height": 48,
+                "left": 20,
+                "top": 48,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
       },
       "title": "Rechter Forge-paneel",
-      "transparent": false,
-      "type": "text"
+      "transparent": true,
+      "type": "canvas"
     }
   ],
   "refresh": "",
