@@ -376,6 +376,13 @@ dashboard JSON model. BAT-gridkolommen worden proportioneel op Grafana's
 tekstpaneel. Niet-grid-layouts falen expliciet. Datasources, queries en
 operationele waarden worden niet afgeleid of verzonnen.
 
+M10.0b koppelt het opgeloste native thema en de componentidentiteit aan het
+Grafana-product. De luminantie van de expliciete `background`-themarol bepaalt
+deterministisch de ondersteunde Grafana-stijl `dark` of `light`. Tekstpanelen
+tonen het bestaande doel van de componentinstantie. Hun beschrijving bewaart
+de BAT-identiteit van component, optionele variant en effectieve appearance.
+De backend voegt geen eigen CSS, fonts, datasource of operationele waarden toe.
+
 ## Diagnostics
 
 | Code | Betekenis |

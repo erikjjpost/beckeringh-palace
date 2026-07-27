@@ -48,7 +48,9 @@ op. Backends ontvangen daardoor `ResolvedComposition` en `ResolvedLayout` via
 de productcontext en vertalen deze naar hun eigen mechanisme. HTML vertaalt
 native layouts naar browserpresentatie. De Grafana-backend vertaalt native
 grid-layouts naar het klassieke, importeerbare dashboard JSON model met een
-24-koloms `gridPos`. Het domeinmodel bevat geen HTML-, CSS- of
+24-koloms `gridPos`. Het opgeloste native thema bepaalt de donkere of lichte
+dashboardstijl. Component-, variant- en appearance-identiteit blijven in
+paneelbeschrijvingen traceerbaar. Het domeinmodel bevat geen HTML-, CSS- of
 Grafana-eigenschappen.
 
 Native composities beschrijven de inhoud van een product onafhankelijk van de
