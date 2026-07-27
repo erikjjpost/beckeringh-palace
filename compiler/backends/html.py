@@ -192,6 +192,7 @@ def _render(
         titel=product.naam,
         wereld_naam=product.thema.wereld_naam if product.thema else None,
         thema_naam=product.thema.thema_naam if product.thema else None,
+        mode_label=product.mode_label,
     )
     if product.thema is None:
         return inhoud

@@ -386,7 +386,7 @@ def _dashboard_header(
                             "text": {
                                 "fixed": (
                                     f"{thema.wereld_naam} · {thema.thema_naam} "
-                                    "· Gegenereerd uit BAT"
+                                    f"· Gegenereerd uit BAT · {product.mode_label}"
                                 ),
                                 "mode": "fixed",
                             },

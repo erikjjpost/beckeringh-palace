@@ -180,7 +180,8 @@ class GrafanaBackendTests(unittest.TestCase):
             dashboard["panels"][2]["description"],
         )
         self.assertEqual(
-            "Beckeringh Palace · Forge · Gegenereerd uit BAT",
+            "Beckeringh Palace · Forge · Gegenereerd uit BAT · "
+            "Statische architectuursnapshot",
             dashboard["panels"][0]["options"]["root"]["elements"][0]["config"][
                 "text"
             ]["fixed"],

@@ -21,6 +21,7 @@ class ProductDefinition:
     pad: str
     bron: Architectuurobject
     mode: str = "interactive"
+    mode_label: str = ""
     wereld: str = ""
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None

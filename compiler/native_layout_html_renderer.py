@@ -72,6 +72,7 @@ def naar_native_layout_html(
     titel: str = "Beckeringh Palace product",
     wereld_naam: str | None = None,
     thema_naam: str | None = None,
+    mode_label: str | None = None,
 ) -> str:
     """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
 
@@ -110,9 +111,15 @@ def naar_native_layout_html(
         '  <header class="bp-product-header">',
     ]
     if wereld_naam is not None and thema_naam is not None:
+        mode_suffix = (
+            f" · {html.escape(mode_label)}"
+            if mode_label is not None
+            else ""
+        )
         regels.append(
             f'    <p class="bp-product-kicker">{html.escape(wereld_naam)}'
-            f' · {html.escape(thema_naam)} · Gegenereerd uit BAT</p>'
+            f' · {html.escape(thema_naam)} · Gegenereerd uit BAT'
+            f"{mode_suffix}</p>"
         )
     regels.extend([
         f"    <h1>{html.escape(compositie.naam)}</h1>",
