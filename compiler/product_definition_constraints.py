@@ -40,6 +40,7 @@ class ProductDefinitionConstraint:
             "compositie",
             "layout",
             "pad",
+            "mode",
             "wereld",
         }
         for obj in context.objecten:
@@ -131,5 +132,12 @@ class ProductDefinitionConstraint:
                     code="BP3505",
                     boodschap=f"Product '{obj.id}' verwijst naar onbekende of ontbrekende wereld '{wereld}'",
                     locatie=obj.eigenschaplocaties.get("wereld", obj.bronlocatie),
+                ))
+            mode = obj.eigenschappen.get("mode", "interactive")
+            if mode not in {"interactive", "static"}:
+                diagnostics.append(Diagnostic(
+                    code="BP3508",
+                    boodschap=f"Product '{obj.id}' heeft onbekende modus '{mode}'",
+                    locatie=obj.eigenschaplocaties.get("mode", obj.bronlocatie),
                 ))
         return tuple(diagnostics)

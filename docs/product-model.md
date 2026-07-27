@@ -185,6 +185,7 @@ Ieder product vereist:
 - `naam`: menselijke naam;
 - `doel`: het te genereren product;
 - `backend`: de expliciete backend;
+- `mode`: optioneel `interactive` of `static`; standaard `interactive`;
 - `compositie`: de productinhoud;
 - `layout`: de plaatsingsintentie;
 - `pad`: het veilige relatieve uitvoerpad;
@@ -438,12 +439,20 @@ beperkt tot de hoofdmetriek en de identiteitsrail. Grafana vertaalt labels,
 waarden en regels naar afzonderlijke Canvas-elementen; HTML gebruikt dezelfde
 opgeloste materiaalrollen.
 
+M10.3a maakt de productmodus expliciet en backendonafhankelijk. `mode: "static"`
+markeert een deterministisch gegenereerde snapshot zonder interactieve
+productstatus. HTML bewaart de opgeloste modus als machineleesbare metadata.
+Grafana schakelt voor een statisch product handmatige dashboardbewerking uit en
+verbergt de tijdkiezer, omdat het dashboard geen tijdreeks of datasource bevat.
+Producten zonder `mode` blijven voor compatibiliteit `interactive`.
+
 ## Diagnostics
 
 | Code | Betekenis |
 |---|---|
 | `BP3506` | Product verwijst naar een onbekende of ontbrekende compositie |
 | `BP3507` | Compositie en layout bevatten niet exact dezelfde instanties |
+| `BP3508` | Product gebruikt een onbekende modus |
 | `BP3601` | Onbekend layouttype |
 | `BP3602` | Eigenschap past niet bij het layouttype |
 | `BP3603` | `regions` is niet expliciet, uniek of geldig |

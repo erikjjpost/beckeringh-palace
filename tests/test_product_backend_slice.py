@@ -61,6 +61,7 @@ class ProductBackendSliceTests(unittest.TestCase):
         producten = compileer_producten(model.objecten, standaard_backend_registry())
         self.assertEqual(1, len(producten))
         self.assertEqual("output/products/dashboard.html", producten[0].definitie.pad)
+        self.assertEqual("interactive", producten[0].definitie.mode)
         self.assertIn("<title>Dashboard HTML</title>", producten[0].inhoud)
         self.assertIn("bp-layout-widescreen", producten[0].inhoud)
         self.assertIn('data-instance="dashboard-panel"', producten[0].inhoud)
@@ -90,6 +91,15 @@ class ProductBackendSliceTests(unittest.TestCase):
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3504", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_onbekende_productmodus(self):
+        bron = BRON.replace(
+            'backend: "html"',
+            'backend: "html"\n    mode: "mutable"',
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3508", {item.code for item in context.exception.diagnostics})
 
     def test_weigert_onbekende_compositie(self):
         bron = BRON.replace(
