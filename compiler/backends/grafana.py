@@ -144,7 +144,9 @@ def _canvasopties(
     )
     achtergrond = _themakleur(thema, "materiaal", materiaalrol)
     voorgrond = _themakleur(thema, "materiaal", voorgrondrol)
+    muted = _themakleur(thema, "materiaal", "muted")
     accent = _themakleur(thema, "materiaal", accentrol)
+    outline = _themakleur(thema, "materiaal", "outline")
     tekstlinks = padding + 12
 
     elementen = [
@@ -218,7 +220,7 @@ def _canvasopties(
             {
                 "config": {
                     "align": "left",
-                    "color": {"fixed": voorgrond},
+                    "color": {"fixed": muted},
                     "size": captiongrootte,
                     "text": {"fixed": "\n".join(detailregels), "mode": "fixed"},
                     "valign": "top",
@@ -239,7 +241,7 @@ def _canvasopties(
         {
             "config": {
                 "align": "left",
-                "color": {"fixed": voorgrond},
+                "color": {"fixed": muted},
                 "size": bodygrootte,
                 "text": {"fixed": instantie.doel, "mode": "fixed"},
                 "valign": "top",
@@ -264,7 +266,7 @@ def _canvasopties(
         "root": {
             "background": {"color": {"fixed": achtergrond}},
             "border": {
-                "color": {"fixed": accent},
+                "color": {"fixed": outline},
                 "width": borderbreedte,
             },
             "elements": elementen,
@@ -318,6 +320,7 @@ def _dashboard_header(
             f"product '{product.id}'"
         )
     voorgrond = _themakleur(thema, "materiaal", "foreground")
+    muted = _themakleur(thema, "materiaal", "muted")
     accent = _themakleur(thema, "materiaal", "accent")
     achtergrond = _themakleur(thema, "materiaal", "surface")
     padding = _pixels(thema.spacing.medium, "spacing.medium")
@@ -381,7 +384,7 @@ def _dashboard_header(
                     {
                         "config": {
                             "align": "left",
-                            "color": {"fixed": voorgrond},
+                            "color": {"fixed": muted},
                             "size": bodygrootte,
                             "text": {"fixed": compositie_doel, "mode": "fixed"},
                             "valign": "top",

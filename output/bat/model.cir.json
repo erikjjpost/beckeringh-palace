@@ -84,6 +84,24 @@
   },
   {
     "eigenschappen": {
+      "doel": "Gedempte voorgrondkleur voor ondersteunende Forge-informatie.",
+      "naam": "Ash Grey",
+      "waarde": "#AEB4BD"
+    },
+    "id": "ash-grey",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Subtiele outlinekleur voor Forge-oppervlakken en scheidingslijnen.",
+      "naam": "Iron Edge",
+      "waarde": "#46505C"
+    },
+    "id": "iron-edge",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
       "accent": "ember-orange",
       "background": "iron-black",
       "doel": "Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld.",
@@ -126,7 +144,9 @@
       "canvas": "iron-black",
       "doel": "Materiële kleurrollen voor Forge-oppervlakken en accenten.",
       "foreground": "smoke-white",
+      "muted": "ash-grey",
       "naam": "Forge Materials",
+      "outline": "iron-edge",
       "raised": "raised-iron",
       "surface": "forged-iron"
     },

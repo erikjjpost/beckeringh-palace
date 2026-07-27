@@ -25,7 +25,9 @@
       --bp-material-surface: #20252C;
       --bp-material-raised: #282E36;
       --bp-material-foreground: #ECECEC;
+      --bp-material-muted: #AEB4BD;
       --bp-material-accent: #D86A35;
+      --bp-material-outline: #46505C;
       --bp-border-hairline: 1px;
       --bp-border-regular: 2px;
       --bp-border-strong: 3px;
@@ -82,7 +84,7 @@
     }
     .bp-product-purpose {
       margin: var(--bp-spacing-small) 0 0;
-      color: var(--bp-theme-foreground);
+      color: var(--bp-material-muted);
       font-size: var(--bp-type-body);
     }
     .bp-layout { gap: var(--bp-spacing-medium); }
@@ -97,7 +99,7 @@
     .bp-region {
       background: var(--bp-material-raised);
       color: var(--bp-material-foreground);
-      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-accent);
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
       border-radius: var(--bp-radius-medium);
       box-shadow: var(--bp-shadow-low);
       transition: box-shadow var(--bp-motion-normal) var(--bp-motion-easing);
@@ -112,6 +114,7 @@
     }
     .bp-description {
       margin: var(--bp-spacing-small) 0 0;
+      color: var(--bp-material-muted);
       font-size: var(--bp-type-body);
     }
     .bp-metric-details {
@@ -120,13 +123,14 @@
       margin: var(--bp-spacing-small) 0;
       padding: 0;
       list-style: none;
+      color: var(--bp-material-muted);
       font-size: var(--bp-type-caption);
     }
     .bp-metric-details li {
       display: flex;
       justify-content: space-between;
       gap: var(--bp-spacing-small);
-      border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-accent);
+      border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
     }
     .bp-metric-detail-value { color: var(--bp-material-accent); }
     .bp-layout { box-sizing: border-box; }
@@ -142,7 +146,7 @@
   <main class="bp-layout bp-layout-forge-dashboard-ultrawide" data-layout-type="grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(1,minmax(0,1fr))">
     <section class="bp-region bp-forge-panel" data-region="forge-dashboard-left" data-instance="forge-dashboard-left-panel" data-component="forge-panel" data-appearance="forge-panel-appearance" style="grid-column:1 / span 1;grid-row:1 / span 1">
       <h2>Architectuurobjecten</h2>
-      <p class="bp-metric" data-metric-kind="*">43</p>
+      <p class="bp-metric" data-metric-kind="*">45</p>
       <ul class="bp-metric-details">
         <li><span>appearance</span><span class="bp-metric-detail-value">2</span></li>
         <li><span>border</span><span class="bp-metric-detail-value">1</span></li>
@@ -151,7 +155,7 @@
         <li><span>componentinstantie</span><span class="bp-metric-detail-value">3</span></li>
         <li><span>compositie</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>dienst</span><span class="bp-metric-detail-value">1</span></li>
-        <li><span>kleur</span><span class="bp-metric-detail-value">5</span></li>
+        <li><span>kleur</span><span class="bp-metric-detail-value">7</span></li>
         <li><span>layout</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>materiaal</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>motion</span><span class="bp-metric-detail-value">1</span></li>

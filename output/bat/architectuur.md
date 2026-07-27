@@ -113,6 +113,34 @@ Lichte voorgrondkleur voor donkere Forge-oppervlakken.
 
 - **waarde:** #ECECEC
 
+## Ash Grey
+
+**Soort:** kleur
+
+**Identifier:** `ash-grey`
+
+### Doel
+
+Gedempte voorgrondkleur voor ondersteunende Forge-informatie.
+
+### Eigenschappen
+
+- **waarde:** #AEB4BD
+
+## Iron Edge
+
+**Soort:** kleur
+
+**Identifier:** `iron-edge`
+
+### Doel
+
+Subtiele outlinekleur voor Forge-oppervlakken en scheidingslijnen.
+
+### Eigenschappen
+
+- **waarde:** #46505C
+
 ## Ember Forge
 
 **Soort:** palet
@@ -181,6 +209,8 @@ Materiële kleurrollen voor Forge-oppervlakken en accenten.
 - **accent:** ember-orange
 - **canvas:** iron-black
 - **foreground:** smoke-white
+- **muted:** ash-grey
+- **outline:** iron-edge
 - **raised:** raised-iron
 - **surface:** forged-iron
 

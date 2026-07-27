@@ -35,6 +35,16 @@ kleur smoke-white {
     doel: "Voorgrondkleur."
     waarde: "#ECECEC"
 }
+kleur ash-grey {
+    naam: "Ash Grey"
+    doel: "Gedempte voorgrond."
+    waarde: "#AEB4BD"
+}
+kleur iron-edge {
+    naam: "Iron Edge"
+    doel: "Subtiele outline."
+    waarde: "#46505C"
+}
 palet ember-forge {
     naam: "Ember Forge"
     doel: "Forge-palet."
@@ -58,7 +68,9 @@ materiaal forge-materials {
     surface: "forged-iron"
     raised: "raised-iron"
     foreground: "smoke-white"
+    muted: "ash-grey"
     accent: "ember-orange"
+    outline: "iron-edge"
 }
 border forge-borders {
     naam: "Forge Borders"
@@ -201,7 +213,9 @@ class HtmlThemeBackendTests(unittest.TestCase):
         self.assertIn('--bp-material-canvas: #171A1F;', product.inhoud)
         self.assertIn('--bp-material-surface: #20252C;', product.inhoud)
         self.assertIn('--bp-material-raised: #282E36;', product.inhoud)
+        self.assertIn('--bp-material-muted: #AEB4BD;', product.inhoud)
         self.assertIn('--bp-material-accent: #D86A35;', product.inhoud)
+        self.assertIn('--bp-material-outline: #46505C;', product.inhoud)
         self.assertIn('--bp-border-hairline: 1px;', product.inhoud)
         self.assertIn('--bp-border-style: solid;', product.inhoud)
         self.assertIn('--bp-radius-medium: 12px;', product.inhoud)
@@ -216,6 +230,12 @@ class HtmlThemeBackendTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn('border-radius: var(--bp-radius-medium);', product.inhoud)
+        self.assertIn('color: var(--bp-material-muted);', product.inhoud)
+        self.assertIn(
+            'border: var(--bp-border-hairline) var(--bp-border-style) '
+            'var(--bp-material-outline);',
+            product.inhoud,
+        )
         self.assertIn('data-world="beckeringh-palace"', product.inhoud)
         self.assertIn('data-theme="forge"', product.inhoud)
 

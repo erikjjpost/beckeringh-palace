@@ -30,7 +30,10 @@ class ThemeFoundationConstraint:
             "palet": {"naam", "doel", "primary", "secondary", "background", "surface", "foreground", "accent", "success", "warning", "error"},
             "typografie": {"naam", "doel", "heading", "body", "mono"},
             "typeschaal": {"naam", "doel", "display", "title", "heading", "body", "label", "caption"},
-            "materiaal": {"naam", "doel", "canvas", "surface", "raised", "foreground", "accent"},
+            "materiaal": {
+                "naam", "doel", "canvas", "surface", "raised", "foreground",
+                "muted", "accent", "outline",
+            },
             "border": {"naam", "doel", "hairline", "regular", "strong", "style"},
             "radius": {"naam", "doel", "small", "medium", "large", "pill"},
             "shadow": {"naam", "doel", "low", "medium", "high"},

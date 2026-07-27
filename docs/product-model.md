@@ -418,6 +418,19 @@ HTML-backend vertaalt deze productshell responsief naar één kolom op smallere
 viewports. De Grafana-backend reserveert een Canvas-header boven het native
 grid en verschuift alle dashboardpanelen met een vaste headerhoogte.
 
+M10.2b voegt een gedeelde Forge-oppervlakhiërarchie toe. De native
+materiaalrollen `canvas`, `surface` en `raised` verwijzen naar afzonderlijke
+kleurdefinities. HTML en Grafana gebruiken daardoor uit dezelfde opgeloste
+BAT-bron een Iron Black canvas, een Forged Iron dashboardheader en Raised Iron
+kaarten.
+
+M10.2c maakt ook de accenthiërarchie expliciet. De materiaalrollen `muted` en
+`outline` verwijzen naar afzonderlijke native kleurdefinities. Kernwaarden en
+de identiteitsrail behouden het Ember accent. Ondersteunende tekst gebruikt de
+gedempte voorgrond en kaart- en detailranden gebruiken de outlinekleur. HTML en
+Grafana selecteren deze kleuren niet zelf en consumeren dezelfde opgeloste
+rollen.
+
 ## Diagnostics
 
 | Code | Betekenis |

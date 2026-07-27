@@ -90,7 +90,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#AEB4BD"
                 },
                 "size": 16,
                 "text": {
@@ -143,7 +143,7 @@
           },
           "border": {
             "color": {
-              "fixed": "#D86A35"
+              "fixed": "#46505C"
             },
             "width": 2
           },
@@ -207,7 +207,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "43",
+                  "fixed": "45",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -229,11 +229,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#AEB4BD"
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "appearance  2\nborder  1\ncapability  2\ncomponent  1\ncomponentinstantie  3\ncompositie  1\ndienst  1\nkleur  5\nlayout  1\nmateriaal  1\nmotion  1\npalet  1\nproduct  2\nradius  1\nregion  3\nrenderdoel  4\nshadow  1\nspacing  1\nthema  1\ntoken  6\ntypeschaal  1\ntypografie  1\nvariant  1\nwereld  1",
+                  "fixed": "appearance  2\nborder  1\ncapability  2\ncomponent  1\ncomponentinstantie  3\ncompositie  1\ndienst  1\nkleur  7\nlayout  1\nmateriaal  1\nmotion  1\npalet  1\nproduct  2\nradius  1\nregion  3\nrenderdoel  4\nshadow  1\nspacing  1\nthema  1\ntoken  6\ntypeschaal  1\ntypografie  1\nvariant  1\nwereld  1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -255,7 +255,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#AEB4BD"
                 },
                 "size": 16,
                 "text": {
@@ -308,7 +308,7 @@
           },
           "border": {
             "color": {
-              "fixed": "#D86A35"
+              "fixed": "#46505C"
             },
             "width": 2
           },
@@ -394,7 +394,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#AEB4BD"
                 },
                 "size": 12,
                 "text": {
@@ -420,7 +420,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#AEB4BD"
                 },
                 "size": 16,
                 "text": {
@@ -473,7 +473,7 @@
           },
           "border": {
             "color": {
-              "fixed": "#D86A35"
+              "fixed": "#46505C"
             },
             "width": 2
           },
@@ -559,7 +559,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#AEB4BD"
                 },
                 "size": 12,
                 "text": {
@@ -585,7 +585,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#AEB4BD"
                 },
                 "size": 16,
                 "text": {
