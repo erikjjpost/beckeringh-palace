@@ -64,6 +64,11 @@ component. Een componentinstantie kiest zo'n variant alleen met een benoemde
 referentie. De gekozen variant en effectieve appearance worden vóór
 backendselectie opgelost en bevatten geen backendpresentatie.
 
+Native renderdoelen beschrijven één benoemde representatie met een expliciet
+formaat en veilig relatief artifactpad. Het resolved contract blijft
+backendonafhankelijk en kiest geen renderer impliciet op basis van een
+bestandsformaat.
+
 BAT is geen algemene enterprise-architectuurtaal. ArchiMate en andere externe modellen worden uitsluitend via expliciete adapters gekoppeld. De domeingrens staat in [world-model.md](world-model.md).
 
 ## Ontwerpprincipes
