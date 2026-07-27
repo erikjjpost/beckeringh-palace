@@ -254,6 +254,21 @@ region stack-main {''',
             html.index('data-region="stack-main"'),
         )
 
+    def test_compositie_bepaalt_instantie_en_componentweergave(self):
+        producten = {
+            product.definitie.id: product.inhoud
+            for product in compileer_producten(
+                self.model.objecten,
+                standaard_backend_registry(),
+            )
+        }
+
+        html = producten["stack-html"]
+        self.assertIn('data-instance="stack-panel"', html)
+        self.assertIn('data-component="panel"', html)
+        self.assertIn("<h2>Stack panel</h2>", html)
+        self.assertNotIn("<h2>Stack main</h2>", html)
+
 
 if __name__ == "__main__":
     unittest.main()

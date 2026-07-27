@@ -53,7 +53,9 @@ backendpresentatie. Daardoor blijven hergebruik van een component, identiteit
 van een specifiek gebruik en plaatsing drie afzonderlijke verantwoordelijkheden.
 Een product koppelt één compositie aan één layout. Iedere region plaatst
 expliciet één instantie uit die compositie. De compositie bepaalt de
-inhoudsvolgorde; de layout bepaalt uitsluitend de plaatsing.
+inhoudsvolgorde, instantie-identiteit, componentkeuze en zichtbare
+instantienaam. De layout bepaalt uitsluitend de plaatsing en bewaart daarom
+geen opgeloste componentidentiteit.
 
 BAT is geen algemene enterprise-architectuurtaal. ArchiMate en andere externe modellen worden uitsluitend via expliciete adapters gekoppeld. De domeingrens staat in [world-model.md](world-model.md).
 
