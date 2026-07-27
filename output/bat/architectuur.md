@@ -517,6 +517,7 @@ De digitale wereld, haar merk en haar reproduceerbare bronassets.
 
 ### Eigenschappen
 
+- **navigatie:** forge-dashboard-html, forge-dashboard-grafana
 - **soorten:** wereld, merk, asset
 
 ## Forge ontwerpsysteem
@@ -531,6 +532,7 @@ De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.
 
 ### Eigenschappen
 
+- **navigatie:** html-components, css-components, css-tokens, json-tokens
 - **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant
 
 ## Productfamilie
@@ -545,6 +547,7 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
+- **navigatie:** project-status-html, project-status-grafana
 - **soorten:** compositie, componentinstantie, layout, region, product, renderdoel
 
 ## Forge Dashboard

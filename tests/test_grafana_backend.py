@@ -82,8 +82,18 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertIn("forge-dashboard-center-panel-metric-detail-labels", middennamen)
         self.assertIn("forge-dashboard-center-panel-metric-detail-values", middennamen)
         self.assertIn("forge-dashboard-center-panel-metric-detail-rule-15", middennamen)
+        self.assertIn("forge-dashboard-center-panel-product-navigation", middennamen)
+        navigatie = next(
+            element
+            for element in dashboard["panels"][2]["options"]["root"]["elements"]
+            if element["name"] == "forge-dashboard-center-panel-product-navigation"
+        )
         self.assertEqual(
-            {"height": 360, "left": 4, "top": 4, "width": 4},
+            ["components.html", "components.css", "tokens.css", "tokens.json"],
+            [link["url"] for link in navigatie["links"]],
+        )
+        self.assertEqual(
+            {"height": 420, "left": 4, "top": 4, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         self.assertEqual(

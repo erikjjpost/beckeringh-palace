@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 71feaabf14e9",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 7367725bd0c1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 192,
+                "height": 228,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -306,6 +306,44 @@
               "config": {
                 "align": "left",
                 "color": {
+                  "fixed": "#D86A35"
+                },
+                "size": 12,
+                "text": {
+                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [
+                {
+                  "targetBlank": false,
+                  "title": "Forge Dashboard HTML",
+                  "url": "forge-dashboard.html"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "Forge Dashboard Grafana",
+                  "url": "forge-dashboard.grafana.json"
+                }
+              ],
+              "name": "forge-dashboard-left-panel-product-navigation",
+              "placement": {
+                "height": 24,
+                "left": 20,
+                "top": 152,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
                   "fixed": "#AEB4BD"
                 },
                 "size": 16,
@@ -323,7 +361,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 152,
+                "top": 188,
                 "width": 360
               },
               "type": "text"
@@ -382,7 +420,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 360,
+                "height": 420,
                 "left": 4,
                 "top": 4,
                 "width": 4
@@ -872,6 +910,54 @@
               "config": {
                 "align": "left",
                 "color": {
+                  "fixed": "#D86A35"
+                },
+                "size": 12,
+                "text": {
+                  "fixed": "HTML component catalogue\nCSS components\nCSS design tokens\nPortable design tokens",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [
+                {
+                  "targetBlank": false,
+                  "title": "HTML component catalogue",
+                  "url": "components.html"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "CSS components",
+                  "url": "components.css"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "CSS design tokens",
+                  "url": "tokens.css"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "Portable design tokens",
+                  "url": "tokens.json"
+                }
+              ],
+              "name": "forge-dashboard-center-panel-product-navigation",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 316,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
                   "fixed": "#AEB4BD"
                 },
                 "size": 16,
@@ -889,7 +975,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 316,
+                "top": 376,
                 "width": 360
               },
               "type": "text"
@@ -948,7 +1034,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 252,
+                "height": 288,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1213,6 +1299,44 @@
               "config": {
                 "align": "left",
                 "color": {
+                  "fixed": "#D86A35"
+                },
+                "size": 12,
+                "text": {
+                  "fixed": "Beckeringh Palace Projectstatus\nBeckeringh Palace Projectstatus Grafana",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [
+                {
+                  "targetBlank": false,
+                  "title": "Beckeringh Palace Projectstatus",
+                  "url": "project-status.html"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "Beckeringh Palace Projectstatus Grafana",
+                  "url": "project-status.grafana.json"
+                }
+              ],
+              "name": "forge-dashboard-right-panel-product-navigation",
+              "placement": {
+                "height": 24,
+                "left": 20,
+                "top": 212,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
                   "fixed": "#AEB4BD"
                 },
                 "size": 16,
@@ -1230,7 +1354,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 212,
+                "top": 248,
                 "width": 360
               },
               "type": "text"
@@ -1251,7 +1375,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:71feaabf14e9338d4b48f6d07d3dfd2a4c43eae5d167a72989e3aedf4a082ee5"
+    "sha256:7367725bd0c1842ef344d706825b7f47e51d42bf5217eeed28d92e95c38592de"
   ],
   "templating": {
     "list": []

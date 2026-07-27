@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+from pathlib import PurePosixPath
 import re
 
 from compiler.component_css_identity import componentklasse, variantklasse
@@ -193,6 +194,18 @@ def naar_native_layout_html(
                     f"{waarde}</li>"
                 )
             regels.append("      </ul>")
+        if instantie.navigation_targets:
+            regels.append('      <nav class="bp-product-navigation" aria-label="Productnavigatie">')
+            regels.append("        <ul>")
+            for doel in instantie.navigation_targets:
+                regels.append(
+                    f'          <li><a href="{html.escape(PurePosixPath(doel.artifact_path).name)}" '
+                    f'data-navigation-target="{html.escape(doel.id)}" '
+                    f'data-navigation-kind="{html.escape(doel.target_kind)}">'
+                    f"{html.escape(doel.naam)}</a></li>"
+                )
+            regels.append("        </ul>")
+            regels.append("      </nav>")
         regels.extend([
             f'      <p class="bp-description">{html.escape(instantie.doel)}</p>',
             "    </section>",

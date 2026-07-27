@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 from collections.abc import Iterable
+from pathlib import PurePosixPath
 
 from compiler.backend import Backend
 from compiler.cir import Architectuurobject
@@ -281,6 +282,42 @@ def _canvasopties(
                 }
             )
         body_top += detailhoogte + 12
+    if instantie.navigation_targets:
+        navigatiehoogte = captiongrootte * len(instantie.navigation_targets)
+        elementen.append(
+            {
+                "config": {
+                    "align": "left",
+                    "color": {"fixed": accent},
+                    "size": captiongrootte,
+                    "text": {
+                        "fixed": "\n".join(
+                            doel.naam for doel in instantie.navigation_targets
+                        ),
+                        "mode": "fixed",
+                    },
+                    "valign": "top",
+                },
+                "constraint": {"horizontal": "left", "vertical": "top"},
+                "links": [
+                    {
+                        "targetBlank": False,
+                        "title": doel.naam,
+                        "url": PurePosixPath(doel.artifact_path).name,
+                    }
+                    for doel in instantie.navigation_targets
+                ],
+                "name": f"{instantie.id}-product-navigation",
+                "placement": {
+                    "height": navigatiehoogte,
+                    "left": tekstlinks,
+                    "top": body_top,
+                    "width": 360,
+                },
+                "type": "text",
+            }
+        )
+        body_top += navigatiehoogte + 12
     elementen.append(
         {
             "config": {

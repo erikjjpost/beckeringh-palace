@@ -240,18 +240,21 @@ informatiegebied palace-world {
     naam: "Wereld en identiteit"
     doel: "De digitale wereld, haar merk en haar reproduceerbare bronassets."
     soorten: ["wereld", "merk", "asset"]
+    navigatie: ["forge-dashboard-html", "forge-dashboard-grafana"]
 }
 
 informatiegebied forge-design-system {
     naam: "Forge ontwerpsysteem"
     doel: "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit."
     soorten: ["kleur", "palet", "typografie", "typeschaal", "materiaal", "border", "radius", "shadow", "motion", "spacing", "thema", "appearance", "token", "component", "variant"]
+    navigatie: ["html-components", "css-components", "css-tokens", "json-tokens"]
 }
 
 informatiegebied palace-product-family {
     naam: "Productfamilie"
     doel: "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd."
     soorten: ["compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
+    navigatie: ["project-status-html", "project-status-grafana"]
 }
 
 compositie forge-dashboard {

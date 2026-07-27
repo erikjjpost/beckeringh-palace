@@ -8,6 +8,7 @@ from compiler.cir import Architectuurobject
 from compiler.design_variants import ResolvedComponentVariant, resolveer_varianten
 from compiler.information_architecture import (
     ResolvedInformationArea,
+    ResolvedNavigationTarget,
     resolveer_informatiegebieden,
 )
 
@@ -31,6 +32,7 @@ class ResolvedComponentInstance:
     metric_kind: str | None
     metric_value: int | None
     metric_details: tuple[ResolvedMetricDetail, ...]
+    navigation_targets: tuple[ResolvedNavigationTarget, ...]
 
 
 @dataclass(frozen=True)
@@ -138,6 +140,11 @@ def _instantie_uit_object(
             else None
         ),
         metric_details=metric_details,
+        navigation_targets=(
+            informatiegebied.navigation_targets
+            if informatiegebied is not None
+            else ()
+        ),
     )
 
 

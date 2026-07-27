@@ -117,6 +117,16 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">16</p>',
             product.inhoud,
         )
+        self.assertIn(
+            '<a href="components.html" data-navigation-target="html-components" '
+            'data-navigation-kind="renderdoel">HTML component catalogue</a>',
+            product.inhoud,
+        )
+        self.assertIn(
+            '<a href="project-status.html" data-navigation-target="project-status-html" '
+            'data-navigation-kind="product">Beckeringh Palace Projectstatus</a>',
+            product.inhoud,
+        )
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
         self.assertIn('data-product-mode="static"', product.inhoud)
         self.assertIn('data-time-context="none"', product.inhoud)
