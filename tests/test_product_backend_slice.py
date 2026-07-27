@@ -68,6 +68,7 @@ class ProductBackendSliceTests(unittest.TestCase):
         )
         self.assertTrue(producten[0].definitie.has_time_context)
         self.assertEqual("", producten[0].definitie.snapshot_id)
+        self.assertEqual("", producten[0].definitie.snapshot_ref)
         self.assertIn("<title>Dashboard HTML</title>", producten[0].inhoud)
         self.assertIn("bp-layout-widescreen", producten[0].inhoud)
         self.assertIn('data-instance="dashboard-panel"', producten[0].inhoud)
@@ -84,11 +85,11 @@ class ProductBackendSliceTests(unittest.TestCase):
         eerste = compileer_producten(
             model.objecten,
             standaard_backend_registry(),
-        )[0].definitie.snapshot_id
+        )[0].definitie
         tweede = compileer_producten(
             tuple(reversed(model.objecten)),
             standaard_backend_registry(),
-        )[0].definitie.snapshot_id
+        )[0].definitie
         gewijzigd_model = analyseer(
             parseer(statische_bron.replace("Testcomponent.", "Gewijzigd.")),
             constraints=WORLD_MODEL_CONSTRAINTS,
@@ -96,11 +97,15 @@ class ProductBackendSliceTests(unittest.TestCase):
         gewijzigd = compileer_producten(
             gewijzigd_model.objecten,
             standaard_backend_registry(),
-        )[0].definitie.snapshot_id
+        )[0].definitie
 
-        self.assertEqual(64, len(eerste))
-        self.assertEqual(eerste, tweede)
-        self.assertNotEqual(eerste, gewijzigd)
+        self.assertEqual(64, len(eerste.snapshot_id))
+        self.assertEqual(
+            f"sha256:{eerste.snapshot_id}",
+            eerste.snapshot_ref,
+        )
+        self.assertEqual(eerste.snapshot_ref, tweede.snapshot_ref)
+        self.assertNotEqual(eerste.snapshot_ref, gewijzigd.snapshot_ref)
 
     def test_html_backend_heeft_geen_layout_fallback(self):
         model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)

@@ -211,6 +211,7 @@ class GrafanaBackendTests(unittest.TestCase):
             "output/products/forge-dashboard.grafana.json",
             product.definitie.pad,
         )
+        self.assertIn(product.definitie.snapshot_ref, dashboard["tags"])
 
     def test_interactief_product_behoudt_tijdcontext(self):
         model = analyseer(

@@ -26,6 +26,7 @@ class ProductDefinition:
     mode_label: str = ""
     has_time_context: bool = True
     snapshot_id: str = ""
+    snapshot_ref: str = ""
     wereld: str = ""
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None

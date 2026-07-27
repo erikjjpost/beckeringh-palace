@@ -467,6 +467,13 @@ snapshotidentiteit. HTML bewaart daarnaast de volledige hash in
 identiteit op en iedere inhoudswijziging een andere. Interactieve producten
 hebben geen snapshotidentiteit.
 
+M10.3e maakt de volledige snapshotidentiteit backendonafhankelijk
+verifieerbaar. De compiler lost deze eenmaal op als canonieke referentie
+`sha256:<volledige hash>`. HTML bewaart de referentie in `data-snapshot-ref`
+en Grafana in de dashboardtags. Beide backends gebruiken daarmee exact dezelfde
+machineleesbare verificatiewaarde en stellen het algoritme niet zelf samen.
+Interactieve producten hebben geen snapshotreferentie.
+
 ## Diagnostics
 
 | Code | Betekenis |

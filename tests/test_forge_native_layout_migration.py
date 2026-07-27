@@ -125,6 +125,10 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
+            f'data-snapshot-ref="{product.definitie.snapshot_ref}"',
+            product.inhoud,
+        )
+        self.assertIn(
             "Beckeringh Palace · Forge · Gegenereerd uit BAT · "
             "Statische architectuursnapshot · Snapshot "
             f"{product.definitie.snapshot_id[:SNAPSHOT_ID_LENGTH]}",
