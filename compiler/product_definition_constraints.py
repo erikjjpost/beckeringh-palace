@@ -15,11 +15,33 @@ class ProductDefinitionConstraint:
 
     def evalueer(self, context: ConstraintContext):
         diagnostics = []
-        layouts = {obj.id for obj in context.objecten if obj.soort == "layout"}
+        layouts = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "layout"
+        }
+        composities = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "compositie"
+        }
+        regions = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "region"
+        }
         werelden = {obj.id for obj in context.objecten if obj.soort == "wereld"}
         heeft_themalaag = any(obj.soort == "thema" for obj in context.objecten)
         toegestane_backends = backend_namen()
-        toegestane_velden = {"naam", "doel", "backend", "layout", "pad", "wereld"}
+        toegestane_velden = {
+            "naam",
+            "doel",
+            "backend",
+            "compositie",
+            "layout",
+            "pad",
+            "wereld",
+        }
         for obj in context.objecten:
             if obj.soort != "product":
                 continue
@@ -44,6 +66,57 @@ class ProductDefinitionConstraint:
                     boodschap=f"Product '{obj.id}' verwijst naar onbekende layout '{layout}'",
                     locatie=obj.eigenschaplocaties.get("layout", obj.bronlocatie),
                 ))
+            compositie = obj.eigenschappen.get("compositie")
+            if compositie not in composities:
+                diagnostics.append(Diagnostic(
+                    code="BP3506",
+                    boodschap=(
+                        f"Product '{obj.id}' verwijst naar onbekende of ontbrekende "
+                        f"compositie '{compositie}'"
+                    ),
+                    locatie=obj.eigenschaplocaties.get("compositie", obj.bronlocatie),
+                ))
+            if layout in layouts and compositie in composities:
+                layout_obj = layouts[layout]
+                compositie_obj = composities[compositie]
+                region_ids = layout_obj.eigenschappen.get("regions")
+                composition_instances = compositie_obj.eigenschappen.get("instanties")
+                kan_vergelijken = (
+                    isinstance(region_ids, list)
+                    and all(
+                        isinstance(region_id, str) and region_id in regions
+                        for region_id in region_ids
+                    )
+                    and isinstance(composition_instances, list)
+                    and all(
+                        isinstance(instance_id, str)
+                        for instance_id in composition_instances
+                    )
+                )
+                layout_instances = (
+                    [
+                        regions[region_id].eigenschappen.get("instantie")
+                        for region_id in region_ids
+                    ]
+                    if kan_vergelijken
+                    else []
+                )
+                kan_vergelijken = kan_vergelijken and all(
+                    isinstance(instance_id, str)
+                    for instance_id in layout_instances
+                )
+                if kan_vergelijken and (
+                    set(layout_instances) != set(composition_instances)
+                    or len(layout_instances) != len(composition_instances)
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3507",
+                        boodschap=(
+                            f"Product '{obj.id}' vereist exact dezelfde "
+                            "componentinstanties in compositie en layout"
+                        ),
+                        locatie=obj.bronlocatie,
+                    ))
             pad = obj.eigenschappen.get("pad")
             geldig_pad = isinstance(pad, str) and bool(pad.strip()) and not PurePosixPath(pad).is_absolute() and ".." not in PurePosixPath(pad).parts
             if not geldig_pad:

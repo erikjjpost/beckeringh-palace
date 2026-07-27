@@ -497,7 +497,7 @@ Linker dashboardregio.
 
 - **column:** 1
 - **column-span:** 1
-- **component:** forge-panel
+- **instantie:** forge-dashboard-left-panel
 - **layout:** forge-dashboard-ultrawide
 - **row:** 1
 - **row-span:** 1
@@ -516,7 +516,7 @@ Centrale dashboardregio.
 
 - **column:** 2
 - **column-span:** 1
-- **component:** forge-panel
+- **instantie:** forge-dashboard-center-panel
 - **layout:** forge-dashboard-ultrawide
 - **row:** 1
 - **row-span:** 1
@@ -535,7 +535,7 @@ Rechter dashboardregio.
 
 - **column:** 3
 - **column-span:** 1
-- **component:** forge-panel
+- **instantie:** forge-dashboard-right-panel
 - **layout:** forge-dashboard-ultrawide
 - **row:** 1
 - **row-span:** 1
@@ -553,6 +553,7 @@ Het ultrawide Forge-dashboard via de HTML-backend genereren.
 ### Eigenschappen
 
 - **backend:** html
+- **compositie:** forge-dashboard
 - **layout:** forge-dashboard-ultrawide
 - **pad:** output/products/forge-dashboard.html
 - **wereld:** beckeringh-palace

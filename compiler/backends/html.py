@@ -113,6 +113,10 @@ def _render(
         raise ValueError(
             f"Product '{product.id}' vereist een opgeloste native layout"
         )
+    if product.opgeloste_compositie is None:
+        raise ValueError(
+            f"Product '{product.id}' vereist een opgeloste native compositie"
+        )
     inhoud = naar_native_layout_html(product.opgeloste_layout, titel=product.naam)
     if product.thema is None:
         return inhoud

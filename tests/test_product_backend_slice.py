@@ -15,6 +15,17 @@ component panel {
     naam: "Panel"
     doel: "Testcomponent."
 }
+compositie dashboard {
+    naam: "Dashboard"
+    doel: "Testinhoud."
+    instanties: ["dashboard-panel"]
+}
+componentinstantie dashboard-panel {
+    naam: "Dashboard panel"
+    doel: "Benoemde testinhoud."
+    compositie: "dashboard"
+    component: "panel"
+}
 layout widescreen {
     naam: "Widescreen"
     doel: "Testlayout."
@@ -27,7 +38,7 @@ region content {
     naam: "Content"
     doel: "Hoofdregio."
     layout: "widescreen"
-    component: "panel"
+    instantie: "dashboard-panel"
     column: "1"
     row: "1"
     column-span: "1"
@@ -37,6 +48,7 @@ product dashboard-html {
     naam: "Dashboard HTML"
     doel: "Testproduct."
     backend: "html"
+    compositie: "dashboard"
     layout: "widescreen"
     pad: "output/products/dashboard.html"
 }
@@ -51,6 +63,7 @@ class ProductBackendSliceTests(unittest.TestCase):
         self.assertEqual("output/products/dashboard.html", producten[0].definitie.pad)
         self.assertIn("<title>Dashboard HTML</title>", producten[0].inhoud)
         self.assertIn("bp-layout-widescreen", producten[0].inhoud)
+        self.assertIn('data-instance="dashboard-panel"', producten[0].inhoud)
 
     def test_html_backend_heeft_geen_layout_fallback(self):
         model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
@@ -77,6 +90,36 @@ class ProductBackendSliceTests(unittest.TestCase):
         with self.assertRaises(SemantischeFout) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3504", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_onbekende_compositie(self):
+        bron = BRON.replace(
+            'backend: "html"\n    compositie: "dashboard"',
+            'backend: "html"\n    compositie: "missing"',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3506", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_verschillende_compositie_en_layoutinhoud(self):
+        bron = BRON.replace(
+            'instanties: ["dashboard-panel"]',
+            'instanties: ["dashboard-panel", "unplaced-panel"]',
+            1,
+        ).replace(
+            "layout widescreen {",
+            '''componentinstantie unplaced-panel {
+    naam: "Unplaced panel"
+    doel: "Niet geplaatste testinhoud."
+    compositie: "dashboard"
+    component: "panel"
+}
+layout widescreen {''',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3507", {item.code for item in context.exception.diagnostics})
 
 
 if __name__ == "__main__":

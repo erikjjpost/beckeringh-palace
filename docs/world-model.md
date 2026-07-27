@@ -21,8 +21,8 @@ De native objectsoorten zijn:
 | `componentinstantie` | benoemd gebruik van een component in één compositie |
 | `compositie` | geordende productinhoud zonder layoutpresentatie |
 | `layout` | backend-onafhankelijke plaatsingsintentie |
-| `region` | expliciete plaats binnen een native layout |
-| `product` | koppeling van wereld, productmodel, backend en artifactpad |
+| `region` | expliciete plaats van een componentinstantie binnen een native layout |
+| `product` | koppeling van wereld, compositie, layout, backend en artifactpad |
 | `variant` | gecontroleerde afwijkingen |
 | `renderdoel` | te genereren representaties |
 

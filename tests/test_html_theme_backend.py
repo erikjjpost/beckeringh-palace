@@ -159,7 +159,7 @@ region forge-dashboard-left {
     naam: "Linkerpaneel"
     doel: "Regio."
     layout: "forge-dashboard-ultrawide"
-    component: "forge-panel"
+    instantie: "forge-dashboard-panel"
     column: "1"
     row: "1"
     column-span: "1"
@@ -170,6 +170,7 @@ product forge-dashboard-html {
     doel: "HTML-product."
     backend: "html"
     wereld: "beckeringh-palace"
+    compositie: "forge-dashboard"
     layout: "forge-dashboard-ultrawide"
     pad: "output/products/forge-dashboard.html"
 }

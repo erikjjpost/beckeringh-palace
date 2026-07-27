@@ -15,6 +15,8 @@ CIR
  ↓
 Semantische validatie
  ↓
+ResolvedComposition
+ ↓
 ResolvedLayout
  ↓
 ProductDefinition
@@ -36,15 +38,20 @@ M9.1a introduceert daarnaast het native compositiecontract. Een compositie
 beschrijft productinhoud als een geordende lijst benoemde componentinstanties.
 Zij bevat geen richting, coördinaten of backendpresentatie. Alleen gevalideerde
 CIR wordt omgezet naar `ResolvedComposition` en `ResolvedComponentInstance`.
-De koppeling van een resolved compositie aan een product volgt in een
-afzonderlijke verticale milestone.
+M9.1b koppelt deze resolved compositie expliciet aan het product.
 
 ## Productcontext
 
-Een product blijft in BAT naar een layout-id verwijzen. Na semantische
-validatie lost de productcompiler een native layout één keer op en levert deze
-als `opgeloste_layout` aan de backend. Een backend hoeft daardoor geen
-layoutsemantiek opnieuw uit losse CIR-objecten af te leiden.
+Een product verwijst in BAT verplicht naar één compositie en één layout. Na
+semantische validatie lost de productcompiler beide één keer op en levert deze
+als `opgeloste_compositie` en `opgeloste_layout` aan de backend. Een backend
+hoeft daardoor geen compositie- of layoutsemantiek opnieuw uit losse
+CIR-objecten af te leiden.
+
+De componentinstanties van de compositie moeten exact overeenkomen met de
+instanties die door de regions van de layout worden geplaatst. Een ontbrekende,
+extra of dubbele plaatsing is ongeldig. De koppeling gebeurt uitsluitend via
+expliciete instantie-id's en nooit via lijstpositie.
 
 Het resolved contract bevat geen HTML- of CSS-velden. De HTML-backend vertaalt
 de layouttypen als volgt:
@@ -58,7 +65,7 @@ de layouttypen als volgt:
 
 De normatieve `regions`-lijst bepaalt voor alle typen de DOM-volgorde. CSS is
 uitsluitend backenduitvoer en wordt niet teruggeschreven naar BAT, CIR,
-`ResolvedLayout` of `ProductDefinition`.
+`ResolvedComposition`, `ResolvedLayout` of `ProductDefinition`.
 
 ## Native objecten
 
@@ -124,11 +131,29 @@ Iedere native region vereist:
 - `naam`: menselijke naam;
 - `doel`: beoogde rol;
 - `layout`: de layout waar deze region bij hoort;
-- `component`: het component dat de region bevat;
+- `instantie`: de benoemde componentinstantie die de region plaatst;
 - alle plaatsingsvelden die bij het gekozen layouttype horen.
 
 De referentie is wederkerig: de layout noemt de region en de region verwijst
 terug naar diezelfde layout. Daardoor ontstaan geen impliciete regionselecties.
+De onderliggende componentdefinitie wordt via de componentinstantie opgelost en
+wordt niet opnieuw in de region gedeclareerd.
+
+### `product`
+
+Ieder product vereist:
+
+- `naam`: menselijke naam;
+- `doel`: het te genereren product;
+- `backend`: de expliciete backend;
+- `compositie`: de productinhoud;
+- `layout`: de plaatsingsintentie;
+- `pad`: het veilige relatieve uitvoerpad;
+- `wereld`: verplicht wanneer een themalaag aanwezig is.
+
+De productvalidator vereist dat `compositie` en `layout` exact dezelfde
+componentinstanties bevatten. Daarmee is het product de enige expliciete
+koppeling tussen inhoud, plaatsing en backend.
 
 ## Layouttypen
 
@@ -150,7 +175,7 @@ region overview-main {
     naam: "Main"
     doel: "Hoofdinhoud van het overzicht."
     layout: "overview-grid"
-    component: "overview-panel"
+    instantie: "overview-primary"
     column: "1"
     row: "1"
     column-span: "12"
@@ -246,10 +271,19 @@ en SVG-renderers en hun renderdoelen verdwijnen eveneens, omdat zij
 presentatiegedrag zonder product en zonder native layout vastlegden. De
 canonieke Forge-compositie gebruikt drie expliciete componentinstanties.
 
+M9.1b koppelt de Forge-compositie vervolgens aan het Forge-product. Regions
+plaatsen voortaan een expliciete `componentinstantie` in plaats van een
+componentdefinitie. De productcompiler levert zowel `ResolvedComposition` als
+`ResolvedLayout` aan de backend. De HTML-backend behoudt de instantie-identiteit
+in `data-instance` en gebruikt de opgeloste componentdefinitie voor
+`data-component` en de componentklasse.
+
 ## Diagnostics
 
 | Code | Betekenis |
 |---|---|
+| `BP3506` | Product verwijst naar een onbekende of ontbrekende compositie |
+| `BP3507` | Compositie en layout bevatten niet exact dezelfde instanties |
 | `BP3601` | Onbekend layouttype |
 | `BP3602` | Eigenschap past niet bij het layouttype |
 | `BP3603` | `regions` is niet expliciet, uniek of geldig |
@@ -258,9 +292,10 @@ canonieke Forge-compositie gebruikt drie expliciete componentinstanties.
 | `BP3606` | Ongeldige gridafmeting |
 | `BP3607` | Ongeldige of ontbrekende richting |
 | `BP3608` | Ongeldige of ontbrekende flow-wrapkeuze |
+| `BP3609` | Layout plaatst dezelfde componentinstantie meer dan één keer |
 | `BP3611` | Region verwijst naar een onbekende native layout |
 | `BP3612` | Layout noemt de region niet |
-| `BP3613` | Region verwijst naar een onbekend component |
+| `BP3613` | Region verwijst naar een onbekende componentinstantie |
 | `BP3614` | Region-eigenschap past niet bij het layouttype |
 | `BP3615` | Ongeldig of ontbrekend plaatsingsgetal |
 | `BP3616` | Grid-region valt buiten de kolommen |
