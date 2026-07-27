@@ -7,6 +7,7 @@ from compiler.backend import Backend
 from compiler.cir import Architectuurobject
 from compiler.native_layout_html_renderer import naar_native_layout_html
 from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
+from compiler.project_status import ProjectStatus
 
 
 def _css_string(waarde: str) -> str:
@@ -169,9 +170,105 @@ def _theme_css(product: ProductDefinition) -> str:
             "      color: var(--bp-material-foreground);",
             "      font-weight: 700;",
             "    }",
+            "    .bp-status-summary {",
+            "      display: grid;",
+            "      grid-template-columns: minmax(12rem, 18rem) 1fr;",
+            "      gap: var(--bp-spacing-large);",
+            "      margin-bottom: var(--bp-spacing-large);",
+            "    }",
+            "    .bp-status-overall {",
+            "      padding: var(--bp-spacing-large);",
+            "      background: var(--bp-material-raised);",
+            "      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);",
+            "      border-radius: var(--bp-radius-medium);",
+            "    }",
+            "    .bp-status-overall strong {",
+            "      color: var(--bp-material-accent);",
+            "      font-family: var(--bp-font-heading);",
+            "      font-size: var(--bp-type-display);",
+            "    }",
+            "    .bp-status-milestones, .bp-status-areas {",
+            "      display: grid;",
+            "      gap: var(--bp-spacing-medium);",
+            "    }",
+            "    .bp-status-milestones { grid-template-columns: repeat(3, minmax(0, 1fr)); }",
+            "    .bp-status-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }",
+            "    .bp-status-card {",
+            "      padding: var(--bp-spacing-large);",
+            "      background: var(--bp-material-raised);",
+            "      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);",
+            "      border-radius: var(--bp-radius-medium);",
+            "    }",
+            "    .bp-status-card h2, .bp-status-card h3 { margin-top: 0; }",
+            "    .bp-status-progress {",
+            "      width: 100%;",
+            "      accent-color: var(--bp-material-accent);",
+            "    }",
+            "    .bp-status-label { color: var(--bp-material-muted); }",
+            "    @media (max-width: 960px) {",
+            "      .bp-status-summary, .bp-status-milestones, .bp-status-areas { grid-template-columns: 1fr; }",
+            "    }",
         ])
 
     return "\n".join(regels) + "\n"
+
+
+def _status_html(status: ProjectStatus) -> str:
+    import html
+
+    milestone_cards = (
+        (
+            "Laatst voltooid",
+            f"{status.last_completed_milestone.id} — "
+            f"{status.last_completed_milestone.name}",
+            f"PR #{status.last_completed_milestone.pull_request}",
+        ),
+        (
+            "Actueel",
+            f"{status.current_milestone.id} — {status.current_milestone.name}",
+            status.current_milestone.state,
+        ),
+        (
+            "Volgende stap",
+            f"{status.next_step.id} — {status.next_step.name}",
+            status.next_step.purpose,
+        ),
+    )
+    regels = [
+        '  <main class="bp-status" data-status-schema="1">',
+        '    <section class="bp-status-summary">',
+        '      <div class="bp-status-overall">',
+        '        <span class="bp-status-label">Totale voortgang</span>',
+        f"        <strong>{status.overall_progress}%</strong>",
+        f"        <p>{html.escape(status.overall_method)}</p>",
+        "      </div>",
+        '      <div class="bp-status-milestones">',
+    ]
+    for label, title, detail in milestone_cards:
+        regels.extend([
+            '        <article class="bp-status-card">',
+            f'          <span class="bp-status-label">{html.escape(label)}</span>',
+            f"          <h2>{html.escape(title)}</h2>",
+            f"          <p>{html.escape(detail)}</p>",
+            "        </article>",
+        ])
+    regels.extend([
+        "      </div>",
+        "    </section>",
+        '    <section class="bp-status-areas" aria-label="Productgebieden">',
+    ])
+    for area in status.areas:
+        regels.extend([
+            f'      <article class="bp-status-card" data-status-area="{html.escape(area.id)}">',
+            f"        <h3>{html.escape(area.name)}</h3>",
+            f'        <progress class="bp-status-progress" max="100" value="{area.progress}">{area.progress}%</progress>',
+            f"        <p><strong>{area.progress}%</strong></p>",
+            f"        <p>{html.escape(area.evidence)}</p>",
+            f'        <p class="bp-status-label">{html.escape(area.remaining)}</p>',
+            "      </article>",
+        ])
+    regels.extend(["    </section>", "  </main>"])
+    return "\n".join(regels)
 
 
 def _render(
@@ -198,7 +295,17 @@ def _render(
             if product.snapshot_id
             else None
         ),
+        inhoud_naam=product.naam if product.inhoud == "project-status" else None,
+        inhoud_doel=product.doel if product.inhoud == "project-status" else None,
     )
+    if product.inhoud == "project-status":
+        if product.project_status is None:
+            raise ValueError(
+                f"Product '{product.id}' vereist projectstatuscontext"
+            )
+        begin = inhoud.index('  <main class="bp-layout')
+        einde = inhoud.index("  </main>", begin) + len("  </main>")
+        inhoud = inhoud[:begin] + _status_html(product.project_status) + inhoud[einde:]
     if product.thema is None:
         return inhoud
 

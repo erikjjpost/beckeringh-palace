@@ -90,6 +90,7 @@ def compileer_producten(
             inhoud=registry.resolveer(opgelost.backend).render(objecten, opgelost),
         )
         for product in verzamel_producten(objecten)
+        if product.inhoud != "project-status" or project_status is not None
         for opgelost in (
             _los_productcontext_op(
                 objecten, product, composities, layouts, project_status

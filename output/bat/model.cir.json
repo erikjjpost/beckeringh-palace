@@ -497,6 +497,21 @@
   },
   {
     "eigenschappen": {
+      "backend": "html",
+      "compositie": "forge-dashboard",
+      "doel": "De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.",
+      "inhoud": "project-status",
+      "layout": "forge-dashboard-ultrawide",
+      "mode": "static",
+      "naam": "Beckeringh Palace Projectstatus",
+      "pad": "output/products/project-status.html",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "project-status-html",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
       "doel": "Design tokens als CSS custom properties genereren.",
       "formaat": "css",
       "naam": "CSS design tokens",

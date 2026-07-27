@@ -186,6 +186,7 @@ Ieder product vereist:
 - `doel`: het te genereren product;
 - `backend`: de expliciete backend;
 - `mode`: optioneel `interactive` of `static`; standaard `interactive`;
+- `inhoud`: optioneel `composition` of `project-status`; standaard `composition`;
 - `compositie`: de productinhoud;
 - `layout`: de plaatsingsintentie;
 - `pad`: het veilige relatieve uitvoerpad;
@@ -474,6 +475,14 @@ en Grafana in de dashboardtags. Beide backends gebruiken daarmee exact dezelfde
 machineleesbare verificatiewaarde en stellen het algoritme niet zelf samen.
 Interactieve producten hebben geen snapshotreferentie.
 
+M10.4c introduceert `inhoud: "project-status"` als expliciete,
+contextafhankelijke productinhoud. De HTML backend rendert de getypeerde
+`ProjectStatus` die de compiler aanlevert en leest `project/status.json` niet
+zelf. Het product toont de totale architectuurschatting, de milestoneketen en
+ieder productgebied met bewijs en resterend werk. Compilatie zonder
+projectstatuscontext blijft bestaande producten ondersteunen en selecteert
+contextafhankelijke statusproducten niet.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -481,6 +490,7 @@ Interactieve producten hebben geen snapshotreferentie.
 | `BP3506` | Product verwijst naar een onbekende of ontbrekende compositie |
 | `BP3507` | Compositie en layout bevatten niet exact dezelfde instanties |
 | `BP3508` | Product gebruikt een onbekende modus |
+| `BP3509` | Product gebruikt een onbekende inhoudsbron |
 | `BP3601` | Onbekend layouttype |
 | `BP3602` | Eigenschap past niet bij het layouttype |
 | `BP3603` | `regions` is niet expliciet, uniek of geldig |

@@ -74,6 +74,8 @@ def naar_native_layout_html(
     thema_naam: str | None = None,
     mode_label: str | None = None,
     snapshot_label: str | None = None,
+    inhoud_naam: str | None = None,
+    inhoud_doel: str | None = None,
 ) -> str:
     """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
 
@@ -128,8 +130,8 @@ def naar_native_layout_html(
             f"{mode_suffix}{snapshot_suffix}</p>"
         )
     regels.extend([
-        f"    <h1>{html.escape(compositie.naam)}</h1>",
-        f'    <p class="bp-product-purpose">{html.escape(compositie.doel)}</p>',
+        f"    <h1>{html.escape(inhoud_naam or compositie.naam)}</h1>",
+        f'    <p class="bp-product-purpose">{html.escape(inhoud_doel or compositie.doel)}</p>',
         "  </header>",
         (
             f'  <main class="bp-layout bp-layout-{_css_naam(layout.id)}" '

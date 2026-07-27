@@ -8,15 +8,15 @@
 
 Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.
 
-- Actuele milestone: **M10.4b — Status als native productcontext** (in uitvoering)
-- Laatst voltooid: **M10.4a — Reproduceerbare projectstatus** (PR #59)
-- Volgende stap: **M10.4c — Native HTML statusproduct**
+- Actuele milestone: **M10.4c — Native HTML statusproduct** (in uitvoering)
+- Laatst voltooid: **M10.4b — Status als native productcontext** (PR #60)
+- Volgende stap: **M10.4d — Native Grafana statusproduct**
 
 ## Voortgang per productgebied
 
 | Productgebied | Voortgang | Onderbouwing | Resterend werk |
 |---|---:|---|---|
-| Compiler en reproduceerbaarheid | 80% | Validatie, deterministische generatie, CI en 115 regressietests vormen een werkende kwaliteitsketen. | Meer producttypen, adapters en volwassen foutdiagnostiek. |
+| Compiler en reproduceerbaarheid | 80% | Validatie, deterministische generatie, CI en 123 regressietests vormen een werkende kwaliteitsketen. | Meer producttypen, adapters en volwassen foutdiagnostiek. |
 | World Model en productcontracten | 70% | Thema's, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd. | De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen. |
 | Design System | 55% | Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar. | Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig. |
 | Dashboard UI en Grafana | 60% | HTML en importeerbare Grafana output delen layout, thema, semantiek en snapshotverificatie. | Het dashboard is nog vooral een architectuursnapshot en nog geen volledige operationele productervaring. |
@@ -29,6 +29,6 @@ Architectuurschatting van het volledige einddoel; geen optelsom van pull request
 
 ## Eerstvolgende stap
 
-### M10.4c — Native HTML statusproduct
+### M10.4d — Native Grafana statusproduct
 
-De normatieve voortgang als eerste zichtbaar, reproduceerbaar HTML product ontsluiten.
+Dezelfde normatieve projectstatus zonder backendlogica als importeerbaar Grafana dashboard ontsluiten.

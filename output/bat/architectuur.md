@@ -683,6 +683,26 @@ Het Forge-dashboard als importeerbaar Grafana dashboard genereren.
 - **pad:** output/products/forge-dashboard.grafana.json
 - **wereld:** beckeringh-palace
 
+## Beckeringh Palace Projectstatus
+
+**Soort:** product
+
+**Identifier:** `project-status-html`
+
+### Doel
+
+De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.
+
+### Eigenschappen
+
+- **backend:** html
+- **compositie:** forge-dashboard
+- **inhoud:** project-status
+- **layout:** forge-dashboard-ultrawide
+- **mode:** static
+- **pad:** output/products/project-status.html
+- **wereld:** beckeringh-palace
+
 ## CSS design tokens
 
 **Soort:** renderdoel

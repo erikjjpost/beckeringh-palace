@@ -29,6 +29,7 @@ class ProductDefinition:
     snapshot_id: str = ""
     snapshot_ref: str = ""
     project_status: ProjectStatus | None = None
+    inhoud: str = "composition"
     wereld: str = ""
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None
@@ -48,6 +49,7 @@ def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
         pad=str(obj.eigenschappen.get("pad", "")),
         bron=obj,
         mode=str(obj.eigenschappen.get("mode", "interactive")),
+        inhoud=str(obj.eigenschappen.get("inhoud", "composition")),
         wereld=str(obj.eigenschappen.get("wereld", "")),
     )
 

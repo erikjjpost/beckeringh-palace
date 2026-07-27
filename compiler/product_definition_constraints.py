@@ -42,6 +42,7 @@ class ProductDefinitionConstraint:
             "pad",
             "mode",
             "wereld",
+            "inhoud",
         }
         for obj in context.objecten:
             if obj.soort != "product":
@@ -139,5 +140,12 @@ class ProductDefinitionConstraint:
                     code="BP3508",
                     boodschap=f"Product '{obj.id}' heeft onbekende modus '{mode}'",
                     locatie=obj.eigenschaplocaties.get("mode", obj.bronlocatie),
+                ))
+            inhoud = obj.eigenschappen.get("inhoud", "composition")
+            if inhoud not in {"composition", "project-status"}:
+                diagnostics.append(Diagnostic(
+                    code="BP3509",
+                    boodschap=f"Product '{obj.id}' heeft onbekende inhoud '{inhoud}'",
+                    locatie=obj.eigenschaplocaties.get("inhoud", obj.bronlocatie),
                 ))
         return tuple(diagnostics)
