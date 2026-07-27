@@ -2,17 +2,12 @@
 from __future__ import annotations
 
 import html
-import re
 from collections.abc import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.component_css_identity import componentklasse, variantklasse
 from compiler.design_components import verzamel_componenten
 from compiler.design_variants import resolveer_varianten
-
-
-def _css_naam(identifier: str) -> str:
-    naam = re.sub(r"[^a-zA-Z0-9_-]+", "-", identifier).strip("-").lower()
-    return naam or "component"
 
 
 def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
@@ -38,7 +33,7 @@ def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
         regels.extend(
             [
                 (
-                    f'    <section class="bp-{_css_naam(component.id)}" '
+                    f'    <section class="{componentklasse(component.id)}" '
                     f'data-component="{html.escape(component.id)}">'
                 ),
                 f"      <h2>{html.escape(component.naam)}</h2>",
@@ -50,8 +45,8 @@ def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
             regels.extend(
                 [
                     (
-                        f'    <section class="bp-{_css_naam(component.id)} '
-                        f'bp-variant-{_css_naam(variant.id)}" '
+                        f'    <section class="{componentklasse(component.id)} '
+                        f'{variantklasse(variant.id)}" '
                         f'data-component="{html.escape(component.id)}" '
                         f'data-variant="{html.escape(variant.id)}" '
                         f'data-appearance="{html.escape(variant.appearance_id)}">'

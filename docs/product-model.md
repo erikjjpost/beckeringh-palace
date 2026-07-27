@@ -349,6 +349,13 @@ variantklassen als productuitvoer en bewaren component-id, variant-id en
 effectieve appearance-id als metadata. De catalogus leidt geen standaardvariant
 af.
 
+M9.2d legt de CSS-identiteit van componenten en varianten daarna vast in één
+gedeeld renderercontract. Component CSS, product HTML en de componentcatalogus
+gebruiken dezelfde deterministische omzetting van BAT-id naar componentklasse,
+variantklasse en gecombineerde selector. De originele BAT-id blijft
+ongewijzigd in de `data`-metadata. Het contract voegt geen BAT-velden of
+impliciete varianten toe.
+
 ## Diagnostics
 
 | Code | Betekenis |
