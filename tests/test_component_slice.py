@@ -93,6 +93,21 @@ class ComponentSliceTests(unittest.TestCase):
         self.assertIn(f"{selector} h1, {selector} h2", css)
         self.assertLess(css.index(".bp-forge-panel {"), css.index(selector))
 
+    def test_toont_basiscomponent_en_variant_in_componentcatalogus(self):
+        model = analyseer(parseer(VARIANT), constraints=WORLD_MODEL_CONSTRAINTS)
+        html = naar_component_html(model.objecten)
+
+        self.assertEqual(2, html.count('data-component="forge-panel"'))
+        self.assertIn(
+            'class="bp-forge-panel bp-variant-forge-panel-compact" '
+            'data-component="forge-panel" '
+            'data-variant="forge-panel-compact" '
+            'data-appearance="forge-panel-compact-appearance"',
+            html,
+        )
+        self.assertIn("<h2>Compact Forge Panel</h2>", html)
+        self.assertIn("<p>Past het compacte profiel toe.</p>", html)
+
     def test_weigert_direct_visueel_componentveld(self):
         bron = BRON.replace(
             '    appearance: "forge-panel-appearance"',
