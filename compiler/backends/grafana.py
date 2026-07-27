@@ -2,15 +2,20 @@
 from __future__ import annotations
 
 import json
+import re
 from collections.abc import Iterable
 
 from compiler.backend import Backend
 from compiler.cir import Architectuurobject
+from compiler.design_components import ComponentAppearance, verzamel_appearances
+from compiler.design_compositions import ResolvedComponentInstance
 from compiler.layout_model import LayoutType, ResolvedLayout, ResolvedRegion
 from compiler.product_model import ProductDefinition
+from compiler.theme_resolution import ResolvedTheme
 
 GRAFANA_GRID_COLUMNS = 24
 GRAFANA_ROW_HEIGHT = 8
+PIXELWAARDE = re.compile(r"^(?P<waarde>\d+(?:\.\d+)?)px$")
 
 
 def _grafana_stijl(product: ProductDefinition) -> str:
@@ -42,7 +47,7 @@ def _grafana_stijl(product: ProductDefinition) -> str:
     return "dark" if luminantie < 128 else "light"
 
 
-def _paneelbeschrijving(instantie) -> str:
+def _paneelbeschrijving(instantie: ResolvedComponentInstance) -> str:
     identiteit = [
         f"BAT component: {instantie.component_id}",
         f"BAT appearance: {instantie.appearance_id or 'none'}",
@@ -50,6 +55,156 @@ def _paneelbeschrijving(instantie) -> str:
     if instantie.variant_id is not None:
         identiteit.insert(1, f"BAT variant: {instantie.variant_id}")
     return f"{instantie.doel}\n\n" + "\n".join(identiteit)
+
+
+def _pixels(waarde: str, context: str) -> float:
+    match = PIXELWAARDE.fullmatch(waarde)
+    if match is None:
+        raise ValueError(f"Grafana Canvas vereist een px-waarde voor {context}")
+    getal = float(match.group("waarde"))
+    return int(getal) if getal.is_integer() else getal
+
+
+def _appearance_waarde(
+    appearance: ComponentAppearance,
+    rol: str,
+    context: str,
+) -> str:
+    waarde = appearance.rol(rol)
+    if waarde is None:
+        raise ValueError(
+            f"Grafana Canvas vereist appearance-rol '{rol}' voor {context}"
+        )
+    return waarde
+
+
+def _themakleur(thema: ResolvedTheme, groep: str, rol: str) -> str:
+    bron = thema.materiaal if groep == "materiaal" else thema.palet
+    kleur = None if bron is None else bron.kleur(rol)
+    if kleur is None:
+        raise ValueError(
+            f"Grafana Canvas vereist themakleur '{groep}.{rol}'"
+        )
+    return kleur.waarde
+
+
+def _canvasopties(
+    instantie: ResolvedComponentInstance,
+    appearance: ComponentAppearance,
+    thema: ResolvedTheme,
+) -> dict[str, object]:
+    if None in (thema.border, thema.spacing, thema.typeschaal):
+        raise ValueError(
+            f"Grafana Canvas vereist border, spacing en typeschaal voor "
+            f"appearance '{appearance.id}'"
+        )
+    assert thema.border is not None
+    assert thema.spacing is not None
+    assert thema.typeschaal is not None
+
+    materiaalrol = _appearance_waarde(
+        appearance, "material", f"appearance '{appearance.id}'"
+    )
+    voorgrondrol = _appearance_waarde(
+        appearance, "foreground", f"appearance '{appearance.id}'"
+    )
+    accentrol = _appearance_waarde(
+        appearance, "accent", f"appearance '{appearance.id}'"
+    )
+    borderrol = _appearance_waarde(
+        appearance, "border", f"appearance '{appearance.id}'"
+    )
+    spacingrol = _appearance_waarde(
+        appearance, "spacing", f"appearance '{appearance.id}'"
+    )
+    headingrol = _appearance_waarde(
+        appearance, "heading-style", f"appearance '{appearance.id}'"
+    )
+    bodyrol = _appearance_waarde(
+        appearance, "body-style", f"appearance '{appearance.id}'"
+    )
+
+    padding = _pixels(getattr(thema.spacing, spacingrol), f"spacing.{spacingrol}")
+    borderbreedte = _pixels(
+        getattr(thema.border, borderrol), f"border.{borderrol}"
+    )
+    headinggrootte = _pixels(
+        getattr(thema.typeschaal, headingrol), f"typeschaal.{headingrol}"
+    )
+    bodygrootte = _pixels(
+        getattr(thema.typeschaal, bodyrol), f"typeschaal.{bodyrol}"
+    )
+    achtergrond = _themakleur(thema, "materiaal", materiaalrol)
+    voorgrond = _themakleur(thema, "materiaal", voorgrondrol)
+    accent = _themakleur(thema, "materiaal", accentrol)
+    tekstlinks = padding + 12
+
+    return {
+        "infinitePan": False,
+        "inlineEditing": False,
+        "panZoom": False,
+        "root": {
+            "background": {"color": {"fixed": achtergrond}},
+            "border": {
+                "color": {"fixed": accent},
+                "width": borderbreedte,
+            },
+            "elements": [
+                {
+                    "background": {"color": {"fixed": accent}},
+                    "border": {"color": {"fixed": accent}, "width": 0},
+                    "constraint": {"horizontal": "left", "vertical": "top"},
+                    "name": f"{instantie.id}-accent",
+                    "placement": {
+                        "height": headinggrootte + bodygrootte + 12,
+                        "left": padding,
+                        "top": padding,
+                        "width": 4,
+                    },
+                    "type": "rectangle",
+                },
+                {
+                    "config": {
+                        "align": "left",
+                        "color": {"fixed": voorgrond},
+                        "size": headinggrootte,
+                        "text": {"fixed": instantie.naam, "mode": "fixed"},
+                        "valign": "top",
+                    },
+                    "constraint": {"horizontal": "left", "vertical": "top"},
+                    "name": f"{instantie.id}-heading",
+                    "placement": {
+                        "height": headinggrootte + 8,
+                        "left": tekstlinks,
+                        "top": padding,
+                        "width": 360,
+                    },
+                    "type": "text",
+                },
+                {
+                    "config": {
+                        "align": "left",
+                        "color": {"fixed": voorgrond},
+                        "size": bodygrootte,
+                        "text": {"fixed": instantie.doel, "mode": "fixed"},
+                        "valign": "top",
+                    },
+                    "constraint": {"horizontal": "left", "vertical": "top"},
+                    "name": f"{instantie.id}-body",
+                    "placement": {
+                        "height": bodygrootte * 3,
+                        "left": tekstlinks,
+                        "top": padding + headinggrootte + 12,
+                        "width": 360,
+                    },
+                    "type": "text",
+                },
+            ],
+            "name": "Root",
+            "type": "frame",
+        },
+        "showAdvancedTypes": False,
+    }
 
 
 def _gridpositie(layout: ResolvedLayout, region: ResolvedRegion) -> dict[str, int]:
@@ -83,9 +238,10 @@ def _gridpositie(layout: ResolvedLayout, region: ResolvedRegion) -> dict[str, in
 
 
 def _render(
-    _objecten: Iterable[Architectuurobject],
+    objecten: Iterable[Architectuurobject],
     product: ProductDefinition,
 ) -> str:
+    objecten = tuple(objecten)
     compositie = product.opgeloste_compositie
     layout = product.opgeloste_layout
     if compositie is None:
@@ -101,6 +257,12 @@ def _render(
             f"Grafana-backend ondersteunt alleen native grid-layouts, niet "
             f"'{layout.type.value}'"
         )
+    stijl = _grafana_stijl(product)
+    assert product.thema is not None
+    appearances = {
+        appearance.id: appearance
+        for appearance in verzamel_appearances(objecten)
+    }
 
     regions_per_instantie = {
         region.instance_id: region
@@ -109,18 +271,25 @@ def _render(
     panels = []
     for panel_id, instantie in enumerate(compositie.instances, start=1):
         region = regions_per_instantie[instantie.id]
+        appearance = appearances.get(instantie.appearance_id or "")
+        if appearance is None:
+            raise ValueError(
+                f"Grafana Canvas vereist een opgeloste appearance voor "
+                f"componentinstantie '{instantie.id}'"
+            )
         panels.append(
             {
                 "description": _paneelbeschrijving(instantie),
                 "gridPos": _gridpositie(layout, region),
                 "id": panel_id,
-                "options": {
-                    "content": instantie.doel,
-                    "mode": "markdown",
-                },
+                "options": _canvasopties(
+                    instantie,
+                    appearance,
+                    product.thema,
+                ),
                 "title": instantie.naam,
-                "transparent": False,
-                "type": "text",
+                "transparent": True,
+                "type": "canvas",
             }
         )
 
@@ -134,7 +303,7 @@ def _render(
         "panels": panels,
         "refresh": "",
         "schemaVersion": 41,
-        "style": _grafana_stijl(product),
+        "style": stijl,
         "tags": ["beckeringh-palace", "generated"],
         "templating": {"list": []},
         "time": {"from": "now-6h", "to": "now"},

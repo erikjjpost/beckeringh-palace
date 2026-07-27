@@ -383,6 +383,14 @@ tonen het bestaande doel van de componentinstantie. Hun beschrijving bewaart
 de BAT-identiteit van component, optionele variant en effectieve appearance.
 De backend voegt geen eigen CSS, fonts, datasource of operationele waarden toe.
 
+M10.0c vertaalt iedere opgeloste componentappearance naar een statisch Grafana
+Canvas-paneel dat zonder datasource zichtbaar is. Materiaal, voorgrond, accent,
+border, spacing en heading- en bodygrootte komen rechtstreeks uit het native
+thema en appearancecontract. De Canvas-elementen tonen uitsluitend de bestaande
+naam en het bestaande doel van de componentinstantie. Radius en schaduw worden
+niet nagebootst, omdat het gebruikte Grafana Canvas-contract daarvoor geen
+gelijkwaardige paneeleigenschappen biedt.
+
 ## Diagnostics
 
 | Code | Betekenis |
