@@ -87,6 +87,7 @@ class DesignCompositionConstraint:
                     "component",
                     "variant",
                     "metric-kind",
+                    "metric-detail",
                 }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
@@ -172,6 +173,26 @@ class DesignCompositionConstraint:
                         ),
                         locatie=obj.eigenschaplocaties.get(
                             "metric-kind",
+                            obj.bronlocatie,
+                        ),
+                    ))
+                metric_detail = obj.eigenschappen.get("metric-detail")
+                if (
+                    "metric-detail" in obj.eigenschappen
+                    and (
+                        metric_kind is None
+                        or metric_detail not in {"kinds", "items"}
+                    )
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3716",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' vereist voor "
+                            "'metric-detail' de waarde 'kinds' of 'items' "
+                            "naast 'metric-kind'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "metric-detail",
                             obj.bronlocatie,
                         ),
                     ))

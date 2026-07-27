@@ -404,6 +404,12 @@ waarde op de opgeloste componentinstantie. Grafana consumeert uitsluitend die
 waarde. De HTML-productbackend toont dezelfde waarde en toelichting, zodat beide
 productuitvoeren dezelfde feitelijke dashboardinhoud uit één contract krijgen.
 
+M10.1c voegt expliciete en backendonafhankelijke metriekdetails toe. Het veld
+`metric-detail` accepteert uitsluitend `kinds` of `items` naast `metric-kind`.
+`kinds` groepeert de geselecteerde objecten deterministisch per objectsoort;
+`items` bewaart hun feitelijke namen in identifier-volgorde. HTML en Grafana
+renderen dezelfde opgeloste details en selecteren zelf geen objecten.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -436,6 +442,7 @@ productuitvoeren dezelfde feitelijke dashboardinhoud uit één contract krijgen.
 | `BP3713` | Componentinstantie verwijst naar een onbekend component |
 | `BP3714` | Componentinstantie heeft een ongeldige `metric-kind` |
 | `BP3715` | Componentinstantie telt een onbekende objectsoort |
+| `BP3716` | Componentinstantie heeft een ongeldige `metric-detail` |
 | `BP3801` | Variant heeft een onbekende eigenschap |
 | `BP3802` | Variant verwijst naar een onbekend component |
 | `BP3803` | Variant verwijst naar een onbekende appearance |

@@ -14,7 +14,7 @@ from compiler.product_model import ProductDefinition
 from compiler.theme_resolution import ResolvedTheme
 
 GRAFANA_GRID_COLUMNS = 24
-GRAFANA_ROW_HEIGHT = 8
+GRAFANA_ROW_HEIGHT = 16
 PIXELWAARDE = re.compile(r"^(?P<waarde>\d+(?:\.\d+)?)px$")
 
 
@@ -124,6 +124,9 @@ def _canvasopties(
     bodyrol = _appearance_waarde(
         appearance, "body-style", f"appearance '{appearance.id}'"
     )
+    captionrol = _appearance_waarde(
+        appearance, "caption-style", f"appearance '{appearance.id}'"
+    )
 
     padding = _pixels(getattr(thema.spacing, spacingrol), f"spacing.{spacingrol}")
     borderbreedte = _pixels(
@@ -134,6 +137,9 @@ def _canvasopties(
     )
     bodygrootte = _pixels(
         getattr(thema.typeschaal, bodyrol), f"typeschaal.{bodyrol}"
+    )
+    captiongrootte = _pixels(
+        getattr(thema.typeschaal, captionrol), f"typeschaal.{captionrol}"
     )
     achtergrond = _themakleur(thema, "materiaal", materiaalrol)
     voorgrond = _themakleur(thema, "materiaal", voorgrondrol)
@@ -197,6 +203,37 @@ def _canvasopties(
             }
         )
         body_top += metric_size + 12
+    if instantie.metric_details:
+        detailregels = tuple(
+            (
+                f"{detail.label}  {detail.value}"
+                if detail.value is not None
+                else detail.label
+            )
+            for detail in instantie.metric_details
+        )
+        detailhoogte = captiongrootte * (len(detailregels) + 1)
+        elementen.append(
+            {
+                "config": {
+                    "align": "left",
+                    "color": {"fixed": voorgrond},
+                    "size": captiongrootte,
+                    "text": {"fixed": "\n".join(detailregels), "mode": "fixed"},
+                    "valign": "top",
+                },
+                "constraint": {"horizontal": "left", "vertical": "top"},
+                "name": f"{instantie.id}-metric-details",
+                "placement": {
+                    "height": detailhoogte,
+                    "left": tekstlinks,
+                    "top": body_top,
+                    "width": 360,
+                },
+                "type": "text",
+            }
+        )
+        body_top += detailhoogte + 12
     elementen.append(
         {
             "config": {
@@ -217,6 +254,7 @@ def _canvasopties(
             "type": "text",
         }
     )
+    elementen[0]["placement"]["height"] = body_top + bodygrootte * 3 - padding
 
     return {
         "infinitePan": False,

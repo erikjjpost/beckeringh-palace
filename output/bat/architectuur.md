@@ -475,6 +475,7 @@ Aantal objecten in het gevalideerde BAT wereldmodel.
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
+- **metric-detail:** kinds
 - **metric-kind:** *
 
 ## Design tokens
@@ -491,6 +492,7 @@ Aantal native tokens waaruit de Forge producten worden gegenereerd.
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
+- **metric-detail:** items
 - **metric-kind:** token
 - **variant:** forge-panel-compact
 
@@ -508,6 +510,7 @@ Aantal productdefinities met een expliciete backend.
 
 - **component:** forge-panel
 - **compositie:** forge-dashboard
+- **metric-detail:** items
 - **metric-kind:** product
 
 ## Forge Dashboard Ultrawide

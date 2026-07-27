@@ -112,6 +112,21 @@ def _theme_css(product: ProductDefinition) -> str:
             "      margin: var(--bp-spacing-small) 0 0;",
             "      font-size: var(--bp-type-body);",
             "    }",
+            "    .bp-metric-details {",
+            "      display: grid;",
+            "      gap: var(--bp-spacing-xs);",
+            "      margin: var(--bp-spacing-small) 0;",
+            "      padding: 0;",
+            "      list-style: none;",
+            "      font-size: var(--bp-type-caption);",
+            "    }",
+            "    .bp-metric-details li {",
+            "      display: flex;",
+            "      justify-content: space-between;",
+            "      gap: var(--bp-spacing-small);",
+            "      border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-accent);",
+            "    }",
+            "    .bp-metric-detail-value { color: var(--bp-material-accent); }",
         ])
 
     return "\n".join(regels) + "\n"
