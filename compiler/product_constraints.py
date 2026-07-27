@@ -10,6 +10,7 @@ from compiler.design_tokens import TokenType, token_uit_object, waarde_past_bij_
 from compiler.diagnostics import Diagnostic
 from compiler.layout_constraints import NativeLayoutConstraint
 from compiler.product_definition_constraints import ProductDefinitionConstraint
+from compiler.render_target_constraints import RenderTargetConstraint
 from compiler.theme_constraints import ThemeFoundationConstraint
 from compiler.variant_constraints import ComponentVariantConstraint
 from compiler.world_model import Domeinstatus, objectsoortdefinitie
@@ -97,4 +98,5 @@ WORLD_MODEL_CONSTRAINTS = (
     DesignCompositionConstraint(),
     NativeLayoutConstraint(),
     ProductDefinitionConstraint(),
+    RenderTargetConstraint(),
 )

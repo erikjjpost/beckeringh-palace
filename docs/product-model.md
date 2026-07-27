@@ -356,6 +356,13 @@ variantklasse en gecombineerde selector. De originele BAT-id blijft
 ongewijzigd in de `data`-metadata. Het contract voegt geen BAT-velden of
 impliciete varianten toe.
 
+M9.3a introduceert daarna het native renderdoelcontract. Een renderdoel bevat
+een naam, doel, formaat en veilig relatief artifactpad. De semantische laag
+weigert onbekende velden en dubbele artifactpaden. Het resolved model ordent
+renderdoelen deterministisch en blijft backendonafhankelijk. Deze stap leidt
+nog geen renderer impliciet af uit een formaat en verandert de bestaande
+productgeneratie niet.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -391,3 +398,7 @@ impliciete varianten toe.
 | `BP3803` | Variant verwijst naar een onbekende appearance |
 | `BP3804` | Componentinstantie verwijst naar een onbekende variant |
 | `BP3805` | Variant hoort niet bij het component van de componentinstantie |
+| `BP3901` | Renderdoel heeft een onbekende eigenschap |
+| `BP3902` | Renderdoel mist een geldig formaat |
+| `BP3903` | Renderdoel heeft geen veilig relatief artifactpad |
+| `BP3904` | Meerdere renderdoelen gebruiken hetzelfde artifactpad |
