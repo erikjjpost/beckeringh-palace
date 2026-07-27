@@ -207,14 +207,7 @@ def _canvasopties(
         )
         body_top += metric_size + 12
     if instantie.metric_details:
-        detailregels = tuple(
-            (
-                f"{detail.label}  {detail.value}"
-                if detail.value is not None
-                else detail.label
-            )
-            for detail in instantie.metric_details
-        )
+        detailregels = tuple(instantie.metric_details)
         detailhoogte = captiongrootte * (len(detailregels) + 1)
         elementen.append(
             {
@@ -222,20 +215,66 @@ def _canvasopties(
                     "align": "left",
                     "color": {"fixed": muted},
                     "size": captiongrootte,
-                    "text": {"fixed": "\n".join(detailregels), "mode": "fixed"},
+                    "text": {
+                        "fixed": "\n".join(detail.label for detail in detailregels),
+                        "mode": "fixed",
+                    },
                     "valign": "top",
                 },
                 "constraint": {"horizontal": "left", "vertical": "top"},
-                "name": f"{instantie.id}-metric-details",
+                "name": f"{instantie.id}-metric-detail-labels",
                 "placement": {
                     "height": detailhoogte,
                     "left": tekstlinks,
                     "top": body_top,
-                    "width": 360,
+                    "width": 280,
                 },
                 "type": "text",
             }
         )
+        if any(detail.value is not None for detail in detailregels):
+            elementen.append(
+                {
+                    "config": {
+                        "align": "right",
+                        "color": {"fixed": voorgrond},
+                        "size": captiongrootte,
+                        "text": {
+                            "fixed": "\n".join(
+                                str(detail.value) if detail.value is not None else ""
+                                for detail in detailregels
+                            ),
+                            "mode": "fixed",
+                        },
+                        "valign": "top",
+                    },
+                    "constraint": {"horizontal": "left", "vertical": "top"},
+                    "name": f"{instantie.id}-metric-detail-values",
+                    "placement": {
+                        "height": detailhoogte,
+                        "left": tekstlinks + 280,
+                        "top": body_top,
+                        "width": 80,
+                    },
+                    "type": "text",
+                }
+            )
+        for regelnummer in range(1, len(detailregels) + 1):
+            elementen.append(
+                {
+                    "background": {"color": {"fixed": outline}},
+                    "border": {"color": {"fixed": outline}, "width": 0},
+                    "constraint": {"horizontal": "left", "vertical": "top"},
+                    "name": f"{instantie.id}-metric-detail-rule-{regelnummer}",
+                    "placement": {
+                        "height": 1,
+                        "left": tekstlinks,
+                        "top": body_top + captiongrootte * regelnummer,
+                        "width": 360,
+                    },
+                    "type": "rectangle",
+                }
+            )
         body_top += detailhoogte + 12
     elementen.append(
         {
