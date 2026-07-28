@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 4e11728814e5",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot adaead36cf9e",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.2a · Documentatiebasis en productrunbook (in uitvoering)\nVoltooid: M11.1b · Homepage informatiearchitectuur (PR #68)\nVolgende stap: M11.1c · Homepage visuele hiërarchie\nDe entree en routegebieden met expliciete componentrollen en appearances tot een herkenbare homepagehiërarchie uitwerken.",
+                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.1c · Homepage visuele hiërarchie (in uitvoering)\nVoltooid: M11.2a · Documentatiebasis en productrunbook (PR #69)\nVolgende stap: M11.1d · Homepage responsief contract\nResponsieve herschikking, focusvolgorde en navigatiegedrag expliciet modelleren en valideren zonder backendafleiding.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 139 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 140 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -537,7 +537,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:55",
+      "description": "project-status-area:design-system;progress:60",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -570,7 +570,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Design System · 55%",
+                  "fixed": "Design System · 60%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -634,7 +634,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 330
+                "width": 360
               },
               "type": "rectangle"
             },
@@ -646,7 +646,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar.\nResterend: Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig.",
+                  "fixed": "Onderbouwing: Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de homepage gebruikt expliciete hero- en routekaartprofielen.\nResterend: Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -670,7 +670,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 55%",
+      "title": "Design System · 60%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:40",
+      "description": "project-status-area:homepage;progress:50",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "HTML homepage · 40%",
+                  "fixed": "HTML homepage · 50%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 240
+                "width": 300
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Een eigen native homepageproduct gebruikt vier geordende inhoudsgebieden met expliciete rollen, kernboodschappen en drie opgeloste productroutes.\nResterend: De visuele hiërarchie en volwaardige wereldpresentatie moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant en appearance; de entree en drie productroutes hebben een expliciete visuele hiërarchie.\nResterend: Responsief gedrag en de volwaardige wereldpresentatie moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 40%",
+      "title": "HTML homepage · 50%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1648,7 +1648,7 @@
     "generated",
     "project-status-schema:1",
     "overall-progress:40",
-    "sha256:4e11728814e555bbd2e7e546d845f82af406baa5893a68690c7a744e37eb078d"
+    "sha256:adaead36cf9ef728197ac96fefc246b6540c1ee288f2ed2f6a73e531e2c8575f"
   ],
   "templating": {
     "list": []

@@ -83,8 +83,22 @@ class HomepageProductTests(unittest.TestCase):
         self.assertIn("<h2>Design is data</h2>", html)
         self.assertIn(
             'data-homepage-area="homepage-entrance" '
-            'data-homepage-role="entree" data-reading-order="1"',
+            'data-homepage-role="entree" data-component-role="hero" '
+            'data-reading-order="1"',
             html,
+        )
+        self.assertIn(
+            'data-variant="forge-panel-hero" '
+            'data-appearance="forge-panel-hero-appearance"',
+            html,
+        )
+        self.assertEqual(3, html.count('data-component-role="routekaart"'))
+        self.assertEqual(
+            3,
+            html.count(
+                'data-variant="forge-panel-route" '
+                'data-appearance="forge-panel-compact-appearance"'
+            ),
         )
         self.assertIn(
             '<p class="bp-core-message">Design is data.</p>',

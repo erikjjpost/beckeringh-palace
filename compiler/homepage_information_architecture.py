@@ -16,6 +16,10 @@ class ResolvedHomepageArea:
     naam: str
     doel: str
     role: str
+    component_role: str
+    component_id: str
+    variant_id: str | None
+    appearance_id: str
     reading_order: int
     core_message: str
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
@@ -32,6 +36,12 @@ class HomepageInformationArchitectureConstraint:
         )
         leesvolgordes: dict[int, str] = {}
         navigatiedoelen: dict[str, str] = {}
+        componenten = {
+            obj.id: obj for obj in context.objecten if obj.soort == "component"
+        }
+        varianten = {
+            obj.id: obj for obj in context.objecten if obj.soort == "variant"
+        }
 
         for gebied in gebieden:
             for veld in gebied.eigenschappen:
@@ -39,6 +49,9 @@ class HomepageInformationArchitectureConstraint:
                     "naam",
                     "doel",
                     "rol",
+                    "componentrol",
+                    "component",
+                    "variant",
                     "leesvolgorde",
                     "kernboodschap",
                     "navigatie",
@@ -64,6 +77,73 @@ class HomepageInformationArchitectureConstraint:
                     ),
                     locatie=gebied.eigenschaplocaties.get(
                         "rol", gebied.bronlocatie
+                    ),
+                ))
+
+            componentrol = gebied.eigenschappen.get("componentrol")
+            verwachte_componentrol = (
+                "hero"
+                if rol == "entree"
+                else "routekaart"
+                if rol == "route"
+                else None
+            )
+            if componentrol != verwachte_componentrol:
+                diagnostics.append(Diagnostic(
+                    code="BP4111",
+                    boodschap=(
+                        f"Homepagegebied '{gebied.id}' met rol '{rol}' vereist "
+                        f"componentrol '{verwachte_componentrol}'"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "componentrol", gebied.bronlocatie
+                    ),
+                ))
+
+            component_id = gebied.eigenschappen.get("component")
+            component = (
+                componenten.get(component_id)
+                if isinstance(component_id, str)
+                else None
+            )
+            if component is None:
+                diagnostics.append(Diagnostic(
+                    code="BP4112",
+                    boodschap=(
+                        f"Homepagegebied '{gebied.id}' verwijst naar een "
+                        "onbekend component"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "component", gebied.bronlocatie
+                    ),
+                ))
+
+            variant_id = gebied.eigenschappen.get("variant")
+            variant = (
+                varianten.get(variant_id)
+                if isinstance(variant_id, str)
+                else None
+            )
+            if variant is None:
+                diagnostics.append(Diagnostic(
+                    code="BP4113",
+                    boodschap=(
+                        f"Homepagegebied '{gebied.id}' verwijst naar een "
+                        "onbekende variant"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "variant", gebied.bronlocatie
+                    ),
+                ))
+            elif variant.eigenschappen.get("component") != component_id:
+                diagnostics.append(Diagnostic(
+                    code="BP4114",
+                    boodschap=(
+                        f"Variant '{variant_id}' hoort niet bij component "
+                        f"'{component_id}' van homepagegebied '{gebied.id}'"
+                    ),
+                    locatie=gebied.eigenschaplocaties.get(
+                        "variant", gebied.bronlocatie
                     ),
                 ))
 
@@ -203,6 +283,9 @@ def resolveer_homepagegebieden(
         if obj.soort != "homepagegebied":
             continue
         navigatie = obj.eigenschappen.get("navigatie")
+        component_id = str(obj.eigenschappen["component"])
+        variant_id = str(obj.eigenschappen["variant"])
+        variant = symbolen[variant_id]
         navigatiedoelen = ()
         if isinstance(navigatie, str):
             doel = symbolen[navigatie]
@@ -217,6 +300,10 @@ def resolveer_homepagegebieden(
             naam=str(obj.eigenschappen["naam"]),
             doel=str(obj.eigenschappen["doel"]),
             role=str(obj.eigenschappen["rol"]),
+            component_role=str(obj.eigenschappen["componentrol"]),
+            component_id=component_id,
+            variant_id=variant_id,
+            appearance_id=str(variant.eigenschappen["appearance"]),
             reading_order=int(obj.eigenschappen["leesvolgorde"]),
             core_message=str(obj.eigenschappen["kernboodschap"]),
             navigation_targets=navigatiedoelen,

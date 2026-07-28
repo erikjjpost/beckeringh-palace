@@ -223,6 +223,23 @@ appearance forge-panel-compact-appearance {
     caption-style: "caption"
 }
 
+appearance forge-panel-hero-appearance {
+    naam: "Forge Panel Hero Appearance"
+    doel: "Ruime en verhoogde appearance voor de homepage-entree."
+    material: "raised"
+    foreground: "foreground"
+    accent: "accent"
+    border: "strong"
+    radius: "large"
+    shadow: "high"
+    motion: "slow"
+    spacing: "xl"
+    heading-style: "display"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel voor dashboards en productdocumentatie."
@@ -232,6 +249,20 @@ component forge-panel {
 variant forge-panel-compact {
     naam: "Forge Panel Compact"
     doel: "Gecontroleerde compacte appearance voor een Forge-paneel."
+    component: "forge-panel"
+    appearance: "forge-panel-compact-appearance"
+}
+
+variant forge-panel-hero {
+    naam: "Forge Panel Hero"
+    doel: "Gecontroleerde hero-appearance voor de homepage-entree."
+    component: "forge-panel"
+    appearance: "forge-panel-hero-appearance"
+}
+
+variant forge-panel-route {
+    naam: "Forge Panel Route"
+    doel: "Gecontroleerde routekaart-appearance voor homepage-navigatie."
     component: "forge-panel"
     appearance: "forge-panel-compact-appearance"
 }
@@ -395,6 +426,9 @@ homepagegebied homepage-entrance {
     naam: "Design is data"
     doel: "Introduceert de ontwerpregel achter alle Beckeringh Palace producten."
     rol: "entree"
+    componentrol: "hero"
+    component: "forge-panel"
+    variant: "forge-panel-hero"
     leesvolgorde: "1"
     kernboodschap: "Design is data."
 }
@@ -403,6 +437,9 @@ homepagegebied homepage-world-area {
     naam: "Digitale wereld"
     doel: "Verken de samenhang tussen wereld, identiteit en productfamilie."
     rol: "route"
+    componentrol: "routekaart"
+    component: "forge-panel"
+    variant: "forge-panel-route"
     leesvolgorde: "2"
     kernboodschap: "Eén normatief wereldmodel verbindt identiteit, ontwerp en producten."
     navigatie: "forge-dashboard-html"
@@ -412,6 +449,9 @@ homepagegebied homepage-design-system-area {
     naam: "Forge ontwerpsysteem"
     doel: "Bekijk de reproduceerbare componenten en ontwerpprimitieven."
     rol: "route"
+    componentrol: "routekaart"
+    component: "forge-panel"
+    variant: "forge-panel-route"
     leesvolgorde: "3"
     kernboodschap: "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem."
     navigatie: "html-components"
@@ -421,6 +461,9 @@ homepagegebied homepage-project-status-area {
     naam: "Projectstatus"
     doel: "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone."
     rol: "route"
+    componentrol: "routekaart"
+    component: "forge-panel"
+    variant: "forge-panel-route"
     leesvolgorde: "4"
     kernboodschap: "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus."
     navigatie: "project-status-html"
@@ -428,26 +471,21 @@ homepagegebied homepage-project-status-area {
 
 componentinstantie homepage-intro {
     compositie: "beckeringh-palace-homepage-composition"
-    component: "forge-panel"
     homepagegebied: "homepage-entrance"
 }
 
 componentinstantie homepage-world {
     compositie: "beckeringh-palace-homepage-composition"
-    component: "forge-panel"
     homepagegebied: "homepage-world-area"
 }
 
 componentinstantie homepage-design-system {
     compositie: "beckeringh-palace-homepage-composition"
-    component: "forge-panel"
-    variant: "forge-panel-compact"
     homepagegebied: "homepage-design-system-area"
 }
 
 componentinstantie homepage-project-status {
     compositie: "beckeringh-palace-homepage-composition"
-    component: "forge-panel"
     homepagegebied: "homepage-project-status-area"
 }
 

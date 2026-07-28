@@ -220,6 +220,14 @@ naar hun gebied. De compiler lost naam, doel, rol, kernboodschap, leesvolgorde
 en navigatie backendonafhankelijk op voordat de generieke HTML-renderer ze
 vertaalt.
 
+M11.1c maakt de visuele hiërarchie onderdeel van dezelfde homepagegebieden.
+Ieder gebied kiest expliciet een `componentrol`, `component` en `variant`.
+De entree vereist de rol `hero`; routegebieden vereisen `routekaart`. De
+variant lost de appearance op voordat de compositie wordt gebouwd.
+Componentinstanties dupliceren deze keuzes niet. De HTML-backend ontvangt
+componentrol, variant en appearance als opgeloste semantiek en schrijft die
+machineleesbaar weg.
+
 ## Layouttypen
 
 ### Grid
@@ -631,5 +639,9 @@ bronvolgorde.
 | `BP4108` | Navigatiedoel van homepagegebied is geen product of renderdoel |
 | `BP4109` | Navigatiedoel komt voor in meerdere homepagegebieden |
 | `BP4110` | Leesvolgorde van homepagegebieden is niet aaneengesloten |
+| `BP4111` | Homepagegebied gebruikt geen componentrol die bij zijn inhoudsrol past |
+| `BP4112` | Homepagegebied verwijst naar een onbekend component |
+| `BP4113` | Homepagegebied verwijst naar een onbekende variant |
+| `BP4114` | Homepagevariant hoort niet bij het gekozen component |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

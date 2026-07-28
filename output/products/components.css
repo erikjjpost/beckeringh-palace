@@ -54,3 +54,59 @@
   font-family: var(--bp-font-body);
   font-size: var(--bp-type-caption);
 }
+
+.bp-forge-panel.bp-variant-forge-panel-hero {
+  background-color: var(--bp-material-raised);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-strong) var(--bp-border-style) var(--bp-material-accent);
+  border-radius: var(--bp-radius-large);
+  box-shadow: var(--bp-shadow-high);
+  transition-duration: var(--bp-motion-slow);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-xl);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-hero h1, .bp-forge-panel.bp-variant-forge-panel-hero h2, .bp-forge-panel.bp-variant-forge-panel-hero h3, .bp-forge-panel.bp-variant-forge-panel-hero h4, .bp-forge-panel.bp-variant-forge-panel-hero h5, .bp-forge-panel.bp-variant-forge-panel-hero h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-display);
+}
+.bp-forge-panel.bp-variant-forge-panel-hero p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-hero label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-hero small, .bp-forge-panel.bp-variant-forge-panel-hero figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route {
+  background-color: var(--bp-material-raised);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-accent);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-low);
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-xs);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route h1, .bp-forge-panel.bp-variant-forge-panel-route h2, .bp-forge-panel.bp-variant-forge-panel-route h3, .bp-forge-panel.bp-variant-forge-panel-route h4, .bp-forge-panel.bp-variant-forge-panel-route h5, .bp-forge-panel.bp-variant-forge-panel-route h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-route p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-route label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-route small, .bp-forge-panel.bp-variant-forge-panel-route figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}

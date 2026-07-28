@@ -342,6 +342,26 @@
   },
   {
     "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "strong",
+      "caption-style": "caption",
+      "doel": "Ruime en verhoogde appearance voor de homepage-entree.",
+      "foreground": "foreground",
+      "heading-style": "display",
+      "label-style": "label",
+      "material": "raised",
+      "motion": "slow",
+      "naam": "Forge Panel Hero Appearance",
+      "radius": "large",
+      "shadow": "high",
+      "spacing": "xl"
+    },
+    "id": "forge-panel-hero-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
       "appearance": "forge-panel-appearance",
       "doel": "Basispaneel voor dashboards en productdocumentatie.",
       "naam": "Forge Panel"
@@ -357,6 +377,26 @@
       "naam": "Forge Panel Compact"
     },
     "id": "forge-panel-compact",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-panel-hero-appearance",
+      "component": "forge-panel",
+      "doel": "Gecontroleerde hero-appearance voor de homepage-entree.",
+      "naam": "Forge Panel Hero"
+    },
+    "id": "forge-panel-hero",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-panel-compact-appearance",
+      "component": "forge-panel",
+      "doel": "Gecontroleerde routekaart-appearance voor homepage-navigatie.",
+      "naam": "Forge Panel Route"
+    },
+    "id": "forge-panel-route",
     "soort": "variant"
   },
   {
@@ -626,54 +666,65 @@
   },
   {
     "eigenschappen": {
+      "component": "forge-panel",
+      "componentrol": "hero",
       "doel": "Introduceert de ontwerpregel achter alle Beckeringh Palace producten.",
       "kernboodschap": "Design is data.",
       "leesvolgorde": "1",
       "naam": "Design is data",
-      "rol": "entree"
+      "rol": "entree",
+      "variant": "forge-panel-hero"
     },
     "id": "homepage-entrance",
     "soort": "homepagegebied"
   },
   {
     "eigenschappen": {
+      "component": "forge-panel",
+      "componentrol": "routekaart",
       "doel": "Verken de samenhang tussen wereld, identiteit en productfamilie.",
       "kernboodschap": "Eén normatief wereldmodel verbindt identiteit, ontwerp en producten.",
       "leesvolgorde": "2",
       "naam": "Digitale wereld",
       "navigatie": "forge-dashboard-html",
-      "rol": "route"
+      "rol": "route",
+      "variant": "forge-panel-route"
     },
     "id": "homepage-world-area",
     "soort": "homepagegebied"
   },
   {
     "eigenschappen": {
+      "component": "forge-panel",
+      "componentrol": "routekaart",
       "doel": "Bekijk de reproduceerbare componenten en ontwerpprimitieven.",
       "kernboodschap": "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.",
       "leesvolgorde": "3",
       "naam": "Forge ontwerpsysteem",
       "navigatie": "html-components",
-      "rol": "route"
+      "rol": "route",
+      "variant": "forge-panel-route"
     },
     "id": "homepage-design-system-area",
     "soort": "homepagegebied"
   },
   {
     "eigenschappen": {
+      "component": "forge-panel",
+      "componentrol": "routekaart",
       "doel": "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.",
       "kernboodschap": "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.",
       "leesvolgorde": "4",
       "naam": "Projectstatus",
       "navigatie": "project-status-html",
-      "rol": "route"
+      "rol": "route",
+      "variant": "forge-panel-route"
     },
     "id": "homepage-project-status-area",
     "soort": "homepagegebied"
   },
   {
     "eigenschappen": {
-      "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
       "homepagegebied": "homepage-entrance"
     },
@@ -682,7 +733,6 @@
   },
   {
     "eigenschappen": {
-      "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
       "homepagegebied": "homepage-world-area"
     },
@@ -691,17 +741,14 @@
   },
   {
     "eigenschappen": {
-      "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
-      "homepagegebied": "homepage-design-system-area",
-      "variant": "forge-panel-compact"
+      "homepagegebied": "homepage-design-system-area"
     },
     "id": "homepage-design-system",
     "soort": "componentinstantie"
   },
   {
     "eigenschappen": {
-      "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
       "homepagegebied": "homepage-project-status-area"
     },
