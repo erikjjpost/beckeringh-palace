@@ -1,53 +1,80 @@
-kleur ember-orange {
-    naam: "Ember Orange"
-    doel: "Primaire warme accentkleur van de Forge-ontwerpidentiteit."
-    waarde: "#D86A35"
+kleur ink-900 {
+    naam: "Deep Night Blue"
+    doel: "Standaardachtergrond van de EmberForge ontwerpidentiteit."
+    waarde: "#0F1724"
 }
 
-kleur iron-black {
-    naam: "Iron Black"
-    doel: "Donkere structurele basiskleur van de Forge-ontwerpidentiteit."
-    waarde: "#171A1F"
+kleur ink-800 {
+    naam: "Graphite"
+    doel: "Primair UI oppervlak van de EmberForge ontwerpidentiteit."
+    waarde: "#1F2937"
 }
 
-kleur forged-iron {
-    naam: "Forged Iron"
-    doel: "Dragend oppervlak voor de Forge-ontwerpidentiteit."
-    waarde: "#20252C"
+kleur ink-700 {
+    naam: "Steel Blue"
+    doel: "Verhoogd kaart en paneeloppervlak."
+    waarde: "#243447"
 }
 
-kleur raised-iron {
-    naam: "Raised Iron"
-    doel: "Verhoogd kaartoppervlak voor de Forge-ontwerpidentiteit."
-    waarde: "#282E36"
+kleur ink-600 {
+    naam: "Divider Blue"
+    doel: "Hairline en scheidingskleur op donkere oppervlakken."
+    waarde: "#2F4259"
 }
 
-kleur smoke-white {
-    naam: "Smoke White"
-    doel: "Lichte voorgrondkleur voor donkere Forge-oppervlakken."
-    waarde: "#ECECEC"
+kleur sky-400 {
+    naam: "Cyan Accent"
+    doel: "Primaire interactie en highlightkleur."
+    waarde: "#7DD3FC"
 }
 
-kleur ash-grey {
-    naam: "Ash Grey"
-    doel: "Gedempte voorgrondkleur voor ondersteunende Forge-informatie."
-    waarde: "#AEB4BD"
+kleur bone-50 {
+    naam: "Ice White"
+    doel: "Primaire tekstkleur op donkere oppervlakken."
+    waarde: "#E6EDF5"
 }
 
-kleur iron-edge {
-    naam: "Iron Edge"
-    doel: "Subtiele outlinekleur voor Forge-oppervlakken en scheidingslijnen."
-    waarde: "#46505C"
+kleur bone-300 {
+    naam: "Secondary Ice"
+    doel: "Secundaire tekstkleur op donkere oppervlakken."
+    waarde: "#B8C5D6"
+}
+
+kleur ember-500 {
+    naam: "Ember Copper"
+    doel: "Spaarzame warme Forge accentkleur."
+    waarde: "#C9895B"
+}
+
+kleur status-success {
+    naam: "Success Green"
+    doel: "Semantische succeskleur."
+    waarde: "#4ADE80"
+}
+
+kleur status-warning {
+    naam: "Warning Amber"
+    doel: "Semantische waarschuwingskleur, onderscheiden van Ember."
+    waarde: "#E0B341"
+}
+
+kleur status-error {
+    naam: "Danger Red"
+    doel: "Semantische foutkleur."
+    waarde: "#F87171"
 }
 
 palet ember-forge {
     naam: "Ember Forge"
-    doel: "Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld."
-    primary: "ember-orange"
-    background: "iron-black"
-    surface: "iron-black"
-    foreground: "smoke-white"
-    accent: "ember-orange"
+    doel: "Gecontroleerd gemigreerd semantisch kleurenpalet van EmberForge."
+    primary: "sky-400"
+    background: "ink-900"
+    surface: "ink-800"
+    foreground: "bone-50"
+    accent: "ember-500"
+    success: "status-success"
+    warning: "status-warning"
+    error: "status-error"
 }
 
 typografie forge-interface {
@@ -71,14 +98,14 @@ typeschaal forge-type-scale {
 
 materiaal forge-materials {
     naam: "Forge Materials"
-    doel: "Materiële kleurrollen voor Forge-oppervlakken en accenten."
-    canvas: "iron-black"
-    surface: "forged-iron"
-    raised: "raised-iron"
-    foreground: "smoke-white"
-    muted: "ash-grey"
-    accent: "ember-orange"
-    outline: "iron-edge"
+    doel: "Gecontroleerd gemigreerde EmberForge materiaalrollen."
+    canvas: "ink-900"
+    surface: "ink-800"
+    raised: "ink-700"
+    foreground: "bone-50"
+    muted: "bone-300"
+    accent: "ember-500"
+    outline: "ink-600"
 }
 
 border forge-borders {
@@ -159,24 +186,52 @@ merk emberforge {
 }
 
 token color-ember {
-    naam: "Ember"
-    doel: "Primaire warme accentkleur voor de Forge-identiteit."
+    naam: "Ember Copper"
+    doel: "Ruwe warme accentkleur uit het EmberForge bronpalet."
     type: "color"
-    waarde: "#D86A35"
+    waarde: "#C9895B"
 }
 
 token color-iron {
-    naam: "Iron"
-    doel: "Donkere structurele basiskleur."
+    naam: "Deep Night Blue"
+    doel: "Ruwe achtergrondkleur uit het EmberForge bronpalet."
     type: "color"
-    waarde: "#171A1F"
+    waarde: "#0F1724"
 }
 
 token color-smoke {
-    naam: "Smoke"
-    doel: "Lichte voorgrondkleur voor donkere oppervlakken."
+    naam: "Ice White"
+    doel: "Ruwe voorgrondkleur uit het EmberForge bronpalet."
     type: "color"
-    waarde: "#ECECEC"
+    waarde: "#E6EDF5"
+}
+
+token color-sky {
+    naam: "Cyan Accent"
+    doel: "Ruwe primaire interactiekleur uit het EmberForge bronpalet."
+    type: "color"
+    waarde: "#7DD3FC"
+}
+
+token color-background {
+    naam: "Background"
+    doel: "Semantische EmberForge achtergrondkleur."
+    type: "color"
+    waarde: "{color-iron}"
+}
+
+token color-primary {
+    naam: "Primary"
+    doel: "Semantische EmberForge interactiekleur."
+    type: "color"
+    waarde: "{color-sky}"
+}
+
+token color-foreground {
+    naam: "Foreground"
+    doel: "Semantische EmberForge voorgrondkleur."
+    type: "color"
+    waarde: "{color-smoke}"
 }
 
 token color-accent {

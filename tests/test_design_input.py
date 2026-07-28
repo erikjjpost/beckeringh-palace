@@ -43,6 +43,16 @@ class DesignInputTests(unittest.TestCase):
         self.assertIn("M11.1e", world_language["bewijs"])
         self.assertIn("emberforge", world_language["bewijs"])
 
+    def test_palette_has_auditable_native_migration(self) -> None:
+        palette = next(
+            area
+            for area in self.source["gebieden"]
+            if area["id"] == "palette"
+        )
+        self.assertEqual("gemigreerd", palette["status"])
+        self.assertIn("M11.3b", palette["bewijs"])
+        self.assertIn("tokens", palette["bewijs"])
+
     def test_normative_external_source_fails_hard(self) -> None:
         invalid = copy.deepcopy(self.source)
         invalid["broncontract"]["normatief"] = True

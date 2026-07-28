@@ -43,103 +43,159 @@ Ideeën omzetten in gecontroleerde voorstellen voor het architectuurmodel.
 - **ondersteunt:** tweede-brein
 - **vereist:** menselijke-goedkeuring
 
-## Ember Orange
+## Deep Night Blue
 
 **Soort:** kleur
 
-**Identifier:** `ember-orange`
+**Identifier:** `ink-900`
 
 ### Doel
 
-Primaire warme accentkleur van de Forge-ontwerpidentiteit.
+Standaardachtergrond van de EmberForge ontwerpidentiteit.
 
 ### Eigenschappen
 
-- **waarde:** #D86A35
+- **waarde:** #0F1724
 
-## Iron Black
+## Graphite
 
 **Soort:** kleur
 
-**Identifier:** `iron-black`
+**Identifier:** `ink-800`
 
 ### Doel
 
-Donkere structurele basiskleur van de Forge-ontwerpidentiteit.
+Primair UI oppervlak van de EmberForge ontwerpidentiteit.
 
 ### Eigenschappen
 
-- **waarde:** #171A1F
+- **waarde:** #1F2937
 
-## Forged Iron
+## Steel Blue
 
 **Soort:** kleur
 
-**Identifier:** `forged-iron`
+**Identifier:** `ink-700`
 
 ### Doel
 
-Dragend oppervlak voor de Forge-ontwerpidentiteit.
+Verhoogd kaart en paneeloppervlak.
 
 ### Eigenschappen
 
-- **waarde:** #20252C
+- **waarde:** #243447
 
-## Raised Iron
+## Divider Blue
 
 **Soort:** kleur
 
-**Identifier:** `raised-iron`
+**Identifier:** `ink-600`
 
 ### Doel
 
-Verhoogd kaartoppervlak voor de Forge-ontwerpidentiteit.
+Hairline en scheidingskleur op donkere oppervlakken.
 
 ### Eigenschappen
 
-- **waarde:** #282E36
+- **waarde:** #2F4259
 
-## Smoke White
+## Cyan Accent
 
 **Soort:** kleur
 
-**Identifier:** `smoke-white`
+**Identifier:** `sky-400`
 
 ### Doel
 
-Lichte voorgrondkleur voor donkere Forge-oppervlakken.
+Primaire interactie en highlightkleur.
 
 ### Eigenschappen
 
-- **waarde:** #ECECEC
+- **waarde:** #7DD3FC
 
-## Ash Grey
+## Ice White
 
 **Soort:** kleur
 
-**Identifier:** `ash-grey`
+**Identifier:** `bone-50`
 
 ### Doel
 
-Gedempte voorgrondkleur voor ondersteunende Forge-informatie.
+Primaire tekstkleur op donkere oppervlakken.
 
 ### Eigenschappen
 
-- **waarde:** #AEB4BD
+- **waarde:** #E6EDF5
 
-## Iron Edge
+## Secondary Ice
 
 **Soort:** kleur
 
-**Identifier:** `iron-edge`
+**Identifier:** `bone-300`
 
 ### Doel
 
-Subtiele outlinekleur voor Forge-oppervlakken en scheidingslijnen.
+Secundaire tekstkleur op donkere oppervlakken.
 
 ### Eigenschappen
 
-- **waarde:** #46505C
+- **waarde:** #B8C5D6
+
+## Ember Copper
+
+**Soort:** kleur
+
+**Identifier:** `ember-500`
+
+### Doel
+
+Spaarzame warme Forge accentkleur.
+
+### Eigenschappen
+
+- **waarde:** #C9895B
+
+## Success Green
+
+**Soort:** kleur
+
+**Identifier:** `status-success`
+
+### Doel
+
+Semantische succeskleur.
+
+### Eigenschappen
+
+- **waarde:** #4ADE80
+
+## Warning Amber
+
+**Soort:** kleur
+
+**Identifier:** `status-warning`
+
+### Doel
+
+Semantische waarschuwingskleur, onderscheiden van Ember.
+
+### Eigenschappen
+
+- **waarde:** #E0B341
+
+## Danger Red
+
+**Soort:** kleur
+
+**Identifier:** `status-error`
+
+### Doel
+
+Semantische foutkleur.
+
+### Eigenschappen
+
+- **waarde:** #F87171
 
 ## Ember Forge
 
@@ -149,15 +205,18 @@ Subtiele outlinekleur voor Forge-oppervlakken en scheidingslijnen.
 
 ### Doel
 
-Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld.
+Gecontroleerd gemigreerd semantisch kleurenpalet van EmberForge.
 
 ### Eigenschappen
 
-- **accent:** ember-orange
-- **background:** iron-black
-- **foreground:** smoke-white
-- **primary:** ember-orange
-- **surface:** iron-black
+- **accent:** ember-500
+- **background:** ink-900
+- **error:** status-error
+- **foreground:** bone-50
+- **primary:** sky-400
+- **success:** status-success
+- **surface:** ink-800
+- **warning:** status-warning
 
 ## Forge Interface
 
@@ -202,17 +261,17 @@ Semantische tekstgroottes voor digitale Forge-producten.
 
 ### Doel
 
-Materiële kleurrollen voor Forge-oppervlakken en accenten.
+Gecontroleerd gemigreerde EmberForge materiaalrollen.
 
 ### Eigenschappen
 
-- **accent:** ember-orange
-- **canvas:** iron-black
-- **foreground:** smoke-white
-- **muted:** ash-grey
-- **outline:** iron-edge
-- **raised:** raised-iron
-- **surface:** forged-iron
+- **accent:** ember-500
+- **canvas:** ink-900
+- **foreground:** bone-50
+- **muted:** bone-300
+- **outline:** ink-600
+- **raised:** ink-700
+- **surface:** ink-800
 
 ## Forge Borders
 
@@ -355,7 +414,7 @@ Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
 - **taal:** Nederlands met technische termen in het Engels
 - **tagline:** Sovereign Infrastructure.
 
-## Ember
+## Ember Copper
 
 **Soort:** token
 
@@ -363,14 +422,14 @@ Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
 
 ### Doel
 
-Primaire warme accentkleur voor de Forge-identiteit.
+Ruwe warme accentkleur uit het EmberForge bronpalet.
 
 ### Eigenschappen
 
 - **type:** color
-- **waarde:** #D86A35
+- **waarde:** #C9895B
 
-## Iron
+## Deep Night Blue
 
 **Soort:** token
 
@@ -378,14 +437,14 @@ Primaire warme accentkleur voor de Forge-identiteit.
 
 ### Doel
 
-Donkere structurele basiskleur.
+Ruwe achtergrondkleur uit het EmberForge bronpalet.
 
 ### Eigenschappen
 
 - **type:** color
-- **waarde:** #171A1F
+- **waarde:** #0F1724
 
-## Smoke
+## Ice White
 
 **Soort:** token
 
@@ -393,12 +452,72 @@ Donkere structurele basiskleur.
 
 ### Doel
 
-Lichte voorgrondkleur voor donkere oppervlakken.
+Ruwe voorgrondkleur uit het EmberForge bronpalet.
 
 ### Eigenschappen
 
 - **type:** color
-- **waarde:** #ECECEC
+- **waarde:** #E6EDF5
+
+## Cyan Accent
+
+**Soort:** token
+
+**Identifier:** `color-sky`
+
+### Doel
+
+Ruwe primaire interactiekleur uit het EmberForge bronpalet.
+
+### Eigenschappen
+
+- **type:** color
+- **waarde:** #7DD3FC
+
+## Background
+
+**Soort:** token
+
+**Identifier:** `color-background`
+
+### Doel
+
+Semantische EmberForge achtergrondkleur.
+
+### Eigenschappen
+
+- **type:** color
+- **waarde:** {color-iron}
+
+## Primary
+
+**Soort:** token
+
+**Identifier:** `color-primary`
+
+### Doel
+
+Semantische EmberForge interactiekleur.
+
+### Eigenschappen
+
+- **type:** color
+- **waarde:** {color-sky}
+
+## Foreground
+
+**Soort:** token
+
+**Identifier:** `color-foreground`
+
+### Doel
+
+Semantische EmberForge voorgrondkleur.
+
+### Eigenschappen
+
+- **type:** color
+- **waarde:** {color-smoke}
 
 ## Accent
 

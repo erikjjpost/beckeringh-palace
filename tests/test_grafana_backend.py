@@ -73,15 +73,15 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertTrue(all(panel["type"] == "canvas" for panel in dashboard["panels"]))
         self.assertEqual(
-            "#282E36",
+            "#243447",
             dashboard["panels"][2]["options"]["root"]["background"]["color"]["fixed"],
         )
         self.assertEqual(
-            "#20252C",
+            "#1F2937",
             dashboard["panels"][0]["options"]["root"]["background"]["color"]["fixed"],
         )
         self.assertEqual(
-            {"color": {"fixed": "#46505C"}, "width": 2},
+            {"color": {"fixed": "#2F4259"}, "width": 2},
             dashboard["panels"][2]["options"]["root"]["border"],
         )
         middennamen = [
@@ -121,8 +121,8 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\n"
-            "Forge Materials · materiaal\nMateriële kleurrollen voor "
-            "Forge-oppervlakken en accenten.\n"
+            "Forge Materials · materiaal\nGecontroleerd gemigreerde "
+            "EmberForge materiaalrollen.\n"
             "Forge Panel · component\nBasispaneel voor dashboards en "
             "productdocumentatie.",
             inhoud["config"]["text"]["fixed"],
@@ -130,7 +130,7 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual(
             {
                 "align": "left",
-                "color": {"fixed": "#ECECEC"},
+                "color": {"fixed": "#E6EDF5"},
                 "size": 28,
                 "text": {"fixed": "Forge ontwerpsysteem", "mode": "fixed"},
                 "valign": "top",
@@ -154,19 +154,19 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["fixed"],
         )
         self.assertEqual(
-            {"fixed": "#AEB4BD"},
+            {"fixed": "#B8C5D6"},
             dashboard["panels"][2]["options"]["root"]["elements"][3]["config"][
                 "color"
             ],
         )
         self.assertEqual(
-            {"fixed": "#AEB4BD"},
+            {"fixed": "#B8C5D6"},
             dashboard["panels"][2]["options"]["root"]["elements"][-1]["config"][
                 "color"
             ],
         )
         self.assertEqual(
-            {"color": {"fixed": "#46505C"}, "width": 0},
+            {"color": {"fixed": "#2F4259"}, "width": 0},
             next(
                 element
                 for element in dashboard["panels"][2]["options"]["root"]["elements"]
@@ -178,31 +178,31 @@ class GrafanaBackendTests(unittest.TestCase):
             for element in dashboard["panels"][1]["options"]["root"]["elements"]
         }
         self.assertEqual(
-            {"fixed": "#AEB4BD"},
+            {"fixed": "#B8C5D6"},
             linker_elementen[
                 "forge-dashboard-left-panel-metric-detail-labels"
             ]["config"]["color"],
         )
         self.assertEqual(
-            {"fixed": "#ECECEC"},
+            {"fixed": "#E6EDF5"},
             linker_elementen[
                 "forge-dashboard-left-panel-metric-detail-values"
             ]["config"]["color"],
         )
         self.assertEqual(
-            {"color": {"fixed": "#46505C"}, "width": 0},
+            {"color": {"fixed": "#2F4259"}, "width": 0},
             linker_elementen[
                 "forge-dashboard-left-panel-metric-detail-rule-1"
             ]["border"],
         )
         self.assertEqual(
-            "30",
+            "38",
             dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
-            ["2", "30", "31"],
+            ["2", "38", "31"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
@@ -236,13 +236,13 @@ class GrafanaBackendTests(unittest.TestCase):
             dashboard["panels"][0]["description"],
         )
         self.assertEqual(
-            {"fixed": "#ECECEC"},
+            {"fixed": "#E6EDF5"},
             dashboard["panels"][0]["options"]["root"]["elements"][1]["config"][
                 "color"
             ],
         )
         self.assertEqual(
-            {"fixed": "#AEB4BD"},
+            {"fixed": "#B8C5D6"},
             dashboard["panels"][0]["options"]["root"]["elements"][2]["config"][
                 "color"
             ],

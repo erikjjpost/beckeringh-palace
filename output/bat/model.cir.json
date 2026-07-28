@@ -39,76 +39,115 @@
   },
   {
     "eigenschappen": {
-      "doel": "Primaire warme accentkleur van de Forge-ontwerpidentiteit.",
-      "naam": "Ember Orange",
-      "waarde": "#D86A35"
+      "doel": "Standaardachtergrond van de EmberForge ontwerpidentiteit.",
+      "naam": "Deep Night Blue",
+      "waarde": "#0F1724"
     },
-    "id": "ember-orange",
+    "id": "ink-900",
     "soort": "kleur"
   },
   {
     "eigenschappen": {
-      "doel": "Donkere structurele basiskleur van de Forge-ontwerpidentiteit.",
-      "naam": "Iron Black",
-      "waarde": "#171A1F"
+      "doel": "Primair UI oppervlak van de EmberForge ontwerpidentiteit.",
+      "naam": "Graphite",
+      "waarde": "#1F2937"
     },
-    "id": "iron-black",
+    "id": "ink-800",
     "soort": "kleur"
   },
   {
     "eigenschappen": {
-      "doel": "Dragend oppervlak voor de Forge-ontwerpidentiteit.",
-      "naam": "Forged Iron",
-      "waarde": "#20252C"
+      "doel": "Verhoogd kaart en paneeloppervlak.",
+      "naam": "Steel Blue",
+      "waarde": "#243447"
     },
-    "id": "forged-iron",
+    "id": "ink-700",
     "soort": "kleur"
   },
   {
     "eigenschappen": {
-      "doel": "Verhoogd kaartoppervlak voor de Forge-ontwerpidentiteit.",
-      "naam": "Raised Iron",
-      "waarde": "#282E36"
+      "doel": "Hairline en scheidingskleur op donkere oppervlakken.",
+      "naam": "Divider Blue",
+      "waarde": "#2F4259"
     },
-    "id": "raised-iron",
+    "id": "ink-600",
     "soort": "kleur"
   },
   {
     "eigenschappen": {
-      "doel": "Lichte voorgrondkleur voor donkere Forge-oppervlakken.",
-      "naam": "Smoke White",
-      "waarde": "#ECECEC"
+      "doel": "Primaire interactie en highlightkleur.",
+      "naam": "Cyan Accent",
+      "waarde": "#7DD3FC"
     },
-    "id": "smoke-white",
+    "id": "sky-400",
     "soort": "kleur"
   },
   {
     "eigenschappen": {
-      "doel": "Gedempte voorgrondkleur voor ondersteunende Forge-informatie.",
-      "naam": "Ash Grey",
-      "waarde": "#AEB4BD"
+      "doel": "Primaire tekstkleur op donkere oppervlakken.",
+      "naam": "Ice White",
+      "waarde": "#E6EDF5"
     },
-    "id": "ash-grey",
+    "id": "bone-50",
     "soort": "kleur"
   },
   {
     "eigenschappen": {
-      "doel": "Subtiele outlinekleur voor Forge-oppervlakken en scheidingslijnen.",
-      "naam": "Iron Edge",
-      "waarde": "#46505C"
+      "doel": "Secundaire tekstkleur op donkere oppervlakken.",
+      "naam": "Secondary Ice",
+      "waarde": "#B8C5D6"
     },
-    "id": "iron-edge",
+    "id": "bone-300",
     "soort": "kleur"
   },
   {
     "eigenschappen": {
-      "accent": "ember-orange",
-      "background": "iron-black",
-      "doel": "Semantisch kleurenpalet voor de Beckeringh Palace Forge-wereld.",
-      "foreground": "smoke-white",
+      "doel": "Spaarzame warme Forge accentkleur.",
+      "naam": "Ember Copper",
+      "waarde": "#C9895B"
+    },
+    "id": "ember-500",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Semantische succeskleur.",
+      "naam": "Success Green",
+      "waarde": "#4ADE80"
+    },
+    "id": "status-success",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Semantische waarschuwingskleur, onderscheiden van Ember.",
+      "naam": "Warning Amber",
+      "waarde": "#E0B341"
+    },
+    "id": "status-warning",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Semantische foutkleur.",
+      "naam": "Danger Red",
+      "waarde": "#F87171"
+    },
+    "id": "status-error",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "accent": "ember-500",
+      "background": "ink-900",
+      "doel": "Gecontroleerd gemigreerd semantisch kleurenpalet van EmberForge.",
+      "error": "status-error",
+      "foreground": "bone-50",
       "naam": "Ember Forge",
-      "primary": "ember-orange",
-      "surface": "iron-black"
+      "primary": "sky-400",
+      "success": "status-success",
+      "surface": "ink-800",
+      "warning": "status-warning"
     },
     "id": "ember-forge",
     "soort": "palet"
@@ -140,15 +179,15 @@
   },
   {
     "eigenschappen": {
-      "accent": "ember-orange",
-      "canvas": "iron-black",
-      "doel": "Materiële kleurrollen voor Forge-oppervlakken en accenten.",
-      "foreground": "smoke-white",
-      "muted": "ash-grey",
+      "accent": "ember-500",
+      "canvas": "ink-900",
+      "doel": "Gecontroleerd gemigreerde EmberForge materiaalrollen.",
+      "foreground": "bone-50",
+      "muted": "bone-300",
       "naam": "Forge Materials",
-      "outline": "iron-edge",
-      "raised": "raised-iron",
-      "surface": "forged-iron"
+      "outline": "ink-600",
+      "raised": "ink-700",
+      "surface": "ink-800"
     },
     "id": "forge-materials",
     "soort": "materiaal"
@@ -267,32 +306,72 @@
   },
   {
     "eigenschappen": {
-      "doel": "Primaire warme accentkleur voor de Forge-identiteit.",
-      "naam": "Ember",
+      "doel": "Ruwe warme accentkleur uit het EmberForge bronpalet.",
+      "naam": "Ember Copper",
       "type": "color",
-      "waarde": "#D86A35"
+      "waarde": "#C9895B"
     },
     "id": "color-ember",
     "soort": "token"
   },
   {
     "eigenschappen": {
-      "doel": "Donkere structurele basiskleur.",
-      "naam": "Iron",
+      "doel": "Ruwe achtergrondkleur uit het EmberForge bronpalet.",
+      "naam": "Deep Night Blue",
       "type": "color",
-      "waarde": "#171A1F"
+      "waarde": "#0F1724"
     },
     "id": "color-iron",
     "soort": "token"
   },
   {
     "eigenschappen": {
-      "doel": "Lichte voorgrondkleur voor donkere oppervlakken.",
-      "naam": "Smoke",
+      "doel": "Ruwe voorgrondkleur uit het EmberForge bronpalet.",
+      "naam": "Ice White",
       "type": "color",
-      "waarde": "#ECECEC"
+      "waarde": "#E6EDF5"
     },
     "id": "color-smoke",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Ruwe primaire interactiekleur uit het EmberForge bronpalet.",
+      "naam": "Cyan Accent",
+      "type": "color",
+      "waarde": "#7DD3FC"
+    },
+    "id": "color-sky",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Semantische EmberForge achtergrondkleur.",
+      "naam": "Background",
+      "type": "color",
+      "waarde": "{color-iron}"
+    },
+    "id": "color-background",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Semantische EmberForge interactiekleur.",
+      "naam": "Primary",
+      "type": "color",
+      "waarde": "{color-sky}"
+    },
+    "id": "color-primary",
+    "soort": "token"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Semantische EmberForge voorgrondkleur.",
+      "naam": "Foreground",
+      "type": "color",
+      "waarde": "{color-smoke}"
+    },
+    "id": "color-foreground",
     "soort": "token"
   },
   {

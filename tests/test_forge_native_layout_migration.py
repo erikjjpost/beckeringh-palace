@@ -99,7 +99,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertEqual(1, product.inhoud.count('data-variant="'))
         self.assertEqual(
-            ("2", "30", "31"),
+            ("2", "38", "31"),
             tuple(
                 str(instantie.metric_value)
                 for instantie in compositie.instances
@@ -110,7 +110,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">30</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">38</p>',
             product.inhoud,
         )
         self.assertIn(
@@ -170,7 +170,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
-            '<li><span>token</span><span class="bp-metric-detail-value">6</span></li>',
+            '<li><span>token</span><span class="bp-metric-detail-value">10</span></li>',
             product.inhoud,
         )
         self.assertIn(

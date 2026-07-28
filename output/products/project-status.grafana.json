@@ -24,12 +24,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#20252C"
+              "fixed": "#1F2937"
             }
           },
           "border": {
             "color": {
-              "fixed": "#D86A35"
+              "fixed": "#C9895B"
             },
             "width": 0
           },
@@ -38,11 +38,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 8df16233fbd2",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d4aee0aeff28",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -64,7 +64,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 40,
                 "text": {
@@ -90,7 +90,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:43",
+      "description": "project-status-schema:1;overall-progress:44",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -138,12 +138,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -152,11 +152,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Totale voortgang · 43%",
+                  "fixed": "Totale voortgang · 44%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -177,12 +177,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -202,12 +202,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 258
+                "width": 264
               },
               "type": "rectangle"
             },
@@ -228,11 +228,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.1e · Homepage wereldpresentatie (in uitvoering)\nVoltooid: M11.3a · EmberForge ontwerpbroncontract (PR #72)\nVolgende stap: M11.3b · EmberForge paletmigratie\nDe geverifieerde EmberForge kleuren en semantische kleurrollen gecontroleerd naar BAT migreren en in de afgeleide producten activeren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3b · EmberForge paletmigratie (in uitvoering)\nVoltooid: M11.1e · Homepage wereldpresentatie (PR #73)\nVolgende stap: M11.3c · EmberForge primitiefmigratie\nDe geverifieerde spacing, radius, shadow en motion schalen gecontroleerd naar BAT migreren en in de afgeleide producten activeren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 43%",
+      "title": "Totale voortgang · 44%",
       "transparent": true,
       "type": "canvas"
     },
@@ -276,12 +276,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -290,7 +290,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -315,12 +315,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -340,12 +340,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -366,7 +366,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -414,12 +414,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -428,7 +428,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -453,12 +453,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -478,12 +478,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -504,7 +504,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -537,7 +537,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:62",
+      "description": "project-status-area:design-system;progress:68",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -552,12 +552,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -566,11 +566,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Design System · 62%",
+                  "fixed": "Design System · 68%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -591,12 +591,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -616,12 +616,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -634,7 +634,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 372
+                "width": 408
               },
               "type": "rectangle"
             },
@@ -642,11 +642,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de externe EmberForge ontwerpinput heeft een vaste identiteit en expliciete BAT gapanalyse.\nResterend: De goedgekeurde bronwaarden, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief naar BAT worden gemigreerd.",
+                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet is native gemigreerd naar ruwe kleuren, semantische palet en materiaalrollen en draagbare tokens; HTML en Grafana gebruiken dezelfde opgeloste waarden.\nResterend: Spacing, radius, shadow, motion, typografie, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief worden gemigreerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -670,7 +670,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 62%",
+      "title": "Design System · 68%",
       "transparent": true,
       "type": "canvas"
     },
@@ -690,12 +690,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -704,7 +704,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -729,12 +729,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -754,12 +754,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -780,7 +780,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -828,12 +828,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -842,7 +842,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -867,12 +867,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -892,12 +892,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -918,7 +918,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -966,12 +966,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -980,7 +980,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -1005,12 +1005,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1030,12 +1030,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -1056,7 +1056,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -1104,12 +1104,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -1118,7 +1118,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -1143,12 +1143,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1168,12 +1168,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -1194,7 +1194,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -1242,12 +1242,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -1256,7 +1256,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -1281,12 +1281,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1306,12 +1306,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -1332,7 +1332,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -1380,12 +1380,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -1394,7 +1394,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -1419,12 +1419,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1444,12 +1444,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -1470,7 +1470,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -1518,12 +1518,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 1
           },
@@ -1532,7 +1532,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -1557,12 +1557,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1582,12 +1582,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -1608,7 +1608,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:43",
-    "sha256:8df16233fbd25df1a55e4c90ef76be7d416123df4a29d4ea6fa8f5b961901bfc"
+    "overall-progress:44",
+    "sha256:d4aee0aeff28b9453115d2c0750418fdbb01518f29ae60216f9f3b955f8b3c4c"
   ],
   "templating": {
     "list": []

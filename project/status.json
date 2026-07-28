@@ -3,19 +3,19 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.1e",
-    "name": "Homepage wereldpresentatie",
+    "id": "M11.3b",
+    "name": "EmberForge paletmigratie",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.3a",
-    "name": "EmberForge ontwerpbroncontract",
-    "pull_request": 72
+    "id": "M11.1e",
+    "name": "Homepage wereldpresentatie",
+    "pull_request": 73
   },
   "next_step": {
-    "id": "M11.3b",
-    "name": "EmberForge paletmigratie",
-    "purpose": "De geverifieerde EmberForge kleuren en semantische kleurrollen gecontroleerd naar BAT migreren en in de afgeleide producten activeren."
+    "id": "M11.3c",
+    "name": "EmberForge primitiefmigratie",
+    "purpose": "De geverifieerde spacing, radius, shadow en motion schalen gecontroleerd naar BAT migreren en in de afgeleide producten activeren."
   },
   "areas": [
     {
@@ -37,10 +37,10 @@
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 62,
+      "progress": 68,
       "weight": 10,
-      "evidence": "Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de externe EmberForge ontwerpinput heeft een vaste identiteit en expliciete BAT gapanalyse.",
-      "remaining": "De goedgekeurde bronwaarden, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief naar BAT worden gemigreerd."
+      "evidence": "Het geverifieerde EmberForge palet is native gemigreerd naar ruwe kleuren, semantische palet en materiaalrollen en draagbare tokens; HTML en Grafana gebruiken dezelfde opgeloste waarden.",
+      "remaining": "Spacing, radius, shadow, motion, typografie, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief worden gemigreerd."
     },
     {
       "id": "dashboard",

@@ -24,12 +24,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#20252C"
+              "fixed": "#1F2937"
             }
           },
           "border": {
             "color": {
-              "fixed": "#D86A35"
+              "fixed": "#C9895B"
             },
             "width": 0
           },
@@ -38,11 +38,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 8df16233fbd2",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d4aee0aeff28",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -64,7 +64,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 40,
                 "text": {
@@ -90,7 +90,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -138,12 +138,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 2
           },
@@ -151,12 +151,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -177,7 +177,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -203,7 +203,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 56,
                 "text": {
@@ -229,7 +229,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 12,
                 "text": {
@@ -255,7 +255,7 @@
               "config": {
                 "align": "right",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 12,
                 "text": {
@@ -280,12 +280,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -305,12 +305,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -331,7 +331,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 12,
                 "text": {
@@ -369,7 +369,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 16,
                 "text": {
@@ -395,7 +395,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -443,12 +443,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 2
           },
@@ -456,12 +456,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -482,7 +482,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -508,11 +508,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "30",
+                  "fixed": "38",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -534,7 +534,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 12,
                 "text": {
@@ -560,11 +560,11 @@
               "config": {
                 "align": "right",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "3\n1\n1\n7\n1\n1\n1\n1\n1\n1\n1\n6\n1\n1\n3",
+                  "fixed": "3\n1\n1\n11\n1\n1\n1\n1\n1\n1\n1\n10\n1\n1\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -585,12 +585,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -610,12 +610,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -635,12 +635,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -660,12 +660,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -685,12 +685,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -710,12 +710,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -735,12 +735,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -760,12 +760,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -785,12 +785,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -810,12 +810,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -835,12 +835,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -860,12 +860,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -885,12 +885,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -910,12 +910,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -935,12 +935,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -961,7 +961,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 12,
                 "text": {
@@ -1009,11 +1009,11 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nMateriële kleurrollen voor Forge-oppervlakken en accenten.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.",
+                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nGecontroleerd gemigreerde EmberForge materiaalrollen.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1035,7 +1035,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -1083,12 +1083,12 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#282E36"
+              "fixed": "#243447"
             }
           },
           "border": {
             "color": {
-              "fixed": "#46505C"
+              "fixed": "#2F4259"
             },
             "width": 2
           },
@@ -1096,12 +1096,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "width": 0
               },
@@ -1122,7 +1122,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 28,
                 "text": {
@@ -1148,7 +1148,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 56,
                 "text": {
@@ -1174,7 +1174,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 12,
                 "text": {
@@ -1200,7 +1200,7 @@
               "config": {
                 "align": "right",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 12,
                 "text": {
@@ -1225,12 +1225,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1250,12 +1250,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1275,12 +1275,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1300,12 +1300,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1325,12 +1325,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1350,12 +1350,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1375,12 +1375,12 @@
             {
               "background": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 }
               },
               "border": {
                 "color": {
-                  "fixed": "#46505C"
+                  "fixed": "#2F4259"
                 },
                 "width": 0
               },
@@ -1401,7 +1401,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#D86A35"
+                  "fixed": "#C9895B"
                 },
                 "size": 12,
                 "text": {
@@ -1439,7 +1439,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#ECECEC"
+                  "fixed": "#E6EDF5"
                 },
                 "size": 16,
                 "text": {
@@ -1465,7 +1465,7 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#AEB4BD"
+                  "fixed": "#B8C5D6"
                 },
                 "size": 16,
                 "text": {
@@ -1503,7 +1503,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:8df16233fbd25df1a55e4c90ef76be7d416123df4a29d4ea6fa8f5b961901bfc"
+    "sha256:d4aee0aeff28b9453115d2c0750418fdbb01518f29ae60216f9f3b955f8b3c4c"
   ],
   "templating": {
     "list": []
