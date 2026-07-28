@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.1d · Homepage responsief contract (in uitvoering)\nVoltooid: M11.1c · Homepage visuele hiërarchie (PR #70)\nVolgende stap: M11.1e · Homepage wereldpresentatie\nDe Palace identiteit, productfamilie en samenhangende wereldboodschap native verdiepen zonder inhoud in de backend vast te leggen.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3a · EmberForge ontwerpbroncontract (in uitvoering)\nVoltooid: M11.1d · Homepage responsief contract (PR #71)\nVolgende stap: M11.1e · Homepage wereldpresentatie\nDe Palace identiteit, productfamilie en samenhangende wereldboodschap native verdiepen zonder inhoud in de backend vast te leggen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -537,7 +537,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:60",
+      "description": "project-status-area:design-system;progress:62",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -570,7 +570,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Design System · 60%",
+                  "fixed": "Design System · 62%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -634,7 +634,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 360
+                "width": 372
               },
               "type": "rectangle"
             },
@@ -646,7 +646,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de homepage gebruikt expliciete hero- en routekaartprofielen.\nResterend: Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig.",
+                  "fixed": "Onderbouwing: Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de externe EmberForge ontwerpinput heeft een vaste identiteit en expliciete BAT gapanalyse.\nResterend: De goedgekeurde bronwaarden, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief naar BAT worden gemigreerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -670,7 +670,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 60%",
+      "title": "Design System · 62%",
       "transparent": true,
       "type": "canvas"
     },

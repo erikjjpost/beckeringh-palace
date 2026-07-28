@@ -586,6 +586,17 @@ De gewichten tellen exact op tot 100. De projectstatuslaag berekent het gewogen
 totaal één keer met deterministische afronding en levert dezelfde waarde aan
 Markdown, HTML en Grafana.
 
+M11.3a introduceert een gecontroleerd ontwerpbroncontract voor het aangeleverde
+EmberForge Design System. Het contract legt bronidentiteit, inventaris,
+mappingstatus, bewijs en uitsluitingen vast. Externe ontwerpinput is expliciet
+niet normatief, mag geen runtimeafhankelijkheden introduceren en wordt alleen
+actief via een afzonderlijke BAT-migratie.
+
+De gapanalyse maakt onderscheid tussen mapbare, gedeeltelijk mapbare,
+besluitplichtige en geblokkeerde onderdelen. Daardoor worden voorbeeldcode,
+placeholder assets, ontbrekende bestanden en externe CDN bronnen niet
+stilzwijgend onderdeel van een product of renderer.
+
 ## Diagnostics
 
 | Code | Betekenis |

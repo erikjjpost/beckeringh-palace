@@ -3,14 +3,14 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.1d",
-    "name": "Homepage responsief contract",
+    "id": "M11.3a",
+    "name": "EmberForge ontwerpbroncontract",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.1c",
-    "name": "Homepage visuele hiërarchie",
-    "pull_request": 70
+    "id": "M11.1d",
+    "name": "Homepage responsief contract",
+    "pull_request": 71
   },
   "next_step": {
     "id": "M11.1e",
@@ -37,10 +37,10 @@
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 60,
+      "progress": 62,
       "weight": 10,
-      "evidence": "Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de homepage gebruikt expliciete hero- en routekaartprofielen.",
-      "remaining": "Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig."
+      "evidence": "Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de externe EmberForge ontwerpinput heeft een vaste identiteit en expliciete BAT gapanalyse.",
+      "remaining": "De goedgekeurde bronwaarden, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief naar BAT worden gemigreerd."
     },
     {
       "id": "dashboard",

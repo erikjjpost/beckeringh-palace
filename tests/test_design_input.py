@@ -1,0 +1,50 @@
+from __future__ import annotations
+
+import copy
+import unittest
+from pathlib import Path
+
+from compiler.design_input import load_design_input, validate_design_input
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT / "project" / "design-inputs" / "emberforge-design-system.json"
+
+
+class DesignInputTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.source = load_design_input(SOURCE)
+
+    def test_source_has_stable_identity_and_complete_gap_map(self) -> None:
+        self.assertEqual(
+            "566f23a55f633642db46c401da81313c151993b747cad812ec51333784a0ee0b",
+            self.source["archief_sha256"],
+        )
+        self.assertEqual(44, self.source["bestanden"])
+        self.assertEqual(7, len(self.source["gebieden"]))
+
+    def test_external_input_is_never_normative_or_runtime_dependent(self) -> None:
+        contract = self.source["broncontract"]
+        self.assertFalse(contract["normatief"])
+        self.assertFalse(contract["externe_afhankelijkheden_toegestaan"])
+
+    def test_typography_conflict_remains_explicit(self) -> None:
+        typography = next(
+            area for area in self.source["gebieden"] if area["id"] == "typography"
+        )
+        self.assertEqual("besluit-nodig", typography["status"])
+
+    def test_normative_external_source_fails_hard(self) -> None:
+        invalid = copy.deepcopy(self.source)
+        invalid["broncontract"]["normatief"] = True
+        with self.assertRaisesRegex(ValueError, "mag niet normatief"):
+            validate_design_input(invalid)
+
+    def test_duplicate_gap_area_fails_hard(self) -> None:
+        invalid = copy.deepcopy(self.source)
+        invalid["gebieden"].append(copy.deepcopy(invalid["gebieden"][0]))
+        with self.assertRaisesRegex(ValueError, "dubbel gebied"):
+            validate_design_input(invalid)
+
+
+if __name__ == "__main__":
+    unittest.main()

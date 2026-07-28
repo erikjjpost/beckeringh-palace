@@ -8,8 +8,13 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from compiler.design_input import load_design_input
+
 MODEL_DIRS = [ROOT / "model", ROOT / "organisation"]
 PROPOSALS_DIR = ROOT / "proposals"
+DESIGN_INPUTS_DIR = ROOT / "project" / "design-inputs"
 FORBIDDEN_TERMS = (
     "anthropic", "claude", "openai", "chatgpt", "gpt-", "mistral",
     "gemini", "cohere", "ollama"
@@ -34,6 +39,12 @@ def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
     objects: dict[str, tuple[Path, dict[str, Any]]] = {}
+
+    for path in sorted(DESIGN_INPUTS_DIR.glob("*.json")):
+        try:
+            load_design_input(path)
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            errors.append(f"{path.relative_to(ROOT)}: {exc}")
 
     for path in collect_files():
         try:

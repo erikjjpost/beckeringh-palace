@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "emberforge-design-system-2026-07-28",
+  "naam": "EmberForge Design System",
+  "status": "geanalyseerd",
+  "ontvangen_op": "2026-07-28",
+  "archief_sha256": "566f23a55f633642db46c401da81313c151993b747cad812ec51333784a0ee0b",
+  "bestanden": 44,
+  "broncontract": {
+    "rol": "ontwerpinput",
+    "normatief": false,
+    "activering": "uitsluitend via expliciete BAT-migratie",
+    "externe_afhankelijkheden_toegestaan": false
+  },
+  "geverifieerde_bronnen": [
+    {
+      "pad": "EmberForge-Design-System/README.md",
+      "sha256": "b42bdf4130dc54e377edbc7b247dba1b9e2fd88c491092098a387ebd75117307"
+    },
+    {
+      "pad": "EmberForge-Design-System/colors_and_type.css",
+      "sha256": "5aeaf09d20f4cf80f42854789f10fb3452bf93a09388ce7032dd298d78b65268"
+    }
+  ],
+  "gebieden": [
+    {
+      "id": "palette",
+      "status": "mapbaar",
+      "doel": "BAT palette en semantische kleurrollen",
+      "bewijs": "Ruwe en semantische kleurtokens zijn expliciet gespecificeerd."
+    },
+    {
+      "id": "typography",
+      "status": "besluit-nodig",
+      "doel": "BAT typography en typescale",
+      "bewijs": "Orbitron, Inter en JetBrains Mono conflicteren met de actieve Forge typografie."
+    },
+    {
+      "id": "spacing-radius-shadow-motion",
+      "status": "mapbaar",
+      "doel": "BAT spacing, radius, shadow en motion",
+      "bewijs": "Schalen en waarden zijn expliciet en backendonafhankelijk te vertalen."
+    },
+    {
+      "id": "components",
+      "status": "gedeeltelijk-mapbaar",
+      "doel": "BAT appearance, component en variant",
+      "bewijs": "States en voorbeelden zijn aanwezig; dekking en responsieve contracten zijn onvolledig."
+    },
+    {
+      "id": "product-surfaces",
+      "status": "gedeeltelijk-mapbaar",
+      "doel": "BAT composition, layout en product",
+      "bewijs": "Dashboard, Keycloak en terminal zijn concrete voorbeelden en nog geen normatieve productcontracten."
+    },
+    {
+      "id": "vector-assets",
+      "status": "geblokkeerd",
+      "doel": "SVG component library",
+      "bewijs": "Logo en wordmark SVG zijn als placeholders aangemerkt en symbol-valk.svg ontbreekt."
+    },
+    {
+      "id": "world-language",
+      "status": "mapbaar",
+      "doel": "World Bible en contentregels",
+      "bewijs": "Merkverhaal, tone of voice, symboliek en art direction zijn expliciet beschreven."
+    }
+  ],
+  "uitsluitingen": [
+    "PNG logo en wordmark worden niet als reproduceerbare vectorbron geïmporteerd.",
+    "Placeholder SVG logo en wordmark worden niet in producten geactiveerd.",
+    "Google Fonts en CDN iconen worden niet als runtimeafhankelijkheid overgenomen.",
+    "Ontbrekende fonts, uploads, slides en symbol-valk.svg worden niet verondersteld.",
+    "UI kit CSS en JSX worden niet als BAT of rendererlogica gekopieerd."
+  ]
+}
