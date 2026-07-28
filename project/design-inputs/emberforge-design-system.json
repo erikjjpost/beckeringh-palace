@@ -61,9 +61,9 @@
     },
     {
       "id": "world-language",
-      "status": "mapbaar",
+      "status": "gemigreerd",
       "doel": "World Bible en contentregels",
-      "bewijs": "Merkverhaal, tone of voice, symboliek en art direction zijn expliciet beschreven."
+      "bewijs": "M11.1e migreert merknaam, tagline, kernbelofte, principes, productfamilie, taal en stem naar het native BAT merkobject emberforge en activeert dit uitsluitend via de homepage entree."
     }
   ],
   "uitsluitingen": [

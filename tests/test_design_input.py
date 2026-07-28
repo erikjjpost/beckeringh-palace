@@ -33,6 +33,16 @@ class DesignInputTests(unittest.TestCase):
         )
         self.assertEqual("besluit-nodig", typography["status"])
 
+    def test_world_language_has_auditable_native_migration(self) -> None:
+        world_language = next(
+            area
+            for area in self.source["gebieden"]
+            if area["id"] == "world-language"
+        )
+        self.assertEqual("gemigreerd", world_language["status"])
+        self.assertIn("M11.1e", world_language["bewijs"])
+        self.assertIn("emberforge", world_language["bewijs"])
+
     def test_normative_external_source_fails_hard(self) -> None:
         invalid = copy.deepcopy(self.source)
         invalid["broncontract"]["normatief"] = True

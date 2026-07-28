@@ -3,19 +3,19 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.3a",
-    "name": "EmberForge ontwerpbroncontract",
+    "id": "M11.1e",
+    "name": "Homepage wereldpresentatie",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.1d",
-    "name": "Homepage responsief contract",
-    "pull_request": 71
+    "id": "M11.3a",
+    "name": "EmberForge ontwerpbroncontract",
+    "pull_request": 72
   },
   "next_step": {
-    "id": "M11.1e",
-    "name": "Homepage wereldpresentatie",
-    "purpose": "De Palace identiteit, productfamilie en samenhangende wereldboodschap native verdiepen zonder inhoud in de backend vast te leggen."
+    "id": "M11.3b",
+    "name": "EmberForge paletmigratie",
+    "purpose": "De geverifieerde EmberForge kleuren en semantische kleurrollen gecontroleerd naar BAT migreren en in de afgeleide producten activeren."
   },
   "areas": [
     {
@@ -29,10 +29,10 @@
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 70,
+      "progress": 72,
       "weight": 10,
-      "evidence": "Thema's, dashboardinformatiegebieden, homepagegebieden, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.",
-      "remaining": "De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen."
+      "evidence": "Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.",
+      "remaining": "De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
       "id": "design-system",
@@ -55,7 +55,7 @@
       "name": "Visuele wereld en art direction",
       "progress": 25,
       "weight": 10,
-      "evidence": "De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig.",
+      "evidence": "De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig; EmberForge heeft een native merknaam, tagline, kernbelofte en principes.",
       "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
     },
     {
@@ -77,10 +77,10 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 55,
+      "progress": 60,
       "weight": 10,
-      "evidence": "Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant, appearance, focusvolgorde en navigatiegedrag; het grid legt breakpoint, compacte kolommen en herschikking expliciet vast.",
-      "remaining": "De volwaardige wereldpresentatie en verdere productroutes moeten nog worden verdiept."
+      "evidence": "Vier geordende homepagegebieden dragen inhoudsrol, componentrol, appearance, focus en responsief gedrag; de entree presenteert de native EmberForge merkidentiteit zonder backendinhoud.",
+      "remaining": "Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept."
     },
     {
       "id": "figma",
@@ -93,10 +93,10 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 25,
+      "progress": 30,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd.",
-      "remaining": "De normatieve wereldbeschrijving, stijltaal, symboliek en ontwerpregels moeten nog worden samengebracht."
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal en stem zijn nu normatief in BAT vastgelegd.",
+      "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]
 }

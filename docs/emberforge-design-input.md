@@ -19,7 +19,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Componenten en states | Gedeeltelijk mapbaar | appearance, component en variant |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
-| Merkverhaal en contentregels | Mapbaar | World Bible |
+| Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
 
 De typografie wordt in deze milestone niet geactiveerd. Het bronpakket schrijft
 Orbitron, Inter en JetBrains Mono voor en de actieve Forge configuratie gebruikt
@@ -31,9 +31,16 @@ CDN iconen en UI kit implementatiecode worden niet als productbron overgenomen.
 Daarmee kan geen renderer ongemerkt afhankelijk worden van het aangeleverde
 voorbeeldpakket.
 
+## Eerste activering
+
+M11.1e migreert de bewezen wereldtaal naar het native BAT merkobject
+`emberforge`. Merknaam, tagline, kernbelofte, drie principes, productfamilie,
+taal en stem worden door de compiler gevalideerd en uitsluitend via de
+homepage entree geactiveerd. De HTML backend ontvangt opgeloste merksemantiek
+en bevat zelf geen EmberForge teksten.
+
 ## Vervolg
 
-M11.1e kan de mapbare wereldtaal en productstructuur gebruiken nadat de waarden
-expliciet in BAT zijn gemigreerd. Iedere migratie behoudt herkomst, tests en
-reproduceerbaarheid en activeert alleen onderdelen waarvan de ontwerpbeslissing
-is genomen.
+M11.3b migreert vervolgens het geverifieerde palet. Iedere migratie behoudt
+herkomst, tests en reproduceerbaarheid en activeert alleen onderdelen waarvan
+de ontwerpbeslissing is genomen.

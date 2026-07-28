@@ -70,6 +70,12 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
                 if gebied.navigation_targets
             ),
         )
+        self.assertEqual("emberforge", gebieden[0].brand.id)
+        self.assertEqual(
+            "Sovereign Infrastructure.",
+            gebieden[0].brand.tagline,
+        )
+        self.assertTrue(all(gebied.brand is None for gebied in gebieden[1:]))
 
     def test_homepagegebied_contract_weigert_ongeldige_semantiek(self) -> None:
         source = WORLD.read_text(encoding="utf-8")

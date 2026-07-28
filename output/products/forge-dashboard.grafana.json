@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f6d8cd6ba663",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 8df16233fbd2",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 272,
+                "height": 284,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -207,7 +207,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "1",
+                  "fixed": "2",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -233,7 +233,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "wereld",
+                  "fixed": "merk\nwereld",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -244,7 +244,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-labels",
               "placement": {
-                "height": 24,
+                "height": 36,
                 "left": 20,
                 "top": 116,
                 "width": 280
@@ -259,7 +259,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "1",
+                  "fixed": "1\n1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -270,7 +270,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-values",
               "placement": {
-                "height": 24,
+                "height": 36,
                 "left": 300,
                 "top": 116,
                 "width": 80
@@ -298,6 +298,31 @@
                 "height": 1,
                 "left": 20,
                 "top": 128,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-2",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 140,
                 "width": 360
               },
               "type": "rectangle"
@@ -335,7 +360,7 @@
               "placement": {
                 "height": 24,
                 "left": 20,
-                "top": 152,
+                "top": 164,
                 "width": 360
               },
               "type": "text"
@@ -361,7 +386,7 @@
               "placement": {
                 "height": 32,
                 "left": 20,
-                "top": 188,
+                "top": 200,
                 "width": 360
               },
               "type": "text"
@@ -387,7 +412,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 232,
+                "top": 244,
                 "width": 360
               },
               "type": "text"
@@ -1478,7 +1503,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:f6d8cd6ba663306ff70c178ea0aefcf5dd3d9b49c823b6430ca0f0a514414df1"
+    "sha256:8df16233fbd25df1a55e4c90ef76be7d416123df4a29d4ea6fa8f5b961901bfc"
   ],
   "templating": {
     "list": []

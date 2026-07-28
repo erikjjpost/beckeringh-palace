@@ -242,6 +242,31 @@
   },
   {
     "eigenschappen": {
+      "belofte": "Sovereignty over your own stack.",
+      "doel": "Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.",
+      "naam": "EmberForge",
+      "principes": [
+        "Own your data.",
+        "Own your nodes.",
+        "Own your forge."
+      ],
+      "producten": [
+        "Homelab Dashboard",
+        "Keycloak login",
+        "CV Database",
+        "ISMS Challenger",
+        "Roadmap",
+        "Marketing en merkoppervlakken"
+      ],
+      "stem": "Zelfverzekerd, technisch en rustig",
+      "taal": "Nederlands met technische termen in het Engels",
+      "tagline": "Sovereign Infrastructure."
+    },
+    "id": "emberforge",
+    "soort": "merk"
+  },
+  {
+    "eigenschappen": {
       "doel": "Primaire warme accentkleur voor de Forge-identiteit.",
       "naam": "Ember",
       "type": "color",
@@ -672,6 +697,7 @@
       "focusvolgorde": "0",
       "kernboodschap": "Design is data.",
       "leesvolgorde": "1",
+      "merk": "emberforge",
       "naam": "Design is data",
       "navigatiegedrag": "geen",
       "rol": "entree",

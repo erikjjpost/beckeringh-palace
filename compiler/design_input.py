@@ -10,6 +10,7 @@ ALLOWED_STATUSES = {
     "gedeeltelijk-mapbaar",
     "besluit-nodig",
     "geblokkeerd",
+    "gemigreerd",
 }
 
 

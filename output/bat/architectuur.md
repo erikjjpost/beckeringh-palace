@@ -336,6 +336,25 @@ Eén reproduceerbare digitale ontwerpwereld leveren.
 
 - **thema:** forge
 
+## EmberForge
+
+**Soort:** merk
+
+**Identifier:** `emberforge`
+
+### Doel
+
+Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
+
+### Eigenschappen
+
+- **belofte:** Sovereignty over your own stack.
+- **principes:** Own your data., Own your nodes., Own your forge.
+- **producten:** Homelab Dashboard, Keycloak login, CV Database, ISMS Challenger, Roadmap, Marketing en merkoppervlakken
+- **stem:** Zelfverzekerd, technisch en rustig
+- **taal:** Nederlands met technische termen in het Engels
+- **tagline:** Sovereign Infrastructure.
+
 ## Ember
 
 **Soort:** token
@@ -860,6 +879,7 @@ Introduceert de ontwerpregel achter alle Beckeringh Palace producten.
 - **focusvolgorde:** 0
 - **kernboodschap:** Design is data.
 - **leesvolgorde:** 1
+- **merk:** emberforge
 - **navigatiegedrag:** geen
 - **rol:** entree
 - **variant:** forge-panel-hero
