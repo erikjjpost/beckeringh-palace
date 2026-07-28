@@ -20,7 +20,7 @@ class DesignInputTests(unittest.TestCase):
             self.source["archief_sha256"],
         )
         self.assertEqual(44, self.source["bestanden"])
-        self.assertEqual(7, len(self.source["gebieden"]))
+        self.assertEqual(8, len(self.source["gebieden"]))
 
     def test_external_input_is_never_normative_or_runtime_dependent(self) -> None:
         contract = self.source["broncontract"]
@@ -63,6 +63,16 @@ class DesignInputTests(unittest.TestCase):
         self.assertIn("M11.3c", primitives["bewijs"])
         self.assertIn("border", primitives["bewijs"])
         self.assertIn("appearance", primitives["bewijs"])
+
+    def test_art_direction_has_auditable_native_migration(self) -> None:
+        art_direction = next(
+            area
+            for area in self.source["gebieden"]
+            if area["id"] == "art-direction"
+        )
+        self.assertEqual("gemigreerd", art_direction["status"])
+        self.assertIn("M11.3d", art_direction["bewijs"])
+        self.assertIn("artdirection", art_direction["bewijs"])
 
     def test_normative_external_source_fails_hard(self) -> None:
         invalid = copy.deepcopy(self.source)

@@ -15,6 +15,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
         self.assertEqual(
             {
                 "appearance",
+                "artdirection",
                 "asset",
                 "border",
                 "component",

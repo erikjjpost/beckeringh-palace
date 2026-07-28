@@ -16,6 +16,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Palette | Gemigreerd in M11.3b | palette, materiaal en semantische kleurtokens |
 | Typografie | Besluit nodig | typography en typescale |
 | Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
+| Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
 | Componenten en states | Gedeeltelijk mapbaar | appearance, component en variant |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
@@ -55,3 +56,17 @@ appearances en renderers. Hun waarden komen uit de geverifieerde EmberForge
 bron: een 4px ruimtebasis, zachte afronding, 1px lijnen, donkere elevaties en
 rustige motion met de standaard easing. Bronstappen waarvoor nog geen
 productrol bestaat worden niet als ongebruikte BAT velden toegevoegd.
+
+## Art direction
+
+M11.3d modelleert de vastgestelde visuele balans als één native
+`artdirection` object onder het Forge thema. Diepe navy bepaalt het canvas,
+lichtend cyaan de interactie en gesmeed koper maximaal twee warme punten per
+view. Gloed blijft gecontroleerd, ornamentiek gebruikt technische lijnvoering,
+de compositiedichtheid blijft ruim en de beeldtaal gebruikt isometrische
+lijnkunst.
+
+De HTML backend leest uitsluitend het opgeloste contract. Daaruit ontstaan
+twee subtiele radiale halo's, de technische scheidingslijn, cyaan focusgloed,
+reduced-motion gedrag en machineleesbare art-directionmetadata. De backend
+bevat geen EmberForge bronwaarden of zelfstandige merkbeslissingen.

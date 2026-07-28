@@ -3,19 +3,19 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.3c",
-    "name": "EmberForge primitiefmigratie",
+    "id": "M11.3d",
+    "name": "EmberForge art direction",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.3b",
-    "name": "EmberForge paletmigratie",
-    "pull_request": 74
+    "id": "M11.3c",
+    "name": "EmberForge primitiefmigratie",
+    "pull_request": 75
   },
   "next_step": {
-    "id": "M11.3d",
-    "name": "EmberForge art direction",
-    "purpose": "De vastgestelde balans van diepe navy, lichtend cyaan, gesmeed koper, gecontroleerde gloed, technische ornamentiek en ruime duisternis als native visueel contract modelleren."
+    "id": "M11.3e",
+    "name": "EmberForge typografiemigratie",
+    "purpose": "Het expliciete conflict tussen Aptos en Orbitron, Inter en JetBrains Mono normatief oplossen en zonder runtimeafhankelijkheid activeren."
   },
   "areas": [
     {
@@ -23,7 +23,7 @@
       "name": "Compiler en reproduceerbaarheid",
       "progress": 80,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 144 regressietests vormen een werkende kwaliteitsketen.",
+      "evidence": "Validatie, deterministische generatie, CI en 165 regressietests vormen een werkende kwaliteitsketen.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
@@ -37,9 +37,9 @@
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 73,
+      "progress": 76,
       "weight": 10,
-      "evidence": "Het geverifieerde EmberForge palet en de semantische spacing, radius, border, shadow en motion rollen zijn native gemigreerd en via theme, appearance en renderers geactiveerd.",
+      "evidence": "Het geverifieerde EmberForge palet, de theme primitives en de art direction zijn native gemigreerd en via resolutie en renderers geactiveerd.",
       "remaining": "Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd."
     },
     {
@@ -53,9 +53,9 @@
     {
       "id": "visual-world",
       "name": "Visuele wereld en art direction",
-      "progress": 25,
+      "progress": 30,
       "weight": 10,
-      "evidence": "De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig; EmberForge heeft een native merknaam, tagline, kernbelofte en principes.",
+      "evidence": "EmberForge heeft een native merkidentiteit en een expliciete visuele balans van diepe navy, cyaan, schaarse koperwarmte, gecontroleerde gloed, technische lijnvoering en ruime duisternis.",
       "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
     },
     {
@@ -77,9 +77,9 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 60,
+      "progress": 63,
       "weight": 10,
-      "evidence": "Vier geordende homepagegebieden dragen inhoudsrol, componentrol, appearance, focus en responsief gedrag; de entree presenteert de native EmberForge merkidentiteit zonder backendinhoud.",
+      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de entree presenteert de native merkidentiteit en de pagina activeert de opgeloste EmberForge art direction.",
       "remaining": "Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept."
     },
     {

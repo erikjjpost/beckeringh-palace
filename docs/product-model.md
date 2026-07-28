@@ -622,6 +622,13 @@ geverifieerde EmberForge bron: een 4px ruimtebasis, zachte afronding, 1px
 lijnen, donkere elevaties en rustige motion met de standaard easing.
 Bronstappen zonder productrol worden niet als ongebruikte velden toegevoegd.
 
+M11.3d migreert de EmberForge art direction naar één native object onder het
+thema. Het contract resolveert canvas, interactiekleur en warme accentkleur
+naar canonieke kleuren en begrenst koper tot maximaal twee warme punten per
+view. Gecontroleerde gloed, technische lijnvoering, ruime dichtheid en
+isometrische lijnkunst zijn expliciete waarden. De HTML backend gebruikt alleen
+de opgeloste art direction voor halo's, focusgloed, ornamentiek en metadata.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -648,6 +655,11 @@ Bronstappen zonder productrol worden niet als ongebruikte velden toegevoegd.
 | `BP3617` | Grid-region valt buiten de rijen |
 | `BP3618` | Responsief gridcontract mist breakpoint of compact kolomaantal |
 | `BP3619` | Responsief gridcontract bevat geen positief geheel getal |
+| `BP3630` | Art direction verwijst naar een onbekende semantische kleurrol |
+| `BP3631` | Art direction begrenst warme accenten niet op één of twee |
+| `BP3632` | Art direction gebruikt een onbekende visuele modus |
+| `BP3633` | Thema verwijst naar een onbekende art direction |
+| `BP3634` | Thema activeert art direction zonder expliciet materiaal |
 | `BP3620` | Compact grid heeft meer kolommen dan het brede grid |
 | `BP3621` | Responsieve region mist een positieve compacte volgorde |
 | `BP3622` | Compacte regionvolgorde is niet aaneengesloten |

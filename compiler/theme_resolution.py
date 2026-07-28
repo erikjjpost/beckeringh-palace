@@ -136,6 +136,24 @@ class ResolvedSpacing:
 
 
 @dataclass(frozen=True)
+class ResolvedArtDirection:
+    id: str
+    naam: str
+    doel: str
+    canvas_role: str
+    canvas: ResolvedColor
+    interaction_role: str
+    interaction: ResolvedColor
+    warm_accent_role: str
+    warm_accent: ResolvedColor
+    warm_accent_limit: int
+    glow: str
+    ornament: str
+    density: str
+    imagery: str
+
+
+@dataclass(frozen=True)
 class ResolvedTheme:
     wereld_id: str
     wereld_naam: str
@@ -152,6 +170,7 @@ class ResolvedTheme:
     motion: ResolvedMotion | None = None
     spacing: ResolvedSpacing | None = None
     typeschaal: ResolvedTypeScale | None = None
+    artdirection: ResolvedArtDirection | None = None
 
 
 def _indexeer(objecten: Iterable[Architectuurobject]) -> dict[str, dict[str, Architectuurobject]]:
@@ -213,6 +232,7 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
     motion = _optioneel_object(index, thema, "motion")
     spacing = _optioneel_object(index, thema, "spacing")
     typeschaal = _optioneel_object(index, thema, "typeschaal")
+    artdirection = _optioneel_object(index, thema, "artdirection")
 
     palet_kleuren = tuple(
         (rol, _resolved_color(index, str(palet.eigenschappen[rol]), f"Palet '{palet.id}'"))
@@ -264,6 +284,31 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
         typeschaal=None if typeschaal is None else ResolvedTypeScale(
             typeschaal.id, _tekst(typeschaal, "naam"), _tekst(typeschaal, "doel"),
             **_waarden(typeschaal, ("display", "title", "heading", "body", "label", "caption")),
+        ),
+        artdirection=None if artdirection is None else ResolvedArtDirection(
+            id=artdirection.id,
+            naam=_tekst(artdirection, "naam"),
+            doel=_tekst(artdirection, "doel"),
+            canvas_role=_tekst(artdirection, "canvas"),
+            canvas=_resolved_color(
+                index,
+                str(materiaal.eigenschappen[_tekst(artdirection, "canvas")]),
+                f"Artdirection '{artdirection.id}'",
+            ),
+            interaction_role=_tekst(artdirection, "interaction"),
+            interaction=_resolved_color(
+                index,
+                str(palet.eigenschappen[_tekst(artdirection, "interaction")]),
+                f"Artdirection '{artdirection.id}'",
+            ),
+            warm_accent_role=_tekst(artdirection, "warm-accent"),
+            warm_accent=_resolved_color(
+                index,
+                str(palet.eigenschappen[_tekst(artdirection, "warm-accent")]),
+                f"Artdirection '{artdirection.id}'",
+            ),
+            warm_accent_limit=int(_tekst(artdirection, "warm-accent-limit")),
+            **_waarden(artdirection, ("glow", "ornament", "density", "imagery")),
         ),
     )
 

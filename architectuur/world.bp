@@ -154,6 +154,19 @@ spacing forge-spacing {
     xl: "64px"
 }
 
+artdirection emberforge-art-direction {
+    naam: "EmberForge Art Direction"
+    doel: "Rustige soevereine control room met ruime duisternis en schaarse warmte."
+    canvas: "canvas"
+    interaction: "primary"
+    warm-accent: "accent"
+    warm-accent-limit: "2"
+    glow: "controlled"
+    ornament: "technical-linework"
+    density: "spacious"
+    imagery: "isometric-line-art"
+}
+
 thema forge {
     naam: "Forge"
     doel: "Nordic forge-ontwerpidentiteit voor Beckeringh Palace."
@@ -166,6 +179,7 @@ thema forge {
     shadow: "forge-shadows"
     motion: "forge-motion"
     spacing: "forge-spacing"
+    artdirection: "emberforge-art-direction"
 }
 
 wereld beckeringh-palace {

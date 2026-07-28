@@ -7,7 +7,10 @@ from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
 
 
-PRIMITIEF_SOORTEN = ("materiaal", "border", "radius", "shadow", "motion", "spacing", "typeschaal")
+PRIMITIEF_SOORTEN = (
+    "materiaal", "border", "radius", "shadow", "motion", "spacing",
+    "typeschaal", "artdirection",
+)
 
 
 @dataclass(frozen=True)
@@ -39,6 +42,10 @@ class ThemeFoundationConstraint:
             "shadow": {"naam", "doel", "low", "medium", "high"},
             "motion": {"naam", "doel", "fast", "normal", "slow", "easing"},
             "spacing": {"naam", "doel", "none", "xs", "small", "medium", "large", "xl"},
+            "artdirection": {
+                "naam", "doel", "canvas", "interaction", "warm-accent",
+                "warm-accent-limit", "glow", "ornament", "density", "imagery",
+            },
             "thema": {"naam", "doel", "palet", "typografie", *PRIMITIEF_SOORTEN},
             "wereld": {"naam", "doel", "thema"},
         }
@@ -84,6 +91,56 @@ class ThemeFoundationConstraint:
                         locatie=materiaal.eigenschaplocaties.get(rol, materiaal.bronlocatie),
                     ))
 
+        artdirection_modes = {
+            "glow": {"controlled", "none"},
+            "ornament": {"technical-linework", "none"},
+            "density": {"spacious", "compact"},
+            "imagery": {"isometric-line-art", "none"},
+        }
+        for artdirection in objecten_per_soort["artdirection"].values():
+            for veld, bronsoort, rollen in (
+                ("canvas", "materiaal", {"canvas", "surface", "raised"}),
+                ("interaction", "palet", {"primary", "secondary"}),
+                ("warm-accent", "palet", {"accent"}),
+            ):
+                waarde = artdirection.eigenschappen.get(veld)
+                if waarde not in rollen:
+                    diagnostics.append(Diagnostic(
+                        code="BP3630",
+                        boodschap=(
+                            f"Artdirection '{artdirection.id}' heeft voor '{veld}' "
+                            f"onbekende {bronsoort}rol '{waarde}'"
+                        ),
+                        locatie=artdirection.eigenschaplocaties.get(
+                            veld, artdirection.bronlocatie
+                        ),
+                    ))
+            limiet = artdirection.eigenschappen.get("warm-accent-limit")
+            if limiet not in {"1", "2"}:
+                diagnostics.append(Diagnostic(
+                    code="BP3631",
+                    boodschap=(
+                        f"Artdirection '{artdirection.id}' vereist een "
+                        "warm-accent-limit van 1 of 2"
+                    ),
+                    locatie=artdirection.eigenschaplocaties.get(
+                        "warm-accent-limit", artdirection.bronlocatie
+                    ),
+                ))
+            for veld, toegestane_waarden in artdirection_modes.items():
+                waarde = artdirection.eigenschappen.get(veld)
+                if waarde not in toegestane_waarden:
+                    diagnostics.append(Diagnostic(
+                        code="BP3632",
+                        boodschap=(
+                            f"Artdirection '{artdirection.id}' heeft onbekende "
+                            f"{veld}waarde '{waarde}'"
+                        ),
+                        locatie=artdirection.eigenschaplocaties.get(
+                            veld, artdirection.bronlocatie
+                        ),
+                    ))
+
         themas = objecten_per_soort["thema"]
         thema_referenties = {
             "palet": ("palet", "BP3604", True),
@@ -95,6 +152,7 @@ class ThemeFoundationConstraint:
             "motion": ("motion", "BP3612", False),
             "spacing": ("spacing", "BP3613", False),
             "typeschaal": ("typeschaal", "BP3614", False),
+            "artdirection": ("artdirection", "BP3633", False),
         }
         for thema in themas.values():
             for veld, (soort, code, vereist) in thema_referenties.items():
@@ -105,6 +163,20 @@ class ThemeFoundationConstraint:
                         boodschap=f"Thema '{thema.id}' verwijst naar onbekende {soort} '{referentie}'",
                         locatie=thema.eigenschaplocaties.get(veld, thema.bronlocatie),
                     ))
+            if (
+                thema.eigenschappen.get("artdirection") is not None
+                and thema.eigenschappen.get("materiaal") is None
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP3634",
+                    boodschap=(
+                        f"Thema '{thema.id}' vereist materiaal wanneer "
+                        "artdirection actief is"
+                    ),
+                    locatie=thema.eigenschaplocaties.get(
+                        "artdirection", thema.bronlocatie
+                    ),
+                ))
 
         foundation_actief = any(objecten_per_soort[soort] for soort in soorten[:-1])
         if foundation_actief:

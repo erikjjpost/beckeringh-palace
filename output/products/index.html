@@ -52,6 +52,9 @@
       --bp-spacing-medium: 16px;
       --bp-spacing-large: 32px;
       --bp-spacing-xl: 64px;
+      --bp-art-canvas: #0F1724;
+      --bp-art-interaction: #7DD3FC;
+      --bp-art-warm-accent: #C9895B;
     }
     body {
       margin: 0;
@@ -95,6 +98,30 @@
     .bp-region h2 { margin-top: 0; }
     @media (max-width: 960px) {
       body { padding: var(--bp-spacing-large); }
+    }
+    body {
+      background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--bp-art-interaction) 8%, transparent), transparent 38%),
+        radial-gradient(circle at 88% 100%, color-mix(in srgb, var(--bp-art-warm-accent) 6%, transparent), transparent 34%),
+        var(--bp-art-canvas);
+    }
+    .bp-product-header {
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-left-color: var(--bp-material-outline);
+    }
+    .bp-product-header::after {
+      content: "";
+      display: block;
+      height: var(--bp-border-hairline);
+      margin-top: var(--bp-spacing-medium);
+      background: linear-gradient(90deg, var(--bp-material-outline), transparent);
+    }
+    .bp-region:focus-within, .bp-region:hover {
+      border-color: var(--bp-art-interaction);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--bp-art-interaction) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bp-art-interaction) 10%, transparent);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bp-region { transition: none; }
     }
     .bp-canvas { background: var(--bp-material-canvas); }
     .bp-region {
@@ -186,9 +213,9 @@
     }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-product-mode="static" data-time-context="none" data-snapshot-id="5c36d43820908fba8c6524151040d726676fe953258d878c95d2855afb1ef690" data-snapshot-ref="sha256:5c36d43820908fba8c6524151040d726676fe953258d878c95d2855afb1ef690">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-product-mode="static" data-time-context="none" data-snapshot-id="38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311" data-snapshot-ref="sha256:38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 5c36d4382090</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 38e484a3a0f5</p>
     <h1>Beckeringh Palace</h1>
     <p class="bp-product-purpose">Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus.</p>
   </header>

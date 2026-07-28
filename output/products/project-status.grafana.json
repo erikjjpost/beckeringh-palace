@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 5c36d4382090",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 38e484a3a0f5",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:45",
+      "description": "project-status-schema:1;overall-progress:46",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Totale voortgang · 45%",
+                  "fixed": "Totale voortgang · 46%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 270
+                "width": 276
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3c · EmberForge primitiefmigratie (in uitvoering)\nVoltooid: M11.3b · EmberForge paletmigratie (PR #74)\nVolgende stap: M11.3d · EmberForge art direction\nDe vastgestelde balans van diepe navy, lichtend cyaan, gesmeed koper, gecontroleerde gloed, technische ornamentiek en ruime duisternis als native visueel contract modelleren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3d · EmberForge art direction (in uitvoering)\nVoltooid: M11.3c · EmberForge primitiefmigratie (PR #75)\nVolgende stap: M11.3e · EmberForge typografiemigratie\nHet expliciete conflict tussen Aptos en Orbitron, Inter en JetBrains Mono normatief oplossen en zonder runtimeafhankelijkheid activeren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 45%",
+      "title": "Totale voortgang · 46%",
       "transparent": true,
       "type": "canvas"
     },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 144 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 165 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -537,7 +537,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:73",
+      "description": "project-status-area:design-system;progress:76",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -570,7 +570,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Design System · 73%",
+                  "fixed": "Design System · 76%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -634,7 +634,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 438
+                "width": 456
               },
               "type": "rectangle"
             },
@@ -646,7 +646,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet en de semantische spacing, radius, border, shadow en motion rollen zijn native gemigreerd en via theme, appearance en renderers geactiveerd.\nResterend: Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.",
+                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet, de theme primitives en de art direction zijn native gemigreerd en via resolutie en renderers geactiveerd.\nResterend: Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -670,7 +670,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 73%",
+      "title": "Design System · 76%",
       "transparent": true,
       "type": "canvas"
     },
@@ -813,7 +813,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:visual-world;progress:25",
+      "description": "project-status-area:visual-world;progress:30",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -846,7 +846,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Visuele wereld en art direction · 25%",
+                  "fixed": "Visuele wereld en art direction · 30%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -910,7 +910,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 150
+                "width": 180
               },
               "type": "rectangle"
             },
@@ -922,7 +922,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig; EmberForge heeft een native merknaam, tagline, kernbelofte en principes.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
+                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit en een expliciete visuele balans van diepe navy, cyaan, schaarse koperwarmte, gecontroleerde gloed, technische lijnvoering en ruime duisternis.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -946,7 +946,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Visuele wereld en art direction · 25%",
+      "title": "Visuele wereld en art direction · 30%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:60",
+      "description": "project-status-area:homepage;progress:63",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "HTML homepage · 60%",
+                  "fixed": "HTML homepage · 63%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 360
+                "width": 378
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoudsrol, componentrol, appearance, focus en responsief gedrag; de entree presenteert de native EmberForge merkidentiteit zonder backendinhoud.\nResterend: Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de entree presenteert de native merkidentiteit en de pagina activeert de opgeloste EmberForge art direction.\nResterend: Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 60%",
+      "title": "HTML homepage · 63%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:45",
-    "sha256:5c36d43820908fba8c6524151040d726676fe953258d878c95d2855afb1ef690"
+    "overall-progress:46",
+    "sha256:38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311"
   ],
   "templating": {
     "list": []
