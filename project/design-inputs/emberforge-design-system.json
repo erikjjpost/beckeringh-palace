@@ -25,9 +25,9 @@
   "gebieden": [
     {
       "id": "palette",
-      "status": "mapbaar",
+      "status": "gemigreerd",
       "doel": "BAT palette en semantische kleurrollen",
-      "bewijs": "Ruwe en semantische kleurtokens zijn expliciet gespecificeerd."
+      "bewijs": "M11.3b migreert acht expliciete bronkleuren, drie statuskleuren en de semantische rollen voor palet, materiaal en tokens naar BAT en activeert deze in alle themaproducten."
     },
     {
       "id": "typography",

@@ -13,7 +13,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 
 | Gebied | Status | BAT bestemming |
 |---|---|---|
-| Palette | Mapbaar | palette en semantische kleurrollen |
+| Palette | Gemigreerd in M11.3b | palette, materiaal en semantische kleurtokens |
 | Typografie | Besluit nodig | typography en typescale |
 | Spacing, radius, shadow en motion | Mapbaar | gelijknamige theme primitives |
 | Componenten en states | Gedeeltelijk mapbaar | appearance, component en variant |
@@ -39,8 +39,10 @@ taal en stem worden door de compiler gevalideerd en uitsluitend via de
 homepage entree geactiveerd. De HTML backend ontvangt opgeloste merksemantiek
 en bevat zelf geen EmberForge teksten.
 
-## Vervolg
+## Paletactivering
 
-M11.3b migreert vervolgens het geverifieerde palet. Iedere migratie behoudt
-herkomst, tests en reproduceerbaarheid en activeert alleen onderdelen waarvan
-de ontwerpbeslissing is genomen.
+M11.3b migreert de geverifieerde ruwe kleuren en semantische kleurrollen naar
+native BAT kleur, palet, materiaal en tokenobjecten. Sky is de primaire
+interactiekleur. Ember Copper blijft het spaarzame warme accent. De HTML en
+Grafana backends ontvangen uitsluitend het opgeloste thema en lezen de externe
+bron niet.

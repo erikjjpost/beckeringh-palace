@@ -608,6 +608,13 @@ compositie doorgegeven. De generieke HTML backend rendert uitsluitend deze
 opgeloste velden. Externe ontwerpbestanden, logoassets, fonts en voorbeeldcode
 blijven buiten de runtimeketen.
 
+M11.3b migreert het geverifieerde EmberForge palet naar native kleur, palet,
+materiaal en tokenobjecten. Deep Night Blue vormt het canvas, Graphite en Steel
+Blue dragen de oppervlakken, Sky is de primaire interactiekleur en Ember Copper
+blijft het spaarzame warme accent. Succes, waarschuwing en fout hebben eigen
+semantische rollen. HTML en Grafana gebruiken dezelfde opgeloste waarden en
+lezen het externe bronpakket niet.
+
 ## Diagnostics
 
 | Code | Betekenis |
