@@ -4,14 +4,14 @@
   "overall_progress": 40,
   "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
   "current_milestone": {
-    "id": "M11.1b",
-    "name": "Homepage informatiearchitectuur",
+    "id": "M11.2a",
+    "name": "Documentatiebasis en productrunbook",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.1a",
-    "name": "HTML homepage productcontract",
-    "pull_request": 67
+    "id": "M11.1b",
+    "name": "Homepage informatiearchitectuur",
+    "pull_request": 68
   },
   "next_step": {
     "id": "M11.1c",

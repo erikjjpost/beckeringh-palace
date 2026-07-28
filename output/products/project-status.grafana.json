@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.1b · Homepage informatiearchitectuur (in uitvoering)\nVoltooid: M11.1a · HTML homepage productcontract (PR #67)\nVolgende stap: M11.1c · Homepage visuele hiërarchie\nDe entree en routegebieden met expliciete componentrollen en appearances tot een herkenbare homepagehiërarchie uitwerken.",
+                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.2a · Documentatiebasis en productrunbook (in uitvoering)\nVoltooid: M11.1b · Homepage informatiearchitectuur (PR #68)\nVolgende stap: M11.1c · Homepage visuele hiërarchie\nDe entree en routegebieden met expliciete componentrollen en appearances tot een herkenbare homepagehiërarchie uitwerken.",
                   "mode": "fixed"
                 },
                 "valign": "top"

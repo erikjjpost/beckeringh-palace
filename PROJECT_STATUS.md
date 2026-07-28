@@ -8,8 +8,8 @@
 
 Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.
 
-- Actuele milestone: **M11.1b — Homepage informatiearchitectuur** (in uitvoering)
-- Laatst voltooid: **M11.1a — HTML homepage productcontract** (PR #67)
+- Actuele milestone: **M11.2a — Documentatiebasis en productrunbook** (in uitvoering)
+- Laatst voltooid: **M11.1b — Homepage informatiearchitectuur** (PR #68)
 - Volgende stap: **M11.1c — Homepage visuele hiërarchie**
 
 ## Voortgang per productgebied

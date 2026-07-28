@@ -1,0 +1,73 @@
+# Productrunbook
+
+`output/products/` bevat de reproduceerbare producten van Beckeringh Palace.
+De bestanden zijn afgeleid. Wijzig ze niet rechtstreeks.
+
+## Producten opnieuw genereren
+
+Voer voor een volledige, gecontroleerde generatie uit:
+
+```bash
+python tools/bp.py check
+```
+
+Voor een gerichte ontwikkelcyclus kan de BAT-compiler afzonderlijk worden
+uitgevoerd:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python tools/compile_bat.py
+```
+
+Een wijziging is pas gereed wanneer de volledige controle eindigt met
+`RESULTAAT: GELDIG EN REPRODUCEERBAAR`.
+
+## HTML bekijken
+
+Open `output/products/index.html` als ingang. Deze homepage verwijst naar de
+gegenereerde HTML-producten en catalogus.
+
+Een lokale webserver voorkomt browserbeperkingen bij relatieve bestanden:
+
+```bash
+python -m http.server 8000 --directory output/products
+```
+
+Open daarna `http://localhost:8000/`.
+
+## Grafana importeren
+
+Importeer in Grafana via **Dashboards**, **New**, **Import**:
+
+- `output/products/forge-dashboard.grafana.json`;
+- `output/products/project-status.grafana.json`.
+
+Deze dashboards zijn statische architectuursnapshots. Zij bevatten geen
+datasource en geen actuele operationele meetgegevens. Een nieuwe import kan
+een bestaand dashboard met dezelfde UID vervangen. Controleer daarom vóór
+import de snapshotreferentie en bewaar zo nodig de bestaande JSON-export.
+
+## Snapshot verifiëren
+
+Statische producten delen één canonieke referentie in de vorm
+`sha256:<64 hexadecimale tekens>`.
+
+- HTML bewaart deze in het attribuut `data-snapshot-ref` op het productelement.
+- Grafana bewaart dezelfde waarde als dashboardtag.
+
+De eerste twaalf tekens worden als compacte identiteit getoond. Vergelijk voor
+verificatie altijd de volledige referentie. Gelijke referenties betekenen dat
+de gevalideerde architectuurinhoud waarop de snapshot is gebaseerd gelijk is.
+
+## Rollback
+
+Een rollback bestaat uit het opnieuw genereren vanuit een eerdere, bekende
+Git-commit:
+
+1. noteer de volledige snapshotreferentie van het gewenste product;
+2. zoek de commit waarin `output/products/` die referentie bevat;
+3. maak vanaf die commit een herstelbranch;
+4. voer `python tools/bp.py check` uit;
+5. importeer of publiceer uitsluitend de opnieuw gevalideerde producten.
+
+Wijzig nooit een gegenereerd HTML- of Grafana-bestand om een oude toestand na
+te bootsen. De Git-commit en het normatieve model blijven de rollbackbron.
