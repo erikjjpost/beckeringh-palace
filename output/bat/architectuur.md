@@ -359,6 +359,27 @@ Gecontroleerd gemigreerde EmberForge ruimte op een 4px-basis.
 - **xl:** 64px
 - **xs:** 4px
 
+## EmberForge Art Direction
+
+**Soort:** artdirection
+
+**Identifier:** `emberforge-art-direction`
+
+### Doel
+
+Rustige soevereine control room met ruime duisternis en schaarse warmte.
+
+### Eigenschappen
+
+- **canvas:** canvas
+- **density:** spacious
+- **glow:** controlled
+- **imagery:** isometric-line-art
+- **interaction:** primary
+- **ornament:** technical-linework
+- **warm-accent:** accent
+- **warm-accent-limit:** 2
+
 ## Forge
 
 **Soort:** thema
@@ -371,6 +392,7 @@ Nordic forge-ontwerpidentiteit voor Beckeringh Palace.
 
 ### Eigenschappen
 
+- **artdirection:** emberforge-art-direction
 - **border:** forge-borders
 - **materiaal:** forge-materials
 - **motion:** forge-motion

@@ -52,6 +52,9 @@
       --bp-spacing-medium: 16px;
       --bp-spacing-large: 32px;
       --bp-spacing-xl: 64px;
+      --bp-art-canvas: #0F1724;
+      --bp-art-interaction: #7DD3FC;
+      --bp-art-warm-accent: #C9895B;
     }
     body {
       margin: 0;
@@ -95,6 +98,30 @@
     .bp-region h2 { margin-top: 0; }
     @media (max-width: 960px) {
       body { padding: var(--bp-spacing-large); }
+    }
+    body {
+      background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--bp-art-interaction) 8%, transparent), transparent 38%),
+        radial-gradient(circle at 88% 100%, color-mix(in srgb, var(--bp-art-warm-accent) 6%, transparent), transparent 34%),
+        var(--bp-art-canvas);
+    }
+    .bp-product-header {
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-left-color: var(--bp-material-outline);
+    }
+    .bp-product-header::after {
+      content: "";
+      display: block;
+      height: var(--bp-border-hairline);
+      margin-top: var(--bp-spacing-medium);
+      background: linear-gradient(90deg, var(--bp-material-outline), transparent);
+    }
+    .bp-region:focus-within, .bp-region:hover {
+      border-color: var(--bp-art-interaction);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--bp-art-interaction) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bp-art-interaction) 10%, transparent);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bp-region { transition: none; }
     }
     .bp-canvas { background: var(--bp-material-canvas); }
     .bp-region {
@@ -179,9 +206,9 @@
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-product-mode="static" data-time-context="none" data-snapshot-id="5c36d43820908fba8c6524151040d726676fe953258d878c95d2855afb1ef690" data-snapshot-ref="sha256:5c36d43820908fba8c6524151040d726676fe953258d878c95d2855afb1ef690">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-product-mode="static" data-time-context="none" data-snapshot-id="38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311" data-snapshot-ref="sha256:38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 5c36d4382090</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 38e484a3a0f5</p>
     <h1>Beckeringh Palace Projectstatus</h1>
     <p class="bp-product-purpose">De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.</p>
   </header>
@@ -189,24 +216,24 @@
     <section class="bp-status-summary">
       <div class="bp-status-overall">
         <span class="bp-status-label">Totale voortgang</span>
-        <strong>45%</strong>
+        <strong>46%</strong>
         <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
       </div>
       <div class="bp-status-milestones">
         <article class="bp-status-card">
           <span class="bp-status-label">Laatst voltooid</span>
-          <h2>M11.3b — EmberForge paletmigratie</h2>
-          <p>PR #74</p>
+          <h2>M11.3c — EmberForge primitiefmigratie</h2>
+          <p>PR #75</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Actueel</span>
-          <h2>M11.3c — EmberForge primitiefmigratie</h2>
+          <h2>M11.3d — EmberForge art direction</h2>
           <p>in uitvoering</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Volgende stap</span>
-          <h2>M11.3d — EmberForge art direction</h2>
-          <p>De vastgestelde balans van diepe navy, lichtend cyaan, gesmeed koper, gecontroleerde gloed, technische ornamentiek en ruime duisternis als native visueel contract modelleren.</p>
+          <h2>M11.3e — EmberForge typografiemigratie</h2>
+          <p>Het expliciete conflict tussen Aptos en Orbitron, Inter en JetBrains Mono normatief oplossen en zonder runtimeafhankelijkheid activeren.</p>
         </article>
       </div>
     </section>
@@ -215,7 +242,7 @@
         <h3>Compiler en reproduceerbaarheid</h3>
         <progress class="bp-status-progress" max="100" value="80">80%</progress>
         <p><strong>80%</strong></p>
-        <p>Validatie, deterministische generatie, CI en 144 regressietests vormen een werkende kwaliteitsketen.</p>
+        <p>Validatie, deterministische generatie, CI en 165 regressietests vormen een werkende kwaliteitsketen.</p>
         <p class="bp-status-label">Meer producttypen, adapters en volwassen foutdiagnostiek.</p>
       </article>
       <article class="bp-status-card" data-status-area="world-model">
@@ -227,9 +254,9 @@
       </article>
       <article class="bp-status-card" data-status-area="design-system">
         <h3>Design System</h3>
-        <progress class="bp-status-progress" max="100" value="73">73%</progress>
-        <p><strong>73%</strong></p>
-        <p>Het geverifieerde EmberForge palet en de semantische spacing, radius, border, shadow en motion rollen zijn native gemigreerd en via theme, appearance en renderers geactiveerd.</p>
+        <progress class="bp-status-progress" max="100" value="76">76%</progress>
+        <p><strong>76%</strong></p>
+        <p>Het geverifieerde EmberForge palet, de theme primitives en de art direction zijn native gemigreerd en via resolutie en renderers geactiveerd.</p>
         <p class="bp-status-label">Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.</p>
       </article>
       <article class="bp-status-card" data-status-area="dashboard">
@@ -241,9 +268,9 @@
       </article>
       <article class="bp-status-card" data-status-area="visual-world">
         <h3>Visuele wereld en art direction</h3>
-        <progress class="bp-status-progress" max="100" value="25">25%</progress>
-        <p><strong>25%</strong></p>
-        <p>De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig; EmberForge heeft een native merknaam, tagline, kernbelofte en principes.</p>
+        <progress class="bp-status-progress" max="100" value="30">30%</progress>
+        <p><strong>30%</strong></p>
+        <p>EmberForge heeft een native merkidentiteit en een expliciete visuele balans van diepe navy, cyaan, schaarse koperwarmte, gecontroleerde gloed, technische lijnvoering en ruime duisternis.</p>
         <p class="bp-status-label">Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.</p>
       </article>
       <article class="bp-status-card" data-status-area="svg-library">
@@ -262,9 +289,9 @@
       </article>
       <article class="bp-status-card" data-status-area="homepage">
         <h3>HTML homepage</h3>
-        <progress class="bp-status-progress" max="100" value="60">60%</progress>
-        <p><strong>60%</strong></p>
-        <p>Vier geordende homepagegebieden dragen inhoudsrol, componentrol, appearance, focus en responsief gedrag; de entree presenteert de native EmberForge merkidentiteit zonder backendinhoud.</p>
+        <progress class="bp-status-progress" max="100" value="63">63%</progress>
+        <p><strong>63%</strong></p>
+        <p>Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de entree presenteert de native merkidentiteit en de pagina activeert de opgeloste EmberForge art direction.</p>
         <p class="bp-status-label">Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.</p>
       </article>
       <article class="bp-status-card" data-status-area="figma">

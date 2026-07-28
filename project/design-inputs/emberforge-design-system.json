@@ -42,6 +42,12 @@
       "bewijs": "M11.3c migreert de productgedragen semantische rollen voor spacing, radius, border, shadow en motion naar BAT en activeert deze via de bestaande theme en appearance keten."
     },
     {
+      "id": "art-direction",
+      "status": "gemigreerd",
+      "doel": "BAT artdirection en opgelost thema",
+      "bewijs": "M11.3d migreert canvas, interactiekleur, schaarse warmte, gecontroleerde gloed, technische lijnvoering, ruime dichtheid en isometrische beeldtaal naar één native artdirection contract."
+    },
+    {
       "id": "components",
       "status": "gedeeltelijk-mapbaar",
       "doel": "BAT appearance, component en variant",

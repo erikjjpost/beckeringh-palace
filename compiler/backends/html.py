@@ -76,6 +76,12 @@ def _theme_css(product: ProductDefinition) -> str:
             f"      --bp-spacing-large: {thema.spacing.large};",
             f"      --bp-spacing-xl: {thema.spacing.xl};",
         ])
+    if thema.artdirection is not None:
+        regels.extend([
+            f"      --bp-art-canvas: {thema.artdirection.canvas.waarde};",
+            f"      --bp-art-interaction: {thema.artdirection.interaction.waarde};",
+            f"      --bp-art-warm-accent: {thema.artdirection.warm_accent.waarde};",
+        ])
 
     regels.extend([
         "    }",
@@ -123,6 +129,35 @@ def _theme_css(product: ProductDefinition) -> str:
         "      body { padding: var(--bp-spacing-large); }",
         "    }",
     ])
+
+    if thema.artdirection is not None:
+        art = thema.artdirection
+        regels.extend([
+            "    body {",
+            "      background:",
+            "        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--bp-art-interaction) 8%, transparent), transparent 38%),",
+            "        radial-gradient(circle at 88% 100%, color-mix(in srgb, var(--bp-art-warm-accent) 6%, transparent), transparent 34%),",
+            "        var(--bp-art-canvas);",
+            "    }",
+            "    .bp-product-header {",
+            "      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);",
+            "      border-left-color: var(--bp-material-outline);",
+            "    }",
+            "    .bp-product-header::after {",
+            "      content: \"\";",
+            "      display: block;",
+            "      height: var(--bp-border-hairline);",
+            "      margin-top: var(--bp-spacing-medium);",
+            "      background: linear-gradient(90deg, var(--bp-material-outline), transparent);",
+            "    }",
+            "    .bp-region:focus-within, .bp-region:hover {",
+            "      border-color: var(--bp-art-interaction);",
+            "      box-shadow: 0 0 0 1px color-mix(in srgb, var(--bp-art-interaction) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bp-art-interaction) 10%, transparent);",
+            "    }",
+            "    @media (prefers-reduced-motion: reduce) {",
+            "      .bp-region { transition: none; }",
+            "    }",
+        ])
 
     if thema.materiaal is not None:
         regels.append("    .bp-canvas { background: var(--bp-material-canvas); }")
@@ -323,6 +358,19 @@ def _render(
         f"{snapshot_attribuut}>",
         1,
     )
+    if thema.artdirection is not None:
+        art = thema.artdirection
+        inhoud = inhoud.replace(
+            f'data-theme="{thema.thema_id}" ',
+            f'data-theme="{thema.thema_id}" '
+            f'data-art-direction="{art.id}" '
+            f'data-art-glow="{art.glow}" '
+            f'data-art-ornament="{art.ornament}" '
+            f'data-art-density="{art.density}" '
+            f'data-art-imagery="{art.imagery}" '
+            f'data-art-warm-accent-limit="{art.warm_accent_limit}" ',
+            1,
+        )
     return inhoud
 
 

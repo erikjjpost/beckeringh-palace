@@ -255,6 +255,23 @@
   },
   {
     "eigenschappen": {
+      "canvas": "canvas",
+      "density": "spacious",
+      "doel": "Rustige soevereine control room met ruime duisternis en schaarse warmte.",
+      "glow": "controlled",
+      "imagery": "isometric-line-art",
+      "interaction": "primary",
+      "naam": "EmberForge Art Direction",
+      "ornament": "technical-linework",
+      "warm-accent": "accent",
+      "warm-accent-limit": "2"
+    },
+    "id": "emberforge-art-direction",
+    "soort": "artdirection"
+  },
+  {
+    "eigenschappen": {
+      "artdirection": "emberforge-art-direction",
       "border": "forge-borders",
       "doel": "Nordic forge-ontwerpidentiteit voor Beckeringh Palace.",
       "materiaal": "forge-materials",
