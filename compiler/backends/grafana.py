@@ -57,6 +57,14 @@ def _paneelbeschrijving(instantie: ResolvedComponentInstance) -> str:
     ]
     if instantie.variant_id is not None:
         identiteit.insert(1, f"BAT variant: {instantie.variant_id}")
+    if instantie.state_appearances:
+        identiteit.append(
+            "BAT states: "
+            + ", ".join(
+                f"{state}={appearance_id}"
+                for state, appearance_id in instantie.state_appearances
+            )
+        )
     if instantie.information_area_id is not None:
         identiteit.append(
             f"BAT informatiegebied: {instantie.information_area_id}"
@@ -125,6 +133,9 @@ def _canvasopties(
     accentrol = _appearance_waarde(
         appearance, "accent", f"appearance '{appearance.id}'"
     )
+    outlinerol = _appearance_waarde(
+        appearance, "outline", f"appearance '{appearance.id}'"
+    )
     borderrol = _appearance_waarde(
         appearance, "border", f"appearance '{appearance.id}'"
     )
@@ -158,7 +169,7 @@ def _canvasopties(
     voorgrond = _themakleur(thema, "materiaal", voorgrondrol)
     muted = _themakleur(thema, "materiaal", "muted")
     accent = _themakleur(thema, "materiaal", accentrol)
-    outline = _themakleur(thema, "materiaal", "outline")
+    outline = _themakleur(thema, "materiaal", outlinerol)
     tekstlinks = padding + 12
 
     elementen = [

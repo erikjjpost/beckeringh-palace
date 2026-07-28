@@ -8,37 +8,7 @@ from compiler.cir import Architectuurobject
 from compiler.native_layout_html_renderer import naar_native_layout_html
 from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
 from compiler.project_status import ProjectStatus
-
-
-def _css_string(waarde: str) -> str:
-    return '"' + waarde.replace('\\', '\\\\').replace('"', '\\"') + '"'
-
-
-CSS_GENERIEKE_FONTFAMILIES = frozenset({
-    "-apple-system",
-    "cursive",
-    "emoji",
-    "fangsong",
-    "fantasy",
-    "math",
-    "monospace",
-    "sans-serif",
-    "serif",
-    "system-ui",
-    "ui-monospace",
-    "ui-rounded",
-    "ui-sans-serif",
-    "ui-serif",
-})
-
-
-def _css_fontstack(families: tuple[str, ...]) -> str:
-    return ", ".join(
-        familie
-        if familie.lower() in CSS_GENERIEKE_FONTFAMILIES
-        else _css_string(familie)
-        for familie in families
-    )
+from compiler.theme_css import theme_variable_lines
 
 
 def _theme_css(product: ProductDefinition) -> str:
@@ -46,72 +16,8 @@ def _theme_css(product: ProductDefinition) -> str:
     if thema is None:
         return ""
 
-    regels = ["    :root {"]
-    for rol, kleur in thema.palet.kleuren:
-        regels.append(f"      --bp-theme-{rol}: {kleur.waarde};")
+    regels = list(theme_variable_lines(thema, indent="    "))
     regels.extend([
-        f"      --bp-font-heading: {_css_fontstack(thema.typografie.heading)};",
-        f"      --bp-font-body: {_css_fontstack(thema.typografie.body)};",
-        f"      --bp-font-mono: {_css_fontstack(thema.typografie.mono)};",
-    ])
-
-    if thema.typeschaal is not None:
-        regels.extend([
-            f"      --bp-type-display: {thema.typeschaal.display};",
-            f"      --bp-type-title: {thema.typeschaal.title};",
-            f"      --bp-type-heading: {thema.typeschaal.heading};",
-            f"      --bp-type-body: {thema.typeschaal.body};",
-            f"      --bp-type-label: {thema.typeschaal.label};",
-            f"      --bp-type-caption: {thema.typeschaal.caption};",
-        ])
-    if thema.materiaal is not None:
-        for rol, kleur in thema.materiaal.kleuren:
-            regels.append(f"      --bp-material-{rol}: {kleur.waarde};")
-    if thema.border is not None:
-        regels.extend([
-            f"      --bp-border-hairline: {thema.border.hairline};",
-            f"      --bp-border-regular: {thema.border.regular};",
-            f"      --bp-border-strong: {thema.border.strong};",
-            f"      --bp-border-style: {thema.border.style};",
-        ])
-    if thema.radius is not None:
-        regels.extend([
-            f"      --bp-radius-small: {thema.radius.small};",
-            f"      --bp-radius-medium: {thema.radius.medium};",
-            f"      --bp-radius-large: {thema.radius.large};",
-            f"      --bp-radius-pill: {thema.radius.pill};",
-        ])
-    if thema.shadow is not None:
-        regels.extend([
-            f"      --bp-shadow-low: {thema.shadow.low};",
-            f"      --bp-shadow-medium: {thema.shadow.medium};",
-            f"      --bp-shadow-high: {thema.shadow.high};",
-        ])
-    if thema.motion is not None:
-        regels.extend([
-            f"      --bp-motion-fast: {thema.motion.fast};",
-            f"      --bp-motion-normal: {thema.motion.normal};",
-            f"      --bp-motion-slow: {thema.motion.slow};",
-            f"      --bp-motion-easing: {thema.motion.easing};",
-        ])
-    if thema.spacing is not None:
-        regels.extend([
-            f"      --bp-spacing-none: {thema.spacing.none};",
-            f"      --bp-spacing-xs: {thema.spacing.xs};",
-            f"      --bp-spacing-small: {thema.spacing.small};",
-            f"      --bp-spacing-medium: {thema.spacing.medium};",
-            f"      --bp-spacing-large: {thema.spacing.large};",
-            f"      --bp-spacing-xl: {thema.spacing.xl};",
-        ])
-    if thema.artdirection is not None:
-        regels.extend([
-            f"      --bp-art-canvas: {thema.artdirection.canvas.waarde};",
-            f"      --bp-art-interaction: {thema.artdirection.interaction.waarde};",
-            f"      --bp-art-warm-accent: {thema.artdirection.warm_accent.waarde};",
-        ])
-
-    regels.extend([
-        "    }",
         "    body {",
         "      margin: 0;",
         "      min-height: 100vh;",
@@ -176,10 +82,6 @@ def _theme_css(product: ProductDefinition) -> str:
             "      height: var(--bp-border-hairline);",
             "      margin-top: var(--bp-spacing-medium);",
             "      background: linear-gradient(90deg, var(--bp-material-outline), transparent);",
-            "    }",
-            "    .bp-region:focus-within, .bp-region:hover {",
-            "      border-color: var(--bp-art-interaction);",
-            "      box-shadow: 0 0 0 1px color-mix(in srgb, var(--bp-art-interaction) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bp-art-interaction) 10%, transparent);",
             "    }",
             "    @media (prefers-reduced-motion: reduce) {",
             "      .bp-region { transition: none; }",

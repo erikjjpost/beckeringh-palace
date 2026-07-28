@@ -51,7 +51,7 @@
       "id": "components",
       "status": "gedeeltelijk-mapbaar",
       "doel": "BAT appearance, component en variant",
-      "bewijs": "States en voorbeelden zijn aanwezig; dekking en responsieve contracten zijn onvolledig."
+      "bewijs": "M11.3f migreert rust, hover, focus, pressed en disabled voor het bestaande Forge-paneel als volledige native statecontracten via appearance en variant. Button, input, status, app tile en stat card vragen nog afzonderlijke componentdekking."
     },
     {
       "id": "product-surfaces",

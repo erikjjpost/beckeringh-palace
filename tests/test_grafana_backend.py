@@ -73,7 +73,7 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertTrue(all(panel["type"] == "canvas" for panel in dashboard["panels"]))
         self.assertEqual(
-            "#243447",
+            "#1F2937",
             dashboard["panels"][2]["options"]["root"]["background"]["color"]["fixed"],
         )
         self.assertEqual(
@@ -111,7 +111,7 @@ class GrafanaBackendTests(unittest.TestCase):
             [link["url"] for link in navigatie["links"]],
         )
         self.assertEqual(
-            {"height": 540, "left": 4, "top": 4, "width": 4},
+            {"height": 540, "left": 16, "top": 16, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         inhoud = next(
@@ -140,8 +140,8 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual(
             {
                 "height": 192,
-                "left": 16,
-                "top": 124,
+                "left": 28,
+                "top": 136,
                 "width": 280,
             },
             dashboard["panels"][2]["options"]["root"]["elements"][3]["placement"],
@@ -196,13 +196,13 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["border"],
         )
         self.assertEqual(
-            "38",
+            "44",
             dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
-            ["2", "38", "31"],
+            ["2", "44", "31"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
@@ -215,7 +215,12 @@ class GrafanaBackendTests(unittest.TestCase):
             "Forge-identiteit.\n\n"
             "BAT component: forge-panel\n"
             "BAT variant: forge-panel-compact\n"
-            "BAT appearance: forge-panel-compact-appearance\n"
+            "BAT appearance: forge-panel-card-rest-appearance\n"
+            "BAT states: rest=forge-panel-card-rest-appearance, "
+            "hover=forge-panel-card-hover-appearance, "
+            "focus=forge-panel-card-focus-appearance, "
+            "pressed=forge-panel-card-pressed-appearance, "
+            "disabled=forge-panel-card-disabled-appearance\n"
             "BAT informatiegebied: forge-design-system\n"
             "Toegankelijkheidslabel: Forge ontwerpsysteem, overzicht van "
             "ontwerpprimitieven en componenten\n"
@@ -366,11 +371,11 @@ product dashboard-grafana {
         thema = product.definitie.thema
         assert thema is not None
         assert thema.spacing is not None
-        ongeldige_spacing = replace(thema.spacing, xs="0.25rem")
+        ongeldige_spacing = replace(thema.spacing, medium="1rem")
 
         with self.assertRaisesRegex(
             ValueError,
-            "vereist een px-waarde voor spacing.xs",
+            "vereist een px-waarde voor spacing.medium",
         ):
             backend.render(
                 model.objecten,

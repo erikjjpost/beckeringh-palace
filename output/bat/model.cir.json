@@ -75,11 +75,29 @@
   },
   {
     "eigenschappen": {
+      "doel": "Gedempte voorgrondkleur voor niet-beschikbare bediening.",
+      "naam": "Muted Steel",
+      "waarde": "#3E5573"
+    },
+    "id": "ink-500",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
       "doel": "Primaire interactie en highlightkleur.",
       "naam": "Cyan Accent",
       "waarde": "#7DD3FC"
     },
     "id": "sky-400",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Donkerdere interactiekleur voor de ingedrukte toestand.",
+      "naam": "Pressed Cyan",
+      "waarde": "#38BDF8"
+    },
+    "id": "sky-500",
     "soort": "kleur"
   },
   {
@@ -200,8 +218,11 @@
     "eigenschappen": {
       "accent": "ember-500",
       "canvas": "ink-900",
+      "disabled": "ink-500",
       "doel": "Gecontroleerd gemigreerde EmberForge materiaalrollen.",
       "foreground": "bone-50",
+      "interaction": "sky-400",
+      "interaction-pressed": "sky-500",
       "muted": "bone-300",
       "naam": "Forge Materials",
       "outline": "ink-600",
@@ -238,10 +259,12 @@
   {
     "eigenschappen": {
       "doel": "Gecontroleerd gemigreerde EmberForge diepteschaal.",
+      "glow": "0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10)",
       "high": "0 18px 44px rgba(0,0,0,0.45)",
       "low": "0 1px 2px rgba(0,0,0,0.25)",
       "medium": "0 6px 18px rgba(0,0,0,0.35)",
-      "naam": "Forge Shadows"
+      "naam": "Forge Shadows",
+      "none": "none"
     },
     "id": "forge-shadows",
     "soort": "shadow"
@@ -251,8 +274,10 @@
       "doel": "Gecontroleerd gemigreerd EmberForge tijds- en easingprofiel.",
       "easing": "cubic-bezier(0.2, 0.7, 0.2, 1)",
       "fast": "120ms",
+      "hover-offset": "-1px",
       "naam": "Forge Motion",
       "normal": "220ms",
+      "rest-offset": "0px",
       "slow": "420ms"
     },
     "id": "forge-motion",
@@ -453,6 +478,8 @@
       "material": "raised",
       "motion": "normal",
       "naam": "Forge Panel Appearance",
+      "offset": "rest",
+      "outline": "outline",
       "radius": "medium",
       "shadow": "medium",
       "spacing": "small"
@@ -466,18 +493,108 @@
       "body-style": "body",
       "border": "regular",
       "caption-style": "caption",
-      "doel": "Compact paneelprofiel met minder ruimte en diepte.",
+      "doel": "Rusttoestand van een interactief Forge-paneel.",
       "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Panel Card Rest Appearance",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "low",
+      "spacing": "medium"
+    },
+    "id": "forge-panel-card-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Cyaan omlijnde kaart met gecontroleerde gloed en één pixel lift.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Panel Card Hover Appearance",
+      "offset": "hover",
+      "outline": "interaction",
+      "radius": "medium",
+      "shadow": "glow",
+      "spacing": "medium"
+    },
+    "id": "forge-panel-card-hover-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Toetsenbordfocus met cyaan omlijning en gecontroleerde gloed.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Panel Card Focus Appearance",
+      "offset": "rest",
+      "outline": "interaction",
+      "radius": "medium",
+      "shadow": "glow",
+      "spacing": "medium"
+    },
+    "id": "forge-panel-card-focus-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Vlakkere ingedrukte toestand met donkerder cyaan en zonder verkleining.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Panel Card Pressed Appearance",
+      "offset": "rest",
+      "outline": "interaction-pressed",
+      "radius": "medium",
+      "shadow": "low",
+      "spacing": "medium"
+    },
+    "id": "forge-panel-card-pressed-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "disabled",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Niet-beschikbare toestand met gedempte voorgrond zonder lift of gloed.",
+      "foreground": "disabled",
       "heading-style": "heading",
       "label-style": "label",
       "material": "raised",
       "motion": "normal",
-      "naam": "Forge Panel Compact Appearance",
+      "naam": "Forge Panel Card Disabled Appearance",
+      "offset": "rest",
+      "outline": "outline",
       "radius": "medium",
-      "shadow": "low",
-      "spacing": "xs"
+      "shadow": "none",
+      "spacing": "medium"
     },
-    "id": "forge-panel-compact-appearance",
+    "id": "forge-panel-card-disabled-appearance",
     "soort": "appearance"
   },
   {
@@ -493,6 +610,8 @@
       "material": "raised",
       "motion": "slow",
       "naam": "Forge Panel Hero Appearance",
+      "offset": "rest",
+      "outline": "outline",
       "radius": "large",
       "shadow": "high",
       "spacing": "xl"
@@ -511,10 +630,14 @@
   },
   {
     "eigenschappen": {
-      "appearance": "forge-panel-compact-appearance",
+      "appearance": "forge-panel-card-rest-appearance",
       "component": "forge-panel",
+      "disabled": "forge-panel-card-disabled-appearance",
       "doel": "Gecontroleerde compacte appearance voor een Forge-paneel.",
-      "naam": "Forge Panel Compact"
+      "focus": "forge-panel-card-focus-appearance",
+      "hover": "forge-panel-card-hover-appearance",
+      "naam": "Forge Panel Compact",
+      "pressed": "forge-panel-card-pressed-appearance"
     },
     "id": "forge-panel-compact",
     "soort": "variant"
@@ -531,10 +654,14 @@
   },
   {
     "eigenschappen": {
-      "appearance": "forge-panel-compact-appearance",
+      "appearance": "forge-panel-card-rest-appearance",
       "component": "forge-panel",
+      "disabled": "forge-panel-card-disabled-appearance",
       "doel": "Gecontroleerde routekaart-appearance voor homepage-navigatie.",
-      "naam": "Forge Panel Route"
+      "focus": "forge-panel-card-focus-appearance",
+      "hover": "forge-panel-card-hover-appearance",
+      "naam": "Forge Panel Route",
+      "pressed": "forge-panel-card-pressed-appearance"
     },
     "id": "forge-panel-route",
     "soort": "variant"

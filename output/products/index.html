@@ -31,6 +31,9 @@
       --bp-material-muted: #B8C5D6;
       --bp-material-accent: #C9895B;
       --bp-material-outline: #2F4259;
+      --bp-material-interaction: #7DD3FC;
+      --bp-material-interaction-pressed: #38BDF8;
+      --bp-material-disabled: #3E5573;
       --bp-border-hairline: 1px;
       --bp-border-regular: 1px;
       --bp-border-strong: 1px;
@@ -42,10 +45,14 @@
       --bp-shadow-low: 0 1px 2px rgba(0,0,0,0.25);
       --bp-shadow-medium: 0 6px 18px rgba(0,0,0,0.35);
       --bp-shadow-high: 0 18px 44px rgba(0,0,0,0.45);
+      --bp-shadow-none: none;
+      --bp-shadow-glow: 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10);
       --bp-motion-fast: 120ms;
       --bp-motion-normal: 220ms;
       --bp-motion-slow: 420ms;
       --bp-motion-easing: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --bp-motion-rest-offset: 0px;
+      --bp-motion-hover-offset: -1px;
       --bp-spacing-none: 0;
       --bp-spacing-xs: 4px;
       --bp-spacing-small: 8px;
@@ -115,10 +122,6 @@
       height: var(--bp-border-hairline);
       margin-top: var(--bp-spacing-medium);
       background: linear-gradient(90deg, var(--bp-material-outline), transparent);
-    }
-    .bp-region:focus-within, .bp-region:hover {
-      border-color: var(--bp-art-interaction);
-      box-shadow: 0 0 0 1px color-mix(in srgb, var(--bp-art-interaction) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bp-art-interaction) 10%, transparent);
     }
     @media (prefers-reduced-motion: reduce) {
       .bp-region { transition: none; }
@@ -213,14 +216,14 @@
     }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952" data-snapshot-ref="sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333" data-snapshot-ref="sha256:bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot bf9b5dc00159</p>
     <h1>Beckeringh Palace</h1>
     <p class="bp-product-purpose">Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus.</p>
   </header>
   <main class="bp-layout bp-layout-beckeringh-palace-homepage-grid" data-layout-type="grid" data-responsive-breakpoint="960" data-compact-columns="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))">
-    <section class="bp-region bp-forge-panel bp-variant-forge-panel-hero" data-region="homepage-intro-region" data-instance="homepage-intro" data-component="forge-panel" data-variant="forge-panel-hero" data-appearance="forge-panel-hero-appearance" data-homepage-area="homepage-entrance" data-homepage-role="entree" data-component-role="hero" data-reading-order="1" data-focus-order="0" data-navigation-behavior="geen" data-compact-order="1" style="grid-column:1 / span 3;grid-row:1 / span 1">
+    <section class="bp-region bp-forge-panel bp-variant-forge-panel-hero" data-region="homepage-intro-region" data-instance="homepage-intro" data-component="forge-panel" data-variant="forge-panel-hero" data-appearance="forge-panel-hero-appearance" data-component-states="rest" data-state-rest-appearance="forge-panel-hero-appearance" data-homepage-area="homepage-entrance" data-homepage-role="entree" data-component-role="hero" data-reading-order="1" data-focus-order="0" data-navigation-behavior="geen" data-compact-order="1" style="grid-column:1 / span 3;grid-row:1 / span 1">
       <h2>Design is data</h2>
       <p class="bp-core-message">Design is data.</p>
       <p class="bp-brand-name">EmberForge</p>
@@ -241,7 +244,7 @@
       </ul>
       <p class="bp-description">Introduceert de ontwerpregel achter alle Beckeringh Palace producten.</p>
     </section>
-    <section class="bp-region bp-forge-panel bp-variant-forge-panel-route" data-region="homepage-world-region" data-instance="homepage-world" data-component="forge-panel" data-variant="forge-panel-route" data-appearance="forge-panel-compact-appearance" data-homepage-area="homepage-world-area" data-homepage-role="route" data-component-role="routekaart" data-reading-order="2" data-focus-order="1" data-navigation-behavior="volledige-kaart" data-compact-order="2" style="grid-column:1 / span 1;grid-row:2 / span 1">
+    <section class="bp-region bp-forge-panel bp-variant-forge-panel-route" data-region="homepage-world-region" data-instance="homepage-world" data-component="forge-panel" data-variant="forge-panel-route" data-appearance="forge-panel-card-rest-appearance" data-component-states="rest hover focus pressed disabled" data-state-rest-appearance="forge-panel-card-rest-appearance" data-state-hover-appearance="forge-panel-card-hover-appearance" data-state-focus-appearance="forge-panel-card-focus-appearance" data-state-pressed-appearance="forge-panel-card-pressed-appearance" data-state-disabled-appearance="forge-panel-card-disabled-appearance" data-homepage-area="homepage-world-area" data-homepage-role="route" data-component-role="routekaart" data-reading-order="2" data-focus-order="1" data-navigation-behavior="volledige-kaart" data-compact-order="2" style="grid-column:1 / span 1;grid-row:2 / span 1">
       <h2>Digitale wereld</h2>
       <p class="bp-core-message">Eén normatief wereldmodel verbindt identiteit, ontwerp en producten.</p>
       <nav class="bp-product-navigation" aria-label="Productnavigatie">
@@ -251,7 +254,7 @@
       </nav>
       <p class="bp-description">Verken de samenhang tussen wereld, identiteit en productfamilie.</p>
     </section>
-    <section class="bp-region bp-forge-panel bp-variant-forge-panel-route" data-region="homepage-design-system-region" data-instance="homepage-design-system" data-component="forge-panel" data-variant="forge-panel-route" data-appearance="forge-panel-compact-appearance" data-homepage-area="homepage-design-system-area" data-homepage-role="route" data-component-role="routekaart" data-reading-order="3" data-focus-order="2" data-navigation-behavior="volledige-kaart" data-compact-order="3" style="grid-column:2 / span 1;grid-row:2 / span 1">
+    <section class="bp-region bp-forge-panel bp-variant-forge-panel-route" data-region="homepage-design-system-region" data-instance="homepage-design-system" data-component="forge-panel" data-variant="forge-panel-route" data-appearance="forge-panel-card-rest-appearance" data-component-states="rest hover focus pressed disabled" data-state-rest-appearance="forge-panel-card-rest-appearance" data-state-hover-appearance="forge-panel-card-hover-appearance" data-state-focus-appearance="forge-panel-card-focus-appearance" data-state-pressed-appearance="forge-panel-card-pressed-appearance" data-state-disabled-appearance="forge-panel-card-disabled-appearance" data-homepage-area="homepage-design-system-area" data-homepage-role="route" data-component-role="routekaart" data-reading-order="3" data-focus-order="2" data-navigation-behavior="volledige-kaart" data-compact-order="3" style="grid-column:2 / span 1;grid-row:2 / span 1">
       <h2>Forge ontwerpsysteem</h2>
       <p class="bp-core-message">Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.</p>
       <nav class="bp-product-navigation" aria-label="Productnavigatie">
@@ -261,7 +264,7 @@
       </nav>
       <p class="bp-description">Bekijk de reproduceerbare componenten en ontwerpprimitieven.</p>
     </section>
-    <section class="bp-region bp-forge-panel bp-variant-forge-panel-route" data-region="homepage-project-status-region" data-instance="homepage-project-status" data-component="forge-panel" data-variant="forge-panel-route" data-appearance="forge-panel-compact-appearance" data-homepage-area="homepage-project-status-area" data-homepage-role="route" data-component-role="routekaart" data-reading-order="4" data-focus-order="3" data-navigation-behavior="volledige-kaart" data-compact-order="4" style="grid-column:3 / span 1;grid-row:2 / span 1">
+    <section class="bp-region bp-forge-panel bp-variant-forge-panel-route" data-region="homepage-project-status-region" data-instance="homepage-project-status" data-component="forge-panel" data-variant="forge-panel-route" data-appearance="forge-panel-card-rest-appearance" data-component-states="rest hover focus pressed disabled" data-state-rest-appearance="forge-panel-card-rest-appearance" data-state-hover-appearance="forge-panel-card-hover-appearance" data-state-focus-appearance="forge-panel-card-focus-appearance" data-state-pressed-appearance="forge-panel-card-pressed-appearance" data-state-disabled-appearance="forge-panel-card-disabled-appearance" data-homepage-area="homepage-project-status-area" data-homepage-role="route" data-component-role="routekaart" data-reading-order="4" data-focus-order="3" data-navigation-behavior="volledige-kaart" data-compact-order="4" style="grid-column:3 / span 1;grid-row:2 / span 1">
       <h2>Projectstatus</h2>
       <p class="bp-core-message">Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.</p>
       <nav class="bp-product-navigation" aria-label="Productnavigatie">

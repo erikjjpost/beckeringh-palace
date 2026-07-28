@@ -31,6 +31,9 @@
       --bp-material-muted: #B8C5D6;
       --bp-material-accent: #C9895B;
       --bp-material-outline: #2F4259;
+      --bp-material-interaction: #7DD3FC;
+      --bp-material-interaction-pressed: #38BDF8;
+      --bp-material-disabled: #3E5573;
       --bp-border-hairline: 1px;
       --bp-border-regular: 1px;
       --bp-border-strong: 1px;
@@ -42,10 +45,14 @@
       --bp-shadow-low: 0 1px 2px rgba(0,0,0,0.25);
       --bp-shadow-medium: 0 6px 18px rgba(0,0,0,0.35);
       --bp-shadow-high: 0 18px 44px rgba(0,0,0,0.45);
+      --bp-shadow-none: none;
+      --bp-shadow-glow: 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10);
       --bp-motion-fast: 120ms;
       --bp-motion-normal: 220ms;
       --bp-motion-slow: 420ms;
       --bp-motion-easing: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --bp-motion-rest-offset: 0px;
+      --bp-motion-hover-offset: -1px;
       --bp-spacing-none: 0;
       --bp-spacing-xs: 4px;
       --bp-spacing-small: 8px;
@@ -115,10 +122,6 @@
       height: var(--bp-border-hairline);
       margin-top: var(--bp-spacing-medium);
       background: linear-gradient(90deg, var(--bp-material-outline), transparent);
-    }
-    .bp-region:focus-within, .bp-region:hover {
-      border-color: var(--bp-art-interaction);
-      box-shadow: 0 0 0 1px color-mix(in srgb, var(--bp-art-interaction) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bp-art-interaction) 10%, transparent);
     }
     @media (prefers-reduced-motion: reduce) {
       .bp-region { transition: none; }
@@ -206,9 +209,9 @@
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952" data-snapshot-ref="sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333" data-snapshot-ref="sha256:bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot bf9b5dc00159</p>
     <h1>Forge Dashboard</h1>
     <p class="bp-product-purpose">Informatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.</p>
   </header>
@@ -231,14 +234,14 @@
       </nav>
       <p class="bp-description">De digitale wereld, haar merk en haar reproduceerbare bronassets.</p>
     </section>
-    <section class="bp-region bp-forge-panel bp-variant-forge-panel-compact" data-region="forge-dashboard-center" data-instance="forge-dashboard-center-panel" data-component="forge-panel" data-variant="forge-panel-compact" data-appearance="forge-panel-compact-appearance" data-information-area="forge-design-system" data-reading-order="2" aria-label="Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten" style="grid-column:2 / span 1;grid-row:1 / span 1">
+    <section class="bp-region bp-forge-panel bp-variant-forge-panel-compact" data-region="forge-dashboard-center" data-instance="forge-dashboard-center-panel" data-component="forge-panel" data-variant="forge-panel-compact" data-appearance="forge-panel-card-rest-appearance" data-component-states="rest hover focus pressed disabled" data-state-rest-appearance="forge-panel-card-rest-appearance" data-state-hover-appearance="forge-panel-card-hover-appearance" data-state-focus-appearance="forge-panel-card-focus-appearance" data-state-pressed-appearance="forge-panel-card-pressed-appearance" data-state-disabled-appearance="forge-panel-card-disabled-appearance" data-information-area="forge-design-system" data-reading-order="2" aria-label="Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten" style="grid-column:2 / span 1;grid-row:1 / span 1">
       <h2>Forge ontwerpsysteem</h2>
-      <p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">38</p>
+      <p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">44</p>
       <ul class="bp-metric-details">
-        <li><span>appearance</span><span class="bp-metric-detail-value">3</span></li>
+        <li><span>appearance</span><span class="bp-metric-detail-value">7</span></li>
         <li><span>border</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>component</span><span class="bp-metric-detail-value">1</span></li>
-        <li><span>kleur</span><span class="bp-metric-detail-value">11</span></li>
+        <li><span>kleur</span><span class="bp-metric-detail-value">13</span></li>
         <li><span>materiaal</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>motion</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>palet</span><span class="bp-metric-detail-value">1</span></li>

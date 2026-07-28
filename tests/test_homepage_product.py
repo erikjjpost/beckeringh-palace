@@ -106,7 +106,7 @@ class HomepageProductTests(unittest.TestCase):
             3,
             html.count(
                 'data-variant="forge-panel-route" '
-                'data-appearance="forge-panel-compact-appearance"'
+                'data-appearance="forge-panel-card-rest-appearance"'
             ),
         )
         self.assertIn(

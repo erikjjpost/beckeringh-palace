@@ -99,6 +99,20 @@ Hairline en scheidingskleur op donkere oppervlakken.
 
 - **waarde:** #2F4259
 
+## Muted Steel
+
+**Soort:** kleur
+
+**Identifier:** `ink-500`
+
+### Doel
+
+Gedempte voorgrondkleur voor niet-beschikbare bediening.
+
+### Eigenschappen
+
+- **waarde:** #3E5573
+
 ## Cyan Accent
 
 **Soort:** kleur
@@ -112,6 +126,20 @@ Primaire interactie en highlightkleur.
 ### Eigenschappen
 
 - **waarde:** #7DD3FC
+
+## Pressed Cyan
+
+**Soort:** kleur
+
+**Identifier:** `sky-500`
+
+### Doel
+
+Donkerdere interactiekleur voor de ingedrukte toestand.
+
+### Eigenschappen
+
+- **waarde:** #38BDF8
 
 ## Ice White
 
@@ -268,7 +296,10 @@ Gecontroleerd gemigreerde EmberForge materiaalrollen.
 
 - **accent:** ember-500
 - **canvas:** ink-900
+- **disabled:** ink-500
 - **foreground:** bone-50
+- **interaction:** sky-400
+- **interaction-pressed:** sky-500
 - **muted:** bone-300
 - **outline:** ink-600
 - **raised:** ink-700
@@ -320,9 +351,11 @@ Gecontroleerd gemigreerde EmberForge diepteschaal.
 
 ### Eigenschappen
 
+- **glow:** 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10)
 - **high:** 0 18px 44px rgba(0,0,0,0.45)
 - **low:** 0 1px 2px rgba(0,0,0,0.25)
 - **medium:** 0 6px 18px rgba(0,0,0,0.35)
+- **none:** none
 
 ## Forge Motion
 
@@ -338,7 +371,9 @@ Gecontroleerd gemigreerd EmberForge tijds- en easingprofiel.
 
 - **easing:** cubic-bezier(0.2, 0.7, 0.2, 1)
 - **fast:** 120ms
+- **hover-offset:** -1px
 - **normal:** 220ms
+- **rest-offset:** 0px
 - **slow:** 420ms
 
 ## Forge Spacing
@@ -608,19 +643,21 @@ Semantisch appearance-contract voor verhoogde Forge-panelen.
 - **label-style:** label
 - **material:** raised
 - **motion:** normal
+- **offset:** rest
+- **outline:** outline
 - **radius:** medium
 - **shadow:** medium
 - **spacing:** small
 
-## Forge Panel Compact Appearance
+## Forge Panel Card Rest Appearance
 
 **Soort:** appearance
 
-**Identifier:** `forge-panel-compact-appearance`
+**Identifier:** `forge-panel-card-rest-appearance`
 
 ### Doel
 
-Compact paneelprofiel met minder ruimte en diepte.
+Rusttoestand van een interactief Forge-paneel.
 
 ### Eigenschappen
 
@@ -631,11 +668,121 @@ Compact paneelprofiel met minder ruimte en diepte.
 - **foreground:** foreground
 - **heading-style:** heading
 - **label-style:** label
-- **material:** raised
+- **material:** surface
 - **motion:** normal
+- **offset:** rest
+- **outline:** outline
 - **radius:** medium
 - **shadow:** low
-- **spacing:** xs
+- **spacing:** medium
+
+## Forge Panel Card Hover Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-panel-card-hover-appearance`
+
+### Doel
+
+Cyaan omlijnde kaart met gecontroleerde gloed en één pixel lift.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** hover
+- **outline:** interaction
+- **radius:** medium
+- **shadow:** glow
+- **spacing:** medium
+
+## Forge Panel Card Focus Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-panel-card-focus-appearance`
+
+### Doel
+
+Toetsenbordfocus met cyaan omlijning en gecontroleerde gloed.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction
+- **radius:** medium
+- **shadow:** glow
+- **spacing:** medium
+
+## Forge Panel Card Pressed Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-panel-card-pressed-appearance`
+
+### Doel
+
+Vlakkere ingedrukte toestand met donkerder cyaan en zonder verkleining.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction-pressed
+- **radius:** medium
+- **shadow:** low
+- **spacing:** medium
+
+## Forge Panel Card Disabled Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-panel-card-disabled-appearance`
+
+### Doel
+
+Niet-beschikbare toestand met gedempte voorgrond zonder lift of gloed.
+
+### Eigenschappen
+
+- **accent:** disabled
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** disabled
+- **heading-style:** heading
+- **label-style:** label
+- **material:** raised
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** none
+- **spacing:** medium
 
 ## Forge Panel Hero Appearance
 
@@ -658,6 +805,8 @@ Ruime en verhoogde appearance voor de homepage-entree.
 - **label-style:** label
 - **material:** raised
 - **motion:** slow
+- **offset:** rest
+- **outline:** outline
 - **radius:** large
 - **shadow:** high
 - **spacing:** xl
@@ -688,8 +837,12 @@ Gecontroleerde compacte appearance voor een Forge-paneel.
 
 ### Eigenschappen
 
-- **appearance:** forge-panel-compact-appearance
+- **appearance:** forge-panel-card-rest-appearance
 - **component:** forge-panel
+- **disabled:** forge-panel-card-disabled-appearance
+- **focus:** forge-panel-card-focus-appearance
+- **hover:** forge-panel-card-hover-appearance
+- **pressed:** forge-panel-card-pressed-appearance
 
 ## Forge Panel Hero
 
@@ -718,8 +871,12 @@ Gecontroleerde routekaart-appearance voor homepage-navigatie.
 
 ### Eigenschappen
 
-- **appearance:** forge-panel-compact-appearance
+- **appearance:** forge-panel-card-rest-appearance
 - **component:** forge-panel
+- **disabled:** forge-panel-card-disabled-appearance
+- **focus:** forge-panel-card-focus-appearance
+- **hover:** forge-panel-card-hover-appearance
+- **pressed:** forge-panel-card-pressed-appearance
 
 ## Wereld en identiteit
 

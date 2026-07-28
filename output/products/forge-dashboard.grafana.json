@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot bf9b5dc00159",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -428,7 +428,7 @@
       "type": "canvas"
     },
     {
-      "description": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-compact-appearance\nBAT informatiegebied: forge-design-system\nToegankelijkheidslabel: Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten\nLeesvolgorde: 2",
+      "description": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-card-rest-appearance\nBAT states: rest=forge-panel-card-rest-appearance, hover=forge-panel-card-hover-appearance, focus=forge-panel-card-focus-appearance, pressed=forge-panel-card-pressed-appearance, disabled=forge-panel-card-disabled-appearance\nBAT informatiegebied: forge-design-system\nToegankelijkheidslabel: Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten\nLeesvolgorde: 2",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -443,7 +443,7 @@
         "root": {
           "background": {
             "color": {
-              "fixed": "#243447"
+              "fixed": "#1F2937"
             }
           },
           "border": {
@@ -472,8 +472,8 @@
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
                 "height": 540,
-                "left": 4,
-                "top": 4,
+                "left": 16,
+                "top": 16,
                 "width": 4
               },
               "type": "rectangle"
@@ -498,8 +498,8 @@
               "name": "forge-dashboard-center-panel-heading",
               "placement": {
                 "height": 40,
-                "left": 16,
-                "top": 4,
+                "left": 28,
+                "top": 16,
                 "width": 360
               },
               "type": "text"
@@ -512,7 +512,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "38",
+                  "fixed": "44",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -524,8 +524,8 @@
               "name": "forge-dashboard-center-panel-metric",
               "placement": {
                 "height": 72,
-                "left": 16,
-                "top": 48,
+                "left": 28,
+                "top": 60,
                 "width": 360
               },
               "type": "text"
@@ -550,8 +550,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-labels",
               "placement": {
                 "height": 192,
-                "left": 16,
-                "top": 124,
+                "left": 28,
+                "top": 136,
                 "width": 280
               },
               "type": "text"
@@ -564,7 +564,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "3\n1\n1\n11\n1\n1\n1\n1\n1\n1\n1\n10\n1\n1\n3",
+                  "fixed": "7\n1\n1\n13\n1\n1\n1\n1\n1\n1\n1\n10\n1\n1\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -576,8 +576,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-values",
               "placement": {
                 "height": 192,
-                "left": 296,
-                "top": 124,
+                "left": 308,
+                "top": 136,
                 "width": 80
               },
               "type": "text"
@@ -601,8 +601,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-1",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 136,
+                "left": 28,
+                "top": 148,
                 "width": 360
               },
               "type": "rectangle"
@@ -626,8 +626,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-2",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 148,
+                "left": 28,
+                "top": 160,
                 "width": 360
               },
               "type": "rectangle"
@@ -651,8 +651,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-3",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 160,
+                "left": 28,
+                "top": 172,
                 "width": 360
               },
               "type": "rectangle"
@@ -676,8 +676,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-4",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 172,
+                "left": 28,
+                "top": 184,
                 "width": 360
               },
               "type": "rectangle"
@@ -701,8 +701,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-5",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 184,
+                "left": 28,
+                "top": 196,
                 "width": 360
               },
               "type": "rectangle"
@@ -726,8 +726,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-6",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 196,
+                "left": 28,
+                "top": 208,
                 "width": 360
               },
               "type": "rectangle"
@@ -751,8 +751,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-7",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 208,
+                "left": 28,
+                "top": 220,
                 "width": 360
               },
               "type": "rectangle"
@@ -776,8 +776,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-8",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 220,
+                "left": 28,
+                "top": 232,
                 "width": 360
               },
               "type": "rectangle"
@@ -801,8 +801,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-9",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 232,
+                "left": 28,
+                "top": 244,
                 "width": 360
               },
               "type": "rectangle"
@@ -826,8 +826,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-10",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 244,
+                "left": 28,
+                "top": 256,
                 "width": 360
               },
               "type": "rectangle"
@@ -851,8 +851,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-11",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 256,
+                "left": 28,
+                "top": 268,
                 "width": 360
               },
               "type": "rectangle"
@@ -876,8 +876,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-12",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 268,
+                "left": 28,
+                "top": 280,
                 "width": 360
               },
               "type": "rectangle"
@@ -901,8 +901,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-13",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 280,
+                "left": 28,
+                "top": 292,
                 "width": 360
               },
               "type": "rectangle"
@@ -926,8 +926,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-14",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 292,
+                "left": 28,
+                "top": 304,
                 "width": 360
               },
               "type": "rectangle"
@@ -951,8 +951,8 @@
               "name": "forge-dashboard-center-panel-metric-detail-rule-15",
               "placement": {
                 "height": 1,
-                "left": 16,
-                "top": 304,
+                "left": 28,
+                "top": 316,
                 "width": 360
               },
               "type": "rectangle"
@@ -999,8 +999,8 @@
               "name": "forge-dashboard-center-panel-product-navigation",
               "placement": {
                 "height": 48,
-                "left": 16,
-                "top": 328,
+                "left": 28,
+                "top": 340,
                 "width": 360
               },
               "type": "text"
@@ -1025,8 +1025,8 @@
               "name": "forge-dashboard-center-panel-content-anchors",
               "placement": {
                 "height": 96,
-                "left": 16,
-                "top": 388,
+                "left": 28,
+                "top": 400,
                 "width": 360
               },
               "type": "text"
@@ -1051,8 +1051,8 @@
               "name": "forge-dashboard-center-panel-body",
               "placement": {
                 "height": 48,
-                "left": 16,
-                "top": 496,
+                "left": 28,
+                "top": 508,
                 "width": 360
               },
               "type": "text"
@@ -1503,7 +1503,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952"
+    "sha256:bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333"
   ],
   "templating": {
     "list": []

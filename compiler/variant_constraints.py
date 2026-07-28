@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from compiler.constraints import ConstraintContext
+from compiler.design_variants import COMPONENT_STATE_FIELDS
 from compiler.diagnostics import Diagnostic
 
 
@@ -23,7 +24,13 @@ class ComponentVariantConstraint:
 
         for variant in varianten.values():
             for naam in variant.eigenschappen:
-                if naam not in {"naam", "doel", "component", "appearance"}:
+                if naam not in {
+                    "naam",
+                    "doel",
+                    "component",
+                    "appearance",
+                    *COMPONENT_STATE_FIELDS,
+                }:
                     diagnostics.append(Diagnostic(
                         code="BP3801",
                         boodschap=(
@@ -57,6 +64,44 @@ class ComponentVariantConstraint:
                         variant.bronlocatie,
                     ),
                 ))
+            aanwezige_states = tuple(
+                state
+                for state in COMPONENT_STATE_FIELDS
+                if state in variant.eigenschappen
+            )
+            if (
+                aanwezige_states
+                and len(aanwezige_states) != len(COMPONENT_STATE_FIELDS)
+            ):
+                ontbrekende_states = tuple(
+                    state
+                    for state in COMPONENT_STATE_FIELDS
+                    if state not in aanwezige_states
+                )
+                diagnostics.append(Diagnostic(
+                    code="BP3806",
+                    boodschap=(
+                        f"Variant '{variant.id}' vereist een volledig "
+                        "statecontract; ontbrekend: "
+                        f"{', '.join(ontbrekende_states)}"
+                    ),
+                    locatie=variant.bronlocatie,
+                ))
+            for state in aanwezige_states:
+                state_appearance = variant.eigenschappen.get(state)
+                if state_appearance not in appearances:
+                    diagnostics.append(Diagnostic(
+                        code="BP3807",
+                        boodschap=(
+                            f"Variant '{variant.id}' verwijst voor state "
+                            f"'{state}' naar onbekende appearance "
+                            f"'{state_appearance}'"
+                        ),
+                        locatie=variant.eigenschaplocaties.get(
+                            state,
+                            variant.bronlocatie,
+                        ),
+                    ))
 
         for instantie in (
             obj

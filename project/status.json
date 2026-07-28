@@ -3,51 +3,51 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.3e",
-    "name": "EmberForge typografiemigratie",
+    "id": "M11.3f",
+    "name": "EmberForge componenttoestanden",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.3d",
-    "name": "EmberForge art direction",
-    "pull_request": 76
+    "id": "M11.3e",
+    "name": "EmberForge typografiemigratie",
+    "pull_request": 77
   },
   "next_step": {
-    "id": "M11.3f",
-    "name": "EmberForge componenttoestanden",
-    "purpose": "De geverifieerde rust, hover, focus, pressed en disabled toestanden normatief naar appearance en variant migreren zonder UI kit code over te nemen."
+    "id": "M11.3g",
+    "name": "EmberForge componentfamilie",
+    "purpose": "De productgedragen button, input, status, app tile en stat card voorbeelden als native componenten en varianten modelleren zonder UI kit implementatiecode over te nemen."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 80,
+      "progress": 81,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 172 regressietests vormen een werkende kwaliteitsketen.",
+      "evidence": "Validatie, deterministische generatie, CI en 180 regressietests vormen een werkende kwaliteitsketen; volledige statecontracten worden semantisch gevalideerd.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 72,
+      "progress": 74,
       "weight": 10,
-      "evidence": "Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.",
+      "evidence": "Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, varianten met vijf opgeloste toestanden, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.",
       "remaining": "De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 82,
+      "progress": 87,
       "weight": 10,
-      "evidence": "Het geverifieerde EmberForge palet, de theme primitives, art direction en lokale typografiestacks zijn native gemigreerd en via resolutie en renderers geactiveerd.",
-      "remaining": "Componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd."
+      "evidence": "Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks en de volledige rust, hover, focus, pressed en disabled reeks voor Forge-panelen zijn native gemigreerd.",
+      "remaining": "De bredere componentfamilie, toegankelijkheidscontracten en volledige documentatie moeten nog normatief worden gemigreerd."
     },
     {
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
-      "progress": 65,
+      "progress": 66,
       "weight": 10,
-      "evidence": "HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven kernobjecten, zes navigatiedoelen en expliciete toegankelijkheidslabels en leesvolgorde.",
+      "evidence": "HTML en Grafana delen drie native informatiegebieden, dezelfde opgeloste card appearance en machineleesbare statecontracten; Grafana registreert de vijf toestanden zonder niet-ondersteunde interactie te simuleren.",
       "remaining": "Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt."
     },
     {
@@ -77,9 +77,9 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 66,
+      "progress": 69,
       "weight": 10,
-      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de pagina activeert de opgeloste EmberForge merkidentiteit, art direction en lokale typografie.",
+      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de drie routekaarten gebruiken native hover, focus, pressed en disabled appearances zonder generieke rendererregel.",
       "remaining": "Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept."
     },
     {

@@ -60,6 +60,9 @@ class EmberForgePaletteMigrationTests(unittest.TestCase):
             "muted": "#B8C5D6",
             "accent": "#C9895B",
             "outline": "#2F4259",
+            "interaction": "#7DD3FC",
+            "interaction-pressed": "#38BDF8",
+            "disabled": "#3E5573",
         }
 
         self.assertEqual(

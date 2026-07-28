@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot bf9b5dc00159",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:47",
+      "description": "project-status-schema:1;overall-progress:48",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 47%",
+                  "fixed": "Totale voortgang · 48%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 282
+                "width": 288
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3e · EmberForge typografiemigratie (in uitvoering)\nVoltooid: M11.3d · EmberForge art direction (PR #76)\nVolgende stap: M11.3f · EmberForge componenttoestanden\nDe geverifieerde rust, hover, focus, pressed en disabled toestanden normatief naar appearance en variant migreren zonder UI kit code over te nemen.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3f · EmberForge componenttoestanden (in uitvoering)\nVoltooid: M11.3e · EmberForge typografiemigratie (PR #77)\nVolgende stap: M11.3g · EmberForge componentfamilie\nDe productgedragen button, input, status, app tile en stat card voorbeelden als native componenten en varianten modelleren zonder UI kit implementatiecode over te nemen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,12 +256,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 47%",
+      "title": "Totale voortgang · 48%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:compiler;progress:80",
+      "description": "project-status-area:compiler;progress:81",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -294,7 +294,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Compiler en reproduceerbaarheid · 80%",
+                  "fixed": "Compiler en reproduceerbaarheid · 81%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -358,7 +358,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 480
+                "width": 486
               },
               "type": "rectangle"
             },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 172 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 180 regressietests vormen een werkende kwaliteitsketen; volledige statecontracten worden semantisch gevalideerd.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -394,12 +394,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Compiler en reproduceerbaarheid · 80%",
+      "title": "Compiler en reproduceerbaarheid · 81%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-model;progress:72",
+      "description": "project-status-area:world-model;progress:74",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -432,7 +432,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Model en productcontracten · 72%",
+                  "fixed": "World Model en productcontracten · 74%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -496,7 +496,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 432
+                "width": 444
               },
               "type": "rectangle"
             },
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "fixed": "Onderbouwing: Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, varianten met vijf opgeloste toestanden, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -532,12 +532,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 72%",
+      "title": "World Model en productcontracten · 74%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:82",
+      "description": "project-status-area:design-system;progress:87",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -570,7 +570,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Design System · 82%",
+                  "fixed": "Design System · 87%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -634,7 +634,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 492
+                "width": 522
               },
               "type": "rectangle"
             },
@@ -646,7 +646,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet, de theme primitives, art direction en lokale typografiestacks zijn native gemigreerd en via resolutie en renderers geactiveerd.\nResterend: Componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.",
+                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks en de volledige rust, hover, focus, pressed en disabled reeks voor Forge-panelen zijn native gemigreerd.\nResterend: De bredere componentfamilie, toegankelijkheidscontracten en volledige documentatie moeten nog normatief worden gemigreerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -670,12 +670,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 82%",
+      "title": "Design System · 87%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:dashboard;progress:65",
+      "description": "project-status-area:dashboard;progress:66",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -708,7 +708,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Dashboard UI en Grafana · 65%",
+                  "fixed": "Dashboard UI en Grafana · 66%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -772,7 +772,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 390
+                "width": 396
               },
               "type": "rectangle"
             },
@@ -784,7 +784,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven kernobjecten, zes navigatiedoelen en expliciete toegankelijkheidslabels en leesvolgorde.\nResterend: Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt.",
+                  "fixed": "Onderbouwing: HTML en Grafana delen drie native informatiegebieden, dezelfde opgeloste card appearance en machineleesbare statecontracten; Grafana registreert de vijf toestanden zonder niet-ondersteunde interactie te simuleren.\nResterend: Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -808,7 +808,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Dashboard UI en Grafana · 65%",
+      "title": "Dashboard UI en Grafana · 66%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:66",
+      "description": "project-status-area:homepage;progress:69",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "HTML homepage · 66%",
+                  "fixed": "HTML homepage · 69%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 396
+                "width": 414
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de pagina activeert de opgeloste EmberForge merkidentiteit, art direction en lokale typografie.\nResterend: Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de drie routekaarten gebruiken native hover, focus, pressed en disabled appearances zonder generieke rendererregel.\nResterend: Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 66%",
+      "title": "HTML homepage · 69%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:47",
-    "sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952"
+    "overall-progress:48",
+    "sha256:bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333"
   ],
   "templating": {
     "list": []

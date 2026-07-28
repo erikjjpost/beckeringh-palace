@@ -17,6 +17,10 @@ def variantklasse(variant_id: str) -> str:
     return f"bp-variant-{_css_naam(variant_id)}"
 
 
+def stateklasse(state: str) -> str:
+    return f"bp-state-{_css_naam(state)}"
+
+
 def componentselector(component_id: str, variant_id: str | None = None) -> str:
     selector = f".{componentklasse(component_id)}"
     if variant_id is not None:

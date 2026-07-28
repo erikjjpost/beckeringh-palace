@@ -20,10 +20,12 @@ appearance forge-panel-appearance {
     material: "raised"
     foreground: "foreground"
     accent: "accent"
+    outline: "accent"
     border: "regular"
     radius: "medium"
     shadow: "medium"
     motion: "normal"
+    offset: "rest"
     spacing: "small"
     heading-style: "heading"
     body-style: "body"
@@ -45,10 +47,12 @@ appearance forge-panel-compact-appearance {
     material: "surface"
     foreground: "foreground"
     accent: "accent"
+    outline: "accent"
     border: "hairline"
     radius: "small"
     shadow: "low"
     motion: "fast"
+    offset: "rest"
     spacing: "xs"
     heading-style: "title"
     body-style: "body"
@@ -118,6 +122,8 @@ class ComponentSliceTests(unittest.TestCase):
             'class="bp-forge-panel bp-variant-forge-panel-compact" '
             'data-component="forge-panel" '
             'data-variant="forge-panel-compact" '
+            'data-component-state="rest" '
+            'data-component-states="rest" '
             'data-appearance="forge-panel-compact-appearance"',
             html,
         )
