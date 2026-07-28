@@ -17,7 +17,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Typografie | Gemigreerd in M11.3e | typography en typescale |
 | Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
-| Componenten en states | States gemigreerd in M11.3f; componentdekking gedeeltelijk | appearance, component en variant |
+| Componenten en states | Gemigreerd in M11.3f en M11.3g | appearance, component, variant en componentvoorbeeld |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
 | Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
@@ -94,3 +94,22 @@ compositie draagt dat contract naar HTML en Grafana. CSS vertaalt uitsluitend
 de opgeloste appearances naar standaard pseudostates en expliciete
 catalogusklassen. De eerdere generieke hover en focusregels in de HTML backend
 zijn verwijderd, zodat UI kit code en merkwaarden niet in een renderer leven.
+
+## Componentfamilie
+
+M11.3g migreert de vijf productgedragen componentgroepen uit de geverifieerde
+previewbestanden. Button, input, status, app tile en stat card zijn native
+componenten met een expliciete semantische rol en anatomie. Zestien varianten
+leggen de bronbewezen primary, secondary, ghost, Ember, validatie, status,
+tegel en statistiekprofielen vast.
+
+Voorbeeldinhoud staat niet in de catalogusrenderer. Zestien
+`componentvoorbeeld` objecten leggen labels, waarden, beschrijvingen, meldingen
+en operationele statussen vast. De HTML catalogus vertaalt uitsluitend deze
+opgeloste data naar semantische elementen. De aangeleverde HTML, CSS en JSX
+blijven bewijs en worden niet als implementatiecode gekopieerd.
+
+Productgedragen tussenkleuren, zachte statusoppervlakken, de invoerradius en
+focus en kopergloed zijn als expliciete theme rollen opgenomen. Daardoor
+blijven ook de nieuwe componentvarianten afleidingen van hetzelfde Forge thema
+en ontstaat geen losse CSS bron van waarheid.

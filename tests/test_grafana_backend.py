@@ -111,7 +111,7 @@ class GrafanaBackendTests(unittest.TestCase):
             [link["url"] for link in navigatie["links"]],
         )
         self.assertEqual(
-            {"height": 540, "left": 16, "top": 16, "width": 4},
+            {"height": 872, "left": 16, "top": 16, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         inhoud = next(
@@ -124,7 +124,27 @@ class GrafanaBackendTests(unittest.TestCase):
             "Forge Materials · materiaal\nGecontroleerd gemigreerde "
             "EmberForge materiaalrollen.\n"
             "Forge Panel · component\nBasispaneel voor dashboards en "
-            "productdocumentatie.",
+            "productdocumentatie.\n"
+            "Forge Button · component\n"
+            "Actiecomponent voor primaire, secundaire, ghost en warme acties.\n"
+            "Forge Input · component\n"
+            "Invoercomponent met waarde en optionele foutmelding.\n"
+            "Forge Status · component\n"
+            "Feitelijke statuscapsule voor operationele toestand.\n"
+            "Forge App Tile · component\n"
+            "Producttegel voor één toepassing en haar operationele status.\n"
+            "Forge Stat Card · component\n"
+            "Compacte operationele waarde met context.\n"
+            "Primary Button · componentvoorbeeld\n"
+            "Primair sign in voorbeeld uit het aangeleverde componentscherm.\n"
+            "Error Input · componentvoorbeeld\n"
+            "Ongeldige hostnaam met feitelijke foutmelding.\n"
+            "Running Status · componentvoorbeeld\n"
+            "Aantal actieve workloads uit het aangeleverde componentscherm.\n"
+            "ISMS App Tile · componentvoorbeeld\n"
+            "Producttegel voor ISMS Challenger.\n"
+            "Nodes Stat Card · componentvoorbeeld\n"
+            "Aantal actieve clusternodes.",
             inhoud["config"]["text"]["fixed"],
         )
         self.assertEqual(
@@ -139,7 +159,7 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             {
-                "height": 192,
+                "height": 204,
                 "left": 28,
                 "top": 136,
                 "width": 280,
@@ -147,7 +167,7 @@ class GrafanaBackendTests(unittest.TestCase):
             dashboard["panels"][2]["options"]["root"]["elements"][3]["placement"],
         )
         self.assertEqual(
-            "appearance\nborder\ncomponent\nkleur\nmateriaal\nmotion\npalet\nradius\n"
+            "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\n"
             "shadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant",
             dashboard["panels"][2]["options"]["root"]["elements"][3]["config"][
                 "text"
@@ -196,13 +216,13 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["border"],
         )
         self.assertEqual(
-            "44",
+            "128",
             dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
-            ["2", "44", "31"],
+            ["2", "128", "31"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"

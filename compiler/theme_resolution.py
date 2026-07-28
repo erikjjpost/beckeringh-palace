@@ -15,13 +15,40 @@ MATERIAAL_ROLLEN = (
     "canvas",
     "surface",
     "raised",
+    "field",
+    "transparent",
     "foreground",
     "muted",
     "accent",
+    "accent-hover",
     "outline",
     "interaction",
+    "interaction-hover",
+    "interaction-soft",
     "interaction-pressed",
     "disabled",
+    "success",
+    "success-surface",
+    "success-foreground",
+    "warning",
+    "warning-surface",
+    "warning-foreground",
+    "error",
+    "error-surface",
+    "error-foreground",
+    "info",
+    "info-surface",
+    "info-foreground",
+)
+RADIUS_ROLLEN = ("small", "control", "medium", "large", "pill")
+SHADOW_ROLLEN = (
+    "none",
+    "low",
+    "medium",
+    "high",
+    "glow",
+    "focus",
+    "glow-accent",
 )
 
 
@@ -103,6 +130,7 @@ class ResolvedRadius:
     medium: str
     large: str
     pill: str
+    control: str | None = None
 
 
 @dataclass(frozen=True)
@@ -115,6 +143,8 @@ class ResolvedShadow:
     high: str
     none: str | None = None
     glow: str | None = None
+    focus: str | None = None
+    glow_accent: str | None = None
 
 
 @dataclass(frozen=True)
@@ -301,8 +331,11 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
             **_waarden(border, ("hairline", "regular", "strong", "style")),
         ),
         radius=None if radius is None else ResolvedRadius(
-            radius.id, _tekst(radius, "naam"), _tekst(radius, "doel"),
+            id=radius.id,
+            naam=_tekst(radius, "naam"),
+            doel=_tekst(radius, "doel"),
             **_waarden(radius, ("small", "medium", "large", "pill")),
+            control=_optionele_tekst(radius, "control"),
         ),
         shadow=None if shadow is None else ResolvedShadow(
             id=shadow.id,
@@ -311,6 +344,8 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
             **_waarden(shadow, ("low", "medium", "high")),
             none=_optionele_tekst(shadow, "none"),
             glow=_optionele_tekst(shadow, "glow"),
+            focus=_optionele_tekst(shadow, "focus"),
+            glow_accent=_optionele_tekst(shadow, "glow-accent"),
         ),
         motion=None if motion is None else ResolvedMotion(
             id=motion.id,

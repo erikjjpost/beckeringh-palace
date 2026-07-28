@@ -84,6 +84,11 @@ def theme_variable_lines(
             f"{property_indent}--bp-radius-large: {thema.radius.large};",
             f"{property_indent}--bp-radius-pill: {thema.radius.pill};",
         ])
+        if thema.radius.control is not None:
+            regels.append(
+                f"{property_indent}--bp-radius-control: "
+                f"{thema.radius.control};"
+            )
     if thema.shadow is not None:
         regels.extend([
             f"{property_indent}--bp-shadow-low: {thema.shadow.low};",
@@ -97,6 +102,15 @@ def theme_variable_lines(
         if thema.shadow.glow is not None:
             regels.append(
                 f"{property_indent}--bp-shadow-glow: {thema.shadow.glow};"
+            )
+        if thema.shadow.focus is not None:
+            regels.append(
+                f"{property_indent}--bp-shadow-focus: {thema.shadow.focus};"
+            )
+        if thema.shadow.glow_accent is not None:
+            regels.append(
+                f"{property_indent}--bp-shadow-glow-accent: "
+                f"{thema.shadow.glow_accent};"
             )
     if thema.motion is not None:
         regels.extend([

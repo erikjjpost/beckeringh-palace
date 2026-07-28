@@ -7,6 +7,7 @@ from typing import Iterable
 
 from compiler.cir import Architectuurobject
 from compiler.design_tokens import TokenType
+from compiler.theme_resolution import RADIUS_ROLLEN, SHADOW_ROLLEN
 
 TOKEN_REFERENTIE = re.compile(r"^\{(?P<id>[\w.-]+)\}$")
 
@@ -14,7 +15,18 @@ TOKEN_REFERENTIE = re.compile(r"^\{(?P<id>[\w.-]+)\}$")
 COMPONENTEIGENSCHAPPEN = {
     "appearance": None,
     "padding": TokenType.DIMENSION,
+    "rol": None,
+    "anatomie": None,
 }
+COMPONENT_ANATOMIE_PER_ROL = {
+    "paneel": ("titel", "tekst"),
+    "actie": ("label",),
+    "invoer": ("label", "waarde", "melding"),
+    "status": ("label", "waarde"),
+    "app-tegel": ("label", "beschrijving", "status"),
+    "statistiek": ("label", "waarde", "beschrijving"),
+}
+COMPONENT_ROLLEN = frozenset(COMPONENT_ANATOMIE_PER_ROL)
 APPEARANCE_EIGENSCHAPPEN = (
     "material",
     "foreground",
@@ -32,24 +44,67 @@ APPEARANCE_EIGENSCHAPPEN = (
     "caption-style",
 )
 APPEARANCE_ROLLEN = {
-    "material": frozenset({"canvas", "surface", "raised"}),
-    "foreground": frozenset({"foreground", "muted", "disabled"}),
+    "material": frozenset({
+        "canvas",
+        "surface",
+        "raised",
+        "field",
+        "transparent",
+        "interaction",
+        "interaction-hover",
+        "interaction-soft",
+        "interaction-pressed",
+        "accent",
+        "accent-hover",
+        "success-surface",
+        "warning-surface",
+        "error-surface",
+        "info-surface",
+    }),
+    "foreground": frozenset({
+        "canvas",
+        "foreground",
+        "muted",
+        "disabled",
+        "interaction",
+        "interaction-hover",
+        "interaction-pressed",
+        "accent",
+        "accent-hover",
+        "success-foreground",
+        "warning-foreground",
+        "error-foreground",
+        "info-foreground",
+    }),
     "accent": frozenset({
         "accent",
+        "accent-hover",
         "interaction",
+        "interaction-hover",
         "interaction-pressed",
         "disabled",
+        "success",
+        "warning",
+        "error",
+        "info",
     }),
     "outline": frozenset({
         "accent",
+        "accent-hover",
         "outline",
+        "transparent",
         "interaction",
+        "interaction-hover",
         "interaction-pressed",
         "disabled",
+        "success",
+        "warning",
+        "error",
+        "info",
     }),
     "border": frozenset({"hairline", "regular", "strong"}),
-    "radius": frozenset({"small", "medium", "large", "pill"}),
-    "shadow": frozenset({"none", "low", "medium", "high", "glow"}),
+    "radius": frozenset(RADIUS_ROLLEN),
+    "shadow": frozenset(SHADOW_ROLLEN),
     "motion": frozenset({"fast", "normal", "slow"}),
     "offset": frozenset({"rest", "hover"}),
     "spacing": frozenset({"none", "xs", "small", "medium", "large", "xl"}),
@@ -78,6 +133,8 @@ class DesignComponent:
     naam: str
     doel: str
     appearance: str | None
+    rol: str | None
+    anatomie: tuple[str, ...]
     eigenschappen: dict[str, str]
     bron: Architectuurobject
 
@@ -105,14 +162,26 @@ def component_uit_object(obj: Architectuurobject) -> DesignComponent | None:
     eigenschappen = {
         naam: waarde
         for naam, waarde in obj.eigenschappen.items()
-        if naam in COMPONENTEIGENSCHAPPEN and naam != "appearance" and isinstance(waarde, str)
+        if (
+            naam in COMPONENTEIGENSCHAPPEN
+            and naam not in {"appearance", "rol", "anatomie"}
+            and isinstance(waarde, str)
+        )
     }
     appearance = obj.eigenschappen.get("appearance")
+    rol = obj.eigenschappen.get("rol")
+    anatomie = obj.eigenschappen.get("anatomie")
     return DesignComponent(
         id=obj.id,
         naam=str(obj.eigenschappen.get("naam", "")),
         doel=str(obj.eigenschappen.get("doel", "")),
         appearance=appearance if isinstance(appearance, str) else None,
+        rol=rol if isinstance(rol, str) else None,
+        anatomie=(
+            tuple(str(item) for item in anatomie)
+            if isinstance(anatomie, list)
+            else ()
+        ),
         eigenschappen=eigenschappen,
         bron=obj,
     )

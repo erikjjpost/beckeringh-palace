@@ -57,6 +57,20 @@ Standaardachtergrond van de EmberForge ontwerpidentiteit.
 
 - **waarde:** #0F1724
 
+## Deepest Night
+
+**Soort:** kleur
+
+**Identifier:** `ink-950`
+
+### Doel
+
+Donker invoeroppervlak binnen EmberForge bediening.
+
+### Eigenschappen
+
+- **waarde:** #0A111C
+
 ## Graphite
 
 **Soort:** kleur
@@ -127,6 +141,34 @@ Primaire interactie en highlightkleur.
 
 - **waarde:** #7DD3FC
 
+## Hover Cyan
+
+**Soort:** kleur
+
+**Identifier:** `sky-300`
+
+### Doel
+
+Lichtere cyaantoon voor hover en informatieve voorgrond.
+
+### Eigenschappen
+
+- **waarde:** #A5DEFB
+
+## Soft Cyan Surface
+
+**Soort:** kleur
+
+**Identifier:** `sky-soft`
+
+### Doel
+
+Zacht cyaan oppervlak voor ghost bediening en informatieve status.
+
+### Eigenschappen
+
+- **waarde:** #7DD3FC0F
+
 ## Pressed Cyan
 
 **Soort:** kleur
@@ -183,6 +225,34 @@ Spaarzame warme Forge accentkleur.
 
 - **waarde:** #C9895B
 
+## Hover Copper
+
+**Soort:** kleur
+
+**Identifier:** `ember-300`
+
+### Doel
+
+Lichtere kopertoon voor het schaarse warme hoveraccent.
+
+### Eigenschappen
+
+- **waarde:** #E2A982
+
+## Transparent
+
+**Soort:** kleur
+
+**Identifier:** `transparent-clear`
+
+### Doel
+
+Expliciet transparant oppervlak voor ghost en secondary bediening.
+
+### Eigenschappen
+
+- **waarde:** #00000000
+
 ## Success Green
 
 **Soort:** kleur
@@ -196,6 +266,34 @@ Semantische succeskleur.
 ### Eigenschappen
 
 - **waarde:** #4ADE80
+
+## Success Surface
+
+**Soort:** kleur
+
+**Identifier:** `status-success-surface`
+
+### Doel
+
+Transparant groen statusoppervlak.
+
+### Eigenschappen
+
+- **waarde:** #4ADE801F
+
+## Success Foreground
+
+**Soort:** kleur
+
+**Identifier:** `status-success-foreground`
+
+### Doel
+
+Leesbare groene statusvoorgrond.
+
+### Eigenschappen
+
+- **waarde:** #86EFAC
 
 ## Warning Amber
 
@@ -211,6 +309,34 @@ Semantische waarschuwingskleur, onderscheiden van Ember.
 
 - **waarde:** #E0B341
 
+## Warning Surface
+
+**Soort:** kleur
+
+**Identifier:** `status-warning-surface`
+
+### Doel
+
+Transparant amber statusoppervlak.
+
+### Eigenschappen
+
+- **waarde:** #E0B3411A
+
+## Warning Foreground
+
+**Soort:** kleur
+
+**Identifier:** `status-warning-foreground`
+
+### Doel
+
+Leesbare amber statusvoorgrond.
+
+### Eigenschappen
+
+- **waarde:** #F3D783
+
 ## Danger Red
 
 **Soort:** kleur
@@ -224,6 +350,48 @@ Semantische foutkleur.
 ### Eigenschappen
 
 - **waarde:** #F87171
+
+## Error Surface
+
+**Soort:** kleur
+
+**Identifier:** `status-error-surface`
+
+### Doel
+
+Transparant rood statusoppervlak.
+
+### Eigenschappen
+
+- **waarde:** #F871711A
+
+## Error Foreground
+
+**Soort:** kleur
+
+**Identifier:** `status-error-foreground`
+
+### Doel
+
+Leesbare rode statusvoorgrond.
+
+### Eigenschappen
+
+- **waarde:** #FCA5A5
+
+## Info Surface
+
+**Soort:** kleur
+
+**Identifier:** `status-info-surface`
+
+### Doel
+
+Transparant cyaan statusoppervlak.
+
+### Eigenschappen
+
+- **waarde:** #7DD3FC1A
 
 ## Ember Forge
 
@@ -295,15 +463,32 @@ Gecontroleerd gemigreerde EmberForge materiaalrollen.
 ### Eigenschappen
 
 - **accent:** ember-500
+- **accent-hover:** ember-300
 - **canvas:** ink-900
 - **disabled:** ink-500
+- **error:** status-error
+- **error-foreground:** status-error-foreground
+- **error-surface:** status-error-surface
+- **field:** ink-950
 - **foreground:** bone-50
+- **info:** sky-400
+- **info-foreground:** sky-300
+- **info-surface:** status-info-surface
 - **interaction:** sky-400
+- **interaction-hover:** sky-300
 - **interaction-pressed:** sky-500
+- **interaction-soft:** sky-soft
 - **muted:** bone-300
 - **outline:** ink-600
 - **raised:** ink-700
+- **success:** status-success
+- **success-foreground:** status-success-foreground
+- **success-surface:** status-success-surface
 - **surface:** ink-800
+- **transparent:** transparent-clear
+- **warning:** status-warning
+- **warning-foreground:** status-warning-foreground
+- **warning-surface:** status-warning-surface
 
 ## Forge Borders
 
@@ -334,6 +519,7 @@ Gecontroleerd gemigreerde EmberForge afrondingsschaal.
 
 ### Eigenschappen
 
+- **control:** 8px
 - **large:** 16px
 - **medium:** 12px
 - **pill:** 999px
@@ -351,7 +537,9 @@ Gecontroleerd gemigreerde EmberForge diepteschaal.
 
 ### Eigenschappen
 
+- **focus:** 0 0 0 3px rgba(125,211,252,0.15)
 - **glow:** 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10)
+- **glow-accent:** 0 0 0 1px rgba(201,137,91,0.30), 0 6px 22px rgba(201,137,91,0.18)
 - **high:** 0 18px 44px rgba(0,0,0,0.45)
 - **low:** 0 1px 2px rgba(0,0,0,0.25)
 - **medium:** 0 6px 18px rgba(0,0,0,0.35)
@@ -823,7 +1011,9 @@ Basispaneel voor dashboards en productdocumentatie.
 
 ### Eigenschappen
 
+- **anatomie:** titel, tekst
 - **appearance:** forge-panel-appearance
+- **rol:** paneel
 
 ## Forge Panel Compact
 
@@ -878,6 +1068,1572 @@ Gecontroleerde routekaart-appearance voor homepage-navigatie.
 - **hover:** forge-panel-card-hover-appearance
 - **pressed:** forge-panel-card-pressed-appearance
 
+## Forge Primary Button Rest
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-primary-rest-appearance`
+
+### Doel
+
+Primaire cyaan actie in rust.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** interaction
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction
+- **radius:** pill
+- **shadow:** low
+- **spacing:** small
+
+## Forge Primary Button Hover
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-primary-hover-appearance`
+
+### Doel
+
+Lichtere cyaan actie onder aanwijzer.
+
+### Eigenschappen
+
+- **accent:** interaction-hover
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** interaction-hover
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction-hover
+- **radius:** pill
+- **shadow:** glow
+- **spacing:** small
+
+## Forge Primary Button Focus
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-primary-focus-appearance`
+
+### Doel
+
+Primaire actie met expliciete cyaan focusring.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** interaction
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction
+- **radius:** pill
+- **shadow:** focus
+- **spacing:** small
+
+## Forge Primary Button Pressed
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-primary-pressed-appearance`
+
+### Doel
+
+Vlakkere primaire actie met donkerder cyaan.
+
+### Eigenschappen
+
+- **accent:** interaction-pressed
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** interaction-pressed
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction-pressed
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Button Disabled
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-disabled-appearance`
+
+### Doel
+
+Gedempte niet-beschikbare actie.
+
+### Eigenschappen
+
+- **accent:** disabled
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** disabled
+- **heading-style:** heading
+- **label-style:** label
+- **material:** raised
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Secondary Button Rest
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-secondary-rest-appearance`
+
+### Doel
+
+Transparante secundaire actie met hairline.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** transparent
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Secondary Button Hover
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-secondary-hover-appearance`
+
+### Doel
+
+Secundaire actie met cyaan voorgrond en rand.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** interaction
+- **heading-style:** heading
+- **label-style:** label
+- **material:** transparent
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Secondary Button Focus
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-secondary-focus-appearance`
+
+### Doel
+
+Secundaire actie met cyaan focusring.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** interaction
+- **heading-style:** heading
+- **label-style:** label
+- **material:** transparent
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction
+- **radius:** pill
+- **shadow:** focus
+- **spacing:** small
+
+## Forge Secondary Button Pressed
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-secondary-pressed-appearance`
+
+### Doel
+
+Vlakkere secundaire actie met donkerder cyaan.
+
+### Eigenschappen
+
+- **accent:** interaction-pressed
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** interaction-pressed
+- **heading-style:** heading
+- **label-style:** label
+- **material:** transparent
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction-pressed
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Ghost Button Rest
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-ghost-rest-appearance`
+
+### Doel
+
+Gedempte ghost actie zonder zichtbare rand.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** muted
+- **heading-style:** heading
+- **label-style:** label
+- **material:** transparent
+- **motion:** normal
+- **offset:** rest
+- **outline:** transparent
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Ghost Button Hover
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-ghost-hover-appearance`
+
+### Doel
+
+Ghost actie op een zacht cyaan oppervlak.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** interaction-soft
+- **motion:** normal
+- **offset:** rest
+- **outline:** transparent
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Ember Button Rest
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-ember-rest-appearance`
+
+### Doel
+
+Schaarse warme actie met kopergloed.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** accent
+- **motion:** normal
+- **offset:** rest
+- **outline:** accent
+- **radius:** pill
+- **shadow:** glow-accent
+- **spacing:** small
+
+## Forge Ember Button Hover
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-ember-hover-appearance`
+
+### Doel
+
+Lichtere koperactie onder aanwijzer.
+
+### Eigenschappen
+
+- **accent:** accent-hover
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** accent-hover
+- **motion:** normal
+- **offset:** rest
+- **outline:** accent-hover
+- **radius:** pill
+- **shadow:** glow-accent
+- **spacing:** small
+
+## Forge Ember Button Focus
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-ember-focus-appearance`
+
+### Doel
+
+Warme actie met gecontroleerde kopergloed.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** accent
+- **motion:** normal
+- **offset:** rest
+- **outline:** accent
+- **radius:** pill
+- **shadow:** glow-accent
+- **spacing:** small
+
+## Forge Ember Button Pressed
+
+**Soort:** appearance
+
+**Identifier:** `forge-button-ember-pressed-appearance`
+
+### Doel
+
+Vlakkere warme actie zonder schaalverandering.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** canvas
+- **heading-style:** heading
+- **label-style:** label
+- **material:** accent
+- **motion:** normal
+- **offset:** rest
+- **outline:** accent
+- **radius:** pill
+- **shadow:** none
+- **spacing:** small
+
+## Forge Input Rest
+
+**Soort:** appearance
+
+**Identifier:** `forge-input-rest-appearance`
+
+### Doel
+
+Donker invoerveld in rust.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** field
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** control
+- **shadow:** none
+- **spacing:** small
+
+## Forge Input Focus
+
+**Soort:** appearance
+
+**Identifier:** `forge-input-focus-appearance`
+
+### Doel
+
+Invoerveld met cyaan rand en focusring.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** field
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction
+- **radius:** control
+- **shadow:** focus
+- **spacing:** small
+
+## Forge Input Disabled
+
+**Soort:** appearance
+
+**Identifier:** `forge-input-disabled-appearance`
+
+### Doel
+
+Niet-beschikbaar invoerveld met gedempte inhoud.
+
+### Eigenschappen
+
+- **accent:** disabled
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** disabled
+- **heading-style:** heading
+- **label-style:** label
+- **material:** field
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** control
+- **shadow:** none
+- **spacing:** small
+
+## Forge Input Error
+
+**Soort:** appearance
+
+**Identifier:** `forge-input-error-appearance`
+
+### Doel
+
+Invoerveld met expliciete foutkleur.
+
+### Eigenschappen
+
+- **accent:** error
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** field
+- **motion:** normal
+- **offset:** rest
+- **outline:** error
+- **radius:** control
+- **shadow:** none
+- **spacing:** small
+
+## Forge Running Status
+
+**Soort:** appearance
+
+**Identifier:** `forge-status-running-appearance`
+
+### Doel
+
+Groene statuscapsule voor werkende diensten.
+
+### Eigenschappen
+
+- **accent:** success
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** success-foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** success-surface
+- **motion:** fast
+- **offset:** rest
+- **outline:** success
+- **radius:** pill
+- **shadow:** none
+- **spacing:** xs
+
+## Forge Pending Status
+
+**Soort:** appearance
+
+**Identifier:** `forge-status-pending-appearance`
+
+### Doel
+
+Amber statuscapsule voor wachtende diensten.
+
+### Eigenschappen
+
+- **accent:** warning
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** warning-foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** warning-surface
+- **motion:** fast
+- **offset:** rest
+- **outline:** warning
+- **radius:** pill
+- **shadow:** none
+- **spacing:** xs
+
+## Forge Failed Status
+
+**Soort:** appearance
+
+**Identifier:** `forge-status-failed-appearance`
+
+### Doel
+
+Rode statuscapsule voor gefaalde diensten.
+
+### Eigenschappen
+
+- **accent:** error
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** error-foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** error-surface
+- **motion:** fast
+- **offset:** rest
+- **outline:** error
+- **radius:** pill
+- **shadow:** none
+- **spacing:** xs
+
+## Forge Info Status
+
+**Soort:** appearance
+
+**Identifier:** `forge-status-info-appearance`
+
+### Doel
+
+Cyaan statuscapsule voor informatieve gezondheid.
+
+### Eigenschappen
+
+- **accent:** info
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** info-foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** info-surface
+- **motion:** fast
+- **offset:** rest
+- **outline:** info
+- **radius:** pill
+- **shadow:** none
+- **spacing:** xs
+
+## Forge App Tile Rest
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-rest-appearance`
+
+### Doel
+
+Operationele app tegel met cyaan componentaccent.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** low
+- **spacing:** medium
+
+## Forge App Tile Hover
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-hover-appearance`
+
+### Doel
+
+App tegel met cyaan gloed en één pixel lift.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** hover
+- **outline:** interaction
+- **radius:** medium
+- **shadow:** glow
+- **spacing:** medium
+
+## Forge App Tile Focus
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-focus-appearance`
+
+### Doel
+
+App tegel met cyaan focusgloed.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction
+- **radius:** medium
+- **shadow:** glow
+- **spacing:** medium
+
+## Forge App Tile Pressed
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-pressed-appearance`
+
+### Doel
+
+Vlakkere app tegel met donkerder cyaan.
+
+### Eigenschappen
+
+- **accent:** interaction-pressed
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** interaction-pressed
+- **radius:** medium
+- **shadow:** low
+- **spacing:** medium
+
+## Forge App Tile Disabled
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-disabled-appearance`
+
+### Doel
+
+Niet-beschikbare app tegel zonder lift of gloed.
+
+### Eigenschappen
+
+- **accent:** disabled
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** disabled
+- **heading-style:** heading
+- **label-style:** label
+- **material:** raised
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** none
+- **spacing:** medium
+
+## Forge Ember App Tile Rest
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-ember-rest-appearance`
+
+### Doel
+
+Zeldzame app tegel met koperaccent.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** low
+- **spacing:** medium
+
+## Forge Ember App Tile Hover
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-ember-hover-appearance`
+
+### Doel
+
+Koper app tegel met gecontroleerde gloed en lift.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** hover
+- **outline:** accent
+- **radius:** medium
+- **shadow:** glow-accent
+- **spacing:** medium
+
+## Forge Ember App Tile Focus
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-ember-focus-appearance`
+
+### Doel
+
+Koper app tegel met gecontroleerde focusgloed.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** accent
+- **radius:** medium
+- **shadow:** glow-accent
+- **spacing:** medium
+
+## Forge Ember App Tile Pressed
+
+**Soort:** appearance
+
+**Identifier:** `forge-app-tile-ember-pressed-appearance`
+
+### Doel
+
+Vlakkere koper app tegel zonder schaalverandering.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** normal
+- **offset:** rest
+- **outline:** accent
+- **radius:** medium
+- **shadow:** low
+- **spacing:** medium
+
+## Forge Stat Card Value
+
+**Soort:** appearance
+
+**Identifier:** `forge-stat-card-value-appearance`
+
+### Doel
+
+Operationele statistiekkaart met cyaan waardeaccent.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** fast
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** none
+- **spacing:** medium
+
+## Forge Stat Card Health
+
+**Soort:** appearance
+
+**Identifier:** `forge-stat-card-health-appearance`
+
+### Doel
+
+Statistiekkaart met groen gezondheidsaccent.
+
+### Eigenschappen
+
+- **accent:** success
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** fast
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** none
+- **spacing:** medium
+
+## Forge Stat Card Ember
+
+**Soort:** appearance
+
+**Identifier:** `forge-stat-card-ember-appearance`
+
+### Doel
+
+Statistiekkaart met één schaars koperaccent.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** surface
+- **motion:** fast
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** none
+- **spacing:** medium
+
+## Forge Button
+
+**Soort:** component
+
+**Identifier:** `forge-button`
+
+### Doel
+
+Actiecomponent voor primaire, secundaire, ghost en warme acties.
+
+### Eigenschappen
+
+- **anatomie:** label
+- **appearance:** forge-button-primary-rest-appearance
+- **rol:** actie
+
+## Forge Input
+
+**Soort:** component
+
+**Identifier:** `forge-input`
+
+### Doel
+
+Invoercomponent met waarde en optionele foutmelding.
+
+### Eigenschappen
+
+- **anatomie:** label, waarde, melding
+- **appearance:** forge-input-rest-appearance
+- **rol:** invoer
+
+## Forge Status
+
+**Soort:** component
+
+**Identifier:** `forge-status`
+
+### Doel
+
+Feitelijke statuscapsule voor operationele toestand.
+
+### Eigenschappen
+
+- **anatomie:** label, waarde
+- **appearance:** forge-status-info-appearance
+- **rol:** status
+
+## Forge App Tile
+
+**Soort:** component
+
+**Identifier:** `forge-app-tile`
+
+### Doel
+
+Producttegel voor één toepassing en haar operationele status.
+
+### Eigenschappen
+
+- **anatomie:** label, beschrijving, status
+- **appearance:** forge-app-tile-rest-appearance
+- **rol:** app-tegel
+
+## Forge Stat Card
+
+**Soort:** component
+
+**Identifier:** `forge-stat-card`
+
+### Doel
+
+Compacte operationele waarde met context.
+
+### Eigenschappen
+
+- **anatomie:** label, waarde, beschrijving
+- **appearance:** forge-stat-card-value-appearance
+- **rol:** statistiek
+
+## Primary
+
+**Soort:** variant
+
+**Identifier:** `forge-button-primary`
+
+### Doel
+
+Primaire actie volgens de EmberForge button preview.
+
+### Eigenschappen
+
+- **appearance:** forge-button-primary-rest-appearance
+- **component:** forge-button
+- **disabled:** forge-button-disabled-appearance
+- **focus:** forge-button-primary-focus-appearance
+- **hover:** forge-button-primary-hover-appearance
+- **pressed:** forge-button-primary-pressed-appearance
+
+## Secondary
+
+**Soort:** variant
+
+**Identifier:** `forge-button-secondary`
+
+### Doel
+
+Secundaire transparante actie met cyaan interactiestates.
+
+### Eigenschappen
+
+- **appearance:** forge-button-secondary-rest-appearance
+- **component:** forge-button
+- **disabled:** forge-button-disabled-appearance
+- **focus:** forge-button-secondary-focus-appearance
+- **hover:** forge-button-secondary-hover-appearance
+- **pressed:** forge-button-secondary-pressed-appearance
+
+## Ghost
+
+**Soort:** variant
+
+**Identifier:** `forge-button-ghost`
+
+### Doel
+
+Gedempte actie zonder permanente rand.
+
+### Eigenschappen
+
+- **appearance:** forge-button-ghost-rest-appearance
+- **component:** forge-button
+- **disabled:** forge-button-disabled-appearance
+- **focus:** forge-button-secondary-focus-appearance
+- **hover:** forge-button-ghost-hover-appearance
+- **pressed:** forge-button-secondary-pressed-appearance
+
+## Ember
+
+**Soort:** variant
+
+**Identifier:** `forge-button-ember`
+
+### Doel
+
+Schaarse warme actie volgens de Ember-regel.
+
+### Eigenschappen
+
+- **appearance:** forge-button-ember-rest-appearance
+- **component:** forge-button
+- **disabled:** forge-button-disabled-appearance
+- **focus:** forge-button-ember-focus-appearance
+- **hover:** forge-button-ember-hover-appearance
+- **pressed:** forge-button-ember-pressed-appearance
+
+## Default Input
+
+**Soort:** variant
+
+**Identifier:** `forge-input-default`
+
+### Doel
+
+Regulier invoerveld met focus en disabled toestand.
+
+### Eigenschappen
+
+- **appearance:** forge-input-rest-appearance
+- **component:** forge-input
+- **disabled:** forge-input-disabled-appearance
+- **focus:** forge-input-focus-appearance
+- **hover:** forge-input-rest-appearance
+- **pressed:** forge-input-focus-appearance
+
+## Error Input
+
+**Soort:** variant
+
+**Identifier:** `forge-input-error`
+
+### Doel
+
+Ongeldig invoerveld met feitelijke herstelmelding.
+
+### Eigenschappen
+
+- **appearance:** forge-input-error-appearance
+- **component:** forge-input
+
+## Running
+
+**Soort:** variant
+
+**Identifier:** `forge-status-running`
+
+### Doel
+
+Werkende operationele toestand.
+
+### Eigenschappen
+
+- **appearance:** forge-status-running-appearance
+- **component:** forge-status
+
+## Pending
+
+**Soort:** variant
+
+**Identifier:** `forge-status-pending`
+
+### Doel
+
+Wachtende operationele toestand.
+
+### Eigenschappen
+
+- **appearance:** forge-status-pending-appearance
+- **component:** forge-status
+
+## Failed
+
+**Soort:** variant
+
+**Identifier:** `forge-status-failed`
+
+### Doel
+
+Gefaalde operationele toestand.
+
+### Eigenschappen
+
+- **appearance:** forge-status-failed-appearance
+- **component:** forge-status
+
+## Healthy
+
+**Soort:** variant
+
+**Identifier:** `forge-status-info`
+
+### Doel
+
+Informatieve operationele gezondheid.
+
+### Eigenschappen
+
+- **appearance:** forge-status-info-appearance
+- **component:** forge-status
+
+## Default App Tile
+
+**Soort:** variant
+
+**Identifier:** `forge-app-tile-default`
+
+### Doel
+
+Reguliere producttegel met cyaan interactie.
+
+### Eigenschappen
+
+- **appearance:** forge-app-tile-rest-appearance
+- **component:** forge-app-tile
+- **disabled:** forge-app-tile-disabled-appearance
+- **focus:** forge-app-tile-focus-appearance
+- **hover:** forge-app-tile-hover-appearance
+- **pressed:** forge-app-tile-pressed-appearance
+
+## Ember App Tile
+
+**Soort:** variant
+
+**Identifier:** `forge-app-tile-ember`
+
+### Doel
+
+Zeldzame warme producttegel voor CV Tool.
+
+### Eigenschappen
+
+- **appearance:** forge-app-tile-ember-rest-appearance
+- **component:** forge-app-tile
+- **disabled:** forge-app-tile-disabled-appearance
+- **focus:** forge-app-tile-ember-focus-appearance
+- **hover:** forge-app-tile-ember-hover-appearance
+- **pressed:** forge-app-tile-ember-pressed-appearance
+
+## Value Stat Card
+
+**Soort:** variant
+
+**Identifier:** `forge-stat-card-value`
+
+### Doel
+
+Statistiekkaart voor een losse operationele waarde.
+
+### Eigenschappen
+
+- **appearance:** forge-stat-card-value-appearance
+- **component:** forge-stat-card
+
+## Health Stat Card
+
+**Soort:** variant
+
+**Identifier:** `forge-stat-card-health`
+
+### Doel
+
+Statistiekkaart voor clustergezondheid.
+
+### Eigenschappen
+
+- **appearance:** forge-stat-card-health-appearance
+- **component:** forge-stat-card
+
+## Progress Stat Card
+
+**Soort:** variant
+
+**Identifier:** `forge-stat-card-progress`
+
+### Doel
+
+Statistiekkaart voor cyaan gebruiksvoortgang.
+
+### Eigenschappen
+
+- **appearance:** forge-stat-card-value-appearance
+- **component:** forge-stat-card
+
+## Ember Progress Stat Card
+
+**Soort:** variant
+
+**Identifier:** `forge-stat-card-progress-ember`
+
+### Doel
+
+Statistiekkaart met één schaars warm voortgangsaccent.
+
+### Eigenschappen
+
+- **appearance:** forge-stat-card-ember-appearance
+- **component:** forge-stat-card
+
+## Primary Button
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-button-primary-example`
+
+### Doel
+
+Primair sign in voorbeeld uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-button
+- **label:** Sign In
+- **variant:** forge-button-primary
+
+## Secondary Button
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-button-secondary-example`
+
+### Doel
+
+Secundair annuleervoorbeeld uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-button
+- **label:** Cancel
+- **variant:** forge-button-secondary
+
+## Ghost Button
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-button-ghost-example`
+
+### Doel
+
+Ghost voorbeeld uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-button
+- **label:** Skip
+- **variant:** forge-button-ghost
+
+## Ember Button
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-button-ember-example`
+
+### Doel
+
+Schaars warm actievoorbeeld uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-button
+- **label:** Forge new
+- **variant:** forge-button-ember
+
+## Default Input
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-input-default-example`
+
+### Doel
+
+Regulier gebruikersveld uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-input
+- **label:** Username or email
+- **variant:** forge-input-default
+- **waarde:** erik@thb1home.nl
+
+## Error Input
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-input-error-example`
+
+### Doel
+
+Ongeldige hostnaam met feitelijke foutmelding.
+
+### Eigenschappen
+
+- **component:** forge-input
+- **label:** Hostname
+- **melding:** Hostname is ongeldig.
+- **variant:** forge-input-error
+- **waarde:** lab..local
+
+## Running Status
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-status-running-example`
+
+### Doel
+
+Aantal actieve workloads uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-status
+- **label:** Running
+- **variant:** forge-status-running
+- **waarde:** 62
+
+## Pending Status
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-status-pending-example`
+
+### Doel
+
+Aantal wachtende workloads uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-status
+- **label:** Pending
+- **variant:** forge-status-pending
+- **waarde:** 3
+
+## Failed Status
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-status-failed-example`
+
+### Doel
+
+Aantal gefaalde workloads uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-status
+- **label:** Failed
+- **variant:** forge-status-failed
+- **waarde:** 1
+
+## Healthy Status
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-status-info-example`
+
+### Doel
+
+Informatieve gezondheid uit het aangeleverde componentscherm.
+
+### Eigenschappen
+
+- **component:** forge-status
+- **label:** Healthy
+- **variant:** forge-status-info
+- **waarde:** 98%
+
+## ISMS App Tile
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-app-tile-isms-example`
+
+### Doel
+
+Producttegel voor ISMS Challenger.
+
+### Eigenschappen
+
+- **beschrijving:** Information Security Management
+- **component:** forge-app-tile
+- **label:** ISMS Challenger
+- **status:** running
+- **variant:** forge-app-tile-default
+
+## CV App Tile
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-app-tile-cv-example`
+
+### Doel
+
+Zeldzame warme producttegel voor CV beheer.
+
+### Eigenschappen
+
+- **beschrijving:** CV beheer voor consultants
+- **component:** forge-app-tile
+- **label:** CV Tool
+- **status:** running
+- **variant:** forge-app-tile-ember
+
+## Nodes Stat Card
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-stat-card-nodes-example`
+
+### Doel
+
+Aantal actieve clusternodes.
+
+### Eigenschappen
+
+- **beschrijving:** All Running
+- **component:** forge-stat-card
+- **label:** Nodes
+- **variant:** forge-stat-card-value
+- **waarde:** 12
+
+## Health Stat Card
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-stat-card-health-example`
+
+### Doel
+
+Clustergezondheid als feitelijke waarde.
+
+### Eigenschappen
+
+- **beschrijving:** 98%
+- **component:** forge-stat-card
+- **label:** Cluster Health
+- **variant:** forge-stat-card-health
+- **waarde:** Healthy
+
+## CPU Stat Card
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-stat-card-cpu-example`
+
+### Doel
+
+Actueel CPU gebruik.
+
+### Eigenschappen
+
+- **component:** forge-stat-card
+- **label:** CPU Usage
+- **variant:** forge-stat-card-progress
+- **waarde:** 24%
+
+## Memory Stat Card
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-stat-card-memory-example`
+
+### Doel
+
+Actueel geheugengebruik met één schaars koperaccent.
+
+### Eigenschappen
+
+- **component:** forge-stat-card
+- **label:** Memory
+- **variant:** forge-stat-card-progress-ember
+- **waarde:** 43%
+
 ## Wereld en identiteit
 
 **Soort:** informatiegebied
@@ -908,10 +2664,10 @@ De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.
 
 ### Eigenschappen
 
-- **inhoud:** forge, forge-materials, forge-panel
+- **inhoud:** forge, forge-materials, forge-panel, forge-button, forge-input, forge-status, forge-app-tile, forge-stat-card, forge-button-primary-example, forge-input-error-example, forge-status-running-example, forge-app-tile-isms-example, forge-stat-card-nodes-example
 - **leesvolgorde:** 2
 - **navigatie:** html-components, css-components, css-tokens, json-tokens
-- **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant
+- **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant, componentvoorbeeld
 - **toegankelijkheidslabel:** Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten
 
 ## Productfamilie

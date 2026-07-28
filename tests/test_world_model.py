@@ -19,6 +19,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "asset",
                 "border",
                 "component",
+                "componentvoorbeeld",
                 "componentinstantie",
                 "compositie",
                 "homepagegebied",

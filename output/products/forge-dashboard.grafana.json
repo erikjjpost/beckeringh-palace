@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot bf9b5dc00159",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 902db57f8d6f",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -471,7 +471,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 540,
+                "height": 872,
                 "left": 16,
                 "top": 16,
                 "width": 4
@@ -512,7 +512,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "44",
+                  "fixed": "128",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -538,7 +538,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "appearance\nborder\ncomponent\nkleur\nmateriaal\nmotion\npalet\nradius\nshadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant",
+                  "fixed": "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\nshadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -549,7 +549,7 @@
               },
               "name": "forge-dashboard-center-panel-metric-detail-labels",
               "placement": {
-                "height": 192,
+                "height": 204,
                 "left": 28,
                 "top": 136,
                 "width": 280
@@ -564,7 +564,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "7\n1\n1\n13\n1\n1\n1\n1\n1\n1\n1\n10\n1\n1\n3",
+                  "fixed": "42\n1\n6\n16\n25\n1\n1\n1\n1\n1\n1\n1\n10\n1\n1\n19",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -575,7 +575,7 @@
               },
               "name": "forge-dashboard-center-panel-metric-detail-values",
               "placement": {
-                "height": 192,
+                "height": 204,
                 "left": 308,
                 "top": 136,
                 "width": 80
@@ -958,6 +958,31 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-16",
+              "placement": {
+                "height": 1,
+                "left": 28,
+                "top": 328,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -1000,7 +1025,7 @@
               "placement": {
                 "height": 48,
                 "left": 28,
-                "top": 340,
+                "top": 352,
                 "width": 360
               },
               "type": "text"
@@ -1013,7 +1038,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nGecontroleerd gemigreerde EmberForge materiaalrollen.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.",
+                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nGecontroleerd gemigreerde EmberForge materiaalrollen.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.\nForge Button · component\nActiecomponent voor primaire, secundaire, ghost en warme acties.\nForge Input · component\nInvoercomponent met waarde en optionele foutmelding.\nForge Status · component\nFeitelijke statuscapsule voor operationele toestand.\nForge App Tile · component\nProducttegel voor één toepassing en haar operationele status.\nForge Stat Card · component\nCompacte operationele waarde met context.\nPrimary Button · componentvoorbeeld\nPrimair sign in voorbeeld uit het aangeleverde componentscherm.\nError Input · componentvoorbeeld\nOngeldige hostnaam met feitelijke foutmelding.\nRunning Status · componentvoorbeeld\nAantal actieve workloads uit het aangeleverde componentscherm.\nISMS App Tile · componentvoorbeeld\nProducttegel voor ISMS Challenger.\nNodes Stat Card · componentvoorbeeld\nAantal actieve clusternodes.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1024,9 +1049,9 @@
               },
               "name": "forge-dashboard-center-panel-content-anchors",
               "placement": {
-                "height": 96,
+                "height": 416,
                 "left": 28,
-                "top": 400,
+                "top": 412,
                 "width": 360
               },
               "type": "text"
@@ -1052,7 +1077,7 @@
               "placement": {
                 "height": 48,
                 "left": 28,
-                "top": 508,
+                "top": 840,
                 "width": 360
               },
               "type": "text"
@@ -1503,7 +1528,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333"
+    "sha256:902db57f8d6f14be8d5b913e1677aaa0d054c11d11fd1c5c981ff1a846d39274"
   ],
   "templating": {
     "list": []

@@ -5,6 +5,11 @@ from dataclasses import dataclass
 
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
+from compiler.theme_resolution import (
+    MATERIAAL_ROLLEN,
+    RADIUS_ROLLEN,
+    SHADOW_ROLLEN,
+)
 
 
 PRIMITIEF_SOORTEN = (
@@ -43,14 +48,12 @@ class ThemeFoundationConstraint:
             },
             "typeschaal": {"naam", "doel", "display", "title", "heading", "body", "label", "caption"},
             "materiaal": {
-                "naam", "doel", "canvas", "surface", "raised", "foreground",
-                "muted", "accent", "outline", "interaction",
-                "interaction-pressed", "disabled",
+                "naam", "doel", *MATERIAAL_ROLLEN,
             },
             "border": {"naam", "doel", "hairline", "regular", "strong", "style"},
-            "radius": {"naam", "doel", "small", "medium", "large", "pill"},
+            "radius": {"naam", "doel", *RADIUS_ROLLEN},
             "shadow": {
-                "naam", "doel", "none", "low", "medium", "high", "glow",
+                "naam", "doel", *SHADOW_ROLLEN,
             },
             "motion": {
                 "naam", "doel", "fast", "normal", "slow", "easing",

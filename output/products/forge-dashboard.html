@@ -27,13 +27,30 @@
       --bp-material-canvas: #0F1724;
       --bp-material-surface: #1F2937;
       --bp-material-raised: #243447;
+      --bp-material-field: #0A111C;
+      --bp-material-transparent: #00000000;
       --bp-material-foreground: #E6EDF5;
       --bp-material-muted: #B8C5D6;
       --bp-material-accent: #C9895B;
+      --bp-material-accent-hover: #E2A982;
       --bp-material-outline: #2F4259;
       --bp-material-interaction: #7DD3FC;
+      --bp-material-interaction-hover: #A5DEFB;
+      --bp-material-interaction-soft: #7DD3FC0F;
       --bp-material-interaction-pressed: #38BDF8;
       --bp-material-disabled: #3E5573;
+      --bp-material-success: #4ADE80;
+      --bp-material-success-surface: #4ADE801F;
+      --bp-material-success-foreground: #86EFAC;
+      --bp-material-warning: #E0B341;
+      --bp-material-warning-surface: #E0B3411A;
+      --bp-material-warning-foreground: #F3D783;
+      --bp-material-error: #F87171;
+      --bp-material-error-surface: #F871711A;
+      --bp-material-error-foreground: #FCA5A5;
+      --bp-material-info: #7DD3FC;
+      --bp-material-info-surface: #7DD3FC1A;
+      --bp-material-info-foreground: #A5DEFB;
       --bp-border-hairline: 1px;
       --bp-border-regular: 1px;
       --bp-border-strong: 1px;
@@ -42,11 +59,14 @@
       --bp-radius-medium: 12px;
       --bp-radius-large: 16px;
       --bp-radius-pill: 999px;
+      --bp-radius-control: 8px;
       --bp-shadow-low: 0 1px 2px rgba(0,0,0,0.25);
       --bp-shadow-medium: 0 6px 18px rgba(0,0,0,0.35);
       --bp-shadow-high: 0 18px 44px rgba(0,0,0,0.45);
       --bp-shadow-none: none;
       --bp-shadow-glow: 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10);
+      --bp-shadow-focus: 0 0 0 3px rgba(125,211,252,0.15);
+      --bp-shadow-glow-accent: 0 0 0 1px rgba(201,137,91,0.30), 0 6px 22px rgba(201,137,91,0.18);
       --bp-motion-fast: 120ms;
       --bp-motion-normal: 220ms;
       --bp-motion-slow: 420ms;
@@ -209,9 +229,9 @@
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333" data-snapshot-ref="sha256:bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="902db57f8d6f14be8d5b913e1677aaa0d054c11d11fd1c5c981ff1a846d39274" data-snapshot-ref="sha256:902db57f8d6f14be8d5b913e1677aaa0d054c11d11fd1c5c981ff1a846d39274">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot bf9b5dc00159</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 902db57f8d6f</p>
     <h1>Forge Dashboard</h1>
     <p class="bp-product-purpose">Informatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.</p>
   </header>
@@ -236,12 +256,13 @@
     </section>
     <section class="bp-region bp-forge-panel bp-variant-forge-panel-compact" data-region="forge-dashboard-center" data-instance="forge-dashboard-center-panel" data-component="forge-panel" data-variant="forge-panel-compact" data-appearance="forge-panel-card-rest-appearance" data-component-states="rest hover focus pressed disabled" data-state-rest-appearance="forge-panel-card-rest-appearance" data-state-hover-appearance="forge-panel-card-hover-appearance" data-state-focus-appearance="forge-panel-card-focus-appearance" data-state-pressed-appearance="forge-panel-card-pressed-appearance" data-state-disabled-appearance="forge-panel-card-disabled-appearance" data-information-area="forge-design-system" data-reading-order="2" aria-label="Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten" style="grid-column:2 / span 1;grid-row:1 / span 1">
       <h2>Forge ontwerpsysteem</h2>
-      <p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">44</p>
+      <p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">128</p>
       <ul class="bp-metric-details">
-        <li><span>appearance</span><span class="bp-metric-detail-value">7</span></li>
+        <li><span>appearance</span><span class="bp-metric-detail-value">42</span></li>
         <li><span>border</span><span class="bp-metric-detail-value">1</span></li>
-        <li><span>component</span><span class="bp-metric-detail-value">1</span></li>
-        <li><span>kleur</span><span class="bp-metric-detail-value">13</span></li>
+        <li><span>component</span><span class="bp-metric-detail-value">6</span></li>
+        <li><span>componentvoorbeeld</span><span class="bp-metric-detail-value">16</span></li>
+        <li><span>kleur</span><span class="bp-metric-detail-value">25</span></li>
         <li><span>materiaal</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>motion</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>palet</span><span class="bp-metric-detail-value">1</span></li>
@@ -252,12 +273,22 @@
         <li><span>token</span><span class="bp-metric-detail-value">10</span></li>
         <li><span>typeschaal</span><span class="bp-metric-detail-value">1</span></li>
         <li><span>typografie</span><span class="bp-metric-detail-value">1</span></li>
-        <li><span>variant</span><span class="bp-metric-detail-value">3</span></li>
+        <li><span>variant</span><span class="bp-metric-detail-value">19</span></li>
       </ul>
       <ul class="bp-content-anchors" aria-label="Kerninhoud">
         <li data-content-anchor="forge" data-object-kind="thema"><strong>Forge</strong><span>Nordic forge-ontwerpidentiteit voor Beckeringh Palace.</span></li>
         <li data-content-anchor="forge-materials" data-object-kind="materiaal"><strong>Forge Materials</strong><span>Gecontroleerd gemigreerde EmberForge materiaalrollen.</span></li>
         <li data-content-anchor="forge-panel" data-object-kind="component"><strong>Forge Panel</strong><span>Basispaneel voor dashboards en productdocumentatie.</span></li>
+        <li data-content-anchor="forge-button" data-object-kind="component"><strong>Forge Button</strong><span>Actiecomponent voor primaire, secundaire, ghost en warme acties.</span></li>
+        <li data-content-anchor="forge-input" data-object-kind="component"><strong>Forge Input</strong><span>Invoercomponent met waarde en optionele foutmelding.</span></li>
+        <li data-content-anchor="forge-status" data-object-kind="component"><strong>Forge Status</strong><span>Feitelijke statuscapsule voor operationele toestand.</span></li>
+        <li data-content-anchor="forge-app-tile" data-object-kind="component"><strong>Forge App Tile</strong><span>Producttegel voor één toepassing en haar operationele status.</span></li>
+        <li data-content-anchor="forge-stat-card" data-object-kind="component"><strong>Forge Stat Card</strong><span>Compacte operationele waarde met context.</span></li>
+        <li data-content-anchor="forge-button-primary-example" data-object-kind="componentvoorbeeld"><strong>Primary Button</strong><span>Primair sign in voorbeeld uit het aangeleverde componentscherm.</span></li>
+        <li data-content-anchor="forge-input-error-example" data-object-kind="componentvoorbeeld"><strong>Error Input</strong><span>Ongeldige hostnaam met feitelijke foutmelding.</span></li>
+        <li data-content-anchor="forge-status-running-example" data-object-kind="componentvoorbeeld"><strong>Running Status</strong><span>Aantal actieve workloads uit het aangeleverde componentscherm.</span></li>
+        <li data-content-anchor="forge-app-tile-isms-example" data-object-kind="componentvoorbeeld"><strong>ISMS App Tile</strong><span>Producttegel voor ISMS Challenger.</span></li>
+        <li data-content-anchor="forge-stat-card-nodes-example" data-object-kind="componentvoorbeeld"><strong>Nodes Stat Card</strong><span>Aantal actieve clusternodes.</span></li>
       </ul>
       <nav class="bp-product-navigation" aria-label="Productnavigatie">
         <ul>

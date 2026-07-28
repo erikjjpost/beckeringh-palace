@@ -4,7 +4,14 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from compiler.constraints import ConstraintContext
-from compiler.design_components import APPEARANCE_EIGENSCHAPPEN, APPEARANCE_ROLLEN, COMPONENTEIGENSCHAPPEN, tokenreferentie
+from compiler.design_components import (
+    APPEARANCE_EIGENSCHAPPEN,
+    APPEARANCE_ROLLEN,
+    COMPONENT_ANATOMIE_PER_ROL,
+    COMPONENT_ROLLEN,
+    COMPONENTEIGENSCHAPPEN,
+    tokenreferentie,
+)
 from compiler.diagnostics import Diagnostic
 
 LEGACY_VISUELE_VELDEN = frozenset({"surface", "foreground", "accent", "radius"})
@@ -49,6 +56,8 @@ class DesignComponentConstraint:
                     if not isinstance(waarde, str) or waarde not in appearances:
                         diagnostics.append(Diagnostic("BP3205", f"Component '{obj.id}' verwijst naar onbekende appearance '{waarde}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
                     continue
+                if naam in {"rol", "anatomie"}:
+                    continue
                 verwacht_type = COMPONENTEIGENSCHAPPEN[naam]
                 referentie = tokenreferentie(waarde) if isinstance(waarde, str) else None
                 if referentie is None:
@@ -63,4 +72,47 @@ class DesignComponentConstraint:
                     diagnostics.append(Diagnostic("BP3204", f"Component '{obj.id}.{naam}' verwacht token-type '{verwacht_type.value}', maar '{referentie}' is '{werkelijk_type}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
             if appearances and "appearance" not in obj.eigenschappen:
                 diagnostics.append(Diagnostic("BP3206", f"Component '{obj.id}' vereist een expliciete appearance zodra het model appearances bevat", locatie=obj.bronlocatie))
+            rol = obj.eigenschappen.get("rol")
+            anatomie = obj.eigenschappen.get("anatomie")
+            if rol is not None or anatomie is not None:
+                if rol not in COMPONENT_ROLLEN:
+                    diagnostics.append(Diagnostic(
+                        "BP3220",
+                        f"Component '{obj.id}' heeft onbekende rol '{rol}'",
+                        locatie=obj.eigenschaplocaties.get("rol", obj.bronlocatie),
+                    ))
+                geldige_anatomie = (
+                    isinstance(anatomie, list)
+                    and bool(anatomie)
+                    and all(
+                        isinstance(item, str) and bool(item.strip())
+                        for item in anatomie
+                    )
+                    and len(anatomie) == len(set(anatomie))
+                )
+                if not geldige_anatomie:
+                    diagnostics.append(Diagnostic(
+                        "BP3221",
+                        (
+                            f"Component '{obj.id}' vereist een niet-lege, "
+                            "unieke anatomielijst"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "anatomie", obj.bronlocatie
+                        ),
+                    ))
+                elif rol in COMPONENT_ANATOMIE_PER_ROL and tuple(anatomie) != (
+                    COMPONENT_ANATOMIE_PER_ROL[rol]
+                ):
+                    diagnostics.append(Diagnostic(
+                        "BP3222",
+                        (
+                            f"Component '{obj.id}' vereist voor rol '{rol}' "
+                            "anatomie "
+                            f"{list(COMPONENT_ANATOMIE_PER_ROL[rol])}"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "anatomie", obj.bronlocatie
+                        ),
+                    ))
         return tuple(diagnostics)

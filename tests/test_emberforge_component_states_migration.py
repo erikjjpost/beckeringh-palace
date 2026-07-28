@@ -245,11 +245,12 @@ class EmberForgeComponentStatesMigrationTests(unittest.TestCase):
             area for area in source["gebieden"] if area["id"] == "components"
         )
 
-        self.assertEqual("gedeeltelijk-mapbaar", components["status"])
+        self.assertEqual("gemigreerd", components["status"])
         self.assertIn("M11.3f", components["bewijs"])
+        self.assertIn("M11.3g", components["bewijs"])
         self.assertIn("rust", components["bewijs"])
         self.assertIn("disabled", components["bewijs"])
-        self.assertIn("Button", components["bewijs"])
+        self.assertIn("button", components["bewijs"])
 
 
 if __name__ == "__main__":
