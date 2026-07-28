@@ -385,6 +385,109 @@ product project-status-grafana {
     pad: "output/products/project-status.grafana.json"
 }
 
+compositie beckeringh-palace-homepage-composition {
+    naam: "Beckeringh Palace"
+    doel: "Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus."
+    instanties: ["homepage-intro", "homepage-world", "homepage-design-system", "homepage-project-status"]
+}
+
+componentinstantie homepage-intro {
+    naam: "Design is data"
+    doel: "Eén normatief wereldmodel genereert ieder Beckeringh Palace product reproduceerbaar."
+    compositie: "beckeringh-palace-homepage-composition"
+    component: "forge-panel"
+    metric-kind: "wereld"
+}
+
+componentinstantie homepage-world {
+    naam: "Digitale wereld"
+    doel: "Verken de samenhang tussen wereld, identiteit en productfamilie."
+    compositie: "beckeringh-palace-homepage-composition"
+    component: "forge-panel"
+    navigatie: ["forge-dashboard-html"]
+}
+
+componentinstantie homepage-design-system {
+    naam: "Forge ontwerpsysteem"
+    doel: "Bekijk de reproduceerbare componenten en ontwerpprimitieven."
+    compositie: "beckeringh-palace-homepage-composition"
+    component: "forge-panel"
+    variant: "forge-panel-compact"
+    navigatie: ["html-components"]
+}
+
+componentinstantie homepage-project-status {
+    naam: "Projectstatus"
+    doel: "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone."
+    compositie: "beckeringh-palace-homepage-composition"
+    component: "forge-panel"
+    navigatie: ["project-status-html"]
+}
+
+layout beckeringh-palace-homepage-grid {
+    naam: "Beckeringh Palace Homepage Grid"
+    doel: "Ordent de homepage entree en drie productroutes in een responsief grid."
+    type: "grid"
+    regions: ["homepage-intro-region", "homepage-world-region", "homepage-design-system-region", "homepage-project-status-region"]
+    columns: "3"
+    rows: "2"
+}
+
+region homepage-intro-region {
+    naam: "Homepage entree"
+    doel: "Brede entree tot Beckeringh Palace."
+    layout: "beckeringh-palace-homepage-grid"
+    instantie: "homepage-intro"
+    column: "1"
+    row: "1"
+    column-span: "3"
+    row-span: "1"
+}
+
+region homepage-world-region {
+    naam: "Wereldroute"
+    doel: "Route naar het wereld en productoverzicht."
+    layout: "beckeringh-palace-homepage-grid"
+    instantie: "homepage-world"
+    column: "1"
+    row: "2"
+    column-span: "1"
+    row-span: "1"
+}
+
+region homepage-design-system-region {
+    naam: "Ontwerpsysteemroute"
+    doel: "Route naar de componentcatalogus."
+    layout: "beckeringh-palace-homepage-grid"
+    instantie: "homepage-design-system"
+    column: "2"
+    row: "2"
+    column-span: "1"
+    row-span: "1"
+}
+
+region homepage-project-status-region {
+    naam: "Statusroute"
+    doel: "Route naar de actuele projectstatus."
+    layout: "beckeringh-palace-homepage-grid"
+    instantie: "homepage-project-status"
+    column: "3"
+    row: "2"
+    column-span: "1"
+    row-span: "1"
+}
+
+product beckeringh-palace-homepage {
+    naam: "Beckeringh Palace"
+    doel: "Homepage en toegangspoort voor de reproduceerbare Beckeringh Palace productwereld."
+    backend: "html"
+    mode: "static"
+    wereld: "beckeringh-palace"
+    compositie: "beckeringh-palace-homepage-composition"
+    layout: "beckeringh-palace-homepage-grid"
+    pad: "output/products/index.html"
+}
+
 renderdoel css-tokens {
     naam: "CSS design tokens"
     doel: "Design tokens als CSS custom properties genereren."

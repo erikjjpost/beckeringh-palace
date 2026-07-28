@@ -92,6 +92,7 @@ class DesignCompositionConstraint:
                     "metric-kind",
                     "metric-detail",
                     "informatiegebied",
+                    "navigatie",
                 }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
@@ -232,4 +233,52 @@ class DesignCompositionConstraint:
                             obj.bronlocatie,
                         ),
                     ))
+                navigatie = obj.eigenschappen.get("navigatie")
+                if "navigatie" in obj.eigenschappen:
+                    geldig = (
+                        isinstance(navigatie, list)
+                        and bool(navigatie)
+                        and all(
+                            isinstance(doel, str) and bool(doel.strip())
+                            for doel in navigatie
+                        )
+                        and len(navigatie) == len(set(navigatie))
+                    )
+                    if not geldig:
+                        diagnostics.append(Diagnostic(
+                            code="BP3719",
+                            boodschap=(
+                                f"Componentinstantie '{obj.id}' vereist een "
+                                "niet-lege, unieke lijst 'navigatie'"
+                            ),
+                            locatie=obj.eigenschaplocaties.get(
+                                "navigatie", obj.bronlocatie
+                            ),
+                        ))
+                    else:
+                        for doel_id in navigatie:
+                            doel = context.symbolen.get(doel_id)
+                            if doel is None:
+                                diagnostics.append(Diagnostic(
+                                    code="BP3720",
+                                    boodschap=(
+                                        f"Componentinstantie '{obj.id}' verwijst "
+                                        f"naar onbekend navigatiedoel '{doel_id}'"
+                                    ),
+                                    locatie=obj.eigenschaplocaties.get(
+                                        "navigatie", obj.bronlocatie
+                                    ),
+                                ))
+                            elif doel.soort not in {"product", "renderdoel"}:
+                                diagnostics.append(Diagnostic(
+                                    code="BP3721",
+                                    boodschap=(
+                                        f"Navigatiedoel '{doel_id}' van "
+                                        f"componentinstantie '{obj.id}' is geen "
+                                        "product of renderdoel"
+                                    ),
+                                    locatie=obj.eigenschaplocaties.get(
+                                        "navigatie", obj.bronlocatie
+                                    ),
+                                ))
         return tuple(diagnostics)
