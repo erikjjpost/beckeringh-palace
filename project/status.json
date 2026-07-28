@@ -4,26 +4,26 @@
   "overall_progress": 40,
   "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
   "current_milestone": {
-    "id": "M11.2a",
-    "name": "Documentatiebasis en productrunbook",
+    "id": "M11.1c",
+    "name": "Homepage visuele hiërarchie",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.1b",
-    "name": "Homepage informatiearchitectuur",
-    "pull_request": 68
+    "id": "M11.2a",
+    "name": "Documentatiebasis en productrunbook",
+    "pull_request": 69
   },
   "next_step": {
-    "id": "M11.1c",
-    "name": "Homepage visuele hiërarchie",
-    "purpose": "De entree en routegebieden met expliciete componentrollen en appearances tot een herkenbare homepagehiërarchie uitwerken."
+    "id": "M11.1d",
+    "name": "Homepage responsief contract",
+    "purpose": "Responsieve herschikking, focusvolgorde en navigatiegedrag expliciet modelleren en valideren zonder backendafleiding."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
       "progress": 80,
-      "evidence": "Validatie, deterministische generatie, CI en 139 regressietests vormen een werkende kwaliteitsketen.",
+      "evidence": "Validatie, deterministische generatie, CI en 140 regressietests vormen een werkende kwaliteitsketen.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
@@ -36,8 +36,8 @@
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 55,
-      "evidence": "Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar.",
+      "progress": 60,
+      "evidence": "Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de homepage gebruikt expliciete hero- en routekaartprofielen.",
       "remaining": "Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig."
     },
     {
@@ -71,9 +71,9 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 40,
-      "evidence": "Een eigen native homepageproduct gebruikt vier geordende inhoudsgebieden met expliciete rollen, kernboodschappen en drie opgeloste productroutes.",
-      "remaining": "De visuele hiërarchie en volwaardige wereldpresentatie moeten nog worden verdiept."
+      "progress": 50,
+      "evidence": "Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant en appearance; de entree en drie productroutes hebben een expliciete visuele hiërarchie.",
+      "remaining": "Responsief gedrag en de volwaardige wereldpresentatie moeten nog worden verdiept."
     },
     {
       "id": "figma",

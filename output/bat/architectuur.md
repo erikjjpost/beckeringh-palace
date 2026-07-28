@@ -476,6 +476,31 @@ Compact paneelprofiel met minder ruimte en diepte.
 - **shadow:** low
 - **spacing:** xs
 
+## Forge Panel Hero Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-panel-hero-appearance`
+
+### Doel
+
+Ruime en verhoogde appearance voor de homepage-entree.
+
+### Eigenschappen
+
+- **accent:** accent
+- **body-style:** body
+- **border:** strong
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** display
+- **label-style:** label
+- **material:** raised
+- **motion:** slow
+- **radius:** large
+- **shadow:** high
+- **spacing:** xl
+
 ## Forge Panel
 
 **Soort:** component
@@ -499,6 +524,36 @@ Basispaneel voor dashboards en productdocumentatie.
 ### Doel
 
 Gecontroleerde compacte appearance voor een Forge-paneel.
+
+### Eigenschappen
+
+- **appearance:** forge-panel-compact-appearance
+- **component:** forge-panel
+
+## Forge Panel Hero
+
+**Soort:** variant
+
+**Identifier:** `forge-panel-hero`
+
+### Doel
+
+Gecontroleerde hero-appearance voor de homepage-entree.
+
+### Eigenschappen
+
+- **appearance:** forge-panel-hero-appearance
+- **component:** forge-panel
+
+## Forge Panel Route
+
+**Soort:** variant
+
+**Identifier:** `forge-panel-route`
+
+### Doel
+
+Gecontroleerde routekaart-appearance voor homepage-navigatie.
 
 ### Eigenschappen
 
@@ -800,9 +855,12 @@ Introduceert de ontwerpregel achter alle Beckeringh Palace producten.
 
 ### Eigenschappen
 
+- **component:** forge-panel
+- **componentrol:** hero
 - **kernboodschap:** Design is data.
 - **leesvolgorde:** 1
 - **rol:** entree
+- **variant:** forge-panel-hero
 
 ## Digitale wereld
 
@@ -816,10 +874,13 @@ Verken de samenhang tussen wereld, identiteit en productfamilie.
 
 ### Eigenschappen
 
+- **component:** forge-panel
+- **componentrol:** routekaart
 - **kernboodschap:** Eén normatief wereldmodel verbindt identiteit, ontwerp en producten.
 - **leesvolgorde:** 2
 - **navigatie:** forge-dashboard-html
 - **rol:** route
+- **variant:** forge-panel-route
 
 ## Forge ontwerpsysteem
 
@@ -833,10 +894,13 @@ Bekijk de reproduceerbare componenten en ontwerpprimitieven.
 
 ### Eigenschappen
 
+- **component:** forge-panel
+- **componentrol:** routekaart
 - **kernboodschap:** Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.
 - **leesvolgorde:** 3
 - **navigatie:** html-components
 - **rol:** route
+- **variant:** forge-panel-route
 
 ## Projectstatus
 
@@ -850,10 +914,13 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 
 ### Eigenschappen
 
+- **component:** forge-panel
+- **componentrol:** routekaart
 - **kernboodschap:** Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.
 - **leesvolgorde:** 4
 - **navigatie:** project-status-html
 - **rol:** route
+- **variant:** forge-panel-route
 
 ## Design is data
 
@@ -867,7 +934,6 @@ Introduceert de ontwerpregel achter alle Beckeringh Palace producten.
 
 ### Eigenschappen
 
-- **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
 - **homepagegebied:** homepage-entrance
 
@@ -883,7 +949,6 @@ Verken de samenhang tussen wereld, identiteit en productfamilie.
 
 ### Eigenschappen
 
-- **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
 - **homepagegebied:** homepage-world-area
 
@@ -899,10 +964,8 @@ Bekijk de reproduceerbare componenten en ontwerpprimitieven.
 
 ### Eigenschappen
 
-- **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
 - **homepagegebied:** homepage-design-system-area
-- **variant:** forge-panel-compact
 
 ## Projectstatus
 
@@ -916,7 +979,6 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 
 ### Eigenschappen
 
-- **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
 - **homepagegebied:** homepage-project-status-area
 

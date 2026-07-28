@@ -33,6 +33,7 @@ class ResolvedComponentInstance:
     component_id: str
     variant_id: str | None
     appearance_id: str | None
+    component_role: str | None
     information_area_id: str | None
     homepage_area_id: str | None
     homepage_role: str | None
@@ -78,8 +79,22 @@ def _instantie_uit_object(
     objecten: tuple[Architectuurobject, ...],
 ) -> ResolvedComponentInstance:
     symbolen = {item.id: item for item in objecten}
-    component_id = _tekst(obj, "component")
-    variant_waarde = obj.eigenschappen.get("variant")
+    homepagegebied_waarde = obj.eigenschappen.get("homepagegebied")
+    homepagegebied = (
+        homepagegebieden.get(homepagegebied_waarde)
+        if isinstance(homepagegebied_waarde, str)
+        else None
+    )
+    component_id = (
+        homepagegebied.component_id
+        if homepagegebied is not None
+        else _tekst(obj, "component")
+    )
+    variant_waarde = (
+        homepagegebied.variant_id
+        if homepagegebied is not None
+        else obj.eigenschappen.get("variant")
+    )
     variant_id = variant_waarde if isinstance(variant_waarde, str) else None
     variant = varianten.get(variant_id) if variant_id is not None else None
     metric_waarde = obj.eigenschappen.get("metric-kind")
@@ -89,12 +104,6 @@ def _instantie_uit_object(
     informatiegebied = (
         informatiegebieden.get(informatiegebied_waarde)
         if isinstance(informatiegebied_waarde, str)
-        else None
-    )
-    homepagegebied_waarde = obj.eigenschappen.get("homepagegebied")
-    homepagegebied = (
-        homepagegebieden.get(homepagegebied_waarde)
-        if isinstance(homepagegebied_waarde, str)
         else None
     )
     component = componenten[component_id]
@@ -150,9 +159,14 @@ def _instantie_uit_object(
         component_id=component_id,
         variant_id=variant_id,
         appearance_id=(
-            variant.appearance_id
+            homepagegebied.appearance_id
+            if homepagegebied is not None
+            else variant.appearance_id
             if variant is not None
             else basisappearance if isinstance(basisappearance, str) else None
+        ),
+        component_role=(
+            homepagegebied.component_role if homepagegebied is not None else None
         ),
         information_area_id=(
             informatiegebied.id if informatiegebied is not None else None

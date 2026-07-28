@@ -141,7 +141,11 @@ class DesignCompositionConstraint:
                             ),
                         ))
                 component_id = obj.eigenschappen.get("component")
-                if component_id not in componenten:
+                homepagegebied = obj.eigenschappen.get("homepagegebied")
+                if (
+                    "homepagegebied" not in obj.eigenschappen
+                    and component_id not in componenten
+                ):
                     diagnostics.append(Diagnostic(
                         code="BP3713",
                         boodschap=(
@@ -238,7 +242,6 @@ class DesignCompositionConstraint:
                         ),
                     ))
                 navigatie = obj.eigenschappen.get("navigatie")
-                homepagegebied = obj.eigenschappen.get("homepagegebied")
                 if "homepagegebied" in obj.eigenschappen:
                     if homepagegebied not in homepagegebieden:
                         diagnostics.append(Diagnostic(

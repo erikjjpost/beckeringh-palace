@@ -181,6 +181,11 @@ def naar_native_layout_html(
             if instantie.homepage_role is not None
             else ""
         )
+        component_role_attribute = (
+            f' data-component-role="{html.escape(instantie.component_role)}"'
+            if instantie.component_role is not None
+            else ""
+        )
         accessibility_attribute = (
             f' aria-label="{html.escape(instantie.accessibility_label)}"'
             if instantie.accessibility_label is not None
@@ -200,7 +205,8 @@ def naar_native_layout_html(
                 f'data-component="{html.escape(instantie.component_id)}"'
                 f"{variant_attribute}{appearance_attribute}"
                 f"{information_area_attribute}{homepage_area_attribute}"
-                f"{homepage_role_attribute}{reading_order_attribute}"
+                f"{homepage_role_attribute}{component_role_attribute}"
+                f"{reading_order_attribute}"
                 f"{accessibility_attribute}{style_attribute}>"
             ),
             f"      <h2>{html.escape(instantie.naam)}</h2>",
