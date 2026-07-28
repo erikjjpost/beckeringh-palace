@@ -13,11 +13,21 @@ def naar_json(objecten: Iterable[Architectuurobject]) -> str:
 
 
 def naar_markdown(objecten: Iterable[Architectuurobject]) -> str:
+    objecten = tuple(objecten)
+    symbolen = {obj.id: obj for obj in objecten}
     delen = ["# Beckeringh Architectuurmodel", ""]
     for obj in objecten:
         eigenschappen = obj.eigenschappen
+        bron = eigenschappen
+        homepagegebied = eigenschappen.get("homepagegebied")
+        if (
+            obj.soort == "componentinstantie"
+            and isinstance(homepagegebied, str)
+            and homepagegebied in symbolen
+        ):
+            bron = symbolen[homepagegebied].eigenschappen
         delen.extend([
-            f"## {eigenschappen['naam']}",
+            f"## {bron['naam']}",
             "",
             f"**Soort:** {obj.soort}",
             "",
@@ -25,7 +35,7 @@ def naar_markdown(objecten: Iterable[Architectuurobject]) -> str:
             "",
             "### Doel",
             "",
-            str(eigenschappen["doel"]),
+            str(bron["doel"]),
             "",
         ])
         overige = {k: v for k, v in eigenschappen.items() if k not in {"naam", "doel"}}

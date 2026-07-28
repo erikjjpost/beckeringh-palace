@@ -10,6 +10,9 @@ from compiler.design_tokens import TokenType, token_uit_object, waarde_past_bij_
 from compiler.diagnostics import Diagnostic
 from compiler.layout_constraints import NativeLayoutConstraint
 from compiler.information_architecture import InformationArchitectureConstraint
+from compiler.homepage_information_architecture import (
+    HomepageInformationArchitectureConstraint,
+)
 from compiler.product_definition_constraints import ProductDefinitionConstraint
 from compiler.render_target_constraints import RenderTargetConstraint
 from compiler.theme_constraints import ThemeFoundationConstraint
@@ -43,7 +46,14 @@ class NativeVeldenConstraint:
             definitie = objectsoortdefinitie(obj.soort)
             if definitie is None or definitie.status is not Domeinstatus.NATIVE:
                 continue
-            for veld in ("naam", "doel"):
+            if (
+                obj.soort == "componentinstantie"
+                and "homepagegebied" in obj.eigenschappen
+            ):
+                verplichte_velden = ()
+            else:
+                verplichte_velden = ("naam", "doel")
+            for veld in verplichte_velden:
                 waarde = obj.eigenschappen.get(veld)
                 if not isinstance(waarde, str) or not waarde.strip():
                     diagnostics.append(Diagnostic(
@@ -97,6 +107,7 @@ WORLD_MODEL_CONSTRAINTS = (
     DesignComponentConstraint(),
     ComponentVariantConstraint(),
     InformationArchitectureConstraint(),
+    HomepageInformationArchitectureConstraint(),
     DesignCompositionConstraint(),
     NativeLayoutConstraint(),
     ProductDefinitionConstraint(),

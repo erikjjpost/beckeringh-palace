@@ -434,6 +434,7 @@
         "project-status-grafana"
       ],
       "soorten": [
+        "homepagegebied",
         "compositie",
         "componentinstantie",
         "layout",
@@ -625,11 +626,56 @@
   },
   {
     "eigenschappen": {
+      "doel": "Introduceert de ontwerpregel achter alle Beckeringh Palace producten.",
+      "kernboodschap": "Design is data.",
+      "leesvolgorde": "1",
+      "naam": "Design is data",
+      "rol": "entree"
+    },
+    "id": "homepage-entrance",
+    "soort": "homepagegebied"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Verken de samenhang tussen wereld, identiteit en productfamilie.",
+      "kernboodschap": "Eén normatief wereldmodel verbindt identiteit, ontwerp en producten.",
+      "leesvolgorde": "2",
+      "naam": "Digitale wereld",
+      "navigatie": "forge-dashboard-html",
+      "rol": "route"
+    },
+    "id": "homepage-world-area",
+    "soort": "homepagegebied"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Bekijk de reproduceerbare componenten en ontwerpprimitieven.",
+      "kernboodschap": "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.",
+      "leesvolgorde": "3",
+      "naam": "Forge ontwerpsysteem",
+      "navigatie": "html-components",
+      "rol": "route"
+    },
+    "id": "homepage-design-system-area",
+    "soort": "homepagegebied"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.",
+      "kernboodschap": "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.",
+      "leesvolgorde": "4",
+      "naam": "Projectstatus",
+      "navigatie": "project-status-html",
+      "rol": "route"
+    },
+    "id": "homepage-project-status-area",
+    "soort": "homepagegebied"
+  },
+  {
+    "eigenschappen": {
       "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
-      "doel": "Eén normatief wereldmodel genereert ieder Beckeringh Palace product reproduceerbaar.",
-      "metric-kind": "wereld",
-      "naam": "Design is data"
+      "homepagegebied": "homepage-entrance"
     },
     "id": "homepage-intro",
     "soort": "componentinstantie"
@@ -638,11 +684,7 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
-      "doel": "Verken de samenhang tussen wereld, identiteit en productfamilie.",
-      "naam": "Digitale wereld",
-      "navigatie": [
-        "forge-dashboard-html"
-      ]
+      "homepagegebied": "homepage-world-area"
     },
     "id": "homepage-world",
     "soort": "componentinstantie"
@@ -651,11 +693,7 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
-      "doel": "Bekijk de reproduceerbare componenten en ontwerpprimitieven.",
-      "naam": "Forge ontwerpsysteem",
-      "navigatie": [
-        "html-components"
-      ],
+      "homepagegebied": "homepage-design-system-area",
       "variant": "forge-panel-compact"
     },
     "id": "homepage-design-system",
@@ -665,11 +703,7 @@
     "eigenschappen": {
       "component": "forge-panel",
       "compositie": "beckeringh-palace-homepage-composition",
-      "doel": "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.",
-      "naam": "Projectstatus",
-      "navigatie": [
-        "project-status-html"
-      ]
+      "homepagegebied": "homepage-project-status-area"
     },
     "id": "homepage-project-status",
     "soort": "componentinstantie"

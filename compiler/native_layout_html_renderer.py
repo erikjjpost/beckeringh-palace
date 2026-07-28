@@ -171,6 +171,16 @@ def naar_native_layout_html(
             if instantie.information_area_id is not None
             else ""
         )
+        homepage_area_attribute = (
+            f' data-homepage-area="{html.escape(instantie.homepage_area_id)}"'
+            if instantie.homepage_area_id is not None
+            else ""
+        )
+        homepage_role_attribute = (
+            f' data-homepage-role="{html.escape(instantie.homepage_role)}"'
+            if instantie.homepage_role is not None
+            else ""
+        )
         accessibility_attribute = (
             f' aria-label="{html.escape(instantie.accessibility_label)}"'
             if instantie.accessibility_label is not None
@@ -189,7 +199,8 @@ def naar_native_layout_html(
                 f'data-instance="{html.escape(instantie.id)}" '
                 f'data-component="{html.escape(instantie.component_id)}"'
                 f"{variant_attribute}{appearance_attribute}"
-                f"{information_area_attribute}{reading_order_attribute}"
+                f"{information_area_attribute}{homepage_area_attribute}"
+                f"{homepage_role_attribute}{reading_order_attribute}"
                 f"{accessibility_attribute}{style_attribute}>"
             ),
             f"      <h2>{html.escape(instantie.naam)}</h2>",
@@ -199,6 +210,11 @@ def naar_native_layout_html(
                 f'      <p class="bp-metric" '
                 f'data-metric-kind="{html.escape(instantie.metric_kind or "")}">'
                 f"{instantie.metric_value}</p>"
+            )
+        if instantie.core_message is not None:
+            regels.append(
+                '      <p class="bp-core-message">'
+                f"{html.escape(instantie.core_message)}</p>"
             )
         if instantie.metric_details:
             regels.append('      <ul class="bp-metric-details">')

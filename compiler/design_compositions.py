@@ -12,6 +12,10 @@ from compiler.information_architecture import (
     ResolvedNavigationTarget,
     resolveer_informatiegebieden,
 )
+from compiler.homepage_information_architecture import (
+    ResolvedHomepageArea,
+    resolveer_homepagegebieden,
+)
 
 
 @dataclass(frozen=True)
@@ -30,6 +34,9 @@ class ResolvedComponentInstance:
     variant_id: str | None
     appearance_id: str | None
     information_area_id: str | None
+    homepage_area_id: str | None
+    homepage_role: str | None
+    core_message: str | None
     accessibility_label: str | None
     reading_order: int | None
     metric_kind: str | None
@@ -65,6 +72,7 @@ def _instantie_uit_object(
     componenten: dict[str, Architectuurobject],
     varianten: dict[str, ResolvedComponentVariant],
     informatiegebieden: dict[str, ResolvedInformationArea],
+    homepagegebieden: dict[str, ResolvedHomepageArea],
     objecten_per_soort: dict[str, int],
     aantal_objecten: int,
     objecten: tuple[Architectuurobject, ...],
@@ -81,6 +89,12 @@ def _instantie_uit_object(
     informatiegebied = (
         informatiegebieden.get(informatiegebied_waarde)
         if isinstance(informatiegebied_waarde, str)
+        else None
+    )
+    homepagegebied_waarde = obj.eigenschappen.get("homepagegebied")
+    homepagegebied = (
+        homepagegebieden.get(homepagegebied_waarde)
+        if isinstance(homepagegebied_waarde, str)
         else None
     )
     component = componenten[component_id]
@@ -118,8 +132,20 @@ def _instantie_uit_object(
         )
     return ResolvedComponentInstance(
         id=obj.id,
-        naam=informatiegebied.naam if informatiegebied is not None else _tekst(obj, "naam"),
-        doel=informatiegebied.doel if informatiegebied is not None else _tekst(obj, "doel"),
+        naam=(
+            informatiegebied.naam
+            if informatiegebied is not None
+            else homepagegebied.naam
+            if homepagegebied is not None
+            else _tekst(obj, "naam")
+        ),
+        doel=(
+            informatiegebied.doel
+            if informatiegebied is not None
+            else homepagegebied.doel
+            if homepagegebied is not None
+            else _tekst(obj, "doel")
+        ),
         composition_id=_tekst(obj, "compositie"),
         component_id=component_id,
         variant_id=variant_id,
@@ -131,6 +157,15 @@ def _instantie_uit_object(
         information_area_id=(
             informatiegebied.id if informatiegebied is not None else None
         ),
+        homepage_area_id=(
+            homepagegebied.id if homepagegebied is not None else None
+        ),
+        homepage_role=(
+            homepagegebied.role if homepagegebied is not None else None
+        ),
+        core_message=(
+            homepagegebied.core_message if homepagegebied is not None else None
+        ),
         accessibility_label=(
             informatiegebied.accessibility_label
             if informatiegebied is not None
@@ -139,6 +174,8 @@ def _instantie_uit_object(
         reading_order=(
             informatiegebied.reading_order
             if informatiegebied is not None
+            else homepagegebied.reading_order
+            if homepagegebied is not None
             else None
         ),
         metric_kind=(
@@ -164,6 +201,8 @@ def _instantie_uit_object(
         navigation_targets=(
             informatiegebied.navigation_targets
             if informatiegebied is not None
+            else homepagegebied.navigation_targets
+            if homepagegebied is not None
             else tuple(
                 ResolvedNavigationTarget(
                     id=doel_id,
@@ -201,6 +240,10 @@ def resolveer_composities(
         gebied.id: gebied
         for gebied in resolveer_informatiegebieden(objecten)
     }
+    homepagegebieden = {
+        gebied.id: gebied
+        for gebied in resolveer_homepagegebieden(objecten)
+    }
     objecten_per_soort: dict[str, int] = {}
     for obj in objecten:
         objecten_per_soort[obj.soort] = objecten_per_soort.get(obj.soort, 0) + 1
@@ -220,6 +263,7 @@ def resolveer_composities(
                     componenten,
                     varianten,
                     informatiegebieden,
+                    homepagegebieden,
                     objecten_per_soort,
                     len(objecten),
                     objecten,

@@ -261,7 +261,7 @@ informatiegebied palace-product-family {
     doel: "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd."
     toegankelijkheidslabel: "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
     leesvolgorde: "3"
-    soorten: ["compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
+    soorten: ["homepagegebied", "compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
     inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "project-status-html"]
     navigatie: ["project-status-html", "project-status-grafana"]
 }
@@ -391,37 +391,64 @@ compositie beckeringh-palace-homepage-composition {
     instanties: ["homepage-intro", "homepage-world", "homepage-design-system", "homepage-project-status"]
 }
 
-componentinstantie homepage-intro {
+homepagegebied homepage-entrance {
     naam: "Design is data"
-    doel: "Eén normatief wereldmodel genereert ieder Beckeringh Palace product reproduceerbaar."
+    doel: "Introduceert de ontwerpregel achter alle Beckeringh Palace producten."
+    rol: "entree"
+    leesvolgorde: "1"
+    kernboodschap: "Design is data."
+}
+
+homepagegebied homepage-world-area {
+    naam: "Digitale wereld"
+    doel: "Verken de samenhang tussen wereld, identiteit en productfamilie."
+    rol: "route"
+    leesvolgorde: "2"
+    kernboodschap: "Eén normatief wereldmodel verbindt identiteit, ontwerp en producten."
+    navigatie: "forge-dashboard-html"
+}
+
+homepagegebied homepage-design-system-area {
+    naam: "Forge ontwerpsysteem"
+    doel: "Bekijk de reproduceerbare componenten en ontwerpprimitieven."
+    rol: "route"
+    leesvolgorde: "3"
+    kernboodschap: "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem."
+    navigatie: "html-components"
+}
+
+homepagegebied homepage-project-status-area {
+    naam: "Projectstatus"
+    doel: "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone."
+    rol: "route"
+    leesvolgorde: "4"
+    kernboodschap: "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus."
+    navigatie: "project-status-html"
+}
+
+componentinstantie homepage-intro {
     compositie: "beckeringh-palace-homepage-composition"
     component: "forge-panel"
-    metric-kind: "wereld"
+    homepagegebied: "homepage-entrance"
 }
 
 componentinstantie homepage-world {
-    naam: "Digitale wereld"
-    doel: "Verken de samenhang tussen wereld, identiteit en productfamilie."
     compositie: "beckeringh-palace-homepage-composition"
     component: "forge-panel"
-    navigatie: ["forge-dashboard-html"]
+    homepagegebied: "homepage-world-area"
 }
 
 componentinstantie homepage-design-system {
-    naam: "Forge ontwerpsysteem"
-    doel: "Bekijk de reproduceerbare componenten en ontwerpprimitieven."
     compositie: "beckeringh-palace-homepage-composition"
     component: "forge-panel"
     variant: "forge-panel-compact"
-    navigatie: ["html-components"]
+    homepagegebied: "homepage-design-system-area"
 }
 
 componentinstantie homepage-project-status {
-    naam: "Projectstatus"
-    doel: "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone."
     compositie: "beckeringh-palace-homepage-composition"
     component: "forge-panel"
-    navigatie: ["project-status-html"]
+    homepagegebied: "homepage-project-status-area"
 }
 
 layout beckeringh-palace-homepage-grid {

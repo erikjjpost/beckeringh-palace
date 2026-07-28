@@ -209,9 +209,16 @@ koppeling tussen inhoud, plaatsing en backend.
 
 M11.1a modelleert de Beckeringh Palace homepage als regulier native product.
 De homepage heeft een eigen compositie, gridlayout en HTML-productdefinitie.
-De entree en drie productroutes zijn componentinstanties. Hun navigatie wordt
-backendonafhankelijk opgelost en door de generieke HTML-renderer vertaald.
+De entree en drie productroutes worden geplaatst met componentinstanties.
 Er bestaat geen homepage-specifieke selectie- of layoutlogica in de backend.
+
+M11.1b modelleert de inhoudsarchitectuur als vier native `homepagegebied`
+objecten. Ieder gebied heeft een expliciete rol, leesvolgorde en kernboodschap.
+Een routegebied verwijst naar precies één bestaand product of renderdoel; een
+entreegebied bevat geen navigatiedoel. De componentinstanties verwijzen alleen
+naar hun gebied. De compiler lost naam, doel, rol, kernboodschap, leesvolgorde
+en navigatie backendonafhankelijk op voordat de generieke HTML-renderer ze
+vertaalt.
 
 ## Layouttypen
 
@@ -614,3 +621,15 @@ bronvolgorde.
 | `BP4014` | Informatiegebied mist een positieve gehele leesvolgorde |
 | `BP4015` | Leesvolgorde komt voor in meerdere informatiegebieden |
 | `BP4016` | Leesvolgorde van informatiegebieden is niet aaneengesloten |
+| `BP4101` | Homepagegebied heeft een onbekende eigenschap |
+| `BP4102` | Homepagegebied heeft geen geldige rol |
+| `BP4103` | Homepagegebied mist een betekenisvolle kernboodschap |
+| `BP4104` | Homepagegebied mist een positieve gehele leesvolgorde |
+| `BP4105` | Leesvolgorde komt voor in meerdere homepagegebieden |
+| `BP4106` | Entreegebied bevat ten onrechte een navigatiedoel |
+| `BP4107` | Routegebied verwijst naar een onbekend navigatiedoel |
+| `BP4108` | Navigatiedoel van homepagegebied is geen product of renderdoel |
+| `BP4109` | Navigatiedoel komt voor in meerdere homepagegebieden |
+| `BP4110` | Leesvolgorde van homepagegebieden is niet aaneengesloten |
+| `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
+| `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |
