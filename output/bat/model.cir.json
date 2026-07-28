@@ -669,9 +669,11 @@
       "component": "forge-panel",
       "componentrol": "hero",
       "doel": "Introduceert de ontwerpregel achter alle Beckeringh Palace producten.",
+      "focusvolgorde": "0",
       "kernboodschap": "Design is data.",
       "leesvolgorde": "1",
       "naam": "Design is data",
+      "navigatiegedrag": "geen",
       "rol": "entree",
       "variant": "forge-panel-hero"
     },
@@ -683,10 +685,12 @@
       "component": "forge-panel",
       "componentrol": "routekaart",
       "doel": "Verken de samenhang tussen wereld, identiteit en productfamilie.",
+      "focusvolgorde": "1",
       "kernboodschap": "Eén normatief wereldmodel verbindt identiteit, ontwerp en producten.",
       "leesvolgorde": "2",
       "naam": "Digitale wereld",
       "navigatie": "forge-dashboard-html",
+      "navigatiegedrag": "volledige-kaart",
       "rol": "route",
       "variant": "forge-panel-route"
     },
@@ -698,10 +702,12 @@
       "component": "forge-panel",
       "componentrol": "routekaart",
       "doel": "Bekijk de reproduceerbare componenten en ontwerpprimitieven.",
+      "focusvolgorde": "2",
       "kernboodschap": "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.",
       "leesvolgorde": "3",
       "naam": "Forge ontwerpsysteem",
       "navigatie": "html-components",
+      "navigatiegedrag": "volledige-kaart",
       "rol": "route",
       "variant": "forge-panel-route"
     },
@@ -713,10 +719,12 @@
       "component": "forge-panel",
       "componentrol": "routekaart",
       "doel": "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.",
+      "focusvolgorde": "3",
       "kernboodschap": "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.",
       "leesvolgorde": "4",
       "naam": "Projectstatus",
       "navigatie": "project-status-html",
+      "navigatiegedrag": "volledige-kaart",
       "rol": "route",
       "variant": "forge-panel-route"
     },
@@ -758,6 +766,7 @@
   {
     "eigenschappen": {
       "columns": "3",
+      "compact-columns": "1",
       "doel": "Ordent de homepage entree en drie productroutes in een responsief grid.",
       "naam": "Beckeringh Palace Homepage Grid",
       "regions": [
@@ -766,6 +775,7 @@
         "homepage-design-system-region",
         "homepage-project-status-region"
       ],
+      "responsive-breakpoint": "960",
       "rows": "2",
       "type": "grid"
     },
@@ -776,6 +786,7 @@
     "eigenschappen": {
       "column": "1",
       "column-span": "3",
+      "compact-order": "1",
       "doel": "Brede entree tot Beckeringh Palace.",
       "instantie": "homepage-intro",
       "layout": "beckeringh-palace-homepage-grid",
@@ -790,6 +801,7 @@
     "eigenschappen": {
       "column": "1",
       "column-span": "1",
+      "compact-order": "2",
       "doel": "Route naar het wereld en productoverzicht.",
       "instantie": "homepage-world",
       "layout": "beckeringh-palace-homepage-grid",
@@ -804,6 +816,7 @@
     "eigenschappen": {
       "column": "2",
       "column-span": "1",
+      "compact-order": "3",
       "doel": "Route naar de componentcatalogus.",
       "instantie": "homepage-design-system",
       "layout": "beckeringh-palace-homepage-grid",
@@ -818,6 +831,7 @@
     "eigenschappen": {
       "column": "3",
       "column-span": "1",
+      "compact-order": "4",
       "doel": "Route naar de actuele projectstatus.",
       "instantie": "homepage-project-status",
       "layout": "beckeringh-palace-homepage-grid",

@@ -74,6 +74,15 @@ class HomepageProductTests(unittest.TestCase):
                 definition.opgeloste_layout.rows,
             ),
         )
+        self.assertEqual(960, definition.opgeloste_layout.responsive_breakpoint)
+        self.assertEqual(1, definition.opgeloste_layout.compact_columns)
+        self.assertEqual(
+            (1, 2, 3, 4),
+            tuple(
+                region.compact_order
+                for region in definition.opgeloste_layout.regions
+            ),
+        )
         self.assertEqual(64, len(definition.snapshot_id))
 
     def test_homepage_rendert_de_drie_native_productroutes(self) -> None:
@@ -108,6 +117,13 @@ class HomepageProductTests(unittest.TestCase):
             "grid-template-columns:repeat(3,minmax(0,1fr))",
             html,
         )
+        self.assertIn('data-responsive-breakpoint="960"', html)
+        self.assertIn('data-compact-columns="1"', html)
+        self.assertIn("@media (max-width: 960px)", html)
+        self.assertIn("order:4", html)
+        self.assertEqual(4, html.count('data-compact-order="'))
+        self.assertEqual(3, html.count('data-navigation-behavior="volledige-kaart"'))
+        self.assertEqual(1, html.count('data-navigation-behavior="geen"'))
         self.assertIn(
             'href="forge-dashboard.html" '
             'data-navigation-target="forge-dashboard-html"',

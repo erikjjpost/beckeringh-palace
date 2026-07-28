@@ -136,6 +136,31 @@ class NativeLayoutModelTests(unittest.TestCase):
         self.assertNotIn('"display"', cir)
         self.assertNotIn('"position"', cir)
 
+    def test_responsief_gridcontract_wordt_native_opgelost(self):
+        bron = LAYOUTS.replace(
+            '    rows: "4"',
+            '    rows: "4"\n'
+            '    responsive-breakpoint: "960"\n'
+            '    compact-columns: "1"',
+            1,
+        ).replace(
+            '    row-span: "4"',
+            '    row-span: "4"\n'
+            '    compact-order: "1"',
+            1,
+        )
+        model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        grid = next(
+            layout
+            for layout in resolveer_layouts(model.objecten)
+            if layout.id == "grid-layout"
+        )
+        self.assertEqual((960, 1), (
+            grid.responsive_breakpoint,
+            grid.compact_columns,
+        ))
+        self.assertEqual(1, grid.regions[0].compact_order)
+
     def test_weigert_onbekend_layouttype_met_bronlocatie(self):
         bron = LAYOUTS.replace('type: "grid"', 'type: "matrix"', 1)
         with self.assertRaises(SemantischeFout) as context:

@@ -40,6 +40,8 @@ class ResolvedComponentInstance:
     core_message: str | None
     accessibility_label: str | None
     reading_order: int | None
+    focus_order: int | None
+    navigation_behavior: str | None
     metric_kind: str | None
     metric_value: int | None
     metric_details: tuple[ResolvedMetricDetail, ...]
@@ -189,6 +191,14 @@ def _instantie_uit_object(
             informatiegebied.reading_order
             if informatiegebied is not None
             else homepagegebied.reading_order
+            if homepagegebied is not None
+            else None
+        ),
+        focus_order=(
+            homepagegebied.focus_order if homepagegebied is not None else None
+        ),
+        navigation_behavior=(
+            homepagegebied.navigation_behavior
             if homepagegebied is not None
             else None
         ),

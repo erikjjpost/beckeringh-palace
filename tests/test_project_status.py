@@ -8,7 +8,7 @@ from pathlib import Path
 from compiler.backend import Backend, BackendRegistry
 from compiler.parser import parseer
 from compiler.product_compiler import compileer_producten
-from compiler.project_status import load_project_status
+from compiler.project_status import calculate_overall_progress, load_project_status
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = ROOT / "tools" / "render_status.py"
@@ -31,6 +31,7 @@ class ProjectStatusTests(unittest.TestCase):
         self.assertEqual(len(self.status["areas"]), 10)
         for area in self.status["areas"]:
             self.assertIn(area["progress"], range(101))
+            self.assertEqual(10, area["weight"])
             self.assertTrue(area["evidence"])
             self.assertTrue(area["remaining"])
 
@@ -48,18 +49,29 @@ class ProjectStatusTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "dubbel productgebied"):
             render_status.validate_status(invalid)
 
+    def test_total_progress_is_deterministically_calculated(self) -> None:
+        self.assertNotIn("overall_progress", self.status)
+        self.assertEqual(42, calculate_overall_progress(self.status))
+
+    def test_area_weights_must_total_one_hundred(self) -> None:
+        invalid = copy.deepcopy(self.status)
+        invalid["areas"][0]["weight"] = 9
+
+        with self.assertRaisesRegex(ValueError, "samen 100"):
+            render_status.validate_status(invalid)
+
     def test_status_is_typed_product_context_for_every_backend(self) -> None:
         status = load_project_status(render_status.SOURCE)
         registry = BackendRegistry()
 
         def render(_objecten, product):
             self.assertIs(product.project_status, status)
-            self.assertEqual(40, product.project_status.overall_progress)
+            self.assertEqual(42, product.project_status.overall_progress)
             self.assertEqual(10, len(product.project_status.areas))
             self.assertEqual(
-                "M11.1c", product.project_status.current_milestone.id
+                "M11.1d", product.project_status.current_milestone.id
             )
-            self.assertEqual("M11.1d", product.project_status.next_step.id)
+            self.assertEqual("M11.1e", product.project_status.next_step.id)
             return product.project_status.project
 
         registry.registreer(Backend("capture", render))

@@ -567,6 +567,25 @@ label als paneeltitel en bewaart label en leespositie in de paneelbeschrijving.
 Geen backend leidt toegankelijkheidssemantiek af uit kolompositie, naam of
 bronvolgorde.
 
+M11.1d legt responsief gedrag vast in dezelfde native productketen. Een
+grid-layout kan alleen samen een positief `responsive-breakpoint` en
+`compact-columns` declareren. Iedere bijbehorende region krijgt dan precies één
+positieve `compact-order`; alle compacte posities vormen een aaneengesloten
+reeks. De homepagegebieden leggen daarnaast `focusvolgorde` en
+`navigatiegedrag` vast. De entree is niet focusbaar en heeft gedrag `geen`.
+Routegebieden hebben een positieve focusvolgorde en gedrag `volledige-kaart`.
+
+De generieke HTML-renderer vertaalt uitsluitend deze opgeloste intentie naar
+een mediaquery, compacte gridplaatsing en machineleesbare attributen. DOM- en
+focusvolgorde blijven afkomstig uit de native informatiearchitectuur. De
+backend kiest geen breakpoint, herschikking of navigatiegedrag.
+
+De totale projectvoortgang wordt vanaf M11.1d niet meer opgeslagen. Ieder
+productgebied declareert een geheel percentage en een positief geheel gewicht.
+De gewichten tellen exact op tot 100. De projectstatuslaag berekent het gewogen
+totaal één keer met deterministische afronding en levert dezelfde waarde aan
+Markdown, HTML en Grafana.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -591,6 +610,11 @@ bronvolgorde.
 | `BP3615` | Ongeldig of ontbrekend plaatsingsgetal |
 | `BP3616` | Grid-region valt buiten de kolommen |
 | `BP3617` | Grid-region valt buiten de rijen |
+| `BP3618` | Responsief gridcontract mist breakpoint of compact kolomaantal |
+| `BP3619` | Responsief gridcontract bevat geen positief geheel getal |
+| `BP3620` | Compact grid heeft meer kolommen dan het brede grid |
+| `BP3621` | Responsieve region mist een positieve compacte volgorde |
+| `BP3622` | Compacte regionvolgorde is niet aaneengesloten |
 | `BP3701` | Compositie heeft een onbekende eigenschap |
 | `BP3702` | `instanties` is niet expliciet, uniek of geldig |
 | `BP3703` | Compositie verwijst naar een onbekende componentinstantie |
@@ -643,5 +667,7 @@ bronvolgorde.
 | `BP4112` | Homepagegebied verwijst naar een onbekend component |
 | `BP4113` | Homepagegebied verwijst naar een onbekende variant |
 | `BP4114` | Homepagevariant hoort niet bij het gekozen component |
+| `BP4115` | Entreegebied heeft een ongeldige focusvolgorde of navigatiegedrag |
+| `BP4116` | Routegebied heeft een ongeldige focusvolgorde of navigatiegedrag |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

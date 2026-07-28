@@ -9,7 +9,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from compiler.project_status import validate_project_status
+from compiler.project_status import calculate_overall_progress, validate_project_status
 
 SOURCE = ROOT / "project" / "status.json"
 OUTPUT = ROOT / "PROJECT_STATUS.md"
@@ -39,7 +39,7 @@ def render_status(status: dict[str, Any]) -> str:
         "",
         "## Totaalbeeld",
         "",
-        f"**Geschatte voortgang: {status['overall_progress']}%**",
+        f"**Geschatte voortgang: {calculate_overall_progress(status)}%**",
         "",
         status["overall_method"],
         "",
@@ -50,12 +50,12 @@ def render_status(status: dict[str, Any]) -> str:
         "",
         "## Voortgang per productgebied",
         "",
-        "| Productgebied | Voortgang | Onderbouwing | Resterend werk |",
-        "|---|---:|---|---|",
+        "| Productgebied | Gewicht | Voortgang | Onderbouwing | Resterend werk |",
+        "|---|---:|---:|---|---|",
     ]
     for area in status["areas"]:
         lines.append(
-            f"| {area['name']} | {area['progress']}% | {area['evidence']} | "
+            f"| {area['name']} | {area['weight']}% | {area['progress']}% | {area['evidence']} | "
             f"{area['remaining']} |"
         )
     lines.extend(

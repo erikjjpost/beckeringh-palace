@@ -92,8 +92,6 @@
     .bp-region h2 { margin-top: 0; }
     @media (max-width: 960px) {
       body { padding: var(--bp-spacing-large); }
-      .bp-layout { grid-template-columns: 1fr !important; }
-      .bp-region { grid-column: 1 !important; grid-row: auto !important; }
     }
     .bp-canvas { background: var(--bp-material-canvas); }
     .bp-region {
@@ -178,9 +176,9 @@
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-product-mode="static" data-time-context="none" data-snapshot-id="adaead36cf9ef728197ac96fefc246b6540c1ee288f2ed2f6a73e531e2c8575f" data-snapshot-ref="sha256:adaead36cf9ef728197ac96fefc246b6540c1ee288f2ed2f6a73e531e2c8575f">
+<body data-world="beckeringh-palace" data-theme="forge" data-product-mode="static" data-time-context="none" data-snapshot-id="f6d8cd6ba663306ff70c178ea0aefcf5dd3d9b49c823b6430ca0f0a514414df1" data-snapshot-ref="sha256:f6d8cd6ba663306ff70c178ea0aefcf5dd3d9b49c823b6430ca0f0a514414df1">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot adaead36cf9e</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f6d8cd6ba663</p>
     <h1>Beckeringh Palace Projectstatus</h1>
     <p class="bp-product-purpose">De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.</p>
   </header>
@@ -188,24 +186,24 @@
     <section class="bp-status-summary">
       <div class="bp-status-overall">
         <span class="bp-status-label">Totale voortgang</span>
-        <strong>40%</strong>
-        <p>Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.</p>
+        <strong>42%</strong>
+        <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
       </div>
       <div class="bp-status-milestones">
         <article class="bp-status-card">
           <span class="bp-status-label">Laatst voltooid</span>
-          <h2>M11.2a — Documentatiebasis en productrunbook</h2>
-          <p>PR #69</p>
+          <h2>M11.1c — Homepage visuele hiërarchie</h2>
+          <p>PR #70</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Actueel</span>
-          <h2>M11.1c — Homepage visuele hiërarchie</h2>
+          <h2>M11.1d — Homepage responsief contract</h2>
           <p>in uitvoering</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Volgende stap</span>
-          <h2>M11.1d — Homepage responsief contract</h2>
-          <p>Responsieve herschikking, focusvolgorde en navigatiegedrag expliciet modelleren en valideren zonder backendafleiding.</p>
+          <h2>M11.1e — Homepage wereldpresentatie</h2>
+          <p>De Palace identiteit, productfamilie en samenhangende wereldboodschap native verdiepen zonder inhoud in de backend vast te leggen.</p>
         </article>
       </div>
     </section>
@@ -214,7 +212,7 @@
         <h3>Compiler en reproduceerbaarheid</h3>
         <progress class="bp-status-progress" max="100" value="80">80%</progress>
         <p><strong>80%</strong></p>
-        <p>Validatie, deterministische generatie, CI en 140 regressietests vormen een werkende kwaliteitsketen.</p>
+        <p>Validatie, deterministische generatie, CI en 144 regressietests vormen een werkende kwaliteitsketen.</p>
         <p class="bp-status-label">Meer producttypen, adapters en volwassen foutdiagnostiek.</p>
       </article>
       <article class="bp-status-card" data-status-area="world-model">
@@ -261,10 +259,10 @@
       </article>
       <article class="bp-status-card" data-status-area="homepage">
         <h3>HTML homepage</h3>
-        <progress class="bp-status-progress" max="100" value="50">50%</progress>
-        <p><strong>50%</strong></p>
-        <p>Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant en appearance; de entree en drie productroutes hebben een expliciete visuele hiërarchie.</p>
-        <p class="bp-status-label">Responsief gedrag en de volwaardige wereldpresentatie moeten nog worden verdiept.</p>
+        <progress class="bp-status-progress" max="100" value="55">55%</progress>
+        <p><strong>55%</strong></p>
+        <p>Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant, appearance, focusvolgorde en navigatiegedrag; het grid legt breakpoint, compacte kolommen en herschikking expliciet vast.</p>
+        <p class="bp-status-label">De volwaardige wereldpresentatie en verdere productroutes moeten nog worden verdiept.</p>
       </article>
       <article class="bp-status-card" data-status-area="figma">
         <h3>Figma masterbestand</h3>

@@ -36,6 +36,7 @@ class ResolvedRegion:
     column_span: int | None = None
     row_span: int | None = None
     layer: int | None = None
+    compact_order: int | None = None
 
 
 @dataclass(frozen=True)
@@ -49,6 +50,8 @@ class ResolvedLayout:
     rows: int | None = None
     direction: LayoutDirection | None = None
     wrap: bool | None = None
+    responsive_breakpoint: int | None = None
+    compact_columns: int | None = None
 
 
 class LayoutResolutionError(ValueError):
@@ -90,6 +93,7 @@ def _region_uit_object(obj: Architectuurobject) -> ResolvedRegion:
         column_span=_optioneel_getal(obj, "column-span"),
         row_span=_optioneel_getal(obj, "row-span"),
         layer=_optioneel_getal(obj, "layer"),
+        compact_order=_optioneel_getal(obj, "compact-order"),
     )
 
 
@@ -144,6 +148,10 @@ def resolveer_layouts(
                 rows=_optioneel_getal(obj, "rows"),
                 direction=direction,
                 wrap=wrap,
+                responsive_breakpoint=_optioneel_getal(
+                    obj, "responsive-breakpoint"
+                ),
+                compact_columns=_optioneel_getal(obj, "compact-columns"),
             )
         )
     return tuple(sorted(layouts, key=lambda layout: layout.id))

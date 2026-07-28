@@ -857,8 +857,10 @@ Introduceert de ontwerpregel achter alle Beckeringh Palace producten.
 
 - **component:** forge-panel
 - **componentrol:** hero
+- **focusvolgorde:** 0
 - **kernboodschap:** Design is data.
 - **leesvolgorde:** 1
+- **navigatiegedrag:** geen
 - **rol:** entree
 - **variant:** forge-panel-hero
 
@@ -876,9 +878,11 @@ Verken de samenhang tussen wereld, identiteit en productfamilie.
 
 - **component:** forge-panel
 - **componentrol:** routekaart
+- **focusvolgorde:** 1
 - **kernboodschap:** Eén normatief wereldmodel verbindt identiteit, ontwerp en producten.
 - **leesvolgorde:** 2
 - **navigatie:** forge-dashboard-html
+- **navigatiegedrag:** volledige-kaart
 - **rol:** route
 - **variant:** forge-panel-route
 
@@ -896,9 +900,11 @@ Bekijk de reproduceerbare componenten en ontwerpprimitieven.
 
 - **component:** forge-panel
 - **componentrol:** routekaart
+- **focusvolgorde:** 2
 - **kernboodschap:** Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.
 - **leesvolgorde:** 3
 - **navigatie:** html-components
+- **navigatiegedrag:** volledige-kaart
 - **rol:** route
 - **variant:** forge-panel-route
 
@@ -916,9 +922,11 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 
 - **component:** forge-panel
 - **componentrol:** routekaart
+- **focusvolgorde:** 3
 - **kernboodschap:** Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.
 - **leesvolgorde:** 4
 - **navigatie:** project-status-html
+- **navigatiegedrag:** volledige-kaart
 - **rol:** route
 - **variant:** forge-panel-route
 
@@ -995,7 +1003,9 @@ Ordent de homepage entree en drie productroutes in een responsief grid.
 ### Eigenschappen
 
 - **columns:** 3
+- **compact-columns:** 1
 - **regions:** homepage-intro-region, homepage-world-region, homepage-design-system-region, homepage-project-status-region
+- **responsive-breakpoint:** 960
 - **rows:** 2
 - **type:** grid
 
@@ -1013,6 +1023,7 @@ Brede entree tot Beckeringh Palace.
 
 - **column:** 1
 - **column-span:** 3
+- **compact-order:** 1
 - **instantie:** homepage-intro
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 1
@@ -1032,6 +1043,7 @@ Route naar het wereld en productoverzicht.
 
 - **column:** 1
 - **column-span:** 1
+- **compact-order:** 2
 - **instantie:** homepage-world
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 2
@@ -1051,6 +1063,7 @@ Route naar de componentcatalogus.
 
 - **column:** 2
 - **column-span:** 1
+- **compact-order:** 3
 - **instantie:** homepage-design-system
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 2
@@ -1070,6 +1083,7 @@ Route naar de actuele projectstatus.
 
 - **column:** 3
 - **column-span:** 1
+- **compact-order:** 4
 - **instantie:** homepage-project-status
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 2

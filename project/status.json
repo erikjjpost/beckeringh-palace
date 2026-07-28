@@ -1,35 +1,36 @@
 {
   "schema_version": 1,
   "project": "Beckeringh Palace",
-  "overall_progress": 40,
-  "overall_method": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.",
+  "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.1c",
-    "name": "Homepage visuele hiërarchie",
+    "id": "M11.1d",
+    "name": "Homepage responsief contract",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.2a",
-    "name": "Documentatiebasis en productrunbook",
-    "pull_request": 69
+    "id": "M11.1c",
+    "name": "Homepage visuele hiërarchie",
+    "pull_request": 70
   },
   "next_step": {
-    "id": "M11.1d",
-    "name": "Homepage responsief contract",
-    "purpose": "Responsieve herschikking, focusvolgorde en navigatiegedrag expliciet modelleren en valideren zonder backendafleiding."
+    "id": "M11.1e",
+    "name": "Homepage wereldpresentatie",
+    "purpose": "De Palace identiteit, productfamilie en samenhangende wereldboodschap native verdiepen zonder inhoud in de backend vast te leggen."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
       "progress": 80,
-      "evidence": "Validatie, deterministische generatie, CI en 140 regressietests vormen een werkende kwaliteitsketen.",
+      "weight": 10,
+      "evidence": "Validatie, deterministische generatie, CI en 144 regressietests vormen een werkende kwaliteitsketen.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
       "progress": 70,
+      "weight": 10,
       "evidence": "Thema's, dashboardinformatiegebieden, homepagegebieden, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.",
       "remaining": "De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen."
     },
@@ -37,6 +38,7 @@
       "id": "design-system",
       "name": "Design System",
       "progress": 60,
+      "weight": 10,
       "evidence": "Kleur, typografie, spacing, oppervlakken, accenten en varianten zijn technisch beschikbaar; de homepage gebruikt expliciete hero- en routekaartprofielen.",
       "remaining": "Componentdekking, toestanden, toegankelijkheid en documentatie zijn nog onvolledig."
     },
@@ -44,6 +46,7 @@
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
       "progress": 65,
+      "weight": 10,
       "evidence": "HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven kernobjecten, zes navigatiedoelen en expliciete toegankelijkheidslabels en leesvolgorde.",
       "remaining": "Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt."
     },
@@ -51,6 +54,7 @@
       "id": "visual-world",
       "name": "Visuele wereld en art direction",
       "progress": 25,
+      "weight": 10,
       "evidence": "De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig.",
       "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
     },
@@ -58,6 +62,7 @@
       "id": "svg-library",
       "name": "SVG component library en icon set",
       "progress": 20,
+      "weight": 10,
       "evidence": "De compiler kan componenten en SVG gerichte producten dragen.",
       "remaining": "Een brede, consistente en gedocumenteerde bibliotheek ontbreekt nog."
     },
@@ -65,20 +70,23 @@
       "id": "logos-wallpapers",
       "name": "Logo's en wallpapers",
       "progress": 10,
+      "weight": 10,
       "evidence": "De visuele richting en producteisen zijn bekend.",
       "remaining": "De reproduceerbare logo en wallpaperfamilies moeten nog als compilerproducten worden gerealiseerd."
     },
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 50,
-      "evidence": "Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant en appearance; de entree en drie productroutes hebben een expliciete visuele hiërarchie.",
-      "remaining": "Responsief gedrag en de volwaardige wereldpresentatie moeten nog worden verdiept."
+      "progress": 55,
+      "weight": 10,
+      "evidence": "Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant, appearance, focusvolgorde en navigatiegedrag; het grid legt breakpoint, compacte kolommen en herschikking expliciet vast.",
+      "remaining": "De volwaardige wereldpresentatie en verdere productroutes moeten nog worden verdiept."
     },
     {
       "id": "figma",
       "name": "Figma masterbestand",
       "progress": 10,
+      "weight": 10,
       "evidence": "Figma is onderdeel van de doelarchitectuur.",
       "remaining": "Het masterbestand en de reproduceerbare synchronisatie zijn nog niet gerealiseerd."
     },
@@ -86,6 +94,7 @@
       "id": "world-bible",
       "name": "World Bible",
       "progress": 25,
+      "weight": 10,
       "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd.",
       "remaining": "De normatieve wereldbeschrijving, stijltaal, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
