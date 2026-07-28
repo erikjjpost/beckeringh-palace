@@ -1,10 +1,13 @@
 /* Gegenereerd door Beckeringh Palace. Niet handmatig wijzigen. */
 .bp-forge-panel {
+  --bp-component-accent: var(--bp-material-accent);
   background-color: var(--bp-material-raised);
   color: var(--bp-material-foreground);
-  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-accent);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-outline);
   border-radius: var(--bp-radius-medium);
   box-shadow: var(--bp-shadow-medium);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: var(--bp-motion-normal);
   transition-timing-function: var(--bp-motion-easing);
   padding: var(--bp-spacing-small);
@@ -28,14 +31,17 @@
 }
 
 .bp-forge-panel.bp-variant-forge-panel-compact {
-  background-color: var(--bp-material-raised);
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
   color: var(--bp-material-foreground);
-  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-accent);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-outline);
   border-radius: var(--bp-radius-medium);
   box-shadow: var(--bp-shadow-low);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: var(--bp-motion-normal);
   transition-timing-function: var(--bp-motion-easing);
-  padding: var(--bp-spacing-xs);
+  padding: var(--bp-spacing-medium);
 }
 
 .bp-forge-panel.bp-variant-forge-panel-compact h1, .bp-forge-panel.bp-variant-forge-panel-compact h2, .bp-forge-panel.bp-variant-forge-panel-compact h3, .bp-forge-panel.bp-variant-forge-panel-compact h4, .bp-forge-panel.bp-variant-forge-panel-compact h5, .bp-forge-panel.bp-variant-forge-panel-compact h6 {
@@ -55,12 +61,143 @@
   font-size: var(--bp-type-caption);
 }
 
+.bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]), .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover {
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-interaction);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-glow);
+  transform: translateY(var(--bp-motion-hover-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) h1, .bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) h2, .bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) h3, .bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) h4, .bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) h5, .bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) h6, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover h1, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover h2, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover h3, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover h4, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover h5, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) p, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) label, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) small, .bp-forge-panel.bp-variant-forge-panel-compact:hover:not([aria-disabled="true"]) figcaption, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover small, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-hover figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:focus-visible, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus {
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-interaction);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-glow);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:focus-visible h1, .bp-forge-panel.bp-variant-forge-panel-compact:focus-visible h2, .bp-forge-panel.bp-variant-forge-panel-compact:focus-visible h3, .bp-forge-panel.bp-variant-forge-panel-compact:focus-visible h4, .bp-forge-panel.bp-variant-forge-panel-compact:focus-visible h5, .bp-forge-panel.bp-variant-forge-panel-compact:focus-visible h6, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within h1, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within h2, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within h3, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within h4, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within h5, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within h6, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus h1, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus h2, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus h3, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus h4, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus h5, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:focus-visible p, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within p, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:focus-visible label, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within label, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:focus-visible small, .bp-forge-panel.bp-variant-forge-panel-compact:focus-visible figcaption, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within small, .bp-forge-panel.bp-variant-forge-panel-compact:focus-within figcaption, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus small, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-focus figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]), .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed {
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-interaction-pressed);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-low);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) h1, .bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) h2, .bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) h3, .bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) h4, .bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) h5, .bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) h6, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed h1, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed h2, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed h3, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed h4, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed h5, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) p, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) label, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) small, .bp-forge-panel.bp-variant-forge-panel-compact:active:not([aria-disabled="true"]) figcaption, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed small, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-pressed figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:disabled, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"], .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled {
+  --bp-component-accent: var(--bp-material-disabled);
+  background-color: var(--bp-material-raised);
+  color: var(--bp-material-disabled);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-outline);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-none);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:disabled h1, .bp-forge-panel.bp-variant-forge-panel-compact:disabled h2, .bp-forge-panel.bp-variant-forge-panel-compact:disabled h3, .bp-forge-panel.bp-variant-forge-panel-compact:disabled h4, .bp-forge-panel.bp-variant-forge-panel-compact:disabled h5, .bp-forge-panel.bp-variant-forge-panel-compact:disabled h6, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] h1, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] h2, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] h3, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] h4, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] h5, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] h6, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled h1, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled h2, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled h3, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled h4, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled h5, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:disabled p, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] p, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:disabled label, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] label, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-compact:disabled small, .bp-forge-panel.bp-variant-forge-panel-compact:disabled figcaption, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] small, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"] figcaption, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled small, .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-compact:disabled, .bp-forge-panel.bp-variant-forge-panel-compact[aria-disabled="true"], .bp-forge-panel.bp-variant-forge-panel-compact.bp-state-disabled {
+  cursor: not-allowed;
+}
+
 .bp-forge-panel.bp-variant-forge-panel-hero {
+  --bp-component-accent: var(--bp-material-accent);
   background-color: var(--bp-material-raised);
   color: var(--bp-material-foreground);
-  border: var(--bp-border-strong) var(--bp-border-style) var(--bp-material-accent);
+  border: var(--bp-border-strong) var(--bp-border-style) var(--bp-material-outline);
   border-radius: var(--bp-radius-large);
   box-shadow: var(--bp-shadow-high);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: var(--bp-motion-slow);
   transition-timing-function: var(--bp-motion-easing);
   padding: var(--bp-spacing-xl);
@@ -84,14 +221,17 @@
 }
 
 .bp-forge-panel.bp-variant-forge-panel-route {
-  background-color: var(--bp-material-raised);
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
   color: var(--bp-material-foreground);
-  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-accent);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-outline);
   border-radius: var(--bp-radius-medium);
   box-shadow: var(--bp-shadow-low);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: var(--bp-motion-normal);
   transition-timing-function: var(--bp-motion-easing);
-  padding: var(--bp-spacing-xs);
+  padding: var(--bp-spacing-medium);
 }
 
 .bp-forge-panel.bp-variant-forge-panel-route h1, .bp-forge-panel.bp-variant-forge-panel-route h2, .bp-forge-panel.bp-variant-forge-panel-route h3, .bp-forge-panel.bp-variant-forge-panel-route h4, .bp-forge-panel.bp-variant-forge-panel-route h5, .bp-forge-panel.bp-variant-forge-panel-route h6 {
@@ -109,4 +249,132 @@
 .bp-forge-panel.bp-variant-forge-panel-route small, .bp-forge-panel.bp-variant-forge-panel-route figcaption {
   font-family: var(--bp-font-body);
   font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]), .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover {
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-interaction);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-glow);
+  transform: translateY(var(--bp-motion-hover-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) h1, .bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) h2, .bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) h3, .bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) h4, .bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) h5, .bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) h6, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover h1, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover h2, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover h3, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover h4, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover h5, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) p, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) label, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) small, .bp-forge-panel.bp-variant-forge-panel-route:hover:not([aria-disabled="true"]) figcaption, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover small, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-hover figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:focus-visible, .bp-forge-panel.bp-variant-forge-panel-route:focus-within, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus {
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-interaction);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-glow);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:focus-visible h1, .bp-forge-panel.bp-variant-forge-panel-route:focus-visible h2, .bp-forge-panel.bp-variant-forge-panel-route:focus-visible h3, .bp-forge-panel.bp-variant-forge-panel-route:focus-visible h4, .bp-forge-panel.bp-variant-forge-panel-route:focus-visible h5, .bp-forge-panel.bp-variant-forge-panel-route:focus-visible h6, .bp-forge-panel.bp-variant-forge-panel-route:focus-within h1, .bp-forge-panel.bp-variant-forge-panel-route:focus-within h2, .bp-forge-panel.bp-variant-forge-panel-route:focus-within h3, .bp-forge-panel.bp-variant-forge-panel-route:focus-within h4, .bp-forge-panel.bp-variant-forge-panel-route:focus-within h5, .bp-forge-panel.bp-variant-forge-panel-route:focus-within h6, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus h1, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus h2, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus h3, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus h4, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus h5, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:focus-visible p, .bp-forge-panel.bp-variant-forge-panel-route:focus-within p, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:focus-visible label, .bp-forge-panel.bp-variant-forge-panel-route:focus-within label, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:focus-visible small, .bp-forge-panel.bp-variant-forge-panel-route:focus-visible figcaption, .bp-forge-panel.bp-variant-forge-panel-route:focus-within small, .bp-forge-panel.bp-variant-forge-panel-route:focus-within figcaption, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus small, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-focus figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]), .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed {
+  --bp-component-accent: var(--bp-material-accent);
+  background-color: var(--bp-material-surface);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-interaction-pressed);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-low);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) h1, .bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) h2, .bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) h3, .bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) h4, .bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) h5, .bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) h6, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed h1, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed h2, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed h3, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed h4, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed h5, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) p, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) label, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) small, .bp-forge-panel.bp-variant-forge-panel-route:active:not([aria-disabled="true"]) figcaption, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed small, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-pressed figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:disabled, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"], .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled {
+  --bp-component-accent: var(--bp-material-disabled);
+  background-color: var(--bp-material-raised);
+  color: var(--bp-material-disabled);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-outline);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-none);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-normal);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-medium);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:disabled h1, .bp-forge-panel.bp-variant-forge-panel-route:disabled h2, .bp-forge-panel.bp-variant-forge-panel-route:disabled h3, .bp-forge-panel.bp-variant-forge-panel-route:disabled h4, .bp-forge-panel.bp-variant-forge-panel-route:disabled h5, .bp-forge-panel.bp-variant-forge-panel-route:disabled h6, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] h1, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] h2, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] h3, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] h4, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] h5, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] h6, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled h1, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled h2, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled h3, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled h4, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled h5, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:disabled p, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] p, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:disabled label, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] label, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-panel.bp-variant-forge-panel-route:disabled small, .bp-forge-panel.bp-variant-forge-panel-route:disabled figcaption, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] small, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"] figcaption, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled small, .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-panel.bp-variant-forge-panel-route:disabled, .bp-forge-panel.bp-variant-forge-panel-route[aria-disabled="true"], .bp-forge-panel.bp-variant-forge-panel-route.bp-state-disabled {
+  cursor: not-allowed;
 }

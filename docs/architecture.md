@@ -78,8 +78,10 @@ instantienaam. De layout bepaalt uitsluitend de plaatsing en bewaart daarom
 geen opgeloste componentidentiteit.
 
 Native varianten beschrijven één expliciete appearance-afwijking voor exact één
-component. Een componentinstantie kiest zo'n variant alleen met een benoemde
-referentie. De gekozen variant en effectieve appearance worden vóór
+component. Een interactieve variant kan daarnaast een volledige geordende
+mapping voor rust, hover, focus, pressed en disabled dragen. Een
+componentinstantie kiest zo'n variant alleen met een benoemde referentie. De
+gekozen variant, effectieve rustappearance en stateappearances worden vóór
 backendselectie opgelost en bevatten geen backendpresentatie.
 
 Native renderdoelen beschrijven één benoemde representatie met een expliciet

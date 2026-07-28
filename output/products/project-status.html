@@ -31,6 +31,9 @@
       --bp-material-muted: #B8C5D6;
       --bp-material-accent: #C9895B;
       --bp-material-outline: #2F4259;
+      --bp-material-interaction: #7DD3FC;
+      --bp-material-interaction-pressed: #38BDF8;
+      --bp-material-disabled: #3E5573;
       --bp-border-hairline: 1px;
       --bp-border-regular: 1px;
       --bp-border-strong: 1px;
@@ -42,10 +45,14 @@
       --bp-shadow-low: 0 1px 2px rgba(0,0,0,0.25);
       --bp-shadow-medium: 0 6px 18px rgba(0,0,0,0.35);
       --bp-shadow-high: 0 18px 44px rgba(0,0,0,0.45);
+      --bp-shadow-none: none;
+      --bp-shadow-glow: 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10);
       --bp-motion-fast: 120ms;
       --bp-motion-normal: 220ms;
       --bp-motion-slow: 420ms;
       --bp-motion-easing: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --bp-motion-rest-offset: 0px;
+      --bp-motion-hover-offset: -1px;
       --bp-spacing-none: 0;
       --bp-spacing-xs: 4px;
       --bp-spacing-small: 8px;
@@ -115,10 +122,6 @@
       height: var(--bp-border-hairline);
       margin-top: var(--bp-spacing-medium);
       background: linear-gradient(90deg, var(--bp-material-outline), transparent);
-    }
-    .bp-region:focus-within, .bp-region:hover {
-      border-color: var(--bp-art-interaction);
-      box-shadow: 0 0 0 1px color-mix(in srgb, var(--bp-art-interaction) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bp-art-interaction) 10%, transparent);
     }
     @media (prefers-reduced-motion: reduce) {
       .bp-region { transition: none; }
@@ -206,9 +209,9 @@
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952" data-snapshot-ref="sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333" data-snapshot-ref="sha256:bf9b5dc0015985dfcf93bdeef7eb669c2b69aa52948b4e478894b02facf77333">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot bf9b5dc00159</p>
     <h1>Beckeringh Palace Projectstatus</h1>
     <p class="bp-product-purpose">De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.</p>
   </header>
@@ -216,54 +219,54 @@
     <section class="bp-status-summary">
       <div class="bp-status-overall">
         <span class="bp-status-label">Totale voortgang</span>
-        <strong>47%</strong>
+        <strong>48%</strong>
         <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
       </div>
       <div class="bp-status-milestones">
         <article class="bp-status-card">
           <span class="bp-status-label">Laatst voltooid</span>
-          <h2>M11.3d — EmberForge art direction</h2>
-          <p>PR #76</p>
+          <h2>M11.3e — EmberForge typografiemigratie</h2>
+          <p>PR #77</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Actueel</span>
-          <h2>M11.3e — EmberForge typografiemigratie</h2>
+          <h2>M11.3f — EmberForge componenttoestanden</h2>
           <p>in uitvoering</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Volgende stap</span>
-          <h2>M11.3f — EmberForge componenttoestanden</h2>
-          <p>De geverifieerde rust, hover, focus, pressed en disabled toestanden normatief naar appearance en variant migreren zonder UI kit code over te nemen.</p>
+          <h2>M11.3g — EmberForge componentfamilie</h2>
+          <p>De productgedragen button, input, status, app tile en stat card voorbeelden als native componenten en varianten modelleren zonder UI kit implementatiecode over te nemen.</p>
         </article>
       </div>
     </section>
     <section class="bp-status-areas" aria-label="Productgebieden">
       <article class="bp-status-card" data-status-area="compiler">
         <h3>Compiler en reproduceerbaarheid</h3>
-        <progress class="bp-status-progress" max="100" value="80">80%</progress>
-        <p><strong>80%</strong></p>
-        <p>Validatie, deterministische generatie, CI en 172 regressietests vormen een werkende kwaliteitsketen.</p>
+        <progress class="bp-status-progress" max="100" value="81">81%</progress>
+        <p><strong>81%</strong></p>
+        <p>Validatie, deterministische generatie, CI en 180 regressietests vormen een werkende kwaliteitsketen; volledige statecontracten worden semantisch gevalideerd.</p>
         <p class="bp-status-label">Meer producttypen, adapters en volwassen foutdiagnostiek.</p>
       </article>
       <article class="bp-status-card" data-status-area="world-model">
         <h3>World Model en productcontracten</h3>
-        <progress class="bp-status-progress" max="100" value="72">72%</progress>
-        <p><strong>72%</strong></p>
-        <p>Thema&#x27;s, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.</p>
+        <progress class="bp-status-progress" max="100" value="74">74%</progress>
+        <p><strong>74%</strong></p>
+        <p>Thema&#x27;s, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, varianten met vijf opgeloste toestanden, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.</p>
         <p class="bp-status-label">De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen.</p>
       </article>
       <article class="bp-status-card" data-status-area="design-system">
         <h3>Design System</h3>
-        <progress class="bp-status-progress" max="100" value="82">82%</progress>
-        <p><strong>82%</strong></p>
-        <p>Het geverifieerde EmberForge palet, de theme primitives, art direction en lokale typografiestacks zijn native gemigreerd en via resolutie en renderers geactiveerd.</p>
-        <p class="bp-status-label">Componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.</p>
+        <progress class="bp-status-progress" max="100" value="87">87%</progress>
+        <p><strong>87%</strong></p>
+        <p>Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks en de volledige rust, hover, focus, pressed en disabled reeks voor Forge-panelen zijn native gemigreerd.</p>
+        <p class="bp-status-label">De bredere componentfamilie, toegankelijkheidscontracten en volledige documentatie moeten nog normatief worden gemigreerd.</p>
       </article>
       <article class="bp-status-card" data-status-area="dashboard">
         <h3>Dashboard UI en Grafana</h3>
-        <progress class="bp-status-progress" max="100" value="65">65%</progress>
-        <p><strong>65%</strong></p>
-        <p>HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven kernobjecten, zes navigatiedoelen en expliciete toegankelijkheidslabels en leesvolgorde.</p>
+        <progress class="bp-status-progress" max="100" value="66">66%</progress>
+        <p><strong>66%</strong></p>
+        <p>HTML en Grafana delen drie native informatiegebieden, dezelfde opgeloste card appearance en machineleesbare statecontracten; Grafana registreert de vijf toestanden zonder niet-ondersteunde interactie te simuleren.</p>
         <p class="bp-status-label">Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt.</p>
       </article>
       <article class="bp-status-card" data-status-area="visual-world">
@@ -289,9 +292,9 @@
       </article>
       <article class="bp-status-card" data-status-area="homepage">
         <h3>HTML homepage</h3>
-        <progress class="bp-status-progress" max="100" value="66">66%</progress>
-        <p><strong>66%</strong></p>
-        <p>Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de pagina activeert de opgeloste EmberForge merkidentiteit, art direction en lokale typografie.</p>
+        <progress class="bp-status-progress" max="100" value="69">69%</progress>
+        <p><strong>69%</strong></p>
+        <p>Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de drie routekaarten gebruiken native hover, focus, pressed en disabled appearances zonder generieke rendererregel.</p>
         <p class="bp-status-label">Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.</p>
       </article>
       <article class="bp-status-card" data-status-area="figma">

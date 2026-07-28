@@ -44,12 +44,18 @@ class ThemeFoundationConstraint:
             "typeschaal": {"naam", "doel", "display", "title", "heading", "body", "label", "caption"},
             "materiaal": {
                 "naam", "doel", "canvas", "surface", "raised", "foreground",
-                "muted", "accent", "outline",
+                "muted", "accent", "outline", "interaction",
+                "interaction-pressed", "disabled",
             },
             "border": {"naam", "doel", "hairline", "regular", "strong", "style"},
             "radius": {"naam", "doel", "small", "medium", "large", "pill"},
-            "shadow": {"naam", "doel", "low", "medium", "high"},
-            "motion": {"naam", "doel", "fast", "normal", "slow", "easing"},
+            "shadow": {
+                "naam", "doel", "none", "low", "medium", "high", "glow",
+            },
+            "motion": {
+                "naam", "doel", "fast", "normal", "slow", "easing",
+                "rest-offset", "hover-offset",
+            },
             "spacing": {"naam", "doel", "none", "xs", "small", "medium", "large", "xl"},
             "artdirection": {
                 "naam", "doel", "canvas", "interaction", "warm-accent",

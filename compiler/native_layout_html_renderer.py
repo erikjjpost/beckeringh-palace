@@ -196,6 +196,23 @@ def naar_native_layout_html(
             if instantie.appearance_id is not None
             else ""
         )
+        state_attributes = ""
+        if instantie.state_appearances:
+            state_attributes = (
+                ' data-component-states="'
+                + html.escape(
+                    " ".join(
+                        state
+                        for state, _ in instantie.state_appearances
+                    )
+                )
+                + '"'
+                + "".join(
+                    f' data-state-{html.escape(state)}-appearance="'
+                    f'{html.escape(appearance_id)}"'
+                    for state, appearance_id in instantie.state_appearances
+                )
+            )
         information_area_attribute = (
             f' data-information-area="{html.escape(instantie.information_area_id)}"'
             if instantie.information_area_id is not None
@@ -249,6 +266,7 @@ def naar_native_layout_html(
                 f'data-instance="{html.escape(instantie.id)}" '
                 f'data-component="{html.escape(instantie.component_id)}"'
                 f"{variant_attribute}{appearance_attribute}"
+                f"{state_attributes}"
                 f"{information_area_attribute}{homepage_area_attribute}"
                 f"{homepage_role_attribute}{component_role_attribute}"
                 f"{reading_order_attribute}{focus_order_attribute}"

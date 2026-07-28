@@ -22,10 +22,22 @@ kleur ink-600 {
     waarde: "#2F4259"
 }
 
+kleur ink-500 {
+    naam: "Muted Steel"
+    doel: "Gedempte voorgrondkleur voor niet-beschikbare bediening."
+    waarde: "#3E5573"
+}
+
 kleur sky-400 {
     naam: "Cyan Accent"
     doel: "Primaire interactie en highlightkleur."
     waarde: "#7DD3FC"
+}
+
+kleur sky-500 {
+    naam: "Pressed Cyan"
+    doel: "Donkerdere interactiekleur voor de ingedrukte toestand."
+    waarde: "#38BDF8"
 }
 
 kleur bone-50 {
@@ -107,6 +119,9 @@ materiaal forge-materials {
     muted: "bone-300"
     accent: "ember-500"
     outline: "ink-600"
+    interaction: "sky-400"
+    interaction-pressed: "sky-500"
+    disabled: "ink-500"
 }
 
 border forge-borders {
@@ -130,9 +145,11 @@ radius forge-radius {
 shadow forge-shadows {
     naam: "Forge Shadows"
     doel: "Gecontroleerd gemigreerde EmberForge diepteschaal."
+    none: "none"
     low: "0 1px 2px rgba(0,0,0,0.25)"
     medium: "0 6px 18px rgba(0,0,0,0.35)"
     high: "0 18px 44px rgba(0,0,0,0.45)"
+    glow: "0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10)"
 }
 
 motion forge-motion {
@@ -142,6 +159,8 @@ motion forge-motion {
     normal: "220ms"
     slow: "420ms"
     easing: "cubic-bezier(0.2, 0.7, 0.2, 1)"
+    rest-offset: "0px"
+    hover-offset: "-1px"
 }
 
 spacing forge-spacing {
@@ -276,10 +295,12 @@ appearance forge-panel-appearance {
     material: "raised"
     foreground: "foreground"
     accent: "accent"
+    outline: "outline"
     border: "regular"
     radius: "medium"
     shadow: "medium"
     motion: "normal"
+    offset: "rest"
     spacing: "small"
     heading-style: "heading"
     body-style: "body"
@@ -287,17 +308,95 @@ appearance forge-panel-appearance {
     caption-style: "caption"
 }
 
-appearance forge-panel-compact-appearance {
-    naam: "Forge Panel Compact Appearance"
-    doel: "Compact paneelprofiel met minder ruimte en diepte."
-    material: "raised"
+appearance forge-panel-card-rest-appearance {
+    naam: "Forge Panel Card Rest Appearance"
+    doel: "Rusttoestand van een interactief Forge-paneel."
+    material: "surface"
     foreground: "foreground"
     accent: "accent"
+    outline: "outline"
     border: "regular"
     radius: "medium"
     shadow: "low"
     motion: "normal"
-    spacing: "xs"
+    offset: "rest"
+    spacing: "medium"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
+appearance forge-panel-card-hover-appearance {
+    naam: "Forge Panel Card Hover Appearance"
+    doel: "Cyaan omlijnde kaart met gecontroleerde gloed en één pixel lift."
+    material: "surface"
+    foreground: "foreground"
+    accent: "accent"
+    outline: "interaction"
+    border: "regular"
+    radius: "medium"
+    shadow: "glow"
+    motion: "normal"
+    offset: "hover"
+    spacing: "medium"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
+appearance forge-panel-card-focus-appearance {
+    naam: "Forge Panel Card Focus Appearance"
+    doel: "Toetsenbordfocus met cyaan omlijning en gecontroleerde gloed."
+    material: "surface"
+    foreground: "foreground"
+    accent: "accent"
+    outline: "interaction"
+    border: "regular"
+    radius: "medium"
+    shadow: "glow"
+    motion: "normal"
+    offset: "rest"
+    spacing: "medium"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
+appearance forge-panel-card-pressed-appearance {
+    naam: "Forge Panel Card Pressed Appearance"
+    doel: "Vlakkere ingedrukte toestand met donkerder cyaan en zonder verkleining."
+    material: "surface"
+    foreground: "foreground"
+    accent: "accent"
+    outline: "interaction-pressed"
+    border: "regular"
+    radius: "medium"
+    shadow: "low"
+    motion: "normal"
+    offset: "rest"
+    spacing: "medium"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
+appearance forge-panel-card-disabled-appearance {
+    naam: "Forge Panel Card Disabled Appearance"
+    doel: "Niet-beschikbare toestand met gedempte voorgrond zonder lift of gloed."
+    material: "raised"
+    foreground: "disabled"
+    accent: "disabled"
+    outline: "outline"
+    border: "regular"
+    radius: "medium"
+    shadow: "none"
+    motion: "normal"
+    offset: "rest"
+    spacing: "medium"
     heading-style: "heading"
     body-style: "body"
     label-style: "label"
@@ -310,10 +409,12 @@ appearance forge-panel-hero-appearance {
     material: "raised"
     foreground: "foreground"
     accent: "accent"
+    outline: "outline"
     border: "strong"
     radius: "large"
     shadow: "high"
     motion: "slow"
+    offset: "rest"
     spacing: "xl"
     heading-style: "display"
     body-style: "body"
@@ -331,7 +432,11 @@ variant forge-panel-compact {
     naam: "Forge Panel Compact"
     doel: "Gecontroleerde compacte appearance voor een Forge-paneel."
     component: "forge-panel"
-    appearance: "forge-panel-compact-appearance"
+    appearance: "forge-panel-card-rest-appearance"
+    hover: "forge-panel-card-hover-appearance"
+    focus: "forge-panel-card-focus-appearance"
+    pressed: "forge-panel-card-pressed-appearance"
+    disabled: "forge-panel-card-disabled-appearance"
 }
 
 variant forge-panel-hero {
@@ -345,7 +450,11 @@ variant forge-panel-route {
     naam: "Forge Panel Route"
     doel: "Gecontroleerde routekaart-appearance voor homepage-navigatie."
     component: "forge-panel"
-    appearance: "forge-panel-compact-appearance"
+    appearance: "forge-panel-card-rest-appearance"
+    hover: "forge-panel-card-hover-appearance"
+    focus: "forge-panel-card-focus-appearance"
+    pressed: "forge-panel-card-pressed-appearance"
+    disabled: "forge-panel-card-disabled-appearance"
 }
 
 informatiegebied palace-world {

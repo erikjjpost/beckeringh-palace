@@ -19,6 +19,9 @@ MATERIAAL_ROLLEN = (
     "muted",
     "accent",
     "outline",
+    "interaction",
+    "interaction-pressed",
+    "disabled",
 )
 
 
@@ -110,6 +113,8 @@ class ResolvedShadow:
     low: str
     medium: str
     high: str
+    none: str | None = None
+    glow: str | None = None
 
 
 @dataclass(frozen=True)
@@ -121,6 +126,8 @@ class ResolvedMotion:
     normal: str
     slow: str
     easing: str
+    rest_offset: str | None = None
+    hover_offset: str | None = None
 
 
 @dataclass(frozen=True)
@@ -208,6 +215,15 @@ def _waarden(obj: Architectuurobject, velden: tuple[str, ...]) -> dict[str, str]
     return {veld: _tekst(obj, veld) for veld in velden}
 
 
+def _optionele_tekst(
+    obj: Architectuurobject,
+    veld: str,
+) -> str | None:
+    if veld not in obj.eigenschappen:
+        return None
+    return _tekst(obj, veld)
+
+
 def _tekstreeks(obj: Architectuurobject, veld: str) -> tuple[str, ...]:
     waarde = obj.eigenschappen.get(veld)
     if (
@@ -289,12 +305,20 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
             **_waarden(radius, ("small", "medium", "large", "pill")),
         ),
         shadow=None if shadow is None else ResolvedShadow(
-            shadow.id, _tekst(shadow, "naam"), _tekst(shadow, "doel"),
+            id=shadow.id,
+            naam=_tekst(shadow, "naam"),
+            doel=_tekst(shadow, "doel"),
             **_waarden(shadow, ("low", "medium", "high")),
+            none=_optionele_tekst(shadow, "none"),
+            glow=_optionele_tekst(shadow, "glow"),
         ),
         motion=None if motion is None else ResolvedMotion(
-            motion.id, _tekst(motion, "naam"), _tekst(motion, "doel"),
+            id=motion.id,
+            naam=_tekst(motion, "naam"),
+            doel=_tekst(motion, "doel"),
             **_waarden(motion, ("fast", "normal", "slow", "easing")),
+            rest_offset=_optionele_tekst(motion, "rest-offset"),
+            hover_offset=_optionele_tekst(motion, "hover-offset"),
         ),
         spacing=None if spacing is None else ResolvedSpacing(
             spacing.id, _tekst(spacing, "naam"), _tekst(spacing, "doel"),

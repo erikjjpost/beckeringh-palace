@@ -12,7 +12,8 @@ De repository bevat nu:
 - Architectuur Synchronisatie als bestaande service;
 - BAT als domeinspecifieke taal voor het Beckeringh Palace World Model;
 - parser, semantische validatie, dependency-analyse, constraints en getypeerde foutdiagnostiek;
-- native thema's, appearances, componentvarianten, composities en layouts;
+- native thema's, appearances, componentvarianten met volledige
+  statecontracten, composities en layouts;
 - een gedeeld productcontract met expliciete HTML- en Grafana-backends;
 - een Forge Dashboard en projectstatusproduct uit dezelfde opgeloste informatiearchitectuur;
 - een native homepage met vier geordende inhoudsgebieden en drie productroutes;

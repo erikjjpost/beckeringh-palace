@@ -5,25 +5,127 @@
   <title>Beckeringh Palace componenten</title>
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="components.css">
+  <style>
+    :root {
+      --bp-theme-primary: #7DD3FC;
+      --bp-theme-background: #0F1724;
+      --bp-theme-surface: #1F2937;
+      --bp-theme-foreground: #E6EDF5;
+      --bp-theme-accent: #C9895B;
+      --bp-theme-success: #4ADE80;
+      --bp-theme-warning: #E0B341;
+      --bp-theme-error: #F87171;
+      --bp-font-heading: "Orbitron", "Iceland", "Bank Gothic", system-ui, sans-serif;
+      --bp-font-body: "Inter", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      --bp-font-mono: "JetBrains Mono", "Fira Code", "SF Mono", "Menlo", monospace;
+      --bp-type-display: 80px;
+      --bp-type-title: 56px;
+      --bp-type-heading: 32px;
+      --bp-type-body: 16px;
+      --bp-type-label: 12px;
+      --bp-type-caption: 12px;
+      --bp-material-canvas: #0F1724;
+      --bp-material-surface: #1F2937;
+      --bp-material-raised: #243447;
+      --bp-material-foreground: #E6EDF5;
+      --bp-material-muted: #B8C5D6;
+      --bp-material-accent: #C9895B;
+      --bp-material-outline: #2F4259;
+      --bp-material-interaction: #7DD3FC;
+      --bp-material-interaction-pressed: #38BDF8;
+      --bp-material-disabled: #3E5573;
+      --bp-border-hairline: 1px;
+      --bp-border-regular: 1px;
+      --bp-border-strong: 1px;
+      --bp-border-style: solid;
+      --bp-radius-small: 4px;
+      --bp-radius-medium: 12px;
+      --bp-radius-large: 16px;
+      --bp-radius-pill: 999px;
+      --bp-shadow-low: 0 1px 2px rgba(0,0,0,0.25);
+      --bp-shadow-medium: 0 6px 18px rgba(0,0,0,0.35);
+      --bp-shadow-high: 0 18px 44px rgba(0,0,0,0.45);
+      --bp-shadow-none: none;
+      --bp-shadow-glow: 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10);
+      --bp-motion-fast: 120ms;
+      --bp-motion-normal: 220ms;
+      --bp-motion-slow: 420ms;
+      --bp-motion-easing: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --bp-motion-rest-offset: 0px;
+      --bp-motion-hover-offset: -1px;
+      --bp-spacing-none: 0;
+      --bp-spacing-xs: 4px;
+      --bp-spacing-small: 8px;
+      --bp-spacing-medium: 16px;
+      --bp-spacing-large: 32px;
+      --bp-spacing-xl: 64px;
+      --bp-art-canvas: #0F1724;
+      --bp-art-interaction: #7DD3FC;
+      --bp-art-warm-accent: #C9895B;
+    }
+    body {
+      margin: 0;
+      padding: var(--bp-spacing-large);
+      background: var(--bp-theme-background);
+      color: var(--bp-theme-foreground);
+      font-family: var(--bp-font-body);
+    }
+    main {
+      display: grid;
+      gap: var(--bp-spacing-medium);
+    }
+  </style>
 </head>
-<body>
+<body data-world="beckeringh-palace" data-theme="forge">
   <main>
     <h1>Beckeringh Palace componenten</h1>
     <section class="bp-forge-panel" data-component="forge-panel">
       <h2>Forge Panel</h2>
       <p>Basispaneel voor dashboards en productdocumentatie.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-compact" data-component="forge-panel" data-variant="forge-panel-compact" data-appearance="forge-panel-compact-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-compact" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-rest-appearance">
       <h2>Forge Panel Compact</h2>
       <p>Gecontroleerde compacte appearance voor een Forge-paneel.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-hero" data-component="forge-panel" data-variant="forge-panel-hero" data-appearance="forge-panel-hero-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-hover" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-hover-appearance">
+      <h2>Forge Panel Compact · hover</h2>
+      <p>Toestand hover via appearance forge-panel-card-hover-appearance.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-focus" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-focus-appearance">
+      <h2>Forge Panel Compact · focus</h2>
+      <p>Toestand focus via appearance forge-panel-card-focus-appearance.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-pressed" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-pressed-appearance">
+      <h2>Forge Panel Compact · pressed</h2>
+      <p>Toestand pressed via appearance forge-panel-card-pressed-appearance.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-disabled" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-disabled-appearance" aria-disabled="true">
+      <h2>Forge Panel Compact · disabled</h2>
+      <p>Toestand disabled via appearance forge-panel-card-disabled-appearance.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-hero" data-component="forge-panel" data-variant="forge-panel-hero" data-component-state="rest" data-component-states="rest" data-appearance="forge-panel-hero-appearance">
       <h2>Forge Panel Hero</h2>
       <p>Gecontroleerde hero-appearance voor de homepage-entree.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-route" data-component="forge-panel" data-variant="forge-panel-route" data-appearance="forge-panel-compact-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-route" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-rest-appearance">
       <h2>Forge Panel Route</h2>
       <p>Gecontroleerde routekaart-appearance voor homepage-navigatie.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-hover" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-hover-appearance">
+      <h2>Forge Panel Route · hover</h2>
+      <p>Toestand hover via appearance forge-panel-card-hover-appearance.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-focus" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-focus-appearance">
+      <h2>Forge Panel Route · focus</h2>
+      <p>Toestand focus via appearance forge-panel-card-focus-appearance.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-pressed" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-pressed-appearance">
+      <h2>Forge Panel Route · pressed</h2>
+      <p>Toestand pressed via appearance forge-panel-card-pressed-appearance.</p>
+    </section>
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-disabled" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-disabled-appearance" aria-disabled="true">
+      <h2>Forge Panel Route · disabled</h2>
+      <p>Toestand disabled via appearance forge-panel-card-disabled-appearance.</p>
     </section>
   </main>
 </body>

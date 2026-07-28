@@ -17,7 +17,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Typografie | Gemigreerd in M11.3e | typography en typescale |
 | Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
-| Componenten en states | Gedeeltelijk mapbaar | appearance, component en variant |
+| Componenten en states | States gemigreerd in M11.3f; componentdekking gedeeltelijk | appearance, component en variant |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
 | Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
@@ -62,8 +62,8 @@ de compositiedichtheid blijft ruim en de beeldtaal gebruikt isometrische
 lijnkunst.
 
 De HTML backend leest uitsluitend het opgeloste contract. Daaruit ontstaan
-twee subtiele radiale halo's, de technische scheidingslijn, cyaan focusgloed,
-reduced-motion gedrag en machineleesbare art-directionmetadata. De backend
+twee subtiele radiale halo's, de technische scheidingslijn, reduced-motion
+gedrag en machineleesbare art-directionmetadata. De backend
 bevat geen EmberForge bronwaarden of zelfstandige merkbeslissingen.
 
 ## Typografie
@@ -79,3 +79,18 @@ niet als losse BAT velden toegevoegd. De HTML backend vertaalt uitsluitend de
 opgeloste stacks naar geldige CSS en voegt geen `@import`, URL of fontdownload
 toe. Daardoor blijft de compiler onafhankelijk van Google Fonts en ontbrekende
 fontbestanden.
+
+## Componenttoestanden
+
+M11.3f migreert de volledige interactiereeks voor Forge-kaarten naar native
+BAT. De rusttoestand gebruikt het donkere oppervlak en de standaard outline.
+Hover gebruikt de cyaan outline, de gecontroleerde cyaangloed en een lift van
+één pixel. Focus gebruikt dezelfde herkenbare gloed zonder verplaatsing.
+Pressed gebruikt donkerder cyaan, keert terug naar nul pixel en schaalt niet.
+Disabled gebruikt de gedempte voorgrond, geen gloed en geen verplaatsing.
+
+De variant koppelt iedere toestand expliciet aan een appearance. De opgeloste
+compositie draagt dat contract naar HTML en Grafana. CSS vertaalt uitsluitend
+de opgeloste appearances naar standaard pseudostates en expliciete
+catalogusklassen. De eerdere generieke hover en focusregels in de HTML backend
+zijn verwijderd, zodat UI kit code en merkwaarden niet in een renderer leven.

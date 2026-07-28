@@ -34,6 +34,7 @@ class ResolvedComponentInstance:
     component_id: str
     variant_id: str | None
     appearance_id: str | None
+    state_appearances: tuple[tuple[str, str], ...]
     component_role: str | None
     information_area_id: str | None
     homepage_area_id: str | None
@@ -168,6 +169,11 @@ def _instantie_uit_object(
             else variant.appearance_id
             if variant is not None
             else basisappearance if isinstance(basisappearance, str) else None
+        ),
+        state_appearances=(
+            variant.state_appearances
+            if variant is not None
+            else ()
         ),
         component_role=(
             homepagegebied.component_role if homepagegebied is not None else None

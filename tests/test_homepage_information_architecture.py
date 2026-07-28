@@ -52,9 +52,9 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
         self.assertEqual(
             (
                 "forge-panel-hero-appearance",
-                "forge-panel-compact-appearance",
-                "forge-panel-compact-appearance",
-                "forge-panel-compact-appearance",
+                "forge-panel-card-rest-appearance",
+                "forge-panel-card-rest-appearance",
+                "forge-panel-card-rest-appearance",
             ),
             tuple(gebied.appearance_id for gebied in gebieden),
         )

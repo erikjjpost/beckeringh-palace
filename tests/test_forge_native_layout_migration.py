@@ -53,7 +53,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             compositie.instances[1].variant_id,
         )
         self.assertEqual(
-            "forge-panel-compact-appearance",
+            "forge-panel-card-rest-appearance",
             compositie.instances[1].appearance_id,
         )
         self.assertIsNone(compositie.instances[2].variant_id)
@@ -90,7 +90,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertIn(
             'data-variant="forge-panel-compact" '
-            'data-appearance="forge-panel-compact-appearance"',
+            'data-appearance="forge-panel-card-rest-appearance"',
             product.inhoud,
         )
         self.assertIn(
@@ -99,7 +99,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertEqual(1, product.inhoud.count('data-variant="'))
         self.assertEqual(
-            ("2", "38", "31"),
+            ("2", "44", "31"),
             tuple(
                 str(instantie.metric_value)
                 for instantie in compositie.instances
@@ -110,7 +110,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">38</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:forge-design-system">44</p>',
             product.inhoud,
         )
         self.assertIn(

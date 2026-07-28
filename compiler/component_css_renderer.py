@@ -5,7 +5,7 @@ import re
 from collections.abc import Iterable
 
 from compiler.cir import Architectuurobject
-from compiler.component_css_identity import componentselector
+from compiler.component_css_identity import componentselector, stateklasse
 from compiler.design_variants import resolveer_varianten
 from compiler.design_components import (
     ComponentAppearance,
@@ -26,51 +26,96 @@ def _tokenwaarde(waarde: str) -> str:
 
 
 def _appearance_regels(
-    selector: str,
+    selectors: tuple[str, ...],
     appearance: ComponentAppearance,
 ) -> list[str]:
+    selector = ", ".join(selectors)
     material = appearance.rol("material")
     foreground = appearance.rol("foreground")
     accent = appearance.rol("accent")
+    outline = appearance.rol("outline")
     border = appearance.rol("border")
     radius = appearance.rol("radius")
     shadow = appearance.rol("shadow")
     motion = appearance.rol("motion")
+    offset = appearance.rol("offset")
     spacing = appearance.rol("spacing")
     heading = appearance.rol("heading-style")
     body = appearance.rol("body-style")
     label = appearance.rol("label-style")
     caption = appearance.rol("caption-style")
+    heading_selectors = ", ".join(
+        f"{item} {heading_tag}"
+        for item in selectors
+        for heading_tag in ("h1", "h2", "h3", "h4", "h5", "h6")
+    )
+    paragraph_selectors = ", ".join(f"{item} p" for item in selectors)
+    label_selectors = ", ".join(f"{item} label" for item in selectors)
+    caption_selectors = ", ".join(
+        f"{item} {caption_tag}"
+        for item in selectors
+        for caption_tag in ("small", "figcaption")
+    )
     return [
         f"{selector} {{",
+        f"  --bp-component-accent: var(--bp-material-{accent});",
         f"  background-color: var(--bp-material-{material});",
         f"  color: var(--bp-material-{foreground});",
-        f"  border: var(--bp-border-{border}) var(--bp-border-style) var(--bp-material-{accent});",
+        f"  border: var(--bp-border-{border}) var(--bp-border-style) var(--bp-material-{outline});",
         f"  border-radius: var(--bp-radius-{radius});",
         f"  box-shadow: var(--bp-shadow-{shadow});",
+        f"  transform: translateY(var(--bp-motion-{offset}-offset));",
+        "  transition-property: background-color, border-color, box-shadow, color, transform;",
         f"  transition-duration: var(--bp-motion-{motion});",
         "  transition-timing-function: var(--bp-motion-easing);",
         f"  padding: var(--bp-spacing-{spacing});",
         "}",
         "",
-        f"{selector} h1, {selector} h2, {selector} h3, {selector} h4, {selector} h5, {selector} h6 {{",
+        f"{heading_selectors} {{",
         "  font-family: var(--bp-font-heading);",
         f"  font-size: var(--bp-type-{heading});",
         "}",
-        f"{selector} p {{",
+        f"{paragraph_selectors} {{",
         "  font-family: var(--bp-font-body);",
         f"  font-size: var(--bp-type-{body});",
         "}",
-        f"{selector} label {{",
+        f"{label_selectors} {{",
         "  font-family: var(--bp-font-body);",
         f"  font-size: var(--bp-type-{label});",
         "}",
-        f"{selector} small, {selector} figcaption {{",
+        f"{caption_selectors} {{",
         "  font-family: var(--bp-font-body);",
         f"  font-size: var(--bp-type-{caption});",
         "}",
         "",
     ]
+
+
+def _state_selectors(selector: str, state: str) -> tuple[str, ...]:
+    explicit = f"{selector}.{stateklasse(state)}"
+    if state == "hover":
+        return (
+            f'{selector}:hover:not([aria-disabled="true"])',
+            explicit,
+        )
+    if state == "focus":
+        return (
+            f"{selector}:focus-visible",
+            f"{selector}:focus-within",
+            explicit,
+        )
+    if state == "pressed":
+        return (
+            f'{selector}:active:not([aria-disabled="true"])',
+            explicit,
+        )
+    if state == "disabled":
+        return (
+            f"{selector}:disabled",
+            f'{selector}[aria-disabled="true"]',
+            explicit,
+        )
+    raise ValueError(f"Onbekende componentstate '{state}'")
 
 
 def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
@@ -81,7 +126,7 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
         appearance = appearances.get(component.appearance or "")
         selector = componentselector(component.id)
         if appearance is not None:
-            regels.extend(_appearance_regels(selector, appearance))
+            regels.extend(_appearance_regels((selector,), appearance))
         else:
             regels.append(f"{selector} {{")
             padding = component.eigenschappen.get("padding")
@@ -92,5 +137,22 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
     for variant in resolveer_varianten(objecten):
         appearance = appearances[variant.appearance_id]
         selector = componentselector(variant.component_id, variant.id)
-        regels.extend(_appearance_regels(selector, appearance))
+        regels.extend(_appearance_regels((selector,), appearance))
+        for state, appearance_id in variant.state_appearances:
+            if state == "rest":
+                continue
+            state_selectors = _state_selectors(selector, state)
+            regels.extend(
+                _appearance_regels(
+                    state_selectors,
+                    appearances[appearance_id],
+                )
+            )
+            if state == "disabled":
+                regels.extend([
+                    f"{', '.join(state_selectors)} {{",
+                    "  cursor: not-allowed;",
+                    "}",
+                    "",
+                ])
     return "\n".join(regels)

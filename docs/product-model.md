@@ -139,7 +139,7 @@ Iedere variant vereist:
 - `naam`: menselijke naam;
 - `doel`: de gecontroleerde afwijking;
 - `component`: het component waarvoor de variant geldig is;
-- `appearance`: de alternatieve appearance.
+- `appearance`: de rustappearance.
 
 Een variant kan alleen worden gekozen door een componentinstantie die naar
 hetzelfde component verwijst. Het resolved compositiemodel bewaart zowel de
@@ -150,12 +150,23 @@ alternatieve appearance onder die selectorspecifieke variantregel na de
 basiscomponent. Zonder expliciete variant blijft uitsluitend de basisappearance
 actief.
 
+Een interactieve variant kan daarnaast `hover`, `focus`, `pressed` en
+`disabled` declareren. Zodra één van deze velden aanwezig is, zijn alle vier
+verplicht. De compiler ordent het volledige contract altijd als `rest`,
+`hover`, `focus`, `pressed`, `disabled` en lost iedere waarde naar een bestaande
+appearance op. De renderer ontvangt deze mapping en mag geen ontbrekende
+toestand of merkwaarde zelf aanvullen.
+
 ```bp
 variant status-panel-compact {
     naam: "Compact status panel"
     doel: "Gebruikt het compacte statuspaneelprofiel."
     component: "status-panel"
     appearance: "status-panel-compact-appearance"
+    hover: "status-panel-hover-appearance"
+    focus: "status-panel-focus-appearance"
+    pressed: "status-panel-pressed-appearance"
+    disabled: "status-panel-disabled-appearance"
 }
 ```
 
@@ -627,7 +638,7 @@ thema. Het contract resolveert canvas, interactiekleur en warme accentkleur
 naar canonieke kleuren en begrenst koper tot maximaal twee warme punten per
 view. Gecontroleerde gloed, technische lijnvoering, ruime dichtheid en
 isometrische lijnkunst zijn expliciete waarden. De HTML backend gebruikt alleen
-de opgeloste art direction voor halo's, focusgloed, ornamentiek en metadata.
+de opgeloste art direction voor halo's, ornamentiek en metadata.
 
 M11.3e migreert de EmberForge typografie naar geordende fontstacks onder het
 native `typografie` object. Koppen gebruiken Orbitron, interface en lopende
@@ -639,6 +650,20 @@ De native typeschaal bevat alleen de rollen die producten daadwerkelijk
 dragen: display, title, heading, body, label en caption. HTML rendert de
 opgeloste stacks als CSS en schrijft typografie en leveringsbeleid als metadata
 uit. De backend leest geen ontwerpbron en maakt geen zelfstandige fontkeuze.
+
+M11.3f migreert de geverifieerde EmberForge componenttoestanden voor het
+bestaande Forge-paneel. De rusttoestand gebruikt het vaste kaartprofiel. Hover
+gebruikt een cyaan outline, de bronbewezen gloed en een offset van min één
+pixel. Focus gebruikt dezelfde gloed zonder verplaatsing. Pressed gebruikt de
+donkerdere cyaanrol, keert terug naar nul pixel en schaalt niet. Disabled
+gebruikt een gedempte voorgrond, geen gloed en geen verplaatsing.
+
+De variant koppelt alle vijf toestanden expliciet aan appearances.
+`ResolvedComponentVariant` en `ResolvedComponentInstance` dragen de geordende
+mapping backendonafhankelijk. De component CSS-renderer vertaalt haar naar de
+standaard browserstates en expliciete catalogusklassen. HTML publiceert de
+mapping als metadata. Grafana bewaart dezelfde mapping in de
+paneelbeschrijving en simuleert geen interactie die Canvas niet ondersteunt.
 
 ## Diagnostics
 
@@ -696,6 +721,8 @@ uit. De backend leest geen ontwerpbron en maakt geen zelfstandige fontkeuze.
 | `BP3803` | Variant verwijst naar een onbekende appearance |
 | `BP3804` | Componentinstantie verwijst naar een onbekende variant |
 | `BP3805` | Variant hoort niet bij het component van de componentinstantie |
+| `BP3806` | Variant declareert een onvolledig statecontract |
+| `BP3807` | Componentstate verwijst naar een onbekende appearance |
 | `BP3901` | Renderdoel heeft een onbekende eigenschap |
 | `BP3902` | Renderdoel mist een geldig formaat |
 | `BP3903` | Renderdoel heeft geen veilig relatief artifactpad |
