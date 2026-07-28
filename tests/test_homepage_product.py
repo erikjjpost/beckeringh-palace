@@ -114,6 +114,39 @@ class HomepageProductTests(unittest.TestCase):
             html,
         )
         self.assertIn(
+            '<p class="bp-brand-name">EmberForge</p>',
+            html,
+        )
+        self.assertIn(
+            '<p class="bp-brand-tagline">Sovereign Infrastructure.</p>',
+            html,
+        )
+        self.assertIn(
+            '<p class="bp-brand-promise">'
+            'Sovereignty over your own stack.</p>',
+            html,
+        )
+        self.assertIn(
+            'data-brand="emberforge" '
+            'data-language="Nederlands met technische termen in het Engels" '
+            'data-voice="Zelfverzekerd, technisch en rustig"',
+            html,
+        )
+        self.assertEqual(3, html.count('<li>Own your '))
+        self.assertIn(
+            '<ul class="bp-brand-products" aria-label="Productfamilie">',
+            html,
+        )
+        for product in (
+            "Homelab Dashboard",
+            "Keycloak login",
+            "CV Database",
+            "ISMS Challenger",
+            "Roadmap",
+            "Marketing en merkoppervlakken",
+        ):
+            self.assertIn(f"<li>{product}</li>", html)
+        self.assertIn(
             "grid-template-columns:repeat(3,minmax(0,1fr))",
             html,
         )

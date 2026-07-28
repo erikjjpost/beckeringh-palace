@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from typing import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.brand_identity import ResolvedBrandIdentity, resolveer_merkidentiteiten
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
 from compiler.information_architecture import ResolvedNavigationTarget
@@ -24,6 +25,7 @@ class ResolvedHomepageArea:
     focus_order: int
     navigation_behavior: str
     core_message: str
+    brand: ResolvedBrandIdentity | None
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
 
 
@@ -58,6 +60,7 @@ class HomepageInformationArchitectureConstraint:
                     "focusvolgorde",
                     "navigatiegedrag",
                     "kernboodschap",
+                    "merk",
                     "navigatie",
                 }:
                     diagnostics.append(Diagnostic(
@@ -206,6 +209,23 @@ class HomepageInformationArchitectureConstraint:
             focusvolgorde = gebied.eigenschappen.get("focusvolgorde")
             navigatiegedrag = gebied.eigenschappen.get("navigatiegedrag")
             if rol == "entree":
+                merk_id = gebied.eigenschappen.get("merk")
+                merk = (
+                    context.symbolen.get(merk_id)
+                    if isinstance(merk_id, str)
+                    else None
+                )
+                if merk is None or merk.soort != "merk":
+                    diagnostics.append(Diagnostic(
+                        code="BP4117",
+                        boodschap=(
+                            f"Entreegebied '{gebied.id}' vereist een bekende "
+                            "native merkidentiteit"
+                        ),
+                        locatie=gebied.eigenschaplocaties.get(
+                            "merk", gebied.bronlocatie
+                        ),
+                    ))
                 if str(focusvolgorde) != "0" or navigatiegedrag != "geen":
                     diagnostics.append(Diagnostic(
                         code="BP4115",
@@ -216,6 +236,17 @@ class HomepageInformationArchitectureConstraint:
                         locatie=gebied.bronlocatie,
                     ))
             elif rol == "route":
+                if "merk" in gebied.eigenschappen:
+                    diagnostics.append(Diagnostic(
+                        code="BP4118",
+                        boodschap=(
+                            f"Routegebied '{gebied.id}' mag geen "
+                            "merkidentiteit dupliceren"
+                        ),
+                        locatie=gebied.eigenschaplocaties.get(
+                            "merk", gebied.bronlocatie
+                        ),
+                    ))
                 try:
                     geldige_focus = int(str(focusvolgorde)) > 0
                 except ValueError:
@@ -308,6 +339,9 @@ def resolveer_homepagegebieden(
 ) -> tuple[ResolvedHomepageArea, ...]:
     objecten = tuple(objecten)
     symbolen = {obj.id: obj for obj in objecten}
+    merken = {
+        merk.id: merk for merk in resolveer_merkidentiteiten(objecten)
+    }
     gebieden = []
     for obj in objecten:
         if obj.soort != "homepagegebied":
@@ -338,6 +372,11 @@ def resolveer_homepagegebieden(
             focus_order=int(obj.eigenschappen["focusvolgorde"]),
             navigation_behavior=str(obj.eigenschappen["navigatiegedrag"]),
             core_message=str(obj.eigenschappen["kernboodschap"]),
+            brand=(
+                merken[str(obj.eigenschappen["merk"])]
+                if "merk" in obj.eigenschappen
+                else None
+            ),
             navigation_targets=navigatiedoelen,
         ))
     return tuple(sorted(gebieden, key=lambda gebied: gebied.reading_order))

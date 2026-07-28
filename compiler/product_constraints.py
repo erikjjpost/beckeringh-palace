@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from compiler.component_constraints import DesignComponentConstraint
+from compiler.brand_identity import BrandIdentityConstraint
 from compiler.composition_constraints import DesignCompositionConstraint
 from compiler.constraints import ConstraintContext
 from compiler.design_tokens import TokenType, token_uit_object, waarde_past_bij_type
@@ -102,6 +103,7 @@ class DesignTokenConstraint:
 WORLD_MODEL_CONSTRAINTS = (
     BekendeObjectsoortenConstraint(),
     NativeVeldenConstraint(),
+    BrandIdentityConstraint(),
     DesignTokenConstraint(),
     ThemeFoundationConstraint(),
     DesignComponentConstraint(),

@@ -597,6 +597,17 @@ besluitplichtige en geblokkeerde onderdelen. Daardoor worden voorbeeldcode,
 placeholder assets, ontbrekende bestanden en externe CDN bronnen niet
 stilzwijgend onderdeel van een product of renderer.
 
+M11.1e activeert voor het eerst gecontroleerde ontwerpinput in een product.
+EmberForge is een native `merk` met een expliciete tagline, kernbelofte, drie
+principes, productfamilie, taal en stem. Alleen een homepagegebied met rol
+`entree` verwijst naar deze identiteit; routegebieden mogen haar niet
+dupliceren.
+
+De merksemantiek wordt vóór backendselectie opgelost en via de native
+compositie doorgegeven. De generieke HTML backend rendert uitsluitend deze
+opgeloste velden. Externe ontwerpbestanden, logoassets, fonts en voorbeeldcode
+blijven buiten de runtimeketen.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -680,5 +691,11 @@ stilzwijgend onderdeel van een product of renderer.
 | `BP4114` | Homepagevariant hoort niet bij het gekozen component |
 | `BP4115` | Entreegebied heeft een ongeldige focusvolgorde of navigatiegedrag |
 | `BP4116` | Routegebied heeft een ongeldige focusvolgorde of navigatiegedrag |
+| `BP4117` | Entreegebied mist een bekende native merkidentiteit |
+| `BP4118` | Routegebied dupliceert ten onrechte de merkidentiteit |
+| `BP4201` | Merk heeft een onbekende eigenschap |
+| `BP4202` | Merk mist een betekenisvol tekstveld |
+| `BP4203` | Merk heeft geen drie unieke betekenisvolle principes |
+| `BP4204` | Merk heeft geen unieke betekenisvolle productfamilie |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

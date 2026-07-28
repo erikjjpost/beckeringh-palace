@@ -147,6 +147,17 @@ wereld beckeringh-palace {
     thema: "forge"
 }
 
+merk emberforge {
+    naam: "EmberForge"
+    doel: "Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace."
+    tagline: "Sovereign Infrastructure."
+    belofte: "Sovereignty over your own stack."
+    principes: ["Own your data.", "Own your nodes.", "Own your forge."]
+    producten: ["Homelab Dashboard", "Keycloak login", "CV Database", "ISMS Challenger", "Roadmap", "Marketing en merkoppervlakken"]
+    taal: "Nederlands met technische termen in het Engels"
+    stem: "Zelfverzekerd, technisch en rustig"
+}
+
 token color-ember {
     naam: "Ember"
     doel: "Primaire warme accentkleur voor de Forge-identiteit."
@@ -433,6 +444,7 @@ homepagegebied homepage-entrance {
     focusvolgorde: "0"
     navigatiegedrag: "geen"
     kernboodschap: "Design is data."
+    merk: "emberforge"
 }
 
 homepagegebied homepage-world-area {

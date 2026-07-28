@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f6d8cd6ba663",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 8df16233fbd2",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:42",
+      "description": "project-status-schema:1;overall-progress:43",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Totale voortgang · 42%",
+                  "fixed": "Totale voortgang · 43%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 252
+                "width": 258
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3a · EmberForge ontwerpbroncontract (in uitvoering)\nVoltooid: M11.1d · Homepage responsief contract (PR #71)\nVolgende stap: M11.1e · Homepage wereldpresentatie\nDe Palace identiteit, productfamilie en samenhangende wereldboodschap native verdiepen zonder inhoud in de backend vast te leggen.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.1e · Homepage wereldpresentatie (in uitvoering)\nVoltooid: M11.3a · EmberForge ontwerpbroncontract (PR #72)\nVolgende stap: M11.3b · EmberForge paletmigratie\nDe geverifieerde EmberForge kleuren en semantische kleurrollen gecontroleerd naar BAT migreren en in de afgeleide producten activeren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 42%",
+      "title": "Totale voortgang · 43%",
       "transparent": true,
       "type": "canvas"
     },
@@ -399,7 +399,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-model;progress:70",
+      "description": "project-status-area:world-model;progress:72",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -432,7 +432,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "World Model en productcontracten · 70%",
+                  "fixed": "World Model en productcontracten · 72%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -496,7 +496,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 420
+                "width": 432
               },
               "type": "rectangle"
             },
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Thema's, dashboardinformatiegebieden, homepagegebieden, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "fixed": "Onderbouwing: Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -532,7 +532,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 70%",
+      "title": "World Model en productcontracten · 72%",
       "transparent": true,
       "type": "canvas"
     },
@@ -922,7 +922,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
+                  "fixed": "Onderbouwing: De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig; EmberForge heeft een native merknaam, tagline, kernbelofte en principes.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:55",
+      "description": "project-status-area:homepage;progress:60",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "HTML homepage · 55%",
+                  "fixed": "HTML homepage · 60%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 330
+                "width": 360
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant, appearance, focusvolgorde en navigatiegedrag; het grid legt breakpoint, compacte kolommen en herschikking expliciet vast.\nResterend: De volwaardige wereldpresentatie en verdere productroutes moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoudsrol, componentrol, appearance, focus en responsief gedrag; de entree presenteert de native EmberForge merkidentiteit zonder backendinhoud.\nResterend: Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 55%",
+      "title": "HTML homepage · 60%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:25",
+      "description": "project-status-area:world-bible;progress:30",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "World Bible · 25%",
+                  "fixed": "World Bible · 30%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 150
+                "width": 180
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd.\nResterend: De normatieve wereldbeschrijving, stijltaal, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal en stem zijn nu normatief in BAT vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 25%",
+      "title": "World Bible · 30%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:42",
-    "sha256:f6d8cd6ba663306ff70c178ea0aefcf5dd3d9b49c823b6430ca0f0a514414df1"
+    "overall-progress:43",
+    "sha256:8df16233fbd25df1a55e4c90ef76be7d416123df4a29d4ea6fa8f5b961901bfc"
   ],
   "templating": {
     "list": []

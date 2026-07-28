@@ -268,6 +268,27 @@ def naar_native_layout_html(
                 '      <p class="bp-core-message">'
                 f"{html.escape(instantie.core_message)}</p>"
             )
+        if instantie.brand is not None:
+            regels.extend([
+                f'      <p class="bp-brand-name">{html.escape(instantie.brand.naam)}</p>',
+                f'      <p class="bp-brand-tagline">{html.escape(instantie.brand.tagline)}</p>',
+                f'      <p class="bp-brand-promise">{html.escape(instantie.brand.promise)}</p>',
+                (
+                    f'      <ul class="bp-brand-principles" '
+                    f'data-brand="{html.escape(instantie.brand.id)}" '
+                    f'data-language="{html.escape(instantie.brand.language)}" '
+                    f'data-voice="{html.escape(instantie.brand.voice)}">'
+                ),
+            ])
+            for principe in instantie.brand.principles:
+                regels.append(f"        <li>{html.escape(principe)}</li>")
+            regels.append("      </ul>")
+            regels.append(
+                '      <ul class="bp-brand-products" aria-label="Productfamilie">'
+            )
+            for product in instantie.brand.products:
+                regels.append(f"        <li>{html.escape(product)}</li>")
+            regels.append("      </ul>")
         if instantie.metric_details:
             regels.append('      <ul class="bp-metric-details">')
             for detail in instantie.metric_details:

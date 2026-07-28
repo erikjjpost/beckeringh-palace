@@ -16,6 +16,7 @@ from compiler.homepage_information_architecture import (
     ResolvedHomepageArea,
     resolveer_homepagegebieden,
 )
+from compiler.brand_identity import ResolvedBrandIdentity
 
 
 @dataclass(frozen=True)
@@ -38,6 +39,7 @@ class ResolvedComponentInstance:
     homepage_area_id: str | None
     homepage_role: str | None
     core_message: str | None
+    brand: ResolvedBrandIdentity | None
     accessibility_label: str | None
     reading_order: int | None
     focus_order: int | None
@@ -181,6 +183,9 @@ def _instantie_uit_object(
         ),
         core_message=(
             homepagegebied.core_message if homepagegebied is not None else None
+        ),
+        brand=(
+            homepagegebied.brand if homepagegebied is not None else None
         ),
         accessibility_label=(
             informatiegebied.accessibility_label
