@@ -556,7 +556,7 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 - **inhoud:** forge-dashboard, forge-dashboard-ultrawide, project-status-html
 - **leesvolgorde:** 3
 - **navigatie:** project-status-html, project-status-grafana
-- **soorten:** compositie, componentinstantie, layout, region, product, renderdoel
+- **soorten:** homepagegebied, compositie, componentinstantie, layout, region, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
 ## Forge Dashboard
@@ -790,19 +790,86 @@ Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectst
 
 ## Design is data
 
+**Soort:** homepagegebied
+
+**Identifier:** `homepage-entrance`
+
+### Doel
+
+Introduceert de ontwerpregel achter alle Beckeringh Palace producten.
+
+### Eigenschappen
+
+- **kernboodschap:** Design is data.
+- **leesvolgorde:** 1
+- **rol:** entree
+
+## Digitale wereld
+
+**Soort:** homepagegebied
+
+**Identifier:** `homepage-world-area`
+
+### Doel
+
+Verken de samenhang tussen wereld, identiteit en productfamilie.
+
+### Eigenschappen
+
+- **kernboodschap:** Eén normatief wereldmodel verbindt identiteit, ontwerp en producten.
+- **leesvolgorde:** 2
+- **navigatie:** forge-dashboard-html
+- **rol:** route
+
+## Forge ontwerpsysteem
+
+**Soort:** homepagegebied
+
+**Identifier:** `homepage-design-system-area`
+
+### Doel
+
+Bekijk de reproduceerbare componenten en ontwerpprimitieven.
+
+### Eigenschappen
+
+- **kernboodschap:** Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.
+- **leesvolgorde:** 3
+- **navigatie:** html-components
+- **rol:** route
+
+## Projectstatus
+
+**Soort:** homepagegebied
+
+**Identifier:** `homepage-project-status-area`
+
+### Doel
+
+Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
+
+### Eigenschappen
+
+- **kernboodschap:** Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.
+- **leesvolgorde:** 4
+- **navigatie:** project-status-html
+- **rol:** route
+
+## Design is data
+
 **Soort:** componentinstantie
 
 **Identifier:** `homepage-intro`
 
 ### Doel
 
-Eén normatief wereldmodel genereert ieder Beckeringh Palace product reproduceerbaar.
+Introduceert de ontwerpregel achter alle Beckeringh Palace producten.
 
 ### Eigenschappen
 
 - **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
-- **metric-kind:** wereld
+- **homepagegebied:** homepage-entrance
 
 ## Digitale wereld
 
@@ -818,7 +885,7 @@ Verken de samenhang tussen wereld, identiteit en productfamilie.
 
 - **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
-- **navigatie:** forge-dashboard-html
+- **homepagegebied:** homepage-world-area
 
 ## Forge ontwerpsysteem
 
@@ -834,7 +901,7 @@ Bekijk de reproduceerbare componenten en ontwerpprimitieven.
 
 - **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
-- **navigatie:** html-components
+- **homepagegebied:** homepage-design-system-area
 - **variant:** forge-panel-compact
 
 ## Projectstatus
@@ -851,7 +918,7 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 
 - **component:** forge-panel
 - **compositie:** beckeringh-palace-homepage-composition
-- **navigatie:** project-status-html
+- **homepagegebied:** homepage-project-status-area
 
 ## Beckeringh Palace Homepage Grid
 

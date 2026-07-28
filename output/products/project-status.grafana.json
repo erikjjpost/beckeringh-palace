@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 7d0828cc1609",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 4e11728814e5",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.1a · HTML homepage productcontract (in uitvoering)\nVoltooid: M10.5d · Dashboard toegankelijkheidscontract (PR #66)\nVolgende stap: M11.1b · Homepage informatiearchitectuur\nDe inhoudsgebieden, kernboodschappen en routes van de homepage als expliciete native semantiek verdiepen.",
+                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.1b · Homepage informatiearchitectuur (in uitvoering)\nVoltooid: M11.1a · HTML homepage productcontract (PR #67)\nVolgende stap: M11.1c · Homepage visuele hiërarchie\nDe entree en routegebieden met expliciete componentrollen en appearances tot een herkenbare homepagehiërarchie uitwerken.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 136 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 139 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Thema's, informatiegebieden, layouts, componenten, composities, producten, componentnavigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "fixed": "Onderbouwing: Thema's, dashboardinformatiegebieden, homepagegebieden, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:30",
+      "description": "project-status-area:homepage;progress:40",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "HTML homepage · 30%",
+                  "fixed": "HTML homepage · 40%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 180
+                "width": 240
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Een eigen native homepagecompositie, responsieve gridlayout, drie productroutes en reproduceerbaar index.html product bestaan.\nResterend: De inhoudsarchitectuur, visuele hiërarchie en volwaardige wereldpresentatie moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Een eigen native homepageproduct gebruikt vier geordende inhoudsgebieden met expliciete rollen, kernboodschappen en drie opgeloste productroutes.\nResterend: De visuele hiërarchie en volwaardige wereldpresentatie moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 30%",
+      "title": "HTML homepage · 40%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1648,7 +1648,7 @@
     "generated",
     "project-status-schema:1",
     "overall-progress:40",
-    "sha256:7d0828cc16090f1e9afd5fd83e441a45b03b26dc0224cd68d0a560c545a2aa81"
+    "sha256:4e11728814e555bbd2e7e546d845f82af406baa5893a68690c7a744e37eb078d"
   ],
   "templating": {
     "list": []

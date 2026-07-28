@@ -24,6 +24,9 @@ class DesignCompositionConstraint:
         informatiegebieden = {
             obj.id for obj in context.objecten if obj.soort == "informatiegebied"
         }
+        homepagegebieden = {
+            obj.id for obj in context.objecten if obj.soort == "homepagegebied"
+        }
 
         for obj in context.objecten:
             if obj.soort == "compositie":
@@ -92,6 +95,7 @@ class DesignCompositionConstraint:
                     "metric-kind",
                     "metric-detail",
                     "informatiegebied",
+                    "homepagegebied",
                     "navigatie",
                 }
                 for naam in obj.eigenschappen:
@@ -234,6 +238,40 @@ class DesignCompositionConstraint:
                         ),
                     ))
                 navigatie = obj.eigenschappen.get("navigatie")
+                homepagegebied = obj.eigenschappen.get("homepagegebied")
+                if "homepagegebied" in obj.eigenschappen:
+                    if homepagegebied not in homepagegebieden:
+                        diagnostics.append(Diagnostic(
+                            code="BP3722",
+                            boodschap=(
+                                f"Componentinstantie '{obj.id}' verwijst naar "
+                                f"onbekend homepagegebied '{homepagegebied}'"
+                            ),
+                            locatie=obj.eigenschaplocaties.get(
+                                "homepagegebied", obj.bronlocatie
+                            ),
+                        ))
+                    if any(
+                        veld in obj.eigenschappen
+                        for veld in (
+                            "naam",
+                            "doel",
+                            "metric-kind",
+                            "metric-detail",
+                            "informatiegebied",
+                            "navigatie",
+                        )
+                    ):
+                        diagnostics.append(Diagnostic(
+                            code="BP3723",
+                            boodschap=(
+                                f"Componentinstantie '{obj.id}' combineert "
+                                "'homepagegebied' met afgeleide inhoudsvelden"
+                            ),
+                            locatie=obj.eigenschaplocaties.get(
+                                "homepagegebied", obj.bronlocatie
+                            ),
+                        ))
                 if "navigatie" in obj.eigenschappen:
                     geldig = (
                         isinstance(navigatie, list)

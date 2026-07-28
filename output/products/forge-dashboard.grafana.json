@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 7d0828cc1609",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 4e11728814e5",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1086,7 +1086,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 396,
+                "height": 408,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1127,7 +1127,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "27",
+                  "fixed": "31",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1153,7 +1153,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "componentinstantie\ncompositie\nlayout\nproduct\nregion\nrenderdoel",
+                  "fixed": "componentinstantie\ncompositie\nhomepagegebied\nlayout\nproduct\nregion\nrenderdoel",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1164,7 +1164,7 @@
               },
               "name": "forge-dashboard-right-panel-metric-detail-labels",
               "placement": {
-                "height": 84,
+                "height": 96,
                 "left": 20,
                 "top": 116,
                 "width": 280
@@ -1179,7 +1179,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "7\n2\n2\n5\n7\n4",
+                  "fixed": "7\n2\n4\n2\n5\n7\n4",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1190,7 +1190,7 @@
               },
               "name": "forge-dashboard-right-panel-metric-detail-values",
               "placement": {
-                "height": 84,
+                "height": 96,
                 "left": 300,
                 "top": 116,
                 "width": 80
@@ -1348,6 +1348,31 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#46505C"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#46505C"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-7",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 200,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -1380,7 +1405,7 @@
               "placement": {
                 "height": 24,
                 "left": 20,
-                "top": 212,
+                "top": 224,
                 "width": 360
               },
               "type": "text"
@@ -1406,7 +1431,7 @@
               "placement": {
                 "height": 96,
                 "left": 20,
-                "top": 248,
+                "top": 260,
                 "width": 360
               },
               "type": "text"
@@ -1432,7 +1457,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 356,
+                "top": 368,
                 "width": 360
               },
               "type": "text"
@@ -1453,7 +1478,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:7d0828cc16090f1e9afd5fd83e441a45b03b26dc0224cd68d0a560c545a2aa81"
+    "sha256:4e11728814e555bbd2e7e546d845f82af406baa5893a68690c7a744e37eb078d"
   ],
   "templating": {
     "list": []

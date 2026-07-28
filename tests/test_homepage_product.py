@@ -56,6 +56,18 @@ class HomepageProductTests(unittest.TestCase):
             ),
         )
         self.assertEqual(
+            (
+                "homepage-entrance",
+                "homepage-world-area",
+                "homepage-design-system-area",
+                "homepage-project-status-area",
+            ),
+            tuple(
+                instance.homepage_area_id
+                for instance in definition.opgeloste_compositie.instances
+            ),
+        )
+        self.assertEqual(
             (3, 2),
             (
                 definition.opgeloste_layout.columns,
@@ -69,6 +81,15 @@ class HomepageProductTests(unittest.TestCase):
 
         self.assertIn("<h1>Beckeringh Palace</h1>", html)
         self.assertIn("<h2>Design is data</h2>", html)
+        self.assertIn(
+            'data-homepage-area="homepage-entrance" '
+            'data-homepage-role="entree" data-reading-order="1"',
+            html,
+        )
+        self.assertIn(
+            '<p class="bp-core-message">Design is data.</p>',
+            html,
+        )
         self.assertIn(
             "grid-template-columns:repeat(3,minmax(0,1fr))",
             html,
@@ -94,24 +115,23 @@ class HomepageProductTests(unittest.TestCase):
 
     def test_componentnavigatie_weigert_ongeldige_doelen(self) -> None:
         source = WORLD.read_text(encoding="utf-8")
-        valid = '    navigatie: ["forge-dashboard-html"]'
+        valid = '    navigatie: "forge-dashboard-html"'
         variants = (
-            (source.replace(valid, "    navigatie: []", 1), "BP3719"),
             (
                 source.replace(
                     valid,
-                    '    navigatie: ["missing-product"]',
+                    '    navigatie: "missing-product"',
                     1,
                 ),
-                "BP3720",
+                "BP4107",
             ),
             (
                 source.replace(
                     valid,
-                    '    navigatie: ["beckeringh-palace"]',
+                    '    navigatie: "beckeringh-palace"',
                     1,
                 ),
-                "BP3721",
+                "BP4108",
             ),
         )
         for invalid_source, code in variants:
