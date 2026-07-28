@@ -79,20 +79,21 @@ palet ember-forge {
 
 typografie forge-interface {
     naam: "Forge Interface"
-    doel: "Typografische rollen voor digitale Forge-producten."
-    heading: "Aptos Display"
-    body: "Aptos"
-    mono: "JetBrains Mono"
+    doel: "Gecontroleerd gemigreerde EmberForge fontrollen met lokale fallbacks."
+    heading: ["Orbitron", "Iceland", "Bank Gothic", "system-ui", "sans-serif"]
+    body: ["Inter", "IBM Plex Sans", "system-ui", "-apple-system", "sans-serif"]
+    mono: ["JetBrains Mono", "Fira Code", "SF Mono", "Menlo", "monospace"]
+    levering: "local-only"
 }
 
 typeschaal forge-type-scale {
     naam: "Forge Type Scale"
-    doel: "Semantische tekstgroottes voor digitale Forge-producten."
-    display: "64px"
-    title: "40px"
-    heading: "28px"
+    doel: "Gecontroleerd gemigreerde semantische EmberForge tekstgroottes."
+    display: "80px"
+    title: "56px"
+    heading: "32px"
     body: "16px"
-    label: "14px"
+    label: "12px"
     caption: "12px"
 }
 
@@ -266,7 +267,7 @@ token typography-family-forge-interface {
     naam: "Forge interface font family"
     doel: "Hoofdlettertype voor digitale Forge-producten."
     type: "font-family"
-    waarde: "Aptos"
+    waarde: "Inter, IBM Plex Sans, system-ui, -apple-system, sans-serif"
 }
 
 appearance forge-panel-appearance {

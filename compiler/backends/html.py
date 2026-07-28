@@ -14,6 +14,33 @@ def _css_string(waarde: str) -> str:
     return '"' + waarde.replace('\\', '\\\\').replace('"', '\\"') + '"'
 
 
+CSS_GENERIEKE_FONTFAMILIES = frozenset({
+    "-apple-system",
+    "cursive",
+    "emoji",
+    "fangsong",
+    "fantasy",
+    "math",
+    "monospace",
+    "sans-serif",
+    "serif",
+    "system-ui",
+    "ui-monospace",
+    "ui-rounded",
+    "ui-sans-serif",
+    "ui-serif",
+})
+
+
+def _css_fontstack(families: tuple[str, ...]) -> str:
+    return ", ".join(
+        familie
+        if familie.lower() in CSS_GENERIEKE_FONTFAMILIES
+        else _css_string(familie)
+        for familie in families
+    )
+
+
 def _theme_css(product: ProductDefinition) -> str:
     thema = product.thema
     if thema is None:
@@ -23,9 +50,9 @@ def _theme_css(product: ProductDefinition) -> str:
     for rol, kleur in thema.palet.kleuren:
         regels.append(f"      --bp-theme-{rol}: {kleur.waarde};")
     regels.extend([
-        f"      --bp-font-heading: {_css_string(thema.typografie.heading)};",
-        f"      --bp-font-body: {_css_string(thema.typografie.body)};",
-        f"      --bp-font-mono: {_css_string(thema.typografie.mono)};",
+        f"      --bp-font-heading: {_css_fontstack(thema.typografie.heading)};",
+        f"      --bp-font-body: {_css_fontstack(thema.typografie.body)};",
+        f"      --bp-font-mono: {_css_fontstack(thema.typografie.mono)};",
     ])
 
     if thema.typeschaal is not None:
@@ -353,6 +380,8 @@ def _render(
     inhoud = inhoud.replace(
         "<body>",
         f'<body data-world="{thema.wereld_id}" data-theme="{thema.thema_id}" '
+        f'data-typography="{thema.typografie.id}" '
+        f'data-font-delivery="{thema.typografie.levering}" '
         f'data-product-mode="{product.mode}" '
         f'data-time-context="{"applicable" if product.has_time_context else "none"}"'
         f"{snapshot_attribuut}>",

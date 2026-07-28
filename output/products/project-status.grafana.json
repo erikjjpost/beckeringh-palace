@@ -40,9 +40,9 @@
                 "color": {
                   "fixed": "#C9895B"
                 },
-                "size": 14,
+                "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 38e484a3a0f5",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -53,7 +53,7 @@
               },
               "name": "project-status-grafana-identity",
               "placement": {
-                "height": 22,
+                "height": 20,
                 "left": 16,
                 "top": 16,
                 "width": 720
@@ -66,7 +66,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 40,
+                "size": 56,
                 "text": {
                   "fixed": "Beckeringh Palace Projectstatus Grafana",
                   "mode": "fixed"
@@ -79,9 +79,9 @@
               },
               "name": "project-status-grafana-title",
               "placement": {
-                "height": 48,
+                "height": 64,
                 "left": 16,
-                "top": 38,
+                "top": 36,
                 "width": 720
               },
               "type": "text"
@@ -107,7 +107,7 @@
               "placement": {
                 "height": 24,
                 "left": 776,
-                "top": 46,
+                "top": 44,
                 "width": 720
               },
               "type": "text"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:46",
+      "description": "project-status-schema:1;overall-progress:47",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -154,9 +154,9 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 46%",
+                  "fixed": "Totale voortgang · 47%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -167,7 +167,7 @@
               },
               "name": "project-status-grafana-panel-2-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -194,7 +194,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -219,8 +219,8 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
-                "width": 276
+                "top": 60,
+                "width": 282
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3d · EmberForge art direction (in uitvoering)\nVoltooid: M11.3c · EmberForge primitiefmigratie (PR #75)\nVolgende stap: M11.3e · EmberForge typografiemigratie\nHet expliciete conflict tussen Aptos en Orbitron, Inter en JetBrains Mono normatief oplossen en zonder runtimeafhankelijkheid activeren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3e · EmberForge typografiemigratie (in uitvoering)\nVoltooid: M11.3d · EmberForge art direction (PR #76)\nVolgende stap: M11.3f · EmberForge componenttoestanden\nDe geverifieerde rust, hover, focus, pressed en disabled toestanden normatief naar appearance en variant migreren zonder UI kit code over te nemen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -245,7 +245,7 @@
               "placement": {
                 "height": 96,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 46%",
+      "title": "Totale voortgang · 47%",
       "transparent": true,
       "type": "canvas"
     },
@@ -292,7 +292,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "Compiler en reproduceerbaarheid · 80%",
                   "mode": "fixed"
@@ -305,7 +305,7 @@
               },
               "name": "project-status-grafana-panel-3-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -332,7 +332,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -357,7 +357,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 480
               },
               "type": "rectangle"
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 165 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 172 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -383,7 +383,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -430,7 +430,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "World Model en productcontracten · 72%",
                   "mode": "fixed"
@@ -443,7 +443,7 @@
               },
               "name": "project-status-grafana-panel-4-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -470,7 +470,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -495,7 +495,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 432
               },
               "type": "rectangle"
@@ -521,7 +521,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -537,7 +537,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:76",
+      "description": "project-status-area:design-system;progress:82",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -568,9 +568,9 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
-                  "fixed": "Design System · 76%",
+                  "fixed": "Design System · 82%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -581,7 +581,7 @@
               },
               "name": "project-status-grafana-panel-5-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -608,7 +608,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -633,8 +633,8 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
-                "width": 456
+                "top": 60,
+                "width": 492
               },
               "type": "rectangle"
             },
@@ -646,7 +646,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet, de theme primitives en de art direction zijn native gemigreerd en via resolutie en renderers geactiveerd.\nResterend: Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.",
+                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet, de theme primitives, art direction en lokale typografiestacks zijn native gemigreerd en via resolutie en renderers geactiveerd.\nResterend: Componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -659,7 +659,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -670,7 +670,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 76%",
+      "title": "Design System · 82%",
       "transparent": true,
       "type": "canvas"
     },
@@ -706,7 +706,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "Dashboard UI en Grafana · 65%",
                   "mode": "fixed"
@@ -719,7 +719,7 @@
               },
               "name": "project-status-grafana-panel-6-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -746,7 +746,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -771,7 +771,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 390
               },
               "type": "rectangle"
@@ -797,7 +797,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -813,7 +813,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:visual-world;progress:30",
+      "description": "project-status-area:visual-world;progress:32",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -844,9 +844,9 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
-                  "fixed": "Visuele wereld en art direction · 30%",
+                  "fixed": "Visuele wereld en art direction · 32%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -857,7 +857,7 @@
               },
               "name": "project-status-grafana-panel-7-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -884,7 +884,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -909,8 +909,8 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
-                "width": 180
+                "top": 60,
+                "width": 192
               },
               "type": "rectangle"
             },
@@ -922,7 +922,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit en een expliciete visuele balans van diepe navy, cyaan, schaarse koperwarmte, gecontroleerde gloed, technische lijnvoering en ruime duisternis.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
+                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans en een eigen typografische stem met Orbitron, Inter en JetBrains Mono.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -935,7 +935,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -946,7 +946,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Visuele wereld en art direction · 30%",
+      "title": "Visuele wereld en art direction · 32%",
       "transparent": true,
       "type": "canvas"
     },
@@ -982,7 +982,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "SVG component library en icon set · 20%",
                   "mode": "fixed"
@@ -995,7 +995,7 @@
               },
               "name": "project-status-grafana-panel-8-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -1022,7 +1022,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -1047,7 +1047,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 120
               },
               "type": "rectangle"
@@ -1073,7 +1073,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -1120,7 +1120,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "Logo's en wallpapers · 10%",
                   "mode": "fixed"
@@ -1133,7 +1133,7 @@
               },
               "name": "project-status-grafana-panel-9-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -1160,7 +1160,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -1185,7 +1185,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 60
               },
               "type": "rectangle"
@@ -1211,7 +1211,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:63",
+      "description": "project-status-area:homepage;progress:66",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1258,9 +1258,9 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
-                  "fixed": "HTML homepage · 63%",
+                  "fixed": "HTML homepage · 66%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1271,7 +1271,7 @@
               },
               "name": "project-status-grafana-panel-10-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -1298,7 +1298,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -1323,8 +1323,8 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
-                "width": 378
+                "top": 60,
+                "width": 396
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de entree presenteert de native merkidentiteit en de pagina activeert de opgeloste EmberForge art direction.\nResterend: Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de pagina activeert de opgeloste EmberForge merkidentiteit, art direction en lokale typografie.\nResterend: Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1349,7 +1349,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 63%",
+      "title": "HTML homepage · 66%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1396,7 +1396,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "Figma masterbestand · 10%",
                   "mode": "fixed"
@@ -1409,7 +1409,7 @@
               },
               "name": "project-status-grafana-panel-11-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -1436,7 +1436,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -1461,7 +1461,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 60
               },
               "type": "rectangle"
@@ -1487,7 +1487,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -1534,7 +1534,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "World Bible · 30%",
                   "mode": "fixed"
@@ -1547,7 +1547,7 @@
               },
               "name": "project-status-grafana-panel-12-title",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 16,
                 "width": 680
@@ -1574,7 +1574,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 600
               },
               "type": "rectangle"
@@ -1599,7 +1599,7 @@
               "placement": {
                 "height": 10,
                 "left": 16,
-                "top": 56,
+                "top": 60,
                 "width": 180
               },
               "type": "rectangle"
@@ -1625,7 +1625,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 78,
+                "top": 82,
                 "width": 680
               },
               "type": "text"
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:46",
-    "sha256:38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311"
+    "overall-progress:47",
+    "sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952"
   ],
   "templating": {
     "list": []

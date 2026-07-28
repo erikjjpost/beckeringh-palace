@@ -21,9 +21,10 @@ palet ember-forge {
 typografie forge-interface {
     naam: "Forge Interface"
     doel: "Forge-typografie."
-    heading: "Aptos Display"
-    body: "Aptos"
-    mono: "JetBrains Mono"
+    heading: ["Aptos Display", "sans-serif"]
+    body: ["Aptos", "sans-serif"]
+    mono: ["JetBrains Mono", "monospace"]
+    levering: "local-only"
 }
 thema forge {
     naam: "Forge"

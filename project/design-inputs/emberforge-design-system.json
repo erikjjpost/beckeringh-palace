@@ -31,9 +31,9 @@
     },
     {
       "id": "typography",
-      "status": "besluit-nodig",
+      "status": "gemigreerd",
       "doel": "BAT typography en typescale",
-      "bewijs": "Orbitron, Inter en JetBrains Mono conflicteren met de actieve Forge typografie."
+      "bewijs": "M11.3e migreert Orbitron, Inter en JetBrains Mono als geordende lokale fontstacks met generieke fallbacks en activeert de productgedragen EmberForge typeschaal zonder externe runtimebron."
     },
     {
       "id": "spacing-radius-shadow-motion",

@@ -111,7 +111,7 @@ class GrafanaBackendTests(unittest.TestCase):
             [link["url"] for link in navigatie["links"]],
         )
         self.assertEqual(
-            {"height": 528, "left": 4, "top": 4, "width": 4},
+            {"height": 540, "left": 4, "top": 4, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         inhoud = next(
@@ -131,7 +131,7 @@ class GrafanaBackendTests(unittest.TestCase):
             {
                 "align": "left",
                 "color": {"fixed": "#E6EDF5"},
-                "size": 28,
+                "size": 32,
                 "text": {"fixed": "Forge ontwerpsysteem", "mode": "fixed"},
                 "valign": "top",
             },
@@ -141,7 +141,7 @@ class GrafanaBackendTests(unittest.TestCase):
             {
                 "height": 192,
                 "left": 16,
-                "top": 112,
+                "top": 124,
                 "width": 280,
             },
             dashboard["panels"][2]["options"]["root"]["elements"][3]["placement"],

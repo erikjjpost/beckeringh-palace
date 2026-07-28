@@ -629,6 +629,17 @@ view. Gecontroleerde gloed, technische lijnvoering, ruime dichtheid en
 isometrische lijnkunst zijn expliciete waarden. De HTML backend gebruikt alleen
 de opgeloste art direction voor halo's, focusgloed, ornamentiek en metadata.
 
+M11.3e migreert de EmberForge typografie naar geordende fontstacks onder het
+native `typografie` object. Koppen gebruiken Orbitron, interface en lopende
+tekst gebruiken Inter en technische tekst gebruikt JetBrains Mono. Iedere
+stack eindigt in een expliciete generieke fallback en de levering is
+`local-only`. Externe URL's, imports en fontdownloads zijn semantisch verboden.
+
+De native typeschaal bevat alleen de rollen die producten daadwerkelijk
+dragen: display, title, heading, body, label en caption. HTML rendert de
+opgeloste stacks als CSS en schrijft typografie en leveringsbeleid als metadata
+uit. De backend leest geen ontwerpbron en maakt geen zelfstandige fontkeuze.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -658,6 +669,10 @@ de opgeloste art direction voor halo's, focusgloed, ornamentiek en metadata.
 | `BP3630` | Art direction verwijst naar een onbekende semantische kleurrol |
 | `BP3631` | Art direction begrenst warme accenten niet op één of twee |
 | `BP3632` | Art direction gebruikt een onbekende visuele modus |
+| `BP3640` | Typografie gebruikt geen expliciete `local-only` levering |
+| `BP3641` | Typografierol bevat geen geldige unieke fontstack |
+| `BP3642` | Typografierol bevat een externe fontbron |
+| `BP3643` | Typografierol eindigt niet in de vereiste generieke fallback |
 | `BP3633` | Thema verwijst naar een onbekende art direction |
 | `BP3634` | Thema activeert art direction zonder expliciet materiaal |
 | `BP3620` | Compact grid heeft meer kolommen dan het brede grid |

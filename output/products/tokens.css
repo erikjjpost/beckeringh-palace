@@ -9,5 +9,5 @@
   --bp-color-sky: #7DD3FC;
   --bp-color-smoke: #E6EDF5;
   --bp-radius-medium: 12px;
-  --bp-typography-family-forge-interface: Aptos;
+  --bp-typography-family-forge-interface: Inter, IBM Plex Sans, system-ui, -apple-system, sans-serif;
 }
