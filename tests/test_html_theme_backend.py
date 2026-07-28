@@ -57,9 +57,10 @@ palet ember-forge {
 typografie forge-interface {
     naam: "Forge Interface"
     doel: "Forge-typografie."
-    heading: "Aptos Display"
-    body: "Aptos"
-    mono: "JetBrains Mono"
+    heading: ["Aptos Display", "sans-serif"]
+    body: ["Aptos", "sans-serif"]
+    mono: ["JetBrains Mono", "monospace"]
+    levering: "local-only"
 }
 materiaal forge-materials {
     naam: "Forge Materials"
@@ -207,9 +208,15 @@ class HtmlThemeBackendTests(unittest.TestCase):
         self.assertIn('--bp-theme-primary: #D86A35;', product.inhoud)
         self.assertIn('--bp-theme-background: #171A1F;', product.inhoud)
         self.assertIn('--bp-theme-foreground: #ECECEC;', product.inhoud)
-        self.assertIn('--bp-font-heading: "Aptos Display";', product.inhoud)
-        self.assertIn('--bp-font-body: "Aptos";', product.inhoud)
-        self.assertIn('--bp-font-mono: "JetBrains Mono";', product.inhoud)
+        self.assertIn(
+            '--bp-font-heading: "Aptos Display", sans-serif;',
+            product.inhoud,
+        )
+        self.assertIn('--bp-font-body: "Aptos", sans-serif;', product.inhoud)
+        self.assertIn(
+            '--bp-font-mono: "JetBrains Mono", monospace;',
+            product.inhoud,
+        )
         self.assertIn('--bp-material-canvas: #171A1F;', product.inhoud)
         self.assertIn('--bp-material-surface: #20252C;', product.inhoud)
         self.assertIn('--bp-material-raised: #282E36;', product.inhoud)

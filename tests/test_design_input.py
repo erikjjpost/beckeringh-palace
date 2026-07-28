@@ -27,11 +27,13 @@ class DesignInputTests(unittest.TestCase):
         self.assertFalse(contract["normatief"])
         self.assertFalse(contract["externe_afhankelijkheden_toegestaan"])
 
-    def test_typography_conflict_remains_explicit(self) -> None:
+    def test_typography_has_auditable_native_migration(self) -> None:
         typography = next(
             area for area in self.source["gebieden"] if area["id"] == "typography"
         )
-        self.assertEqual("besluit-nodig", typography["status"])
+        self.assertEqual("gemigreerd", typography["status"])
+        self.assertIn("M11.3e", typography["bewijs"])
+        self.assertIn("lokale fontstacks", typography["bewijs"])
 
     def test_world_language_has_auditable_native_migration(self) -> None:
         world_language = next(

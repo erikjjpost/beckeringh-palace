@@ -22,9 +22,10 @@ palet ember-forge {
 typografie forge-interface {
     naam: "Forge Interface"
     doel: "Forge-typografie."
-    heading: "Aptos Display"
-    body: "Aptos"
-    mono: "JetBrains Mono"
+    heading: ["Aptos Display", "sans-serif"]
+    body: ["Aptos", "sans-serif"]
+    mono: ["JetBrains Mono", "monospace"]
+    levering: "local-only"
 }
 thema forge {
     naam: "Forge"
@@ -57,7 +58,10 @@ class ThemedProductContextTests(unittest.TestCase):
             self.assertEqual("beckeringh-palace", product.wereld)
             self.assertEqual("forge", product.thema.thema_id)
             self.assertEqual("#D86A35", product.thema.palet.kleur("accent").waarde)
-            self.assertEqual("Aptos", product.thema.typografie.body)
+            self.assertEqual(
+                ("Aptos", "sans-serif"),
+                product.thema.typografie.body,
+            )
             return product.thema.thema_id
 
         registry.registreer(Backend("capture", render))

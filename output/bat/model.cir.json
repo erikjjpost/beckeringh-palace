@@ -154,10 +154,29 @@
   },
   {
     "eigenschappen": {
-      "body": "Aptos",
-      "doel": "Typografische rollen voor digitale Forge-producten.",
-      "heading": "Aptos Display",
-      "mono": "JetBrains Mono",
+      "body": [
+        "Inter",
+        "IBM Plex Sans",
+        "system-ui",
+        "-apple-system",
+        "sans-serif"
+      ],
+      "doel": "Gecontroleerd gemigreerde EmberForge fontrollen met lokale fallbacks.",
+      "heading": [
+        "Orbitron",
+        "Iceland",
+        "Bank Gothic",
+        "system-ui",
+        "sans-serif"
+      ],
+      "levering": "local-only",
+      "mono": [
+        "JetBrains Mono",
+        "Fira Code",
+        "SF Mono",
+        "Menlo",
+        "monospace"
+      ],
       "naam": "Forge Interface"
     },
     "id": "forge-interface",
@@ -167,12 +186,12 @@
     "eigenschappen": {
       "body": "16px",
       "caption": "12px",
-      "display": "64px",
-      "doel": "Semantische tekstgroottes voor digitale Forge-producten.",
-      "heading": "28px",
-      "label": "14px",
+      "display": "80px",
+      "doel": "Gecontroleerd gemigreerde semantische EmberForge tekstgroottes.",
+      "heading": "32px",
+      "label": "12px",
       "naam": "Forge Type Scale",
-      "title": "40px"
+      "title": "56px"
     },
     "id": "forge-type-scale",
     "soort": "typeschaal"
@@ -416,7 +435,7 @@
       "doel": "Hoofdlettertype voor digitale Forge-producten.",
       "naam": "Forge interface font family",
       "type": "font-family",
-      "waarde": "Aptos"
+      "waarde": "Inter, IBM Plex Sans, system-ui, -apple-system, sans-serif"
     },
     "id": "typography-family-forge-interface",
     "soort": "token"

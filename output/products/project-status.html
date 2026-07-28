@@ -15,14 +15,14 @@
       --bp-theme-success: #4ADE80;
       --bp-theme-warning: #E0B341;
       --bp-theme-error: #F87171;
-      --bp-font-heading: "Aptos Display";
-      --bp-font-body: "Aptos";
-      --bp-font-mono: "JetBrains Mono";
-      --bp-type-display: 64px;
-      --bp-type-title: 40px;
-      --bp-type-heading: 28px;
+      --bp-font-heading: "Orbitron", "Iceland", "Bank Gothic", system-ui, sans-serif;
+      --bp-font-body: "Inter", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      --bp-font-mono: "JetBrains Mono", "Fira Code", "SF Mono", "Menlo", monospace;
+      --bp-type-display: 80px;
+      --bp-type-title: 56px;
+      --bp-type-heading: 32px;
       --bp-type-body: 16px;
-      --bp-type-label: 14px;
+      --bp-type-label: 12px;
       --bp-type-caption: 12px;
       --bp-material-canvas: #0F1724;
       --bp-material-surface: #1F2937;
@@ -206,9 +206,9 @@
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-product-mode="static" data-time-context="none" data-snapshot-id="38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311" data-snapshot-ref="sha256:38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-time-context="none" data-snapshot-id="b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952" data-snapshot-ref="sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 38e484a3a0f5</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10</p>
     <h1>Beckeringh Palace Projectstatus</h1>
     <p class="bp-product-purpose">De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.</p>
   </header>
@@ -216,24 +216,24 @@
     <section class="bp-status-summary">
       <div class="bp-status-overall">
         <span class="bp-status-label">Totale voortgang</span>
-        <strong>46%</strong>
+        <strong>47%</strong>
         <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
       </div>
       <div class="bp-status-milestones">
         <article class="bp-status-card">
           <span class="bp-status-label">Laatst voltooid</span>
-          <h2>M11.3c — EmberForge primitiefmigratie</h2>
-          <p>PR #75</p>
+          <h2>M11.3d — EmberForge art direction</h2>
+          <p>PR #76</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Actueel</span>
-          <h2>M11.3d — EmberForge art direction</h2>
+          <h2>M11.3e — EmberForge typografiemigratie</h2>
           <p>in uitvoering</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Volgende stap</span>
-          <h2>M11.3e — EmberForge typografiemigratie</h2>
-          <p>Het expliciete conflict tussen Aptos en Orbitron, Inter en JetBrains Mono normatief oplossen en zonder runtimeafhankelijkheid activeren.</p>
+          <h2>M11.3f — EmberForge componenttoestanden</h2>
+          <p>De geverifieerde rust, hover, focus, pressed en disabled toestanden normatief naar appearance en variant migreren zonder UI kit code over te nemen.</p>
         </article>
       </div>
     </section>
@@ -242,7 +242,7 @@
         <h3>Compiler en reproduceerbaarheid</h3>
         <progress class="bp-status-progress" max="100" value="80">80%</progress>
         <p><strong>80%</strong></p>
-        <p>Validatie, deterministische generatie, CI en 165 regressietests vormen een werkende kwaliteitsketen.</p>
+        <p>Validatie, deterministische generatie, CI en 172 regressietests vormen een werkende kwaliteitsketen.</p>
         <p class="bp-status-label">Meer producttypen, adapters en volwassen foutdiagnostiek.</p>
       </article>
       <article class="bp-status-card" data-status-area="world-model">
@@ -254,10 +254,10 @@
       </article>
       <article class="bp-status-card" data-status-area="design-system">
         <h3>Design System</h3>
-        <progress class="bp-status-progress" max="100" value="76">76%</progress>
-        <p><strong>76%</strong></p>
-        <p>Het geverifieerde EmberForge palet, de theme primitives en de art direction zijn native gemigreerd en via resolutie en renderers geactiveerd.</p>
-        <p class="bp-status-label">Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.</p>
+        <progress class="bp-status-progress" max="100" value="82">82%</progress>
+        <p><strong>82%</strong></p>
+        <p>Het geverifieerde EmberForge palet, de theme primitives, art direction en lokale typografiestacks zijn native gemigreerd en via resolutie en renderers geactiveerd.</p>
+        <p class="bp-status-label">Componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.</p>
       </article>
       <article class="bp-status-card" data-status-area="dashboard">
         <h3>Dashboard UI en Grafana</h3>
@@ -268,9 +268,9 @@
       </article>
       <article class="bp-status-card" data-status-area="visual-world">
         <h3>Visuele wereld en art direction</h3>
-        <progress class="bp-status-progress" max="100" value="30">30%</progress>
-        <p><strong>30%</strong></p>
-        <p>EmberForge heeft een native merkidentiteit en een expliciete visuele balans van diepe navy, cyaan, schaarse koperwarmte, gecontroleerde gloed, technische lijnvoering en ruime duisternis.</p>
+        <progress class="bp-status-progress" max="100" value="32">32%</progress>
+        <p><strong>32%</strong></p>
+        <p>EmberForge heeft een native merkidentiteit, expliciete visuele balans en een eigen typografische stem met Orbitron, Inter en JetBrains Mono.</p>
         <p class="bp-status-label">Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.</p>
       </article>
       <article class="bp-status-card" data-status-area="svg-library">
@@ -289,9 +289,9 @@
       </article>
       <article class="bp-status-card" data-status-area="homepage">
         <h3>HTML homepage</h3>
-        <progress class="bp-status-progress" max="100" value="63">63%</progress>
-        <p><strong>63%</strong></p>
-        <p>Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de entree presenteert de native merkidentiteit en de pagina activeert de opgeloste EmberForge art direction.</p>
+        <progress class="bp-status-progress" max="100" value="66">66%</progress>
+        <p><strong>66%</strong></p>
+        <p>Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de pagina activeert de opgeloste EmberForge merkidentiteit, art direction en lokale typografie.</p>
         <p class="bp-status-label">Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept.</p>
       </article>
       <article class="bp-status-card" data-status-area="figma">

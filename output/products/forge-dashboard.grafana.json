@@ -40,9 +40,9 @@
                 "color": {
                   "fixed": "#C9895B"
                 },
-                "size": 14,
+                "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 38e484a3a0f5",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot b674846b6f10",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -53,7 +53,7 @@
               },
               "name": "forge-dashboard-grafana-identity",
               "placement": {
-                "height": 22,
+                "height": 20,
                 "left": 16,
                 "top": 16,
                 "width": 720
@@ -66,7 +66,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 40,
+                "size": 56,
                 "text": {
                   "fixed": "Forge Dashboard",
                   "mode": "fixed"
@@ -79,9 +79,9 @@
               },
               "name": "forge-dashboard-grafana-title",
               "placement": {
-                "height": 48,
+                "height": 64,
                 "left": 16,
-                "top": 38,
+                "top": 36,
                 "width": 720
               },
               "type": "text"
@@ -107,7 +107,7 @@
               "placement": {
                 "height": 24,
                 "left": 776,
-                "top": 46,
+                "top": 44,
                 "width": 720
               },
               "type": "text"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 284,
+                "height": 296,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -179,7 +179,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "Wereld en identiteit",
                   "mode": "fixed"
@@ -192,7 +192,7 @@
               },
               "name": "forge-dashboard-left-panel-heading",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 20,
                 "top": 8,
                 "width": 360
@@ -205,7 +205,7 @@
                 "color": {
                   "fixed": "#C9895B"
                 },
-                "size": 56,
+                "size": 64,
                 "text": {
                   "fixed": "2",
                   "mode": "fixed"
@@ -218,9 +218,9 @@
               },
               "name": "forge-dashboard-left-panel-metric",
               "placement": {
-                "height": 64,
+                "height": 72,
                 "left": 20,
-                "top": 48,
+                "top": 52,
                 "width": 360
               },
               "type": "text"
@@ -246,7 +246,7 @@
               "placement": {
                 "height": 36,
                 "left": 20,
-                "top": 116,
+                "top": 128,
                 "width": 280
               },
               "type": "text"
@@ -272,7 +272,7 @@
               "placement": {
                 "height": 36,
                 "left": 300,
-                "top": 116,
+                "top": 128,
                 "width": 80
               },
               "type": "text"
@@ -297,7 +297,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 128,
+                "top": 140,
                 "width": 360
               },
               "type": "rectangle"
@@ -322,7 +322,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 140,
+                "top": 152,
                 "width": 360
               },
               "type": "rectangle"
@@ -360,7 +360,7 @@
               "placement": {
                 "height": 24,
                 "left": 20,
-                "top": 164,
+                "top": 176,
                 "width": 360
               },
               "type": "text"
@@ -386,7 +386,7 @@
               "placement": {
                 "height": 32,
                 "left": 20,
-                "top": 200,
+                "top": 212,
                 "width": 360
               },
               "type": "text"
@@ -412,7 +412,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 244,
+                "top": 256,
                 "width": 360
               },
               "type": "text"
@@ -471,7 +471,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 528,
+                "height": 540,
                 "left": 4,
                 "top": 4,
                 "width": 4
@@ -484,7 +484,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "Forge ontwerpsysteem",
                   "mode": "fixed"
@@ -497,7 +497,7 @@
               },
               "name": "forge-dashboard-center-panel-heading",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 16,
                 "top": 4,
                 "width": 360
@@ -510,7 +510,7 @@
                 "color": {
                   "fixed": "#C9895B"
                 },
-                "size": 56,
+                "size": 64,
                 "text": {
                   "fixed": "38",
                   "mode": "fixed"
@@ -523,9 +523,9 @@
               },
               "name": "forge-dashboard-center-panel-metric",
               "placement": {
-                "height": 64,
+                "height": 72,
                 "left": 16,
-                "top": 44,
+                "top": 48,
                 "width": 360
               },
               "type": "text"
@@ -551,7 +551,7 @@
               "placement": {
                 "height": 192,
                 "left": 16,
-                "top": 112,
+                "top": 124,
                 "width": 280
               },
               "type": "text"
@@ -577,7 +577,7 @@
               "placement": {
                 "height": 192,
                 "left": 296,
-                "top": 112,
+                "top": 124,
                 "width": 80
               },
               "type": "text"
@@ -602,7 +602,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 124,
+                "top": 136,
                 "width": 360
               },
               "type": "rectangle"
@@ -627,7 +627,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 136,
+                "top": 148,
                 "width": 360
               },
               "type": "rectangle"
@@ -652,7 +652,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 148,
+                "top": 160,
                 "width": 360
               },
               "type": "rectangle"
@@ -677,7 +677,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 160,
+                "top": 172,
                 "width": 360
               },
               "type": "rectangle"
@@ -702,7 +702,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 172,
+                "top": 184,
                 "width": 360
               },
               "type": "rectangle"
@@ -727,7 +727,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 184,
+                "top": 196,
                 "width": 360
               },
               "type": "rectangle"
@@ -752,7 +752,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 196,
+                "top": 208,
                 "width": 360
               },
               "type": "rectangle"
@@ -777,7 +777,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 208,
+                "top": 220,
                 "width": 360
               },
               "type": "rectangle"
@@ -802,7 +802,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 220,
+                "top": 232,
                 "width": 360
               },
               "type": "rectangle"
@@ -827,7 +827,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 232,
+                "top": 244,
                 "width": 360
               },
               "type": "rectangle"
@@ -852,7 +852,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 244,
+                "top": 256,
                 "width": 360
               },
               "type": "rectangle"
@@ -877,7 +877,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 256,
+                "top": 268,
                 "width": 360
               },
               "type": "rectangle"
@@ -902,7 +902,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 268,
+                "top": 280,
                 "width": 360
               },
               "type": "rectangle"
@@ -927,7 +927,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 280,
+                "top": 292,
                 "width": 360
               },
               "type": "rectangle"
@@ -952,7 +952,7 @@
               "placement": {
                 "height": 1,
                 "left": 16,
-                "top": 292,
+                "top": 304,
                 "width": 360
               },
               "type": "rectangle"
@@ -1000,7 +1000,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 316,
+                "top": 328,
                 "width": 360
               },
               "type": "text"
@@ -1026,7 +1026,7 @@
               "placement": {
                 "height": 96,
                 "left": 16,
-                "top": 376,
+                "top": 388,
                 "width": 360
               },
               "type": "text"
@@ -1052,7 +1052,7 @@
               "placement": {
                 "height": 48,
                 "left": 16,
-                "top": 484,
+                "top": 496,
                 "width": 360
               },
               "type": "text"
@@ -1111,7 +1111,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 408,
+                "height": 420,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1124,7 +1124,7 @@
                 "color": {
                   "fixed": "#E6EDF5"
                 },
-                "size": 28,
+                "size": 32,
                 "text": {
                   "fixed": "Productfamilie",
                   "mode": "fixed"
@@ -1137,7 +1137,7 @@
               },
               "name": "forge-dashboard-right-panel-heading",
               "placement": {
-                "height": 36,
+                "height": 40,
                 "left": 20,
                 "top": 8,
                 "width": 360
@@ -1150,7 +1150,7 @@
                 "color": {
                   "fixed": "#C9895B"
                 },
-                "size": 56,
+                "size": 64,
                 "text": {
                   "fixed": "31",
                   "mode": "fixed"
@@ -1163,9 +1163,9 @@
               },
               "name": "forge-dashboard-right-panel-metric",
               "placement": {
-                "height": 64,
+                "height": 72,
                 "left": 20,
-                "top": 48,
+                "top": 52,
                 "width": 360
               },
               "type": "text"
@@ -1191,7 +1191,7 @@
               "placement": {
                 "height": 96,
                 "left": 20,
-                "top": 116,
+                "top": 128,
                 "width": 280
               },
               "type": "text"
@@ -1217,7 +1217,7 @@
               "placement": {
                 "height": 96,
                 "left": 300,
-                "top": 116,
+                "top": 128,
                 "width": 80
               },
               "type": "text"
@@ -1242,7 +1242,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 128,
+                "top": 140,
                 "width": 360
               },
               "type": "rectangle"
@@ -1267,7 +1267,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 140,
+                "top": 152,
                 "width": 360
               },
               "type": "rectangle"
@@ -1292,7 +1292,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 152,
+                "top": 164,
                 "width": 360
               },
               "type": "rectangle"
@@ -1317,7 +1317,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 164,
+                "top": 176,
                 "width": 360
               },
               "type": "rectangle"
@@ -1342,7 +1342,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 176,
+                "top": 188,
                 "width": 360
               },
               "type": "rectangle"
@@ -1367,7 +1367,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 188,
+                "top": 200,
                 "width": 360
               },
               "type": "rectangle"
@@ -1392,7 +1392,7 @@
               "placement": {
                 "height": 1,
                 "left": 20,
-                "top": 200,
+                "top": 212,
                 "width": 360
               },
               "type": "rectangle"
@@ -1430,7 +1430,7 @@
               "placement": {
                 "height": 24,
                 "left": 20,
-                "top": 224,
+                "top": 236,
                 "width": 360
               },
               "type": "text"
@@ -1456,7 +1456,7 @@
               "placement": {
                 "height": 96,
                 "left": 20,
-                "top": 260,
+                "top": 272,
                 "width": 360
               },
               "type": "text"
@@ -1482,7 +1482,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 368,
+                "top": 380,
                 "width": 360
               },
               "type": "text"
@@ -1503,7 +1503,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:38e484a3a0f56978213443762324df3ed06c02720499432575c654d52e06c311"
+    "sha256:b674846b6f10fba9b06c79d68604e5001c037fa6b3830654d1755d37dce9c952"
   ],
   "templating": {
     "list": []

@@ -14,18 +14,13 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Gebied | Status | BAT bestemming |
 |---|---|---|
 | Palette | Gemigreerd in M11.3b | palette, materiaal en semantische kleurtokens |
-| Typografie | Besluit nodig | typography en typescale |
+| Typografie | Gemigreerd in M11.3e | typography en typescale |
 | Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
 | Componenten en states | Gedeeltelijk mapbaar | appearance, component en variant |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
 | Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
-
-De typografie wordt in deze milestone niet geactiveerd. Het bronpakket schrijft
-Orbitron, Inter en JetBrains Mono voor en de actieve Forge configuratie gebruikt
-een andere typografie. Dat conflict blijft expliciet totdat een normatieve
-BAT-migratie het oplost.
 
 De PNG logo's, placeholder SVG logo's, ontbrekende bestanden, Google Fonts,
 CDN iconen en UI kit implementatiecode worden niet als productbron overgenomen.
@@ -70,3 +65,17 @@ De HTML backend leest uitsluitend het opgeloste contract. Daaruit ontstaan
 twee subtiele radiale halo's, de technische scheidingslijn, cyaan focusgloed,
 reduced-motion gedrag en machineleesbare art-directionmetadata. De backend
 bevat geen EmberForge bronwaarden of zelfstandige merkbeslissingen.
+
+## Typografie
+
+M11.3e lost het expliciete typografieconflict normatief op. Orbitron draagt
+koppen, Inter draagt interface en lopende tekst en JetBrains Mono draagt
+technische tekst. Iedere rol bevat een geordende lokale voorkeursstack met een
+generieke fallback. De levering is expliciet `local-only`.
+
+De bestaande semantische productrollen krijgen de geverifieerde EmberForge
+groottes 80, 56, 32, 16, 12 en 12 pixels. Niet gebruikte bronstappen worden
+niet als losse BAT velden toegevoegd. De HTML backend vertaalt uitsluitend de
+opgeloste stacks naar geldige CSS en voegt geen `@import`, URL of fontdownload
+toe. Daardoor blijft de compiler onafhankelijk van Google Fonts en ontbrekende
+fontbestanden.

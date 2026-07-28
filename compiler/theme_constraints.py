@@ -11,6 +11,13 @@ PRIMITIEF_SOORTEN = (
     "materiaal", "border", "radius", "shadow", "motion", "spacing",
     "typeschaal", "artdirection",
 )
+TYPOGRAFIE_ROLLEN = ("heading", "body", "mono")
+TYPOGRAFIE_FALLBACKS = {
+    "heading": "sans-serif",
+    "body": "sans-serif",
+    "mono": "monospace",
+}
+VERBODEN_FONTBRONDELEN = ("@import", "url(", "://")
 
 
 @dataclass(frozen=True)
@@ -31,7 +38,9 @@ class ThemeFoundationConstraint:
         toegestane_velden = {
             "kleur": {"naam", "doel", "waarde"},
             "palet": {"naam", "doel", "primary", "secondary", "background", "surface", "foreground", "accent", "success", "warning", "error"},
-            "typografie": {"naam", "doel", "heading", "body", "mono"},
+            "typografie": {
+                "naam", "doel", *TYPOGRAFIE_ROLLEN, "levering",
+            },
             "typeschaal": {"naam", "doel", "display", "title", "heading", "body", "label", "caption"},
             "materiaal": {
                 "naam", "doel", "canvas", "surface", "raised", "foreground",
@@ -69,6 +78,68 @@ class ThemeFoundationConstraint:
                     boodschap=f"Kleur '{kleur.id}' vereist een expliciete hexwaarde",
                     locatie=kleur.eigenschaplocaties.get("waarde", kleur.bronlocatie),
                 ))
+
+        for typografie in objecten_per_soort["typografie"].values():
+            levering = typografie.eigenschappen.get("levering")
+            if levering != "local-only":
+                diagnostics.append(Diagnostic(
+                    code="BP3640",
+                    boodschap=(
+                        f"Typografie '{typografie.id}' vereist expliciete "
+                        "levering 'local-only'"
+                    ),
+                    locatie=typografie.eigenschaplocaties.get(
+                        "levering", typografie.bronlocatie
+                    ),
+                ))
+            for rol in TYPOGRAFIE_ROLLEN:
+                stack = typografie.eigenschappen.get(rol)
+                if (
+                    not isinstance(stack, list)
+                    or not stack
+                    or any(
+                        not isinstance(familie, str) or not familie.strip()
+                        for familie in stack
+                    )
+                    or len(stack) != len(set(stack))
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3641",
+                        boodschap=(
+                            f"Typografie '{typografie.id}' vereist voor '{rol}' "
+                            "een niet-lege, unieke fontstack"
+                        ),
+                        locatie=typografie.eigenschaplocaties.get(
+                            rol, typografie.bronlocatie
+                        ),
+                    ))
+                    continue
+                if any(
+                    verboden in familie.lower()
+                    for familie in stack
+                    for verboden in VERBODEN_FONTBRONDELEN
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3642",
+                        boodschap=(
+                            f"Typografie '{typografie.id}' mag voor '{rol}' "
+                            "geen externe fontbron bevatten"
+                        ),
+                        locatie=typografie.eigenschaplocaties.get(
+                            rol, typografie.bronlocatie
+                        ),
+                    ))
+                if stack[-1] != TYPOGRAFIE_FALLBACKS[rol]:
+                    diagnostics.append(Diagnostic(
+                        code="BP3643",
+                        boodschap=(
+                            f"Typografie '{typografie.id}' vereist voor '{rol}' "
+                            f"generieke fallback '{TYPOGRAFIE_FALLBACKS[rol]}'"
+                        ),
+                        locatie=typografie.eigenschaplocaties.get(
+                            rol, typografie.bronlocatie
+                        ),
+                    ))
 
         paletten = objecten_per_soort["palet"]
         for palet in paletten.values():

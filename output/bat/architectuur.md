@@ -226,13 +226,14 @@ Gecontroleerd gemigreerd semantisch kleurenpalet van EmberForge.
 
 ### Doel
 
-Typografische rollen voor digitale Forge-producten.
+Gecontroleerd gemigreerde EmberForge fontrollen met lokale fallbacks.
 
 ### Eigenschappen
 
-- **body:** Aptos
-- **heading:** Aptos Display
-- **mono:** JetBrains Mono
+- **body:** Inter, IBM Plex Sans, system-ui, -apple-system, sans-serif
+- **heading:** Orbitron, Iceland, Bank Gothic, system-ui, sans-serif
+- **levering:** local-only
+- **mono:** JetBrains Mono, Fira Code, SF Mono, Menlo, monospace
 
 ## Forge Type Scale
 
@@ -242,16 +243,16 @@ Typografische rollen voor digitale Forge-producten.
 
 ### Doel
 
-Semantische tekstgroottes voor digitale Forge-producten.
+Gecontroleerd gemigreerde semantische EmberForge tekstgroottes.
 
 ### Eigenschappen
 
 - **body:** 16px
 - **caption:** 12px
-- **display:** 64px
-- **heading:** 28px
-- **label:** 14px
-- **title:** 40px
+- **display:** 80px
+- **heading:** 32px
+- **label:** 12px
+- **title:** 56px
 
 ## Forge Materials
 
@@ -584,7 +585,7 @@ Hoofdlettertype voor digitale Forge-producten.
 ### Eigenschappen
 
 - **type:** font-family
-- **waarde:** Aptos
+- **waarde:** Inter, IBM Plex Sans, system-ui, -apple-system, sans-serif
 
 ## Forge Panel Appearance
 

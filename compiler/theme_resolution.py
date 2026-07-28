@@ -50,9 +50,10 @@ class ResolvedTypography:
     id: str
     naam: str
     doel: str
-    heading: str
-    body: str
-    mono: str
+    heading: tuple[str, ...]
+    body: tuple[str, ...]
+    mono: tuple[str, ...]
+    levering: str
 
 
 @dataclass(frozen=True)
@@ -207,6 +208,19 @@ def _waarden(obj: Architectuurobject, velden: tuple[str, ...]) -> dict[str, str]
     return {veld: _tekst(obj, veld) for veld in velden}
 
 
+def _tekstreeks(obj: Architectuurobject, veld: str) -> tuple[str, ...]:
+    waarde = obj.eigenschappen.get(veld)
+    if (
+        not isinstance(waarde, list)
+        or not waarde
+        or any(not isinstance(item, str) or not item.strip() for item in waarde)
+    ):
+        raise ThemeResolutionError(
+            f"{obj.soort.capitalize()} '{obj.id}' vereist tekstreeks '{veld}'"
+        )
+    return tuple(waarde)
+
+
 def _optioneel_object(index, thema: Architectuurobject, soort: str) -> Architectuurobject | None:
     object_id = thema.eigenschappen.get(soort)
     if object_id is None:
@@ -257,8 +271,13 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
         thema_doel=_tekst(thema, "doel"),
         palet=ResolvedPalette(palet.id, _tekst(palet, "naam"), _tekst(palet, "doel"), palet_kleuren),
         typografie=ResolvedTypography(
-            typografie.id, _tekst(typografie, "naam"), _tekst(typografie, "doel"),
-            **_waarden(typografie, ("heading", "body", "mono")),
+            id=typografie.id,
+            naam=_tekst(typografie, "naam"),
+            doel=_tekst(typografie, "doel"),
+            heading=_tekstreeks(typografie, "heading"),
+            body=_tekstreeks(typografie, "body"),
+            mono=_tekstreeks(typografie, "mono"),
+            levering=_tekst(typografie, "levering"),
         ),
         materiaal=resolved_materiaal,
         border=None if border is None else ResolvedBorder(

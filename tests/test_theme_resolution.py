@@ -39,9 +39,10 @@ palet ember-forge {
 typografie forge-interface {
     naam: "Forge Interface"
     doel: "Forge-typografie."
-    heading: "Aptos Display"
-    body: "Aptos"
-    mono: "JetBrains Mono"
+    heading: ["Aptos Display", "sans-serif"]
+    body: ["Aptos", "sans-serif"]
+    mono: ["JetBrains Mono", "monospace"]
+    levering: "local-only"
 }
 thema forge {
     naam: "Forge"
@@ -70,9 +71,16 @@ class ThemeResolutionTests(unittest.TestCase):
         self.assertEqual("forge-interface", resolved.typografie.id)
         self.assertEqual("#D86A35", resolved.palet.kleur("primary").waarde)
         self.assertEqual("#171A1F", resolved.palet.kleur("background").waarde)
-        self.assertEqual("Aptos Display", resolved.typografie.heading)
-        self.assertEqual("Aptos", resolved.typografie.body)
-        self.assertEqual("JetBrains Mono", resolved.typografie.mono)
+        self.assertEqual(
+            ("Aptos Display", "sans-serif"),
+            resolved.typografie.heading,
+        )
+        self.assertEqual(("Aptos", "sans-serif"), resolved.typografie.body)
+        self.assertEqual(
+            ("JetBrains Mono", "monospace"),
+            resolved.typografie.mono,
+        )
+        self.assertEqual("local-only", resolved.typografie.levering)
 
     def test_bewaart_normatieve_paletrolvolgorde(self):
         resolved = resolveer_thema(self.model.objecten, "beckeringh-palace")
