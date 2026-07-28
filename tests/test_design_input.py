@@ -53,6 +53,17 @@ class DesignInputTests(unittest.TestCase):
         self.assertIn("M11.3b", palette["bewijs"])
         self.assertIn("tokens", palette["bewijs"])
 
+    def test_primitives_have_auditable_native_migration(self) -> None:
+        primitives = next(
+            area
+            for area in self.source["gebieden"]
+            if area["id"] == "spacing-radius-shadow-motion"
+        )
+        self.assertEqual("gemigreerd", primitives["status"])
+        self.assertIn("M11.3c", primitives["bewijs"])
+        self.assertIn("border", primitives["bewijs"])
+        self.assertIn("appearance", primitives["bewijs"])
+
     def test_normative_external_source_fails_hard(self) -> None:
         invalid = copy.deepcopy(self.source)
         invalid["broncontract"]["normatief"] = True

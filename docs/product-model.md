@@ -615,6 +615,13 @@ blijft het spaarzame warme accent. Succes, waarschuwing en fout hebben eigen
 semantische rollen. HTML en Grafana gebruiken dezelfde opgeloste waarden en
 lezen het externe bronpakket niet.
 
+M11.3c migreert de productgedragen semantische rollen voor spacing, radius,
+border, shadow en motion naar native BAT. De bestaande rolnamen blijven de
+stabiele interface voor appearances en renderers. Hun waarden volgen de
+geverifieerde EmberForge bron: een 4px ruimtebasis, zachte afronding, 1px
+lijnen, donkere elevaties en rustige motion met de standaard easing.
+Bronstappen zonder productrol worden niet als ongebruikte velden toegevoegd.
+
 ## Diagnostics
 
 | Code | Betekenis |

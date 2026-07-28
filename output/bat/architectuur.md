@@ -281,13 +281,13 @@ Gecontroleerd gemigreerde EmberForge materiaalrollen.
 
 ### Doel
 
-Lijndiktes en lijnstijl voor Forge-producten.
+Gecontroleerd gemigreerde EmberForge lijnhiërarchie.
 
 ### Eigenschappen
 
 - **hairline:** 1px
-- **regular:** 2px
-- **strong:** 3px
+- **regular:** 1px
+- **strong:** 1px
 - **style:** solid
 
 ## Forge Radius
@@ -298,11 +298,11 @@ Lijndiktes en lijnstijl voor Forge-producten.
 
 ### Doel
 
-Afrondingsschaal voor Forge-componenten.
+Gecontroleerd gemigreerde EmberForge afrondingsschaal.
 
 ### Eigenschappen
 
-- **large:** 24px
+- **large:** 16px
 - **medium:** 12px
 - **pill:** 999px
 - **small:** 4px
@@ -315,13 +315,13 @@ Afrondingsschaal voor Forge-componenten.
 
 ### Doel
 
-Diepteschaal voor Forge-oppervlakken.
+Gecontroleerd gemigreerde EmberForge diepteschaal.
 
 ### Eigenschappen
 
-- **high:** 0 20px 48px #00000073
-- **low:** 0 2px 8px #00000040
-- **medium:** 0 8px 24px #00000059
+- **high:** 0 18px 44px rgba(0,0,0,0.45)
+- **low:** 0 1px 2px rgba(0,0,0,0.25)
+- **medium:** 0 6px 18px rgba(0,0,0,0.35)
 
 ## Forge Motion
 
@@ -331,11 +331,11 @@ Diepteschaal voor Forge-oppervlakken.
 
 ### Doel
 
-Tijds- en easingprofiel voor rustige Forge-interacties.
+Gecontroleerd gemigreerd EmberForge tijds- en easingprofiel.
 
 ### Eigenschappen
 
-- **easing:** cubic-bezier(0.2, 0.8, 0.2, 1)
+- **easing:** cubic-bezier(0.2, 0.7, 0.2, 1)
 - **fast:** 120ms
 - **normal:** 220ms
 - **slow:** 420ms
@@ -348,15 +348,15 @@ Tijds- en easingprofiel voor rustige Forge-interacties.
 
 ### Doel
 
-Ruimtelijke schaal voor Forge-componenten en composities.
+Gecontroleerd gemigreerde EmberForge ruimte op een 4px-basis.
 
 ### Eigenschappen
 
-- **large:** 24px
+- **large:** 32px
 - **medium:** 16px
 - **none:** 0
 - **small:** 8px
-- **xl:** 40px
+- **xl:** 64px
 - **xs:** 4px
 
 ## Forge

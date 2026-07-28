@@ -3,19 +3,19 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.3b",
-    "name": "EmberForge paletmigratie",
+    "id": "M11.3c",
+    "name": "EmberForge primitiefmigratie",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.1e",
-    "name": "Homepage wereldpresentatie",
-    "pull_request": 73
+    "id": "M11.3b",
+    "name": "EmberForge paletmigratie",
+    "pull_request": 74
   },
   "next_step": {
-    "id": "M11.3c",
-    "name": "EmberForge primitiefmigratie",
-    "purpose": "De geverifieerde spacing, radius, shadow en motion schalen gecontroleerd naar BAT migreren en in de afgeleide producten activeren."
+    "id": "M11.3d",
+    "name": "EmberForge art direction",
+    "purpose": "De vastgestelde balans van diepe navy, lichtend cyaan, gesmeed koper, gecontroleerde gloed, technische ornamentiek en ruime duisternis als native visueel contract modelleren."
   },
   "areas": [
     {
@@ -37,10 +37,10 @@
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 68,
+      "progress": 73,
       "weight": 10,
-      "evidence": "Het geverifieerde EmberForge palet is native gemigreerd naar ruwe kleuren, semantische palet en materiaalrollen en draagbare tokens; HTML en Grafana gebruiken dezelfde opgeloste waarden.",
-      "remaining": "Spacing, radius, shadow, motion, typografie, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief worden gemigreerd."
+      "evidence": "Het geverifieerde EmberForge palet en de semantische spacing, radius, border, shadow en motion rollen zijn native gemigreerd en via theme, appearance en renderers geactiveerd.",
+      "remaining": "Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd."
     },
     {
       "id": "dashboard",
