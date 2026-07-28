@@ -8,14 +8,18 @@ from compiler.diagnostics import Diagnostic
 from compiler.layout_model import LayoutDirection, LayoutType
 
 
-LAYOUT_COMMON_FIELDS = frozenset({"naam", "doel", "type", "regions"})
+LAYOUT_COMMON_FIELDS = frozenset({
+    "naam", "doel", "type", "regions", "responsive-breakpoint", "compact-columns"
+})
 LAYOUT_TYPE_FIELDS = {
     LayoutType.GRID: frozenset({"columns", "rows"}),
     LayoutType.STACK: frozenset({"direction"}),
     LayoutType.FLOW: frozenset({"direction", "wrap"}),
     LayoutType.LAYER: frozenset(),
 }
-REGION_COMMON_FIELDS = frozenset({"naam", "doel", "layout", "instantie"})
+REGION_COMMON_FIELDS = frozenset({
+    "naam", "doel", "layout", "instantie", "compact-order"
+})
 REGION_TYPE_FIELDS = {
     LayoutType.GRID: frozenset({"column", "row", "column-span", "row-span"}),
     LayoutType.STACK: frozenset(),
@@ -135,6 +139,39 @@ class NativeLayoutConstraint:
                             f"Grid-layout '{obj.id}' vereist een positief geheel getal voor '{veld}'",
                             locatie=obj.eigenschaplocaties.get(veld, obj.bronlocatie),
                         ))
+                responsive_fields = (
+                    "responsive-breakpoint" in obj.eigenschappen,
+                    "compact-columns" in obj.eigenschappen,
+                )
+                if any(responsive_fields) and not all(responsive_fields):
+                    diagnostics.append(Diagnostic(
+                        "BP3618",
+                        f"Grid-layout '{obj.id}' vereist zowel 'responsive-breakpoint' als 'compact-columns'",
+                        locatie=obj.bronlocatie,
+                    ))
+                for veld in ("responsive-breakpoint", "compact-columns"):
+                    if (
+                        veld in obj.eigenschappen
+                        and not _positief_geheel_getal(obj.eigenschappen.get(veld))
+                    ):
+                        diagnostics.append(Diagnostic(
+                            "BP3619",
+                            f"Grid-layout '{obj.id}' vereist een positief geheel getal voor '{veld}'",
+                            locatie=obj.eigenschaplocaties.get(veld, obj.bronlocatie),
+                        ))
+                if (
+                    _positief_geheel_getal(obj.eigenschappen.get("compact-columns"))
+                    and _positief_geheel_getal(obj.eigenschappen.get("columns"))
+                    and int(str(obj.eigenschappen["compact-columns"]))
+                    > int(str(obj.eigenschappen["columns"]))
+                ):
+                    diagnostics.append(Diagnostic(
+                        "BP3620",
+                        f"Grid-layout '{obj.id}' kan compact niet meer kolommen hebben dan breed",
+                        locatie=obj.eigenschaplocaties.get(
+                            "compact-columns", obj.bronlocatie
+                        ),
+                    ))
             elif layout_type in (LayoutType.STACK, LayoutType.FLOW):
                 direction = obj.eigenschappen.get("direction")
                 if direction not in {item.value for item in LayoutDirection}:
@@ -207,6 +244,18 @@ class NativeLayoutConstraint:
                     ))
 
             if layout_type is LayoutType.GRID:
+                compact_order = obj.eigenschappen.get("compact-order")
+                if (
+                    "responsive-breakpoint" in layout.eigenschappen
+                    and not _positief_geheel_getal(compact_order)
+                ):
+                    diagnostics.append(Diagnostic(
+                        "BP3621",
+                        f"Region '{obj.id}' vereist een positieve gehele 'compact-order'",
+                        locatie=obj.eigenschaplocaties.get(
+                            "compact-order", obj.bronlocatie
+                        ),
+                    ))
                 if (
                     _positief_geheel_getal(obj.eigenschappen.get("column"))
                     and _positief_geheel_getal(obj.eigenschappen.get("column-span"))
@@ -235,4 +284,23 @@ class NativeLayoutConstraint:
                         f"Region '{obj.id}' valt buiten de rijen van grid-layout '{layout.id}'",
                         locatie=obj.bronlocatie,
                     ))
+        for layout in layouts.values():
+            if "responsive-breakpoint" not in layout.eigenschappen:
+                continue
+            region_ids = layout.eigenschappen.get("regions") or []
+            orders = [
+                regions[region_id].eigenschappen.get("compact-order")
+                for region_id in region_ids
+                if region_id in regions
+            ]
+            if (
+                all(_positief_geheel_getal(order) for order in orders)
+                and sorted(int(str(order)) for order in orders)
+                != list(range(1, len(region_ids) + 1))
+            ):
+                diagnostics.append(Diagnostic(
+                    "BP3622",
+                    f"Layout '{layout.id}' vereist een aaneengesloten compacte volgorde",
+                    locatie=layout.bronlocatie,
+                ))
         return tuple(diagnostics)

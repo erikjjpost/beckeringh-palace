@@ -63,6 +63,33 @@ def _region_css(layout: ResolvedLayout, region: ResolvedRegion) -> tuple[str, ..
     return ()
 
 
+def _responsive_css(layout: ResolvedLayout) -> tuple[str, ...]:
+    if (
+        layout.type is not LayoutType.GRID
+        or layout.responsive_breakpoint is None
+        or layout.compact_columns is None
+    ):
+        return ()
+    selector = f".bp-layout-{_css_naam(layout.id)}"
+    regels = [
+        f"    @media (max-width: {layout.responsive_breakpoint}px) {{",
+        (
+            f"      {selector} {{ grid-template-columns:"
+            f"repeat({layout.compact_columns},minmax(0,1fr)) !important; }}"
+        ),
+    ]
+    for region in sorted(
+        layout.regions, key=lambda item: item.compact_order or 0
+    ):
+        regels.append(
+            f"      [data-region=\"{html.escape(region.id)}\"] "
+            f"{{ grid-column:1 / span {layout.compact_columns} !important; "
+            f"grid-row:auto !important; order:{region.compact_order}; }}"
+        )
+    regels.append("    }")
+    return tuple(regels)
+
+
 def _style(regels: tuple[str, ...]) -> str:
     return ";".join(regels)
 
@@ -117,6 +144,7 @@ def naar_native_layout_html(
         "  <style>",
         "    .bp-layout { box-sizing: border-box; }",
         "    .bp-region { box-sizing: border-box; }",
+        *_responsive_css(layout),
         "  </style>",
         "</head>",
         "<body>",
@@ -145,6 +173,8 @@ def naar_native_layout_html(
         (
             f'  <main class="bp-layout bp-layout-{_css_naam(layout.id)}" '
             f'data-layout-type="{layout.type.value}" '
+            f'data-responsive-breakpoint="{layout.responsive_breakpoint or ""}" '
+            f'data-compact-columns="{layout.compact_columns or ""}" '
             f'style="{_style(_layout_css(layout))}">'
         ),
     ])
@@ -196,6 +226,21 @@ def naar_native_layout_html(
             if instantie.reading_order is not None
             else ""
         )
+        focus_order_attribute = (
+            f' data-focus-order="{instantie.focus_order}"'
+            if instantie.focus_order is not None
+            else ""
+        )
+        navigation_behavior_attribute = (
+            f' data-navigation-behavior="{html.escape(instantie.navigation_behavior)}"'
+            if instantie.navigation_behavior is not None
+            else ""
+        )
+        compact_order_attribute = (
+            f' data-compact-order="{region.compact_order}"'
+            if region.compact_order is not None
+            else ""
+        )
         regels.extend([
             (
                 f'    <section class="bp-region {componentklasse(instantie.component_id)}'
@@ -206,7 +251,8 @@ def naar_native_layout_html(
                 f"{variant_attribute}{appearance_attribute}"
                 f"{information_area_attribute}{homepage_area_attribute}"
                 f"{homepage_role_attribute}{component_role_attribute}"
-                f"{reading_order_attribute}"
+                f"{reading_order_attribute}{focus_order_attribute}"
+                f"{navigation_behavior_attribute}{compact_order_attribute}"
                 f"{accessibility_attribute}{style_attribute}>"
             ),
             f"      <h2>{html.escape(instantie.naam)}</h2>",

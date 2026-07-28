@@ -430,6 +430,8 @@ homepagegebied homepage-entrance {
     component: "forge-panel"
     variant: "forge-panel-hero"
     leesvolgorde: "1"
+    focusvolgorde: "0"
+    navigatiegedrag: "geen"
     kernboodschap: "Design is data."
 }
 
@@ -441,6 +443,8 @@ homepagegebied homepage-world-area {
     component: "forge-panel"
     variant: "forge-panel-route"
     leesvolgorde: "2"
+    focusvolgorde: "1"
+    navigatiegedrag: "volledige-kaart"
     kernboodschap: "Eén normatief wereldmodel verbindt identiteit, ontwerp en producten."
     navigatie: "forge-dashboard-html"
 }
@@ -453,6 +457,8 @@ homepagegebied homepage-design-system-area {
     component: "forge-panel"
     variant: "forge-panel-route"
     leesvolgorde: "3"
+    focusvolgorde: "2"
+    navigatiegedrag: "volledige-kaart"
     kernboodschap: "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem."
     navigatie: "html-components"
 }
@@ -465,6 +471,8 @@ homepagegebied homepage-project-status-area {
     component: "forge-panel"
     variant: "forge-panel-route"
     leesvolgorde: "4"
+    focusvolgorde: "3"
+    navigatiegedrag: "volledige-kaart"
     kernboodschap: "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus."
     navigatie: "project-status-html"
 }
@@ -496,6 +504,8 @@ layout beckeringh-palace-homepage-grid {
     regions: ["homepage-intro-region", "homepage-world-region", "homepage-design-system-region", "homepage-project-status-region"]
     columns: "3"
     rows: "2"
+    responsive-breakpoint: "960"
+    compact-columns: "1"
 }
 
 region homepage-intro-region {
@@ -507,6 +517,7 @@ region homepage-intro-region {
     row: "1"
     column-span: "3"
     row-span: "1"
+    compact-order: "1"
 }
 
 region homepage-world-region {
@@ -518,6 +529,7 @@ region homepage-world-region {
     row: "2"
     column-span: "1"
     row-span: "1"
+    compact-order: "2"
 }
 
 region homepage-design-system-region {
@@ -529,6 +541,7 @@ region homepage-design-system-region {
     row: "2"
     column-span: "1"
     row-span: "1"
+    compact-order: "3"
 }
 
 region homepage-project-status-region {
@@ -540,6 +553,7 @@ region homepage-project-status-region {
     row: "2"
     column-span: "1"
     row-span: "1"
+    compact-order: "4"
 }
 
 product beckeringh-palace-homepage {

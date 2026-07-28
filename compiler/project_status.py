@@ -27,6 +27,7 @@ class ProductAreaStatus:
     id: str
     name: str
     progress: int
+    weight: int
     evidence: str
     remaining: str
 
@@ -58,9 +59,10 @@ def validate_project_status(status: dict[str, Any]) -> None:
     for key in ("project", "overall_method"):
         _required_text(status, key, context)
 
-    overall = status.get("overall_progress")
-    if not isinstance(overall, int) or not 0 <= overall <= 100:
-        raise ValueError(f"{context}: overall_progress moet een geheel percentage zijn")
+    if "overall_progress" in status:
+        raise ValueError(
+            f"{context}: overall_progress wordt berekend en mag niet worden opgeslagen"
+        )
 
     current = status.get("current_milestone")
     completed = status.get("last_completed_milestone")
@@ -88,7 +90,8 @@ def validate_project_status(status: dict[str, Any]) -> None:
         raise ValueError(f"{context}: areas moet ten minste één productgebied bevatten")
 
     ids: set[str] = set()
-    required = {"id", "name", "progress", "evidence", "remaining"}
+    required = {"id", "name", "progress", "weight", "evidence", "remaining"}
+    total_weight = 0
     for area in areas:
         if not isinstance(area, dict):
             raise ValueError(f"{context}: ieder productgebied moet een object zijn")
@@ -108,6 +111,24 @@ def validate_project_status(status: dict[str, Any]) -> None:
             raise ValueError(
                 f"{context}: voortgang voor '{area_id}' moet een geheel percentage zijn"
             )
+        weight = area["weight"]
+        if not isinstance(weight, int) or not 0 < weight <= 100:
+            raise ValueError(
+                f"{context}: gewicht voor '{area_id}' moet een positief geheel percentage zijn"
+            )
+        total_weight += weight
+    if total_weight != 100:
+        raise ValueError(
+            f"{context}: gewichten van productgebieden moeten samen 100 zijn"
+        )
+
+
+def calculate_overall_progress(status: dict[str, Any]) -> int:
+    validate_project_status(status)
+    weighted = sum(
+        area["progress"] * area["weight"] for area in status["areas"]
+    )
+    return (weighted + 50) // 100
 
 
 def project_status_from_dict(status: dict[str, Any]) -> ProjectStatus:
@@ -118,7 +139,7 @@ def project_status_from_dict(status: dict[str, Any]) -> ProjectStatus:
     return ProjectStatus(
         schema_version=status["schema_version"],
         project=status["project"],
-        overall_progress=status["overall_progress"],
+        overall_progress=calculate_overall_progress(status),
         overall_method=status["overall_method"],
         current_milestone=MilestoneStatus(
             id=current["id"],
@@ -140,6 +161,7 @@ def project_status_from_dict(status: dict[str, Any]) -> ProjectStatus:
                 id=area["id"],
                 name=area["name"],
                 progress=area["progress"],
+                weight=area["weight"],
                 evidence=area["evidence"],
                 remaining=area["remaining"],
             )

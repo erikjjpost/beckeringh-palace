@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot adaead36cf9e",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f6d8cd6ba663",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:40",
+      "description": "project-status-schema:1;overall-progress:42",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Totale voortgang · 40%",
+                  "fixed": "Totale voortgang · 42%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 240
+                "width": 252
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.1c · Homepage visuele hiërarchie (in uitvoering)\nVoltooid: M11.2a · Documentatiebasis en productrunbook (PR #69)\nVolgende stap: M11.1d · Homepage responsief contract\nResponsieve herschikking, focusvolgorde en navigatiegedrag expliciet modelleren en valideren zonder backendafleiding.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.1d · Homepage responsief contract (in uitvoering)\nVoltooid: M11.1c · Homepage visuele hiërarchie (PR #70)\nVolgende stap: M11.1e · Homepage wereldpresentatie\nDe Palace identiteit, productfamilie en samenhangende wereldboodschap native verdiepen zonder inhoud in de backend vast te leggen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 40%",
+      "title": "Totale voortgang · 42%",
       "transparent": true,
       "type": "canvas"
     },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 140 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 144 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:50",
+      "description": "project-status-area:homepage;progress:55",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "HTML homepage · 50%",
+                  "fixed": "HTML homepage · 55%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 300
+                "width": 330
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant en appearance; de entree en drie productroutes hebben een expliciete visuele hiërarchie.\nResterend: Responsief gedrag en de volwaardige wereldpresentatie moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoudsrol, componentrol, component, variant, appearance, focusvolgorde en navigatiegedrag; het grid legt breakpoint, compacte kolommen en herschikking expliciet vast.\nResterend: De volwaardige wereldpresentatie en verdere productroutes moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 50%",
+      "title": "HTML homepage · 55%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:40",
-    "sha256:adaead36cf9ef728197ac96fefc246b6540c1ee288f2ed2f6a73e531e2c8575f"
+    "overall-progress:42",
+    "sha256:f6d8cd6ba663306ff70c178ea0aefcf5dd3d9b49c823b6430ca0f0a514414df1"
   ],
   "templating": {
     "list": []

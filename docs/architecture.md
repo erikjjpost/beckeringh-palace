@@ -62,7 +62,9 @@ De normatieve projectstatus wordt als getypeerde `ProjectStatus` één keer
 gevalideerd en door de productcompiler aan de gedeelde productcontext
 toegevoegd. Backends krijgen daardoor dezelfde voortgang, milestones,
 onderbouwing en resterend werk zonder zelf `project/status.json` te lezen of
-eigen statuslogica toe te voegen. Productcompilatie zonder aangeleverde status
+eigen statuslogica toe te voegen. De totale voortgang is geen los opgeslagen
+veld: de statuslaag berekent haar deterministisch uit de expliciete percentages
+en gewichten van de productgebieden. Productcompilatie zonder aangeleverde status
 blijft expliciet contextloos voor bestaande en externe compilatiepaden.
 
 Native composities beschrijven de inhoud van een product onafhankelijk van de

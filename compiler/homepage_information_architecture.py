@@ -21,6 +21,8 @@ class ResolvedHomepageArea:
     variant_id: str | None
     appearance_id: str
     reading_order: int
+    focus_order: int
+    navigation_behavior: str
     core_message: str
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
 
@@ -53,6 +55,8 @@ class HomepageInformationArchitectureConstraint:
                     "component",
                     "variant",
                     "leesvolgorde",
+                    "focusvolgorde",
+                    "navigatiegedrag",
                     "kernboodschap",
                     "navigatie",
                 }:
@@ -199,6 +203,32 @@ class HomepageInformationArchitectureConstraint:
                 leesvolgordes[leespositie] = gebied.id
 
             navigatie = gebied.eigenschappen.get("navigatie")
+            focusvolgorde = gebied.eigenschappen.get("focusvolgorde")
+            navigatiegedrag = gebied.eigenschappen.get("navigatiegedrag")
+            if rol == "entree":
+                if str(focusvolgorde) != "0" or navigatiegedrag != "geen":
+                    diagnostics.append(Diagnostic(
+                        code="BP4115",
+                        boodschap=(
+                            f"Entreegebied '{gebied.id}' vereist focusvolgorde "
+                            "'0' en navigatiegedrag 'geen'"
+                        ),
+                        locatie=gebied.bronlocatie,
+                    ))
+            elif rol == "route":
+                try:
+                    geldige_focus = int(str(focusvolgorde)) > 0
+                except ValueError:
+                    geldige_focus = False
+                if not geldige_focus or navigatiegedrag != "volledige-kaart":
+                    diagnostics.append(Diagnostic(
+                        code="BP4116",
+                        boodschap=(
+                            f"Routegebied '{gebied.id}' vereist een positieve "
+                            "focusvolgorde en navigatiegedrag 'volledige-kaart'"
+                        ),
+                        locatie=gebied.bronlocatie,
+                    ))
             if rol == "entree" and "navigatie" in gebied.eigenschappen:
                 diagnostics.append(Diagnostic(
                     code="BP4106",
@@ -305,6 +335,8 @@ def resolveer_homepagegebieden(
             variant_id=variant_id,
             appearance_id=str(variant.eigenschappen["appearance"]),
             reading_order=int(obj.eigenschappen["leesvolgorde"]),
+            focus_order=int(obj.eigenschappen["focusvolgorde"]),
+            navigation_behavior=str(obj.eigenschappen["navigatiegedrag"]),
             core_message=str(obj.eigenschappen["kernboodschap"]),
             navigation_targets=navigatiedoelen,
         ))

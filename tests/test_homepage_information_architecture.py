@@ -42,6 +42,14 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
             tuple(gebied.component_role for gebied in gebieden),
         )
         self.assertEqual(
+            (0, 1, 2, 3),
+            tuple(gebied.focus_order for gebied in gebieden),
+        )
+        self.assertEqual(
+            ("geen", "volledige-kaart", "volledige-kaart", "volledige-kaart"),
+            tuple(gebied.navigation_behavior for gebied in gebieden),
+        )
+        self.assertEqual(
             (
                 "forge-panel-hero-appearance",
                 "forge-panel-compact-appearance",
@@ -242,6 +250,34 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
                     1,
                 ),
                 "BP3723",
+            ),
+        )
+        for invalid_source, code in variants:
+            with self.subTest(code=code):
+                with self.assertRaises(SemantischeFout) as context:
+                    analyseer(
+                        parseer(invalid_source),
+                        constraints=WORLD_MODEL_CONSTRAINTS,
+                    )
+                self.assertIn(
+                    code,
+                    {item.code for item in context.exception.diagnostics},
+                )
+
+    def test_responsief_contract_weigert_impliciete_focus_of_navigatie(self) -> None:
+        source = WORLD.read_text(encoding="utf-8")
+        variants = (
+            (
+                source.replace('    focusvolgorde: "0"', '    focusvolgorde: "1"', 1),
+                "BP4115",
+            ),
+            (
+                source.replace(
+                    '    navigatiegedrag: "volledige-kaart"',
+                    '    navigatiegedrag: "losse-link"',
+                    1,
+                ),
+                "BP4116",
             ),
         )
         for invalid_source, code in variants:

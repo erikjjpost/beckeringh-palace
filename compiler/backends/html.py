@@ -121,8 +121,6 @@ def _theme_css(product: ProductDefinition) -> str:
         "    .bp-region h2 { margin-top: 0; }",
         "    @media (max-width: 960px) {",
         "      body { padding: var(--bp-spacing-large); }",
-        "      .bp-layout { grid-template-columns: 1fr !important; }",
-        "      .bp-region { grid-column: 1 !important; grid-row: auto !important; }",
         "    }",
     ])
 
