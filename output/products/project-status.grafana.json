@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d4aee0aeff28",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 5c36d4382090",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:44",
+      "description": "project-status-schema:1;overall-progress:45",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Totale voortgang · 44%",
+                  "fixed": "Totale voortgang · 45%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 264
+                "width": 270
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3b · EmberForge paletmigratie (in uitvoering)\nVoltooid: M11.1e · Homepage wereldpresentatie (PR #73)\nVolgende stap: M11.3c · EmberForge primitiefmigratie\nDe geverifieerde spacing, radius, shadow en motion schalen gecontroleerd naar BAT migreren en in de afgeleide producten activeren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3c · EmberForge primitiefmigratie (in uitvoering)\nVoltooid: M11.3b · EmberForge paletmigratie (PR #74)\nVolgende stap: M11.3d · EmberForge art direction\nDe vastgestelde balans van diepe navy, lichtend cyaan, gesmeed koper, gecontroleerde gloed, technische ornamentiek en ruime duisternis als native visueel contract modelleren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 44%",
+      "title": "Totale voortgang · 45%",
       "transparent": true,
       "type": "canvas"
     },
@@ -537,7 +537,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:68",
+      "description": "project-status-area:design-system;progress:73",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -570,7 +570,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "Design System · 68%",
+                  "fixed": "Design System · 73%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -634,7 +634,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 408
+                "width": 438
               },
               "type": "rectangle"
             },
@@ -646,7 +646,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet is native gemigreerd naar ruwe kleuren, semantische palet en materiaalrollen en draagbare tokens; HTML en Grafana gebruiken dezelfde opgeloste waarden.\nResterend: Spacing, radius, shadow, motion, typografie, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief worden gemigreerd.",
+                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet en de semantische spacing, radius, border, shadow en motion rollen zijn native gemigreerd en via theme, appearance en renderers geactiveerd.\nResterend: Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -670,7 +670,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 68%",
+      "title": "Design System · 73%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:44",
-    "sha256:d4aee0aeff28b9453115d2c0750418fdbb01518f29ae60216f9f3b955f8b3c4c"
+    "overall-progress:45",
+    "sha256:5c36d43820908fba8c6524151040d726676fe953258d878c95d2855afb1ef690"
   ],
   "templating": {
     "list": []

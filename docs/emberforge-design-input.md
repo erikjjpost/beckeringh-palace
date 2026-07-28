@@ -15,7 +15,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 |---|---|---|
 | Palette | Gemigreerd in M11.3b | palette, materiaal en semantische kleurtokens |
 | Typografie | Besluit nodig | typography en typescale |
-| Spacing, radius, shadow en motion | Mapbaar | gelijknamige theme primitives |
+| Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
 | Componenten en states | Gedeeltelijk mapbaar | appearance, component en variant |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
@@ -46,3 +46,12 @@ native BAT kleur, palet, materiaal en tokenobjecten. Sky is de primaire
 interactiekleur. Ember Copper blijft het spaarzame warme accent. De HTML en
 Grafana backends ontvangen uitsluitend het opgeloste thema en lezen de externe
 bron niet.
+
+## Primitiefactivering
+
+M11.3c migreert de productgedragen semantische rollen voor spacing, radius,
+border, shadow en motion. De native rollen blijven de stabiele interface voor
+appearances en renderers. Hun waarden komen uit de geverifieerde EmberForge
+bron: een 4px ruimtebasis, zachte afronding, 1px lijnen, donkere elevaties en
+rustige motion met de standaard easing. Bronstappen waarvoor nog geen
+productrol bestaat worden niet als ongebruikte BAT velden toegevoegd.

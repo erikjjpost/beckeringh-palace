@@ -4,13 +4,13 @@
 
 ## Totaalbeeld
 
-**Geschatte voortgang: 44%**
+**Geschatte voortgang: 45%**
 
 Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.
 
-- Actuele milestone: **M11.3b — EmberForge paletmigratie** (in uitvoering)
-- Laatst voltooid: **M11.1e — Homepage wereldpresentatie** (PR #73)
-- Volgende stap: **M11.3c — EmberForge primitiefmigratie**
+- Actuele milestone: **M11.3c — EmberForge primitiefmigratie** (in uitvoering)
+- Laatst voltooid: **M11.3b — EmberForge paletmigratie** (PR #74)
+- Volgende stap: **M11.3d — EmberForge art direction**
 
 ## Voortgang per productgebied
 
@@ -18,7 +18,7 @@ Gewogen architectuurschatting van het volledige einddoel. De expliciete productg
 |---|---:|---:|---|---|
 | Compiler en reproduceerbaarheid | 10% | 80% | Validatie, deterministische generatie, CI en 144 regressietests vormen een werkende kwaliteitsketen. | Meer producttypen, adapters en volwassen foutdiagnostiek. |
 | World Model en productcontracten | 10% | 72% | Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd. | De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen. |
-| Design System | 10% | 68% | Het geverifieerde EmberForge palet is native gemigreerd naar ruwe kleuren, semantische palet en materiaalrollen en draagbare tokens; HTML en Grafana gebruiken dezelfde opgeloste waarden. | Spacing, radius, shadow, motion, typografie, componentdekking, toestanden, toegankelijkheid en documentatie moeten nog normatief worden gemigreerd. |
+| Design System | 10% | 73% | Het geverifieerde EmberForge palet en de semantische spacing, radius, border, shadow en motion rollen zijn native gemigreerd en via theme, appearance en renderers geactiveerd. | Typografie, componentdekking, toestanden, toegankelijkheid en volledige documentatie moeten nog normatief worden gemigreerd. |
 | Dashboard UI en Grafana | 10% | 65% | HTML en Grafana delen drie native informatiegebieden met tellingen, soortverdeling, zeven kernobjecten, zes navigatiedoelen en expliciete toegankelijkheidslabels en leesvolgorde. | Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt. |
 | Visuele wereld en art direction | 10% | 25% | De Forge identiteit en materiaalhiërarchie zijn herkenbaar aanwezig; EmberForge heeft een native merknaam, tagline, kernbelofte en principes. | Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt. |
 | SVG component library en icon set | 10% | 20% | De compiler kan componenten en SVG gerichte producten dragen. | Een brede, consistente en gedocumenteerde bibliotheek ontbreekt nog. |
@@ -29,6 +29,6 @@ Gewogen architectuurschatting van het volledige einddoel. De expliciete productg
 
 ## Eerstvolgende stap
 
-### M11.3c — EmberForge primitiefmigratie
+### M11.3d — EmberForge art direction
 
-De geverifieerde spacing, radius, shadow en motion schalen gecontroleerd naar BAT migreren en in de afgeleide producten activeren.
+De vastgestelde balans van diepe navy, lichtend cyaan, gesmeed koper, gecontroleerde gloed, technische ornamentiek en ruime duisternis als native visueel contract modelleren.

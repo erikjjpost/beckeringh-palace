@@ -37,9 +37,9 @@
     },
     {
       "id": "spacing-radius-shadow-motion",
-      "status": "mapbaar",
+      "status": "gemigreerd",
       "doel": "BAT spacing, radius, shadow en motion",
-      "bewijs": "Schalen en waarden zijn expliciet en backendonafhankelijk te vertalen."
+      "bewijs": "M11.3c migreert de productgedragen semantische rollen voor spacing, radius, border, shadow en motion naar BAT en activeert deze via de bestaande theme en appearance keten."
     },
     {
       "id": "components",

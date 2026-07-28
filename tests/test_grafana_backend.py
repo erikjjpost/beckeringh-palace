@@ -81,7 +81,7 @@ class GrafanaBackendTests(unittest.TestCase):
             dashboard["panels"][0]["options"]["root"]["background"]["color"]["fixed"],
         )
         self.assertEqual(
-            {"color": {"fixed": "#2F4259"}, "width": 2},
+            {"color": {"fixed": "#2F4259"}, "width": 1},
             dashboard["panels"][2]["options"]["root"]["border"],
         )
         middennamen = [
