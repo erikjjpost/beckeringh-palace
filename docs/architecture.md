@@ -131,5 +131,14 @@ Een native BAT-concept moet nodig zijn om Beckeringh Palace-producten te specifi
 - `output/bat/`: vanuit BAT gegenereerde CIR- en documentatie-output.
 - `output/docs/`: gegenereerde documentatie.
 - `output/diagrams/`: gegenereerde diagrambron.
+- `output/products/`: de echte productartefacten:
+  - `index.html`: de Beckeringh Palace homepage;
+  - `forge-dashboard.html` en `project-status.html`: HTML-producten;
+  - `forge-dashboard.grafana.json` en `project-status.grafana.json`: importeerbare Grafana-dashboards;
+  - `components.html` en `components.css`: componentcatalogus en componentstijlen;
+  - `tokens.json` en `tokens.css`: opgeloste ontwerptokens.
 
 Output wordt gecommit om deterministische regeneratie te kunnen controleren. Zij blijft afgeleid; rechtstreekse wijzigingen worden bij de volgende compilatie overschreven en gelden niet als modelwijziging.
+
+Zie [product-runbook.md](product-runbook.md) voor bekijken, importeren,
+snapshotverificatie en rollback.

@@ -10,12 +10,14 @@ De repository bevat nu:
 
 - Information Management en Second Brain als bestaande migratieconcepten;
 - Architectuur Synchronisatie als bestaande service;
-- modelonafhankelijke rollen, contracten en workflow;
-- parser, semantische validatie, dependency-analyse en constraints;
-- een expliciete grens voor het Beckeringh Palace World Model;
-- een native layout-engine voor `grid`, `stack`, `flow` en `layer`;
-- een HTML-backend die gevalideerde native layoutintentie vertaalt;
-- generatie van Markdown en Mermaid;
+- BAT als domeinspecifieke taal voor het Beckeringh Palace World Model;
+- parser, semantische validatie, dependency-analyse, constraints en getypeerde foutdiagnostiek;
+- native thema's, appearances, componentvarianten, composities en layouts;
+- een gedeeld productcontract met expliciete HTML- en Grafana-backends;
+- een Forge Dashboard en projectstatusproduct uit dezelfde opgeloste informatiearchitectuur;
+- een native homepage met vier geordende inhoudsgebieden en drie productroutes;
+- statische snapshotidentiteit voor verificatie en rollback;
+- generatie van Markdown, Mermaid, CSS, HTML en importeerbare Grafana JSON;
 - reproduceerbaarheidscontrole in lokale tooling en CI.
 
 ## Snel starten
@@ -34,6 +36,7 @@ compiler/       parser, semantisch model, constraints en renderers
 model/          bestaande architectuurobjecten tijdens de migratie
 organisation/   rollen, contracten en workflows
 proposals/      gecontroleerde wijzigingsvoorstellen
+project/        normatieve projectstatus
 tools/          validator, generator en project-CLI
 tests/          geautomatiseerde tests
 output/         reproduceerbare gegenereerde output
@@ -43,6 +46,9 @@ workspace/      werkruimte voor nieuwe ideeën
 
 Lees [docs/world-model.md](docs/world-model.md) voor de domeingrens,
 [docs/architecture.md](docs/architecture.md) voor de compilerarchitectuur,
-[docs/product-model.md](docs/product-model.md) voor native layouts en
+[docs/product-model.md](docs/product-model.md) voor het productcontract,
+[docs/beckeringh-architectuurtaal.md](docs/beckeringh-architectuurtaal.md) voor BAT,
+[docs/product-runbook.md](docs/product-runbook.md) voor het gebruiken van de producten en
+[docs/adr-convention.md](docs/adr-convention.md) voor ontwerpbesluiten en
 [CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels. De actuele,
 reproduceerbare voortgang staat in [PROJECT_STATUS.md](PROJECT_STATUS.md).

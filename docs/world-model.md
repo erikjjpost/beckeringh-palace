@@ -1,6 +1,12 @@
 # Beckeringh Palace World Model
 
-## Besluit
+## Besluitrecord
+
+- ID: `ADR-0001`
+- Titel: BAT is een product- en ontwerpcompiler
+- Status: geaccepteerd
+- Datum: 2026-07-26
+- Beslissingsdocument: dit document
 
 BAT is een **product- en ontwerpcompiler** voor Beckeringh Palace. BAT is geen algemene enterprise-architectuurtaal en geen vervanging voor ArchiMate.
 
