@@ -108,11 +108,19 @@ Iedere componentinstantie vereist:
 - `compositie`: de compositie waar de instantie bij hoort;
 - `component`: de herbruikbare componentdefinitie.
 - `variant`: optionele, expliciete variant van datzelfde component.
+- `navigatie`: optionele, geordende en unieke lijst van product- of
+  renderdoel-id's.
 
 De referentie is wederkerig: de compositie noemt de instantie en de instantie
 verwijst terug naar exact die compositie. Daardoor kunnen meerdere instanties
 van hetzelfde component afzonderlijk worden benoemd zonder hun identiteit uit
 lijstpositie of rendererstructuur af te leiden.
+
+Een navigatiedoel wordt tijdens de compositieresolutie vertaald naar id, naam,
+objectsoort en artifactpad. Backends ontvangen daarmee een volledig opgelost
+navigatiecontract en zoeken zelf geen producten of uitvoerpaden. Een onbekend
+doel of een doel dat geen `product` of `renderdoel` is, wordt semantisch
+afgewezen.
 
 ```bp
 componentinstantie overview-primary {
@@ -120,6 +128,7 @@ componentinstantie overview-primary {
     doel: "Toont de hoofdstatus."
     compositie: "overview"
     component: "status-panel"
+    navigatie: ["overview-html"]
 }
 ```
 
@@ -195,6 +204,14 @@ Ieder product vereist:
 De productvalidator vereist dat `compositie` en `layout` exact dezelfde
 componentinstanties bevatten. Daarmee is het product de enige expliciete
 koppeling tussen inhoud, plaatsing en backend.
+
+### Homepage productcontract
+
+M11.1a modelleert de Beckeringh Palace homepage als regulier native product.
+De homepage heeft een eigen compositie, gridlayout en HTML-productdefinitie.
+De entree en drie productroutes zijn componentinstanties. Hun navigatie wordt
+backendonafhankelijk opgelost en door de generieke HTML-renderer vertaald.
+Er bestaat geen homepage-specifieke selectie- of layoutlogica in de backend.
 
 ## Layouttypen
 

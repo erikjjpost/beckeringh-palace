@@ -611,6 +611,158 @@
   },
   {
     "eigenschappen": {
+      "doel": "Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus.",
+      "instanties": [
+        "homepage-intro",
+        "homepage-world",
+        "homepage-design-system",
+        "homepage-project-status"
+      ],
+      "naam": "Beckeringh Palace"
+    },
+    "id": "beckeringh-palace-homepage-composition",
+    "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "beckeringh-palace-homepage-composition",
+      "doel": "Eén normatief wereldmodel genereert ieder Beckeringh Palace product reproduceerbaar.",
+      "metric-kind": "wereld",
+      "naam": "Design is data"
+    },
+    "id": "homepage-intro",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "beckeringh-palace-homepage-composition",
+      "doel": "Verken de samenhang tussen wereld, identiteit en productfamilie.",
+      "naam": "Digitale wereld",
+      "navigatie": [
+        "forge-dashboard-html"
+      ]
+    },
+    "id": "homepage-world",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "beckeringh-palace-homepage-composition",
+      "doel": "Bekijk de reproduceerbare componenten en ontwerpprimitieven.",
+      "naam": "Forge ontwerpsysteem",
+      "navigatie": [
+        "html-components"
+      ],
+      "variant": "forge-panel-compact"
+    },
+    "id": "homepage-design-system",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "beckeringh-palace-homepage-composition",
+      "doel": "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.",
+      "naam": "Projectstatus",
+      "navigatie": [
+        "project-status-html"
+      ]
+    },
+    "id": "homepage-project-status",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "columns": "3",
+      "doel": "Ordent de homepage entree en drie productroutes in een responsief grid.",
+      "naam": "Beckeringh Palace Homepage Grid",
+      "regions": [
+        "homepage-intro-region",
+        "homepage-world-region",
+        "homepage-design-system-region",
+        "homepage-project-status-region"
+      ],
+      "rows": "2",
+      "type": "grid"
+    },
+    "id": "beckeringh-palace-homepage-grid",
+    "soort": "layout"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "3",
+      "doel": "Brede entree tot Beckeringh Palace.",
+      "instantie": "homepage-intro",
+      "layout": "beckeringh-palace-homepage-grid",
+      "naam": "Homepage entree",
+      "row": "1",
+      "row-span": "1"
+    },
+    "id": "homepage-intro-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "1",
+      "doel": "Route naar het wereld en productoverzicht.",
+      "instantie": "homepage-world",
+      "layout": "beckeringh-palace-homepage-grid",
+      "naam": "Wereldroute",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homepage-world-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "2",
+      "column-span": "1",
+      "doel": "Route naar de componentcatalogus.",
+      "instantie": "homepage-design-system",
+      "layout": "beckeringh-palace-homepage-grid",
+      "naam": "Ontwerpsysteemroute",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homepage-design-system-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "3",
+      "column-span": "1",
+      "doel": "Route naar de actuele projectstatus.",
+      "instantie": "homepage-project-status",
+      "layout": "beckeringh-palace-homepage-grid",
+      "naam": "Statusroute",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homepage-project-status-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "backend": "html",
+      "compositie": "beckeringh-palace-homepage-composition",
+      "doel": "Homepage en toegangspoort voor de reproduceerbare Beckeringh Palace productwereld.",
+      "layout": "beckeringh-palace-homepage-grid",
+      "mode": "static",
+      "naam": "Beckeringh Palace",
+      "pad": "output/products/index.html",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "beckeringh-palace-homepage",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
       "doel": "Design tokens als CSS custom properties genereren.",
       "formaat": "css",
       "naam": "CSS design tokens",

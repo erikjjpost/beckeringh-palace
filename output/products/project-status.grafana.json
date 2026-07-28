@@ -42,7 +42,7 @@
                 },
                 "size": 14,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 56a7f8dd6ed9",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 7d0828cc1609",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M10.5d · Dashboard toegankelijkheidscontract (in uitvoering)\nVoltooid: M10.5c · Dashboard inhoudelijke verdieping (PR #65)\nVolgende stap: M11.1a · HTML homepage productcontract\nDe Beckeringh Palace homepage als native compositie, layout en reproduceerbaar HTML product modelleren.",
+                  "fixed": "Architectuurschatting van het volledige einddoel; geen optelsom van pull requests.\nActueel: M11.1a · HTML homepage productcontract (in uitvoering)\nVoltooid: M10.5d · Dashboard toegankelijkheidscontract (PR #66)\nVolgende stap: M11.1b · Homepage informatiearchitectuur\nDe inhoudsgebieden, kernboodschappen en routes van de homepage als expliciete native semantiek verdiepen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 133 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 136 regressietests vormen een werkende kwaliteitsketen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Thema's, informatiegebieden, layouts, componenten, composities, producten en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "fixed": "Onderbouwing: Thema's, informatiegebieden, layouts, componenten, composities, producten, componentnavigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: De volledige productfamilie en wereldsemantiek moeten nog in BAT worden opgenomen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:15",
+      "description": "project-status-area:homepage;progress:30",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 28,
                 "text": {
-                  "fixed": "HTML homepage · 15%",
+                  "fixed": "HTML homepage · 30%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 56,
-                "width": 90
+                "width": 180
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: HTML generatie en een gedeelde productshell bestaan.\nResterend: Een volwaardige Beckeringh Palace homepage met eigen informatiearchitectuur ontbreekt nog.",
+                  "fixed": "Onderbouwing: Een eigen native homepagecompositie, responsieve gridlayout, drie productroutes en reproduceerbaar index.html product bestaan.\nResterend: De inhoudsarchitectuur, visuele hiërarchie en volwaardige wereldpresentatie moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 15%",
+      "title": "HTML homepage · 30%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1648,7 +1648,7 @@
     "generated",
     "project-status-schema:1",
     "overall-progress:40",
-    "sha256:56a7f8dd6ed9cdd5fa5655190c9df9d92800ea21fa551af64c4d86dc82d79faa"
+    "sha256:7d0828cc16090f1e9afd5fd83e441a45b03b26dc0224cd68d0a560c545a2aa81"
   ],
   "templating": {
     "list": []

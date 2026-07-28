@@ -69,12 +69,14 @@ def _instantie_uit_object(
     aantal_objecten: int,
     objecten: tuple[Architectuurobject, ...],
 ) -> ResolvedComponentInstance:
+    symbolen = {item.id: item for item in objecten}
     component_id = _tekst(obj, "component")
     variant_waarde = obj.eigenschappen.get("variant")
     variant_id = variant_waarde if isinstance(variant_waarde, str) else None
     variant = varianten.get(variant_id) if variant_id is not None else None
     metric_waarde = obj.eigenschappen.get("metric-kind")
     metric_detail = obj.eigenschappen.get("metric-detail")
+    navigatie = obj.eigenschappen.get("navigatie", [])
     informatiegebied_waarde = obj.eigenschappen.get("informatiegebied")
     informatiegebied = (
         informatiegebieden.get(informatiegebied_waarde)
@@ -162,7 +164,15 @@ def _instantie_uit_object(
         navigation_targets=(
             informatiegebied.navigation_targets
             if informatiegebied is not None
-            else ()
+            else tuple(
+                ResolvedNavigationTarget(
+                    id=doel_id,
+                    naam=_tekst(symbolen[doel_id], "naam"),
+                    target_kind=symbolen[doel_id].soort,
+                    artifact_path=_tekst(symbolen[doel_id], "pad"),
+                )
+                for doel_id in navigatie
+            )
         ),
     )
 

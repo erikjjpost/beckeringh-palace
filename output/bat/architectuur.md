@@ -774,6 +774,197 @@ De normatieve projectvoortgang als reproduceerbaar Grafana dashboard ontsluiten.
 - **pad:** output/products/project-status.grafana.json
 - **wereld:** beckeringh-palace
 
+## Beckeringh Palace
+
+**Soort:** compositie
+
+**Identifier:** `beckeringh-palace-homepage-composition`
+
+### Doel
+
+Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus.
+
+### Eigenschappen
+
+- **instanties:** homepage-intro, homepage-world, homepage-design-system, homepage-project-status
+
+## Design is data
+
+**Soort:** componentinstantie
+
+**Identifier:** `homepage-intro`
+
+### Doel
+
+Eén normatief wereldmodel genereert ieder Beckeringh Palace product reproduceerbaar.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** beckeringh-palace-homepage-composition
+- **metric-kind:** wereld
+
+## Digitale wereld
+
+**Soort:** componentinstantie
+
+**Identifier:** `homepage-world`
+
+### Doel
+
+Verken de samenhang tussen wereld, identiteit en productfamilie.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** beckeringh-palace-homepage-composition
+- **navigatie:** forge-dashboard-html
+
+## Forge ontwerpsysteem
+
+**Soort:** componentinstantie
+
+**Identifier:** `homepage-design-system`
+
+### Doel
+
+Bekijk de reproduceerbare componenten en ontwerpprimitieven.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** beckeringh-palace-homepage-composition
+- **navigatie:** html-components
+- **variant:** forge-panel-compact
+
+## Projectstatus
+
+**Soort:** componentinstantie
+
+**Identifier:** `homepage-project-status`
+
+### Doel
+
+Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** beckeringh-palace-homepage-composition
+- **navigatie:** project-status-html
+
+## Beckeringh Palace Homepage Grid
+
+**Soort:** layout
+
+**Identifier:** `beckeringh-palace-homepage-grid`
+
+### Doel
+
+Ordent de homepage entree en drie productroutes in een responsief grid.
+
+### Eigenschappen
+
+- **columns:** 3
+- **regions:** homepage-intro-region, homepage-world-region, homepage-design-system-region, homepage-project-status-region
+- **rows:** 2
+- **type:** grid
+
+## Homepage entree
+
+**Soort:** region
+
+**Identifier:** `homepage-intro-region`
+
+### Doel
+
+Brede entree tot Beckeringh Palace.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 3
+- **instantie:** homepage-intro
+- **layout:** beckeringh-palace-homepage-grid
+- **row:** 1
+- **row-span:** 1
+
+## Wereldroute
+
+**Soort:** region
+
+**Identifier:** `homepage-world-region`
+
+### Doel
+
+Route naar het wereld en productoverzicht.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 1
+- **instantie:** homepage-world
+- **layout:** beckeringh-palace-homepage-grid
+- **row:** 2
+- **row-span:** 1
+
+## Ontwerpsysteemroute
+
+**Soort:** region
+
+**Identifier:** `homepage-design-system-region`
+
+### Doel
+
+Route naar de componentcatalogus.
+
+### Eigenschappen
+
+- **column:** 2
+- **column-span:** 1
+- **instantie:** homepage-design-system
+- **layout:** beckeringh-palace-homepage-grid
+- **row:** 2
+- **row-span:** 1
+
+## Statusroute
+
+**Soort:** region
+
+**Identifier:** `homepage-project-status-region`
+
+### Doel
+
+Route naar de actuele projectstatus.
+
+### Eigenschappen
+
+- **column:** 3
+- **column-span:** 1
+- **instantie:** homepage-project-status
+- **layout:** beckeringh-palace-homepage-grid
+- **row:** 2
+- **row-span:** 1
+
+## Beckeringh Palace
+
+**Soort:** product
+
+**Identifier:** `beckeringh-palace-homepage`
+
+### Doel
+
+Homepage en toegangspoort voor de reproduceerbare Beckeringh Palace productwereld.
+
+### Eigenschappen
+
+- **backend:** html
+- **compositie:** beckeringh-palace-homepage-composition
+- **layout:** beckeringh-palace-homepage-grid
+- **mode:** static
+- **pad:** output/products/index.html
+- **wereld:** beckeringh-palace
+
 ## CSS design tokens
 
 **Soort:** renderdoel

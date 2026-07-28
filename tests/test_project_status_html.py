@@ -57,7 +57,11 @@ class ProjectStatusHtmlTests(unittest.TestCase):
         )
 
         self.assertEqual(
-            {"forge-dashboard-grafana", "forge-dashboard-html"},
+            {
+                "beckeringh-palace-homepage",
+                "forge-dashboard-grafana",
+                "forge-dashboard-html",
+            },
             {product.definitie.id for product in products},
         )
 
