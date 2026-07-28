@@ -665,6 +665,25 @@ standaard browserstates en expliciete catalogusklassen. HTML publiceert de
 mapping als metadata. Grafana bewaart dezelfde mapping in de
 paneelbeschrijving en simuleert geen interactie die Canvas niet ondersteunt.
 
+M11.3g breidt het componentcontract uit met een semantische `rol` en expliciete
+`anatomie`. De native rollen paneel, actie, invoer, status, app tegel en
+statistiek hebben ieder een vaste geordende set inhoudssleuven. De semantische
+laag weigert onbekende rollen, lege of dubbele anatomie en een anatomie die
+niet bij de gekozen rol past.
+
+Het nieuwe native `componentvoorbeeld` koppelt één component aan één variant
+en bewaart de productgedragen voorbeeldinhoud. Verplichte en toegestane velden
+worden per componentrol gecontroleerd. De resolver levert component, rol,
+anatomie, variant, label en optionele waarde, beschrijving, melding en status
+als één backendonafhankelijk contract.
+
+De componentcatalogus vertaalt het opgeloste contract naar passende HTML
+elementen en schrijft rol, anatomie, variant, toestand en appearance als
+metadata uit. De component CSS renderer vertaalt alleen de semantische rol naar
+structuur en gebruikt voor iedere visuele waarde de appearance en het
+opgeloste thema. Voorbeeldtekst, EmberForge bronwaarden en UI kit code worden
+niet in een renderer opgenomen.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -723,6 +742,16 @@ paneelbeschrijving en simuleert geen interactie die Canvas niet ondersteunt.
 | `BP3805` | Variant hoort niet bij het component van de componentinstantie |
 | `BP3806` | Variant declareert een onvolledig statecontract |
 | `BP3807` | Componentstate verwijst naar een onbekende appearance |
+| `BP3220` | Component gebruikt een onbekende semantische rol |
+| `BP3221` | Component heeft geen geldige unieke anatomie |
+| `BP3222` | Componentanatomie past niet bij de semantische rol |
+| `BP3820` | Componentvoorbeeld heeft een onbekende eigenschap |
+| `BP3821` | Componentvoorbeeld verwijst naar een onbekend component |
+| `BP3822` | Componentvoorbeeld verwijst naar een onbekende variant |
+| `BP3823` | Componentvoorbeeld gebruikt een variant van een ander component |
+| `BP3824` | Componentvoorbeeld mist verplichte rolgebonden inhoud |
+| `BP3825` | Componentvoorbeeld bevat inhoud die niet bij de rol past |
+| `BP3826` | App tegelvoorbeeld gebruikt een onbekende operationele status |
 | `BP3901` | Renderdoel heeft een onbekende eigenschap |
 | `BP3902` | Renderdoel mist een geldig formaat |
 | `BP3903` | Renderdoel heeft geen veilig relatief artifactpad |

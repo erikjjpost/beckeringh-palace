@@ -20,6 +20,34 @@
     {
       "pad": "EmberForge-Design-System/colors_and_type.css",
       "sha256": "5aeaf09d20f4cf80f42854789f10fb3452bf93a09388ce7032dd298d78b65268"
+    },
+    {
+      "pad": "EmberForge-Design-System/preview/components-buttons.html",
+      "sha256": "3206ebeb05f1dce1beefe4dd7f9266490f96c1f6e7630d122a903e9903a6f659"
+    },
+    {
+      "pad": "EmberForge-Design-System/preview/components-inputs.html",
+      "sha256": "c6a62b272d51b321ae137c3a67072d98f696685d711b12d45f0b69ca1ac22f3d"
+    },
+    {
+      "pad": "EmberForge-Design-System/preview/components-status.html",
+      "sha256": "1847b5d63158dd95a260c74e98ef603af5fe8b964f03e68b1729e8a9747e2580"
+    },
+    {
+      "pad": "EmberForge-Design-System/preview/components-app-tile.html",
+      "sha256": "aa170bedcb9ac1aecd1ee6c85a6f07db993fc1c85c1bcb486737272f18d167f9"
+    },
+    {
+      "pad": "EmberForge-Design-System/preview/components-stat-card.html",
+      "sha256": "f2505f7b9637563378b456b8385bc8f22a465ce0874de638ba128a9cb3667941"
+    },
+    {
+      "pad": "EmberForge-Design-System/ui_kits/homelab-dashboard/AppTile.jsx",
+      "sha256": "3bbd80152f39cba6ac3106b9bb86aefc756ec150bd910e8c6be7651e473a090c"
+    },
+    {
+      "pad": "EmberForge-Design-System/ui_kits/homelab-dashboard/styles.css",
+      "sha256": "63fd6c9a1d2742ccea72cb8ff9aaf452cef34fbaf4053de95d69dd6206390d6d"
     }
   ],
   "gebieden": [
@@ -49,9 +77,9 @@
     },
     {
       "id": "components",
-      "status": "gedeeltelijk-mapbaar",
+      "status": "gemigreerd",
       "doel": "BAT appearance, component en variant",
-      "bewijs": "M11.3f migreert rust, hover, focus, pressed en disabled voor het bestaande Forge-paneel als volledige native statecontracten via appearance en variant. Button, input, status, app tile en stat card vragen nog afzonderlijke componentdekking."
+      "bewijs": "M11.3f migreert rust, hover, focus, pressed en disabled als volledige native statecontracten. M11.3g migreert de productgedragen button, input, status, app tile en stat card voorbeelden als expliciete componentrollen, anatomie, appearances, varianten en componentvoorbeelden."
     },
     {
       "id": "product-surfaces",

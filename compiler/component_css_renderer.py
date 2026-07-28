@@ -9,6 +9,7 @@ from compiler.component_css_identity import componentselector, stateklasse
 from compiler.design_variants import resolveer_varianten
 from compiler.design_components import (
     ComponentAppearance,
+    DesignComponent,
     tokenreferentie,
     verzamel_appearances,
     verzamel_componenten,
@@ -118,6 +119,86 @@ def _state_selectors(selector: str, state: str) -> tuple[str, ...]:
     raise ValueError(f"Onbekende componentstate '{state}'")
 
 
+def _componentrol_regels(component: DesignComponent) -> list[str]:
+    selector = componentselector(component.id)
+    if component.rol == "actie":
+        return [
+            f"{selector} {{",
+            "  display: inline-flex;",
+            "  align-items: center;",
+            "  justify-content: center;",
+            "  gap: var(--bp-spacing-small);",
+            "  cursor: pointer;",
+            "  font-family: var(--bp-font-body);",
+            "  font-size: var(--bp-type-label);",
+            "  font-weight: 600;",
+            "}",
+            "",
+        ]
+    if component.rol == "invoer":
+        return [
+            f"{selector} {{",
+            "  display: block;",
+            "  box-sizing: border-box;",
+            "  width: 100%;",
+            "  font-family: var(--bp-font-body);",
+            "  font-size: var(--bp-type-label);",
+            "}",
+            "",
+        ]
+    if component.rol == "status":
+        return [
+            f"{selector} {{",
+            "  display: inline-flex;",
+            "  align-items: center;",
+            "  gap: var(--bp-spacing-small);",
+            "  width: fit-content;",
+            "  font-family: var(--bp-font-body);",
+            "  font-size: var(--bp-type-caption);",
+            "  font-weight: 600;",
+            "}",
+            "",
+        ]
+    if component.rol == "app-tegel":
+        return [
+            f"{selector} {{",
+            "  display: grid;",
+            "  grid-template-columns: 1fr auto;",
+            "  gap: var(--bp-spacing-medium);",
+            "  align-items: center;",
+            "}",
+            f"{selector} strong {{",
+            "  font-family: var(--bp-font-body);",
+            "  font-size: var(--bp-type-label);",
+            "}",
+            f"{selector} small {{",
+            "  color: var(--bp-component-accent);",
+            "  font-family: var(--bp-font-mono);",
+            "}",
+            "",
+        ]
+    if component.rol == "statistiek":
+        return [
+            f"{selector} {{",
+            "  display: flex;",
+            "  flex-direction: column;",
+            "  gap: var(--bp-spacing-small);",
+            "}",
+            f"{selector} > strong {{",
+            "  color: var(--bp-component-accent);",
+            "  font-family: var(--bp-font-heading);",
+            "  font-size: var(--bp-type-heading);",
+            "}",
+            f"{selector} > small {{",
+            "  font-family: var(--bp-font-mono);",
+            "  letter-spacing: 0.18em;",
+            "  text-transform: uppercase;",
+            "}",
+            "",
+        ]
+    return []
+
+
 def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
     objecten = tuple(objecten)
     appearances = {appearance.id: appearance for appearance in verzamel_appearances(objecten)}
@@ -133,6 +214,7 @@ def naar_component_css(objecten: Iterable[Architectuurobject]) -> str:
             if padding is not None:
                 regels.append(f"  padding: {_tokenwaarde(padding)};")
             regels.extend(["}", ""])
+        regels.extend(_componentrol_regels(component))
 
     for variant in resolveer_varianten(objecten):
         appearance = appearances[variant.appearance_id]

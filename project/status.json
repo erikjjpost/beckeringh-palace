@@ -3,59 +3,59 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.3f",
-    "name": "EmberForge componenttoestanden",
+    "id": "M11.3g",
+    "name": "EmberForge componentfamilie",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.3e",
-    "name": "EmberForge typografiemigratie",
-    "pull_request": 77
+    "id": "M11.3f",
+    "name": "EmberForge componenttoestanden",
+    "pull_request": 78
   },
   "next_step": {
-    "id": "M11.3g",
-    "name": "EmberForge componentfamilie",
-    "purpose": "De productgedragen button, input, status, app tile en stat card voorbeelden als native componenten en varianten modelleren zonder UI kit implementatiecode over te nemen."
+    "id": "M11.3h",
+    "name": "EmberForge toegankelijkheidscontracten",
+    "purpose": "Naam, rol, waarde, fout, disabled en toetsenbordgedrag voor de native componentfamilie backendonafhankelijk modelleren en toetsen."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 81,
+      "progress": 84,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 180 regressietests vormen een werkende kwaliteitsketen; volledige statecontracten worden semantisch gevalideerd.",
+      "evidence": "Validatie, deterministische generatie, CI en 187 regressietests vormen een werkende kwaliteitsketen; componentrol, anatomie, voorbeelden en volledige statecontracten worden semantisch gevalideerd.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 74,
+      "progress": 80,
       "weight": 10,
-      "evidence": "Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, componenten, varianten met vijf opgeloste toestanden, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.",
-      "remaining": "De volledige productfamilie en verdere wereldsemantiek moeten nog in BAT worden opgenomen."
+      "evidence": "Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, zes componentrollen met expliciete anatomie, zestien productvoorbeelden, varianten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.",
+      "remaining": "Verdere productoppervlakken, toegankelijkheidssemantiek en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 87,
+      "progress": 94,
       "weight": 10,
-      "evidence": "Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks en de volledige rust, hover, focus, pressed en disabled reeks voor Forge-panelen zijn native gemigreerd.",
-      "remaining": "De bredere componentfamilie, toegankelijkheidscontracten en volledige documentatie moeten nog normatief worden gemigreerd."
+      "evidence": "Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks, volledige interactietoestanden en de button, input, status, app tile en stat card families zijn native gemigreerd.",
+      "remaining": "Toegankelijkheidscontracten en volledige design system documentatie moeten nog normatief worden gemigreerd."
     },
     {
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
-      "progress": 66,
+      "progress": 68,
       "weight": 10,
-      "evidence": "HTML en Grafana delen drie native informatiegebieden, dezelfde opgeloste card appearance en machineleesbare statecontracten; Grafana registreert de vijf toestanden zonder niet-ondersteunde interactie te simuleren.",
+      "evidence": "HTML en Grafana delen drie native informatiegebieden en machineleesbare statecontracten; de HTML componentcatalogus rendert vijf productgedragen componentrollen en zestien voorbeelden uit hetzelfde BAT model.",
       "remaining": "Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt."
     },
     {
       "id": "visual-world",
       "name": "Visuele wereld en art direction",
-      "progress": 32,
+      "progress": 33,
       "weight": 10,
-      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans en een eigen typografische stem met Orbitron, Inter en JetBrains Mono.",
+      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en bronbewezen cyaan, koper en statusprofielen voor de componentfamilie.",
       "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
     },
     {
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 30,
+      "progress": 31,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal en stem zijn nu normatief in BAT vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal, stem, componentrollen en voorbeeldcontracten zijn normatief vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

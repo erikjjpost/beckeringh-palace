@@ -48,6 +48,15 @@
   },
   {
     "eigenschappen": {
+      "doel": "Donker invoeroppervlak binnen EmberForge bediening.",
+      "naam": "Deepest Night",
+      "waarde": "#0A111C"
+    },
+    "id": "ink-950",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
       "doel": "Primair UI oppervlak van de EmberForge ontwerpidentiteit.",
       "naam": "Graphite",
       "waarde": "#1F2937"
@@ -93,6 +102,24 @@
   },
   {
     "eigenschappen": {
+      "doel": "Lichtere cyaantoon voor hover en informatieve voorgrond.",
+      "naam": "Hover Cyan",
+      "waarde": "#A5DEFB"
+    },
+    "id": "sky-300",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Zacht cyaan oppervlak voor ghost bediening en informatieve status.",
+      "naam": "Soft Cyan Surface",
+      "waarde": "#7DD3FC0F"
+    },
+    "id": "sky-soft",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
       "doel": "Donkerdere interactiekleur voor de ingedrukte toestand.",
       "naam": "Pressed Cyan",
       "waarde": "#38BDF8"
@@ -129,11 +156,47 @@
   },
   {
     "eigenschappen": {
+      "doel": "Lichtere kopertoon voor het schaarse warme hoveraccent.",
+      "naam": "Hover Copper",
+      "waarde": "#E2A982"
+    },
+    "id": "ember-300",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Expliciet transparant oppervlak voor ghost en secondary bediening.",
+      "naam": "Transparent",
+      "waarde": "#00000000"
+    },
+    "id": "transparent-clear",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
       "doel": "Semantische succeskleur.",
       "naam": "Success Green",
       "waarde": "#4ADE80"
     },
     "id": "status-success",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Transparant groen statusoppervlak.",
+      "naam": "Success Surface",
+      "waarde": "#4ADE801F"
+    },
+    "id": "status-success-surface",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Leesbare groene statusvoorgrond.",
+      "naam": "Success Foreground",
+      "waarde": "#86EFAC"
+    },
+    "id": "status-success-foreground",
     "soort": "kleur"
   },
   {
@@ -147,11 +210,56 @@
   },
   {
     "eigenschappen": {
+      "doel": "Transparant amber statusoppervlak.",
+      "naam": "Warning Surface",
+      "waarde": "#E0B3411A"
+    },
+    "id": "status-warning-surface",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Leesbare amber statusvoorgrond.",
+      "naam": "Warning Foreground",
+      "waarde": "#F3D783"
+    },
+    "id": "status-warning-foreground",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
       "doel": "Semantische foutkleur.",
       "naam": "Danger Red",
       "waarde": "#F87171"
     },
     "id": "status-error",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Transparant rood statusoppervlak.",
+      "naam": "Error Surface",
+      "waarde": "#F871711A"
+    },
+    "id": "status-error-surface",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Leesbare rode statusvoorgrond.",
+      "naam": "Error Foreground",
+      "waarde": "#FCA5A5"
+    },
+    "id": "status-error-foreground",
+    "soort": "kleur"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Transparant cyaan statusoppervlak.",
+      "naam": "Info Surface",
+      "waarde": "#7DD3FC1A"
+    },
+    "id": "status-info-surface",
     "soort": "kleur"
   },
   {
@@ -217,17 +325,34 @@
   {
     "eigenschappen": {
       "accent": "ember-500",
+      "accent-hover": "ember-300",
       "canvas": "ink-900",
       "disabled": "ink-500",
       "doel": "Gecontroleerd gemigreerde EmberForge materiaalrollen.",
+      "error": "status-error",
+      "error-foreground": "status-error-foreground",
+      "error-surface": "status-error-surface",
+      "field": "ink-950",
       "foreground": "bone-50",
+      "info": "sky-400",
+      "info-foreground": "sky-300",
+      "info-surface": "status-info-surface",
       "interaction": "sky-400",
+      "interaction-hover": "sky-300",
       "interaction-pressed": "sky-500",
+      "interaction-soft": "sky-soft",
       "muted": "bone-300",
       "naam": "Forge Materials",
       "outline": "ink-600",
       "raised": "ink-700",
-      "surface": "ink-800"
+      "success": "status-success",
+      "success-foreground": "status-success-foreground",
+      "success-surface": "status-success-surface",
+      "surface": "ink-800",
+      "transparent": "transparent-clear",
+      "warning": "status-warning",
+      "warning-foreground": "status-warning-foreground",
+      "warning-surface": "status-warning-surface"
     },
     "id": "forge-materials",
     "soort": "materiaal"
@@ -246,6 +371,7 @@
   },
   {
     "eigenschappen": {
+      "control": "8px",
       "doel": "Gecontroleerd gemigreerde EmberForge afrondingsschaal.",
       "large": "16px",
       "medium": "12px",
@@ -259,7 +385,9 @@
   {
     "eigenschappen": {
       "doel": "Gecontroleerd gemigreerde EmberForge diepteschaal.",
+      "focus": "0 0 0 3px rgba(125,211,252,0.15)",
       "glow": "0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10)",
+      "glow-accent": "0 0 0 1px rgba(201,137,91,0.30), 0 6px 22px rgba(201,137,91,0.18)",
       "high": "0 18px 44px rgba(0,0,0,0.45)",
       "low": "0 1px 2px rgba(0,0,0,0.25)",
       "medium": "0 6px 18px rgba(0,0,0,0.35)",
@@ -621,9 +749,14 @@
   },
   {
     "eigenschappen": {
+      "anatomie": [
+        "titel",
+        "tekst"
+      ],
       "appearance": "forge-panel-appearance",
       "doel": "Basispaneel voor dashboards en productdocumentatie.",
-      "naam": "Forge Panel"
+      "naam": "Forge Panel",
+      "rol": "paneel"
     },
     "id": "forge-panel",
     "soort": "component"
@@ -668,6 +801,1229 @@
   },
   {
     "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Primaire cyaan actie in rust.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "interaction",
+      "motion": "normal",
+      "naam": "Forge Primary Button Rest",
+      "offset": "rest",
+      "outline": "interaction",
+      "radius": "pill",
+      "shadow": "low",
+      "spacing": "small"
+    },
+    "id": "forge-button-primary-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction-hover",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Lichtere cyaan actie onder aanwijzer.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "interaction-hover",
+      "motion": "normal",
+      "naam": "Forge Primary Button Hover",
+      "offset": "rest",
+      "outline": "interaction-hover",
+      "radius": "pill",
+      "shadow": "glow",
+      "spacing": "small"
+    },
+    "id": "forge-button-primary-hover-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Primaire actie met expliciete cyaan focusring.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "interaction",
+      "motion": "normal",
+      "naam": "Forge Primary Button Focus",
+      "offset": "rest",
+      "outline": "interaction",
+      "radius": "pill",
+      "shadow": "focus",
+      "spacing": "small"
+    },
+    "id": "forge-button-primary-focus-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction-pressed",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Vlakkere primaire actie met donkerder cyaan.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "interaction-pressed",
+      "motion": "normal",
+      "naam": "Forge Primary Button Pressed",
+      "offset": "rest",
+      "outline": "interaction-pressed",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-primary-pressed-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "disabled",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Gedempte niet-beschikbare actie.",
+      "foreground": "disabled",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "raised",
+      "motion": "normal",
+      "naam": "Forge Button Disabled",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-disabled-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Transparante secundaire actie met hairline.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "transparent",
+      "motion": "normal",
+      "naam": "Forge Secondary Button Rest",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-secondary-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Secundaire actie met cyaan voorgrond en rand.",
+      "foreground": "interaction",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "transparent",
+      "motion": "normal",
+      "naam": "Forge Secondary Button Hover",
+      "offset": "rest",
+      "outline": "interaction",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-secondary-hover-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Secundaire actie met cyaan focusring.",
+      "foreground": "interaction",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "transparent",
+      "motion": "normal",
+      "naam": "Forge Secondary Button Focus",
+      "offset": "rest",
+      "outline": "interaction",
+      "radius": "pill",
+      "shadow": "focus",
+      "spacing": "small"
+    },
+    "id": "forge-button-secondary-focus-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction-pressed",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Vlakkere secundaire actie met donkerder cyaan.",
+      "foreground": "interaction-pressed",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "transparent",
+      "motion": "normal",
+      "naam": "Forge Secondary Button Pressed",
+      "offset": "rest",
+      "outline": "interaction-pressed",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-secondary-pressed-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Gedempte ghost actie zonder zichtbare rand.",
+      "foreground": "muted",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "transparent",
+      "motion": "normal",
+      "naam": "Forge Ghost Button Rest",
+      "offset": "rest",
+      "outline": "transparent",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-ghost-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Ghost actie op een zacht cyaan oppervlak.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "interaction-soft",
+      "motion": "normal",
+      "naam": "Forge Ghost Button Hover",
+      "offset": "rest",
+      "outline": "transparent",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-ghost-hover-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Schaarse warme actie met kopergloed.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "accent",
+      "motion": "normal",
+      "naam": "Forge Ember Button Rest",
+      "offset": "rest",
+      "outline": "accent",
+      "radius": "pill",
+      "shadow": "glow-accent",
+      "spacing": "small"
+    },
+    "id": "forge-button-ember-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent-hover",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Lichtere koperactie onder aanwijzer.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "accent-hover",
+      "motion": "normal",
+      "naam": "Forge Ember Button Hover",
+      "offset": "rest",
+      "outline": "accent-hover",
+      "radius": "pill",
+      "shadow": "glow-accent",
+      "spacing": "small"
+    },
+    "id": "forge-button-ember-hover-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Warme actie met gecontroleerde kopergloed.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "accent",
+      "motion": "normal",
+      "naam": "Forge Ember Button Focus",
+      "offset": "rest",
+      "outline": "accent",
+      "radius": "pill",
+      "shadow": "glow-accent",
+      "spacing": "small"
+    },
+    "id": "forge-button-ember-focus-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Vlakkere warme actie zonder schaalverandering.",
+      "foreground": "canvas",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "accent",
+      "motion": "normal",
+      "naam": "Forge Ember Button Pressed",
+      "offset": "rest",
+      "outline": "accent",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-button-ember-pressed-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Donker invoerveld in rust.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "field",
+      "motion": "normal",
+      "naam": "Forge Input Rest",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "control",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-input-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Invoerveld met cyaan rand en focusring.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "field",
+      "motion": "normal",
+      "naam": "Forge Input Focus",
+      "offset": "rest",
+      "outline": "interaction",
+      "radius": "control",
+      "shadow": "focus",
+      "spacing": "small"
+    },
+    "id": "forge-input-focus-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "disabled",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Niet-beschikbaar invoerveld met gedempte inhoud.",
+      "foreground": "disabled",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "field",
+      "motion": "normal",
+      "naam": "Forge Input Disabled",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "control",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-input-disabled-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "error",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Invoerveld met expliciete foutkleur.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "field",
+      "motion": "normal",
+      "naam": "Forge Input Error",
+      "offset": "rest",
+      "outline": "error",
+      "radius": "control",
+      "shadow": "none",
+      "spacing": "small"
+    },
+    "id": "forge-input-error-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "success",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Groene statuscapsule voor werkende diensten.",
+      "foreground": "success-foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "success-surface",
+      "motion": "fast",
+      "naam": "Forge Running Status",
+      "offset": "rest",
+      "outline": "success",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "xs"
+    },
+    "id": "forge-status-running-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "warning",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Amber statuscapsule voor wachtende diensten.",
+      "foreground": "warning-foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "warning-surface",
+      "motion": "fast",
+      "naam": "Forge Pending Status",
+      "offset": "rest",
+      "outline": "warning",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "xs"
+    },
+    "id": "forge-status-pending-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "error",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Rode statuscapsule voor gefaalde diensten.",
+      "foreground": "error-foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "error-surface",
+      "motion": "fast",
+      "naam": "Forge Failed Status",
+      "offset": "rest",
+      "outline": "error",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "xs"
+    },
+    "id": "forge-status-failed-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "info",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Cyaan statuscapsule voor informatieve gezondheid.",
+      "foreground": "info-foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "info-surface",
+      "motion": "fast",
+      "naam": "Forge Info Status",
+      "offset": "rest",
+      "outline": "info",
+      "radius": "pill",
+      "shadow": "none",
+      "spacing": "xs"
+    },
+    "id": "forge-status-info-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Operationele app tegel met cyaan componentaccent.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge App Tile Rest",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "low",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "App tegel met cyaan gloed en één pixel lift.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge App Tile Hover",
+      "offset": "hover",
+      "outline": "interaction",
+      "radius": "medium",
+      "shadow": "glow",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-hover-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "App tegel met cyaan focusgloed.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge App Tile Focus",
+      "offset": "rest",
+      "outline": "interaction",
+      "radius": "medium",
+      "shadow": "glow",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-focus-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction-pressed",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Vlakkere app tegel met donkerder cyaan.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge App Tile Pressed",
+      "offset": "rest",
+      "outline": "interaction-pressed",
+      "radius": "medium",
+      "shadow": "low",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-pressed-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "disabled",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Niet-beschikbare app tegel zonder lift of gloed.",
+      "foreground": "disabled",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "raised",
+      "motion": "normal",
+      "naam": "Forge App Tile Disabled",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "none",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-disabled-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Zeldzame app tegel met koperaccent.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Ember App Tile Rest",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "low",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-ember-rest-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Koper app tegel met gecontroleerde gloed en lift.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Ember App Tile Hover",
+      "offset": "hover",
+      "outline": "accent",
+      "radius": "medium",
+      "shadow": "glow-accent",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-ember-hover-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Koper app tegel met gecontroleerde focusgloed.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Ember App Tile Focus",
+      "offset": "rest",
+      "outline": "accent",
+      "radius": "medium",
+      "shadow": "glow-accent",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-ember-focus-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Vlakkere koper app tegel zonder schaalverandering.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "normal",
+      "naam": "Forge Ember App Tile Pressed",
+      "offset": "rest",
+      "outline": "accent",
+      "radius": "medium",
+      "shadow": "low",
+      "spacing": "medium"
+    },
+    "id": "forge-app-tile-ember-pressed-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Operationele statistiekkaart met cyaan waardeaccent.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "fast",
+      "naam": "Forge Stat Card Value",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "none",
+      "spacing": "medium"
+    },
+    "id": "forge-stat-card-value-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "success",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Statistiekkaart met groen gezondheidsaccent.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "fast",
+      "naam": "Forge Stat Card Health",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "none",
+      "spacing": "medium"
+    },
+    "id": "forge-stat-card-health-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "accent": "accent",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Statistiekkaart met één schaars koperaccent.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "surface",
+      "motion": "fast",
+      "naam": "Forge Stat Card Ember",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "none",
+      "spacing": "medium"
+    },
+    "id": "forge-stat-card-ember-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
+      "anatomie": [
+        "label"
+      ],
+      "appearance": "forge-button-primary-rest-appearance",
+      "doel": "Actiecomponent voor primaire, secundaire, ghost en warme acties.",
+      "naam": "Forge Button",
+      "rol": "actie"
+    },
+    "id": "forge-button",
+    "soort": "component"
+  },
+  {
+    "eigenschappen": {
+      "anatomie": [
+        "label",
+        "waarde",
+        "melding"
+      ],
+      "appearance": "forge-input-rest-appearance",
+      "doel": "Invoercomponent met waarde en optionele foutmelding.",
+      "naam": "Forge Input",
+      "rol": "invoer"
+    },
+    "id": "forge-input",
+    "soort": "component"
+  },
+  {
+    "eigenschappen": {
+      "anatomie": [
+        "label",
+        "waarde"
+      ],
+      "appearance": "forge-status-info-appearance",
+      "doel": "Feitelijke statuscapsule voor operationele toestand.",
+      "naam": "Forge Status",
+      "rol": "status"
+    },
+    "id": "forge-status",
+    "soort": "component"
+  },
+  {
+    "eigenschappen": {
+      "anatomie": [
+        "label",
+        "beschrijving",
+        "status"
+      ],
+      "appearance": "forge-app-tile-rest-appearance",
+      "doel": "Producttegel voor één toepassing en haar operationele status.",
+      "naam": "Forge App Tile",
+      "rol": "app-tegel"
+    },
+    "id": "forge-app-tile",
+    "soort": "component"
+  },
+  {
+    "eigenschappen": {
+      "anatomie": [
+        "label",
+        "waarde",
+        "beschrijving"
+      ],
+      "appearance": "forge-stat-card-value-appearance",
+      "doel": "Compacte operationele waarde met context.",
+      "naam": "Forge Stat Card",
+      "rol": "statistiek"
+    },
+    "id": "forge-stat-card",
+    "soort": "component"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-button-primary-rest-appearance",
+      "component": "forge-button",
+      "disabled": "forge-button-disabled-appearance",
+      "doel": "Primaire actie volgens de EmberForge button preview.",
+      "focus": "forge-button-primary-focus-appearance",
+      "hover": "forge-button-primary-hover-appearance",
+      "naam": "Primary",
+      "pressed": "forge-button-primary-pressed-appearance"
+    },
+    "id": "forge-button-primary",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-button-secondary-rest-appearance",
+      "component": "forge-button",
+      "disabled": "forge-button-disabled-appearance",
+      "doel": "Secundaire transparante actie met cyaan interactiestates.",
+      "focus": "forge-button-secondary-focus-appearance",
+      "hover": "forge-button-secondary-hover-appearance",
+      "naam": "Secondary",
+      "pressed": "forge-button-secondary-pressed-appearance"
+    },
+    "id": "forge-button-secondary",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-button-ghost-rest-appearance",
+      "component": "forge-button",
+      "disabled": "forge-button-disabled-appearance",
+      "doel": "Gedempte actie zonder permanente rand.",
+      "focus": "forge-button-secondary-focus-appearance",
+      "hover": "forge-button-ghost-hover-appearance",
+      "naam": "Ghost",
+      "pressed": "forge-button-secondary-pressed-appearance"
+    },
+    "id": "forge-button-ghost",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-button-ember-rest-appearance",
+      "component": "forge-button",
+      "disabled": "forge-button-disabled-appearance",
+      "doel": "Schaarse warme actie volgens de Ember-regel.",
+      "focus": "forge-button-ember-focus-appearance",
+      "hover": "forge-button-ember-hover-appearance",
+      "naam": "Ember",
+      "pressed": "forge-button-ember-pressed-appearance"
+    },
+    "id": "forge-button-ember",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-input-rest-appearance",
+      "component": "forge-input",
+      "disabled": "forge-input-disabled-appearance",
+      "doel": "Regulier invoerveld met focus en disabled toestand.",
+      "focus": "forge-input-focus-appearance",
+      "hover": "forge-input-rest-appearance",
+      "naam": "Default Input",
+      "pressed": "forge-input-focus-appearance"
+    },
+    "id": "forge-input-default",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-input-error-appearance",
+      "component": "forge-input",
+      "doel": "Ongeldig invoerveld met feitelijke herstelmelding.",
+      "naam": "Error Input"
+    },
+    "id": "forge-input-error",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-status-running-appearance",
+      "component": "forge-status",
+      "doel": "Werkende operationele toestand.",
+      "naam": "Running"
+    },
+    "id": "forge-status-running",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-status-pending-appearance",
+      "component": "forge-status",
+      "doel": "Wachtende operationele toestand.",
+      "naam": "Pending"
+    },
+    "id": "forge-status-pending",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-status-failed-appearance",
+      "component": "forge-status",
+      "doel": "Gefaalde operationele toestand.",
+      "naam": "Failed"
+    },
+    "id": "forge-status-failed",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-status-info-appearance",
+      "component": "forge-status",
+      "doel": "Informatieve operationele gezondheid.",
+      "naam": "Healthy"
+    },
+    "id": "forge-status-info",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-app-tile-rest-appearance",
+      "component": "forge-app-tile",
+      "disabled": "forge-app-tile-disabled-appearance",
+      "doel": "Reguliere producttegel met cyaan interactie.",
+      "focus": "forge-app-tile-focus-appearance",
+      "hover": "forge-app-tile-hover-appearance",
+      "naam": "Default App Tile",
+      "pressed": "forge-app-tile-pressed-appearance"
+    },
+    "id": "forge-app-tile-default",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-app-tile-ember-rest-appearance",
+      "component": "forge-app-tile",
+      "disabled": "forge-app-tile-disabled-appearance",
+      "doel": "Zeldzame warme producttegel voor CV Tool.",
+      "focus": "forge-app-tile-ember-focus-appearance",
+      "hover": "forge-app-tile-ember-hover-appearance",
+      "naam": "Ember App Tile",
+      "pressed": "forge-app-tile-ember-pressed-appearance"
+    },
+    "id": "forge-app-tile-ember",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-stat-card-value-appearance",
+      "component": "forge-stat-card",
+      "doel": "Statistiekkaart voor een losse operationele waarde.",
+      "naam": "Value Stat Card"
+    },
+    "id": "forge-stat-card-value",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-stat-card-health-appearance",
+      "component": "forge-stat-card",
+      "doel": "Statistiekkaart voor clustergezondheid.",
+      "naam": "Health Stat Card"
+    },
+    "id": "forge-stat-card-health",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-stat-card-value-appearance",
+      "component": "forge-stat-card",
+      "doel": "Statistiekkaart voor cyaan gebruiksvoortgang.",
+      "naam": "Progress Stat Card"
+    },
+    "id": "forge-stat-card-progress",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-stat-card-ember-appearance",
+      "component": "forge-stat-card",
+      "doel": "Statistiekkaart met één schaars warm voortgangsaccent.",
+      "naam": "Ember Progress Stat Card"
+    },
+    "id": "forge-stat-card-progress-ember",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-button",
+      "doel": "Primair sign in voorbeeld uit het aangeleverde componentscherm.",
+      "label": "Sign In",
+      "naam": "Primary Button",
+      "variant": "forge-button-primary"
+    },
+    "id": "forge-button-primary-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-button",
+      "doel": "Secundair annuleervoorbeeld uit het aangeleverde componentscherm.",
+      "label": "Cancel",
+      "naam": "Secondary Button",
+      "variant": "forge-button-secondary"
+    },
+    "id": "forge-button-secondary-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-button",
+      "doel": "Ghost voorbeeld uit het aangeleverde componentscherm.",
+      "label": "Skip",
+      "naam": "Ghost Button",
+      "variant": "forge-button-ghost"
+    },
+    "id": "forge-button-ghost-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-button",
+      "doel": "Schaars warm actievoorbeeld uit het aangeleverde componentscherm.",
+      "label": "Forge new",
+      "naam": "Ember Button",
+      "variant": "forge-button-ember"
+    },
+    "id": "forge-button-ember-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-input",
+      "doel": "Regulier gebruikersveld uit het aangeleverde componentscherm.",
+      "label": "Username or email",
+      "naam": "Default Input",
+      "variant": "forge-input-default",
+      "waarde": "erik@thb1home.nl"
+    },
+    "id": "forge-input-default-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-input",
+      "doel": "Ongeldige hostnaam met feitelijke foutmelding.",
+      "label": "Hostname",
+      "melding": "Hostname is ongeldig.",
+      "naam": "Error Input",
+      "variant": "forge-input-error",
+      "waarde": "lab..local"
+    },
+    "id": "forge-input-error-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-status",
+      "doel": "Aantal actieve workloads uit het aangeleverde componentscherm.",
+      "label": "Running",
+      "naam": "Running Status",
+      "variant": "forge-status-running",
+      "waarde": "62"
+    },
+    "id": "forge-status-running-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-status",
+      "doel": "Aantal wachtende workloads uit het aangeleverde componentscherm.",
+      "label": "Pending",
+      "naam": "Pending Status",
+      "variant": "forge-status-pending",
+      "waarde": "3"
+    },
+    "id": "forge-status-pending-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-status",
+      "doel": "Aantal gefaalde workloads uit het aangeleverde componentscherm.",
+      "label": "Failed",
+      "naam": "Failed Status",
+      "variant": "forge-status-failed",
+      "waarde": "1"
+    },
+    "id": "forge-status-failed-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-status",
+      "doel": "Informatieve gezondheid uit het aangeleverde componentscherm.",
+      "label": "Healthy",
+      "naam": "Healthy Status",
+      "variant": "forge-status-info",
+      "waarde": "98%"
+    },
+    "id": "forge-status-info-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "beschrijving": "Information Security Management",
+      "component": "forge-app-tile",
+      "doel": "Producttegel voor ISMS Challenger.",
+      "label": "ISMS Challenger",
+      "naam": "ISMS App Tile",
+      "status": "running",
+      "variant": "forge-app-tile-default"
+    },
+    "id": "forge-app-tile-isms-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "beschrijving": "CV beheer voor consultants",
+      "component": "forge-app-tile",
+      "doel": "Zeldzame warme producttegel voor CV beheer.",
+      "label": "CV Tool",
+      "naam": "CV App Tile",
+      "status": "running",
+      "variant": "forge-app-tile-ember"
+    },
+    "id": "forge-app-tile-cv-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "beschrijving": "All Running",
+      "component": "forge-stat-card",
+      "doel": "Aantal actieve clusternodes.",
+      "label": "Nodes",
+      "naam": "Nodes Stat Card",
+      "variant": "forge-stat-card-value",
+      "waarde": "12"
+    },
+    "id": "forge-stat-card-nodes-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "beschrijving": "98%",
+      "component": "forge-stat-card",
+      "doel": "Clustergezondheid als feitelijke waarde.",
+      "label": "Cluster Health",
+      "naam": "Health Stat Card",
+      "variant": "forge-stat-card-health",
+      "waarde": "Healthy"
+    },
+    "id": "forge-stat-card-health-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-stat-card",
+      "doel": "Actueel CPU gebruik.",
+      "label": "CPU Usage",
+      "naam": "CPU Stat Card",
+      "variant": "forge-stat-card-progress",
+      "waarde": "24%"
+    },
+    "id": "forge-stat-card-cpu-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-stat-card",
+      "doel": "Actueel geheugengebruik met één schaars koperaccent.",
+      "label": "Memory",
+      "naam": "Memory Stat Card",
+      "variant": "forge-stat-card-progress-ember",
+      "waarde": "43%"
+    },
+    "id": "forge-stat-card-memory-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
       "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
       "inhoud": [
         "beckeringh-palace"
@@ -694,7 +2050,17 @@
       "inhoud": [
         "forge",
         "forge-materials",
-        "forge-panel"
+        "forge-panel",
+        "forge-button",
+        "forge-input",
+        "forge-status",
+        "forge-app-tile",
+        "forge-stat-card",
+        "forge-button-primary-example",
+        "forge-input-error-example",
+        "forge-status-running-example",
+        "forge-app-tile-isms-example",
+        "forge-stat-card-nodes-example"
       ],
       "leesvolgorde": "2",
       "naam": "Forge ontwerpsysteem",
@@ -719,7 +2085,8 @@
         "appearance",
         "token",
         "component",
-        "variant"
+        "variant",
+        "componentvoorbeeld"
       ],
       "toegankelijkheidslabel": "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten"
     },
