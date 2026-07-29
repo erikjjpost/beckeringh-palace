@@ -23,8 +23,8 @@ Een wijziging is pas gereed wanneer de volledige controle eindigt met
 
 ## HTML bekijken
 
-Open `output/products/index.html` als ingang. Deze homepage verwijst naar de
-gegenereerde HTML-producten en het EmberForge designsystem referentieproduct.
+Open `output/products/index.html` als ingang voor de bestaande
+productnavigatie en het EmberForge designsystem referentieproduct.
 
 `output/products/components.html` is een statische designsystemsnapshot. De
 lokale navigatie, primitives, tokens, states, voorbeelden en
@@ -34,6 +34,14 @@ toegankelijkheidscontracten worden volledig uit BAT gegenereerd.
 productsurface. Het artifact toont native email-, wachtwoord- en
 submitsemantiek. Het bevat bewust geen realm, clientconfiguratie,
 authenticatie-endpoint of werkende Keycloak koppeling.
+
+`output/products/emberforge-terminal.html` is de reproduceerbare statische
+terminal productsurface. Het artifact toont vensterchrome, tabs, identiteit,
+dertien systeemvelden en een prompt uit het gevalideerde BAT voorbeeld. Het
+voert geen shell uit en toont geen actuele telemetrie.
+
+De Keycloak en terminal productsurfaces zijn in M11.4d nog niet vanuit de
+homepage ontsloten en kunnen rechtstreeks via hun artifactpad worden geopend.
 
 Een lokale webserver voorkomt browserbeperkingen bij relatieve bestanden:
 

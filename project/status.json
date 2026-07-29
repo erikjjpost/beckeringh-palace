@@ -3,36 +3,36 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.4c",
-    "name": "EmberForge Keycloak login product",
+    "id": "M11.4d",
+    "name": "EmberForge terminal productsurface",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.4b",
-    "name": "EmberForge Grafana dashboardproduct",
-    "pull_request": 83
+    "id": "M11.4c",
+    "name": "EmberForge Keycloak login product",
+    "pull_request": 84
   },
   "next_step": {
-    "id": "M11.4d",
-    "name": "EmberForge terminal productsurface",
-    "purpose": "De geverifieerde EmberForge terminal surface als native product modelleren en uit dezelfde ontwerpcontracten genereren."
+    "id": "M11.4e",
+    "name": "EmberForge productnavigatie",
+    "purpose": "De native Keycloak en terminal productsurfaces via de bestaande homepage en productfamilie ontsluiten."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 91,
+      "progress": 92,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 214 regressietests vormen een werkende kwaliteitsketen; HTML en Grafana consumeren dezelfde backendonafhankelijk opgeloste componentvoorbeelden.",
+      "evidence": "Validatie, deterministische generatie, CI en 221 regressietests vormen een werkende kwaliteitsketen; HTML en Grafana consumeren backendonafhankelijk opgeloste componentvoorbeelden en de statische terminalinhoud is volledig getypeerd.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 93,
+      "progress": 95,
       "weight": 10,
-      "evidence": "Naast thema's, informatiearchitectuur en designsystemcontracten zijn het homelab dashboard en de Keycloak login als afzonderlijke native productsurfaces gemodelleerd.",
-      "remaining": "De terminal productsurface en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
+      "evidence": "Naast thema's, informatiearchitectuur en designsystemcontracten zijn het homelab dashboard, de Keycloak login en de statische terminal als afzonderlijke native productsurfaces gemodelleerd.",
+      "remaining": "Productnavigatie en bredere wereldsemantiek moeten nog in BAT worden verdiept."
     },
     {
       "id": "design-system",
@@ -77,10 +77,10 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 76,
+      "progress": 80,
       "weight": 10,
-      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; naast projectstatus, designsystem en homelab dashboard bestaat nu ook een native Keycloak login product.",
-      "remaining": "De nieuwe productsurfaces moeten nog als routes in de homepage informatiearchitectuur worden ontsloten."
+      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; naast projectstatus, designsystem en homelab dashboard bestaan nu native Keycloak en terminal producten.",
+      "remaining": "De Keycloak en terminal productsurfaces moeten nog als routes in de homepage informatiearchitectuur worden ontsloten."
     },
     {
       "id": "figma",
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 41,
+      "progress": 43,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie zijn het homelab dashboard en de Keycloak login als concrete productsurfaces vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie zijn het homelab dashboard, de Keycloak login en de statische terminal als concrete productsurfaces vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

@@ -1227,6 +1227,25 @@ appearance forge-stat-card-ember-appearance {
     caption-style: "caption"
 }
 
+appearance forge-terminal-appearance {
+    naam: "Forge Terminal Appearance"
+    doel: "Statisch terminalvenster op het diepste Forge oppervlak."
+    material: "field"
+    foreground: "foreground"
+    accent: "interaction"
+    outline: "outline"
+    border: "regular"
+    radius: "medium"
+    shadow: "high"
+    motion: "slow"
+    offset: "rest"
+    spacing: "none"
+    heading-style: "heading"
+    body-style: "body"
+    label-style: "label"
+    caption-style: "caption"
+}
+
 toegankelijkheid forge-button-accessibility {
     naam: "Forge Button Accessibility"
     doel: "Benoemt een actie en legt native activering en disabled gedrag vast."
@@ -1282,6 +1301,16 @@ toegankelijkheid forge-stat-card-accessibility {
     toetsenbord: "geen"
 }
 
+toegankelijkheid forge-terminal-accessibility {
+    naam: "Forge Terminal Accessibility"
+    doel: "Benoemt een statische terminalweergave als niet-interactieve groep."
+    rol: "groep"
+    naambron: "label"
+    disabled: "niet-van-toepassing"
+    focus: "geen"
+    toetsenbord: "geen"
+}
+
 component forge-button {
     naam: "Forge Button"
     doel: "Actiecomponent voor primaire, secundaire, ghost en warme acties."
@@ -1325,6 +1354,15 @@ component forge-stat-card {
     rol: "statistiek"
     anatomie: ["label", "waarde", "beschrijving"]
     toegankelijkheid: "forge-stat-card-accessibility"
+}
+
+component forge-terminal {
+    naam: "Forge Terminal"
+    doel: "Statische terminalweergave met vensterchrome, systeemvelden en prompt."
+    appearance: "forge-terminal-appearance"
+    rol: "terminal"
+    anatomie: ["label", "venstertitel", "vensterknoppen", "tabs", "actieve-tab", "markering", "gebruiker", "host", "sleutels", "waarden", "pad", "prompt", "cursor"]
+    toegankelijkheid: "forge-terminal-accessibility"
 }
 
 variant forge-button-primary {
@@ -1465,6 +1503,13 @@ variant forge-stat-card-progress-ember {
     doel: "Statistiekkaart met één schaars warm voortgangsaccent."
     component: "forge-stat-card"
     appearance: "forge-stat-card-ember-appearance"
+}
+
+variant forge-terminal-neofetch {
+    naam: "NordForge Neofetch"
+    doel: "Statische EmberForge OS systeemidentiteit uit de terminalbron."
+    component: "forge-terminal"
+    appearance: "forge-terminal-appearance"
 }
 
 componentvoorbeeld forge-button-primary-example {
@@ -1622,6 +1667,26 @@ componentvoorbeeld forge-stat-card-memory-example {
     variant: "forge-stat-card-progress-ember"
     label: "Memory"
     waarde: "43%"
+}
+
+componentvoorbeeld forge-terminal-neofetch-example {
+    naam: "EmberForge Terminal"
+    doel: "Statische bronweergave van de EmberForge OS terminal zonder shelluitvoering of actuele telemetrie."
+    component: "forge-terminal"
+    variant: "forge-terminal-neofetch"
+    label: "EmberForge terminal systeemoverzicht"
+    venstertitel: "thb1@emberforge: ~ — wezterm — 120×32"
+    vensterknoppen: ["sluiten", "minimaliseren", "maximaliseren"]
+    tabs: ["~/emberforge", "k9s", "+"]
+    actieve-tab: "~/emberforge"
+    markering: "✦"
+    gebruiker: "thb1"
+    host: "emberforge"
+    sleutels: ["OS", "Host", "Uptime", "Shell", "Resolution", "WM", "Icons", "Terminal", "CPU", "GPU", "Memory", "Disk", "Cluster"]
+    waarden: ["EmberForge OS · 6.6.12-ember", "emberforge (k3s control-plane)", "5 days, 14 hours, 22 mins", "zsh 5.9", "1920×1080", "i3 · NordForge theme", "Tela-circle", "wezterm 20240203", "AMD Ryzen 9 5950X (16) @ 4.9GHz", "NVIDIA RTX A4000", "32.1 GiB / 64.0 GiB", "412 GiB / 2.0 TiB (Longhorn)", "homelab · 12 nodes · 98% healthy"]
+    pad: "~"
+    prompt: "$"
+    cursor: "▍"
 }
 
 referentiesectie forge-reference-primitives {
@@ -2092,6 +2157,46 @@ product emberforge-keycloak-login-html {
     compositie: "emberforge-keycloak-login"
     layout: "emberforge-keycloak-login-responsive"
     pad: "output/products/emberforge-keycloak-login.html"
+}
+
+compositie emberforge-terminal {
+    naam: "EmberForge Terminal"
+    doel: "Statische EmberForge OS terminalweergave met bronvoorbeeldwaarden."
+    rol: "terminal-sessie"
+    instanties: ["emberforge-terminal-session"]
+}
+
+componentinstantie emberforge-terminal-session {
+    naam: "NordForge neofetch"
+    doel: "Statisch systeemoverzicht zonder uitvoerbare shell of actuele telemetrie."
+    compositie: "emberforge-terminal"
+    voorbeeld: "forge-terminal-neofetch-example"
+}
+
+layout emberforge-terminal-stack {
+    naam: "EmberForge Terminal Stack"
+    doel: "Plaatst de statische terminal als één zelfstandige productsurface."
+    type: "stack"
+    regions: ["emberforge-terminal-region"]
+    direction: "vertical"
+}
+
+region emberforge-terminal-region {
+    naam: "Terminalsessie"
+    doel: "Enige inhoudsregio van de EmberForge terminal productsurface."
+    layout: "emberforge-terminal-stack"
+    instantie: "emberforge-terminal-session"
+}
+
+product emberforge-terminal-html {
+    naam: "EmberForge Terminal"
+    doel: "De geverifieerde terminal surface statisch genereren zonder shelluitvoering of actuele telemetrie."
+    backend: "html"
+    mode: "static"
+    wereld: "beckeringh-palace"
+    compositie: "emberforge-terminal"
+    layout: "emberforge-terminal-stack"
+    pad: "output/products/emberforge-terminal.html"
 }
 
 product project-status-html {

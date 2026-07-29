@@ -2032,6 +2032,33 @@ Statistiekkaart met één schaars koperaccent.
 - **shadow:** none
 - **spacing:** medium
 
+## Forge Terminal Appearance
+
+**Soort:** appearance
+
+**Identifier:** `forge-terminal-appearance`
+
+### Doel
+
+Statisch terminalvenster op het diepste Forge oppervlak.
+
+### Eigenschappen
+
+- **accent:** interaction
+- **body-style:** body
+- **border:** regular
+- **caption-style:** caption
+- **foreground:** foreground
+- **heading-style:** heading
+- **label-style:** label
+- **material:** field
+- **motion:** slow
+- **offset:** rest
+- **outline:** outline
+- **radius:** medium
+- **shadow:** high
+- **spacing:** none
+
 ## Forge Button Accessibility
 
 **Soort:** toegankelijkheid
@@ -2127,6 +2154,24 @@ Benoemt een statistiek als niet-interactieve waardegroep.
 - **toetsenbord:** geen
 - **waardebron:** waarde
 
+## Forge Terminal Accessibility
+
+**Soort:** toegankelijkheid
+
+**Identifier:** `forge-terminal-accessibility`
+
+### Doel
+
+Benoemt een statische terminalweergave als niet-interactieve groep.
+
+### Eigenschappen
+
+- **disabled:** niet-van-toepassing
+- **focus:** geen
+- **naambron:** label
+- **rol:** groep
+- **toetsenbord:** geen
+
 ## Forge Button
 
 **Soort:** component
@@ -2211,6 +2256,23 @@ Compacte operationele waarde met context.
 - **appearance:** forge-stat-card-value-appearance
 - **rol:** statistiek
 - **toegankelijkheid:** forge-stat-card-accessibility
+
+## Forge Terminal
+
+**Soort:** component
+
+**Identifier:** `forge-terminal`
+
+### Doel
+
+Statische terminalweergave met vensterchrome, systeemvelden en prompt.
+
+### Eigenschappen
+
+- **anatomie:** label, venstertitel, vensterknoppen, tabs, actieve-tab, markering, gebruiker, host, sleutels, waarden, pad, prompt, cursor
+- **appearance:** forge-terminal-appearance
+- **rol:** terminal
+- **toegankelijkheid:** forge-terminal-accessibility
 
 ## Primary
 
@@ -2479,6 +2541,21 @@ Statistiekkaart met één schaars warm voortgangsaccent.
 
 - **appearance:** forge-stat-card-ember-appearance
 - **component:** forge-stat-card
+
+## NordForge Neofetch
+
+**Soort:** variant
+
+**Identifier:** `forge-terminal-neofetch`
+
+### Doel
+
+Statische EmberForge OS systeemidentiteit uit de terminalbron.
+
+### Eigenschappen
+
+- **appearance:** forge-terminal-appearance
+- **component:** forge-terminal
 
 ## Primary Button
 
@@ -2772,6 +2849,34 @@ Actueel geheugengebruik met één schaars koperaccent.
 - **label:** Memory
 - **variant:** forge-stat-card-progress-ember
 - **waarde:** 43%
+
+## EmberForge Terminal
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-terminal-neofetch-example`
+
+### Doel
+
+Statische bronweergave van de EmberForge OS terminal zonder shelluitvoering of actuele telemetrie.
+
+### Eigenschappen
+
+- **actieve-tab:** ~/emberforge
+- **component:** forge-terminal
+- **cursor:** ▍
+- **gebruiker:** thb1
+- **host:** emberforge
+- **label:** EmberForge terminal systeemoverzicht
+- **markering:** ✦
+- **pad:** ~
+- **prompt:** $
+- **sleutels:** OS, Host, Uptime, Shell, Resolution, WM, Icons, Terminal, CPU, GPU, Memory, Disk, Cluster
+- **tabs:** ~/emberforge, k9s, +
+- **variant:** forge-terminal-neofetch
+- **vensterknoppen:** sluiten, minimaliseren, maximaliseren
+- **venstertitel:** thb1@emberforge: ~ — wezterm — 120×32
+- **waarden:** EmberForge OS · 6.6.12-ember, emberforge (k3s control-plane), 5 days, 14 hours, 22 mins, zsh 5.9, 1920×1080, i3 · NordForge theme, Tela-circle, wezterm 20240203, AMD Ryzen 9 5950X (16) @ 4.9GHz, NVIDIA RTX A4000, 32.1 GiB / 64.0 GiB, 412 GiB / 2.0 TiB (Longhorn), homelab · 12 nodes · 98% healthy
 
 ## Primitieven
 
@@ -3649,6 +3754,86 @@ De native EmberForge login surface zonder authenticatieconfiguratie genereren.
 - **layout:** emberforge-keycloak-login-responsive
 - **mode:** interactive
 - **pad:** output/products/emberforge-keycloak-login.html
+- **wereld:** beckeringh-palace
+
+## EmberForge Terminal
+
+**Soort:** compositie
+
+**Identifier:** `emberforge-terminal`
+
+### Doel
+
+Statische EmberForge OS terminalweergave met bronvoorbeeldwaarden.
+
+### Eigenschappen
+
+- **instanties:** emberforge-terminal-session
+- **rol:** terminal-sessie
+
+## NordForge neofetch
+
+**Soort:** componentinstantie
+
+**Identifier:** `emberforge-terminal-session`
+
+### Doel
+
+Statisch systeemoverzicht zonder uitvoerbare shell of actuele telemetrie.
+
+### Eigenschappen
+
+- **compositie:** emberforge-terminal
+- **voorbeeld:** forge-terminal-neofetch-example
+
+## EmberForge Terminal Stack
+
+**Soort:** layout
+
+**Identifier:** `emberforge-terminal-stack`
+
+### Doel
+
+Plaatst de statische terminal als één zelfstandige productsurface.
+
+### Eigenschappen
+
+- **direction:** vertical
+- **regions:** emberforge-terminal-region
+- **type:** stack
+
+## Terminalsessie
+
+**Soort:** region
+
+**Identifier:** `emberforge-terminal-region`
+
+### Doel
+
+Enige inhoudsregio van de EmberForge terminal productsurface.
+
+### Eigenschappen
+
+- **instantie:** emberforge-terminal-session
+- **layout:** emberforge-terminal-stack
+
+## EmberForge Terminal
+
+**Soort:** product
+
+**Identifier:** `emberforge-terminal-html`
+
+### Doel
+
+De geverifieerde terminal surface statisch genereren zonder shelluitvoering of actuele telemetrie.
+
+### Eigenschappen
+
+- **backend:** html
+- **compositie:** emberforge-terminal
+- **layout:** emberforge-terminal-stack
+- **mode:** static
+- **pad:** output/products/emberforge-terminal.html
 - **wereld:** beckeringh-palace
 
 ## Beckeringh Palace Projectstatus

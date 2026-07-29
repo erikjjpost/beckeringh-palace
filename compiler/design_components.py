@@ -26,6 +26,21 @@ COMPONENT_ANATOMIE_PER_ROL = {
     "status": ("label", "waarde"),
     "app-tegel": ("label", "beschrijving", "status"),
     "statistiek": ("label", "waarde", "beschrijving"),
+    "terminal": (
+        "label",
+        "venstertitel",
+        "vensterknoppen",
+        "tabs",
+        "actieve-tab",
+        "markering",
+        "gebruiker",
+        "host",
+        "sleutels",
+        "waarden",
+        "pad",
+        "prompt",
+        "cursor",
+    ),
 }
 COMPONENT_ROLLEN = frozenset(COMPONENT_ANATOMIE_PER_ROL)
 APPEARANCE_EIGENSCHAPPEN = (

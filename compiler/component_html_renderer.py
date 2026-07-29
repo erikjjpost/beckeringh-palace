@@ -256,6 +256,91 @@ def render_component_example(
                 f"        <p>{html.escape(example.beschrijving)}</p>"
             )
         regels.append("      </article>")
+    elif example.component_role == "terminal":
+        terminal = example.terminal
+        if terminal is None:
+            raise ValueError(
+                f"Terminalvoorbeeld '{example.id}' vereist opgeloste inhoud"
+            )
+        regels.extend([
+            (
+                f"      <figure {attributen} "
+                f'aria-label="{html.escape(example.label)}" '
+                'data-terminal-static="true">'
+            ),
+            '        <div class="bp-terminal-chrome">',
+            (
+                '          <span class="bp-terminal-controls" '
+                'aria-hidden="true">'
+            ),
+        ])
+        for vensterknop in terminal.vensterknoppen:
+            regels.append(
+                '            <span class="bp-terminal-control" '
+                f'data-terminal-control="{html.escape(vensterknop)}"></span>'
+            )
+        regels.extend([
+            "          </span>",
+            (
+                '          <figcaption class="bp-terminal-title">'
+                f"{html.escape(terminal.venstertitel)}</figcaption>"
+            ),
+            '          <span class="bp-terminal-tabs" aria-hidden="true">',
+        ])
+        for tab in terminal.tabs:
+            actief = "true" if tab == terminal.actieve_tab else "false"
+            regels.append(
+                '            <span class="bp-terminal-tab" '
+                f'data-terminal-tab="{html.escape(tab)}" '
+                f'data-terminal-tab-active="{actief}">'
+                f"{html.escape(tab)}</span>"
+            )
+        regels.extend([
+            "          </span>",
+            "        </div>",
+            '        <div class="bp-terminal-body">',
+            '          <p class="bp-terminal-identity">',
+            (
+                '            <span class="bp-terminal-marker">'
+                f"{html.escape(terminal.markering)}</span> "
+                '<span class="bp-terminal-user">'
+                f"{html.escape(terminal.gebruiker)}</span>"
+                '<span class="bp-terminal-at">@</span>'
+                '<span class="bp-terminal-host">'
+                f"{html.escape(terminal.host)}</span>"
+            ),
+            "          </p>",
+            '          <div class="bp-terminal-rule" aria-hidden="true"></div>',
+            '          <dl class="bp-terminal-system">',
+        ])
+        for sleutel, waarde in terminal.systeemvelden:
+            regels.extend([
+                '            <div class="bp-terminal-field">',
+                f"              <dt>{html.escape(sleutel)}:</dt>",
+                f"              <dd>{html.escape(waarde)}</dd>",
+                "            </div>",
+            ])
+        regels.extend([
+            "          </dl>",
+            '          <p class="bp-terminal-prompt">',
+            (
+                '            <span class="bp-terminal-user">'
+                f"{html.escape(terminal.gebruiker)}</span>"
+                '<span class="bp-terminal-at">@</span>'
+                '<span class="bp-terminal-host">'
+                f"{html.escape(terminal.host)}</span>"
+                '<span class="bp-terminal-separator">:</span>'
+                '<span class="bp-terminal-path">'
+                f"{html.escape(terminal.pad)}</span> "
+                '<span class="bp-terminal-prompt-sign">'
+                f"{html.escape(terminal.prompt)}</span> "
+                '<span class="bp-terminal-cursor" aria-hidden="true">'
+                f"{html.escape(terminal.cursor)}</span>"
+            ),
+            "          </p>",
+            "        </div>",
+            "      </figure>",
+        ])
     else:
         regels.extend([
             f"      <section {attributen}>",

@@ -749,6 +749,18 @@ productsurface. Een compositie kan daarvoor de expliciete rol
 bevat geen realm, client-ID, endpoint, sessiegedrag of credentials en claimt
 daarom uitsluitend de productsurface, niet een werkende Keycloak integratie.
 
+M11.4d modelleert de EmberForge terminal als een derde concrete
+productsurface. De componentrol `terminal` vereist vensterchrome, tabs,
+identiteit, geordende systeemvelden en promptinhoud. Het
+`componentvoorbeeld` bewaart deze bronwaarden getypeerd; de compositierol
+`terminal-sessie` plaatst precies dit opgeloste voorbeeld in een statische
+stacklayout.
+
+De HTML backend rendert een benoemde, niet-interactieve groep met een
+definitielijst voor de systeemvelden. Vensterknoppen en tabs zijn visuele
+bronweergaven en geen controls. Het product voert geen shell uit en behandelt
+de voorbeeldwaarden niet als actuele telemetrie.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -822,6 +834,7 @@ daarom uitsluitend de productsurface, niet een werkende Keycloak integratie.
 | `BP3826` | App tegelvoorbeeld gebruikt een onbekende operationele status |
 | `BP3827` | Invoervoorbeeld gebruikt een onbekend of rolvreemd invoertype |
 | `BP3828` | Actievoorbeeld gebruikt een onbekend of rolvreemd actietype |
+| `BP3829` | Terminalvoorbeeld heeft een onvolledig of inconsistent inhoudscontract |
 | `BP3830` | Toegankelijkheidscontract heeft een onbekende eigenschap |
 | `BP3831` | Toegankelijkheidscontract heeft een ongeldige contractwaarde |
 | `BP3832` | Component mist een bestaand toegankelijkheidscontract |

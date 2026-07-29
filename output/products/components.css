@@ -249,6 +249,141 @@
   font-weight: 600;
 }
 
+.bp-forge-terminal {
+  --bp-component-accent: var(--bp-material-interaction);
+  background-color: var(--bp-material-field);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-outline);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-high);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-slow);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-none);
+}
+
+.bp-forge-terminal h1, .bp-forge-terminal h2, .bp-forge-terminal h3, .bp-forge-terminal h4, .bp-forge-terminal h5, .bp-forge-terminal h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-terminal p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-terminal label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-terminal small, .bp-forge-terminal figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-terminal {
+  display: block;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--bp-font-mono);
+}
+.bp-forge-terminal .bp-terminal-chrome {
+  display: flex;
+  align-items: center;
+  gap: var(--bp-spacing-medium);
+  padding: var(--bp-spacing-small) var(--bp-spacing-medium);
+  background: var(--bp-material-raised);
+  border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+}
+.bp-forge-terminal .bp-terminal-controls {
+  display: inline-flex;
+  gap: var(--bp-spacing-xs);
+}
+.bp-forge-terminal .bp-terminal-control {
+  display: block;
+  width: var(--bp-type-caption);
+  height: var(--bp-type-caption);
+  border-radius: var(--bp-radius-pill);
+  background: var(--bp-material-muted);
+}
+.bp-forge-terminal [data-terminal-control="sluiten"] { background: var(--bp-material-error); }
+.bp-forge-terminal [data-terminal-control="minimaliseren"] { background: var(--bp-material-warning); }
+.bp-forge-terminal [data-terminal-control="maximaliseren"] { background: var(--bp-material-success); }
+.bp-forge-terminal .bp-terminal-title {
+  color: var(--bp-material-muted);
+  font-size: var(--bp-type-caption);
+}
+.bp-forge-terminal .bp-terminal-tabs {
+  display: inline-flex;
+  gap: var(--bp-spacing-xs);
+  margin-left: auto;
+}
+.bp-forge-terminal .bp-terminal-tab {
+  padding: var(--bp-spacing-xs) var(--bp-spacing-small);
+  color: var(--bp-material-muted);
+  border-radius: var(--bp-radius-control);
+  font-size: var(--bp-type-caption);
+}
+.bp-forge-terminal [data-terminal-tab-active="true"] {
+  color: var(--bp-material-interaction);
+  background: var(--bp-material-interaction-soft);
+}
+.bp-forge-terminal .bp-terminal-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bp-spacing-medium);
+  padding: var(--bp-spacing-medium);
+  background: var(--bp-material-field);
+  color: var(--bp-material-foreground);
+  font-size: var(--bp-type-label);
+  line-height: 1.55;
+}
+.bp-forge-terminal .bp-terminal-identity,
+.bp-forge-terminal .bp-terminal-prompt {
+  margin: 0;
+  font-family: var(--bp-font-mono);
+}
+.bp-forge-terminal .bp-terminal-marker,
+.bp-forge-terminal .bp-terminal-prompt-sign {
+  color: var(--bp-material-accent);
+}
+.bp-forge-terminal .bp-terminal-user {
+  color: var(--bp-material-foreground);
+}
+.bp-forge-terminal .bp-terminal-host,
+.bp-forge-terminal .bp-terminal-path,
+.bp-forge-terminal .bp-terminal-system dt {
+  color: var(--bp-material-interaction);
+}
+.bp-forge-terminal .bp-terminal-at,
+.bp-forge-terminal .bp-terminal-separator {
+  color: var(--bp-material-disabled);
+}
+.bp-forge-terminal .bp-terminal-rule {
+  border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+}
+.bp-forge-terminal .bp-terminal-system {
+  display: grid;
+  gap: var(--bp-spacing-xs) var(--bp-spacing-medium);
+  margin: 0;
+}
+.bp-forge-terminal .bp-terminal-field {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--bp-spacing-medium);
+}
+.bp-forge-terminal .bp-terminal-system dt {
+  font-weight: 600;
+}
+.bp-forge-terminal .bp-terminal-system dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--bp-material-foreground);
+}
+.bp-forge-terminal .bp-terminal-cursor {
+  color: var(--bp-material-foreground);
+}
+
 .bp-forge-app-tile.bp-variant-forge-app-tile-default {
   --bp-component-accent: var(--bp-material-interaction);
   background-color: var(--bp-material-surface);
@@ -1986,6 +2121,37 @@
   font-size: var(--bp-type-label);
 }
 .bp-forge-status.bp-variant-forge-status-running small, .bp-forge-status.bp-variant-forge-status-running figcaption {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-caption);
+}
+
+.bp-forge-terminal.bp-variant-forge-terminal-neofetch {
+  --bp-component-accent: var(--bp-material-interaction);
+  background-color: var(--bp-material-field);
+  color: var(--bp-material-foreground);
+  border: var(--bp-border-regular) var(--bp-border-style) var(--bp-material-outline);
+  border-radius: var(--bp-radius-medium);
+  box-shadow: var(--bp-shadow-high);
+  transform: translateY(var(--bp-motion-rest-offset));
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: var(--bp-motion-slow);
+  transition-timing-function: var(--bp-motion-easing);
+  padding: var(--bp-spacing-none);
+}
+
+.bp-forge-terminal.bp-variant-forge-terminal-neofetch h1, .bp-forge-terminal.bp-variant-forge-terminal-neofetch h2, .bp-forge-terminal.bp-variant-forge-terminal-neofetch h3, .bp-forge-terminal.bp-variant-forge-terminal-neofetch h4, .bp-forge-terminal.bp-variant-forge-terminal-neofetch h5, .bp-forge-terminal.bp-variant-forge-terminal-neofetch h6 {
+  font-family: var(--bp-font-heading);
+  font-size: var(--bp-type-heading);
+}
+.bp-forge-terminal.bp-variant-forge-terminal-neofetch p {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-body);
+}
+.bp-forge-terminal.bp-variant-forge-terminal-neofetch label {
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-type-label);
+}
+.bp-forge-terminal.bp-variant-forge-terminal-neofetch small, .bp-forge-terminal.bp-variant-forge-terminal-neofetch figcaption {
   font-family: var(--bp-font-body);
   font-size: var(--bp-type-caption);
 }

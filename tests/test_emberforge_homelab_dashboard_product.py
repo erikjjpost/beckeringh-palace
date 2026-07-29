@@ -182,7 +182,7 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
             if area["id"] == "product-surfaces"
         )
 
-        self.assertEqual("gedeeltelijk-mapbaar", area["status"])
+        self.assertEqual("gemigreerd", area["status"])
         self.assertIn("M11.4b", area["bewijs"])
         self.assertIn("tien BAT componentvoorbeelden", area["bewijs"])
 

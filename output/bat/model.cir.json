@@ -1585,6 +1585,28 @@
   },
   {
     "eigenschappen": {
+      "accent": "interaction",
+      "body-style": "body",
+      "border": "regular",
+      "caption-style": "caption",
+      "doel": "Statisch terminalvenster op het diepste Forge oppervlak.",
+      "foreground": "foreground",
+      "heading-style": "heading",
+      "label-style": "label",
+      "material": "field",
+      "motion": "slow",
+      "naam": "Forge Terminal Appearance",
+      "offset": "rest",
+      "outline": "outline",
+      "radius": "medium",
+      "shadow": "high",
+      "spacing": "none"
+    },
+    "id": "forge-terminal-appearance",
+    "soort": "appearance"
+  },
+  {
+    "eigenschappen": {
       "disabled": "native",
       "doel": "Benoemt een actie en legt native activering en disabled gedrag vast.",
       "focus": "tabvolgorde",
@@ -1651,6 +1673,19 @@
       "waardebron": "waarde"
     },
     "id": "forge-stat-card-accessibility",
+    "soort": "toegankelijkheid"
+  },
+  {
+    "eigenschappen": {
+      "disabled": "niet-van-toepassing",
+      "doel": "Benoemt een statische terminalweergave als niet-interactieve groep.",
+      "focus": "geen",
+      "naam": "Forge Terminal Accessibility",
+      "naambron": "label",
+      "rol": "groep",
+      "toetsenbord": "geen"
+    },
+    "id": "forge-terminal-accessibility",
     "soort": "toegankelijkheid"
   },
   {
@@ -1728,6 +1763,32 @@
       "toegankelijkheid": "forge-stat-card-accessibility"
     },
     "id": "forge-stat-card",
+    "soort": "component"
+  },
+  {
+    "eigenschappen": {
+      "anatomie": [
+        "label",
+        "venstertitel",
+        "vensterknoppen",
+        "tabs",
+        "actieve-tab",
+        "markering",
+        "gebruiker",
+        "host",
+        "sleutels",
+        "waarden",
+        "pad",
+        "prompt",
+        "cursor"
+      ],
+      "appearance": "forge-terminal-appearance",
+      "doel": "Statische terminalweergave met vensterchrome, systeemvelden en prompt.",
+      "naam": "Forge Terminal",
+      "rol": "terminal",
+      "toegankelijkheid": "forge-terminal-accessibility"
+    },
+    "id": "forge-terminal",
     "soort": "component"
   },
   {
@@ -1916,6 +1977,16 @@
       "naam": "Ember Progress Stat Card"
     },
     "id": "forge-stat-card-progress-ember",
+    "soort": "variant"
+  },
+  {
+    "eigenschappen": {
+      "appearance": "forge-terminal-appearance",
+      "component": "forge-terminal",
+      "doel": "Statische EmberForge OS systeemidentiteit uit de terminalbron.",
+      "naam": "NordForge Neofetch"
+    },
+    "id": "forge-terminal-neofetch",
     "soort": "variant"
   },
   {
@@ -2124,6 +2195,65 @@
       "waarde": "43%"
     },
     "id": "forge-stat-card-memory-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "actieve-tab": "~/emberforge",
+      "component": "forge-terminal",
+      "cursor": "▍",
+      "doel": "Statische bronweergave van de EmberForge OS terminal zonder shelluitvoering of actuele telemetrie.",
+      "gebruiker": "thb1",
+      "host": "emberforge",
+      "label": "EmberForge terminal systeemoverzicht",
+      "markering": "✦",
+      "naam": "EmberForge Terminal",
+      "pad": "~",
+      "prompt": "$",
+      "sleutels": [
+        "OS",
+        "Host",
+        "Uptime",
+        "Shell",
+        "Resolution",
+        "WM",
+        "Icons",
+        "Terminal",
+        "CPU",
+        "GPU",
+        "Memory",
+        "Disk",
+        "Cluster"
+      ],
+      "tabs": [
+        "~/emberforge",
+        "k9s",
+        "+"
+      ],
+      "variant": "forge-terminal-neofetch",
+      "vensterknoppen": [
+        "sluiten",
+        "minimaliseren",
+        "maximaliseren"
+      ],
+      "venstertitel": "thb1@emberforge: ~ — wezterm — 120×32",
+      "waarden": [
+        "EmberForge OS · 6.6.12-ember",
+        "emberforge (k3s control-plane)",
+        "5 days, 14 hours, 22 mins",
+        "zsh 5.9",
+        "1920×1080",
+        "i3 · NordForge theme",
+        "Tela-circle",
+        "wezterm 20240203",
+        "AMD Ryzen 9 5950X (16) @ 4.9GHz",
+        "NVIDIA RTX A4000",
+        "32.1 GiB / 64.0 GiB",
+        "412 GiB / 2.0 TiB (Longhorn)",
+        "homelab · 12 nodes · 98% healthy"
+      ]
+    },
+    "id": "forge-terminal-neofetch-example",
     "soort": "componentvoorbeeld"
   },
   {
@@ -2856,6 +2986,65 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-keycloak-login-html",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Statische EmberForge OS terminalweergave met bronvoorbeeldwaarden.",
+      "instanties": [
+        "emberforge-terminal-session"
+      ],
+      "naam": "EmberForge Terminal",
+      "rol": "terminal-sessie"
+    },
+    "id": "emberforge-terminal",
+    "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-terminal",
+      "doel": "Statisch systeemoverzicht zonder uitvoerbare shell of actuele telemetrie.",
+      "naam": "NordForge neofetch",
+      "voorbeeld": "forge-terminal-neofetch-example"
+    },
+    "id": "emberforge-terminal-session",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "direction": "vertical",
+      "doel": "Plaatst de statische terminal als één zelfstandige productsurface.",
+      "naam": "EmberForge Terminal Stack",
+      "regions": [
+        "emberforge-terminal-region"
+      ],
+      "type": "stack"
+    },
+    "id": "emberforge-terminal-stack",
+    "soort": "layout"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Enige inhoudsregio van de EmberForge terminal productsurface.",
+      "instantie": "emberforge-terminal-session",
+      "layout": "emberforge-terminal-stack",
+      "naam": "Terminalsessie"
+    },
+    "id": "emberforge-terminal-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "backend": "html",
+      "compositie": "emberforge-terminal",
+      "doel": "De geverifieerde terminal surface statisch genereren zonder shelluitvoering of actuele telemetrie.",
+      "layout": "emberforge-terminal-stack",
+      "mode": "static",
+      "naam": "EmberForge Terminal",
+      "pad": "output/products/emberforge-terminal.html",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-terminal-html",
     "soort": "product"
   },
   {
