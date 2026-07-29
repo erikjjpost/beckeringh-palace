@@ -2240,6 +2240,7 @@
         "emberforge-homelab-dashboard",
         "emberforge-homelab-dashboard-responsive",
         "emberforge-homelab-dashboard-html",
+        "emberforge-homelab-dashboard-grafana",
         "project-status-html",
         "forge-design-system-reference-html"
       ],
@@ -2247,6 +2248,7 @@
       "naam": "Productfamilie",
       "navigatie": [
         "emberforge-homelab-dashboard-html",
+        "emberforge-homelab-dashboard-grafana",
         "project-status-html",
         "project-status-grafana"
       ],
@@ -2704,6 +2706,20 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-homelab-dashboard-html",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "backend": "grafana",
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Het native homelab overzicht als importeerbaar Grafana dashboard genereren.",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "mode": "interactive",
+      "naam": "EmberForge Homelab Dashboard Grafana",
+      "pad": "output/products/emberforge-homelab-dashboard.grafana.json",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-homelab-dashboard-grafana",
     "soort": "product"
   },
   {

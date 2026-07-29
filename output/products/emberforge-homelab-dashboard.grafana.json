@@ -1,0 +1,1277 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "description": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#1F2937"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#C9895B"
+            },
+            "width": 0
+          },
+          "elements": [
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#C9895B"
+                },
+                "size": 12,
+                "text": {
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Interactief product",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "emberforge-homelab-dashboard-grafana-identity",
+              "placement": {
+                "height": 20,
+                "left": 16,
+                "top": 16,
+                "width": 720
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#E6EDF5"
+                },
+                "size": 56,
+                "text": {
+                  "fixed": "EmberForge Homelab",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "emberforge-homelab-dashboard-grafana-title",
+              "placement": {
+                "height": 64,
+                "left": 16,
+                "top": 36,
+                "width": 720
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "emberforge-homelab-dashboard-grafana-purpose",
+              "placement": {
+                "height": 24,
+                "left": 776,
+                "top": 44,
+                "width": 720
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "EmberForge Homelab",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Aantal actieve clusternodes.\n\nBAT component: forge-stat-card\nBAT variant: forge-stat-card-value\nBAT appearance: forge-stat-card-value-appearance\nBAT states: rest=forge-stat-card-value-appearance\nBAT toegankelijkheid: forge-stat-card-accessibility\nToegankelijkheidsrol: groep\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 0,
+        "y": 4
+      },
+      "id": 2,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#1F2937"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#2F4259"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-nodes-accent",
+              "placement": {
+                "height": 92,
+                "left": 16,
+                "top": 16,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#E6EDF5"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "Nodes",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-nodes-heading",
+              "placement": {
+                "height": 40,
+                "left": 28,
+                "top": 16,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Aantal actieve clusternodes.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-nodes-body",
+              "placement": {
+                "height": 48,
+                "left": 28,
+                "top": 60,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Nodes",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Actuele gezondheid van het cluster.\n\nBAT component: forge-stat-card\nBAT variant: forge-stat-card-health\nBAT appearance: forge-stat-card-health-appearance\nBAT states: rest=forge-stat-card-health-appearance\nBAT toegankelijkheid: forge-stat-card-accessibility\nToegankelijkheidsrol: groep\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 6,
+        "y": 4
+      },
+      "id": 3,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#1F2937"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#2F4259"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#4ADE80"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4ADE80"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-health-accent",
+              "placement": {
+                "height": 92,
+                "left": 16,
+                "top": 16,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#E6EDF5"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "Cluster Health",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-health-heading",
+              "placement": {
+                "height": 40,
+                "left": 28,
+                "top": 16,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Actuele gezondheid van het cluster.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-health-body",
+              "placement": {
+                "height": 48,
+                "left": 28,
+                "top": 60,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Cluster Health",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Actueel CPU gebruik.\n\nBAT component: forge-stat-card\nBAT variant: forge-stat-card-progress\nBAT appearance: forge-stat-card-value-appearance\nBAT states: rest=forge-stat-card-value-appearance\nBAT toegankelijkheid: forge-stat-card-accessibility\nToegankelijkheidsrol: groep\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 12,
+        "y": 4
+      },
+      "id": 4,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#1F2937"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#2F4259"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-cpu-accent",
+              "placement": {
+                "height": 92,
+                "left": 16,
+                "top": 16,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#E6EDF5"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "CPU Usage",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-cpu-heading",
+              "placement": {
+                "height": 40,
+                "left": 28,
+                "top": 16,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Actueel CPU gebruik.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-cpu-body",
+              "placement": {
+                "height": 48,
+                "left": 28,
+                "top": 60,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "CPU Usage",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Actueel geheugengebruik.\n\nBAT component: forge-stat-card\nBAT variant: forge-stat-card-progress-ember\nBAT appearance: forge-stat-card-ember-appearance\nBAT states: rest=forge-stat-card-ember-appearance\nBAT toegankelijkheid: forge-stat-card-accessibility\nToegankelijkheidsrol: groep\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 18,
+        "y": 4
+      },
+      "id": 5,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#1F2937"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#2F4259"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#C9895B"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#C9895B"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-memory-accent",
+              "placement": {
+                "height": 92,
+                "left": 16,
+                "top": 16,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#E6EDF5"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "Memory",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-memory-heading",
+              "placement": {
+                "height": 40,
+                "left": 28,
+                "top": 16,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Actueel geheugengebruik.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-stat-memory-body",
+              "placement": {
+                "height": 48,
+                "left": 28,
+                "top": 60,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Memory",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Aantal actieve workloads.\n\nBAT component: forge-status\nBAT variant: forge-status-running\nBAT appearance: forge-status-running-appearance\nBAT states: rest=forge-status-running-appearance\nBAT toegankelijkheid: forge-status-accessibility\nToegankelijkheidsrol: status\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 0,
+        "y": 20
+      },
+      "id": 6,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#4ADE801F"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#4ADE80"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#4ADE80"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4ADE80"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-running-accent",
+              "placement": {
+                "height": 92,
+                "left": 4,
+                "top": 4,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#86EFAC"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "Running",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-running-heading",
+              "placement": {
+                "height": 40,
+                "left": 16,
+                "top": 4,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Aantal actieve workloads.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-running-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 48,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Running",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Aantal wachtende workloads.\n\nBAT component: forge-status\nBAT variant: forge-status-pending\nBAT appearance: forge-status-pending-appearance\nBAT states: rest=forge-status-pending-appearance\nBAT toegankelijkheid: forge-status-accessibility\nToegankelijkheidsrol: status\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 6,
+        "y": 20
+      },
+      "id": 7,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#E0B3411A"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#E0B341"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#E0B341"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#E0B341"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-pending-accent",
+              "placement": {
+                "height": 92,
+                "left": 4,
+                "top": 4,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#F3D783"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "Pending",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-pending-heading",
+              "placement": {
+                "height": 40,
+                "left": 16,
+                "top": 4,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Aantal wachtende workloads.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-pending-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 48,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Pending",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Aantal gefaalde workloads.\n\nBAT component: forge-status\nBAT variant: forge-status-failed\nBAT appearance: forge-status-failed-appearance\nBAT states: rest=forge-status-failed-appearance\nBAT toegankelijkheid: forge-status-accessibility\nToegankelijkheidsrol: status\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 12,
+        "y": 20
+      },
+      "id": 8,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#F871711A"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#F87171"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#F87171"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#F87171"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-failed-accent",
+              "placement": {
+                "height": 92,
+                "left": 4,
+                "top": 4,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#FCA5A5"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "Failed",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-failed-heading",
+              "placement": {
+                "height": 40,
+                "left": 16,
+                "top": 4,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Aantal gefaalde workloads.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-failed-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 48,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Failed",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Samengevatte clustergezondheid.\n\nBAT component: forge-status\nBAT variant: forge-status-info\nBAT appearance: forge-status-info-appearance\nBAT states: rest=forge-status-info-appearance\nBAT toegankelijkheid: forge-status-accessibility\nToegankelijkheidsrol: status\nNaambron: label\nWaardebron: waarde\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen",
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 18,
+        "y": 20
+      },
+      "id": 9,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#7DD3FC1A"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#7DD3FC"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-healthy-accent",
+              "placement": {
+                "height": 92,
+                "left": 4,
+                "top": 4,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#A5DEFB"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "Healthy",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-healthy-heading",
+              "placement": {
+                "height": 40,
+                "left": 16,
+                "top": 4,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Samengevatte clustergezondheid.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-status-healthy-body",
+              "placement": {
+                "height": 48,
+                "left": 16,
+                "top": 48,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "Healthy",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Homelab applicatie voor Information Security Management.\n\nBAT component: forge-app-tile\nBAT variant: forge-app-tile-default\nBAT appearance: forge-app-tile-rest-appearance\nBAT states: rest=forge-app-tile-rest-appearance, hover=forge-app-tile-hover-appearance, focus=forge-app-tile-focus-appearance, pressed=forge-app-tile-pressed-appearance, disabled=forge-app-tile-disabled-appearance\nBAT toegankelijkheid: forge-app-tile-accessibility\nToegankelijkheidsrol: actie\nNaambron: label\nWaardebron: status\nFoutbron: niet-van-toepassing\nDisabled gedrag: native\nFocusgedrag: tabvolgorde\nToetsenbordgedrag: activeren",
+      "gridPos": {
+        "h": 16,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "id": 10,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#1F2937"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#2F4259"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#7DD3FC"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-app-isms-accent",
+              "placement": {
+                "height": 92,
+                "left": 16,
+                "top": 16,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#E6EDF5"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "ISMS Challenger",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-app-isms-heading",
+              "placement": {
+                "height": 40,
+                "left": 28,
+                "top": 16,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Homelab applicatie voor Information Security Management.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-app-isms-body",
+              "placement": {
+                "height": 48,
+                "left": 28,
+                "top": 60,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "ISMS Challenger",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "description": "Homelab applicatie voor consultant CV beheer.\n\nBAT component: forge-app-tile\nBAT variant: forge-app-tile-ember\nBAT appearance: forge-app-tile-ember-rest-appearance\nBAT states: rest=forge-app-tile-ember-rest-appearance, hover=forge-app-tile-ember-hover-appearance, focus=forge-app-tile-ember-focus-appearance, pressed=forge-app-tile-ember-pressed-appearance, disabled=forge-app-tile-disabled-appearance\nBAT toegankelijkheid: forge-app-tile-accessibility\nToegankelijkheidsrol: actie\nNaambron: label\nWaardebron: status\nFoutbron: niet-van-toepassing\nDisabled gedrag: native\nFocusgedrag: tabvolgorde\nToetsenbordgedrag: activeren",
+      "gridPos": {
+        "h": 16,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "id": 11,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": false,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#1F2937"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "#2F4259"
+            },
+            "width": 1
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#C9895B"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#C9895B"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-app-cv-accent",
+              "placement": {
+                "height": 92,
+                "left": 16,
+                "top": 16,
+                "width": 4
+              },
+              "type": "rectangle"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#E6EDF5"
+                },
+                "size": 32,
+                "text": {
+                  "fixed": "CV Tool",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-app-cv-heading",
+              "placement": {
+                "height": 40,
+                "left": 28,
+                "top": 16,
+                "width": 360
+              },
+              "type": "text"
+            },
+            {
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#B8C5D6"
+                },
+                "size": 16,
+                "text": {
+                  "fixed": "Homelab applicatie voor consultant CV beheer.",
+                  "mode": "fixed"
+                },
+                "valign": "top"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "homelab-app-cv-body",
+              "placement": {
+                "height": 48,
+                "left": 28,
+                "top": 60,
+                "width": 360
+              },
+              "type": "text"
+            }
+          ],
+          "name": "Root",
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "title": "CV Tool",
+      "transparent": true,
+      "type": "canvas"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 41,
+  "style": "dark",
+  "tags": [
+    "beckeringh-palace",
+    "generated"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false
+  },
+  "timezone": "browser",
+  "title": "EmberForge Homelab Dashboard Grafana",
+  "uid": "emberforge-homelab-dashboard-grafana",
+  "version": 1
+}

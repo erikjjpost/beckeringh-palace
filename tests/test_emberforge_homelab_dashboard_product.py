@@ -108,6 +108,72 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
         parser.feed(html)
         self.assertEqual(len(parser.ids), len(set(parser.ids)))
 
+    def test_rendert_dezelfde_compositie_als_native_grafana_dashboard(self) -> None:
+        html_product = self.products["emberforge-homelab-dashboard-html"].definitie
+        grafana_product = self.products[
+            "emberforge-homelab-dashboard-grafana"
+        ].definitie
+        dashboard = json.loads(
+            self.products["emberforge-homelab-dashboard-grafana"].inhoud
+        )
+
+        self.assertEqual(
+            html_product.opgeloste_compositie,
+            grafana_product.opgeloste_compositie,
+        )
+        self.assertEqual(
+            html_product.opgeloste_layout,
+            grafana_product.opgeloste_layout,
+        )
+        self.assertEqual("EmberForge Homelab Dashboard Grafana", dashboard["title"])
+        self.assertEqual(
+            "emberforge-homelab-dashboard-grafana",
+            dashboard["uid"],
+        )
+        self.assertTrue(dashboard["editable"])
+        self.assertEqual({"hidden": False}, dashboard["timepicker"])
+        self.assertEqual(11, len(dashboard["panels"]))
+        self.assertEqual(
+            [
+                "EmberForge Homelab",
+                "Nodes",
+                "Cluster Health",
+                "CPU Usage",
+                "Memory",
+                "Running",
+                "Pending",
+                "Failed",
+                "Healthy",
+                "ISMS Challenger",
+                "CV Tool",
+            ],
+            [panel["title"] for panel in dashboard["panels"]],
+        )
+        self.assertEqual(
+            [
+                {"h": 4, "w": 24, "x": 0, "y": 0},
+                {"h": 16, "w": 6, "x": 0, "y": 4},
+                {"h": 16, "w": 6, "x": 6, "y": 4},
+                {"h": 16, "w": 6, "x": 12, "y": 4},
+                {"h": 16, "w": 6, "x": 18, "y": 4},
+                {"h": 16, "w": 6, "x": 0, "y": 20},
+                {"h": 16, "w": 6, "x": 6, "y": 20},
+                {"h": 16, "w": 6, "x": 12, "y": 20},
+                {"h": 16, "w": 6, "x": 18, "y": 20},
+                {"h": 16, "w": 12, "x": 0, "y": 36},
+                {"h": 16, "w": 12, "x": 12, "y": 36},
+            ],
+            [panel["gridPos"] for panel in dashboard["panels"]],
+        )
+        descriptions = "\n".join(
+            panel["description"] for panel in dashboard["panels"][1:]
+        )
+        self.assertIn("BAT variant: forge-stat-card-value", descriptions)
+        self.assertIn("BAT states: rest=forge-status-running-appearance", descriptions)
+        self.assertIn("BAT variant: forge-app-tile-default", descriptions)
+        self.assertIn("Toegankelijkheidsrol: status", descriptions)
+        self.assertIn("Toetsenbordgedrag: activeren", descriptions)
+
     def test_registreert_de_productsurface_als_gecontroleerde_migratie(self) -> None:
         source = json.loads(DESIGN_INPUT.read_text(encoding="utf-8"))
         area = next(
@@ -117,7 +183,7 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
         )
 
         self.assertEqual("gedeeltelijk-mapbaar", area["status"])
-        self.assertIn("M11.4a", area["bewijs"])
+        self.assertIn("M11.4b", area["bewijs"])
         self.assertIn("tien BAT componentvoorbeelden", area["bewijs"])
 
 

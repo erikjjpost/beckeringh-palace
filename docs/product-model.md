@@ -733,6 +733,13 @@ ordent deze op vier kolommen en schakelt onder 960 pixels naar twee kolommen
 met een expliciete compacte leesvolgorde. De HTML backend vertaalt alleen de
 resolved voorbeeldinhoud en bevat geen homelab bronwaarden.
 
+M11.4b voegt voor dezelfde compositie en native gridlayout een expliciet
+Grafana product toe. De backend ontvangt dezelfde tien opgeloste instanties als
+HTML en vertaalt labels, waarden, variants, states en
+toegankelijkheidscontracten naar Canvas panelen en paneelmetadata. Het
+dashboard bevat geen datasource; de voorbeeldwaarden blijven normatieve
+productinhoud en worden niet als actuele telemetrie gepresenteerd.
+
 ## Diagnostics
 
 | Code | Betekenis |

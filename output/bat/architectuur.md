@@ -2871,9 +2871,9 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-homelab-dashboard-html, project-status-html, forge-design-system-reference-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, forge-design-system-reference-html
 - **leesvolgorde:** 3
-- **navigatie:** emberforge-homelab-dashboard-html, project-status-html, project-status-grafana
+- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, project-status-grafana
 - **soorten:** homepagegebied, compositie, componentinstantie, layout, region, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
@@ -3452,6 +3452,25 @@ Responsief homelab overzicht van statistieken, statussen en applicaties.
 - **layout:** emberforge-homelab-dashboard-responsive
 - **mode:** interactive
 - **pad:** output/products/emberforge-homelab-dashboard.html
+- **wereld:** beckeringh-palace
+
+## EmberForge Homelab Dashboard Grafana
+
+**Soort:** product
+
+**Identifier:** `emberforge-homelab-dashboard-grafana`
+
+### Doel
+
+Het native homelab overzicht als importeerbaar Grafana dashboard genereren.
+
+### Eigenschappen
+
+- **backend:** grafana
+- **compositie:** emberforge-homelab-dashboard
+- **layout:** emberforge-homelab-dashboard-responsive
+- **mode:** interactive
+- **pad:** output/products/emberforge-homelab-dashboard.grafana.json
 - **wereld:** beckeringh-palace
 
 ## Beckeringh Palace Projectstatus

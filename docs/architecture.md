@@ -154,7 +154,8 @@ Een native BAT-concept moet nodig zijn om Beckeringh Palace-producten te specifi
   - `index.html`: de Beckeringh Palace homepage;
   - `forge-dashboard.html`, `emberforge-homelab-dashboard.html` en
     `project-status.html`: HTML-producten;
-  - `forge-dashboard.grafana.json` en `project-status.grafana.json`: importeerbare Grafana-dashboards;
+  - `forge-dashboard.grafana.json`, `emberforge-homelab-dashboard.grafana.json`
+    en `project-status.grafana.json`: importeerbare Grafana-dashboards;
   - `components.html`: statisch EmberForge designsystem referentieproduct;
   - `components.css`: afgeleide componentstijlen;
   - `tokens.json` en `tokens.css`: opgeloste ontwerptokens.

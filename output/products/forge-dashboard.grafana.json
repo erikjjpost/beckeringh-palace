@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d7d7d118e92c",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 670d839797e7",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1186,7 +1186,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 560,
+                "height": 604,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1227,7 +1227,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "58",
+                  "fixed": "59",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1279,7 +1279,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "18\n4\n4\n4\n7\n18\n3",
+                  "fixed": "18\n4\n4\n4\n8\n18\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1480,7 +1480,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "EmberForge Homelab Dashboard\nBeckeringh Palace Projectstatus\nBeckeringh Palace Projectstatus Grafana",
+                  "fixed": "EmberForge Homelab Dashboard\nEmberForge Homelab Dashboard Grafana\nBeckeringh Palace Projectstatus\nBeckeringh Palace Projectstatus Grafana",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1497,6 +1497,11 @@
                 },
                 {
                   "targetBlank": false,
+                  "title": "EmberForge Homelab Dashboard Grafana",
+                  "url": "emberforge-homelab-dashboard.grafana.json"
+                },
+                {
+                  "targetBlank": false,
                   "title": "Beckeringh Palace Projectstatus",
                   "url": "project-status.html"
                 },
@@ -1508,7 +1513,7 @@
               ],
               "name": "forge-dashboard-right-panel-product-navigation",
               "placement": {
-                "height": 36,
+                "height": 48,
                 "left": 20,
                 "top": 236,
                 "width": 360
@@ -1523,7 +1528,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nEmberForge Homelab · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nEmberForge Homelab Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Homelab Dashboard · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.",
+                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nEmberForge Homelab · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nEmberForge Homelab Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Homelab Dashboard · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nEmberForge Homelab Dashboard Grafana · product\nHet native homelab overzicht als importeerbaar Grafana dashboard genereren.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1534,9 +1539,9 @@
               },
               "name": "forge-dashboard-right-panel-content-anchors",
               "placement": {
-                "height": 224,
+                "height": 256,
                 "left": 20,
-                "top": 284,
+                "top": 296,
                 "width": 360
               },
               "type": "text"
@@ -1562,7 +1567,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 520,
+                "top": 564,
                 "width": 360
               },
               "type": "text"
@@ -1583,7 +1588,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:d7d7d118e92c05c2b386f5d52433695a91095213b8c23efc3e4ada8867b50f3d"
+    "sha256:670d839797e7a836f4931314b973dfa515e362a120a4f28287716c4394b3d5f6"
   ],
   "templating": {
     "list": []

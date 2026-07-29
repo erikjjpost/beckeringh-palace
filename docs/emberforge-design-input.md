@@ -151,3 +151,9 @@ kolommen en expliciete leesvolgorde onder 960 pixels.
 De HTML backend vertaalt uitsluitend de opgeloste voorbeeldinhoud. De
 aangeleverde UI kit JSX en CSS blijven niet normatief en worden niet als
 rendererlogica overgenomen.
+
+M11.4b publiceert dezelfde compositie en layout via de Grafana backend. De tien
+Canvas panelen ontvangen hun labels, waarden, varianten, states en
+toegankelijkheidsmetadata uit dezelfde opgeloste componentvoorbeelden als het
+HTML product. Het gegenereerde dashboard bevat geen datasource en claimt
+daarom geen actuele operationele meetgegevens.

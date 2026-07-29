@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d7d7d118e92c",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 670d839797e7",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:54",
+      "description": "project-status-schema:1;overall-progress:56",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 54%",
+                  "fixed": "Totale voortgang · 56%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 324
+                "width": 336
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.4a · EmberForge homelab dashboardproduct (in uitvoering)\nVoltooid: M11.3i · EmberForge designsystem referentieproduct (PR #81)\nVolgende stap: M11.4b · EmberForge Grafana dashboardproduct\nDe native homelab compositie als Grafana dashboard met dezelfde voorbeeldinhoud, componentsemantiek en layout publiceren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.4b · EmberForge Grafana dashboardproduct (in uitvoering)\nVoltooid: M11.4a · EmberForge homelab dashboardproduct (PR #82)\nVolgende stap: M11.4c · EmberForge Keycloak login product\nDe geverifieerde EmberForge login surface als native product modelleren en uit dezelfde ontwerpcontracten genereren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 54%",
+      "title": "Totale voortgang · 56%",
       "transparent": true,
       "type": "canvas"
     },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 209 regressietests vormen een werkende kwaliteitsketen; componentinstanties kunnen volledige componentvoorbeelden backendonafhankelijk en exclusief oplossen.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 210 regressietests vormen een werkende kwaliteitsketen; HTML en Grafana consumeren dezelfde backendonafhankelijk opgeloste componentvoorbeelden.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -399,7 +399,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-model;progress:90",
+      "description": "project-status-area:world-model;progress:91",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -432,7 +432,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Model en productcontracten · 90%",
+                  "fixed": "World Model en productcontracten · 91%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -496,7 +496,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 540
+                "width": 546
               },
               "type": "rectangle"
             },
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Naast thema's, informatiearchitectuur en designsystemcontracten is nu een concrete EmberForge productsurface native gemodelleerd met tien voorbeeldgedragen instanties en een responsieve layout.\nResterend: Meer concrete productsurfaces en bredere wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "fixed": "Onderbouwing: Naast thema's, informatiearchitectuur en designsystemcontracten is een concrete EmberForge productsurface native gemodelleerd met tien voorbeeldgedragen instanties, een responsieve layout en twee productbackends.\nResterend: Meer concrete productsurfaces en bredere wereldsemantiek moeten nog in BAT worden opgenomen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -532,7 +532,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 90%",
+      "title": "World Model en productcontracten · 91%",
       "transparent": true,
       "type": "canvas"
     },
@@ -675,7 +675,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:dashboard;progress:82",
+      "description": "project-status-area:dashboard;progress:90",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -708,7 +708,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Dashboard UI en Grafana · 82%",
+                  "fixed": "Dashboard UI en Grafana · 90%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -772,7 +772,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 492
+                "width": 540
               },
               "type": "rectangle"
             },
@@ -784,7 +784,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het HTML homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde voorbeelden en draagt een expliciet vier naar twee koloms responsief contract.\nResterend: De homelab compositie moet nog als Grafana product worden vertaald en toetsing met echte hulptechnologie ontbreekt.",
+                  "fixed": "Onderbouwing: Het HTML en Grafana homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde opgeloste voorbeelden, componentsemantiek en native layout.\nResterend: Operationele databroncontracten en toetsing met echte hulptechnologie ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -808,7 +808,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Dashboard UI en Grafana · 82%",
+      "title": "Dashboard UI en Grafana · 90%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:37",
+      "description": "project-status-area:world-bible;progress:39",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 37%",
+                  "fixed": "World Bible · 39%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 222
+                "width": 234
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie is de eerste concrete EmberForge productsurface vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie is de eerste concrete EmberForge productsurface voor HTML en Grafana vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 37%",
+      "title": "World Bible · 39%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:54",
-    "sha256:d7d7d118e92c05c2b386f5d52433695a91095213b8c23efc3e4ada8867b50f3d"
+    "overall-progress:56",
+    "sha256:670d839797e7a836f4931314b973dfa515e362a120a4f28287716c4394b3d5f6"
   ],
   "templating": {
     "list": []
