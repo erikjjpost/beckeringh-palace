@@ -3,36 +3,36 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.4b",
-    "name": "EmberForge Grafana dashboardproduct",
+    "id": "M11.4c",
+    "name": "EmberForge Keycloak login product",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.4a",
-    "name": "EmberForge homelab dashboardproduct",
-    "pull_request": 82
+    "id": "M11.4b",
+    "name": "EmberForge Grafana dashboardproduct",
+    "pull_request": 83
   },
   "next_step": {
-    "id": "M11.4c",
-    "name": "EmberForge Keycloak login product",
-    "purpose": "De geverifieerde EmberForge login surface als native product modelleren en uit dezelfde ontwerpcontracten genereren."
+    "id": "M11.4d",
+    "name": "EmberForge terminal productsurface",
+    "purpose": "De geverifieerde EmberForge terminal surface als native product modelleren en uit dezelfde ontwerpcontracten genereren."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 90,
+      "progress": 91,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 210 regressietests vormen een werkende kwaliteitsketen; HTML en Grafana consumeren dezelfde backendonafhankelijk opgeloste componentvoorbeelden.",
+      "evidence": "Validatie, deterministische generatie, CI en 214 regressietests vormen een werkende kwaliteitsketen; HTML en Grafana consumeren dezelfde backendonafhankelijk opgeloste componentvoorbeelden.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 91,
+      "progress": 93,
       "weight": 10,
-      "evidence": "Naast thema's, informatiearchitectuur en designsystemcontracten is een concrete EmberForge productsurface native gemodelleerd met tien voorbeeldgedragen instanties, een responsieve layout en twee productbackends.",
-      "remaining": "Meer concrete productsurfaces en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
+      "evidence": "Naast thema's, informatiearchitectuur en designsystemcontracten zijn het homelab dashboard en de Keycloak login als afzonderlijke native productsurfaces gemodelleerd.",
+      "remaining": "De terminal productsurface en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
       "id": "design-system",
@@ -77,10 +77,10 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 72,
+      "progress": 76,
       "weight": 10,
-      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de productfamilie ontsluit nu naast projectstatus en designsystem ook het native homelab dashboard.",
-      "remaining": "Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept."
+      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; naast projectstatus, designsystem en homelab dashboard bestaat nu ook een native Keycloak login product.",
+      "remaining": "De nieuwe productsurfaces moeten nog als routes in de homepage informatiearchitectuur worden ontsloten."
     },
     {
       "id": "figma",
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 39,
+      "progress": 41,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie is de eerste concrete EmberForge productsurface voor HTML en Grafana vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie zijn het homelab dashboard en de Keycloak login als concrete productsurfaces vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

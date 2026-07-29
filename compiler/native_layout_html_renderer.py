@@ -168,12 +168,19 @@ def naar_native_layout_html(
             f' · {html.escape(thema_naam)} · Gegenereerd uit BAT'
             f"{mode_suffix}{snapshot_suffix}</p>"
         )
+    container_tag = "form" if compositie.role == "login-formulier" else "main"
+    composition_role_attribute = (
+        f' data-composition-role="{html.escape(compositie.role)}"'
+        if compositie.role is not None
+        else ""
+    )
     regels.extend([
         f"    <h1>{html.escape(inhoud_naam or compositie.naam)}</h1>",
         f'    <p class="bp-product-purpose">{html.escape(inhoud_doel or compositie.doel)}</p>',
         "  </header>",
         (
-            f'  <main class="bp-layout bp-layout-{_css_naam(layout.id)}" '
+            f'  <{container_tag} class="bp-layout bp-layout-{_css_naam(layout.id)}"'
+            f"{composition_role_attribute} "
             f'data-layout-type="{layout.type.value}" '
             f'data-responsive-breakpoint="{layout.responsive_breakpoint or ""}" '
             f'data-compact-columns="{layout.compact_columns or ""}" '
@@ -414,7 +421,7 @@ def naar_native_layout_html(
             "    </section>",
         ])
     regels.extend([
-        "  </main>",
+        f"  </{container_tag}>",
         "</body>",
         "</html>",
         "",

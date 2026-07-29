@@ -85,7 +85,7 @@
       "id": "product-surfaces",
       "status": "gedeeltelijk-mapbaar",
       "doel": "BAT composition, layout en product",
-      "bewijs": "M11.4a activeert de homelab dashboardbron als een afzonderlijke native HTML productsurface met tien BAT componentvoorbeelden, een vierkoloms grid en een expliciet tweekoloms compact contract. M11.4b publiceert dezelfde opgeloste compositie, voorbeeldinhoud, componentsemantiek en layout als importeerbaar Grafana dashboard. Keycloak en terminal zijn nog niet als volledige productsurfaces gemigreerd."
+      "bewijs": "M11.4a activeert de homelab dashboardbron als een afzonderlijke native HTML productsurface met tien BAT componentvoorbeelden, een vierkoloms grid en een expliciet tweekoloms compact contract. M11.4b publiceert dezelfde opgeloste compositie, voorbeeldinhoud, componentsemantiek en layout als importeerbaar Grafana dashboard. M11.4c activeert de Keycloak loginbron als native loginformulier met email, wachtwoord en submitsemantiek; dit is uitsluitend de productsurface en beweert geen Keycloak configuratie of werkende authenticatie. Terminal is nog niet als volledige productsurface gemigreerd."
     },
     {
       "id": "vector-assets",

@@ -35,7 +35,7 @@ class DesignCompositionConstraint:
 
         for obj in context.objecten:
             if obj.soort == "compositie":
-                toegestane_velden = {"naam", "doel", "instanties"}
+                toegestane_velden = {"naam", "doel", "rol", "instanties"}
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
                         diagnostics.append(Diagnostic(
@@ -62,7 +62,16 @@ class DesignCompositionConstraint:
                         ),
                         locatie=obj.eigenschaplocaties.get("instanties", obj.bronlocatie),
                     ))
-                else:
+                rol = obj.eigenschappen.get("rol")
+                if rol is not None and rol not in {"login-formulier"}:
+                    diagnostics.append(Diagnostic(
+                        code="BP3705",
+                        boodschap=(
+                            f"Compositie '{obj.id}' heeft onbekende rol '{rol}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get("rol", obj.bronlocatie),
+                    ))
+                if geldig:
                     for instance_id in waarden:
                         instantie = instanties.get(instance_id)
                         if instantie is None:

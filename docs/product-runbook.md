@@ -30,6 +30,11 @@ gegenereerde HTML-producten en het EmberForge designsystem referentieproduct.
 lokale navigatie, primitives, tokens, states, voorbeelden en
 toegankelijkheidscontracten worden volledig uit BAT gegenereerd.
 
+`output/products/emberforge-keycloak-login.html` is de reproduceerbare login
+productsurface. Het artifact toont native email-, wachtwoord- en
+submitsemantiek. Het bevat bewust geen realm, clientconfiguratie,
+authenticatie-endpoint of werkende Keycloak koppeling.
+
 Een lokale webserver voorkomt browserbeperkingen bij relatieve bestanden:
 
 ```bash

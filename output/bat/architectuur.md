@@ -2492,6 +2492,7 @@ Primair sign in voorbeeld uit het aangeleverde componentscherm.
 
 ### Eigenschappen
 
+- **actietype:** submit
 - **component:** forge-button
 - **label:** Sign In
 - **variant:** forge-button-primary
@@ -2557,9 +2558,28 @@ Regulier gebruikersveld uit het aangeleverde componentscherm.
 ### Eigenschappen
 
 - **component:** forge-input
+- **invoertype:** email
 - **label:** Username or email
 - **variant:** forge-input-default
 - **waarde:** erik@thb1home.nl
+
+## Password Input
+
+**Soort:** componentvoorbeeld
+
+**Identifier:** `forge-input-password-example`
+
+### Doel
+
+Wachtwoordveld voor de EmberForge login productsurface.
+
+### Eigenschappen
+
+- **component:** forge-input
+- **invoertype:** password
+- **label:** Password
+- **variant:** forge-input-default
+- **waarde:** not-a-secret
 
 ## Error Input
 
@@ -3471,6 +3491,164 @@ Het native homelab overzicht als importeerbaar Grafana dashboard genereren.
 - **layout:** emberforge-homelab-dashboard-responsive
 - **mode:** interactive
 - **pad:** output/products/emberforge-homelab-dashboard.grafana.json
+- **wereld:** beckeringh-palace
+
+## EmberForge Sign In
+
+**Soort:** compositie
+
+**Identifier:** `emberforge-keycloak-login`
+
+### Doel
+
+Rustige native login surface voor de EmberForge Keycloak entree.
+
+### Eigenschappen
+
+- **instanties:** keycloak-login-identity, keycloak-login-password, keycloak-login-submit
+- **rol:** login-formulier
+
+## Username or email
+
+**Soort:** componentinstantie
+
+**Identifier:** `keycloak-login-identity`
+
+### Doel
+
+Identiteitsveld voor de EmberForge login.
+
+### Eigenschappen
+
+- **compositie:** emberforge-keycloak-login
+- **voorbeeld:** forge-input-default-example
+
+## Password
+
+**Soort:** componentinstantie
+
+**Identifier:** `keycloak-login-password`
+
+### Doel
+
+Wachtwoordveld voor de EmberForge login.
+
+### Eigenschappen
+
+- **compositie:** emberforge-keycloak-login
+- **voorbeeld:** forge-input-password-example
+
+## Sign In
+
+**Soort:** componentinstantie
+
+**Identifier:** `keycloak-login-submit`
+
+### Doel
+
+Primaire submitactie van de EmberForge login.
+
+### Eigenschappen
+
+- **compositie:** emberforge-keycloak-login
+- **voorbeeld:** forge-button-primary-example
+
+## EmberForge Keycloak Login Responsive
+
+**Soort:** layout
+
+**Identifier:** `emberforge-keycloak-login-responsive`
+
+### Doel
+
+Ordent identiteit, wachtwoord en submitactie als compact loginformulier.
+
+### Eigenschappen
+
+- **columns:** 1
+- **compact-columns:** 1
+- **regions:** keycloak-login-identity-region, keycloak-login-password-region, keycloak-login-submit-region
+- **responsive-breakpoint:** 640
+- **rows:** 3
+- **type:** grid
+
+## Login identiteit
+
+**Soort:** region
+
+**Identifier:** `keycloak-login-identity-region`
+
+### Doel
+
+Eerste formulierpositie.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 1
+- **compact-order:** 1
+- **instantie:** keycloak-login-identity
+- **layout:** emberforge-keycloak-login-responsive
+- **row:** 1
+- **row-span:** 1
+
+## Login wachtwoord
+
+**Soort:** region
+
+**Identifier:** `keycloak-login-password-region`
+
+### Doel
+
+Tweede formulierpositie.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 1
+- **compact-order:** 2
+- **instantie:** keycloak-login-password
+- **layout:** emberforge-keycloak-login-responsive
+- **row:** 2
+- **row-span:** 1
+
+## Login submit
+
+**Soort:** region
+
+**Identifier:** `keycloak-login-submit-region`
+
+### Doel
+
+Derde formulierpositie.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 1
+- **compact-order:** 3
+- **instantie:** keycloak-login-submit
+- **layout:** emberforge-keycloak-login-responsive
+- **row:** 3
+- **row-span:** 1
+
+## EmberForge Keycloak Login
+
+**Soort:** product
+
+**Identifier:** `emberforge-keycloak-login-html`
+
+### Doel
+
+De native EmberForge login surface zonder authenticatieconfiguratie genereren.
+
+### Eigenschappen
+
+- **backend:** html
+- **compositie:** emberforge-keycloak-login
+- **layout:** emberforge-keycloak-login-responsive
+- **mode:** interactive
+- **pad:** output/products/emberforge-keycloak-login.html
 - **wereld:** beckeringh-palace
 
 ## Beckeringh Palace Projectstatus

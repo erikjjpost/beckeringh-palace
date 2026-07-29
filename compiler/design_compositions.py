@@ -67,6 +67,7 @@ class ResolvedComposition:
     id: str
     naam: str
     doel: str
+    role: str | None
     instances: tuple[ResolvedComponentInstance, ...]
 
 
@@ -347,6 +348,11 @@ def resolveer_composities(
             id=obj.id,
             naam=_tekst(obj, "naam"),
             doel=_tekst(obj, "doel"),
+            role=(
+                str(obj.eigenschappen["rol"])
+                if "rol" in obj.eigenschappen
+                else None
+            ),
             instances=resolved_instances,
         ))
     return tuple(sorted(composities, key=lambda compositie: compositie.id))
