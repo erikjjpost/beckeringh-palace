@@ -48,6 +48,18 @@
     {
       "pad": "EmberForge-Design-System/ui_kits/homelab-dashboard/styles.css",
       "sha256": "63fd6c9a1d2742ccea72cb8ff9aaf452cef34fbaf4053de95d69dd6206390d6d"
+    },
+    {
+      "pad": "EmberForge-Design-System/ui_kits/terminal/README.md",
+      "sha256": "769d8bf62725d9141391e7a5b3b05adc890b8bbfc2e5584c68971f3b9f2d32a8"
+    },
+    {
+      "pad": "EmberForge-Design-System/ui_kits/terminal/index.html",
+      "sha256": "c9a15f5d4766cc9739665be3061af9fb027c98d5963961ef705a5b20dc1e3414"
+    },
+    {
+      "pad": "EmberForge-Design-System/preview/brand-terminal-identity.html",
+      "sha256": "5da0796962af0317672b58c1e29ab3abc851acbfccf8849379690d666456188b"
     }
   ],
   "gebieden": [
@@ -83,9 +95,9 @@
     },
     {
       "id": "product-surfaces",
-      "status": "gedeeltelijk-mapbaar",
+      "status": "gemigreerd",
       "doel": "BAT composition, layout en product",
-      "bewijs": "M11.4a activeert de homelab dashboardbron als een afzonderlijke native HTML productsurface met tien BAT componentvoorbeelden, een vierkoloms grid en een expliciet tweekoloms compact contract. M11.4b publiceert dezelfde opgeloste compositie, voorbeeldinhoud, componentsemantiek en layout als importeerbaar Grafana dashboard. M11.4c activeert de Keycloak loginbron als native loginformulier met email, wachtwoord en submitsemantiek; dit is uitsluitend de productsurface en beweert geen Keycloak configuratie of werkende authenticatie. Terminal is nog niet als volledige productsurface gemigreerd."
+      "bewijs": "M11.4a activeert de homelab dashboardbron als een afzonderlijke native HTML productsurface met tien BAT componentvoorbeelden, een vierkoloms grid en een expliciet tweekoloms compact contract. M11.4b publiceert dezelfde opgeloste compositie, voorbeeldinhoud, componentsemantiek en layout als importeerbaar Grafana dashboard. M11.4c activeert de Keycloak loginbron als native loginformulier met email, wachtwoord en submitsemantiek; dit is uitsluitend de productsurface en beweert geen Keycloak configuratie of werkende authenticatie. M11.4d activeert de terminalbron als statische native productsurface met vensterchrome, tabs, identiteit, dertien systeemvelden en prompt. De bronwaarden zijn voorbeelden en beweren geen werkende shell of actuele telemetrie."
     },
     {
       "id": "vector-assets",

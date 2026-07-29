@@ -54,6 +54,17 @@ class BATTests(unittest.TestCase):
         objecten = parseer('gebouw paleis {\nnaam: "Paleis"\ndoel: "Test"\n}')
         self.assertEqual("gebouw", objecten[0].soort)
 
+    def test_lijst_behoudt_kommas_binnen_geciteerde_tekst(self):
+        objecten = parseer(
+            'componentvoorbeeld terminal {\n'
+            'waarden: ["5 days, 14 hours, 22 mins", "zsh 5.9"]\n'
+            "}"
+        )
+        self.assertEqual(
+            ["5 days, 14 hours, 22 mins", "zsh 5.9"],
+            objecten[0].eigenschappen["waarden"],
+        )
+
     def test_semantiek_weigert_onbekende_soort(self):
         with self.assertRaises(SemantischeFout) as context:
             analyseer(

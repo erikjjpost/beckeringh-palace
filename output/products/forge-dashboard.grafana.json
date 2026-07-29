@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 0f9e20ca1275",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 375db91983ad",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -512,7 +512,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "140",
+                  "fixed": "145",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -564,7 +564,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "42\n1\n6\n17\n25\n1\n1\n1\n1\n5\n1\n1\n1\n6\n10\n1\n1\n19",
+                  "fixed": "43\n1\n7\n18\n25\n1\n1\n1\n1\n5\n1\n1\n1\n7\n10\n1\n1\n20",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1227,7 +1227,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "68",
+                  "fixed": "73",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1279,7 +1279,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "21\n5\n4\n5\n9\n21\n3",
+                  "fixed": "22\n6\n4\n6\n10\n22\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1588,7 +1588,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:0f9e20ca12754170b1ba7467c17d70babe01413a051929bd44884eec85dbbf86"
+    "sha256:375db91983ad0633bb5a0f1cd56e64c9fcf2aeb20e762c27511980e3904fd630"
   ],
   "templating": {
     "list": []

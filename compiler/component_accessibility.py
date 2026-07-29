@@ -101,6 +101,15 @@ VERWACHT_CONTRACT_PER_COMPONENTROL = {
         "focus": "geen",
         "toetsenbord": "geen",
     },
+    "terminal": {
+        "rol": "groep",
+        "naambron": "label",
+        "waardebron": None,
+        "foutbron": None,
+        "disabled": "niet-van-toepassing",
+        "focus": "geen",
+        "toetsenbord": "geen",
+    },
 }
 
 

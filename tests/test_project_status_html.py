@@ -65,6 +65,7 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "emberforge-homelab-dashboard-html",
                 "emberforge-homelab-dashboard-grafana",
                 "emberforge-keycloak-login-html",
+                "emberforge-terminal-html",
             },
             {product.definitie.id for product in products},
         )

@@ -89,7 +89,7 @@ class EmberForgeKeycloakLoginProductTests(unittest.TestCase):
             area for area in source["gebieden"] if area["id"] == "product-surfaces"
         )
 
-        self.assertEqual("gedeeltelijk-mapbaar", area["status"])
+        self.assertEqual("gemigreerd", area["status"])
         self.assertIn("M11.4c", area["bewijs"])
         self.assertIn("geen Keycloak configuratie", area["bewijs"])
 

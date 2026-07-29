@@ -14,11 +14,35 @@ class BATFout(ValueError):
     """Ongeldige BAT-brontekst."""
 
 
+def _lijst_delen(inhoud: str) -> list[str]:
+    delen = []
+    begin = 0
+    in_tekst = False
+    for index, teken in enumerate(inhoud):
+        if teken == '"':
+            in_tekst = not in_tekst
+        elif teken == "," and not in_tekst:
+            deel = inhoud[begin:index].strip()
+            if not deel:
+                raise BATFout("Leeg lijstelement")
+            delen.append(deel)
+            begin = index + 1
+    if in_tekst:
+        raise BATFout("Niet-afgesloten tekst in lijst")
+    laatste = inhoud[begin:].strip()
+    if not laatste:
+        raise BATFout("Leeg lijstelement")
+    delen.append(laatste)
+    return delen
+
+
 def _waarde(tekst: str):
     tekst = tekst.strip()
     if tekst.startswith("[") and tekst.endswith("]"):
         inhoud = tekst[1:-1].strip()
-        return [] if not inhoud else [_waarde(deel) for deel in inhoud.split(",")]
+        return [] if not inhoud else [
+            _waarde(deel) for deel in _lijst_delen(inhoud)
+        ]
     if tekst.startswith('"') and tekst.endswith('"'):
         return tekst[1:-1]
     return tekst

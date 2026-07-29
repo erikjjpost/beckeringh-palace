@@ -26,6 +26,18 @@ COMPONENTVOORBEELD_VELDEN = frozenset({
     "status",
     "invoertype",
     "actietype",
+    "venstertitel",
+    "vensterknoppen",
+    "tabs",
+    "actieve-tab",
+    "markering",
+    "gebruiker",
+    "host",
+    "sleutels",
+    "waarden",
+    "pad",
+    "prompt",
+    "cursor",
 })
 COMPONENTVOORBEELD_INHOUD = frozenset({
     "label",
@@ -33,6 +45,18 @@ COMPONENTVOORBEELD_INHOUD = frozenset({
     "beschrijving",
     "melding",
     "status",
+    "venstertitel",
+    "vensterknoppen",
+    "tabs",
+    "actieve-tab",
+    "markering",
+    "gebruiker",
+    "host",
+    "sleutels",
+    "waarden",
+    "pad",
+    "prompt",
+    "cursor",
 })
 VERPLICHTE_INHOUD_PER_ROL = {
     "actie": frozenset({"label"}),
@@ -40,6 +64,7 @@ VERPLICHTE_INHOUD_PER_ROL = {
     "status": frozenset({"label", "waarde"}),
     "app-tegel": frozenset({"label", "beschrijving", "status"}),
     "statistiek": frozenset({"label", "waarde"}),
+    "terminal": frozenset({"label"}),
 }
 TOEGESTANE_INHOUD_PER_ROL = {
     "actie": frozenset({"label"}),
@@ -47,8 +72,50 @@ TOEGESTANE_INHOUD_PER_ROL = {
     "status": frozenset({"label", "waarde"}),
     "app-tegel": frozenset({"label", "beschrijving", "status"}),
     "statistiek": frozenset({"label", "waarde", "beschrijving"}),
+    "terminal": frozenset({
+        "label",
+        "venstertitel",
+        "vensterknoppen",
+        "tabs",
+        "actieve-tab",
+        "markering",
+        "gebruiker",
+        "host",
+        "sleutels",
+        "waarden",
+        "pad",
+        "prompt",
+        "cursor",
+    }),
 }
 APP_STATUSSEN = frozenset({"running", "pending", "failed"})
+TERMINALVENSTERKNOPPEN = ("sluiten", "minimaliseren", "maximaliseren")
+TERMINAL_TEKSTVELDEN = (
+    "venstertitel",
+    "actieve-tab",
+    "markering",
+    "gebruiker",
+    "host",
+    "pad",
+    "prompt",
+    "cursor",
+)
+TERMINAL_LIJSTVELDEN = ("vensterknoppen", "tabs", "sleutels", "waarden")
+
+
+@dataclass(frozen=True)
+class ResolvedTerminalContent:
+    venstertitel: str
+    vensterknoppen: tuple[str, ...]
+    tabs: tuple[str, ...]
+    actieve_tab: str
+    markering: str
+    gebruiker: str
+    host: str
+    systeemvelden: tuple[tuple[str, str], ...]
+    pad: str
+    prompt: str
+    cursor: str
 
 
 @dataclass(frozen=True)
@@ -67,6 +134,7 @@ class ResolvedComponentExample:
     status: str | None
     invoertype: str | None
     actietype: str | None
+    terminal: ResolvedTerminalContent | None
     accessibility: ResolvedComponentAccessibility | None
 
 
@@ -90,6 +158,48 @@ def _optionele_tekst(
     if veld not in obj.eigenschappen:
         return None
     return _tekst(obj, veld)
+
+
+def _tekstreeks(
+    obj: Architectuurobject,
+    veld: str,
+) -> tuple[str, ...]:
+    waarde = obj.eigenschappen.get(veld)
+    if (
+        not isinstance(waarde, list)
+        or not waarde
+        or any(
+            not isinstance(item, str) or not item.strip()
+            for item in waarde
+        )
+    ):
+        raise ComponentExampleResolutionError(
+            f"Componentvoorbeeld '{obj.id}' vereist tekstreeks '{veld}'"
+        )
+    return tuple(waarde)
+
+
+def _terminalinhoud(
+    obj: Architectuurobject,
+    rol: str,
+) -> ResolvedTerminalContent | None:
+    if rol != "terminal":
+        return None
+    sleutels = _tekstreeks(obj, "sleutels")
+    waarden = _tekstreeks(obj, "waarden")
+    return ResolvedTerminalContent(
+        venstertitel=_tekst(obj, "venstertitel"),
+        vensterknoppen=_tekstreeks(obj, "vensterknoppen"),
+        tabs=_tekstreeks(obj, "tabs"),
+        actieve_tab=_tekst(obj, "actieve-tab"),
+        markering=_tekst(obj, "markering"),
+        gebruiker=_tekst(obj, "gebruiker"),
+        host=_tekst(obj, "host"),
+        systeemvelden=tuple(zip(sleutels, waarden, strict=True)),
+        pad=_tekst(obj, "pad"),
+        prompt=_tekst(obj, "prompt"),
+        cursor=_tekst(obj, "cursor"),
+    )
 
 
 def resolveer_componentvoorbeelden(
@@ -127,6 +237,7 @@ def resolveer_componentvoorbeelden(
             status=_optionele_tekst(obj, "status"),
             invoertype=_optionele_tekst(obj, "invoertype"),
             actietype=_optionele_tekst(obj, "actietype"),
+            terminal=_terminalinhoud(obj, str(rol)),
             accessibility=toegankelijkheid.get(component.id),
         ))
     return tuple(sorted(voorbeelden, key=lambda item: item.id))
@@ -286,4 +397,97 @@ class ComponentExampleConstraint:
                         "actietype", voorbeeld.bronlocatie
                     ),
                 ))
+            if rol == "terminal":
+                for veld in TERMINAL_TEKSTVELDEN:
+                    waarde = voorbeeld.eigenschappen.get(veld)
+                    if not isinstance(waarde, str) or not waarde.strip():
+                        diagnostics.append(Diagnostic(
+                            code="BP3829",
+                            boodschap=(
+                                f"Terminalvoorbeeld '{voorbeeld.id}' vereist "
+                                f"tekstveld '{veld}'"
+                            ),
+                            locatie=voorbeeld.eigenschaplocaties.get(
+                                veld, voorbeeld.bronlocatie
+                            ),
+                        ))
+                lijsten: dict[str, list[str]] = {}
+                for veld in TERMINAL_LIJSTVELDEN:
+                    waarde = voorbeeld.eigenschappen.get(veld)
+                    geldig = (
+                        isinstance(waarde, list)
+                        and bool(waarde)
+                        and all(
+                            isinstance(item, str) and bool(item.strip())
+                            for item in waarde
+                        )
+                    )
+                    if not geldig:
+                        diagnostics.append(Diagnostic(
+                            code="BP3829",
+                            boodschap=(
+                                f"Terminalvoorbeeld '{voorbeeld.id}' vereist "
+                                f"niet-lege tekstreeks '{veld}'"
+                            ),
+                            locatie=voorbeeld.eigenschaplocaties.get(
+                                veld, voorbeeld.bronlocatie
+                            ),
+                        ))
+                    else:
+                        lijsten[veld] = waarde
+                vensterknoppen = lijsten.get("vensterknoppen")
+                if (
+                    vensterknoppen is not None
+                    and tuple(vensterknoppen) != TERMINALVENSTERKNOPPEN
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3829",
+                        boodschap=(
+                            f"Terminalvoorbeeld '{voorbeeld.id}' vereist "
+                            "sluiten, minimaliseren en maximaliseren als "
+                            "geordende vensterknoppen"
+                        ),
+                        locatie=voorbeeld.eigenschaplocaties.get(
+                            "vensterknoppen", voorbeeld.bronlocatie
+                        ),
+                    ))
+                tabs = lijsten.get("tabs")
+                actieve_tab = voorbeeld.eigenschappen.get("actieve-tab")
+                if (
+                    tabs is not None
+                    and (
+                        len(tabs) != len(set(tabs))
+                        or actieve_tab not in tabs
+                    )
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3829",
+                        boodschap=(
+                            f"Terminalvoorbeeld '{voorbeeld.id}' vereist "
+                            "unieke tabs en één bestaande actieve tab"
+                        ),
+                        locatie=voorbeeld.eigenschaplocaties.get(
+                            "tabs", voorbeeld.bronlocatie
+                        ),
+                    ))
+                sleutels = lijsten.get("sleutels")
+                waarden = lijsten.get("waarden")
+                if (
+                    sleutels is not None
+                    and waarden is not None
+                    and (
+                        len(sleutels) != len(waarden)
+                        or len(sleutels) != len(set(sleutels))
+                    )
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3829",
+                        boodschap=(
+                            f"Terminalvoorbeeld '{voorbeeld.id}' vereist "
+                            "evenveel unieke sleutels als waarden"
+                        ),
+                        locatie=voorbeeld.eigenschaplocaties.get(
+                            "sleutels", voorbeeld.bronlocatie
+                        ),
+                    ))
         return tuple(diagnostics)

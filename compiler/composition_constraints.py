@@ -63,7 +63,10 @@ class DesignCompositionConstraint:
                         locatie=obj.eigenschaplocaties.get("instanties", obj.bronlocatie),
                     ))
                 rol = obj.eigenschappen.get("rol")
-                if rol is not None and rol not in {"login-formulier"}:
+                if rol is not None and rol not in {
+                    "login-formulier",
+                    "terminal-sessie",
+                }:
                     diagnostics.append(Diagnostic(
                         code="BP3705",
                         boodschap=(

@@ -18,7 +18,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
 | Componenten, states, toegankelijkheid en referentie | Gemigreerd in M11.3f tot en met M11.3i | appearance, component, variant, componentvoorbeeld, toegankelijkheid en native referentieproduct |
-| Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
+| Dashboard, Keycloak en terminal | Gemigreerd in M11.4a tot en met M11.4d | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
 | Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
 
@@ -157,3 +157,27 @@ Canvas panelen ontvangen hun labels, waarden, varianten, states en
 toegankelijkheidsmetadata uit dezelfde opgeloste componentvoorbeelden als het
 HTML product. Het gegenereerde dashboard bevat geen datasource en claimt
 daarom geen actuele operationele meetgegevens.
+
+## Keycloak login productsurface
+
+M11.4c modelleert de geverifieerde Keycloak loginweergave als native
+loginformulier. De compositie, invoertypen en submitactie staan in BAT. HTML
+vertaalt die contracten naar gekoppelde labels, email- en wachtwoordinvoer en
+een submitbutton.
+
+Het product bevat geen realm, clientconfiguratie, authenticatie-endpoint,
+sessiegedrag of credentials. Het bewijst uitsluitend de statische
+productsurface en niet een werkende Keycloak integratie.
+
+## Terminal productsurface
+
+M11.4d modelleert de geverifieerde terminalweergave als een eigen native
+component, voorbeeld, compositie, layout en statisch HTML product. Het
+voorbeeld draagt de venstertitel, geordende vensterknoppen, tabs, identiteit,
+dertien systeemvelden en prompt. De compiler valideert deze inhoud als één
+getypeerd terminalcontract.
+
+De HTML backend vertaalt alleen de opgeloste voorbeeldinhoud en gebruikt
+semantische groepering en een definitielijst. Vensterknoppen en tabs zijn
+niet-interactieve bronweergaven. Er wordt geen shell uitgevoerd en de
+systeemwaarden zijn voorbeelden, geen actuele telemetrie.
