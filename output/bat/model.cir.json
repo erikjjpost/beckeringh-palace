@@ -2113,6 +2113,51 @@
   },
   {
     "eigenschappen": {
+      "doel": "Palet, typografie, typeschaal, materiaal, randen, radius, schaduw, motion, spacing en art direction met hun opgeloste waarden.",
+      "naam": "Primitieven",
+      "rol": "primitieven"
+    },
+    "id": "forge-reference-primitives",
+    "soort": "referentiesectie"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Herbruikbare ontwerpwaarden met hun type, referentie en normatieve bedoeling.",
+      "naam": "Tokens",
+      "rol": "tokens"
+    },
+    "id": "forge-reference-tokens",
+    "soort": "referentiesectie"
+  },
+  {
+    "eigenschappen": {
+      "doel": "De expliciete mapping van rust, hover, focus, pressed en disabled naar appearances.",
+      "naam": "Componenttoestanden",
+      "rol": "toestanden"
+    },
+    "id": "forge-reference-states",
+    "soort": "referentiesectie"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Productgedragen voorbeeldinhoud voor iedere gemigreerde EmberForge componentvariant.",
+      "naam": "Voorbeelden",
+      "rol": "voorbeelden"
+    },
+    "id": "forge-reference-examples",
+    "soort": "referentiesectie"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag per component.",
+      "naam": "Toegankelijkheidscontracten",
+      "rol": "toegankelijkheid"
+    },
+    "id": "forge-reference-accessibility",
+    "soort": "referentiesectie"
+  },
+  {
+    "eigenschappen": {
       "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
       "inhoud": [
         "beckeringh-palace"
@@ -2150,12 +2195,13 @@
         "forge-input-error-example",
         "forge-status-running-example",
         "forge-app-tile-isms-example",
-        "forge-stat-card-nodes-example"
+        "forge-stat-card-nodes-example",
+        "forge-reference-primitives"
       ],
       "leesvolgorde": "2",
       "naam": "Forge ontwerpsysteem",
       "navigatie": [
-        "html-components",
+        "forge-design-system-reference-html",
         "css-components",
         "css-tokens",
         "json-tokens"
@@ -2177,7 +2223,8 @@
         "component",
         "variant",
         "componentvoorbeeld",
-        "toegankelijkheid"
+        "toegankelijkheid",
+        "referentiesectie"
       ],
       "toegankelijkheidslabel": "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten"
     },
@@ -2190,7 +2237,8 @@
       "inhoud": [
         "forge-dashboard",
         "forge-dashboard-ultrawide",
-        "project-status-html"
+        "project-status-html",
+        "forge-design-system-reference-html"
       ],
       "leesvolgorde": "3",
       "naam": "Productfamilie",
@@ -2377,6 +2425,78 @@
   },
   {
     "eigenschappen": {
+      "doel": "Ordent de volledige designsystem referentie als één productinhoud.",
+      "instanties": [
+        "forge-design-system-reference-content"
+      ],
+      "naam": "EmberForge Design System Referentie"
+    },
+    "id": "forge-design-system-reference-composition",
+    "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "forge-design-system-reference-composition",
+      "doel": "Navigeerbare referentie voor het opgeloste EmberForge ontwerpsysteem.",
+      "naam": "EmberForge ontwerpcontract",
+      "navigatie": [
+        "css-components",
+        "css-tokens",
+        "json-tokens"
+      ],
+      "variant": "forge-panel-compact"
+    },
+    "id": "forge-design-system-reference-content",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "direction": "vertical",
+      "doel": "Plaatst de samenhangende designsystem referentie in één verticale productregio.",
+      "naam": "EmberForge Referentie Stack",
+      "regions": [
+        "forge-design-system-reference-region"
+      ],
+      "type": "stack"
+    },
+    "id": "forge-design-system-reference-stack",
+    "soort": "layout"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Enige inhoudsregio van het EmberForge designsystem referentieproduct.",
+      "instantie": "forge-design-system-reference-content",
+      "layout": "forge-design-system-reference-stack",
+      "naam": "Designsystem referentieregio"
+    },
+    "id": "forge-design-system-reference-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "backend": "html",
+      "compositie": "forge-design-system-reference-composition",
+      "doel": "Tokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.",
+      "inhoud": "design-system",
+      "layout": "forge-design-system-reference-stack",
+      "mode": "static",
+      "naam": "EmberForge Design System Referentie",
+      "pad": "output/products/components.html",
+      "referentiesecties": [
+        "forge-reference-primitives",
+        "forge-reference-tokens",
+        "forge-reference-states",
+        "forge-reference-examples",
+        "forge-reference-accessibility"
+      ],
+      "wereld": "beckeringh-palace"
+    },
+    "id": "forge-design-system-reference-html",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
       "doel": "Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus.",
       "instanties": [
         "homepage-intro",
@@ -2432,7 +2552,7 @@
       "kernboodschap": "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.",
       "leesvolgorde": "3",
       "naam": "Forge ontwerpsysteem",
-      "navigatie": "html-components",
+      "navigatie": "forge-design-system-reference-html",
       "navigatiegedrag": "volledige-kaart",
       "rol": "route",
       "variant": "forge-panel-route"
@@ -2610,16 +2730,6 @@
       "pad": "output/products/components.css"
     },
     "id": "css-components",
-    "soort": "renderdoel"
-  },
-  {
-    "eigenschappen": {
-      "doel": "Een minimale componentcatalogus genereren.",
-      "formaat": "html",
-      "naam": "HTML component catalogue",
-      "pad": "output/products/components.html"
-    },
-    "id": "html-components",
     "soort": "renderdoel"
   }
 ]

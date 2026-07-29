@@ -2753,6 +2753,76 @@ Actueel geheugengebruik met één schaars koperaccent.
 - **variant:** forge-stat-card-progress-ember
 - **waarde:** 43%
 
+## Primitieven
+
+**Soort:** referentiesectie
+
+**Identifier:** `forge-reference-primitives`
+
+### Doel
+
+Palet, typografie, typeschaal, materiaal, randen, radius, schaduw, motion, spacing en art direction met hun opgeloste waarden.
+
+### Eigenschappen
+
+- **rol:** primitieven
+
+## Tokens
+
+**Soort:** referentiesectie
+
+**Identifier:** `forge-reference-tokens`
+
+### Doel
+
+Herbruikbare ontwerpwaarden met hun type, referentie en normatieve bedoeling.
+
+### Eigenschappen
+
+- **rol:** tokens
+
+## Componenttoestanden
+
+**Soort:** referentiesectie
+
+**Identifier:** `forge-reference-states`
+
+### Doel
+
+De expliciete mapping van rust, hover, focus, pressed en disabled naar appearances.
+
+### Eigenschappen
+
+- **rol:** toestanden
+
+## Voorbeelden
+
+**Soort:** referentiesectie
+
+**Identifier:** `forge-reference-examples`
+
+### Doel
+
+Productgedragen voorbeeldinhoud voor iedere gemigreerde EmberForge componentvariant.
+
+### Eigenschappen
+
+- **rol:** voorbeelden
+
+## Toegankelijkheidscontracten
+
+**Soort:** referentiesectie
+
+**Identifier:** `forge-reference-accessibility`
+
+### Doel
+
+Naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag per component.
+
+### Eigenschappen
+
+- **rol:** toegankelijkheid
+
 ## Wereld en identiteit
 
 **Soort:** informatiegebied
@@ -2783,10 +2853,10 @@ De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.
 
 ### Eigenschappen
 
-- **inhoud:** forge, forge-materials, forge-panel, forge-button, forge-input, forge-status, forge-app-tile, forge-stat-card, forge-button-accessibility, forge-button-primary-example, forge-input-error-example, forge-status-running-example, forge-app-tile-isms-example, forge-stat-card-nodes-example
+- **inhoud:** forge, forge-materials, forge-panel, forge-button, forge-input, forge-status, forge-app-tile, forge-stat-card, forge-button-accessibility, forge-button-primary-example, forge-input-error-example, forge-status-running-example, forge-app-tile-isms-example, forge-stat-card-nodes-example, forge-reference-primitives
 - **leesvolgorde:** 2
-- **navigatie:** html-components, css-components, css-tokens, json-tokens
-- **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant, componentvoorbeeld, toegankelijkheid
+- **navigatie:** forge-design-system-reference-html, css-components, css-tokens, json-tokens
+- **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant, componentvoorbeeld, toegankelijkheid, referentiesectie
 - **toegankelijkheidslabel:** Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten
 
 ## Productfamilie
@@ -2801,7 +2871,7 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, project-status-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, project-status-html, forge-design-system-reference-html
 - **leesvolgorde:** 3
 - **navigatie:** project-status-html, project-status-grafana
 - **soorten:** homepagegebied, compositie, componentinstantie, layout, region, product, renderdoel
@@ -3022,6 +3092,89 @@ De normatieve projectvoortgang als reproduceerbaar Grafana dashboard ontsluiten.
 - **pad:** output/products/project-status.grafana.json
 - **wereld:** beckeringh-palace
 
+## EmberForge Design System Referentie
+
+**Soort:** compositie
+
+**Identifier:** `forge-design-system-reference-composition`
+
+### Doel
+
+Ordent de volledige designsystem referentie als één productinhoud.
+
+### Eigenschappen
+
+- **instanties:** forge-design-system-reference-content
+
+## EmberForge ontwerpcontract
+
+**Soort:** componentinstantie
+
+**Identifier:** `forge-design-system-reference-content`
+
+### Doel
+
+Navigeerbare referentie voor het opgeloste EmberForge ontwerpsysteem.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** forge-design-system-reference-composition
+- **navigatie:** css-components, css-tokens, json-tokens
+- **variant:** forge-panel-compact
+
+## EmberForge Referentie Stack
+
+**Soort:** layout
+
+**Identifier:** `forge-design-system-reference-stack`
+
+### Doel
+
+Plaatst de samenhangende designsystem referentie in één verticale productregio.
+
+### Eigenschappen
+
+- **direction:** vertical
+- **regions:** forge-design-system-reference-region
+- **type:** stack
+
+## Designsystem referentieregio
+
+**Soort:** region
+
+**Identifier:** `forge-design-system-reference-region`
+
+### Doel
+
+Enige inhoudsregio van het EmberForge designsystem referentieproduct.
+
+### Eigenschappen
+
+- **instantie:** forge-design-system-reference-content
+- **layout:** forge-design-system-reference-stack
+
+## EmberForge Design System Referentie
+
+**Soort:** product
+
+**Identifier:** `forge-design-system-reference-html`
+
+### Doel
+
+Tokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.
+
+### Eigenschappen
+
+- **backend:** html
+- **compositie:** forge-design-system-reference-composition
+- **inhoud:** design-system
+- **layout:** forge-design-system-reference-stack
+- **mode:** static
+- **pad:** output/products/components.html
+- **referentiesecties:** forge-reference-primitives, forge-reference-tokens, forge-reference-states, forge-reference-examples, forge-reference-accessibility
+- **wereld:** beckeringh-palace
+
 ## Beckeringh Palace
 
 **Soort:** compositie
@@ -3097,7 +3250,7 @@ Bekijk de reproduceerbare componenten en ontwerpprimitieven.
 - **focusvolgorde:** 2
 - **kernboodschap:** Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem.
 - **leesvolgorde:** 3
-- **navigatie:** html-components
+- **navigatie:** forge-design-system-reference-html
 - **navigatiegedrag:** volledige-kaart
 - **rol:** route
 - **variant:** forge-panel-route
@@ -3346,18 +3499,3 @@ Componenten als reproduceerbare CSS-klassen genereren.
 
 - **formaat:** css
 - **pad:** output/products/components.css
-
-## HTML component catalogue
-
-**Soort:** renderdoel
-
-**Identifier:** `html-components`
-
-### Doel
-
-Een minimale componentcatalogus genereren.
-
-### Eigenschappen
-
-- **formaat:** html
-- **pad:** output/products/components.html

@@ -61,7 +61,7 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
         self.assertEqual(
             (
                 "forge-dashboard-html",
-                "html-components",
+                "forge-design-system-reference-html",
                 "project-status-html",
             ),
             tuple(

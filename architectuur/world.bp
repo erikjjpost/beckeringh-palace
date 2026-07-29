@@ -1612,6 +1612,36 @@ componentvoorbeeld forge-stat-card-memory-example {
     waarde: "43%"
 }
 
+referentiesectie forge-reference-primitives {
+    naam: "Primitieven"
+    doel: "Palet, typografie, typeschaal, materiaal, randen, radius, schaduw, motion, spacing en art direction met hun opgeloste waarden."
+    rol: "primitieven"
+}
+
+referentiesectie forge-reference-tokens {
+    naam: "Tokens"
+    doel: "Herbruikbare ontwerpwaarden met hun type, referentie en normatieve bedoeling."
+    rol: "tokens"
+}
+
+referentiesectie forge-reference-states {
+    naam: "Componenttoestanden"
+    doel: "De expliciete mapping van rust, hover, focus, pressed en disabled naar appearances."
+    rol: "toestanden"
+}
+
+referentiesectie forge-reference-examples {
+    naam: "Voorbeelden"
+    doel: "Productgedragen voorbeeldinhoud voor iedere gemigreerde EmberForge componentvariant."
+    rol: "voorbeelden"
+}
+
+referentiesectie forge-reference-accessibility {
+    naam: "Toegankelijkheidscontracten"
+    doel: "Naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag per component."
+    rol: "toegankelijkheid"
+}
+
 informatiegebied palace-world {
     naam: "Wereld en identiteit"
     doel: "De digitale wereld, haar merk en haar reproduceerbare bronassets."
@@ -1627,9 +1657,9 @@ informatiegebied forge-design-system {
     doel: "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit."
     toegankelijkheidslabel: "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten"
     leesvolgorde: "2"
-    soorten: ["kleur", "palet", "typografie", "typeschaal", "materiaal", "border", "radius", "shadow", "motion", "spacing", "thema", "appearance", "token", "component", "variant", "componentvoorbeeld", "toegankelijkheid"]
-    inhoud: ["forge", "forge-materials", "forge-panel", "forge-button", "forge-input", "forge-status", "forge-app-tile", "forge-stat-card", "forge-button-accessibility", "forge-button-primary-example", "forge-input-error-example", "forge-status-running-example", "forge-app-tile-isms-example", "forge-stat-card-nodes-example"]
-    navigatie: ["html-components", "css-components", "css-tokens", "json-tokens"]
+    soorten: ["kleur", "palet", "typografie", "typeschaal", "materiaal", "border", "radius", "shadow", "motion", "spacing", "thema", "appearance", "token", "component", "variant", "componentvoorbeeld", "toegankelijkheid", "referentiesectie"]
+    inhoud: ["forge", "forge-materials", "forge-panel", "forge-button", "forge-input", "forge-status", "forge-app-tile", "forge-stat-card", "forge-button-accessibility", "forge-button-primary-example", "forge-input-error-example", "forge-status-running-example", "forge-app-tile-isms-example", "forge-stat-card-nodes-example", "forge-reference-primitives"]
+    navigatie: ["forge-design-system-reference-html", "css-components", "css-tokens", "json-tokens"]
 }
 
 informatiegebied palace-product-family {
@@ -1638,7 +1668,7 @@ informatiegebied palace-product-family {
     toegankelijkheidslabel: "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
     leesvolgorde: "3"
     soorten: ["homepagegebied", "compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
-    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "project-status-html"]
+    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "project-status-html", "forge-design-system-reference-html"]
     navigatie: ["project-status-html", "project-status-grafana"]
 }
 
@@ -1761,6 +1791,49 @@ product project-status-grafana {
     pad: "output/products/project-status.grafana.json"
 }
 
+compositie forge-design-system-reference-composition {
+    naam: "EmberForge Design System Referentie"
+    doel: "Ordent de volledige designsystem referentie als één productinhoud."
+    instanties: ["forge-design-system-reference-content"]
+}
+
+componentinstantie forge-design-system-reference-content {
+    naam: "EmberForge ontwerpcontract"
+    doel: "Navigeerbare referentie voor het opgeloste EmberForge ontwerpsysteem."
+    compositie: "forge-design-system-reference-composition"
+    component: "forge-panel"
+    variant: "forge-panel-compact"
+    navigatie: ["css-components", "css-tokens", "json-tokens"]
+}
+
+layout forge-design-system-reference-stack {
+    naam: "EmberForge Referentie Stack"
+    doel: "Plaatst de samenhangende designsystem referentie in één verticale productregio."
+    type: "stack"
+    regions: ["forge-design-system-reference-region"]
+    direction: "vertical"
+}
+
+region forge-design-system-reference-region {
+    naam: "Designsystem referentieregio"
+    doel: "Enige inhoudsregio van het EmberForge designsystem referentieproduct."
+    layout: "forge-design-system-reference-stack"
+    instantie: "forge-design-system-reference-content"
+}
+
+product forge-design-system-reference-html {
+    naam: "EmberForge Design System Referentie"
+    doel: "Tokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product."
+    backend: "html"
+    mode: "static"
+    inhoud: "design-system"
+    wereld: "beckeringh-palace"
+    compositie: "forge-design-system-reference-composition"
+    layout: "forge-design-system-reference-stack"
+    referentiesecties: ["forge-reference-primitives", "forge-reference-tokens", "forge-reference-states", "forge-reference-examples", "forge-reference-accessibility"]
+    pad: "output/products/components.html"
+}
+
 compositie beckeringh-palace-homepage-composition {
     naam: "Beckeringh Palace"
     doel: "Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus."
@@ -1806,7 +1879,7 @@ homepagegebied homepage-design-system-area {
     focusvolgorde: "2"
     navigatiegedrag: "volledige-kaart"
     kernboodschap: "Tokens, appearances en componenten vormen één reproduceerbaar ontwerpsysteem."
-    navigatie: "html-components"
+    navigatie: "forge-design-system-reference-html"
 }
 
 homepagegebied homepage-project-status-area {
@@ -1932,11 +2005,4 @@ renderdoel css-components {
     doel: "Componenten als reproduceerbare CSS-klassen genereren."
     formaat: "css"
     pad: "output/products/components.css"
-}
-
-renderdoel html-components {
-    naam: "HTML component catalogue"
-    doel: "Een minimale componentcatalogus genereren."
-    formaat: "html"
-    pad: "output/products/components.html"
 }

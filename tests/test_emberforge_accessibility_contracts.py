@@ -8,7 +8,6 @@ from compiler.component_accessibility import (
     resolveer_componenttoegankelijkheid,
 )
 from compiler.component_examples import resolveer_componentvoorbeelden
-from compiler.component_html_renderer import naar_component_html
 from compiler.design_compositions import resolveer_composities
 from compiler.parser import parseer, parseer_bestand
 from compiler.product_backends import standaard_backend_registry
@@ -179,7 +178,7 @@ class EmberForgeAccessibilityContractTests(unittest.TestCase):
     def test_catalogus_gebruikt_native_semantiek_en_expliciete_koppelingen(
         self,
     ) -> None:
-        catalog = naar_component_html(self.model.objecten)
+        catalog = self.products["forge-design-system-reference-html"].inhoud
 
         self.assertIn(
             'data-accessibility-contract="forge-button-accessibility"',
@@ -234,7 +233,7 @@ class EmberForgeAccessibilityContractTests(unittest.TestCase):
     def test_disabled_is_native_en_niet_interactief_blijft_uit_tabvolgorde(
         self,
     ) -> None:
-        catalog = naar_component_html(self.model.objecten)
+        catalog = self.products["forge-design-system-reference-html"].inhoud
 
         self.assertIn(
             'data-example="forge-button-primary-example" '

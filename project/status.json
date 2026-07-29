@@ -3,51 +3,51 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.3h",
-    "name": "EmberForge toegankelijkheidscontracten",
+    "id": "M11.3i",
+    "name": "EmberForge designsystem referentieproduct",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.3g",
-    "name": "EmberForge componentfamilie",
-    "pull_request": 79
+    "id": "M11.3h",
+    "name": "EmberForge toegankelijkheidscontracten",
+    "pull_request": 80
   },
   "next_step": {
-    "id": "M11.3i",
-    "name": "EmberForge designsystem referentieproduct",
-    "purpose": "Tokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar native product samenbrengen."
+    "id": "M11.4a",
+    "name": "EmberForge homelab dashboardproduct",
+    "purpose": "De gemigreerde app tegels, statistiekkaarten en statussen als een native homelab dashboardcompositie, responsieve layout en HTML product samenbrengen."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 86,
+      "progress": 88,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 195 regressietests vormen een werkende kwaliteitsketen; componentrol, anatomie, voorbeelden, statecontracten en toegankelijkheid worden semantisch gevalideerd.",
+      "evidence": "Validatie, deterministische generatie, CI en 204 regressietests vormen een werkende kwaliteitsketen; referentiesecties en volledige designsystemdekking worden naast componentrol, anatomie, voorbeelden, states en toegankelijkheid semantisch gevalideerd.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 83,
+      "progress": 86,
       "weight": 10,
-      "evidence": "Thema's, informatiegebieden, homepagegebieden, merkidentiteit, layouts, zes componentrollen, zestien productvoorbeelden en zes toegankelijkheidscontracten zijn samen met varianten, composities, producten, navigatie en snapshotidentiteit native gemodelleerd.",
-      "remaining": "Verdere productoppervlakken en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
+      "evidence": "Thema's, informatiegebieden, homepagegebieden, merkidentiteit, layouts, zes componentrollen, zestien productvoorbeelden, zes toegankelijkheidscontracten en vijf referentiesecties zijn samen met varianten, composities, producten, navigatie en snapshotidentiteit native gemodelleerd.",
+      "remaining": "De concrete EmberForge productoppervlakken en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
       "id": "design-system",
       "name": "Design System",
-      "progress": 97,
+      "progress": 100,
       "weight": 10,
-      "evidence": "Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks, volledige interactietoestanden, componentfamilies en backendonafhankelijke toegankelijkheidscontracten zijn native gemigreerd.",
-      "remaining": "Eén samenhangend native designsystem referentieproduct ontbreekt nog."
+      "evidence": "Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks, interactietoestanden, componentfamilies en toegankelijkheidscontracten zijn native gemigreerd en samengebracht in één navigeerbaar statisch referentieproduct.",
+      "remaining": "Nieuwe design system contracten worden alleen toegevoegd wanneer een volgende productsurface een aantoonbare ontbrekende rol heeft."
     },
     {
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
-      "progress": 71,
+      "progress": 73,
       "weight": 10,
-      "evidence": "HTML en Grafana delen informatiegebieden, statecontracten en opgeloste toegankelijkheidsmetadata; de HTML componentcatalogus gebruikt native acties en invoer, expliciete namen, waarden, foutkoppelingen en disabled gedrag.",
+      "evidence": "HTML en Grafana delen informatiegebieden, statecontracten en opgeloste toegankelijkheidsmetadata; het HTML referentieproduct gebruikt native acties en invoer, expliciete namen, waarden, foutkoppelingen en disabled gedrag.",
       "remaining": "Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt."
     },
     {
@@ -77,9 +77,9 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 69,
+      "progress": 70,
       "weight": 10,
-      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de drie routekaarten gebruiken native hover, focus, pressed en disabled appearances zonder generieke rendererregel.",
+      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de designsystemroute verwijst nu naar een regulier native product en de drie routekaarten gebruiken expliciete hover, focus, pressed en disabled appearances.",
       "remaining": "Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept."
     },
     {
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 33,
+      "progress": 35,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal, stem, componentrollen, voorbeeldcontracten en toegankelijkheidssemantiek zijn normatief vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal, stem, componentrollen, voorbeeldcontracten, toegankelijkheid en de native designsystemreferentie zijn normatief vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

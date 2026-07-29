@@ -706,6 +706,21 @@ De contracten volgen native hostsemantiek en de W3C WAI patronen voor
 en [formuliermeldingen](https://www.w3.org/WAI/tutorials/forms/notifications/).
 M11.3h bewijst geen compatibiliteit met specifieke hulptechnologie.
 
+M11.3i introduceert het native `referentiesectie` object en
+`inhoud: "design-system"` voor producten. Het statische EmberForge
+referentieproduct declareert precies vijf geordende rollen: primitives, tokens,
+toestanden, voorbeelden en toegankelijkheid. De semantische laag weigert
+ontbrekende secties, dubbele rollen, een afwijkende volgorde en een
+interactieve productmodus.
+
+De productcompiler lost de secties samen met alle getypeerde tokens,
+appearances, componenten, varianten, voorbeelden en
+toegankelijkheidscontracten op vóór backendselectie. De HTML backend vertaalt
+deze context naar één navigeerbaar product. State previews gebruiken dezelfde
+native hostsemantiek en CSS identiteit als productcomponenten. De voormalige
+`html-components` renderdoelbinding is verwijderd; `components.html` wordt nu
+uitsluitend door `forge-design-system-reference-html` gegenereerd.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -782,6 +797,13 @@ M11.3h bewijst geen compatibiliteit met specifieke hulptechnologie.
 | `BP3835` | Disabled gedrag past niet bij de componentrol |
 | `BP3836` | Focusgedrag past niet bij de componentrol |
 | `BP3837` | Toetsenbordgedrag past niet bij de componentrol |
+| `BP3840` | Referentiesectie heeft een onbekende eigenschap |
+| `BP3841` | Referentiesectie gebruikt een onbekende semantische rol |
+| `BP3842` | Designsystemproduct mist geldige unieke referentiesecties |
+| `BP3843` | Designsystemproduct bevat niet exact de vereiste geordende rollen |
+| `BP3844` | Designsystemproduct is niet statisch |
+| `BP3845` | Regulier product gebruikt ten onrechte referentiesecties |
+| `BP3846` | Designsystemproduct heeft niet exact één inhoudsinstantie |
 | `BP3901` | Renderdoel heeft een onbekende eigenschap |
 | `BP3902` | Renderdoel mist een geldig formaat |
 | `BP3903` | Renderdoel heeft geen veilig relatief artifactpad |

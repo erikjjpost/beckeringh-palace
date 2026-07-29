@@ -7,10 +7,11 @@ from pathlib import Path
 
 from compiler.component_css_renderer import naar_component_css
 from compiler.component_examples import resolveer_componentvoorbeelden
-from compiler.component_html_renderer import naar_component_html
 from compiler.design_components import verzamel_componenten
 from compiler.design_variants import resolveer_varianten
 from compiler.parser import parseer, parseer_bestand
+from compiler.product_backends import standaard_backend_registry
+from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import SemantischeFout, analyseer
 
@@ -41,6 +42,13 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
         cls.examples = {
             example.id: example
             for example in resolveer_componentvoorbeelden(cls.model.objecten)
+        }
+        cls.products = {
+            product.definitie.id: product
+            for product in compileer_producten(
+                cls.model.objecten,
+                standaard_backend_registry(),
+            )
         }
 
     def test_modelleert_de_vijf_productgedragen_componentrollen(self) -> None:
@@ -198,7 +206,7 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
         )
 
     def test_catalogus_rendert_semantische_voorbeelden_uit_bat(self) -> None:
-        catalog = naar_component_html(self.model.objecten)
+        catalog = self.products["forge-design-system-reference-html"].inhoud
 
         self.assertIn(
             'data-example="forge-button-primary-example"',
@@ -243,7 +251,7 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
 
     def test_css_draagt_structuur_en_bronbewezen_tonen(self) -> None:
         css = naar_component_css(self.model.objecten)
-        catalog = naar_component_html(self.model.objecten)
+        catalog = self.products["forge-design-system-reference-html"].inhoud
 
         self.assertIn(".bp-forge-button {", css)
         self.assertIn("display: inline-flex;", css)

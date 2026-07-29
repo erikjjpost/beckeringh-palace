@@ -5,7 +5,6 @@ import unittest
 from pathlib import Path
 
 from compiler.component_css_renderer import naar_component_css
-from compiler.component_html_renderer import naar_component_html
 from compiler.design_compositions import resolveer_composities
 from compiler.design_variants import resolveer_varianten
 from compiler.parser import parseer, parseer_bestand
@@ -155,7 +154,7 @@ class EmberForgeComponentStatesMigrationTests(unittest.TestCase):
         self.assertNotIn("scale(", css)
 
     def test_catalogus_toont_iedere_opgeloste_state(self) -> None:
-        catalog = naar_component_html(self.model.objecten)
+        catalog = self.products["forge-design-system-reference-html"].inhoud
 
         self.assertIn("--bp-material-interaction: #7DD3FC;", catalog)
         self.assertIn(
@@ -165,7 +164,7 @@ class EmberForgeComponentStatesMigrationTests(unittest.TestCase):
         self.assertIn("--bp-shadow-glow:", catalog)
         self.assertIn("--bp-motion-hover-offset: -1px;", catalog)
         self.assertIn(
-            '<body data-world="beckeringh-palace" data-theme="forge">',
+            '<body data-world="beckeringh-palace" data-theme="forge" ',
             catalog,
         )
         for state in ("rest", "hover", "focus", "pressed", "disabled"):

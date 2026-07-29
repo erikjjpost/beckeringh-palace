@@ -43,6 +43,7 @@ class ProductDefinitionConstraint:
             "mode",
             "wereld",
             "inhoud",
+            "referentiesecties",
         }
         for obj in context.objecten:
             if obj.soort != "product":
@@ -142,7 +143,11 @@ class ProductDefinitionConstraint:
                     locatie=obj.eigenschaplocaties.get("mode", obj.bronlocatie),
                 ))
             inhoud = obj.eigenschappen.get("inhoud", "composition")
-            if inhoud not in {"composition", "project-status"}:
+            if inhoud not in {
+                "composition",
+                "project-status",
+                "design-system",
+            }:
                 diagnostics.append(Diagnostic(
                     code="BP3509",
                     boodschap=f"Product '{obj.id}' heeft onbekende inhoud '{inhoud}'",
