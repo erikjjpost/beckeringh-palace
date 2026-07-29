@@ -30,28 +30,46 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
                 "homepage-world-area",
                 "homepage-design-system-area",
                 "homepage-project-status-area",
+                "homepage-keycloak-area",
+                "homepage-terminal-area",
             ),
             tuple(gebied.id for gebied in gebieden),
         )
         self.assertEqual(
-            ("entree", "route", "route", "route"),
+            ("entree", "route", "route", "route", "route", "route"),
             tuple(gebied.role for gebied in gebieden),
         )
         self.assertEqual(
-            ("hero", "routekaart", "routekaart", "routekaart"),
+            (
+                "hero",
+                "routekaart",
+                "routekaart",
+                "routekaart",
+                "routekaart",
+                "routekaart",
+            ),
             tuple(gebied.component_role for gebied in gebieden),
         )
         self.assertEqual(
-            (0, 1, 2, 3),
+            (0, 1, 2, 3, 4, 5),
             tuple(gebied.focus_order for gebied in gebieden),
         )
         self.assertEqual(
-            ("geen", "volledige-kaart", "volledige-kaart", "volledige-kaart"),
+            (
+                "geen",
+                "volledige-kaart",
+                "volledige-kaart",
+                "volledige-kaart",
+                "volledige-kaart",
+                "volledige-kaart",
+            ),
             tuple(gebied.navigation_behavior for gebied in gebieden),
         )
         self.assertEqual(
             (
                 "forge-panel-hero-appearance",
+                "forge-panel-card-rest-appearance",
+                "forge-panel-card-rest-appearance",
                 "forge-panel-card-rest-appearance",
                 "forge-panel-card-rest-appearance",
                 "forge-panel-card-rest-appearance",
@@ -63,6 +81,8 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
                 "forge-dashboard-html",
                 "forge-design-system-reference-html",
                 "project-status-html",
+                "emberforge-keycloak-login-html",
+                "emberforge-terminal-html",
             ),
             tuple(
                 gebied.navigation_targets[0].id

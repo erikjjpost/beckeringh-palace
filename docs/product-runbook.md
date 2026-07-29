@@ -24,7 +24,8 @@ Een wijziging is pas gereed wanneer de volledige controle eindigt met
 ## HTML bekijken
 
 Open `output/products/index.html` als ingang voor de bestaande
-productnavigatie en het EmberForge designsystem referentieproduct.
+productnavigatie, het EmberForge designsystem referentieproduct en de native
+Keycloak en terminal productsurfaces.
 
 `output/products/components.html` is een statische designsystemsnapshot. De
 lokale navigatie, primitives, tokens, states, voorbeelden en
@@ -40,8 +41,9 @@ terminal productsurface. Het artifact toont vensterchrome, tabs, identiteit,
 dertien systeemvelden en een prompt uit het gevalideerde BAT voorbeeld. Het
 voert geen shell uit en toont geen actuele telemetrie.
 
-De Keycloak en terminal productsurfaces zijn in M11.4d nog niet vanuit de
-homepage ontsloten en kunnen rechtstreeks via hun artifactpad worden geopend.
+De Keycloak en terminal productsurfaces zijn vanaf M11.4e via eigen
+routekaarten op de homepage ontsloten. De links worden uit de BAT
+productdefinities afgeleid en blijven relatief binnen `output/products/`.
 
 Een lokale webserver voorkomt browserbeperkingen bij relatieve bestanden:
 

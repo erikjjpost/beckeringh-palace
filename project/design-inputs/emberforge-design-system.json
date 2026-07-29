@@ -109,7 +109,7 @@
       "id": "world-language",
       "status": "gemigreerd",
       "doel": "World Bible en contentregels",
-      "bewijs": "M11.1e migreert merknaam, tagline, kernbelofte, principes, productfamilie, taal en stem naar het native BAT merkobject emberforge en activeert dit uitsluitend via de homepage entree."
+      "bewijs": "M11.1e migreert merknaam, tagline, kernbelofte, principes, productfamilie, taal en stem naar het native BAT merkobject emberforge en activeert dit uitsluitend via de homepage entree. M11.4e neemt Terminal op in de productfamilie en ontsluit de native Keycloak en terminal producten via afzonderlijke homepagegebieden met relatieve BAT productroutes."
     }
   ],
   "uitsluitingen": [

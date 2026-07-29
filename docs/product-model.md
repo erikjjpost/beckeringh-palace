@@ -239,6 +239,13 @@ Componentinstanties dupliceren deze keuzes niet. De HTML-backend ontvangt
 componentrol, variant en appearance als opgeloste semantiek en schrijft die
 machineleesbaar weg.
 
+M11.4e ontsluit de native Keycloak en terminal productsurfaces met twee extra
+`homepagegebied` routekaarten. Beide doelen blijven reguliere `product`
+objecten met een relatief artifactpad. De bestaande resolutie bewaakt unieke
+doelen, leesvolgorde, focusvolgorde en volledige-kaartgedrag. De homepage
+groeit daardoor naar één entree en vijf routes zonder een tweede routetabel of
+homepage-specifieke backendlogica.
+
 ## Layouttypen
 
 ### Grid
@@ -760,6 +767,11 @@ De HTML backend rendert een benoemde, niet-interactieve groep met een
 definitielijst voor de systeemvelden. Vensterknoppen en tabs zijn visuele
 bronweergaven en geen controls. Het product voert geen shell uit en behandelt
 de voorbeeldwaarden niet als actuele telemetrie.
+
+M11.4e neemt `Terminal` op in de native EmberForge productfamilie en verbindt
+de Keycloak en terminal producten via afzonderlijke homepagegebieden. De
+gegenereerde links gebruiken uitsluitend de reeds opgeloste product-id, naam
+en het veilige relatieve artifactpad.
 
 ## Diagnostics
 

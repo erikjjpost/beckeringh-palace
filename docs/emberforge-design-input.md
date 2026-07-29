@@ -20,7 +20,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Componenten, states, toegankelijkheid en referentie | Gemigreerd in M11.3f tot en met M11.3i | appearance, component, variant, componentvoorbeeld, toegankelijkheid en native referentieproduct |
 | Dashboard, Keycloak en terminal | Gemigreerd in M11.4a tot en met M11.4d | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
-| Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
+| Merkverhaal, productfamilie en contentregels | Gemigreerd in M11.1e en M11.4e | Native merkidentiteit, homepage entree en productroutes |
 
 De PNG logo's, placeholder SVG logo's, ontbrekende bestanden, Google Fonts,
 CDN iconen en UI kit implementatiecode worden niet als productbron overgenomen.
@@ -181,3 +181,11 @@ De HTML backend vertaalt alleen de opgeloste voorbeeldinhoud en gebruikt
 semantische groepering en een definitielijst. Vensterknoppen en tabs zijn
 niet-interactieve bronweergaven. Er wordt geen shell uitgevoerd en de
 systeemwaarden zijn voorbeelden, geen actuele telemetrie.
+
+## Productnavigatie
+
+M11.4e neemt de terminal op in de native EmberForge productfamilie en ontsluit
+de Keycloak en terminal productsurfaces als afzonderlijke routekaarten op de
+bestaande homepage. De routes verwijzen naar reguliere BAT producten. De
+generieke HTML backend ontvangt alleen opgeloste relatieve artifactpaden en
+bevat geen handmatig onderhouden routetabel.

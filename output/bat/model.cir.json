@@ -481,6 +481,7 @@
       "producten": [
         "Homelab Dashboard",
         "Keycloak login",
+        "Terminal",
         "CV Database",
         "ISMS Challenger",
         "Roadmap",
@@ -3151,12 +3152,14 @@
   },
   {
     "eigenschappen": {
-      "doel": "Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus.",
+      "doel": "Toegangspoort tot de digitale wereld, het ontwerpsysteem, de EmberForge productsurfaces en de actuele projectstatus.",
       "instanties": [
         "homepage-intro",
         "homepage-world",
         "homepage-design-system",
-        "homepage-project-status"
+        "homepage-project-status",
+        "homepage-keycloak",
+        "homepage-terminal"
       ],
       "naam": "Beckeringh Palace"
     },
@@ -3233,6 +3236,40 @@
   },
   {
     "eigenschappen": {
+      "component": "forge-panel",
+      "componentrol": "routekaart",
+      "doel": "Open de native EmberForge login productsurface.",
+      "focusvolgorde": "4",
+      "kernboodschap": "Email, wachtwoord en submitsemantiek zonder authenticatieclaim.",
+      "leesvolgorde": "5",
+      "naam": "Keycloak login",
+      "navigatie": "emberforge-keycloak-login-html",
+      "navigatiegedrag": "volledige-kaart",
+      "rol": "route",
+      "variant": "forge-panel-route"
+    },
+    "id": "homepage-keycloak-area",
+    "soort": "homepagegebied"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "componentrol": "routekaart",
+      "doel": "Open de statische EmberForge terminal productsurface.",
+      "focusvolgorde": "5",
+      "kernboodschap": "Een bronbewezen systeemoverzicht zonder shelluitvoering of actuele telemetrie.",
+      "leesvolgorde": "6",
+      "naam": "Terminal",
+      "navigatie": "emberforge-terminal-html",
+      "navigatiegedrag": "volledige-kaart",
+      "rol": "route",
+      "variant": "forge-panel-route"
+    },
+    "id": "homepage-terminal-area",
+    "soort": "homepagegebied"
+  },
+  {
+    "eigenschappen": {
       "compositie": "beckeringh-palace-homepage-composition",
       "homepagegebied": "homepage-entrance"
     },
@@ -3265,18 +3302,36 @@
   },
   {
     "eigenschappen": {
-      "columns": "3",
+      "compositie": "beckeringh-palace-homepage-composition",
+      "homepagegebied": "homepage-keycloak-area"
+    },
+    "id": "homepage-keycloak",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "beckeringh-palace-homepage-composition",
+      "homepagegebied": "homepage-terminal-area"
+    },
+    "id": "homepage-terminal",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "columns": "6",
       "compact-columns": "1",
-      "doel": "Ordent de homepage entree en drie productroutes in een responsief grid.",
+      "doel": "Ordent de homepage entree en vijf productroutes in een responsief grid.",
       "naam": "Beckeringh Palace Homepage Grid",
       "regions": [
         "homepage-intro-region",
         "homepage-world-region",
         "homepage-design-system-region",
-        "homepage-project-status-region"
+        "homepage-project-status-region",
+        "homepage-keycloak-region",
+        "homepage-terminal-region"
       ],
       "responsive-breakpoint": "960",
-      "rows": "2",
+      "rows": "3",
       "type": "grid"
     },
     "id": "beckeringh-palace-homepage-grid",
@@ -3285,7 +3340,7 @@
   {
     "eigenschappen": {
       "column": "1",
-      "column-span": "3",
+      "column-span": "6",
       "compact-order": "1",
       "doel": "Brede entree tot Beckeringh Palace.",
       "instantie": "homepage-intro",
@@ -3300,7 +3355,7 @@
   {
     "eigenschappen": {
       "column": "1",
-      "column-span": "1",
+      "column-span": "2",
       "compact-order": "2",
       "doel": "Route naar het wereld en productoverzicht.",
       "instantie": "homepage-world",
@@ -3314,8 +3369,8 @@
   },
   {
     "eigenschappen": {
-      "column": "2",
-      "column-span": "1",
+      "column": "3",
+      "column-span": "2",
       "compact-order": "3",
       "doel": "Route naar de componentcatalogus.",
       "instantie": "homepage-design-system",
@@ -3329,8 +3384,8 @@
   },
   {
     "eigenschappen": {
-      "column": "3",
-      "column-span": "1",
+      "column": "5",
+      "column-span": "2",
       "compact-order": "4",
       "doel": "Route naar de actuele projectstatus.",
       "instantie": "homepage-project-status",
@@ -3340,6 +3395,36 @@
       "row-span": "1"
     },
     "id": "homepage-project-status-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "3",
+      "compact-order": "5",
+      "doel": "Route naar de native EmberForge login productsurface.",
+      "instantie": "homepage-keycloak",
+      "layout": "beckeringh-palace-homepage-grid",
+      "naam": "Keycloak route",
+      "row": "3",
+      "row-span": "1"
+    },
+    "id": "homepage-keycloak-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "4",
+      "column-span": "3",
+      "compact-order": "6",
+      "doel": "Route naar de statische EmberForge terminal productsurface.",
+      "instantie": "homepage-terminal",
+      "layout": "beckeringh-palace-homepage-grid",
+      "naam": "Terminalroute",
+      "row": "3",
+      "row-span": "1"
+    },
+    "id": "homepage-terminal-region",
     "soort": "region"
   },
   {

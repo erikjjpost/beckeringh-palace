@@ -655,7 +655,7 @@ Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
 
 - **belofte:** Sovereignty over your own stack.
 - **principes:** Own your data., Own your nodes., Own your forge.
-- **producten:** Homelab Dashboard, Keycloak login, CV Database, ISMS Challenger, Roadmap, Marketing en merkoppervlakken
+- **producten:** Homelab Dashboard, Keycloak login, Terminal, CV Database, ISMS Challenger, Roadmap, Marketing en merkoppervlakken
 - **stem:** Zelfverzekerd, technisch en rustig
 - **taal:** Nederlands met technische termen in het Engels
 - **tagline:** Sovereign Infrastructure.
@@ -3967,11 +3967,11 @@ Tokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontrac
 
 ### Doel
 
-Toegangspoort tot de digitale wereld, het ontwerpsysteem en de actuele projectstatus.
+Toegangspoort tot de digitale wereld, het ontwerpsysteem, de EmberForge productsurfaces en de actuele projectstatus.
 
 ### Eigenschappen
 
-- **instanties:** homepage-intro, homepage-world, homepage-design-system, homepage-project-status
+- **instanties:** homepage-intro, homepage-world, homepage-design-system, homepage-project-status, homepage-keycloak, homepage-terminal
 
 ## Design is data
 
@@ -4061,6 +4061,50 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 - **rol:** route
 - **variant:** forge-panel-route
 
+## Keycloak login
+
+**Soort:** homepagegebied
+
+**Identifier:** `homepage-keycloak-area`
+
+### Doel
+
+Open de native EmberForge login productsurface.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **componentrol:** routekaart
+- **focusvolgorde:** 4
+- **kernboodschap:** Email, wachtwoord en submitsemantiek zonder authenticatieclaim.
+- **leesvolgorde:** 5
+- **navigatie:** emberforge-keycloak-login-html
+- **navigatiegedrag:** volledige-kaart
+- **rol:** route
+- **variant:** forge-panel-route
+
+## Terminal
+
+**Soort:** homepagegebied
+
+**Identifier:** `homepage-terminal-area`
+
+### Doel
+
+Open de statische EmberForge terminal productsurface.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **componentrol:** routekaart
+- **focusvolgorde:** 5
+- **kernboodschap:** Een bronbewezen systeemoverzicht zonder shelluitvoering of actuele telemetrie.
+- **leesvolgorde:** 6
+- **navigatie:** emberforge-terminal-html
+- **navigatiegedrag:** volledige-kaart
+- **rol:** route
+- **variant:** forge-panel-route
+
 ## Design is data
 
 **Soort:** componentinstantie
@@ -4121,6 +4165,36 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 - **compositie:** beckeringh-palace-homepage-composition
 - **homepagegebied:** homepage-project-status-area
 
+## Keycloak login
+
+**Soort:** componentinstantie
+
+**Identifier:** `homepage-keycloak`
+
+### Doel
+
+Open de native EmberForge login productsurface.
+
+### Eigenschappen
+
+- **compositie:** beckeringh-palace-homepage-composition
+- **homepagegebied:** homepage-keycloak-area
+
+## Terminal
+
+**Soort:** componentinstantie
+
+**Identifier:** `homepage-terminal`
+
+### Doel
+
+Open de statische EmberForge terminal productsurface.
+
+### Eigenschappen
+
+- **compositie:** beckeringh-palace-homepage-composition
+- **homepagegebied:** homepage-terminal-area
+
 ## Beckeringh Palace Homepage Grid
 
 **Soort:** layout
@@ -4129,15 +4203,15 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 
 ### Doel
 
-Ordent de homepage entree en drie productroutes in een responsief grid.
+Ordent de homepage entree en vijf productroutes in een responsief grid.
 
 ### Eigenschappen
 
-- **columns:** 3
+- **columns:** 6
 - **compact-columns:** 1
-- **regions:** homepage-intro-region, homepage-world-region, homepage-design-system-region, homepage-project-status-region
+- **regions:** homepage-intro-region, homepage-world-region, homepage-design-system-region, homepage-project-status-region, homepage-keycloak-region, homepage-terminal-region
 - **responsive-breakpoint:** 960
-- **rows:** 2
+- **rows:** 3
 - **type:** grid
 
 ## Homepage entree
@@ -4153,7 +4227,7 @@ Brede entree tot Beckeringh Palace.
 ### Eigenschappen
 
 - **column:** 1
-- **column-span:** 3
+- **column-span:** 6
 - **compact-order:** 1
 - **instantie:** homepage-intro
 - **layout:** beckeringh-palace-homepage-grid
@@ -4173,7 +4247,7 @@ Route naar het wereld en productoverzicht.
 ### Eigenschappen
 
 - **column:** 1
-- **column-span:** 1
+- **column-span:** 2
 - **compact-order:** 2
 - **instantie:** homepage-world
 - **layout:** beckeringh-palace-homepage-grid
@@ -4192,8 +4266,8 @@ Route naar de componentcatalogus.
 
 ### Eigenschappen
 
-- **column:** 2
-- **column-span:** 1
+- **column:** 3
+- **column-span:** 2
 - **compact-order:** 3
 - **instantie:** homepage-design-system
 - **layout:** beckeringh-palace-homepage-grid
@@ -4212,12 +4286,52 @@ Route naar de actuele projectstatus.
 
 ### Eigenschappen
 
-- **column:** 3
-- **column-span:** 1
+- **column:** 5
+- **column-span:** 2
 - **compact-order:** 4
 - **instantie:** homepage-project-status
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 2
+- **row-span:** 1
+
+## Keycloak route
+
+**Soort:** region
+
+**Identifier:** `homepage-keycloak-region`
+
+### Doel
+
+Route naar de native EmberForge login productsurface.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 3
+- **compact-order:** 5
+- **instantie:** homepage-keycloak
+- **layout:** beckeringh-palace-homepage-grid
+- **row:** 3
+- **row-span:** 1
+
+## Terminalroute
+
+**Soort:** region
+
+**Identifier:** `homepage-terminal-region`
+
+### Doel
+
+Route naar de statische EmberForge terminal productsurface.
+
+### Eigenschappen
+
+- **column:** 4
+- **column-span:** 3
+- **compact-order:** 6
+- **instantie:** homepage-terminal
+- **layout:** beckeringh-palace-homepage-grid
+- **row:** 3
 - **row-span:** 1
 
 ## Beckeringh Palace
