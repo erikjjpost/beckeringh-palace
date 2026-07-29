@@ -121,6 +121,7 @@ def render_component_example(
     )
     disabled = state == "disabled"
     if example.component_role == "actie":
+        button_type = example.actietype or "button"
         disabled_attribute = (
             " disabled"
             if (
@@ -131,11 +132,12 @@ def render_component_example(
             else ""
         )
         regels.append(
-            f'      <button type="button" {attributen}'
+            f'      <button type="{html.escape(button_type)}" {attributen}'
             f"{disabled_attribute}>"
             f"{html.escape(example.label)}</button>"
         )
     elif example.component_role == "invoer":
+        input_type = example.invoertype or "text"
         control_id = _voorbeeld_element_id(
             example, state, "control", id_namespace
         )
@@ -173,6 +175,7 @@ def render_component_example(
             ),
             (
                 f'        <input id="{html.escape(control_id)}" '
+                f'type="{html.escape(input_type)}" '
                 f"{attributen} "
                 f'value="{html.escape(example.waarde or "")}"'
                 f"{error_attributes}{disabled_attribute}>"

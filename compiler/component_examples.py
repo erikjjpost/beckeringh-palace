@@ -24,6 +24,8 @@ COMPONENTVOORBEELD_VELDEN = frozenset({
     "beschrijving",
     "melding",
     "status",
+    "invoertype",
+    "actietype",
 })
 COMPONENTVOORBEELD_INHOUD = frozenset({
     "label",
@@ -63,6 +65,8 @@ class ResolvedComponentExample:
     beschrijving: str | None
     melding: str | None
     status: str | None
+    invoertype: str | None
+    actietype: str | None
     accessibility: ResolvedComponentAccessibility | None
 
 
@@ -121,6 +125,8 @@ def resolveer_componentvoorbeelden(
             beschrijving=_optionele_tekst(obj, "beschrijving"),
             melding=_optionele_tekst(obj, "melding"),
             status=_optionele_tekst(obj, "status"),
+            invoertype=_optionele_tekst(obj, "invoertype"),
+            actietype=_optionele_tekst(obj, "actietype"),
             accessibility=toegankelijkheid.get(component.id),
         ))
     return tuple(sorted(voorbeelden, key=lambda item: item.id))
@@ -250,6 +256,34 @@ class ComponentExampleConstraint:
                     ),
                     locatie=voorbeeld.eigenschaplocaties.get(
                         "status", voorbeeld.bronlocatie
+                    ),
+                ))
+            invoertype = voorbeeld.eigenschappen.get("invoertype")
+            if invoertype is not None and (
+                rol != "invoer" or invoertype not in {"text", "email", "password"}
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP3827",
+                    boodschap=(
+                        f"Componentvoorbeeld '{voorbeeld.id}' heeft voor rol "
+                        f"'{rol}' onbekend invoertype '{invoertype}'"
+                    ),
+                    locatie=voorbeeld.eigenschaplocaties.get(
+                        "invoertype", voorbeeld.bronlocatie
+                    ),
+                ))
+            actietype = voorbeeld.eigenschappen.get("actietype")
+            if actietype is not None and (
+                rol != "actie" or actietype not in {"button", "submit"}
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP3828",
+                    boodschap=(
+                        f"Componentvoorbeeld '{voorbeeld.id}' heeft voor rol "
+                        f"'{rol}' onbekend actietype '{actietype}'"
+                    ),
+                    locatie=voorbeeld.eigenschaplocaties.get(
+                        "actietype", voorbeeld.bronlocatie
                     ),
                 ))
         return tuple(diagnostics)

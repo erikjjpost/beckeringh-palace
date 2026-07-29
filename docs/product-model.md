@@ -740,6 +740,15 @@ toegankelijkheidscontracten naar Canvas panelen en paneelmetadata. Het
 dashboard bevat geen datasource; de voorbeeldwaarden blijven normatieve
 productinhoud en worden niet als actuele telemetrie gepresenteerd.
 
+M11.4c modelleert de EmberForge Keycloak login als een tweede concrete
+productsurface. Een compositie kan daarvoor de expliciete rol
+`login-formulier` dragen. Componentvoorbeelden leggen het native
+`invoertype` (`text`, `email` of `password`) en `actietype` (`button` of
+`submit`) backendonafhankelijk vast. HTML vertaalt deze contracten naar een
+`form`, gelabelde native invoerelementen en een submitbutton. Het product
+bevat geen realm, client-ID, endpoint, sessiegedrag of credentials en claimt
+daarom uitsluitend de productsurface, niet een werkende Keycloak integratie.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -782,6 +791,7 @@ productinhoud en worden niet als actuele telemetrie gepresenteerd.
 | `BP3702` | `instanties` is niet expliciet, uniek of geldig |
 | `BP3703` | Compositie verwijst naar een onbekende componentinstantie |
 | `BP3704` | Componentinstantie verwijst niet terug naar de compositie |
+| `BP3705` | Compositie gebruikt een onbekende semantische rol |
 | `BP3710` | Componentinstantie heeft een onbekende eigenschap |
 | `BP3711` | Componentinstantie verwijst naar een onbekende compositie |
 | `BP3712` | Compositie noemt de componentinstantie niet |
@@ -810,6 +820,8 @@ productinhoud en worden niet als actuele telemetrie gepresenteerd.
 | `BP3824` | Componentvoorbeeld mist verplichte rolgebonden inhoud |
 | `BP3825` | Componentvoorbeeld bevat inhoud die niet bij de rol past |
 | `BP3826` | App tegelvoorbeeld gebruikt een onbekende operationele status |
+| `BP3827` | Invoervoorbeeld gebruikt een onbekend of rolvreemd invoertype |
+| `BP3828` | Actievoorbeeld gebruikt een onbekend of rolvreemd actietype |
 | `BP3830` | Toegankelijkheidscontract heeft een onbekende eigenschap |
 | `BP3831` | Toegankelijkheidscontract heeft een ongeldige contractwaarde |
 | `BP3832` | Component mist een bestaand toegankelijkheidscontract |

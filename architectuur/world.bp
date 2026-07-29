@@ -1473,6 +1473,7 @@ componentvoorbeeld forge-button-primary-example {
     component: "forge-button"
     variant: "forge-button-primary"
     label: "Sign In"
+    actietype: "submit"
 }
 
 componentvoorbeeld forge-button-secondary-example {
@@ -1506,6 +1507,17 @@ componentvoorbeeld forge-input-default-example {
     variant: "forge-input-default"
     label: "Username or email"
     waarde: "erik@thb1home.nl"
+    invoertype: "email"
+}
+
+componentvoorbeeld forge-input-password-example {
+    naam: "Password Input"
+    doel: "Wachtwoordveld voor de EmberForge login productsurface."
+    component: "forge-input"
+    variant: "forge-input-default"
+    label: "Password"
+    waarde: "not-a-secret"
+    invoertype: "password"
 }
 
 componentvoorbeeld forge-input-error-example {
@@ -1994,6 +2006,92 @@ product emberforge-homelab-dashboard-grafana {
     compositie: "emberforge-homelab-dashboard"
     layout: "emberforge-homelab-dashboard-responsive"
     pad: "output/products/emberforge-homelab-dashboard.grafana.json"
+}
+
+compositie emberforge-keycloak-login {
+    naam: "EmberForge Sign In"
+    doel: "Rustige native login surface voor de EmberForge Keycloak entree."
+    rol: "login-formulier"
+    instanties: ["keycloak-login-identity", "keycloak-login-password", "keycloak-login-submit"]
+}
+
+componentinstantie keycloak-login-identity {
+    naam: "Username or email"
+    doel: "Identiteitsveld voor de EmberForge login."
+    compositie: "emberforge-keycloak-login"
+    voorbeeld: "forge-input-default-example"
+}
+
+componentinstantie keycloak-login-password {
+    naam: "Password"
+    doel: "Wachtwoordveld voor de EmberForge login."
+    compositie: "emberforge-keycloak-login"
+    voorbeeld: "forge-input-password-example"
+}
+
+componentinstantie keycloak-login-submit {
+    naam: "Sign In"
+    doel: "Primaire submitactie van de EmberForge login."
+    compositie: "emberforge-keycloak-login"
+    voorbeeld: "forge-button-primary-example"
+}
+
+layout emberforge-keycloak-login-responsive {
+    naam: "EmberForge Keycloak Login Responsive"
+    doel: "Ordent identiteit, wachtwoord en submitactie als compact loginformulier."
+    type: "grid"
+    regions: ["keycloak-login-identity-region", "keycloak-login-password-region", "keycloak-login-submit-region"]
+    columns: "1"
+    rows: "3"
+    responsive-breakpoint: "640"
+    compact-columns: "1"
+}
+
+region keycloak-login-identity-region {
+    naam: "Login identiteit"
+    doel: "Eerste formulierpositie."
+    layout: "emberforge-keycloak-login-responsive"
+    instantie: "keycloak-login-identity"
+    column: "1"
+    row: "1"
+    column-span: "1"
+    row-span: "1"
+    compact-order: "1"
+}
+
+region keycloak-login-password-region {
+    naam: "Login wachtwoord"
+    doel: "Tweede formulierpositie."
+    layout: "emberforge-keycloak-login-responsive"
+    instantie: "keycloak-login-password"
+    column: "1"
+    row: "2"
+    column-span: "1"
+    row-span: "1"
+    compact-order: "2"
+}
+
+region keycloak-login-submit-region {
+    naam: "Login submit"
+    doel: "Derde formulierpositie."
+    layout: "emberforge-keycloak-login-responsive"
+    instantie: "keycloak-login-submit"
+    column: "1"
+    row: "3"
+    column-span: "1"
+    row-span: "1"
+    compact-order: "3"
+}
+
+product emberforge-keycloak-login-html {
+    naam: "EmberForge Keycloak Login"
+    doel: "De native EmberForge login surface zonder authenticatieconfiguratie genereren."
+    backend: "html"
+    mode: "interactive"
+    wereld: "beckeringh-palace"
+    compositie: "emberforge-keycloak-login"
+    layout: "emberforge-keycloak-login-responsive"
+    pad: "output/products/emberforge-keycloak-login.html"
 }
 
 product project-status-html {

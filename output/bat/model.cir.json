@@ -1920,6 +1920,7 @@
   },
   {
     "eigenschappen": {
+      "actietype": "submit",
       "component": "forge-button",
       "doel": "Primair sign in voorbeeld uit het aangeleverde componentscherm.",
       "label": "Sign In",
@@ -1966,12 +1967,26 @@
     "eigenschappen": {
       "component": "forge-input",
       "doel": "Regulier gebruikersveld uit het aangeleverde componentscherm.",
+      "invoertype": "email",
       "label": "Username or email",
       "naam": "Default Input",
       "variant": "forge-input-default",
       "waarde": "erik@thb1home.nl"
     },
     "id": "forge-input-default-example",
+    "soort": "componentvoorbeeld"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-input",
+      "doel": "Wachtwoordveld voor de EmberForge login productsurface.",
+      "invoertype": "password",
+      "label": "Password",
+      "naam": "Password Input",
+      "variant": "forge-input-default",
+      "waarde": "not-a-secret"
+    },
+    "id": "forge-input-password-example",
     "soort": "componentvoorbeeld"
   },
   {
@@ -2720,6 +2735,127 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-homelab-dashboard-grafana",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Rustige native login surface voor de EmberForge Keycloak entree.",
+      "instanties": [
+        "keycloak-login-identity",
+        "keycloak-login-password",
+        "keycloak-login-submit"
+      ],
+      "naam": "EmberForge Sign In",
+      "rol": "login-formulier"
+    },
+    "id": "emberforge-keycloak-login",
+    "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-keycloak-login",
+      "doel": "Identiteitsveld voor de EmberForge login.",
+      "naam": "Username or email",
+      "voorbeeld": "forge-input-default-example"
+    },
+    "id": "keycloak-login-identity",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-keycloak-login",
+      "doel": "Wachtwoordveld voor de EmberForge login.",
+      "naam": "Password",
+      "voorbeeld": "forge-input-password-example"
+    },
+    "id": "keycloak-login-password",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-keycloak-login",
+      "doel": "Primaire submitactie van de EmberForge login.",
+      "naam": "Sign In",
+      "voorbeeld": "forge-button-primary-example"
+    },
+    "id": "keycloak-login-submit",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "columns": "1",
+      "compact-columns": "1",
+      "doel": "Ordent identiteit, wachtwoord en submitactie als compact loginformulier.",
+      "naam": "EmberForge Keycloak Login Responsive",
+      "regions": [
+        "keycloak-login-identity-region",
+        "keycloak-login-password-region",
+        "keycloak-login-submit-region"
+      ],
+      "responsive-breakpoint": "640",
+      "rows": "3",
+      "type": "grid"
+    },
+    "id": "emberforge-keycloak-login-responsive",
+    "soort": "layout"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "1",
+      "compact-order": "1",
+      "doel": "Eerste formulierpositie.",
+      "instantie": "keycloak-login-identity",
+      "layout": "emberforge-keycloak-login-responsive",
+      "naam": "Login identiteit",
+      "row": "1",
+      "row-span": "1"
+    },
+    "id": "keycloak-login-identity-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "1",
+      "compact-order": "2",
+      "doel": "Tweede formulierpositie.",
+      "instantie": "keycloak-login-password",
+      "layout": "emberforge-keycloak-login-responsive",
+      "naam": "Login wachtwoord",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "keycloak-login-password-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "1",
+      "compact-order": "3",
+      "doel": "Derde formulierpositie.",
+      "instantie": "keycloak-login-submit",
+      "layout": "emberforge-keycloak-login-responsive",
+      "naam": "Login submit",
+      "row": "3",
+      "row-span": "1"
+    },
+    "id": "keycloak-login-submit-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "backend": "html",
+      "compositie": "emberforge-keycloak-login",
+      "doel": "De native EmberForge login surface zonder authenticatieconfiguratie genereren.",
+      "layout": "emberforge-keycloak-login-responsive",
+      "mode": "interactive",
+      "naam": "EmberForge Keycloak Login",
+      "pad": "output/products/emberforge-keycloak-login.html",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-keycloak-login-html",
     "soort": "product"
   },
   {
