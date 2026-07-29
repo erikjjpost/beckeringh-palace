@@ -5,6 +5,10 @@ from dataclasses import dataclass
 from typing import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.component_accessibility import (
+    ResolvedComponentAccessibility,
+    resolveer_componenttoegankelijkheid,
+)
 from compiler.constraints import ConstraintContext
 from compiler.design_components import COMPONENT_ROLLEN
 from compiler.diagnostics import Diagnostic
@@ -59,6 +63,7 @@ class ResolvedComponentExample:
     beschrijving: str | None
     melding: str | None
     status: str | None
+    accessibility: ResolvedComponentAccessibility | None
 
 
 class ComponentExampleResolutionError(ValueError):
@@ -90,6 +95,10 @@ def resolveer_componentvoorbeelden(
     componenten = {
         obj.id: obj for obj in objecten if obj.soort == "component"
     }
+    toegankelijkheid = {
+        contract.component_id: contract
+        for contract in resolveer_componenttoegankelijkheid(objecten)
+    }
     voorbeelden = []
     for obj in objecten:
         if obj.soort != "componentvoorbeeld":
@@ -112,6 +121,7 @@ def resolveer_componentvoorbeelden(
             beschrijving=_optionele_tekst(obj, "beschrijving"),
             melding=_optionele_tekst(obj, "melding"),
             status=_optionele_tekst(obj, "status"),
+            accessibility=toegankelijkheid.get(component.id),
         ))
     return tuple(sorted(voorbeelden, key=lambda item: item.id))
 

@@ -179,6 +179,8 @@ def naar_native_layout_html(
         ),
     ])
     for instantie, region in geordende_plaatsingen:
+        heading_id = f"bp-instance-{_css_naam(instantie.id)}-title"
+        heading_id_attribute = ""
         region_style = _style(_region_css(layout, region))
         style_attribute = f' style="{region_style}"' if region_style else ""
         variant_class = (
@@ -233,11 +235,54 @@ def naar_native_layout_html(
             if instantie.component_role is not None
             else ""
         )
-        accessibility_attribute = (
+        information_accessibility_attribute = (
             f' aria-label="{html.escape(instantie.accessibility_label)}"'
             if instantie.accessibility_label is not None
             else ""
         )
+        component_accessibility_attributes = ""
+        if instantie.accessibility is not None:
+            contract = instantie.accessibility
+            component_accessibility_attributes = (
+                f' data-accessibility-contract="'
+                f'{html.escape(contract.contract_id)}"'
+                f' data-accessibility-role="{html.escape(contract.rol)}"'
+                f' data-accessibility-name-source="'
+                f'{html.escape(contract.naambron)}"'
+            )
+            if contract.waardebron is not None:
+                component_accessibility_attributes += (
+                    f' data-accessibility-value-source="'
+                    f'{html.escape(contract.waardebron)}"'
+                )
+            if contract.foutbron is not None:
+                component_accessibility_attributes += (
+                    f' data-accessibility-error-source="'
+                    f'{html.escape(contract.foutbron)}"'
+                )
+            component_accessibility_attributes += (
+                f' data-accessibility-disabled="'
+                f'{html.escape(contract.disabled_gedrag)}"'
+                f' data-accessibility-focus="'
+                f'{html.escape(contract.focusgedrag)}"'
+                f' data-accessibility-keyboard="'
+                f'{html.escape(contract.toetsenbordgedrag)}"'
+            )
+            if contract.toetsen:
+                component_accessibility_attributes += (
+                    f' data-accessibility-keys="'
+                    f'{html.escape(" ".join(contract.toetsen))}"'
+                )
+            if (
+                instantie.accessibility_label is None
+                and contract.rol == "groep"
+            ):
+                information_accessibility_attribute = (
+                    f' aria-labelledby="{html.escape(heading_id)}"'
+                )
+                heading_id_attribute = (
+                    f' id="{html.escape(heading_id)}"'
+                )
         reading_order_attribute = (
             f' data-reading-order="{instantie.reading_order}"'
             if instantie.reading_order is not None
@@ -271,9 +316,11 @@ def naar_native_layout_html(
                 f"{homepage_role_attribute}{component_role_attribute}"
                 f"{reading_order_attribute}{focus_order_attribute}"
                 f"{navigation_behavior_attribute}{compact_order_attribute}"
-                f"{accessibility_attribute}{style_attribute}>"
+                f"{component_accessibility_attributes}"
+                f"{information_accessibility_attribute}{style_attribute}>"
             ),
-            f"      <h2>{html.escape(instantie.naam)}</h2>",
+            f"      <h2{heading_id_attribute}>"
+            f"{html.escape(instantie.naam)}</h2>",
         ])
         if instantie.metric_value is not None:
             regels.append(

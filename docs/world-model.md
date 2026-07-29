@@ -24,6 +24,7 @@ De native objectsoorten zijn:
 | `token` | herbruikbare ontwerpwaarden |
 | `asset` | reproduceerbare bronassets |
 | `component` | herbruikbare productonderdelen |
+| `toegankelijkheid` | backendonafhankelijke naam, rol, waarde, fout, disabled, focus en toetsenbordsemantiek |
 | `componentvoorbeeld` | productgedragen voorbeeldinhoud voor één componentvariant |
 | `componentinstantie` | benoemd gebruik van een component in één compositie |
 | `compositie` | geordende productinhoud zonder layoutpresentatie |

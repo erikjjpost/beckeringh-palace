@@ -89,7 +89,11 @@ class HomepageProductTests(unittest.TestCase):
         html = self.products["beckeringh-palace-homepage"].inhoud
 
         self.assertIn("<h1>Beckeringh Palace</h1>", html)
-        self.assertIn("<h2>Design is data</h2>", html)
+        self.assertIn(
+            '<h2 id="bp-instance-homepage-intro-title">'
+            "Design is data</h2>",
+            html,
+        )
         self.assertIn(
             'data-homepage-area="homepage-entrance" '
             'data-homepage-role="entree" data-component-role="hero" '

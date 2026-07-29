@@ -999,6 +999,24 @@ Ruime en verhoogde appearance voor de homepage-entree.
 - **shadow:** high
 - **spacing:** xl
 
+## Forge Panel Accessibility
+
+**Soort:** toegankelijkheid
+
+**Identifier:** `forge-panel-accessibility`
+
+### Doel
+
+Benoemt een informatief paneel als niet-interactieve groep.
+
+### Eigenschappen
+
+- **disabled:** niet-van-toepassing
+- **focus:** geen
+- **naambron:** titel
+- **rol:** groep
+- **toetsenbord:** geen
+
 ## Forge Panel
 
 **Soort:** component
@@ -1014,6 +1032,7 @@ Basispaneel voor dashboards en productdocumentatie.
 - **anatomie:** titel, tekst
 - **appearance:** forge-panel-appearance
 - **rol:** paneel
+- **toegankelijkheid:** forge-panel-accessibility
 
 ## Forge Panel Compact
 
@@ -2013,6 +2032,101 @@ Statistiekkaart met één schaars koperaccent.
 - **shadow:** none
 - **spacing:** medium
 
+## Forge Button Accessibility
+
+**Soort:** toegankelijkheid
+
+**Identifier:** `forge-button-accessibility`
+
+### Doel
+
+Benoemt een actie en legt native activering en disabled gedrag vast.
+
+### Eigenschappen
+
+- **disabled:** native
+- **focus:** tabvolgorde
+- **naambron:** label
+- **rol:** actie
+- **toetsenbord:** activeren
+
+## Forge Input Accessibility
+
+**Soort:** toegankelijkheid
+
+**Identifier:** `forge-input-accessibility`
+
+### Doel
+
+Koppelt tekstinvoer expliciet aan naam, waarde en foutmelding.
+
+### Eigenschappen
+
+- **disabled:** native
+- **focus:** tabvolgorde
+- **foutbron:** melding
+- **naambron:** label
+- **rol:** tekstinvoer
+- **toetsenbord:** tekstinvoer
+- **waardebron:** waarde
+
+## Forge Status Accessibility
+
+**Soort:** toegankelijkheid
+
+**Identifier:** `forge-status-accessibility`
+
+### Doel
+
+Benoemt een operationele status en haar feitelijke waarde.
+
+### Eigenschappen
+
+- **disabled:** niet-van-toepassing
+- **focus:** geen
+- **naambron:** label
+- **rol:** status
+- **toetsenbord:** geen
+- **waardebron:** waarde
+
+## Forge App Tile Accessibility
+
+**Soort:** toegankelijkheid
+
+**Identifier:** `forge-app-tile-accessibility`
+
+### Doel
+
+Benoemt een app tegel als native activeerbare productactie.
+
+### Eigenschappen
+
+- **disabled:** native
+- **focus:** tabvolgorde
+- **naambron:** label
+- **rol:** actie
+- **toetsenbord:** activeren
+- **waardebron:** status
+
+## Forge Stat Card Accessibility
+
+**Soort:** toegankelijkheid
+
+**Identifier:** `forge-stat-card-accessibility`
+
+### Doel
+
+Benoemt een statistiek als niet-interactieve waardegroep.
+
+### Eigenschappen
+
+- **disabled:** niet-van-toepassing
+- **focus:** geen
+- **naambron:** label
+- **rol:** groep
+- **toetsenbord:** geen
+- **waardebron:** waarde
+
 ## Forge Button
 
 **Soort:** component
@@ -2028,6 +2142,7 @@ Actiecomponent voor primaire, secundaire, ghost en warme acties.
 - **anatomie:** label
 - **appearance:** forge-button-primary-rest-appearance
 - **rol:** actie
+- **toegankelijkheid:** forge-button-accessibility
 
 ## Forge Input
 
@@ -2044,6 +2159,7 @@ Invoercomponent met waarde en optionele foutmelding.
 - **anatomie:** label, waarde, melding
 - **appearance:** forge-input-rest-appearance
 - **rol:** invoer
+- **toegankelijkheid:** forge-input-accessibility
 
 ## Forge Status
 
@@ -2060,6 +2176,7 @@ Feitelijke statuscapsule voor operationele toestand.
 - **anatomie:** label, waarde
 - **appearance:** forge-status-info-appearance
 - **rol:** status
+- **toegankelijkheid:** forge-status-accessibility
 
 ## Forge App Tile
 
@@ -2076,6 +2193,7 @@ Producttegel voor één toepassing en haar operationele status.
 - **anatomie:** label, beschrijving, status
 - **appearance:** forge-app-tile-rest-appearance
 - **rol:** app-tegel
+- **toegankelijkheid:** forge-app-tile-accessibility
 
 ## Forge Stat Card
 
@@ -2092,6 +2210,7 @@ Compacte operationele waarde met context.
 - **anatomie:** label, waarde, beschrijving
 - **appearance:** forge-stat-card-value-appearance
 - **rol:** statistiek
+- **toegankelijkheid:** forge-stat-card-accessibility
 
 ## Primary
 
@@ -2664,10 +2783,10 @@ De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.
 
 ### Eigenschappen
 
-- **inhoud:** forge, forge-materials, forge-panel, forge-button, forge-input, forge-status, forge-app-tile, forge-stat-card, forge-button-primary-example, forge-input-error-example, forge-status-running-example, forge-app-tile-isms-example, forge-stat-card-nodes-example
+- **inhoud:** forge, forge-materials, forge-panel, forge-button, forge-input, forge-status, forge-app-tile, forge-stat-card, forge-button-accessibility, forge-button-primary-example, forge-input-error-example, forge-status-running-example, forge-app-tile-isms-example, forge-stat-card-nodes-example
 - **leesvolgorde:** 2
 - **navigatie:** html-components, css-components, css-tokens, json-tokens
-- **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant, componentvoorbeeld
+- **soorten:** kleur, palet, typografie, typeschaal, materiaal, border, radius, shadow, motion, spacing, thema, appearance, token, component, variant, componentvoorbeeld, toegankelijkheid
 - **toegankelijkheidslabel:** Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten
 
 ## Productfamilie

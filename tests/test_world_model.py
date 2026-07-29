@@ -38,6 +38,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "spacing",
                 "thema",
                 "token",
+                "toegankelijkheid",
                 "typografie",
                 "typeschaal",
                 "variant",

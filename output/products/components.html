@@ -106,6 +106,10 @@
       font-family: var(--bp-font-body);
       font-size: var(--bp-type-caption);
     }
+    .bp-example-description {
+      font-family: var(--bp-font-body);
+      font-size: var(--bp-type-body);
+    }
     .bp-example-message {
       color: var(--bp-theme-error);
     }
@@ -121,112 +125,92 @@
     <section class="bp-component-example-shell">
       <h2>ISMS App Tile</h2>
       <p>Producttegel voor ISMS Challenger.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-default" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-rest-appearance">
-        <div>
-          <strong>ISMS Challenger</strong>
-          <p>Information Security Management</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-default" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-rest-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-isms-example-rest-label" aria-describedby="bp-example-forge-app-tile-isms-example-rest-description bp-example-forge-app-tile-isms-example-rest-status">
+        <strong id="bp-example-forge-app-tile-isms-example-rest-label">ISMS Challenger</strong>
+        <span id="bp-example-forge-app-tile-isms-example-rest-description" class="bp-example-description">Information Security Management</span>
+        <small id="bp-example-forge-app-tile-isms-example-rest-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>ISMS App Tile · hover</h2>
       <p>Producttegel voor ISMS Challenger.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-hover" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-hover-appearance">
-        <div>
-          <strong>ISMS Challenger</strong>
-          <p>Information Security Management</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-hover" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-hover-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-isms-example-hover-label" aria-describedby="bp-example-forge-app-tile-isms-example-hover-description bp-example-forge-app-tile-isms-example-hover-status">
+        <strong id="bp-example-forge-app-tile-isms-example-hover-label">ISMS Challenger</strong>
+        <span id="bp-example-forge-app-tile-isms-example-hover-description" class="bp-example-description">Information Security Management</span>
+        <small id="bp-example-forge-app-tile-isms-example-hover-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>ISMS App Tile · focus</h2>
       <p>Producttegel voor ISMS Challenger.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-focus" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-focus-appearance">
-        <div>
-          <strong>ISMS Challenger</strong>
-          <p>Information Security Management</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-focus" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-focus-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-isms-example-focus-label" aria-describedby="bp-example-forge-app-tile-isms-example-focus-description bp-example-forge-app-tile-isms-example-focus-status">
+        <strong id="bp-example-forge-app-tile-isms-example-focus-label">ISMS Challenger</strong>
+        <span id="bp-example-forge-app-tile-isms-example-focus-description" class="bp-example-description">Information Security Management</span>
+        <small id="bp-example-forge-app-tile-isms-example-focus-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>ISMS App Tile · pressed</h2>
       <p>Producttegel voor ISMS Challenger.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-pressed" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-pressed-appearance">
-        <div>
-          <strong>ISMS Challenger</strong>
-          <p>Information Security Management</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-pressed" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-pressed-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-isms-example-pressed-label" aria-describedby="bp-example-forge-app-tile-isms-example-pressed-description bp-example-forge-app-tile-isms-example-pressed-status">
+        <strong id="bp-example-forge-app-tile-isms-example-pressed-label">ISMS Challenger</strong>
+        <span id="bp-example-forge-app-tile-isms-example-pressed-description" class="bp-example-description">Information Security Management</span>
+        <small id="bp-example-forge-app-tile-isms-example-pressed-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>ISMS App Tile · disabled</h2>
       <p>Producttegel voor ISMS Challenger.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-disabled" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-disabled-appearance" aria-disabled="true">
-        <div>
-          <strong>ISMS Challenger</strong>
-          <p>Information Security Management</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-default bp-state-disabled" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-disabled-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-isms-example-disabled-label" aria-describedby="bp-example-forge-app-tile-isms-example-disabled-description bp-example-forge-app-tile-isms-example-disabled-status" disabled>
+        <strong id="bp-example-forge-app-tile-isms-example-disabled-label">ISMS Challenger</strong>
+        <span id="bp-example-forge-app-tile-isms-example-disabled-description" class="bp-example-description">Information Security Management</span>
+        <small id="bp-example-forge-app-tile-isms-example-disabled-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>CV App Tile</h2>
       <p>Zeldzame warme producttegel voor CV beheer.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-ember" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-rest-appearance">
-        <div>
-          <strong>CV Tool</strong>
-          <p>CV beheer voor consultants</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-ember" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-rest-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-cv-example-rest-label" aria-describedby="bp-example-forge-app-tile-cv-example-rest-description bp-example-forge-app-tile-cv-example-rest-status">
+        <strong id="bp-example-forge-app-tile-cv-example-rest-label">CV Tool</strong>
+        <span id="bp-example-forge-app-tile-cv-example-rest-description" class="bp-example-description">CV beheer voor consultants</span>
+        <small id="bp-example-forge-app-tile-cv-example-rest-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>CV App Tile · hover</h2>
       <p>Zeldzame warme producttegel voor CV beheer.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-hover" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-hover-appearance">
-        <div>
-          <strong>CV Tool</strong>
-          <p>CV beheer voor consultants</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-hover" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-hover-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-cv-example-hover-label" aria-describedby="bp-example-forge-app-tile-cv-example-hover-description bp-example-forge-app-tile-cv-example-hover-status">
+        <strong id="bp-example-forge-app-tile-cv-example-hover-label">CV Tool</strong>
+        <span id="bp-example-forge-app-tile-cv-example-hover-description" class="bp-example-description">CV beheer voor consultants</span>
+        <small id="bp-example-forge-app-tile-cv-example-hover-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>CV App Tile · focus</h2>
       <p>Zeldzame warme producttegel voor CV beheer.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-focus" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-focus-appearance">
-        <div>
-          <strong>CV Tool</strong>
-          <p>CV beheer voor consultants</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-focus" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-focus-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-cv-example-focus-label" aria-describedby="bp-example-forge-app-tile-cv-example-focus-description bp-example-forge-app-tile-cv-example-focus-status">
+        <strong id="bp-example-forge-app-tile-cv-example-focus-label">CV Tool</strong>
+        <span id="bp-example-forge-app-tile-cv-example-focus-description" class="bp-example-description">CV beheer voor consultants</span>
+        <small id="bp-example-forge-app-tile-cv-example-focus-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>CV App Tile · pressed</h2>
       <p>Zeldzame warme producttegel voor CV beheer.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-pressed" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-pressed-appearance">
-        <div>
-          <strong>CV Tool</strong>
-          <p>CV beheer voor consultants</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-pressed" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-pressed-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-cv-example-pressed-label" aria-describedby="bp-example-forge-app-tile-cv-example-pressed-description bp-example-forge-app-tile-cv-example-pressed-status">
+        <strong id="bp-example-forge-app-tile-cv-example-pressed-label">CV Tool</strong>
+        <span id="bp-example-forge-app-tile-cv-example-pressed-description" class="bp-example-description">CV beheer voor consultants</span>
+        <small id="bp-example-forge-app-tile-cv-example-pressed-status">running</small>
+      </button>
     </section>
     <section class="bp-component-example-shell">
       <h2>CV App Tile · disabled</h2>
       <p>Zeldzame warme producttegel voor CV beheer.</p>
-      <article class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-disabled" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-disabled-appearance" aria-disabled="true">
-        <div>
-          <strong>CV Tool</strong>
-          <p>CV beheer voor consultants</p>
-        </div>
-        <small>running</small>
-      </article>
+      <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-ember bp-state-disabled" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-disabled-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-forge-app-tile-cv-example-disabled-label" aria-describedby="bp-example-forge-app-tile-cv-example-disabled-description bp-example-forge-app-tile-cv-example-disabled-status" disabled>
+        <strong id="bp-example-forge-app-tile-cv-example-disabled-label">CV Tool</strong>
+        <span id="bp-example-forge-app-tile-cv-example-disabled-description" class="bp-example-description">CV beheer voor consultants</span>
+        <small id="bp-example-forge-app-tile-cv-example-disabled-status">running</small>
+      </button>
     </section>
     <section class="bp-component-family" data-component-family="forge-button">
       <h2>Forge Button</h2>
@@ -235,102 +219,102 @@
     <section class="bp-component-example-shell">
       <h2>Ember Button</h2>
       <p>Schaars warm actievoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ember" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-rest-appearance">Forge new</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ember" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-rest-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Forge new</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ember Button · hover</h2>
       <p>Schaars warm actievoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-hover" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-hover-appearance">Forge new</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-hover" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-hover-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Forge new</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ember Button · focus</h2>
       <p>Schaars warm actievoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-focus" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-focus-appearance">Forge new</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-focus" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-focus-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Forge new</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ember Button · pressed</h2>
       <p>Schaars warm actievoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-pressed" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-pressed-appearance">Forge new</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-pressed" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ember-pressed-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Forge new</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ember Button · disabled</h2>
       <p>Schaars warm actievoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-disabled" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" disabled>Forge new</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ember bp-state-disabled" data-example="forge-button-ember-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ember" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" disabled>Forge new</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ghost Button</h2>
       <p>Ghost voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ghost-rest-appearance">Skip</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ghost-rest-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Skip</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ghost Button · hover</h2>
       <p>Ghost voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-hover" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ghost-hover-appearance">Skip</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-hover" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-ghost-hover-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Skip</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ghost Button · focus</h2>
       <p>Ghost voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-focus" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-focus-appearance">Skip</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-focus" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-focus-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Skip</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ghost Button · pressed</h2>
       <p>Ghost voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-pressed" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-pressed-appearance">Skip</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-pressed" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-pressed-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Skip</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Ghost Button · disabled</h2>
       <p>Ghost voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-disabled" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" disabled>Skip</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-ghost bp-state-disabled" data-example="forge-button-ghost-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-ghost" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" disabled>Skip</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Primary Button</h2>
       <p>Primair sign in voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-primary" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-rest-appearance">Sign In</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-primary" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-rest-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Sign In</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Primary Button · hover</h2>
       <p>Primair sign in voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-hover" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-hover-appearance">Sign In</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-hover" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-hover-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Sign In</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Primary Button · focus</h2>
       <p>Primair sign in voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-focus" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-focus-appearance">Sign In</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-focus" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-focus-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Sign In</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Primary Button · pressed</h2>
       <p>Primair sign in voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-pressed" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-pressed-appearance">Sign In</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-pressed" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-primary-pressed-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Sign In</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Primary Button · disabled</h2>
       <p>Primair sign in voorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-disabled" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" disabled>Sign In</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-primary bp-state-disabled" data-example="forge-button-primary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-primary" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" disabled>Sign In</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Secondary Button</h2>
       <p>Secundair annuleervoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-rest-appearance">Cancel</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-rest-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Cancel</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Secondary Button · hover</h2>
       <p>Secundair annuleervoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-hover" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-hover-appearance">Cancel</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-hover" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-hover-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Cancel</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Secondary Button · focus</h2>
       <p>Secundair annuleervoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-focus" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-focus-appearance">Cancel</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-focus" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-focus-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Cancel</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Secondary Button · pressed</h2>
       <p>Secundair annuleervoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-pressed" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-pressed-appearance">Cancel</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-pressed" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-secondary-pressed-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space">Cancel</button>
     </section>
     <section class="bp-component-example-shell">
       <h2>Secondary Button · disabled</h2>
       <p>Secundair annuleervoorbeeld uit het aangeleverde componentscherm.</p>
-      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-disabled" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" disabled>Cancel</button>
+      <button type="button" class="bp-forge-button bp-variant-forge-button-secondary bp-state-disabled" data-example="forge-button-secondary-example" data-component="forge-button" data-component-role="actie" data-component-anatomy="label" data-variant="forge-button-secondary" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-button-disabled-appearance" data-accessibility-contract="forge-button-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" disabled>Cancel</button>
     </section>
     <section class="bp-component-family" data-component-family="forge-input">
       <h2>Forge Input</h2>
@@ -339,97 +323,97 @@
     <section class="bp-component-example-shell">
       <h2>Default Input</h2>
       <p>Regulier gebruikersveld uit het aangeleverde componentscherm.</p>
-      <label class="bp-component-example bp-example-input">
-        <span class="bp-example-label">Username or email</span>
-        <input class="bp-forge-input bp-variant-forge-input-default" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-rest-appearance" value="erik@thb1home.nl">
-      </label>
+      <div class="bp-component-example bp-example-input">
+        <label id="bp-example-forge-input-default-example-rest-label" for="bp-example-forge-input-default-example-rest-control" class="bp-example-label">Username or email</label>
+        <input id="bp-example-forge-input-default-example-rest-control" class="bp-forge-input bp-variant-forge-input-default" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-rest-appearance" data-accessibility-contract="forge-input-accessibility" data-accessibility-role="tekstinvoer" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-error-source="melding" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="tekstinvoer" value="erik@thb1home.nl">
+      </div>
     </section>
     <section class="bp-component-example-shell">
       <h2>Default Input · hover</h2>
       <p>Regulier gebruikersveld uit het aangeleverde componentscherm.</p>
-      <label class="bp-component-example bp-example-input">
-        <span class="bp-example-label">Username or email</span>
-        <input class="bp-forge-input bp-variant-forge-input-default bp-state-hover" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-rest-appearance" value="erik@thb1home.nl">
-      </label>
+      <div class="bp-component-example bp-example-input">
+        <label id="bp-example-forge-input-default-example-hover-label" for="bp-example-forge-input-default-example-hover-control" class="bp-example-label">Username or email</label>
+        <input id="bp-example-forge-input-default-example-hover-control" class="bp-forge-input bp-variant-forge-input-default bp-state-hover" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-rest-appearance" data-accessibility-contract="forge-input-accessibility" data-accessibility-role="tekstinvoer" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-error-source="melding" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="tekstinvoer" value="erik@thb1home.nl">
+      </div>
     </section>
     <section class="bp-component-example-shell">
       <h2>Default Input · focus</h2>
       <p>Regulier gebruikersveld uit het aangeleverde componentscherm.</p>
-      <label class="bp-component-example bp-example-input">
-        <span class="bp-example-label">Username or email</span>
-        <input class="bp-forge-input bp-variant-forge-input-default bp-state-focus" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-focus-appearance" value="erik@thb1home.nl">
-      </label>
+      <div class="bp-component-example bp-example-input">
+        <label id="bp-example-forge-input-default-example-focus-label" for="bp-example-forge-input-default-example-focus-control" class="bp-example-label">Username or email</label>
+        <input id="bp-example-forge-input-default-example-focus-control" class="bp-forge-input bp-variant-forge-input-default bp-state-focus" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-focus-appearance" data-accessibility-contract="forge-input-accessibility" data-accessibility-role="tekstinvoer" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-error-source="melding" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="tekstinvoer" value="erik@thb1home.nl">
+      </div>
     </section>
     <section class="bp-component-example-shell">
       <h2>Default Input · pressed</h2>
       <p>Regulier gebruikersveld uit het aangeleverde componentscherm.</p>
-      <label class="bp-component-example bp-example-input">
-        <span class="bp-example-label">Username or email</span>
-        <input class="bp-forge-input bp-variant-forge-input-default bp-state-pressed" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-focus-appearance" value="erik@thb1home.nl">
-      </label>
+      <div class="bp-component-example bp-example-input">
+        <label id="bp-example-forge-input-default-example-pressed-label" for="bp-example-forge-input-default-example-pressed-control" class="bp-example-label">Username or email</label>
+        <input id="bp-example-forge-input-default-example-pressed-control" class="bp-forge-input bp-variant-forge-input-default bp-state-pressed" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-focus-appearance" data-accessibility-contract="forge-input-accessibility" data-accessibility-role="tekstinvoer" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-error-source="melding" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="tekstinvoer" value="erik@thb1home.nl">
+      </div>
     </section>
     <section class="bp-component-example-shell">
       <h2>Default Input · disabled</h2>
       <p>Regulier gebruikersveld uit het aangeleverde componentscherm.</p>
-      <label class="bp-component-example bp-example-input">
-        <span class="bp-example-label">Username or email</span>
-        <input class="bp-forge-input bp-variant-forge-input-default bp-state-disabled" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-disabled-appearance" value="erik@thb1home.nl" disabled>
-      </label>
+      <div class="bp-component-example bp-example-input">
+        <label id="bp-example-forge-input-default-example-disabled-label" for="bp-example-forge-input-default-example-disabled-control" class="bp-example-label">Username or email</label>
+        <input id="bp-example-forge-input-default-example-disabled-control" class="bp-forge-input bp-variant-forge-input-default bp-state-disabled" data-example="forge-input-default-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-default" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-input-disabled-appearance" data-accessibility-contract="forge-input-accessibility" data-accessibility-role="tekstinvoer" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-error-source="melding" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="tekstinvoer" value="erik@thb1home.nl" disabled>
+      </div>
     </section>
     <section class="bp-component-example-shell">
       <h2>Error Input</h2>
       <p>Ongeldige hostnaam met feitelijke foutmelding.</p>
-      <label class="bp-component-example bp-example-input">
-        <span class="bp-example-label">Hostname</span>
-        <input class="bp-forge-input bp-variant-forge-input-error" data-example="forge-input-error-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-error" data-component-state="rest" data-component-states="rest" data-appearance="forge-input-error-appearance" value="lab..local">
-        <small class="bp-example-message">Hostname is ongeldig.</small>
-      </label>
+      <div class="bp-component-example bp-example-input">
+        <label id="bp-example-forge-input-error-example-rest-label" for="bp-example-forge-input-error-example-rest-control" class="bp-example-label">Hostname</label>
+        <input id="bp-example-forge-input-error-example-rest-control" class="bp-forge-input bp-variant-forge-input-error" data-example="forge-input-error-example" data-component="forge-input" data-component-role="invoer" data-component-anatomy="label waarde melding" data-variant="forge-input-error" data-component-state="rest" data-component-states="rest" data-appearance="forge-input-error-appearance" data-accessibility-contract="forge-input-accessibility" data-accessibility-role="tekstinvoer" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-error-source="melding" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="tekstinvoer" value="lab..local" aria-invalid="true" aria-describedby="bp-example-forge-input-error-example-rest-message" aria-errormessage="bp-example-forge-input-error-example-rest-message">
+        <small id="bp-example-forge-input-error-example-rest-message" class="bp-example-message">Hostname is ongeldig.</small>
+      </div>
     </section>
     <section class="bp-forge-panel" data-component="forge-panel">
       <h2>Forge Panel</h2>
       <p>Basispaneel voor dashboards en productdocumentatie.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-compact" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-rest-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-compact" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-rest-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Compact</h2>
       <p>Gecontroleerde compacte appearance voor een Forge-paneel.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-hover" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-hover-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-hover" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-hover-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Compact · hover</h2>
       <p>Toestand hover via appearance forge-panel-card-hover-appearance.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-focus" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-focus-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-focus" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-focus-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Compact · focus</h2>
       <p>Toestand focus via appearance forge-panel-card-focus-appearance.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-pressed" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-pressed-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-pressed" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-pressed-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Compact · pressed</h2>
       <p>Toestand pressed via appearance forge-panel-card-pressed-appearance.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-disabled" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-disabled-appearance" aria-disabled="true">
+    <section class="bp-forge-panel bp-variant-forge-panel-compact bp-state-disabled" data-component="forge-panel" data-variant="forge-panel-compact" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-disabled-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Compact · disabled</h2>
       <p>Toestand disabled via appearance forge-panel-card-disabled-appearance.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-hero" data-component="forge-panel" data-variant="forge-panel-hero" data-component-state="rest" data-component-states="rest" data-appearance="forge-panel-hero-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-hero" data-component="forge-panel" data-variant="forge-panel-hero" data-component-state="rest" data-component-states="rest" data-appearance="forge-panel-hero-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Hero</h2>
       <p>Gecontroleerde hero-appearance voor de homepage-entree.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-route" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-rest-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-route" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-rest-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Route</h2>
       <p>Gecontroleerde routekaart-appearance voor homepage-navigatie.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-hover" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-hover-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-hover" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="hover" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-hover-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Route · hover</h2>
       <p>Toestand hover via appearance forge-panel-card-hover-appearance.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-focus" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-focus-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-focus" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="focus" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-focus-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Route · focus</h2>
       <p>Toestand focus via appearance forge-panel-card-focus-appearance.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-pressed" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-pressed-appearance">
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-pressed" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="pressed" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-pressed-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Route · pressed</h2>
       <p>Toestand pressed via appearance forge-panel-card-pressed-appearance.</p>
     </section>
-    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-disabled" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-disabled-appearance" aria-disabled="true">
+    <section class="bp-forge-panel bp-variant-forge-panel-route bp-state-disabled" data-component="forge-panel" data-variant="forge-panel-route" data-component-state="disabled" data-component-states="rest hover focus pressed disabled" data-appearance="forge-panel-card-disabled-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen">
       <h2>Forge Panel Route · disabled</h2>
       <p>Toestand disabled via appearance forge-panel-card-disabled-appearance.</p>
     </section>
@@ -440,8 +424,8 @@
     <section class="bp-component-example-shell">
       <h2>Health Stat Card</h2>
       <p>Clustergezondheid als feitelijke waarde.</p>
-      <article class="bp-forge-stat-card bp-variant-forge-stat-card-health" data-example="forge-stat-card-health-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-health" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-health-appearance">
-        <small>Cluster Health</small>
+      <article class="bp-forge-stat-card bp-variant-forge-stat-card-health" data-example="forge-stat-card-health-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-health" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-health-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-stat-card-health-example-rest-label">
+        <small id="bp-example-forge-stat-card-health-example-rest-label">Cluster Health</small>
         <strong>Healthy</strong>
         <p>98%</p>
       </article>
@@ -449,24 +433,24 @@
     <section class="bp-component-example-shell">
       <h2>CPU Stat Card</h2>
       <p>Actueel CPU gebruik.</p>
-      <article class="bp-forge-stat-card bp-variant-forge-stat-card-progress" data-example="forge-stat-card-cpu-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-progress" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-value-appearance">
-        <small>CPU Usage</small>
+      <article class="bp-forge-stat-card bp-variant-forge-stat-card-progress" data-example="forge-stat-card-cpu-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-progress" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-value-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-stat-card-cpu-example-rest-label">
+        <small id="bp-example-forge-stat-card-cpu-example-rest-label">CPU Usage</small>
         <strong>24%</strong>
       </article>
     </section>
     <section class="bp-component-example-shell">
       <h2>Memory Stat Card</h2>
       <p>Actueel geheugengebruik met één schaars koperaccent.</p>
-      <article class="bp-forge-stat-card bp-variant-forge-stat-card-progress-ember" data-example="forge-stat-card-memory-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-progress-ember" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-ember-appearance">
-        <small>Memory</small>
+      <article class="bp-forge-stat-card bp-variant-forge-stat-card-progress-ember" data-example="forge-stat-card-memory-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-progress-ember" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-ember-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-stat-card-memory-example-rest-label">
+        <small id="bp-example-forge-stat-card-memory-example-rest-label">Memory</small>
         <strong>43%</strong>
       </article>
     </section>
     <section class="bp-component-example-shell">
       <h2>Nodes Stat Card</h2>
       <p>Aantal actieve clusternodes.</p>
-      <article class="bp-forge-stat-card bp-variant-forge-stat-card-value" data-example="forge-stat-card-nodes-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-value" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-value-appearance">
-        <small>Nodes</small>
+      <article class="bp-forge-stat-card bp-variant-forge-stat-card-value" data-example="forge-stat-card-nodes-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-value" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-value-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-stat-card-nodes-example-rest-label">
+        <small id="bp-example-forge-stat-card-nodes-example-rest-label">Nodes</small>
         <strong>12</strong>
         <p>All Running</p>
       </article>
@@ -478,22 +462,22 @@
     <section class="bp-component-example-shell">
       <h2>Failed Status</h2>
       <p>Aantal gefaalde workloads uit het aangeleverde componentscherm.</p>
-      <output class="bp-forge-status bp-variant-forge-status-failed" data-example="forge-status-failed-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-failed" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-failed-appearance">Failed · 1</output>
+      <output class="bp-forge-status bp-variant-forge-status-failed" data-example="forge-status-failed-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-failed" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-failed-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-status-failed-example-rest-label"><span id="bp-example-forge-status-failed-example-rest-label">Failed</span> · <span>1</span></output>
     </section>
     <section class="bp-component-example-shell">
       <h2>Healthy Status</h2>
       <p>Informatieve gezondheid uit het aangeleverde componentscherm.</p>
-      <output class="bp-forge-status bp-variant-forge-status-info" data-example="forge-status-info-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-info" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-info-appearance">Healthy · 98%</output>
+      <output class="bp-forge-status bp-variant-forge-status-info" data-example="forge-status-info-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-info" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-info-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-status-info-example-rest-label"><span id="bp-example-forge-status-info-example-rest-label">Healthy</span> · <span>98%</span></output>
     </section>
     <section class="bp-component-example-shell">
       <h2>Pending Status</h2>
       <p>Aantal wachtende workloads uit het aangeleverde componentscherm.</p>
-      <output class="bp-forge-status bp-variant-forge-status-pending" data-example="forge-status-pending-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-pending" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-pending-appearance">Pending · 3</output>
+      <output class="bp-forge-status bp-variant-forge-status-pending" data-example="forge-status-pending-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-pending" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-pending-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-status-pending-example-rest-label"><span id="bp-example-forge-status-pending-example-rest-label">Pending</span> · <span>3</span></output>
     </section>
     <section class="bp-component-example-shell">
       <h2>Running Status</h2>
       <p>Aantal actieve workloads uit het aangeleverde componentscherm.</p>
-      <output class="bp-forge-status bp-variant-forge-status-running" data-example="forge-status-running-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-running" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-running-appearance">Running · 62</output>
+      <output class="bp-forge-status bp-variant-forge-status-running" data-example="forge-status-running-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-running" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-running-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-forge-status-running-example-rest-label"><span id="bp-example-forge-status-running-example-rest-label">Running</span> · <span>62</span></output>
     </section>
   </main>
 </body>

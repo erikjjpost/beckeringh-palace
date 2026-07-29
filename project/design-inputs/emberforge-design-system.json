@@ -79,7 +79,7 @@
       "id": "components",
       "status": "gemigreerd",
       "doel": "BAT appearance, component en variant",
-      "bewijs": "M11.3f migreert rust, hover, focus, pressed en disabled als volledige native statecontracten. M11.3g migreert de productgedragen button, input, status, app tile en stat card voorbeelden als expliciete componentrollen, anatomie, appearances, varianten en componentvoorbeelden."
+      "bewijs": "M11.3f migreert rust, hover, focus, pressed en disabled als volledige native statecontracten. M11.3g migreert de productgedragen button, input, status, app tile en stat card voorbeelden als expliciete componentrollen, anatomie, appearances, varianten en componentvoorbeelden. M11.3h voegt backendonafhankelijke contracten toe voor naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag."
     },
     {
       "id": "product-surfaces",

@@ -178,7 +178,11 @@ class EmberForgeComponentStatesMigrationTests(unittest.TestCase):
             'bp-state-disabled"',
             catalog,
         )
-        self.assertIn('aria-disabled="true"', catalog)
+        self.assertIn(
+            'data-accessibility-disabled="niet-van-toepassing"',
+            catalog,
+        )
+        self.assertNotIn('aria-disabled="true"', catalog)
 
     def test_producten_publiceren_statecontract_als_metadata(self) -> None:
         homepage = self.products["beckeringh-palace-homepage"].inhoud

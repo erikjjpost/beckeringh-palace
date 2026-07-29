@@ -65,6 +65,24 @@ def _paneelbeschrijving(instantie: ResolvedComponentInstance) -> str:
                 for state, appearance_id in instantie.state_appearances
             )
         )
+    if instantie.accessibility is not None:
+        contract = instantie.accessibility
+        identiteit.extend([
+            f"BAT toegankelijkheid: {contract.contract_id}",
+            f"Toegankelijkheidsrol: {contract.rol}",
+            f"Naambron: {contract.naambron}",
+            (
+                "Waardebron: "
+                f"{contract.waardebron or 'niet-van-toepassing'}"
+            ),
+            (
+                "Foutbron: "
+                f"{contract.foutbron or 'niet-van-toepassing'}"
+            ),
+            f"Disabled gedrag: {contract.disabled_gedrag}",
+            f"Focusgedrag: {contract.focusgedrag}",
+            f"Toetsenbordgedrag: {contract.toetsenbordgedrag}",
+        ])
     if instantie.information_area_id is not None:
         identiteit.append(
             f"BAT informatiegebied: {instantie.information_area_id}"

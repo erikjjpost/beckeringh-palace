@@ -111,7 +111,7 @@ class GrafanaBackendTests(unittest.TestCase):
             [link["url"] for link in navigatie["links"]],
         )
         self.assertEqual(
-            {"height": 872, "left": 16, "top": 16, "width": 4},
+            {"height": 916, "left": 16, "top": 16, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         inhoud = next(
@@ -135,6 +135,9 @@ class GrafanaBackendTests(unittest.TestCase):
             "Producttegel voor één toepassing en haar operationele status.\n"
             "Forge Stat Card · component\n"
             "Compacte operationele waarde met context.\n"
+            "Forge Button Accessibility · toegankelijkheid\n"
+            "Benoemt een actie en legt native activering en disabled gedrag "
+            "vast.\n"
             "Primary Button · componentvoorbeeld\n"
             "Primair sign in voorbeeld uit het aangeleverde componentscherm.\n"
             "Error Input · componentvoorbeeld\n"
@@ -159,7 +162,7 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             {
-                "height": 204,
+                "height": 216,
                 "left": 28,
                 "top": 136,
                 "width": 280,
@@ -168,7 +171,7 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\n"
-            "shadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant",
+            "shadow\nspacing\nthema\ntoegankelijkheid\ntoken\ntypeschaal\ntypografie\nvariant",
             dashboard["panels"][2]["options"]["root"]["elements"][3]["config"][
                 "text"
             ]["fixed"],
@@ -216,13 +219,13 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["border"],
         )
         self.assertEqual(
-            "128",
+            "134",
             dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
-            ["2", "128", "31"],
+            ["2", "134", "31"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
@@ -241,6 +244,14 @@ class GrafanaBackendTests(unittest.TestCase):
             "focus=forge-panel-card-focus-appearance, "
             "pressed=forge-panel-card-pressed-appearance, "
             "disabled=forge-panel-card-disabled-appearance\n"
+            "BAT toegankelijkheid: forge-panel-accessibility\n"
+            "Toegankelijkheidsrol: groep\n"
+            "Naambron: titel\n"
+            "Waardebron: niet-van-toepassing\n"
+            "Foutbron: niet-van-toepassing\n"
+            "Disabled gedrag: niet-van-toepassing\n"
+            "Focusgedrag: geen\n"
+            "Toetsenbordgedrag: geen\n"
             "BAT informatiegebied: forge-design-system\n"
             "Toegankelijkheidslabel: Forge ontwerpsysteem, overzicht van "
             "ontwerpprimitieven en componenten\n"

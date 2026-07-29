@@ -17,7 +17,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Typografie | Gemigreerd in M11.3e | typography en typescale |
 | Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
-| Componenten en states | Gemigreerd in M11.3f en M11.3g | appearance, component, variant en componentvoorbeeld |
+| Componenten, states en toegankelijkheid | Gemigreerd in M11.3f tot en met M11.3h | appearance, component, variant, componentvoorbeeld en toegankelijkheid |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
 | Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
@@ -113,3 +113,19 @@ Productgedragen tussenkleuren, zachte statusoppervlakken, de invoerradius en
 focus en kopergloed zijn als expliciete theme rollen opgenomen. Daardoor
 blijven ook de nieuwe componentvarianten afleidingen van hetzelfde Forge thema
 en ontstaat geen losse CSS bron van waarheid.
+
+## Toegankelijkheidscontracten
+
+M11.3h voegt per native component een expliciet `toegankelijkheid` object toe.
+Het contract legt de semantische rol, naambron, optionele waarde- en foutbron,
+disabled gedrag, focusdeelname en toetsenbordgedrag vast. Acties en app tegels
+gebruiken het activeringsprofiel met Enter en Spatie. Invoer gebruikt native
+tekstinvoer. Panelen, statussen en statistieken blijven buiten de tabvolgorde.
+
+De componentcatalogus vertaalt deze opgeloste semantiek naar native buttons,
+inputs, outputs en benoemde groepen. Labels en foutmeldingen zijn expliciet
+gekoppeld. Product HTML publiceert hetzelfde contract als metadata en Grafana
+neemt het op in de paneelbeschrijving. BAT bevat geen HTML- of ARIA-velden.
+
+Dit bewijst programmeerbare semantiek en native browsergedrag. Toetsing met
+echte hulptechnologie valt niet binnen M11.3h en blijft daarom expliciet open.
