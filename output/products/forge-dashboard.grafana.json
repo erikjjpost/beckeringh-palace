@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot da59d8ea0dbf",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 0392ed7af032",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -471,7 +471,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 916,
+                "height": 960,
                 "left": 16,
                 "top": 16,
                 "width": 4
@@ -512,7 +512,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "134",
+                  "fixed": "139",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -538,7 +538,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\nshadow\nspacing\nthema\ntoegankelijkheid\ntoken\ntypeschaal\ntypografie\nvariant",
+                  "fixed": "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\nreferentiesectie\nshadow\nspacing\nthema\ntoegankelijkheid\ntoken\ntypeschaal\ntypografie\nvariant",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -549,7 +549,7 @@
               },
               "name": "forge-dashboard-center-panel-metric-detail-labels",
               "placement": {
-                "height": 216,
+                "height": 228,
                 "left": 28,
                 "top": 136,
                 "width": 280
@@ -564,7 +564,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "42\n1\n6\n16\n25\n1\n1\n1\n1\n1\n1\n1\n6\n10\n1\n1\n19",
+                  "fixed": "42\n1\n6\n16\n25\n1\n1\n1\n1\n5\n1\n1\n1\n6\n10\n1\n1\n19",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -575,7 +575,7 @@
               },
               "name": "forge-dashboard-center-panel-metric-detail-values",
               "placement": {
-                "height": 216,
+                "height": 228,
                 "left": 308,
                 "top": 136,
                 "width": 80
@@ -1008,6 +1008,31 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-18",
+              "placement": {
+                "height": 1,
+                "left": 28,
+                "top": 352,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -1015,7 +1040,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "HTML component catalogue\nCSS components\nCSS design tokens\nPortable design tokens",
+                  "fixed": "EmberForge Design System Referentie\nCSS components\nCSS design tokens\nPortable design tokens",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1027,7 +1052,7 @@
               "links": [
                 {
                   "targetBlank": false,
-                  "title": "HTML component catalogue",
+                  "title": "EmberForge Design System Referentie",
                   "url": "components.html"
                 },
                 {
@@ -1050,7 +1075,7 @@
               "placement": {
                 "height": 48,
                 "left": 28,
-                "top": 364,
+                "top": 376,
                 "width": 360
               },
               "type": "text"
@@ -1063,7 +1088,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nGecontroleerd gemigreerde EmberForge materiaalrollen.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.\nForge Button · component\nActiecomponent voor primaire, secundaire, ghost en warme acties.\nForge Input · component\nInvoercomponent met waarde en optionele foutmelding.\nForge Status · component\nFeitelijke statuscapsule voor operationele toestand.\nForge App Tile · component\nProducttegel voor één toepassing en haar operationele status.\nForge Stat Card · component\nCompacte operationele waarde met context.\nForge Button Accessibility · toegankelijkheid\nBenoemt een actie en legt native activering en disabled gedrag vast.\nPrimary Button · componentvoorbeeld\nPrimair sign in voorbeeld uit het aangeleverde componentscherm.\nError Input · componentvoorbeeld\nOngeldige hostnaam met feitelijke foutmelding.\nRunning Status · componentvoorbeeld\nAantal actieve workloads uit het aangeleverde componentscherm.\nISMS App Tile · componentvoorbeeld\nProducttegel voor ISMS Challenger.\nNodes Stat Card · componentvoorbeeld\nAantal actieve clusternodes.",
+                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nGecontroleerd gemigreerde EmberForge materiaalrollen.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.\nForge Button · component\nActiecomponent voor primaire, secundaire, ghost en warme acties.\nForge Input · component\nInvoercomponent met waarde en optionele foutmelding.\nForge Status · component\nFeitelijke statuscapsule voor operationele toestand.\nForge App Tile · component\nProducttegel voor één toepassing en haar operationele status.\nForge Stat Card · component\nCompacte operationele waarde met context.\nForge Button Accessibility · toegankelijkheid\nBenoemt een actie en legt native activering en disabled gedrag vast.\nPrimary Button · componentvoorbeeld\nPrimair sign in voorbeeld uit het aangeleverde componentscherm.\nError Input · componentvoorbeeld\nOngeldige hostnaam met feitelijke foutmelding.\nRunning Status · componentvoorbeeld\nAantal actieve workloads uit het aangeleverde componentscherm.\nISMS App Tile · componentvoorbeeld\nProducttegel voor ISMS Challenger.\nNodes Stat Card · componentvoorbeeld\nAantal actieve clusternodes.\nPrimitieven · referentiesectie\nPalet, typografie, typeschaal, materiaal, randen, radius, schaduw, motion, spacing en art direction met hun opgeloste waarden.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1074,9 +1099,9 @@
               },
               "name": "forge-dashboard-center-panel-content-anchors",
               "placement": {
-                "height": 448,
+                "height": 480,
                 "left": 28,
-                "top": 424,
+                "top": 436,
                 "width": 360
               },
               "type": "text"
@@ -1102,7 +1127,7 @@
               "placement": {
                 "height": 48,
                 "left": 28,
-                "top": 884,
+                "top": 928,
                 "width": 360
               },
               "type": "text"
@@ -1161,7 +1186,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 420,
+                "height": 452,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1202,7 +1227,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "31",
+                  "fixed": "35",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1254,7 +1279,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "7\n2\n4\n2\n5\n7\n4",
+                  "fixed": "8\n3\n4\n3\n6\n8\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1493,7 +1518,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.",
+                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1504,7 +1529,7 @@
               },
               "name": "forge-dashboard-right-panel-content-anchors",
               "placement": {
-                "height": 96,
+                "height": 128,
                 "left": 20,
                 "top": 272,
                 "width": 360
@@ -1532,7 +1557,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 380,
+                "top": 412,
                 "width": 360
               },
               "type": "text"
@@ -1553,7 +1578,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:da59d8ea0dbf2ef5d3868733cdbea2b1e2d4d871c9f393a7ad1b75157904ba43"
+    "sha256:0392ed7af032cd09c3889605599905cff713ce7ef5173b1ece415469ee6d0cda"
   ],
   "templating": {
     "list": []

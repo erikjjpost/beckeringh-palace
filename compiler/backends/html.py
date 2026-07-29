@@ -5,6 +5,10 @@ from collections.abc import Iterable
 
 from compiler.backend import Backend
 from compiler.cir import Architectuurobject
+from compiler.design_system_html_renderer import (
+    reference_content_lines,
+    reference_css_lines,
+)
 from compiler.native_layout_html_renderer import naar_native_layout_html
 from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
 from compiler.project_status import ProjectStatus
@@ -172,6 +176,9 @@ def _theme_css(product: ProductDefinition) -> str:
             "    }",
         ])
 
+    if product.inhoud == "design-system":
+        regels.extend(reference_css_lines())
+
     return "\n".join(regels) + "\n"
 
 
@@ -245,6 +252,28 @@ def _render(
         raise ValueError(
             f"Product '{product.id}' vereist een opgeloste native compositie"
         )
+    instance_content = None
+    if product.inhoud == "design-system":
+        if product.design_system_reference is None:
+            raise ValueError(
+                f"Product '{product.id}' vereist een opgeloste "
+                "designsystemreferentie"
+            )
+        if product.thema is None:
+            raise ValueError(
+                f"Product '{product.id}' vereist een opgelost native thema"
+            )
+        if len(product.opgeloste_compositie.instances) != 1:
+            raise ValueError(
+                f"Product '{product.id}' vereist exact één inhoudsinstantie"
+            )
+        instance_id = product.opgeloste_compositie.instances[0].id
+        instance_content = {
+            instance_id: reference_content_lines(
+                product.design_system_reference,
+                product.thema,
+            )
+        }
     inhoud = naar_native_layout_html(
         product.opgeloste_compositie,
         product.opgeloste_layout,
@@ -257,8 +286,17 @@ def _render(
             if product.snapshot_id
             else None
         ),
-        inhoud_naam=product.naam if product.inhoud == "project-status" else None,
-        inhoud_doel=product.doel if product.inhoud == "project-status" else None,
+        inhoud_naam=(
+            product.naam
+            if product.inhoud in {"project-status", "design-system"}
+            else None
+        ),
+        inhoud_doel=(
+            product.doel
+            if product.inhoud in {"project-status", "design-system"}
+            else None
+        ),
+        instance_content=instance_content,
     )
     if product.inhoud == "project-status":
         if product.project_status is None:
@@ -285,6 +323,7 @@ def _render(
         f'data-typography="{thema.typografie.id}" '
         f'data-font-delivery="{thema.typografie.levering}" '
         f'data-product-mode="{product.mode}" '
+        f'data-product-content="{product.inhoud}" '
         f'data-time-context="{"applicable" if product.has_time_context else "none"}"'
         f"{snapshot_attribuut}>",
         1,

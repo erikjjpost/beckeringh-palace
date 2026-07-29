@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+from collections.abc import Mapping
 from pathlib import PurePosixPath
 import re
 
@@ -104,6 +105,7 @@ def naar_native_layout_html(
     snapshot_label: str | None = None,
     inhoud_naam: str | None = None,
     inhoud_doel: str | None = None,
+    instance_content: Mapping[str, tuple[str, ...]] | None = None,
 ) -> str:
     """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
 
@@ -322,6 +324,14 @@ def naar_native_layout_html(
             f"      <h2{heading_id_attribute}>"
             f"{html.escape(instantie.naam)}</h2>",
         ])
+        if (
+            instance_content is not None
+            and instantie.id in instance_content
+        ):
+            regels.extend(
+                f"      {line}" if line else ""
+                for line in instance_content[instantie.id]
+            )
         if instantie.metric_value is not None:
             regels.append(
                 f'      <p class="bp-metric" '

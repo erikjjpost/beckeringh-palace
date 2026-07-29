@@ -24,7 +24,11 @@ Een wijziging is pas gereed wanneer de volledige controle eindigt met
 ## HTML bekijken
 
 Open `output/products/index.html` als ingang. Deze homepage verwijst naar de
-gegenereerde HTML-producten en catalogus.
+gegenereerde HTML-producten en het EmberForge designsystem referentieproduct.
+
+`output/products/components.html` is een statische designsystemsnapshot. De
+lokale navigatie, primitives, tokens, states, voorbeelden en
+toegankelijkheidscontracten worden volledig uit BAT gegenereerd.
 
 Een lokale webserver voorkomt browserbeperkingen bij relatieve bestanden:
 

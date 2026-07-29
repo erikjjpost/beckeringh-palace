@@ -32,6 +32,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "palet",
                 "product",
                 "radius",
+                "referentiesectie",
                 "region",
                 "renderdoel",
                 "shadow",

@@ -111,7 +111,7 @@ class GrafanaBackendTests(unittest.TestCase):
             [link["url"] for link in navigatie["links"]],
         )
         self.assertEqual(
-            {"height": 916, "left": 16, "top": 16, "width": 4},
+            {"height": 960, "left": 16, "top": 16, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         inhoud = next(
@@ -147,7 +147,11 @@ class GrafanaBackendTests(unittest.TestCase):
             "ISMS App Tile · componentvoorbeeld\n"
             "Producttegel voor ISMS Challenger.\n"
             "Nodes Stat Card · componentvoorbeeld\n"
-            "Aantal actieve clusternodes.",
+            "Aantal actieve clusternodes.\n"
+            "Primitieven · referentiesectie\n"
+            "Palet, typografie, typeschaal, materiaal, randen, radius, "
+            "schaduw, motion, spacing en art direction met hun opgeloste "
+            "waarden.",
             inhoud["config"]["text"]["fixed"],
         )
         self.assertEqual(
@@ -162,7 +166,7 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             {
-                "height": 216,
+                "height": 228,
                 "left": 28,
                 "top": 136,
                 "width": 280,
@@ -171,7 +175,7 @@ class GrafanaBackendTests(unittest.TestCase):
         )
         self.assertEqual(
             "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\n"
-            "shadow\nspacing\nthema\ntoegankelijkheid\ntoken\ntypeschaal\ntypografie\nvariant",
+            "referentiesectie\nshadow\nspacing\nthema\ntoegankelijkheid\ntoken\ntypeschaal\ntypografie\nvariant",
             dashboard["panels"][2]["options"]["root"]["elements"][3]["config"][
                 "text"
             ]["fixed"],
@@ -219,13 +223,13 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["border"],
         )
         self.assertEqual(
-            "134",
+            "139",
             dashboard["panels"][2]["options"]["root"]["elements"][2]["config"][
                 "text"
             ]["fixed"],
         )
         self.assertEqual(
-            ["2", "134", "31"],
+            ["2", "139", "35"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"

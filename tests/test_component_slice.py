@@ -7,7 +7,7 @@ from compiler.component_css_identity import (
     componentselector,
     variantklasse,
 )
-from compiler.component_html_renderer import naar_component_html
+from compiler.design_variants import resolveer_varianten
 from compiler.parser import parseer
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import SemantischeFout, analyseer
@@ -99,8 +99,6 @@ class ComponentSliceTests(unittest.TestCase):
         self.assertIn("font-size: var(--bp-type-body);", css)
         self.assertIn("font-size: var(--bp-type-label);", css)
         self.assertIn("font-size: var(--bp-type-caption);", css)
-        html = naar_component_html(model.objecten)
-        self.assertIn('class="bp-forge-panel"', html)
 
     def test_genereert_variantappearance_onder_explicitiete_selector(self):
         model = analyseer(parseer(VARIANT), constraints=WORLD_MODEL_CONSTRAINTS)
@@ -113,22 +111,25 @@ class ComponentSliceTests(unittest.TestCase):
         self.assertIn(f"{selector} h1, {selector} h2", css)
         self.assertLess(css.index(".bp-forge-panel {"), css.index(selector))
 
-    def test_toont_basiscomponent_en_variant_in_componentcatalogus(self):
+    def test_resolveert_de_expliciete_componentvariant(self):
         model = analyseer(parseer(VARIANT), constraints=WORLD_MODEL_CONSTRAINTS)
-        html = naar_component_html(model.objecten)
+        variants = resolveer_varianten(model.objecten)
 
-        self.assertEqual(2, html.count('data-component="forge-panel"'))
-        self.assertIn(
-            'class="bp-forge-panel bp-variant-forge-panel-compact" '
-            'data-component="forge-panel" '
-            'data-variant="forge-panel-compact" '
-            'data-component-state="rest" '
-            'data-component-states="rest" '
-            'data-appearance="forge-panel-compact-appearance"',
-            html,
+        self.assertEqual(1, len(variants))
+        self.assertEqual(
+            (
+                "forge-panel-compact",
+                "forge-panel",
+                "forge-panel-compact-appearance",
+                (("rest", "forge-panel-compact-appearance"),),
+            ),
+            (
+                variants[0].id,
+                variants[0].component_id,
+                variants[0].appearance_id,
+                variants[0].state_appearances,
+            ),
         )
-        self.assertIn("<h2>Compact Forge Panel</h2>", html)
-        self.assertIn("<p>Past het compacte profiel toe.</p>", html)
 
     def test_weigert_direct_visueel_componentveld(self):
         bron = BRON.replace(

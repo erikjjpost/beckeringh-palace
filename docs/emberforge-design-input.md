@@ -17,7 +17,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Typografie | Gemigreerd in M11.3e | typography en typescale |
 | Spacing, radius, border, shadow en motion | Gemigreerd in M11.3c | gelijknamige theme primitives |
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
-| Componenten, states en toegankelijkheid | Gemigreerd in M11.3f tot en met M11.3h | appearance, component, variant, componentvoorbeeld en toegankelijkheid |
+| Componenten, states, toegankelijkheid en referentie | Gemigreerd in M11.3f tot en met M11.3i | appearance, component, variant, componentvoorbeeld, toegankelijkheid en native referentieproduct |
 | Dashboard, Keycloak en terminal | Gedeeltelijk mapbaar | composition, layout en product |
 | Vectorassets | Geblokkeerd | SVG component library |
 | Merkverhaal en contentregels | Gemigreerd in M11.1e | Native merkidentiteit en homepage entree |
@@ -122,10 +122,20 @@ disabled gedrag, focusdeelname en toetsenbordgedrag vast. Acties en app tegels
 gebruiken het activeringsprofiel met Enter en Spatie. Invoer gebruikt native
 tekstinvoer. Panelen, statussen en statistieken blijven buiten de tabvolgorde.
 
-De componentcatalogus vertaalt deze opgeloste semantiek naar native buttons,
-inputs, outputs en benoemde groepen. Labels en foutmeldingen zijn expliciet
-gekoppeld. Product HTML publiceert hetzelfde contract als metadata en Grafana
-neemt het op in de paneelbeschrijving. BAT bevat geen HTML- of ARIA-velden.
+Het native designsystem referentieproduct vertaalt deze opgeloste semantiek
+naar native buttons, inputs, outputs en benoemde groepen. Labels en
+foutmeldingen zijn expliciet gekoppeld. Product HTML publiceert hetzelfde
+contract als metadata en Grafana neemt het op in de paneelbeschrijving. BAT
+bevat geen HTML- of ARIA-velden.
 
 Dit bewijst programmeerbare semantiek en native browsergedrag. Toetsing met
 echte hulptechnologie valt niet binnen M11.3h en blijft daarom expliciet open.
+
+## Designsystem referentieproduct
+
+M11.3i vervangt het losse HTML catalogusrenderdoel door een regulier statisch
+product. Vijf native `referentiesectie` objecten bepalen de volgorde en
+betekenis van primitives, tokens, componenttoestanden, voorbeelden en
+toegankelijkheid. De productcompiler draagt de volledige resolved referentie
+naar de HTML backend. `components.html` leest geen ontwerpinput en bevat geen
+externe runtimebron.

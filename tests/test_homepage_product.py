@@ -168,7 +168,7 @@ class HomepageProductTests(unittest.TestCase):
         )
         self.assertIn(
             'href="components.html" '
-            'data-navigation-target="html-components"',
+            'data-navigation-target="forge-design-system-reference-html"',
             html,
         )
         self.assertIn(

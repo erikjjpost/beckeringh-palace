@@ -26,6 +26,7 @@ De native objectsoorten zijn:
 | `component` | herbruikbare productonderdelen |
 | `toegankelijkheid` | backendonafhankelijke naam, rol, waarde, fout, disabled, focus en toetsenbordsemantiek |
 | `componentvoorbeeld` | productgedragen voorbeeldinhoud voor één componentvariant |
+| `referentiesectie` | geordend semantisch deel van een native referentieproduct |
 | `componentinstantie` | benoemd gebruik van een component in één compositie |
 | `compositie` | geordende productinhoud zonder layoutpresentatie |
 | `layout` | backend-onafhankelijke plaatsingsintentie |

@@ -61,6 +61,7 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "beckeringh-palace-homepage",
                 "forge-dashboard-grafana",
                 "forge-dashboard-html",
+                "forge-design-system-reference-html",
             },
             {product.definitie.id for product in products},
         )

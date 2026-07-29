@@ -9,6 +9,7 @@ import json
 from compiler.backend import BackendRegistry
 from compiler.cir import Architectuurobject
 from compiler.design_compositions import ResolvedComposition, resolveer_composities
+from compiler.design_system_reference import resolveer_designsystemreferentie
 from compiler.layout_model import ResolvedLayout, resolveer_layouts
 from compiler.product_model import ProductDefinition, verzamel_producten
 from compiler.project_status import ProjectStatus
@@ -57,6 +58,14 @@ def _los_productcontext_op(
         thema=thema,
         opgeloste_compositie=composities.get(product.compositie),
         opgeloste_layout=layouts.get(product.layout),
+        design_system_reference=(
+            resolveer_designsystemreferentie(
+                objecten,
+                product.reference_section_ids,
+            )
+            if product.inhoud == "design-system"
+            else None
+        ),
     )
 
 

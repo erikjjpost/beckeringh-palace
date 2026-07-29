@@ -6,6 +6,7 @@ from typing import Iterable
 
 from compiler.cir import Architectuurobject
 from compiler.design_compositions import ResolvedComposition
+from compiler.design_system_reference import ResolvedDesignSystemReference
 from compiler.layout_model import ResolvedLayout
 from compiler.project_status import ProjectStatus
 from compiler.theme_resolution import ResolvedTheme
@@ -34,11 +35,14 @@ class ProductDefinition:
     thema: ResolvedTheme | None = None
     opgeloste_compositie: ResolvedComposition | None = None
     opgeloste_layout: ResolvedLayout | None = None
+    reference_section_ids: tuple[str, ...] = ()
+    design_system_reference: ResolvedDesignSystemReference | None = None
 
 
 def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
     if obj.soort != "product":
         return None
+    reference_sections = obj.eigenschappen.get("referentiesecties")
     return ProductDefinition(
         id=obj.id,
         naam=str(obj.eigenschappen.get("naam", "")),
@@ -51,6 +55,11 @@ def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
         mode=str(obj.eigenschappen.get("mode", "interactive")),
         inhoud=str(obj.eigenschappen.get("inhoud", "composition")),
         wereld=str(obj.eigenschappen.get("wereld", "")),
+        reference_section_ids=(
+            tuple(str(item) for item in reference_sections)
+            if isinstance(reference_sections, list)
+            else ()
+        ),
     )
 
 

@@ -92,6 +92,13 @@ toetsenbordgedrag. Zij bevatten geen HTML- of ARIA-velden. Dezelfde opgeloste
 semantiek gaat naar componentvoorbeelden en productcomposities voordat een
 backend haar naar native hostelementen of machineleesbare metadata vertaalt.
 
+Een designsystem referentieproduct ordent vijf expliciete
+`referentiesectie` objecten. De productcompiler lost primitives, tokens,
+appearances, componenten, varianten, voorbeelden en toegankelijkheid één keer
+backendonafhankelijk op. De HTML backend vertaalt deze resolved referentie naar
+lokale sectienavigatie, feitelijke waarden, state previews en contracttabellen.
+De sectievolgorde en zichtbare sectienamen komen uit BAT.
+
 Native renderdoelen beschrijven één benoemde representatie met een expliciet
 formaat en veilig relatief artifactpad. Het resolved contract blijft
 backendonafhankelijk en kiest geen renderer impliciet op basis van een
@@ -147,7 +154,8 @@ Een native BAT-concept moet nodig zijn om Beckeringh Palace-producten te specifi
   - `index.html`: de Beckeringh Palace homepage;
   - `forge-dashboard.html` en `project-status.html`: HTML-producten;
   - `forge-dashboard.grafana.json` en `project-status.grafana.json`: importeerbare Grafana-dashboards;
-  - `components.html` en `components.css`: componentcatalogus en componentstijlen;
+  - `components.html`: statisch EmberForge designsystem referentieproduct;
+  - `components.css`: afgeleide componentstijlen;
   - `tokens.json` en `tokens.css`: opgeloste ontwerptokens.
 
 Output wordt gecommit om deterministische regeneratie te kunnen controleren. Zij blijft afgeleid; rechtstreekse wijzigingen worden bij de volgende compilatie overschreven en gelden niet als modelwijziging.
