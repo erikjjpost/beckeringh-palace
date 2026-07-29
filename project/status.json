@@ -3,19 +3,19 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.4a",
-    "name": "EmberForge homelab dashboardproduct",
+    "id": "M11.4b",
+    "name": "EmberForge Grafana dashboardproduct",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.3i",
-    "name": "EmberForge designsystem referentieproduct",
-    "pull_request": 81
+    "id": "M11.4a",
+    "name": "EmberForge homelab dashboardproduct",
+    "pull_request": 82
   },
   "next_step": {
-    "id": "M11.4b",
-    "name": "EmberForge Grafana dashboardproduct",
-    "purpose": "De native homelab compositie als Grafana dashboard met dezelfde voorbeeldinhoud, componentsemantiek en layout publiceren."
+    "id": "M11.4c",
+    "name": "EmberForge Keycloak login product",
+    "purpose": "De geverifieerde EmberForge login surface als native product modelleren en uit dezelfde ontwerpcontracten genereren."
   },
   "areas": [
     {
@@ -23,15 +23,15 @@
       "name": "Compiler en reproduceerbaarheid",
       "progress": 90,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 209 regressietests vormen een werkende kwaliteitsketen; componentinstanties kunnen volledige componentvoorbeelden backendonafhankelijk en exclusief oplossen.",
+      "evidence": "Validatie, deterministische generatie, CI en 210 regressietests vormen een werkende kwaliteitsketen; HTML en Grafana consumeren dezelfde backendonafhankelijk opgeloste componentvoorbeelden.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 90,
+      "progress": 91,
       "weight": 10,
-      "evidence": "Naast thema's, informatiearchitectuur en designsystemcontracten is nu een concrete EmberForge productsurface native gemodelleerd met tien voorbeeldgedragen instanties en een responsieve layout.",
+      "evidence": "Naast thema's, informatiearchitectuur en designsystemcontracten is een concrete EmberForge productsurface native gemodelleerd met tien voorbeeldgedragen instanties, een responsieve layout en twee productbackends.",
       "remaining": "Meer concrete productsurfaces en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
@@ -45,10 +45,10 @@
     {
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
-      "progress": 82,
+      "progress": 90,
       "weight": 10,
-      "evidence": "Het HTML homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde voorbeelden en draagt een expliciet vier naar twee koloms responsief contract.",
-      "remaining": "De homelab compositie moet nog als Grafana product worden vertaald en toetsing met echte hulptechnologie ontbreekt."
+      "evidence": "Het HTML en Grafana homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde opgeloste voorbeelden, componentsemantiek en native layout.",
+      "remaining": "Operationele databroncontracten en toetsing met echte hulptechnologie ontbreken nog."
     },
     {
       "id": "visual-world",
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 37,
+      "progress": 39,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie is de eerste concrete EmberForge productsurface vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie is de eerste concrete EmberForge productsurface voor HTML en Grafana vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]
