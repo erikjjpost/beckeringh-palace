@@ -56,7 +56,7 @@ class DesignComponentConstraint:
                     if not isinstance(waarde, str) or waarde not in appearances:
                         diagnostics.append(Diagnostic("BP3205", f"Component '{obj.id}' verwijst naar onbekende appearance '{waarde}'", locatie=obj.eigenschaplocaties.get(naam, obj.bronlocatie)))
                     continue
-                if naam in {"rol", "anatomie"}:
+                if naam in {"rol", "anatomie", "toegankelijkheid"}:
                     continue
                 verwacht_type = COMPONENTEIGENSCHAPPEN[naam]
                 referentie = tokenreferentie(waarde) if isinstance(waarde, str) else None

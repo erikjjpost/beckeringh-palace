@@ -5,6 +5,10 @@ from dataclasses import dataclass
 from typing import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.component_accessibility import (
+    ResolvedComponentAccessibility,
+    resolveer_componenttoegankelijkheid,
+)
 from compiler.design_variants import ResolvedComponentVariant, resolveer_varianten
 from compiler.information_architecture import (
     ResolvedContentAnchor,
@@ -35,6 +39,7 @@ class ResolvedComponentInstance:
     variant_id: str | None
     appearance_id: str | None
     state_appearances: tuple[tuple[str, str], ...]
+    accessibility: ResolvedComponentAccessibility | None
     component_role: str | None
     information_area_id: str | None
     homepage_area_id: str | None
@@ -76,6 +81,7 @@ def _tekst(obj: Architectuurobject, veld: str) -> str:
 def _instantie_uit_object(
     obj: Architectuurobject,
     componenten: dict[str, Architectuurobject],
+    toegankelijkheid: dict[str, ResolvedComponentAccessibility],
     varianten: dict[str, ResolvedComponentVariant],
     informatiegebieden: dict[str, ResolvedInformationArea],
     homepagegebieden: dict[str, ResolvedHomepageArea],
@@ -175,6 +181,7 @@ def _instantie_uit_object(
             if variant is not None
             else ()
         ),
+        accessibility=toegankelijkheid.get(component_id),
         component_role=(
             homepagegebied.component_role if homepagegebied is not None else None
         ),
@@ -267,6 +274,10 @@ def resolveer_composities(
         for obj in objecten
         if obj.soort == "component"
     }
+    toegankelijkheid = {
+        contract.component_id: contract
+        for contract in resolveer_componenttoegankelijkheid(objecten)
+    }
     varianten = {
         variant.id: variant
         for variant in resolveer_varianten(objecten)
@@ -296,6 +307,7 @@ def resolveer_composities(
                 _instantie_uit_object(
                     instanties[instance_id],
                     componenten,
+                    toegankelijkheid,
                     varianten,
                     informatiegebieden,
                     homepagegebieden,

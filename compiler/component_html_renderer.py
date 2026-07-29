@@ -5,6 +5,10 @@ import html
 from collections.abc import Iterable
 
 from compiler.cir import Architectuurobject
+from compiler.component_accessibility import (
+    ResolvedComponentAccessibility,
+    resolveer_componenttoegankelijkheid,
+)
 from compiler.component_css_identity import (
     componentklasse,
     stateklasse,
@@ -22,6 +26,47 @@ from compiler.design_variants import (
 )
 from compiler.theme_css import theme_variable_lines
 from compiler.theme_resolution import resolveer_alle_themas
+
+
+def _toegankelijkheidsattributen(
+    contract: ResolvedComponentAccessibility | None,
+) -> str:
+    if contract is None:
+        return ""
+    attributen = [
+        ("data-accessibility-contract", contract.contract_id),
+        ("data-accessibility-role", contract.rol),
+        ("data-accessibility-name-source", contract.naambron),
+    ]
+    if contract.waardebron is not None:
+        attributen.append(
+            ("data-accessibility-value-source", contract.waardebron)
+        )
+    if contract.foutbron is not None:
+        attributen.append(
+            ("data-accessibility-error-source", contract.foutbron)
+        )
+    attributen.extend([
+        ("data-accessibility-disabled", contract.disabled_gedrag),
+        ("data-accessibility-focus", contract.focusgedrag),
+        ("data-accessibility-keyboard", contract.toetsenbordgedrag),
+    ])
+    if contract.toetsen:
+        attributen.append(
+            ("data-accessibility-keys", " ".join(contract.toetsen))
+        )
+    return " " + " ".join(
+        f'{naam}="{html.escape(waarde)}"'
+        for naam, waarde in attributen
+    )
+
+
+def _voorbeeld_element_id(
+    example: ResolvedComponentExample,
+    state: str,
+    deel: str,
+) -> str:
+    return f"bp-example-{example.id}-{state}-{deel}"
 
 
 def _voorbeeld_attributen(
@@ -47,6 +92,7 @@ def _voorbeeld_attributen(
         f'data-component-state="{html.escape(state)}" '
         f'data-component-states="{html.escape(state_names)}" '
         f'data-appearance="{html.escape(appearance_id)}"'
+        f"{_toegankelijkheidsattributen(example.accessibility)}"
     )
 
 
@@ -76,53 +122,117 @@ def _voorbeeld_html(
     ]
     disabled = state == "disabled"
     if example.component_role == "actie":
-        disabled_attribute = " disabled" if disabled else ""
+        disabled_attribute = (
+            " disabled"
+            if (
+                disabled
+                and example.accessibility is not None
+                and example.accessibility.disabled_gedrag == "native"
+            )
+            else ""
+        )
         regels.append(
             f'      <button type="button" {attributen}'
             f"{disabled_attribute}>"
             f"{html.escape(example.label)}</button>"
         )
     elif example.component_role == "invoer":
-        disabled_attribute = " disabled" if disabled else ""
+        control_id = _voorbeeld_element_id(example, state, "control")
+        label_id = _voorbeeld_element_id(example, state, "label")
+        message_id = _voorbeeld_element_id(example, state, "message")
+        disabled_attribute = (
+            " disabled"
+            if (
+                disabled
+                and example.accessibility is not None
+                and example.accessibility.disabled_gedrag == "native"
+            )
+            else ""
+        )
+        error_attributes = (
+            f' aria-invalid="true" '
+            f'aria-describedby="{html.escape(message_id)}" '
+            f'aria-errormessage="{html.escape(message_id)}"'
+            if example.melding is not None
+            else ""
+        )
         regels.extend([
-            '      <label class="bp-component-example bp-example-input">',
             (
-                '        <span class="bp-example-label">'
-                f"{html.escape(example.label)}</span>"
+                '      <div class="bp-component-example bp-example-input">'
             ),
             (
-                f"        <input {attributen} "
+                f'        <label id="{html.escape(label_id)}" '
+                f'for="{html.escape(control_id)}" '
+                f'class="bp-example-label">'
+                f"{html.escape(example.label)}</label>"
+            ),
+            (
+                f'        <input id="{html.escape(control_id)}" '
+                f"{attributen} "
                 f'value="{html.escape(example.waarde or "")}"'
-                f"{disabled_attribute}>"
+                f"{error_attributes}{disabled_attribute}>"
             ),
         ])
         if example.melding is not None:
             regels.append(
-                '        <small class="bp-example-message">'
+                f'        <small id="{html.escape(message_id)}" '
+                'class="bp-example-message">'
                 f"{html.escape(example.melding)}</small>"
             )
-        regels.append("      </label>")
+        regels.append("      </div>")
     elif example.component_role == "status":
+        label_id = _voorbeeld_element_id(example, state, "label")
         regels.append(
-            f"      <output {attributen}>"
-            f"{html.escape(example.label)} · "
-            f"{html.escape(example.waarde or '')}</output>"
+            f'      <output {attributen} '
+            f'aria-labelledby="{html.escape(label_id)}">'
+            f'<span id="{html.escape(label_id)}">'
+            f"{html.escape(example.label)}</span> · "
+            f"<span>{html.escape(example.waarde or '')}</span></output>"
         )
     elif example.component_role == "app-tegel":
-        disabled_attribute = ' aria-disabled="true"' if disabled else ""
+        label_id = _voorbeeld_element_id(example, state, "label")
+        description_id = _voorbeeld_element_id(
+            example, state, "description"
+        )
+        status_id = _voorbeeld_element_id(example, state, "status")
+        disabled_attribute = (
+            " disabled"
+            if (
+                disabled
+                and example.accessibility is not None
+                and example.accessibility.disabled_gedrag == "native"
+            )
+            else ""
+        )
         regels.extend([
-            f"      <article {attributen}{disabled_attribute}>",
-            "        <div>",
-            f"          <strong>{html.escape(example.label)}</strong>",
-            f"          <p>{html.escape(example.beschrijving or '')}</p>",
-            "        </div>",
-            f"        <small>{html.escape(example.status or '')}</small>",
-            "      </article>",
+            f'      <button type="button" {attributen} '
+            f'aria-labelledby="{html.escape(label_id)}" '
+            f'aria-describedby="{html.escape(description_id)} '
+            f'{html.escape(status_id)}"{disabled_attribute}>',
+            (
+                f'        <strong id="{html.escape(label_id)}">'
+                f"{html.escape(example.label)}</strong>"
+            ),
+            (
+                f'        <span id="{html.escape(description_id)}" '
+                'class="bp-example-description">'
+                f"{html.escape(example.beschrijving or '')}</span>"
+            ),
+            (
+                f'        <small id="{html.escape(status_id)}">'
+                f"{html.escape(example.status or '')}</small>"
+            ),
+            "      </button>",
         ])
     elif example.component_role == "statistiek":
+        label_id = _voorbeeld_element_id(example, state, "label")
         regels.extend([
-            f"      <article {attributen}>",
-            f"        <small>{html.escape(example.label)}</small>",
+            (
+                f"      <article {attributen} "
+                f'aria-labelledby="{html.escape(label_id)}">'
+            ),
+            f'        <small id="{html.escape(label_id)}">'
+            f"{html.escape(example.label)}</small>",
             f"        <strong>{html.escape(example.waarde or '')}</strong>",
         ])
         if example.beschrijving is not None:
@@ -147,6 +257,10 @@ def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
     componenten = verzamel_componenten(objecten)
     varianten = resolveer_varianten(objecten)
     voorbeelden = resolveer_componentvoorbeelden(objecten)
+    toegankelijkheid = {
+        contract.component_id: contract
+        for contract in resolveer_componenttoegankelijkheid(objecten)
+    }
     varianten_per_component = {}
     for variant in varianten:
         varianten_per_component.setdefault(variant.component_id, []).append(variant)
@@ -192,6 +306,10 @@ def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
             "    .bp-example-label, .bp-example-message {",
             "      font-family: var(--bp-font-body);",
             "      font-size: var(--bp-type-caption);",
+            "    }",
+            "    .bp-example-description {",
+            "      font-family: var(--bp-font-body);",
+            "      font-size: var(--bp-type-body);",
             "    }",
             "    .bp-example-message {",
             "      color: var(--bp-theme-error);",
@@ -255,10 +373,9 @@ def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
                     if state != "rest"
                     else ""
                 )
-                disabled_attribute = (
-                    ' aria-disabled="true"'
-                    if state == "disabled"
-                    else ""
+                contract = toegankelijkheid.get(component.id)
+                accessibility_attributes = (
+                    _toegankelijkheidsattributen(contract)
                 )
                 titel = (
                     variant.naam
@@ -283,7 +400,7 @@ def naar_component_html(objecten: Iterable[Architectuurobject]) -> str:
                             f'data-component-state="{html.escape(state)}" '
                             f'data-component-states="{html.escape(state_names)}" '
                             f'data-appearance="{html.escape(appearance_id)}"'
-                            f"{disabled_attribute}>"
+                            f"{accessibility_attributes}>"
                         ),
                         f"      <h2>{html.escape(titel)}</h2>",
                         f"      <p>{html.escape(doel)}</p>",

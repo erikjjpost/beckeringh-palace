@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 902db57f8d6f",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot da59d8ea0dbf",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:50",
+      "description": "project-status-schema:1;overall-progress:51",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 50%",
+                  "fixed": "Totale voortgang · 51%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 300
+                "width": 306
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3g · EmberForge componentfamilie (in uitvoering)\nVoltooid: M11.3f · EmberForge componenttoestanden (PR #78)\nVolgende stap: M11.3h · EmberForge toegankelijkheidscontracten\nNaam, rol, waarde, fout, disabled en toetsenbordgedrag voor de native componentfamilie backendonafhankelijk modelleren en toetsen.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.3h · EmberForge toegankelijkheidscontracten (in uitvoering)\nVoltooid: M11.3g · EmberForge componentfamilie (PR #79)\nVolgende stap: M11.3i · EmberForge designsystem referentieproduct\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar native product samenbrengen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,12 +256,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 50%",
+      "title": "Totale voortgang · 51%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:compiler;progress:84",
+      "description": "project-status-area:compiler;progress:86",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -294,7 +294,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Compiler en reproduceerbaarheid · 84%",
+                  "fixed": "Compiler en reproduceerbaarheid · 86%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -358,7 +358,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 504
+                "width": 516
               },
               "type": "rectangle"
             },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 187 regressietests vormen een werkende kwaliteitsketen; componentrol, anatomie, voorbeelden en volledige statecontracten worden semantisch gevalideerd.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 195 regressietests vormen een werkende kwaliteitsketen; componentrol, anatomie, voorbeelden, statecontracten en toegankelijkheid worden semantisch gevalideerd.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -394,12 +394,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Compiler en reproduceerbaarheid · 84%",
+      "title": "Compiler en reproduceerbaarheid · 86%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-model;progress:80",
+      "description": "project-status-area:world-model;progress:83",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -432,7 +432,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Model en productcontracten · 80%",
+                  "fixed": "World Model en productcontracten · 83%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -496,7 +496,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 480
+                "width": 498
               },
               "type": "rectangle"
             },
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Thema's, dashboardinformatiegebieden, homepagegebieden, merkidentiteit, layouts, zes componentrollen met expliciete anatomie, zestien productvoorbeelden, varianten, composities, producten, navigatie en snapshotidentiteit zijn native gemodelleerd.\nResterend: Verdere productoppervlakken, toegankelijkheidssemantiek en bredere wereldsemantiek moeten nog in BAT worden opgenomen.",
+                  "fixed": "Onderbouwing: Thema's, informatiegebieden, homepagegebieden, merkidentiteit, layouts, zes componentrollen, zestien productvoorbeelden en zes toegankelijkheidscontracten zijn samen met varianten, composities, producten, navigatie en snapshotidentiteit native gemodelleerd.\nResterend: Verdere productoppervlakken en bredere wereldsemantiek moeten nog in BAT worden opgenomen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -532,12 +532,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 80%",
+      "title": "World Model en productcontracten · 83%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:design-system;progress:94",
+      "description": "project-status-area:design-system;progress:97",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -570,7 +570,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Design System · 94%",
+                  "fixed": "Design System · 97%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -634,7 +634,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 564
+                "width": 582
               },
               "type": "rectangle"
             },
@@ -646,7 +646,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks, volledige interactietoestanden en de button, input, status, app tile en stat card families zijn native gemigreerd.\nResterend: Toegankelijkheidscontracten en volledige design system documentatie moeten nog normatief worden gemigreerd.",
+                  "fixed": "Onderbouwing: Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks, volledige interactietoestanden, componentfamilies en backendonafhankelijke toegankelijkheidscontracten zijn native gemigreerd.\nResterend: Eén samenhangend native designsystem referentieproduct ontbreekt nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -670,12 +670,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 94%",
+      "title": "Design System · 97%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:dashboard;progress:68",
+      "description": "project-status-area:dashboard;progress:71",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -708,7 +708,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Dashboard UI en Grafana · 68%",
+                  "fixed": "Dashboard UI en Grafana · 71%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -772,7 +772,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 408
+                "width": 426
               },
               "type": "rectangle"
             },
@@ -784,7 +784,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: HTML en Grafana delen drie native informatiegebieden en machineleesbare statecontracten; de HTML componentcatalogus rendert vijf productgedragen componentrollen en zestien voorbeelden uit hetzelfde BAT model.\nResterend: Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt.",
+                  "fixed": "Onderbouwing: HTML en Grafana delen informatiegebieden, statecontracten en opgeloste toegankelijkheidsmetadata; de HTML componentcatalogus gebruikt native acties en invoer, expliciete namen, waarden, foutkoppelingen en disabled gedrag.\nResterend: Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -808,7 +808,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Dashboard UI en Grafana · 68%",
+      "title": "Dashboard UI en Grafana · 71%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:31",
+      "description": "project-status-area:world-bible;progress:33",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 31%",
+                  "fixed": "World Bible · 33%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 186
+                "width": 198
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal, stem, componentrollen en voorbeeldcontracten zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal, stem, componentrollen, voorbeeldcontracten en toegankelijkheidssemantiek zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 31%",
+      "title": "World Bible · 33%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:50",
-    "sha256:902db57f8d6f14be8d5b913e1677aaa0d054c11d11fd1c5c981ff1a846d39274"
+    "overall-progress:51",
+    "sha256:da59d8ea0dbf2ef5d3868733cdbea2b1e2d4d871c9f393a7ad1b75157904ba43"
   ],
   "templating": {
     "list": []

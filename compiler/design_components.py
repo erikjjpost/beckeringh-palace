@@ -17,6 +17,7 @@ COMPONENTEIGENSCHAPPEN = {
     "padding": TokenType.DIMENSION,
     "rol": None,
     "anatomie": None,
+    "toegankelijkheid": None,
 }
 COMPONENT_ANATOMIE_PER_ROL = {
     "paneel": ("titel", "tekst"),
@@ -135,6 +136,7 @@ class DesignComponent:
     appearance: str | None
     rol: str | None
     anatomie: tuple[str, ...]
+    accessibility_id: str | None
     eigenschappen: dict[str, str]
     bron: Architectuurobject
 
@@ -164,13 +166,19 @@ def component_uit_object(obj: Architectuurobject) -> DesignComponent | None:
         for naam, waarde in obj.eigenschappen.items()
         if (
             naam in COMPONENTEIGENSCHAPPEN
-            and naam not in {"appearance", "rol", "anatomie"}
+            and naam not in {
+                "appearance",
+                "rol",
+                "anatomie",
+                "toegankelijkheid",
+            }
             and isinstance(waarde, str)
         )
     }
     appearance = obj.eigenschappen.get("appearance")
     rol = obj.eigenschappen.get("rol")
     anatomie = obj.eigenschappen.get("anatomie")
+    accessibility_id = obj.eigenschappen.get("toegankelijkheid")
     return DesignComponent(
         id=obj.id,
         naam=str(obj.eigenschappen.get("naam", "")),
@@ -181,6 +189,9 @@ def component_uit_object(obj: Architectuurobject) -> DesignComponent | None:
             tuple(str(item) for item in anatomie)
             if isinstance(anatomie, list)
             else ()
+        ),
+        accessibility_id=(
+            accessibility_id if isinstance(accessibility_id, str) else None
         ),
         eigenschappen=eigenschappen,
         bron=obj,

@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from compiler.component_constraints import DesignComponentConstraint
+from compiler.component_accessibility import ComponentAccessibilityConstraint
 from compiler.component_examples import ComponentExampleConstraint
 from compiler.brand_identity import BrandIdentityConstraint
 from compiler.composition_constraints import DesignCompositionConstraint
@@ -108,6 +109,7 @@ WORLD_MODEL_CONSTRAINTS = (
     DesignTokenConstraint(),
     ThemeFoundationConstraint(),
     DesignComponentConstraint(),
+    ComponentAccessibilityConstraint(),
     ComponentVariantConstraint(),
     ComponentExampleConstraint(),
     InformationArchitectureConstraint(),

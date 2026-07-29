@@ -514,12 +514,23 @@ appearance forge-panel-hero-appearance {
     caption-style: "caption"
 }
 
+toegankelijkheid forge-panel-accessibility {
+    naam: "Forge Panel Accessibility"
+    doel: "Benoemt een informatief paneel als niet-interactieve groep."
+    rol: "groep"
+    naambron: "titel"
+    disabled: "niet-van-toepassing"
+    focus: "geen"
+    toetsenbord: "geen"
+}
+
 component forge-panel {
     naam: "Forge Panel"
     doel: "Basispaneel voor dashboards en productdocumentatie."
     appearance: "forge-panel-appearance"
     rol: "paneel"
     anatomie: ["titel", "tekst"]
+    toegankelijkheid: "forge-panel-accessibility"
 }
 
 variant forge-panel-compact {
@@ -1216,12 +1227,68 @@ appearance forge-stat-card-ember-appearance {
     caption-style: "caption"
 }
 
+toegankelijkheid forge-button-accessibility {
+    naam: "Forge Button Accessibility"
+    doel: "Benoemt een actie en legt native activering en disabled gedrag vast."
+    rol: "actie"
+    naambron: "label"
+    disabled: "native"
+    focus: "tabvolgorde"
+    toetsenbord: "activeren"
+}
+
+toegankelijkheid forge-input-accessibility {
+    naam: "Forge Input Accessibility"
+    doel: "Koppelt tekstinvoer expliciet aan naam, waarde en foutmelding."
+    rol: "tekstinvoer"
+    naambron: "label"
+    waardebron: "waarde"
+    foutbron: "melding"
+    disabled: "native"
+    focus: "tabvolgorde"
+    toetsenbord: "tekstinvoer"
+}
+
+toegankelijkheid forge-status-accessibility {
+    naam: "Forge Status Accessibility"
+    doel: "Benoemt een operationele status en haar feitelijke waarde."
+    rol: "status"
+    naambron: "label"
+    waardebron: "waarde"
+    disabled: "niet-van-toepassing"
+    focus: "geen"
+    toetsenbord: "geen"
+}
+
+toegankelijkheid forge-app-tile-accessibility {
+    naam: "Forge App Tile Accessibility"
+    doel: "Benoemt een app tegel als native activeerbare productactie."
+    rol: "actie"
+    naambron: "label"
+    waardebron: "status"
+    disabled: "native"
+    focus: "tabvolgorde"
+    toetsenbord: "activeren"
+}
+
+toegankelijkheid forge-stat-card-accessibility {
+    naam: "Forge Stat Card Accessibility"
+    doel: "Benoemt een statistiek als niet-interactieve waardegroep."
+    rol: "groep"
+    naambron: "label"
+    waardebron: "waarde"
+    disabled: "niet-van-toepassing"
+    focus: "geen"
+    toetsenbord: "geen"
+}
+
 component forge-button {
     naam: "Forge Button"
     doel: "Actiecomponent voor primaire, secundaire, ghost en warme acties."
     appearance: "forge-button-primary-rest-appearance"
     rol: "actie"
     anatomie: ["label"]
+    toegankelijkheid: "forge-button-accessibility"
 }
 
 component forge-input {
@@ -1230,6 +1297,7 @@ component forge-input {
     appearance: "forge-input-rest-appearance"
     rol: "invoer"
     anatomie: ["label", "waarde", "melding"]
+    toegankelijkheid: "forge-input-accessibility"
 }
 
 component forge-status {
@@ -1238,6 +1306,7 @@ component forge-status {
     appearance: "forge-status-info-appearance"
     rol: "status"
     anatomie: ["label", "waarde"]
+    toegankelijkheid: "forge-status-accessibility"
 }
 
 component forge-app-tile {
@@ -1246,6 +1315,7 @@ component forge-app-tile {
     appearance: "forge-app-tile-rest-appearance"
     rol: "app-tegel"
     anatomie: ["label", "beschrijving", "status"]
+    toegankelijkheid: "forge-app-tile-accessibility"
 }
 
 component forge-stat-card {
@@ -1254,6 +1324,7 @@ component forge-stat-card {
     appearance: "forge-stat-card-value-appearance"
     rol: "statistiek"
     anatomie: ["label", "waarde", "beschrijving"]
+    toegankelijkheid: "forge-stat-card-accessibility"
 }
 
 variant forge-button-primary {
@@ -1556,8 +1627,8 @@ informatiegebied forge-design-system {
     doel: "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit."
     toegankelijkheidslabel: "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten"
     leesvolgorde: "2"
-    soorten: ["kleur", "palet", "typografie", "typeschaal", "materiaal", "border", "radius", "shadow", "motion", "spacing", "thema", "appearance", "token", "component", "variant", "componentvoorbeeld"]
-    inhoud: ["forge", "forge-materials", "forge-panel", "forge-button", "forge-input", "forge-status", "forge-app-tile", "forge-stat-card", "forge-button-primary-example", "forge-input-error-example", "forge-status-running-example", "forge-app-tile-isms-example", "forge-stat-card-nodes-example"]
+    soorten: ["kleur", "palet", "typografie", "typeschaal", "materiaal", "border", "radius", "shadow", "motion", "spacing", "thema", "appearance", "token", "component", "variant", "componentvoorbeeld", "toegankelijkheid"]
+    inhoud: ["forge", "forge-materials", "forge-panel", "forge-button", "forge-input", "forge-status", "forge-app-tile", "forge-stat-card", "forge-button-accessibility", "forge-button-primary-example", "forge-input-error-example", "forge-status-running-example", "forge-app-tile-isms-example", "forge-stat-card-nodes-example"]
     navigatie: ["html-components", "css-components", "css-tokens", "json-tokens"]
 }
 

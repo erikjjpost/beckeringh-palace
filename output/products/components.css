@@ -35,6 +35,10 @@
   grid-template-columns: 1fr auto;
   gap: var(--bp-spacing-medium);
   align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 .bp-forge-app-tile strong {
   font-family: var(--bp-font-body);

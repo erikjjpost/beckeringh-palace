@@ -684,6 +684,28 @@ structuur en gebruikt voor iedere visuele waarde de appearance en het
 opgeloste thema. Voorbeeldtekst, EmberForge bronwaarden en UI kit code worden
 niet in een renderer opgenomen.
 
+M11.3h introduceert het native `toegankelijkheid` object. Ieder component met
+een semantische rol en anatomie verwijst expliciet naar één contract. Dat
+contract legt rol, naambron, optionele waarde- en foutbron, disabled gedrag,
+focusdeelname en toetsenbordgedrag vast. De semantische laag weigert een
+ontbrekende referentie, bronnen buiten de componentanatomie en gedrag dat niet
+bij de componentrol past.
+
+`ResolvedComponentAccessibility` wordt toegevoegd aan zowel
+`ResolvedComponentExample` als `ResolvedComponentInstance`. De
+componentcatalogus rendert acties en app tegels als native buttons en invoer als
+een native input met expliciete label- en foutkoppeling. Niet-interactieve
+statussen, statistieken en panelen krijgen geen tabstop. Product HTML schrijft
+de opgeloste semantiek als metadata uit en benoemt groepen via zichtbare
+koppen. Grafana bewaart hetzelfde contract in de paneelbeschrijving en
+simuleert geen interactie.
+
+De contracten volgen native hostsemantiek en de W3C WAI patronen voor
+[buttons](https://www.w3.org/WAI/ARIA/apg/patterns/button/),
+[toegankelijke namen](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/)
+en [formuliermeldingen](https://www.w3.org/WAI/tutorials/forms/notifications/).
+M11.3h bewijst geen compatibiliteit met specifieke hulptechnologie.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -752,6 +774,14 @@ niet in een renderer opgenomen.
 | `BP3824` | Componentvoorbeeld mist verplichte rolgebonden inhoud |
 | `BP3825` | Componentvoorbeeld bevat inhoud die niet bij de rol past |
 | `BP3826` | App tegelvoorbeeld gebruikt een onbekende operationele status |
+| `BP3830` | Toegankelijkheidscontract heeft een onbekende eigenschap |
+| `BP3831` | Toegankelijkheidscontract heeft een ongeldige contractwaarde |
+| `BP3832` | Component mist een bestaand toegankelijkheidscontract |
+| `BP3833` | Toegankelijkheidsrol past niet bij de componentrol |
+| `BP3834` | Naam-, waarde- of foutbron past niet bij de componentanatomie |
+| `BP3835` | Disabled gedrag past niet bij de componentrol |
+| `BP3836` | Focusgedrag past niet bij de componentrol |
+| `BP3837` | Toetsenbordgedrag past niet bij de componentrol |
 | `BP3901` | Renderdoel heeft een onbekende eigenschap |
 | `BP3902` | Renderdoel mist een geldig formaat |
 | `BP3903` | Renderdoel heeft geen veilig relatief artifactpad |

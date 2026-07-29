@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 902db57f8d6f",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot da59d8ea0dbf",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "De digitale wereld, haar merk en haar reproduceerbare bronassets.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT informatiegebied: palace-world\nToegankelijkheidslabel: Wereld en identiteit, overzicht van wereld, merk en bronassets\nLeesvolgorde: 1",
+      "description": "De digitale wereld, haar merk en haar reproduceerbare bronassets.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT toegankelijkheid: forge-panel-accessibility\nToegankelijkheidsrol: groep\nNaambron: titel\nWaardebron: niet-van-toepassing\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen\nBAT informatiegebied: palace-world\nToegankelijkheidslabel: Wereld en identiteit, overzicht van wereld, merk en bronassets\nLeesvolgorde: 1",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -428,7 +428,7 @@
       "type": "canvas"
     },
     {
-      "description": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-card-rest-appearance\nBAT states: rest=forge-panel-card-rest-appearance, hover=forge-panel-card-hover-appearance, focus=forge-panel-card-focus-appearance, pressed=forge-panel-card-pressed-appearance, disabled=forge-panel-card-disabled-appearance\nBAT informatiegebied: forge-design-system\nToegankelijkheidslabel: Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten\nLeesvolgorde: 2",
+      "description": "De ontwerpprimitieven, tokens en componentcontracten van de Forge-identiteit.\n\nBAT component: forge-panel\nBAT variant: forge-panel-compact\nBAT appearance: forge-panel-card-rest-appearance\nBAT states: rest=forge-panel-card-rest-appearance, hover=forge-panel-card-hover-appearance, focus=forge-panel-card-focus-appearance, pressed=forge-panel-card-pressed-appearance, disabled=forge-panel-card-disabled-appearance\nBAT toegankelijkheid: forge-panel-accessibility\nToegankelijkheidsrol: groep\nNaambron: titel\nWaardebron: niet-van-toepassing\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen\nBAT informatiegebied: forge-design-system\nToegankelijkheidslabel: Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten\nLeesvolgorde: 2",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -471,7 +471,7 @@
               },
               "name": "forge-dashboard-center-panel-accent",
               "placement": {
-                "height": 872,
+                "height": 916,
                 "left": 16,
                 "top": 16,
                 "width": 4
@@ -512,7 +512,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "128",
+                  "fixed": "134",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -538,7 +538,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\nshadow\nspacing\nthema\ntoken\ntypeschaal\ntypografie\nvariant",
+                  "fixed": "appearance\nborder\ncomponent\ncomponentvoorbeeld\nkleur\nmateriaal\nmotion\npalet\nradius\nshadow\nspacing\nthema\ntoegankelijkheid\ntoken\ntypeschaal\ntypografie\nvariant",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -549,7 +549,7 @@
               },
               "name": "forge-dashboard-center-panel-metric-detail-labels",
               "placement": {
-                "height": 204,
+                "height": 216,
                 "left": 28,
                 "top": 136,
                 "width": 280
@@ -564,7 +564,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "42\n1\n6\n16\n25\n1\n1\n1\n1\n1\n1\n1\n10\n1\n1\n19",
+                  "fixed": "42\n1\n6\n16\n25\n1\n1\n1\n1\n1\n1\n1\n6\n10\n1\n1\n19",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -575,7 +575,7 @@
               },
               "name": "forge-dashboard-center-panel-metric-detail-values",
               "placement": {
-                "height": 204,
+                "height": 216,
                 "left": 308,
                 "top": 136,
                 "width": 80
@@ -983,6 +983,31 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-center-panel-metric-detail-rule-17",
+              "placement": {
+                "height": 1,
+                "left": 28,
+                "top": 340,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -1025,7 +1050,7 @@
               "placement": {
                 "height": 48,
                 "left": 28,
-                "top": 352,
+                "top": 364,
                 "width": 360
               },
               "type": "text"
@@ -1038,7 +1063,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nGecontroleerd gemigreerde EmberForge materiaalrollen.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.\nForge Button · component\nActiecomponent voor primaire, secundaire, ghost en warme acties.\nForge Input · component\nInvoercomponent met waarde en optionele foutmelding.\nForge Status · component\nFeitelijke statuscapsule voor operationele toestand.\nForge App Tile · component\nProducttegel voor één toepassing en haar operationele status.\nForge Stat Card · component\nCompacte operationele waarde met context.\nPrimary Button · componentvoorbeeld\nPrimair sign in voorbeeld uit het aangeleverde componentscherm.\nError Input · componentvoorbeeld\nOngeldige hostnaam met feitelijke foutmelding.\nRunning Status · componentvoorbeeld\nAantal actieve workloads uit het aangeleverde componentscherm.\nISMS App Tile · componentvoorbeeld\nProducttegel voor ISMS Challenger.\nNodes Stat Card · componentvoorbeeld\nAantal actieve clusternodes.",
+                  "fixed": "Forge · thema\nNordic forge-ontwerpidentiteit voor Beckeringh Palace.\nForge Materials · materiaal\nGecontroleerd gemigreerde EmberForge materiaalrollen.\nForge Panel · component\nBasispaneel voor dashboards en productdocumentatie.\nForge Button · component\nActiecomponent voor primaire, secundaire, ghost en warme acties.\nForge Input · component\nInvoercomponent met waarde en optionele foutmelding.\nForge Status · component\nFeitelijke statuscapsule voor operationele toestand.\nForge App Tile · component\nProducttegel voor één toepassing en haar operationele status.\nForge Stat Card · component\nCompacte operationele waarde met context.\nForge Button Accessibility · toegankelijkheid\nBenoemt een actie en legt native activering en disabled gedrag vast.\nPrimary Button · componentvoorbeeld\nPrimair sign in voorbeeld uit het aangeleverde componentscherm.\nError Input · componentvoorbeeld\nOngeldige hostnaam met feitelijke foutmelding.\nRunning Status · componentvoorbeeld\nAantal actieve workloads uit het aangeleverde componentscherm.\nISMS App Tile · componentvoorbeeld\nProducttegel voor ISMS Challenger.\nNodes Stat Card · componentvoorbeeld\nAantal actieve clusternodes.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1049,9 +1074,9 @@
               },
               "name": "forge-dashboard-center-panel-content-anchors",
               "placement": {
-                "height": 416,
+                "height": 448,
                 "left": 28,
-                "top": 412,
+                "top": 424,
                 "width": 360
               },
               "type": "text"
@@ -1077,7 +1102,7 @@
               "placement": {
                 "height": 48,
                 "left": 28,
-                "top": 840,
+                "top": 884,
                 "width": 360
               },
               "type": "text"
@@ -1093,7 +1118,7 @@
       "type": "canvas"
     },
     {
-      "description": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT informatiegebied: palace-product-family\nToegankelijkheidslabel: Productfamilie, overzicht van composities, layouts en uitvoerproducten\nLeesvolgorde: 3",
+      "description": "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT toegankelijkheid: forge-panel-accessibility\nToegankelijkheidsrol: groep\nNaambron: titel\nWaardebron: niet-van-toepassing\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen\nBAT informatiegebied: palace-product-family\nToegankelijkheidslabel: Productfamilie, overzicht van composities, layouts en uitvoerproducten\nLeesvolgorde: 3",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -1528,7 +1553,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:902db57f8d6f14be8d5b913e1677aaa0d054c11d11fd1c5c981ff1a846d39274"
+    "sha256:da59d8ea0dbf2ef5d3868733cdbea2b1e2d4d871c9f393a7ad1b75157904ba43"
   ],
   "templating": {
     "list": []

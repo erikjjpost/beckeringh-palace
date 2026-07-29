@@ -29,6 +29,8 @@ Appearance
  ↓
 Components
  ↓
+Accessibility
+ ↓
 Variants
  ↓
 Composition
@@ -83,6 +85,12 @@ mapping voor rust, hover, focus, pressed en disabled dragen. Een
 componentinstantie kiest zo'n variant alleen met een benoemde referentie. De
 gekozen variant, effectieve rustappearance en stateappearances worden vóór
 backendselectie opgelost en bevatten geen backendpresentatie.
+
+Native toegankelijkheidscontracten beschrijven per component de semantische
+rol, naambron, optionele waarde- en foutbron, disabled gedrag, focusdeelname en
+toetsenbordgedrag. Zij bevatten geen HTML- of ARIA-velden. Dezelfde opgeloste
+semantiek gaat naar componentvoorbeelden en productcomposities voordat een
+backend haar naar native hostelementen of machineleesbare metadata vertaalt.
 
 Native renderdoelen beschrijven één benoemde representatie met een expliciet
 formaat en veilig relatief artifactpad. Het resolved contract blijft

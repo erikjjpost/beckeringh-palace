@@ -210,23 +210,30 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
             'data-example="forge-input-error-example"',
             catalog,
         )
-        self.assertIn('<span class="bp-example-label">Hostname</span>', catalog)
+        self.assertIn(
+            'class="bp-example-label">Hostname</label>',
+            catalog,
+        )
         self.assertIn('value="lab..local"', catalog)
         self.assertIn(
-            '<small class="bp-example-message">Hostname is ongeldig.</small>',
+            'class="bp-example-message">Hostname is ongeldig.</small>',
             catalog,
         )
         self.assertIn(
             'data-example="forge-status-running-example"',
             catalog,
         )
-        self.assertIn("Running · 62", catalog)
+        self.assertIn(">Running</span> · <span>62</span>", catalog)
         self.assertIn(
             'data-example="forge-app-tile-isms-example"',
             catalog,
         )
-        self.assertIn("<strong>ISMS Challenger</strong>", catalog)
-        self.assertIn("<p>Information Security Management</p>", catalog)
+        self.assertIn(">ISMS Challenger</strong>", catalog)
+        self.assertIn(
+            'class="bp-example-description">'
+            "Information Security Management</span>",
+            catalog,
+        )
         self.assertIn(
             'data-example="forge-stat-card-nodes-example"',
             catalog,
