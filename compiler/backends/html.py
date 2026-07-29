@@ -9,6 +9,9 @@ from compiler.design_system_html_renderer import (
     reference_content_lines,
     reference_css_lines,
 )
+from compiler.component_html_renderer import render_component_example
+from compiler.design_components import verzamel_componenten
+from compiler.design_variants import resolveer_varianten
 from compiler.native_layout_html_renderer import naar_native_layout_html
 from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
 from compiler.project_status import ProjectStatus
@@ -253,6 +256,39 @@ def _render(
             f"Product '{product.id}' vereist een opgeloste native compositie"
         )
     instance_content = None
+    example_instances = tuple(
+        instance
+        for instance in product.opgeloste_compositie.instances
+        if instance.example is not None
+    )
+    if example_instances:
+        components = {
+            component.id: component
+            for component in verzamel_componenten(objecten)
+        }
+        variants = {
+            variant.id: variant
+            for variant in resolveer_varianten(objecten)
+        }
+        instance_content = {}
+        for instance in example_instances:
+            example = instance.example
+            assert example is not None
+            variant = variants[example.variant_id]
+            appearance_id = variant.appearance_for_state("rest")
+            assert appearance_id is not None
+            instance_content[instance.id] = tuple(
+                render_component_example(
+                    components[example.component_id],
+                    variant,
+                    example,
+                    "rest",
+                    appearance_id,
+                    heading_level=3,
+                    id_namespace=instance.id,
+                    include_context=False,
+                )
+            )
     if product.inhoud == "design-system":
         if product.design_system_reference is None:
             raise ValueError(

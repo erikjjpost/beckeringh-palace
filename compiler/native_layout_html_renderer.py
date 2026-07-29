@@ -185,23 +185,28 @@ def naar_native_layout_html(
         heading_id_attribute = ""
         region_style = _style(_region_css(layout, region))
         style_attribute = f' style="{region_style}"' if region_style else ""
+        component_class = (
+            ""
+            if instantie.example is not None
+            else f" {componentklasse(instantie.component_id)}"
+        )
         variant_class = (
             f" {variantklasse(instantie.variant_id)}"
-            if instantie.variant_id is not None
+            if instantie.variant_id is not None and instantie.example is None
             else ""
         )
         variant_attribute = (
             f' data-variant="{html.escape(instantie.variant_id)}"'
-            if instantie.variant_id is not None
+            if instantie.variant_id is not None and instantie.example is None
             else ""
         )
         appearance_attribute = (
             f' data-appearance="{html.escape(instantie.appearance_id)}"'
-            if instantie.appearance_id is not None
+            if instantie.appearance_id is not None and instantie.example is None
             else ""
         )
         state_attributes = ""
-        if instantie.state_appearances:
+        if instantie.state_appearances and instantie.example is None:
             state_attributes = (
                 ' data-component-states="'
                 + html.escape(
@@ -237,13 +242,18 @@ def naar_native_layout_html(
             if instantie.component_role is not None
             else ""
         )
+        component_attribute = (
+            f' data-component="{html.escape(instantie.component_id)}"'
+            if instantie.example is None
+            else ""
+        )
         information_accessibility_attribute = (
             f' aria-label="{html.escape(instantie.accessibility_label)}"'
             if instantie.accessibility_label is not None
             else ""
         )
         component_accessibility_attributes = ""
-        if instantie.accessibility is not None:
+        if instantie.accessibility is not None and instantie.example is None:
             contract = instantie.accessibility
             component_accessibility_attributes = (
                 f' data-accessibility-contract="'
@@ -307,11 +317,11 @@ def naar_native_layout_html(
         )
         regels.extend([
             (
-                f'    <section class="bp-region {componentklasse(instantie.component_id)}'
+                f'    <section class="bp-region{component_class}'
                 f'{variant_class}" '
                 f'data-region="{html.escape(region.id)}" '
-                f'data-instance="{html.escape(instantie.id)}" '
-                f'data-component="{html.escape(instantie.component_id)}"'
+                f'data-instance="{html.escape(instantie.id)}"'
+                f"{component_attribute}"
                 f"{variant_attribute}{appearance_attribute}"
                 f"{state_attributes}"
                 f"{information_area_attribute}{homepage_area_attribute}"

@@ -3,36 +3,36 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.3i",
-    "name": "EmberForge designsystem referentieproduct",
+    "id": "M11.4a",
+    "name": "EmberForge homelab dashboardproduct",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.3h",
-    "name": "EmberForge toegankelijkheidscontracten",
-    "pull_request": 80
+    "id": "M11.3i",
+    "name": "EmberForge designsystem referentieproduct",
+    "pull_request": 81
   },
   "next_step": {
-    "id": "M11.4a",
-    "name": "EmberForge homelab dashboardproduct",
-    "purpose": "De gemigreerde app tegels, statistiekkaarten en statussen als een native homelab dashboardcompositie, responsieve layout en HTML product samenbrengen."
+    "id": "M11.4b",
+    "name": "EmberForge Grafana dashboardproduct",
+    "purpose": "De native homelab compositie als Grafana dashboard met dezelfde voorbeeldinhoud, componentsemantiek en layout publiceren."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 88,
+      "progress": 90,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 204 regressietests vormen een werkende kwaliteitsketen; referentiesecties en volledige designsystemdekking worden naast componentrol, anatomie, voorbeelden, states en toegankelijkheid semantisch gevalideerd.",
+      "evidence": "Validatie, deterministische generatie, CI en 209 regressietests vormen een werkende kwaliteitsketen; componentinstanties kunnen volledige componentvoorbeelden backendonafhankelijk en exclusief oplossen.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 86,
+      "progress": 90,
       "weight": 10,
-      "evidence": "Thema's, informatiegebieden, homepagegebieden, merkidentiteit, layouts, zes componentrollen, zestien productvoorbeelden, zes toegankelijkheidscontracten en vijf referentiesecties zijn samen met varianten, composities, producten, navigatie en snapshotidentiteit native gemodelleerd.",
-      "remaining": "De concrete EmberForge productoppervlakken en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
+      "evidence": "Naast thema's, informatiearchitectuur en designsystemcontracten is nu een concrete EmberForge productsurface native gemodelleerd met tien voorbeeldgedragen instanties en een responsieve layout.",
+      "remaining": "Meer concrete productsurfaces en bredere wereldsemantiek moeten nog in BAT worden opgenomen."
     },
     {
       "id": "design-system",
@@ -45,10 +45,10 @@
     {
       "id": "dashboard",
       "name": "Dashboard UI en Grafana",
-      "progress": 73,
+      "progress": 82,
       "weight": 10,
-      "evidence": "HTML en Grafana delen informatiegebieden, statecontracten en opgeloste toegankelijkheidsmetadata; het HTML referentieproduct gebruikt native acties en invoer, expliciete namen, waarden, foutkoppelingen en disabled gedrag.",
-      "remaining": "Responsief gedrag en toetsen met echte hulptechnologie zijn nog niet als productcontract uitgewerkt."
+      "evidence": "Het HTML homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde voorbeelden en draagt een expliciet vier naar twee koloms responsief contract.",
+      "remaining": "De homelab compositie moet nog als Grafana product worden vertaald en toetsing met echte hulptechnologie ontbreekt."
     },
     {
       "id": "visual-world",
@@ -77,9 +77,9 @@
     {
       "id": "homepage",
       "name": "HTML homepage",
-      "progress": 70,
+      "progress": 72,
       "weight": 10,
-      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de designsystemroute verwijst nu naar een regulier native product en de drie routekaarten gebruiken expliciete hover, focus, pressed en disabled appearances.",
+      "evidence": "Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; de productfamilie ontsluit nu naast projectstatus en designsystem ook het native homelab dashboard.",
       "remaining": "Verdere productroutes, visuele motieven en productinhoud moeten nog worden verdiept."
     },
     {
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 35,
+      "progress": 37,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merkbelofte, principes, taal, stem, componentrollen, voorbeeldcontracten, toegankelijkheid en de native designsystemreferentie zijn normatief vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie is de eerste concrete EmberForge productsurface vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

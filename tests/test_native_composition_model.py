@@ -237,6 +237,34 @@ class NativeCompositionModelTests(unittest.TestCase):
 
         self.assertIn("BP3713", {item.code for item in context.exception.diagnostics})
 
+    def test_weigert_onbekend_of_gecombineerd_componentvoorbeeld(self):
+        onbekend = BRON.replace(
+            '    component: "forge-panel"\n}',
+            '    voorbeeld: "missing"\n}',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(onbekend), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3719", {item.code for item in context.exception.diagnostics})
+
+        gecombineerd = (BRON + '''
+
+componentvoorbeeld panel-example {
+    naam: "Panel Example"
+    doel: "Voorbeeld."
+    component: "forge-panel"
+    variant: "forge-panel-compact"
+    label: "Panel"
+}
+''').replace(
+            '    component: "forge-panel"\n}',
+            '    component: "forge-panel"\n    voorbeeld: "panel-example"\n}',
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(gecombineerd), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3720", {item.code for item in context.exception.diagnostics})
+
     def test_weigert_onbekende_variant(self):
         bron = BRON.replace(
             '    variant: "forge-panel-compact"',

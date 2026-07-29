@@ -62,6 +62,7 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "forge-dashboard-grafana",
                 "forge-dashboard-html",
                 "forge-design-system-reference-html",
+                "emberforge-homelab-dashboard-html",
             },
             {product.definitie.id for product in products},
         )
