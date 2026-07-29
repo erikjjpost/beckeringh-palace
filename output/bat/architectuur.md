@@ -2871,9 +2871,9 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, project-status-html, forge-design-system-reference-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-homelab-dashboard-html, project-status-html, forge-design-system-reference-html
 - **leesvolgorde:** 3
-- **navigatie:** project-status-html, project-status-grafana
+- **navigatie:** emberforge-homelab-dashboard-html, project-status-html, project-status-grafana
 - **soorten:** homepagegebied, compositie, componentinstantie, layout, region, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
@@ -3050,6 +3050,408 @@ Het Forge-dashboard als importeerbaar Grafana dashboard genereren.
 - **layout:** forge-dashboard-ultrawide
 - **mode:** static
 - **pad:** output/products/forge-dashboard.grafana.json
+- **wereld:** beckeringh-palace
+
+## EmberForge Homelab
+
+**Soort:** compositie
+
+**Identifier:** `emberforge-homelab-dashboard`
+
+### Doel
+
+Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.
+
+### Eigenschappen
+
+- **instanties:** homelab-stat-nodes, homelab-stat-health, homelab-stat-cpu, homelab-stat-memory, homelab-status-running, homelab-status-pending, homelab-status-failed, homelab-status-healthy, homelab-app-isms, homelab-app-cv
+
+## Nodes
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-stat-nodes`
+
+### Doel
+
+Aantal actieve clusternodes.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-stat-card-nodes-example
+
+## Cluster Health
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-stat-health`
+
+### Doel
+
+Actuele gezondheid van het cluster.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-stat-card-health-example
+
+## CPU Usage
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-stat-cpu`
+
+### Doel
+
+Actueel CPU gebruik.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-stat-card-cpu-example
+
+## Memory
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-stat-memory`
+
+### Doel
+
+Actueel geheugengebruik.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-stat-card-memory-example
+
+## Running
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-status-running`
+
+### Doel
+
+Aantal actieve workloads.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-status-running-example
+
+## Pending
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-status-pending`
+
+### Doel
+
+Aantal wachtende workloads.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-status-pending-example
+
+## Failed
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-status-failed`
+
+### Doel
+
+Aantal gefaalde workloads.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-status-failed-example
+
+## Healthy
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-status-healthy`
+
+### Doel
+
+Samengevatte clustergezondheid.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-status-info-example
+
+## ISMS Challenger
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-app-isms`
+
+### Doel
+
+Homelab applicatie voor Information Security Management.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-app-tile-isms-example
+
+## CV Tool
+
+**Soort:** componentinstantie
+
+**Identifier:** `homelab-app-cv`
+
+### Doel
+
+Homelab applicatie voor consultant CV beheer.
+
+### Eigenschappen
+
+- **compositie:** emberforge-homelab-dashboard
+- **voorbeeld:** forge-app-tile-cv-example
+
+## EmberForge Homelab Responsive
+
+**Soort:** layout
+
+**Identifier:** `emberforge-homelab-dashboard-responsive`
+
+### Doel
+
+Ordent statistieken, statussen en applicaties op desktop en compact scherm.
+
+### Eigenschappen
+
+- **columns:** 4
+- **compact-columns:** 2
+- **regions:** homelab-stat-nodes-region, homelab-stat-health-region, homelab-stat-cpu-region, homelab-stat-memory-region, homelab-status-running-region, homelab-status-pending-region, homelab-status-failed-region, homelab-status-healthy-region, homelab-app-isms-region, homelab-app-cv-region
+- **responsive-breakpoint:** 960
+- **rows:** 3
+- **type:** grid
+
+## Nodes statistiek
+
+**Soort:** region
+
+**Identifier:** `homelab-stat-nodes-region`
+
+### Doel
+
+Eerste statistiekpositie.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 1
+- **compact-order:** 1
+- **instantie:** homelab-stat-nodes
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 1
+- **row-span:** 1
+
+## Gezondheid statistiek
+
+**Soort:** region
+
+**Identifier:** `homelab-stat-health-region`
+
+### Doel
+
+Tweede statistiekpositie.
+
+### Eigenschappen
+
+- **column:** 2
+- **column-span:** 1
+- **compact-order:** 2
+- **instantie:** homelab-stat-health
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 1
+- **row-span:** 1
+
+## CPU statistiek
+
+**Soort:** region
+
+**Identifier:** `homelab-stat-cpu-region`
+
+### Doel
+
+Derde statistiekpositie.
+
+### Eigenschappen
+
+- **column:** 3
+- **column-span:** 1
+- **compact-order:** 3
+- **instantie:** homelab-stat-cpu
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 1
+- **row-span:** 1
+
+## Geheugen statistiek
+
+**Soort:** region
+
+**Identifier:** `homelab-stat-memory-region`
+
+### Doel
+
+Vierde statistiekpositie.
+
+### Eigenschappen
+
+- **column:** 4
+- **column-span:** 1
+- **compact-order:** 4
+- **instantie:** homelab-stat-memory
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 1
+- **row-span:** 1
+
+## Running status
+
+**Soort:** region
+
+**Identifier:** `homelab-status-running-region`
+
+### Doel
+
+Eerste statuspositie.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 1
+- **compact-order:** 5
+- **instantie:** homelab-status-running
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 2
+- **row-span:** 1
+
+## Pending status
+
+**Soort:** region
+
+**Identifier:** `homelab-status-pending-region`
+
+### Doel
+
+Tweede statuspositie.
+
+### Eigenschappen
+
+- **column:** 2
+- **column-span:** 1
+- **compact-order:** 6
+- **instantie:** homelab-status-pending
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 2
+- **row-span:** 1
+
+## Failed status
+
+**Soort:** region
+
+**Identifier:** `homelab-status-failed-region`
+
+### Doel
+
+Derde statuspositie.
+
+### Eigenschappen
+
+- **column:** 3
+- **column-span:** 1
+- **compact-order:** 7
+- **instantie:** homelab-status-failed
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 2
+- **row-span:** 1
+
+## Healthy status
+
+**Soort:** region
+
+**Identifier:** `homelab-status-healthy-region`
+
+### Doel
+
+Vierde statuspositie.
+
+### Eigenschappen
+
+- **column:** 4
+- **column-span:** 1
+- **compact-order:** 8
+- **instantie:** homelab-status-healthy
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 2
+- **row-span:** 1
+
+## ISMS applicatie
+
+**Soort:** region
+
+**Identifier:** `homelab-app-isms-region`
+
+### Doel
+
+Eerste applicatiepositie.
+
+### Eigenschappen
+
+- **column:** 1
+- **column-span:** 2
+- **compact-order:** 9
+- **instantie:** homelab-app-isms
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 3
+- **row-span:** 1
+
+## CV applicatie
+
+**Soort:** region
+
+**Identifier:** `homelab-app-cv-region`
+
+### Doel
+
+Tweede applicatiepositie.
+
+### Eigenschappen
+
+- **column:** 3
+- **column-span:** 2
+- **compact-order:** 10
+- **instantie:** homelab-app-cv
+- **layout:** emberforge-homelab-dashboard-responsive
+- **row:** 3
+- **row-span:** 1
+
+## EmberForge Homelab Dashboard
+
+**Soort:** product
+
+**Identifier:** `emberforge-homelab-dashboard-html`
+
+### Doel
+
+Responsief homelab overzicht van statistieken, statussen en applicaties.
+
+### Eigenschappen
+
+- **backend:** html
+- **compositie:** emberforge-homelab-dashboard
+- **layout:** emberforge-homelab-dashboard-responsive
+- **mode:** interactive
+- **pad:** output/products/emberforge-homelab-dashboard.html
 - **wereld:** beckeringh-palace
 
 ## Beckeringh Palace Projectstatus

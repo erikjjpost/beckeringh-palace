@@ -85,7 +85,7 @@
       "id": "product-surfaces",
       "status": "gedeeltelijk-mapbaar",
       "doel": "BAT composition, layout en product",
-      "bewijs": "Dashboard, Keycloak en terminal zijn concrete voorbeelden en nog geen normatieve productcontracten."
+      "bewijs": "M11.4a activeert de homelab dashboardbron als een afzonderlijke native HTML productsurface met tien BAT componentvoorbeelden, een vierkoloms grid en een expliciet tweekoloms compact contract. Grafana, Keycloak en terminal zijn nog niet als volledige productsurfaces gemigreerd."
     },
     {
       "id": "vector-assets",

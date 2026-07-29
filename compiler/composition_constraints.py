@@ -27,6 +27,11 @@ class DesignCompositionConstraint:
         homepagegebieden = {
             obj.id for obj in context.objecten if obj.soort == "homepagegebied"
         }
+        voorbeelden = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "componentvoorbeeld"
+        }
 
         for obj in context.objecten:
             if obj.soort == "compositie":
@@ -97,6 +102,7 @@ class DesignCompositionConstraint:
                     "informatiegebied",
                     "homepagegebied",
                     "navigatie",
+                    "voorbeeld",
                 }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
@@ -142,8 +148,15 @@ class DesignCompositionConstraint:
                         ))
                 component_id = obj.eigenschappen.get("component")
                 homepagegebied = obj.eigenschappen.get("homepagegebied")
+                voorbeeld_id = obj.eigenschappen.get("voorbeeld")
+                voorbeeld = (
+                    voorbeelden.get(voorbeeld_id)
+                    if isinstance(voorbeeld_id, str)
+                    else None
+                )
                 if (
                     "homepagegebied" not in obj.eigenschappen
+                    and "voorbeeld" not in obj.eigenschappen
                     and component_id not in componenten
                 ):
                     diagnostics.append(Diagnostic(
@@ -154,6 +167,36 @@ class DesignCompositionConstraint:
                         ),
                         locatie=obj.eigenschaplocaties.get("component", obj.bronlocatie),
                     ))
+                if "voorbeeld" in obj.eigenschappen and voorbeeld is None:
+                    diagnostics.append(Diagnostic(
+                        code="BP3719",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' verwijst naar onbekend "
+                            f"componentvoorbeeld '{voorbeeld_id}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get("voorbeeld", obj.bronlocatie),
+                    ))
+                if voorbeeld is not None:
+                    conflicten = {
+                        "component",
+                        "variant",
+                        "informatiegebied",
+                        "homepagegebied",
+                        "metric-kind",
+                        "metric-detail",
+                        "navigatie",
+                    }.intersection(obj.eigenschappen)
+                    if conflicten:
+                        diagnostics.append(Diagnostic(
+                            code="BP3720",
+                            boodschap=(
+                                f"Componentinstantie '{obj.id}' combineert "
+                                f"'voorbeeld' met {', '.join(sorted(conflicten))}"
+                            ),
+                            locatie=obj.eigenschaplocaties.get(
+                                "voorbeeld", obj.bronlocatie
+                            ),
+                        ))
                 metric_kind = obj.eigenschappen.get("metric-kind")
                 informatiegebied = obj.eigenschappen.get("informatiegebied")
                 if (

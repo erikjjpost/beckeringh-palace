@@ -43,6 +43,7 @@ Open daarna `http://localhost:8000/`.
 Importeer in Grafana via **Dashboards**, **New**, **Import**:
 
 - `output/products/forge-dashboard.grafana.json`;
+- `output/products/emberforge-homelab-dashboard.html`;
 - `output/products/project-status.grafana.json`.
 
 Deze dashboards zijn statische architectuursnapshots. Zij bevatten geen

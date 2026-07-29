@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 0392ed7af032",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d7d7d118e92c",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1186,7 +1186,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 452,
+                "height": 560,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1227,7 +1227,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "35",
+                  "fixed": "58",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1279,7 +1279,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "8\n3\n4\n3\n6\n8\n3",
+                  "fixed": "18\n4\n4\n4\n7\n18\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1480,7 +1480,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace Projectstatus\nBeckeringh Palace Projectstatus Grafana",
+                  "fixed": "EmberForge Homelab Dashboard\nBeckeringh Palace Projectstatus\nBeckeringh Palace Projectstatus Grafana",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1490,6 +1490,11 @@
                 "vertical": "top"
               },
               "links": [
+                {
+                  "targetBlank": false,
+                  "title": "EmberForge Homelab Dashboard",
+                  "url": "emberforge-homelab-dashboard.html"
+                },
                 {
                   "targetBlank": false,
                   "title": "Beckeringh Palace Projectstatus",
@@ -1503,7 +1508,7 @@
               ],
               "name": "forge-dashboard-right-panel-product-navigation",
               "placement": {
-                "height": 24,
+                "height": 36,
                 "left": 20,
                 "top": 236,
                 "width": 360
@@ -1518,7 +1523,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.",
+                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nEmberForge Homelab · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nEmberForge Homelab Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Homelab Dashboard · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1529,9 +1534,9 @@
               },
               "name": "forge-dashboard-right-panel-content-anchors",
               "placement": {
-                "height": 128,
+                "height": 224,
                 "left": 20,
-                "top": 272,
+                "top": 284,
                 "width": 360
               },
               "type": "text"
@@ -1557,7 +1562,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 412,
+                "top": 520,
                 "width": 360
               },
               "type": "text"
@@ -1578,7 +1583,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:0392ed7af032cd09c3889605599905cff713ce7ef5173b1ece415469ee6d0cda"
+    "sha256:d7d7d118e92c05c2b386f5d52433695a91095213b8c23efc3e4ada8867b50f3d"
   ],
   "templating": {
     "list": []

@@ -721,6 +721,18 @@ native hostsemantiek en CSS identiteit als productcomponenten. De voormalige
 `html-components` renderdoelbinding is verwijderd; `components.html` wordt nu
 uitsluitend door `forge-design-system-reference-html` gegenereerd.
 
+M11.4a laat een `componentinstantie` optioneel naar één gevalideerd
+`componentvoorbeeld` verwijzen. Component, variant, appearance,
+toegankelijkheid en inhoud worden dan gezamenlijk uit dat voorbeeld opgelost.
+Losse component, variant, metriek, informatiegebied, homepagegebied of
+navigatievelden zijn daarmee niet combineerbaar.
+
+Het EmberForge homelab dashboard gebruikt dit contract voor vier
+statistiekkaarten, vier statussen en twee app tegels. De native gridlayout
+ordent deze op vier kolommen en schakelt onder 960 pixels naar twee kolommen
+met een expliciete compacte leesvolgorde. De HTML backend vertaalt alleen de
+resolved voorbeeldinhoud en bevat geen homelab bronwaarden.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -772,6 +784,8 @@ uitsluitend door `forge-design-system-reference-html` gegenereerd.
 | `BP3716` | Componentinstantie heeft een ongeldige `metric-detail` |
 | `BP3717` | Componentinstantie verwijst naar een onbekend informatiegebied |
 | `BP3718` | Componentinstantie combineert een informatiegebied met legacy metriekvelden |
+| `BP3719` | Componentinstantie verwijst naar een onbekend componentvoorbeeld |
+| `BP3720` | Componentinstantie combineert voorbeeldinhoud met losse inhoudsvelden |
 | `BP3801` | Variant heeft een onbekende eigenschap |
 | `BP3802` | Variant verwijst naar een onbekend component |
 | `BP3803` | Variant verwijst naar een onbekende appearance |

@@ -9,6 +9,10 @@ from compiler.component_accessibility import (
     ResolvedComponentAccessibility,
     resolveer_componenttoegankelijkheid,
 )
+from compiler.component_examples import (
+    ResolvedComponentExample,
+    resolveer_componentvoorbeelden,
+)
 from compiler.design_variants import ResolvedComponentVariant, resolveer_varianten
 from compiler.information_architecture import (
     ResolvedContentAnchor,
@@ -37,6 +41,7 @@ class ResolvedComponentInstance:
     composition_id: str
     component_id: str
     variant_id: str | None
+    example: ResolvedComponentExample | None
     appearance_id: str | None
     state_appearances: tuple[tuple[str, str], ...]
     accessibility: ResolvedComponentAccessibility | None
@@ -88,6 +93,7 @@ def _instantie_uit_object(
     objecten_per_soort: dict[str, int],
     aantal_objecten: int,
     objecten: tuple[Architectuurobject, ...],
+    voorbeelden: dict[str, ResolvedComponentExample],
 ) -> ResolvedComponentInstance:
     symbolen = {item.id: item for item in objecten}
     homepagegebied_waarde = obj.eigenschappen.get("homepagegebied")
@@ -96,14 +102,24 @@ def _instantie_uit_object(
         if isinstance(homepagegebied_waarde, str)
         else None
     )
+    voorbeeld_waarde = obj.eigenschappen.get("voorbeeld")
+    voorbeeld = (
+        voorbeelden.get(voorbeeld_waarde)
+        if isinstance(voorbeeld_waarde, str)
+        else None
+    )
     component_id = (
         homepagegebied.component_id
         if homepagegebied is not None
+        else voorbeeld.component_id
+        if voorbeeld is not None
         else _tekst(obj, "component")
     )
     variant_waarde = (
         homepagegebied.variant_id
         if homepagegebied is not None
+        else voorbeeld.variant_id
+        if voorbeeld is not None
         else obj.eigenschappen.get("variant")
     )
     variant_id = variant_waarde if isinstance(variant_waarde, str) else None
@@ -169,6 +185,7 @@ def _instantie_uit_object(
         composition_id=_tekst(obj, "compositie"),
         component_id=component_id,
         variant_id=variant_id,
+        example=voorbeeld,
         appearance_id=(
             homepagegebied.appearance_id
             if homepagegebied is not None
@@ -282,6 +299,10 @@ def resolveer_composities(
         variant.id: variant
         for variant in resolveer_varianten(objecten)
     }
+    voorbeelden = {
+        voorbeeld.id: voorbeeld
+        for voorbeeld in resolveer_componentvoorbeelden(objecten)
+    }
     informatiegebieden = {
         gebied.id: gebied
         for gebied in resolveer_informatiegebieden(objecten)
@@ -314,6 +335,7 @@ def resolveer_composities(
                     objecten_per_soort,
                     len(objecten),
                     objecten,
+                    voorbeelden,
                 )
                 for instance_id in instance_ids
             )

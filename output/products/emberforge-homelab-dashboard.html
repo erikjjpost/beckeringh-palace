@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <title>EmberForge Homelab Dashboard</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    :root {
+      --bp-theme-primary: #7DD3FC;
+      --bp-theme-background: #0F1724;
+      --bp-theme-surface: #1F2937;
+      --bp-theme-foreground: #E6EDF5;
+      --bp-theme-accent: #C9895B;
+      --bp-theme-success: #4ADE80;
+      --bp-theme-warning: #E0B341;
+      --bp-theme-error: #F87171;
+      --bp-font-heading: "Orbitron", "Iceland", "Bank Gothic", system-ui, sans-serif;
+      --bp-font-body: "Inter", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      --bp-font-mono: "JetBrains Mono", "Fira Code", "SF Mono", "Menlo", monospace;
+      --bp-type-display: 80px;
+      --bp-type-title: 56px;
+      --bp-type-heading: 32px;
+      --bp-type-body: 16px;
+      --bp-type-label: 12px;
+      --bp-type-caption: 12px;
+      --bp-material-canvas: #0F1724;
+      --bp-material-surface: #1F2937;
+      --bp-material-raised: #243447;
+      --bp-material-field: #0A111C;
+      --bp-material-transparent: #00000000;
+      --bp-material-foreground: #E6EDF5;
+      --bp-material-muted: #B8C5D6;
+      --bp-material-accent: #C9895B;
+      --bp-material-accent-hover: #E2A982;
+      --bp-material-outline: #2F4259;
+      --bp-material-interaction: #7DD3FC;
+      --bp-material-interaction-hover: #A5DEFB;
+      --bp-material-interaction-soft: #7DD3FC0F;
+      --bp-material-interaction-pressed: #38BDF8;
+      --bp-material-disabled: #3E5573;
+      --bp-material-success: #4ADE80;
+      --bp-material-success-surface: #4ADE801F;
+      --bp-material-success-foreground: #86EFAC;
+      --bp-material-warning: #E0B341;
+      --bp-material-warning-surface: #E0B3411A;
+      --bp-material-warning-foreground: #F3D783;
+      --bp-material-error: #F87171;
+      --bp-material-error-surface: #F871711A;
+      --bp-material-error-foreground: #FCA5A5;
+      --bp-material-info: #7DD3FC;
+      --bp-material-info-surface: #7DD3FC1A;
+      --bp-material-info-foreground: #A5DEFB;
+      --bp-border-hairline: 1px;
+      --bp-border-regular: 1px;
+      --bp-border-strong: 1px;
+      --bp-border-style: solid;
+      --bp-radius-small: 4px;
+      --bp-radius-medium: 12px;
+      --bp-radius-large: 16px;
+      --bp-radius-pill: 999px;
+      --bp-radius-control: 8px;
+      --bp-shadow-low: 0 1px 2px rgba(0,0,0,0.25);
+      --bp-shadow-medium: 0 6px 18px rgba(0,0,0,0.35);
+      --bp-shadow-high: 0 18px 44px rgba(0,0,0,0.45);
+      --bp-shadow-none: none;
+      --bp-shadow-glow: 0 0 0 1px rgba(125,211,252,0.18), 0 6px 24px rgba(125,211,252,0.10);
+      --bp-shadow-focus: 0 0 0 3px rgba(125,211,252,0.15);
+      --bp-shadow-glow-accent: 0 0 0 1px rgba(201,137,91,0.30), 0 6px 22px rgba(201,137,91,0.18);
+      --bp-motion-fast: 120ms;
+      --bp-motion-normal: 220ms;
+      --bp-motion-slow: 420ms;
+      --bp-motion-easing: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --bp-motion-rest-offset: 0px;
+      --bp-motion-hover-offset: -1px;
+      --bp-spacing-none: 0;
+      --bp-spacing-xs: 4px;
+      --bp-spacing-small: 8px;
+      --bp-spacing-medium: 16px;
+      --bp-spacing-large: 32px;
+      --bp-spacing-xl: 64px;
+      --bp-art-canvas: #0F1724;
+      --bp-art-interaction: #7DD3FC;
+      --bp-art-warm-accent: #C9895B;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: var(--bp-spacing-xl);
+      box-sizing: border-box;
+      background: var(--bp-theme-background);
+      color: var(--bp-theme-foreground);
+      font-family: var(--bp-font-body);
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--bp-font-heading); }
+    code, pre, kbd, samp { font-family: var(--bp-font-mono); }
+    .bp-product-header {
+      max-width: 72rem;
+      margin-bottom: var(--bp-spacing-xl);
+      padding: var(--bp-spacing-large);
+      box-sizing: border-box;
+      background: var(--bp-material-surface);
+      border-left: var(--bp-border-strong) var(--bp-border-style) var(--bp-material-accent);
+      border-radius: var(--bp-radius-medium);
+    }
+    .bp-product-kicker {
+      margin: 0 0 var(--bp-spacing-small);
+      color: var(--bp-theme-accent);
+      font-size: var(--bp-type-label);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .bp-product-header h1 {
+      margin: 0;
+      font-size: var(--bp-type-title);
+    }
+    .bp-product-purpose {
+      margin: var(--bp-spacing-small) 0 0;
+      color: var(--bp-material-muted);
+      font-size: var(--bp-type-body);
+    }
+    .bp-layout { gap: var(--bp-spacing-medium); }
+    .bp-region { padding: var(--bp-spacing-large); }
+    .bp-region h2 { margin-top: 0; }
+    @media (max-width: 960px) {
+      body { padding: var(--bp-spacing-large); }
+    }
+    body {
+      background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--bp-art-interaction) 8%, transparent), transparent 38%),
+        radial-gradient(circle at 88% 100%, color-mix(in srgb, var(--bp-art-warm-accent) 6%, transparent), transparent 34%),
+        var(--bp-art-canvas);
+    }
+    .bp-product-header {
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-left-color: var(--bp-material-outline);
+    }
+    .bp-product-header::after {
+      content: "";
+      display: block;
+      height: var(--bp-border-hairline);
+      margin-top: var(--bp-spacing-medium);
+      background: linear-gradient(90deg, var(--bp-material-outline), transparent);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bp-region { transition: none; }
+    }
+    .bp-canvas { background: var(--bp-material-canvas); }
+    .bp-region {
+      background: var(--bp-material-raised);
+      color: var(--bp-material-foreground);
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-radius: var(--bp-radius-medium);
+      box-shadow: var(--bp-shadow-low);
+      transition: box-shadow var(--bp-motion-normal) var(--bp-motion-easing);
+    }
+    .bp-metric {
+      margin: var(--bp-spacing-small) 0;
+      color: var(--bp-material-accent);
+      font-family: var(--bp-font-heading);
+      font-size: calc(var(--bp-type-heading) * 2);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .bp-description {
+      margin: var(--bp-spacing-small) 0 0;
+      color: var(--bp-material-muted);
+      font-size: var(--bp-type-body);
+    }
+    .bp-metric-details {
+      display: grid;
+      gap: var(--bp-spacing-xs);
+      margin: var(--bp-spacing-small) 0;
+      padding: 0;
+      list-style: none;
+      color: var(--bp-material-muted);
+      font-size: var(--bp-type-caption);
+    }
+    .bp-metric-details li {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--bp-spacing-small);
+      border-bottom: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+    }
+    .bp-metric-detail-value {
+      color: var(--bp-material-foreground);
+      font-weight: 700;
+    }
+    .bp-status-summary {
+      display: grid;
+      grid-template-columns: minmax(12rem, 18rem) 1fr;
+      gap: var(--bp-spacing-large);
+      margin-bottom: var(--bp-spacing-large);
+    }
+    .bp-status-overall {
+      padding: var(--bp-spacing-large);
+      background: var(--bp-material-raised);
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-radius: var(--bp-radius-medium);
+    }
+    .bp-status-overall strong {
+      color: var(--bp-material-accent);
+      font-family: var(--bp-font-heading);
+      font-size: var(--bp-type-display);
+    }
+    .bp-status-milestones, .bp-status-areas {
+      display: grid;
+      gap: var(--bp-spacing-medium);
+    }
+    .bp-status-milestones { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .bp-status-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bp-status-card {
+      padding: var(--bp-spacing-large);
+      background: var(--bp-material-raised);
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-radius: var(--bp-radius-medium);
+    }
+    .bp-status-card h2, .bp-status-card h3 { margin-top: 0; }
+    .bp-status-progress {
+      width: 100%;
+      accent-color: var(--bp-material-accent);
+    }
+    .bp-status-label { color: var(--bp-material-muted); }
+    @media (max-width: 960px) {
+      .bp-status-summary, .bp-status-milestones, .bp-status-areas { grid-template-columns: 1fr; }
+    }
+    .bp-layout { box-sizing: border-box; }
+    .bp-region { box-sizing: border-box; }
+    @media (max-width: 960px) {
+      .bp-layout-emberforge-homelab-dashboard-responsive { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+      [data-region="homelab-stat-nodes-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:1; }
+      [data-region="homelab-stat-health-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:2; }
+      [data-region="homelab-stat-cpu-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:3; }
+      [data-region="homelab-stat-memory-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:4; }
+      [data-region="homelab-status-running-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:5; }
+      [data-region="homelab-status-pending-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:6; }
+      [data-region="homelab-status-failed-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:7; }
+      [data-region="homelab-status-healthy-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:8; }
+      [data-region="homelab-app-isms-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:9; }
+      [data-region="homelab-app-cv-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:10; }
+    }
+  </style>
+</head>
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="interactive" data-product-content="composition" data-time-context="applicable">
+  <header class="bp-product-header">
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Interactief product</p>
+    <h1>EmberForge Homelab</h1>
+    <p class="bp-product-purpose">Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.</p>
+  </header>
+  <main class="bp-layout bp-layout-emberforge-homelab-dashboard-responsive" data-layout-type="grid" data-responsive-breakpoint="960" data-compact-columns="2" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr))">
+    <section class="bp-region" data-region="homelab-stat-nodes-region" data-instance="homelab-stat-nodes" data-compact-order="1" style="grid-column:1 / span 1;grid-row:1 / span 1">
+      <h2>Nodes</h2>
+            <article class="bp-forge-stat-card bp-variant-forge-stat-card-value" data-example="forge-stat-card-nodes-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-value" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-value-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-stat-nodes-forge-stat-card-nodes-example-rest-label">
+              <small id="bp-example-homelab-stat-nodes-forge-stat-card-nodes-example-rest-label">Nodes</small>
+              <strong>12</strong>
+              <p>All Running</p>
+            </article>
+      <p class="bp-description">Aantal actieve clusternodes.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-stat-health-region" data-instance="homelab-stat-health" data-compact-order="2" style="grid-column:2 / span 1;grid-row:1 / span 1">
+      <h2>Cluster Health</h2>
+            <article class="bp-forge-stat-card bp-variant-forge-stat-card-health" data-example="forge-stat-card-health-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-health" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-health-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-stat-health-forge-stat-card-health-example-rest-label">
+              <small id="bp-example-homelab-stat-health-forge-stat-card-health-example-rest-label">Cluster Health</small>
+              <strong>Healthy</strong>
+              <p>98%</p>
+            </article>
+      <p class="bp-description">Actuele gezondheid van het cluster.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-stat-cpu-region" data-instance="homelab-stat-cpu" data-compact-order="3" style="grid-column:3 / span 1;grid-row:1 / span 1">
+      <h2>CPU Usage</h2>
+            <article class="bp-forge-stat-card bp-variant-forge-stat-card-progress" data-example="forge-stat-card-cpu-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-progress" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-value-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-stat-cpu-forge-stat-card-cpu-example-rest-label">
+              <small id="bp-example-homelab-stat-cpu-forge-stat-card-cpu-example-rest-label">CPU Usage</small>
+              <strong>24%</strong>
+            </article>
+      <p class="bp-description">Actueel CPU gebruik.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-stat-memory-region" data-instance="homelab-stat-memory" data-compact-order="4" style="grid-column:4 / span 1;grid-row:1 / span 1">
+      <h2>Memory</h2>
+            <article class="bp-forge-stat-card bp-variant-forge-stat-card-progress-ember" data-example="forge-stat-card-memory-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-progress-ember" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-ember-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-stat-memory-forge-stat-card-memory-example-rest-label">
+              <small id="bp-example-homelab-stat-memory-forge-stat-card-memory-example-rest-label">Memory</small>
+              <strong>43%</strong>
+            </article>
+      <p class="bp-description">Actueel geheugengebruik.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-status-running-region" data-instance="homelab-status-running" data-compact-order="5" style="grid-column:1 / span 1;grid-row:2 / span 1">
+      <h2>Running</h2>
+            <output class="bp-forge-status bp-variant-forge-status-running" data-example="forge-status-running-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-running" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-running-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-status-running-forge-status-running-example-rest-label"><span id="bp-example-homelab-status-running-forge-status-running-example-rest-label">Running</span> · <span>62</span></output>
+      <p class="bp-description">Aantal actieve workloads.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-status-pending-region" data-instance="homelab-status-pending" data-compact-order="6" style="grid-column:2 / span 1;grid-row:2 / span 1">
+      <h2>Pending</h2>
+            <output class="bp-forge-status bp-variant-forge-status-pending" data-example="forge-status-pending-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-pending" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-pending-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-status-pending-forge-status-pending-example-rest-label"><span id="bp-example-homelab-status-pending-forge-status-pending-example-rest-label">Pending</span> · <span>3</span></output>
+      <p class="bp-description">Aantal wachtende workloads.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-status-failed-region" data-instance="homelab-status-failed" data-compact-order="7" style="grid-column:3 / span 1;grid-row:2 / span 1">
+      <h2>Failed</h2>
+            <output class="bp-forge-status bp-variant-forge-status-failed" data-example="forge-status-failed-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-failed" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-failed-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-status-failed-forge-status-failed-example-rest-label"><span id="bp-example-homelab-status-failed-forge-status-failed-example-rest-label">Failed</span> · <span>1</span></output>
+      <p class="bp-description">Aantal gefaalde workloads.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-status-healthy-region" data-instance="homelab-status-healthy" data-compact-order="8" style="grid-column:4 / span 1;grid-row:2 / span 1">
+      <h2>Healthy</h2>
+            <output class="bp-forge-status bp-variant-forge-status-info" data-example="forge-status-info-example" data-component="forge-status" data-component-role="status" data-component-anatomy="label waarde" data-variant="forge-status-info" data-component-state="rest" data-component-states="rest" data-appearance="forge-status-info-appearance" data-accessibility-contract="forge-status-accessibility" data-accessibility-role="status" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-status-healthy-forge-status-info-example-rest-label"><span id="bp-example-homelab-status-healthy-forge-status-info-example-rest-label">Healthy</span> · <span>98%</span></output>
+      <p class="bp-description">Samengevatte clustergezondheid.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-app-isms-region" data-instance="homelab-app-isms" data-compact-order="9" style="grid-column:1 / span 2;grid-row:3 / span 1">
+      <h2>ISMS Challenger</h2>
+            <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-default" data-example="forge-app-tile-isms-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-default" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-rest-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-homelab-app-isms-forge-app-tile-isms-example-rest-label" aria-describedby="bp-example-homelab-app-isms-forge-app-tile-isms-example-rest-description bp-example-homelab-app-isms-forge-app-tile-isms-example-rest-status">
+              <strong id="bp-example-homelab-app-isms-forge-app-tile-isms-example-rest-label">ISMS Challenger</strong>
+              <span id="bp-example-homelab-app-isms-forge-app-tile-isms-example-rest-description" class="bp-example-description">Information Security Management</span>
+              <small id="bp-example-homelab-app-isms-forge-app-tile-isms-example-rest-status">running</small>
+            </button>
+      <p class="bp-description">Homelab applicatie voor Information Security Management.</p>
+    </section>
+    <section class="bp-region" data-region="homelab-app-cv-region" data-instance="homelab-app-cv" data-compact-order="10" style="grid-column:3 / span 2;grid-row:3 / span 1">
+      <h2>CV Tool</h2>
+            <button type="button" class="bp-forge-app-tile bp-variant-forge-app-tile-ember" data-example="forge-app-tile-cv-example" data-component="forge-app-tile" data-component-role="app-tegel" data-component-anatomy="label beschrijving status" data-variant="forge-app-tile-ember" data-component-state="rest" data-component-states="rest hover focus pressed disabled" data-appearance="forge-app-tile-ember-rest-appearance" data-accessibility-contract="forge-app-tile-accessibility" data-accessibility-role="actie" data-accessibility-name-source="label" data-accessibility-value-source="status" data-accessibility-disabled="native" data-accessibility-focus="tabvolgorde" data-accessibility-keyboard="activeren" data-accessibility-keys="Enter Space" aria-labelledby="bp-example-homelab-app-cv-forge-app-tile-cv-example-rest-label" aria-describedby="bp-example-homelab-app-cv-forge-app-tile-cv-example-rest-description bp-example-homelab-app-cv-forge-app-tile-cv-example-rest-status">
+              <strong id="bp-example-homelab-app-cv-forge-app-tile-cv-example-rest-label">CV Tool</strong>
+              <span id="bp-example-homelab-app-cv-forge-app-tile-cv-example-rest-description" class="bp-example-description">CV beheer voor consultants</span>
+              <small id="bp-example-homelab-app-cv-forge-app-tile-cv-example-rest-status">running</small>
+            </button>
+      <p class="bp-description">Homelab applicatie voor consultant CV beheer.</p>
+    </section>
+  </main>
+</body>
+</html>

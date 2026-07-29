@@ -139,3 +139,15 @@ betekenis van primitives, tokens, componenttoestanden, voorbeelden en
 toegankelijkheid. De productcompiler draagt de volledige resolved referentie
 naar de HTML backend. `components.html` leest geen ontwerpinput en bevat geen
 externe runtimebron.
+
+## Homelab dashboardproduct
+
+M11.4a maakt van de geverifieerde statistiekkaarten, statussen en app tegels
+een afzonderlijk EmberForge homelab product. Een componentinstantie verwijst
+daarbij naar een volledig gevalideerd componentvoorbeeld. De compositie bevat
+tien instanties en de native gridlayout ordent deze in vier kolommen, met twee
+kolommen en expliciete leesvolgorde onder 960 pixels.
+
+De HTML backend vertaalt uitsluitend de opgeloste voorbeeldinhoud. De
+aangeleverde UI kit JSX en CSS blijven niet normatief en worden niet als
+rendererlogica overgenomen.

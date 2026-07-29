@@ -2237,12 +2237,16 @@
       "inhoud": [
         "forge-dashboard",
         "forge-dashboard-ultrawide",
+        "emberforge-homelab-dashboard",
+        "emberforge-homelab-dashboard-responsive",
+        "emberforge-homelab-dashboard-html",
         "project-status-html",
         "forge-design-system-reference-html"
       ],
       "leesvolgorde": "3",
       "naam": "Productfamilie",
       "navigatie": [
+        "emberforge-homelab-dashboard-html",
         "project-status-html",
         "project-status-grafana"
       ],
@@ -2391,6 +2395,315 @@
       "wereld": "beckeringh-palace"
     },
     "id": "forge-dashboard-grafana",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
+      "instanties": [
+        "homelab-stat-nodes",
+        "homelab-stat-health",
+        "homelab-stat-cpu",
+        "homelab-stat-memory",
+        "homelab-status-running",
+        "homelab-status-pending",
+        "homelab-status-failed",
+        "homelab-status-healthy",
+        "homelab-app-isms",
+        "homelab-app-cv"
+      ],
+      "naam": "EmberForge Homelab"
+    },
+    "id": "emberforge-homelab-dashboard",
+    "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Aantal actieve clusternodes.",
+      "naam": "Nodes",
+      "voorbeeld": "forge-stat-card-nodes-example"
+    },
+    "id": "homelab-stat-nodes",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Actuele gezondheid van het cluster.",
+      "naam": "Cluster Health",
+      "voorbeeld": "forge-stat-card-health-example"
+    },
+    "id": "homelab-stat-health",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Actueel CPU gebruik.",
+      "naam": "CPU Usage",
+      "voorbeeld": "forge-stat-card-cpu-example"
+    },
+    "id": "homelab-stat-cpu",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Actueel geheugengebruik.",
+      "naam": "Memory",
+      "voorbeeld": "forge-stat-card-memory-example"
+    },
+    "id": "homelab-stat-memory",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Aantal actieve workloads.",
+      "naam": "Running",
+      "voorbeeld": "forge-status-running-example"
+    },
+    "id": "homelab-status-running",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Aantal wachtende workloads.",
+      "naam": "Pending",
+      "voorbeeld": "forge-status-pending-example"
+    },
+    "id": "homelab-status-pending",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Aantal gefaalde workloads.",
+      "naam": "Failed",
+      "voorbeeld": "forge-status-failed-example"
+    },
+    "id": "homelab-status-failed",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Samengevatte clustergezondheid.",
+      "naam": "Healthy",
+      "voorbeeld": "forge-status-info-example"
+    },
+    "id": "homelab-status-healthy",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Homelab applicatie voor Information Security Management.",
+      "naam": "ISMS Challenger",
+      "voorbeeld": "forge-app-tile-isms-example"
+    },
+    "id": "homelab-app-isms",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Homelab applicatie voor consultant CV beheer.",
+      "naam": "CV Tool",
+      "voorbeeld": "forge-app-tile-cv-example"
+    },
+    "id": "homelab-app-cv",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "columns": "4",
+      "compact-columns": "2",
+      "doel": "Ordent statistieken, statussen en applicaties op desktop en compact scherm.",
+      "naam": "EmberForge Homelab Responsive",
+      "regions": [
+        "homelab-stat-nodes-region",
+        "homelab-stat-health-region",
+        "homelab-stat-cpu-region",
+        "homelab-stat-memory-region",
+        "homelab-status-running-region",
+        "homelab-status-pending-region",
+        "homelab-status-failed-region",
+        "homelab-status-healthy-region",
+        "homelab-app-isms-region",
+        "homelab-app-cv-region"
+      ],
+      "responsive-breakpoint": "960",
+      "rows": "3",
+      "type": "grid"
+    },
+    "id": "emberforge-homelab-dashboard-responsive",
+    "soort": "layout"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "1",
+      "compact-order": "1",
+      "doel": "Eerste statistiekpositie.",
+      "instantie": "homelab-stat-nodes",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "Nodes statistiek",
+      "row": "1",
+      "row-span": "1"
+    },
+    "id": "homelab-stat-nodes-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "2",
+      "column-span": "1",
+      "compact-order": "2",
+      "doel": "Tweede statistiekpositie.",
+      "instantie": "homelab-stat-health",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "Gezondheid statistiek",
+      "row": "1",
+      "row-span": "1"
+    },
+    "id": "homelab-stat-health-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "3",
+      "column-span": "1",
+      "compact-order": "3",
+      "doel": "Derde statistiekpositie.",
+      "instantie": "homelab-stat-cpu",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "CPU statistiek",
+      "row": "1",
+      "row-span": "1"
+    },
+    "id": "homelab-stat-cpu-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "4",
+      "column-span": "1",
+      "compact-order": "4",
+      "doel": "Vierde statistiekpositie.",
+      "instantie": "homelab-stat-memory",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "Geheugen statistiek",
+      "row": "1",
+      "row-span": "1"
+    },
+    "id": "homelab-stat-memory-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "1",
+      "compact-order": "5",
+      "doel": "Eerste statuspositie.",
+      "instantie": "homelab-status-running",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "Running status",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homelab-status-running-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "2",
+      "column-span": "1",
+      "compact-order": "6",
+      "doel": "Tweede statuspositie.",
+      "instantie": "homelab-status-pending",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "Pending status",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homelab-status-pending-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "3",
+      "column-span": "1",
+      "compact-order": "7",
+      "doel": "Derde statuspositie.",
+      "instantie": "homelab-status-failed",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "Failed status",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homelab-status-failed-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "4",
+      "column-span": "1",
+      "compact-order": "8",
+      "doel": "Vierde statuspositie.",
+      "instantie": "homelab-status-healthy",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "Healthy status",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homelab-status-healthy-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "1",
+      "column-span": "2",
+      "compact-order": "9",
+      "doel": "Eerste applicatiepositie.",
+      "instantie": "homelab-app-isms",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "ISMS applicatie",
+      "row": "3",
+      "row-span": "1"
+    },
+    "id": "homelab-app-isms-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "3",
+      "column-span": "2",
+      "compact-order": "10",
+      "doel": "Tweede applicatiepositie.",
+      "instantie": "homelab-app-cv",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "naam": "CV applicatie",
+      "row": "3",
+      "row-span": "1"
+    },
+    "id": "homelab-app-cv-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "backend": "html",
+      "compositie": "emberforge-homelab-dashboard",
+      "doel": "Responsief homelab overzicht van statistieken, statussen en applicaties.",
+      "layout": "emberforge-homelab-dashboard-responsive",
+      "mode": "interactive",
+      "naam": "EmberForge Homelab Dashboard",
+      "pad": "output/products/emberforge-homelab-dashboard.html",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-homelab-dashboard-html",
     "soort": "product"
   },
   {

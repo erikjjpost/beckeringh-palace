@@ -94,6 +94,7 @@ def render_component_example(
     appearance_id: str,
     heading_level: int = 2,
     id_namespace: str = "",
+    include_context: bool = True,
 ) -> list[str]:
     if heading_level not in range(2, 7):
         raise ValueError("Componentvoorbeeld vereist headingniveau 2 tot en met 6")
@@ -109,11 +110,15 @@ def render_component_example(
         if state == "rest"
         else f"{example.naam} · {state}"
     )
-    regels = [
-        '    <section class="bp-component-example-shell">',
-        f"      <h{heading_level}>{html.escape(titel)}</h{heading_level}>",
-        f"      <p>{html.escape(example.doel)}</p>",
-    ]
+    regels = (
+        [
+            '    <section class="bp-component-example-shell">',
+            f"      <h{heading_level}>{html.escape(titel)}</h{heading_level}>",
+            f"      <p>{html.escape(example.doel)}</p>",
+        ]
+        if include_context
+        else []
+    )
     disabled = state == "disabled"
     if example.component_role == "actie":
         disabled_attribute = (
@@ -254,5 +259,6 @@ def render_component_example(
             f"        <h3>{html.escape(example.label)}</h3>",
             "      </section>",
         ])
-    regels.append("    </section>")
+    if include_context:
+        regels.append("    </section>")
     return regels

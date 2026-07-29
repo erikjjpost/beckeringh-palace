@@ -229,7 +229,7 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["fixed"],
         )
         self.assertEqual(
-            ["2", "139", "35"],
+            ["2", "139", "58"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"
