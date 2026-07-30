@@ -46,6 +46,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
     ObjectsoortDefinitie("assetfamilie", Domeinstatus.NATIVE, "Ordent samenhangende assets onder één merk en expliciet familietype."),
+    ObjectsoortDefinitie("wallpaperfamilie", Domeinstatus.NATIVE, "Ordent expliciete wallpaperformaten onder één merk zonder schaallogica."),
     ObjectsoortDefinitie("wallpaper", Domeinstatus.NATIVE, "Bundelt canvas, formaat en geordende lagen tot één wallpaperintentie."),
     ObjectsoortDefinitie("wallpaperlaag", Domeinstatus.NATIVE, "Ordent semantisch samenhangende assetplaatsingen binnen een wallpaper."),
     ObjectsoortDefinitie("assetplaatsing", Domeinstatus.NATIVE, "Plaatst één native asset expliciet binnen een wallpapercanvas."),

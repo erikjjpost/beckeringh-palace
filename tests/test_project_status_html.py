@@ -74,6 +74,8 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "emberforge-icon-assets-svg",
                 "emberforge-merkteken-svg",
                 "emberforge-woordmerk-svg",
+                "emberforge-desktop-wallpaper-manifest",
+                "emberforge-desktop-wallpaper-png",
                 "emberforge-ultrawide-wallpaper-manifest",
                 "emberforge-ultrawide-wallpaper-png",
             },

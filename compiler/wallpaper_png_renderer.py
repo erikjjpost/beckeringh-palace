@@ -8,6 +8,7 @@ import math
 import re
 import struct
 from typing import Iterable
+import zlib
 
 from compiler.svg_assets import ResolvedSvgAsset
 from compiler.wallpaper_products import (
@@ -892,36 +893,6 @@ def _chunk(name: bytes, payload: bytes) -> bytes:
     )
 
 
-def _adler32(payload: bytes) -> int:
-    first = 1
-    second = 0
-    modulus = 65521
-    for offset in range(0, len(payload), 5552):
-        for value in payload[offset:offset + 5552]:
-            first += value
-            second += first
-        first %= modulus
-        second %= modulus
-    return (second << 16) | first
-
-
-def _stored_zlib(payload: bytes) -> bytes:
-    result = bytearray(b"\x78\x01")
-    if not payload:
-        result.extend(b"\x01\x00\x00\xff\xff")
-    else:
-        for offset in range(0, len(payload), 65535):
-            block = payload[offset:offset + 65535]
-            final = offset + len(block) == len(payload)
-            result.append(1 if final else 0)
-            length = len(block)
-            result.extend(struct.pack("<H", length))
-            result.extend(struct.pack("<H", length ^ 0xFFFF))
-            result.extend(block)
-    result.extend(struct.pack(">I", _adler32(payload)))
-    return bytes(result)
-
-
 def _color_key(pixels: bytearray, offset: int) -> int:
     return (
         pixels[offset] << 16
@@ -1021,7 +992,7 @@ def _encode_png(
         ))
     if palette_payload:
         chunks.append(_chunk(b"PLTE", palette_payload))
-    chunks.append(_chunk(b"IDAT", _stored_zlib(image_rows)))
+    chunks.append(_chunk(b"IDAT", zlib.compress(image_rows, level=9)))
     chunks.append(_chunk(b"IEND", b""))
     return PNG_SIGNATURE + b"".join(chunks)
 
@@ -1051,11 +1022,14 @@ def render_wallpaper_png(
     for layer in wallpaper.lagen:
         for placement in layer.plaatsingen:
             _render_placement(raster, placement)
-    return _encode_png(
-        raster,
-        (
-            ("bp-product", product_id),
-            ("bp-wallpaper", wallpaper.id),
-            ("bp-snapshot", snapshot_ref),
-        ),
-    )
+    metadata = [
+        ("bp-product", product_id),
+        ("bp-wallpaper", wallpaper.id),
+    ]
+    if wallpaper.familie:
+        metadata.extend((
+            ("bp-wallpaper-family", wallpaper.familie),
+            ("bp-wallpaper-variant", wallpaper.variant),
+        ))
+    metadata.append(("bp-snapshot", snapshot_ref))
+    return _encode_png(raster, tuple(metadata))

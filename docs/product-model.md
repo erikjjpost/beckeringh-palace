@@ -271,6 +271,30 @@ of artifactkennis. De catalogus koppelt een asset aan haar opgeloste familie.
 De generieke SVG serialisatie publiceert alleen de familie en variant als
 metadata en blijft onafhankelijk van het familietype.
 
+### `wallpaperfamilie`
+
+M11.6c ordent meerdere zelfstandig gespecificeerde canvasformaten onder één
+merk. Iedere wallpaperfamilie vereist:
+
+- `naam` en `doel`;
+- `merk`: één bestaande native merkidentiteit;
+- `wallpapers`: minstens twee unieke en geordende wallpapers.
+
+Ieder lid verwijst met `familie` wederkerig naar dezelfde familie en draagt
+een unieke betekenisvolle `variant`. Alle leden gebruiken hetzelfde merk en
+hebben een uniek expliciet paar `breedte` en `hoogte`. De familie bevat geen
+schaalfactor, basisvariant of afleidingsregel. Lagen en assetplaatsingen blijven
+eigendom van iedere afzonderlijke wallpaper.
+
+```bp
+wallpaperfamilie forge-wallpapers {
+    naam: "Forge Wallpapers"
+    doel: "Ordent zelfstandige ultrawide en desktopformaten."
+    merk: "emberforge"
+    wallpapers: ["forge-ultrawide", "forge-desktop"]
+}
+```
+
 ### `wallpaper`
 
 M11.6a modelleert wallpaperintentie backendonafhankelijk. M11.6b rendert
@@ -279,6 +303,8 @@ dezelfde opgeloste context als beeld. Iedere wallpaper vereist:
 - `naam` en `doel`;
 - `wereld`: de wereld waaruit het thema en canvas worden opgelost;
 - `merk`: de bestaande native merkidentiteit;
+- optioneel `familie` en `variant`, uitsluitend samen en via een bekende
+  wederkerige `wallpaperfamilie`;
 - `formaat`: in deze eerste slice exact `png`;
 - `breedte` en `hoogte`: canonieke positieve pixelmaten tot 16384;
 - `canvas`: een bestaande semantische materiaalrol in het wereldthema;
@@ -985,8 +1011,15 @@ materiaalrol en voegt `wallpaper-png` toe. De backend ondersteunt de veilige
 SVG padcommando's, respecteert `contain`, `cover`, `stretch`, lijncontracten,
 laagvolgorde, clipping en dekking en schrijft een deterministische PNG zonder
 tijdstempel. De encoder gebruikt waar mogelijk een compact geïndexeerd
-kleurenpalet. Het eerste beeldartifact is
+kleurenpalet en deterministische zlibcompressie. Het eerste beeldartifact is
 `output/products/emberforge-ultrawide.png` van exact 3840 bij 1080 pixels.
+
+M11.6c voegt `ResolvedWallpaperFamily` toe en maakt de bestaande ultrawide
+wallpaper en een nieuwe 1900 bij 1200 desktopwallpaper wederkerige leden van
+`emberforge-wallpapers`. Beide varianten hebben eigen lagen, plaatsingen,
+manifest en PNG product. De manifesten publiceren familie en variant. De PNG
+metadata draagt dezelfde identiteit. Assets en backends worden hergebruikt
+zonder coördinaten of schaalregels tussen de varianten te delen.
 
 ## Diagnostics
 
@@ -1185,5 +1218,14 @@ kleurenpalet. Het eerste beeldartifact is
 | `BP4384` | Wallpaperproduct en wallpaper gebruiken verschillende werelden |
 | `BP4385` | Wallpaperproduct declareert een ander inhoudscontract |
 | `BP4386` | Wallpaperproduct gebruikt geen bij zijn backend passend artifactpad |
+| `BP4390` | Wallpaperfamilie bevat een onbekende eigenschap |
+| `BP4391` | Wallpaperfamilie verwijst naar een onbekend merk |
+| `BP4392` | Wallpaperfamilie mist minstens twee unieke geordende wallpapers |
+| `BP4393` | Wallpaperfamilie verwijst naar een onbekende wallpaper |
+| `BP4394` | Wallpaperfamilie en haar leden zijn niet exact wederkerig |
+| `BP4395` | Wallpaperfamilie bevat ontbrekende of dubbele varianten |
+| `BP4396` | Wallpaperfamilie en haar leden gebruiken verschillende merken |
+| `BP4397` | Wallpaperfamilie bevat een dubbel canvasformaat |
+| `BP4398` | Wallpaper mist een bekende familie of betekenisvolle variant |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

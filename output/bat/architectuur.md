@@ -871,6 +871,21 @@ Horizontaal technisch woordmerk voor brede EmberForge merkoppervlakken.
 - **viewbox:** 0 0 592 80
 - **vulling:** none
 
+## EmberForge Wallpapers
+
+**Soort:** wallpaperfamilie
+
+**Identifier:** `emberforge-wallpapers`
+
+### Doel
+
+Ordent de expliciete ultrawide en desktop canvasformaten als één merkgebonden familie.
+
+### Eigenschappen
+
+- **merk:** emberforge
+- **wallpapers:** emberforge-ultrawide-wallpaper, emberforge-desktop-wallpaper
+
 ## EmberForge Ultrawide Wallpaper
 
 **Soort:** wallpaper
@@ -885,10 +900,12 @@ Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar bee
 
 - **breedte:** 3840
 - **canvas:** canvas
+- **familie:** emberforge-wallpapers
 - **formaat:** png
 - **hoogte:** 1080
 - **lagen:** emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-merklaag
 - **merk:** emberforge
+- **variant:** ultrawide-3840x1080
 - **wereld:** beckeringh-palace
 
 ## EmberForge Wallpaper Ornamentlaag
@@ -1010,6 +1027,148 @@ Plaatst het woordmerk onder het centrale merkteken.
 - **laag:** emberforge-wallpaper-merklaag
 - **x:** 1420
 - **y:** 800
+
+## EmberForge Desktop Wallpaper
+
+**Soort:** wallpaper
+
+**Identifier:** `emberforge-desktop-wallpaper`
+
+### Doel
+
+Legt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen expliciete geometrie.
+
+### Eigenschappen
+
+- **breedte:** 1900
+- **canvas:** canvas
+- **familie:** emberforge-wallpapers
+- **formaat:** png
+- **hoogte:** 1200
+- **lagen:** emberforge-desktop-ornamentlaag, emberforge-desktop-merklaag
+- **merk:** emberforge
+- **variant:** desktop-1900x1200
+- **wereld:** beckeringh-palace
+
+## EmberForge Desktop Ornamentlaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-desktop-ornamentlaag`
+
+### Doel
+
+Ordent twee rustige technische lijnornamenten voor het 1900 bij 1200 canvas.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-desktop-vector-node-left, emberforge-desktop-vector-node-right
+- **rol:** ornament
+- **wallpaper:** emberforge-desktop-wallpaper
+
+## EmberForge Desktop Merklaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-desktop-merklaag`
+
+### Doel
+
+Ordent merkteken en woordmerk met eigen desktopplaatsingen.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-desktop-merkteken, emberforge-desktop-woordmerk
+- **rol:** merk
+- **wallpaper:** emberforge-desktop-wallpaper
+
+## EmberForge Desktop Vector Node Links
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-vector-node-left`
+
+### Doel
+
+Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.
+
+### Eigenschappen
+
+- **asset:** emberforge-vector-node
+- **breedte:** 560
+- **dekking:** 0.14
+- **fit:** contain
+- **hoogte:** 560
+- **kleur:** interaction
+- **laag:** emberforge-desktop-ornamentlaag
+- **x:** 80
+- **y:** 250
+
+## EmberForge Desktop Vector Node Rechts
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-vector-node-right`
+
+### Doel
+
+Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas.
+
+### Eigenschappen
+
+- **asset:** emberforge-vector-node
+- **breedte:** 560
+- **dekking:** 0.14
+- **fit:** contain
+- **hoogte:** 560
+- **kleur:** interaction
+- **laag:** emberforge-desktop-ornamentlaag
+- **x:** 1260
+- **y:** 250
+
+## EmberForge Desktop Merkteken
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-merkteken`
+
+### Doel
+
+Plaatst het merkteken centraal binnen het desktopcanvas.
+
+### Eigenschappen
+
+- **asset:** emberforge-merkteken
+- **breedte:** 480
+- **dekking:** 1
+- **fit:** contain
+- **hoogte:** 480
+- **kleur:** accent
+- **laag:** emberforge-desktop-merklaag
+- **x:** 710
+- **y:** 220
+
+## EmberForge Desktop Woordmerk
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-woordmerk`
+
+### Doel
+
+Plaatst het woordmerk onder het centrale desktopmerkteken.
+
+### Eigenschappen
+
+- **asset:** emberforge-woordmerk
+- **breedte:** 1000
+- **dekking:** 1
+- **fit:** contain
+- **hoogte:** 136
+- **kleur:** foreground
+- **laag:** emberforge-desktop-merklaag
+- **x:** 450
+- **y:** 830
 
 ## Ember Copper
 
@@ -3347,10 +3506,10 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-ultrawide-wallpaper, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-wallpapers, emberforge-ultrawide-wallpaper, emberforge-desktop-wallpaper, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-desktop-wallpaper-png, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
 - **leesvolgorde:** 3
-- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-ultrawide-wallpaper-manifest, project-status-html, project-status-grafana
-- **soorten:** homepagegebied, compositie, componentinstantie, layout, region, wallpaper, wallpaperlaag, assetplaatsing, product, renderdoel
+- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-ultrawide-wallpaper-manifest, emberforge-desktop-wallpaper-png, emberforge-desktop-wallpaper-manifest, project-status-html, project-status-grafana
+- **soorten:** homepagegebied, compositie, componentinstantie, layout, region, wallpaperfamilie, wallpaper, wallpaperlaag, assetplaatsing, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
 ## Forge Dashboard
@@ -5012,6 +5171,44 @@ Rendert het opgeloste native wallpapercontract als deterministisch 3840 bij 1080
 - **mode:** static
 - **pad:** output/products/emberforge-ultrawide.png
 - **wallpaper:** emberforge-ultrawide-wallpaper
+- **wereld:** beckeringh-palace
+
+## EmberForge Desktop Wallpaper Manifest
+
+**Soort:** product
+
+**Identifier:** `emberforge-desktop-wallpaper-manifest`
+
+### Doel
+
+Publiceert het zelfstandige 1900 bij 1200 wallpapercontract als familievariant.
+
+### Eigenschappen
+
+- **backend:** wallpaper-manifest
+- **inhoud:** wallpaper
+- **mode:** static
+- **pad:** output/products/emberforge-desktop.wallpaper.json
+- **wallpaper:** emberforge-desktop-wallpaper
+- **wereld:** beckeringh-palace
+
+## EmberForge Desktop Wallpaper PNG
+
+**Soort:** product
+
+**Identifier:** `emberforge-desktop-wallpaper-png`
+
+### Doel
+
+Rendert de zelfstandige 1900 bij 1200 EmberForge familievariant.
+
+### Eigenschappen
+
+- **backend:** wallpaper-png
+- **inhoud:** wallpaper
+- **mode:** static
+- **pad:** output/products/emberforge-desktop.png
+- **wallpaper:** emberforge-desktop-wallpaper
 - **wereld:** beckeringh-palace
 
 ## CSS design tokens

@@ -1,0 +1,100 @@
+{
+  "product": {
+    "id": "emberforge-desktop-wallpaper-manifest",
+    "snapshot": "sha256:53266d93d938d5faad4e6c35aa93ce8ac699ec2efbe370b33e94885e0a6846f4"
+  },
+  "schema_version": 3,
+  "wallpaper": {
+    "canvas": {
+      "breedte": 1900,
+      "eenheid": "px",
+      "hoogte": 1200,
+      "kleur": "#0F1724",
+      "materiaalrol": "canvas"
+    },
+    "doel": "Legt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen expliciete geometrie.",
+    "familie": {
+      "id": "emberforge-wallpapers",
+      "variant": "desktop-1900x1200"
+    },
+    "formaat": "png",
+    "id": "emberforge-desktop-wallpaper",
+    "lagen": [
+      {
+        "doel": "Ordent twee rustige technische lijnornamenten voor het 1900 bij 1200 canvas.",
+        "id": "emberforge-desktop-ornamentlaag",
+        "naam": "EmberForge Desktop Ornamentlaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-vector-node",
+            "breedte": 560,
+            "dekking": 0.14,
+            "doel": "Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.",
+            "fit": "contain",
+            "hoogte": 560,
+            "id": "emberforge-desktop-vector-node-left",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Vector Node Links",
+            "x": 80,
+            "y": 250
+          },
+          {
+            "asset": "emberforge-vector-node",
+            "breedte": 560,
+            "dekking": 0.14,
+            "doel": "Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas.",
+            "fit": "contain",
+            "hoogte": 560,
+            "id": "emberforge-desktop-vector-node-right",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Vector Node Rechts",
+            "x": 1260,
+            "y": 250
+          }
+        ],
+        "rol": "ornament"
+      },
+      {
+        "doel": "Ordent merkteken en woordmerk met eigen desktopplaatsingen.",
+        "id": "emberforge-desktop-merklaag",
+        "naam": "EmberForge Desktop Merklaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-merkteken",
+            "breedte": 480,
+            "dekking": 1.0,
+            "doel": "Plaatst het merkteken centraal binnen het desktopcanvas.",
+            "fit": "contain",
+            "hoogte": 480,
+            "id": "emberforge-desktop-merkteken",
+            "kleur": "#C9895B",
+            "materiaalrol": "accent",
+            "naam": "EmberForge Desktop Merkteken",
+            "x": 710,
+            "y": 220
+          },
+          {
+            "asset": "emberforge-woordmerk",
+            "breedte": 1000,
+            "dekking": 1.0,
+            "doel": "Plaatst het woordmerk onder het centrale desktopmerkteken.",
+            "fit": "contain",
+            "hoogte": 136,
+            "id": "emberforge-desktop-woordmerk",
+            "kleur": "#E6EDF5",
+            "materiaalrol": "foreground",
+            "naam": "EmberForge Desktop Woordmerk",
+            "x": 450,
+            "y": 830
+          }
+        ],
+        "rol": "merk"
+      }
+    ],
+    "merk": "emberforge",
+    "naam": "EmberForge Desktop Wallpaper",
+    "wereld": "beckeringh-palace"
+  }
+}
