@@ -306,7 +306,7 @@ merk emberforge {
     tagline: "Sovereign Infrastructure."
     belofte: "Sovereignty over your own stack."
     principes: ["Own your data.", "Own your nodes.", "Own your forge."]
-    producten: ["Homelab Dashboard", "Keycloak login", "Terminal", "CV Database", "ISMS Challenger", "Roadmap", "Marketing en merkoppervlakken"]
+    producten: ["Homelab Dashboard", "Keycloak login", "Terminal", "SVG Asset Catalog", "CV Database", "ISMS Challenger", "Roadmap", "Marketing en merkoppervlakken"]
     taal: "Nederlands met technische termen in het Engels"
     stem: "Zelfverzekerd, technisch en rustig"
 }
@@ -1741,7 +1741,7 @@ informatiegebied palace-world {
     leesvolgorde: "1"
     soorten: ["wereld", "merk", "asset"]
     inhoud: ["beckeringh-palace", "emberforge-vector-node"]
-    navigatie: ["forge-dashboard-html", "forge-dashboard-grafana", "emberforge-vector-node-svg"]
+    navigatie: ["forge-dashboard-html", "forge-dashboard-grafana", "emberforge-svg-asset-catalog-html", "emberforge-vector-node-svg"]
 }
 
 informatiegebied forge-design-system {
@@ -1760,7 +1760,7 @@ informatiegebied palace-product-family {
     toegankelijkheidslabel: "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
     leesvolgorde: "3"
     soorten: ["homepagegebied", "compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
-    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-homelab-dashboard", "emberforge-homelab-dashboard-responsive", "emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "project-status-html", "forge-design-system-reference-html"]
+    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-homelab-dashboard", "emberforge-homelab-dashboard-responsive", "emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "project-status-html", "forge-design-system-reference-html", "emberforge-svg-asset-catalog-html"]
     navigatie: ["emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "project-status-html", "project-status-grafana"]
 }
 
@@ -2281,10 +2281,52 @@ product forge-design-system-reference-html {
     pad: "output/products/components.html"
 }
 
+compositie emberforge-svg-asset-catalog-composition {
+    naam: "EmberForge SVG Asset Catalog"
+    doel: "Ordent alle native SVG assets als één expliciet catalogusproduct."
+    instanties: ["emberforge-svg-asset-catalog-content"]
+}
+
+componentinstantie emberforge-svg-asset-catalog-content {
+    naam: "Native SVG assets"
+    doel: "Navigeerbare previews en contractmetadata van alle getypeerde SVG assets."
+    compositie: "emberforge-svg-asset-catalog-composition"
+    component: "forge-panel"
+    variant: "forge-panel-compact"
+}
+
+layout emberforge-svg-asset-catalog-stack {
+    naam: "EmberForge SVG Asset Catalog Stack"
+    doel: "Plaatst de volledige native SVG assetcatalogus in één verticale productregio."
+    type: "stack"
+    regions: ["emberforge-svg-asset-catalog-region"]
+    direction: "vertical"
+}
+
+region emberforge-svg-asset-catalog-region {
+    naam: "SVG assetcatalogusregio"
+    doel: "Enige inhoudsregio van het EmberForge SVG assetcatalogusproduct."
+    layout: "emberforge-svg-asset-catalog-stack"
+    instantie: "emberforge-svg-asset-catalog-content"
+}
+
+product emberforge-svg-asset-catalog-html {
+    naam: "EmberForge SVG Asset Catalog"
+    doel: "Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct."
+    backend: "html"
+    mode: "static"
+    inhoud: "asset-catalog"
+    wereld: "beckeringh-palace"
+    compositie: "emberforge-svg-asset-catalog-composition"
+    layout: "emberforge-svg-asset-catalog-stack"
+    assets: ["emberforge-vector-node"]
+    pad: "output/products/assets.html"
+}
+
 compositie beckeringh-palace-homepage-composition {
     naam: "Beckeringh Palace"
-    doel: "Toegangspoort tot de digitale wereld, het ontwerpsysteem, de EmberForge productsurfaces en de actuele projectstatus."
-    instanties: ["homepage-intro", "homepage-world", "homepage-design-system", "homepage-project-status", "homepage-keycloak", "homepage-terminal"]
+    doel: "Toegangspoort tot de digitale wereld, het ontwerpsysteem, de native assetcatalogus, de EmberForge productsurfaces en de actuele projectstatus."
+    instanties: ["homepage-intro", "homepage-world", "homepage-design-system", "homepage-svg-assets", "homepage-project-status", "homepage-keycloak", "homepage-terminal"]
 }
 
 homepagegebied homepage-entrance {
@@ -2336,11 +2378,25 @@ homepagegebied homepage-project-status-area {
     componentrol: "routekaart"
     component: "forge-panel"
     variant: "forge-panel-route"
-    leesvolgorde: "4"
-    focusvolgorde: "3"
+    leesvolgorde: "5"
+    focusvolgorde: "4"
     navigatiegedrag: "volledige-kaart"
     kernboodschap: "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus."
     navigatie: "project-status-html"
+}
+
+homepagegebied homepage-svg-assets-area {
+    naam: "SVG assetcatalogus"
+    doel: "Bekijk de getypeerde vectorassets en hun reproduceerbare artifacts."
+    rol: "route"
+    componentrol: "routekaart"
+    component: "forge-panel"
+    variant: "forge-panel-route"
+    leesvolgorde: "4"
+    focusvolgorde: "3"
+    navigatiegedrag: "volledige-kaart"
+    kernboodschap: "Veilige padgeometrie, contractmetadata en SVG artifacts komen uit hetzelfde BAT model."
+    navigatie: "emberforge-svg-asset-catalog-html"
 }
 
 homepagegebied homepage-keycloak-area {
@@ -2350,8 +2406,8 @@ homepagegebied homepage-keycloak-area {
     componentrol: "routekaart"
     component: "forge-panel"
     variant: "forge-panel-route"
-    leesvolgorde: "5"
-    focusvolgorde: "4"
+    leesvolgorde: "6"
+    focusvolgorde: "5"
     navigatiegedrag: "volledige-kaart"
     kernboodschap: "Email, wachtwoord en submitsemantiek zonder authenticatieclaim."
     navigatie: "emberforge-keycloak-login-html"
@@ -2364,8 +2420,8 @@ homepagegebied homepage-terminal-area {
     componentrol: "routekaart"
     component: "forge-panel"
     variant: "forge-panel-route"
-    leesvolgorde: "6"
-    focusvolgorde: "5"
+    leesvolgorde: "7"
+    focusvolgorde: "6"
     navigatiegedrag: "volledige-kaart"
     kernboodschap: "Een bronbewezen systeemoverzicht zonder shelluitvoering of actuele telemetrie."
     navigatie: "emberforge-terminal-html"
@@ -2386,6 +2442,11 @@ componentinstantie homepage-design-system {
     homepagegebied: "homepage-design-system-area"
 }
 
+componentinstantie homepage-svg-assets {
+    compositie: "beckeringh-palace-homepage-composition"
+    homepagegebied: "homepage-svg-assets-area"
+}
+
 componentinstantie homepage-project-status {
     compositie: "beckeringh-palace-homepage-composition"
     homepagegebied: "homepage-project-status-area"
@@ -2403,9 +2464,9 @@ componentinstantie homepage-terminal {
 
 layout beckeringh-palace-homepage-grid {
     naam: "Beckeringh Palace Homepage Grid"
-    doel: "Ordent de homepage entree en vijf productroutes in een responsief grid."
+    doel: "Ordent de homepage entree en zes productroutes in een responsief grid."
     type: "grid"
-    regions: ["homepage-intro-region", "homepage-world-region", "homepage-design-system-region", "homepage-project-status-region", "homepage-keycloak-region", "homepage-terminal-region"]
+    regions: ["homepage-intro-region", "homepage-world-region", "homepage-design-system-region", "homepage-svg-assets-region", "homepage-project-status-region", "homepage-keycloak-region", "homepage-terminal-region"]
     columns: "6"
     rows: "3"
     responsive-breakpoint: "960"
@@ -2453,6 +2514,18 @@ region homepage-project-status-region {
     doel: "Route naar de actuele projectstatus."
     layout: "beckeringh-palace-homepage-grid"
     instantie: "homepage-project-status"
+    column: "1"
+    row: "3"
+    column-span: "2"
+    row-span: "1"
+    compact-order: "5"
+}
+
+region homepage-svg-assets-region {
+    naam: "SVG assetcatalogusroute"
+    doel: "Route naar de native SVG assetcatalogus."
+    layout: "beckeringh-palace-homepage-grid"
+    instantie: "homepage-svg-assets"
     column: "5"
     row: "2"
     column-span: "2"
@@ -2465,11 +2538,11 @@ region homepage-keycloak-region {
     doel: "Route naar de native EmberForge login productsurface."
     layout: "beckeringh-palace-homepage-grid"
     instantie: "homepage-keycloak"
-    column: "1"
+    column: "3"
     row: "3"
-    column-span: "3"
+    column-span: "2"
     row-span: "1"
-    compact-order: "5"
+    compact-order: "6"
 }
 
 region homepage-terminal-region {
@@ -2477,11 +2550,11 @@ region homepage-terminal-region {
     doel: "Route naar de statische EmberForge terminal productsurface."
     layout: "beckeringh-palace-homepage-grid"
     instantie: "homepage-terminal"
-    column: "4"
+    column: "5"
     row: "3"
-    column-span: "3"
+    column-span: "2"
     row-span: "1"
-    compact-order: "6"
+    compact-order: "7"
 }
 
 product beckeringh-palace-homepage {

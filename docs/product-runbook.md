@@ -31,6 +31,15 @@ Keycloak en terminal productsurfaces.
 lokale navigatie, primitives, tokens, states, voorbeelden en
 toegankelijkheidscontracten worden volledig uit BAT gegenereerd.
 
+`output/products/assets.html` is de statische native SVG assetcatalogus. Iedere
+preview, contractwaarde en link komt uit de expliciete BAT assetlijst. De
+artifactlink opent het bijbehorende gegenereerde SVG product in dezelfde
+productmap.
+
+`output/products/emberforge-vector-node.svg` is het eerste standalone native SVG
+product. Het bevat uitsluitend gevalideerde padgeometrie, paint,
+lijnattributen, assetmetadata en snapshotidentiteit.
+
 `output/products/emberforge-keycloak-login.html` is de reproduceerbare login
 productsurface. Het artifact toont native email-, wachtwoord- en
 submitsemantiek. Het bevat bewust geen realm, clientconfiguratie,

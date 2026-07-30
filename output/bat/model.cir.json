@@ -482,6 +482,7 @@
         "Homelab Dashboard",
         "Keycloak login",
         "Terminal",
+        "SVG Asset Catalog",
         "CV Database",
         "ISMS Challenger",
         "Roadmap",
@@ -2335,6 +2336,7 @@
       "navigatie": [
         "forge-dashboard-html",
         "forge-dashboard-grafana",
+        "emberforge-svg-asset-catalog-html",
         "emberforge-vector-node-svg"
       ],
       "soorten": [
@@ -2411,7 +2413,8 @@
         "emberforge-homelab-dashboard-html",
         "emberforge-homelab-dashboard-grafana",
         "project-status-html",
-        "forge-design-system-reference-html"
+        "forge-design-system-reference-html",
+        "emberforge-svg-asset-catalog-html"
       ],
       "leesvolgorde": "3",
       "naam": "Productfamilie",
@@ -3175,11 +3178,75 @@
   },
   {
     "eigenschappen": {
-      "doel": "Toegangspoort tot de digitale wereld, het ontwerpsysteem, de EmberForge productsurfaces en de actuele projectstatus.",
+      "doel": "Ordent alle native SVG assets als één expliciet catalogusproduct.",
+      "instanties": [
+        "emberforge-svg-asset-catalog-content"
+      ],
+      "naam": "EmberForge SVG Asset Catalog"
+    },
+    "id": "emberforge-svg-asset-catalog-composition",
+    "soort": "compositie"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "compositie": "emberforge-svg-asset-catalog-composition",
+      "doel": "Navigeerbare previews en contractmetadata van alle getypeerde SVG assets.",
+      "naam": "Native SVG assets",
+      "variant": "forge-panel-compact"
+    },
+    "id": "emberforge-svg-asset-catalog-content",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "direction": "vertical",
+      "doel": "Plaatst de volledige native SVG assetcatalogus in één verticale productregio.",
+      "naam": "EmberForge SVG Asset Catalog Stack",
+      "regions": [
+        "emberforge-svg-asset-catalog-region"
+      ],
+      "type": "stack"
+    },
+    "id": "emberforge-svg-asset-catalog-stack",
+    "soort": "layout"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Enige inhoudsregio van het EmberForge SVG assetcatalogusproduct.",
+      "instantie": "emberforge-svg-asset-catalog-content",
+      "layout": "emberforge-svg-asset-catalog-stack",
+      "naam": "SVG assetcatalogusregio"
+    },
+    "id": "emberforge-svg-asset-catalog-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "assets": [
+        "emberforge-vector-node"
+      ],
+      "backend": "html",
+      "compositie": "emberforge-svg-asset-catalog-composition",
+      "doel": "Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.",
+      "inhoud": "asset-catalog",
+      "layout": "emberforge-svg-asset-catalog-stack",
+      "mode": "static",
+      "naam": "EmberForge SVG Asset Catalog",
+      "pad": "output/products/assets.html",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-svg-asset-catalog-html",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Toegangspoort tot de digitale wereld, het ontwerpsysteem, de native assetcatalogus, de EmberForge productsurfaces en de actuele projectstatus.",
       "instanties": [
         "homepage-intro",
         "homepage-world",
         "homepage-design-system",
+        "homepage-svg-assets",
         "homepage-project-status",
         "homepage-keycloak",
         "homepage-terminal"
@@ -3245,9 +3312,9 @@
       "component": "forge-panel",
       "componentrol": "routekaart",
       "doel": "Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.",
-      "focusvolgorde": "3",
+      "focusvolgorde": "4",
       "kernboodschap": "Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.",
-      "leesvolgorde": "4",
+      "leesvolgorde": "5",
       "naam": "Projectstatus",
       "navigatie": "project-status-html",
       "navigatiegedrag": "volledige-kaart",
@@ -3261,10 +3328,27 @@
     "eigenschappen": {
       "component": "forge-panel",
       "componentrol": "routekaart",
+      "doel": "Bekijk de getypeerde vectorassets en hun reproduceerbare artifacts.",
+      "focusvolgorde": "3",
+      "kernboodschap": "Veilige padgeometrie, contractmetadata en SVG artifacts komen uit hetzelfde BAT model.",
+      "leesvolgorde": "4",
+      "naam": "SVG assetcatalogus",
+      "navigatie": "emberforge-svg-asset-catalog-html",
+      "navigatiegedrag": "volledige-kaart",
+      "rol": "route",
+      "variant": "forge-panel-route"
+    },
+    "id": "homepage-svg-assets-area",
+    "soort": "homepagegebied"
+  },
+  {
+    "eigenschappen": {
+      "component": "forge-panel",
+      "componentrol": "routekaart",
       "doel": "Open de native EmberForge login productsurface.",
-      "focusvolgorde": "4",
+      "focusvolgorde": "5",
       "kernboodschap": "Email, wachtwoord en submitsemantiek zonder authenticatieclaim.",
-      "leesvolgorde": "5",
+      "leesvolgorde": "6",
       "naam": "Keycloak login",
       "navigatie": "emberforge-keycloak-login-html",
       "navigatiegedrag": "volledige-kaart",
@@ -3279,9 +3363,9 @@
       "component": "forge-panel",
       "componentrol": "routekaart",
       "doel": "Open de statische EmberForge terminal productsurface.",
-      "focusvolgorde": "5",
+      "focusvolgorde": "6",
       "kernboodschap": "Een bronbewezen systeemoverzicht zonder shelluitvoering of actuele telemetrie.",
-      "leesvolgorde": "6",
+      "leesvolgorde": "7",
       "naam": "Terminal",
       "navigatie": "emberforge-terminal-html",
       "navigatiegedrag": "volledige-kaart",
@@ -3318,6 +3402,14 @@
   {
     "eigenschappen": {
       "compositie": "beckeringh-palace-homepage-composition",
+      "homepagegebied": "homepage-svg-assets-area"
+    },
+    "id": "homepage-svg-assets",
+    "soort": "componentinstantie"
+  },
+  {
+    "eigenschappen": {
+      "compositie": "beckeringh-palace-homepage-composition",
       "homepagegebied": "homepage-project-status-area"
     },
     "id": "homepage-project-status",
@@ -3343,12 +3435,13 @@
     "eigenschappen": {
       "columns": "6",
       "compact-columns": "1",
-      "doel": "Ordent de homepage entree en vijf productroutes in een responsief grid.",
+      "doel": "Ordent de homepage entree en zes productroutes in een responsief grid.",
       "naam": "Beckeringh Palace Homepage Grid",
       "regions": [
         "homepage-intro-region",
         "homepage-world-region",
         "homepage-design-system-region",
+        "homepage-svg-assets-region",
         "homepage-project-status-region",
         "homepage-keycloak-region",
         "homepage-terminal-region"
@@ -3407,14 +3500,14 @@
   },
   {
     "eigenschappen": {
-      "column": "5",
+      "column": "1",
       "column-span": "2",
-      "compact-order": "4",
+      "compact-order": "5",
       "doel": "Route naar de actuele projectstatus.",
       "instantie": "homepage-project-status",
       "layout": "beckeringh-palace-homepage-grid",
       "naam": "Statusroute",
-      "row": "2",
+      "row": "3",
       "row-span": "1"
     },
     "id": "homepage-project-status-region",
@@ -3422,9 +3515,24 @@
   },
   {
     "eigenschappen": {
-      "column": "1",
-      "column-span": "3",
-      "compact-order": "5",
+      "column": "5",
+      "column-span": "2",
+      "compact-order": "4",
+      "doel": "Route naar de native SVG assetcatalogus.",
+      "instantie": "homepage-svg-assets",
+      "layout": "beckeringh-palace-homepage-grid",
+      "naam": "SVG assetcatalogusroute",
+      "row": "2",
+      "row-span": "1"
+    },
+    "id": "homepage-svg-assets-region",
+    "soort": "region"
+  },
+  {
+    "eigenschappen": {
+      "column": "3",
+      "column-span": "2",
+      "compact-order": "6",
       "doel": "Route naar de native EmberForge login productsurface.",
       "instantie": "homepage-keycloak",
       "layout": "beckeringh-palace-homepage-grid",
@@ -3437,9 +3545,9 @@
   },
   {
     "eigenschappen": {
-      "column": "4",
-      "column-span": "3",
-      "compact-order": "6",
+      "column": "5",
+      "column-span": "2",
+      "compact-order": "7",
       "doel": "Route naar de statische EmberForge terminal productsurface.",
       "instantie": "homepage-terminal",
       "layout": "beckeringh-palace-homepage-grid",

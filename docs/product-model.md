@@ -822,6 +822,17 @@ technisch lijnornament en genereert
 vaste SVG elementen en attributen, draagt de statische model snapshot en leest
 geen bronbestand of externe ontwerpinput.
 
+M11.5b introduceert `ResolvedSvgAssetCatalog` als backendonafhankelijke
+cataloguscontext. Een product met inhoud `asset-catalog` declareert de volledige
+geordende lijst native assets zelf. De resolver koppelt ieder item aan exact één
+statisch SVG product. De HTML backend rendert uitsluitend de opgeloste assets
+als veilige previews, contractmetadata en relatieve artifactlinks in
+`output/products/assets.html`.
+
+De standalone SVG backend en de cataloguspreview gebruiken dezelfde veilige
+serialisatie. De catalogus bevat daardoor geen gekopieerde padgeometrie,
+handmatig onderhouden routetabel, ruwe SVG markup of externe bron.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -969,5 +980,14 @@ geen bronbestand of externe ontwerpinput.
 | `BP4308` | SVG asset heeft een inconsistent lijncontract |
 | `BP4309` | SVG asset gebruikt onbekende toegankelijkheidssemantiek |
 | `BP4310` | SVG asset heeft een ontbrekend of onterecht label |
+| `BP4321` | Product gebruikt `assets` zonder inhoud `asset-catalog` |
+| `BP4322` | SVG assetcatalogus mist een geldige unieke assetlijst |
+| `BP4323` | SVG assetcatalogus verwijst naar een onbekend asset |
+| `BP4324` | SVG assetcatalogus dekt niet alle native SVG assets expliciet |
+| `BP4325` | Catalogusasset heeft niet exact één statisch SVG product |
+| `BP4326` | SVG assetcatalogus gebruikt niet de HTML backend |
+| `BP4327` | SVG assetcatalogus is niet statisch |
+| `BP4328` | SVG assetcatalogus gebruikt geen `.html` artifactpad |
+| `BP4329` | SVG assetcatalogus heeft niet exact één inhoudsinstantie |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f53360b68c65",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot eeee000b514c",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:61",
+      "description": "project-status-schema:1;overall-progress:63",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 61%",
+                  "fixed": "Totale voortgang · 63%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 366
+                "width": 378
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.5a · Native SVG assetcontract (in uitvoering)\nVoltooid: M11.4e · EmberForge productnavigatie (PR #86)\nVolgende stap: M11.5b · Native SVG assetcatalogus\nDe getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct ontsluiten.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.5b · Native SVG assetcatalogus (in uitvoering)\nVoltooid: M11.5a · Native SVG assetcontract (PR #87)\nVolgende stap: M11.5c · Native SVG iconenset\nDe eerste samenhangende EmberForge iconenfamilie als getypeerde BAT assets, SVG producten en catalogusitems modelleren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,12 +256,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 61%",
+      "title": "Totale voortgang · 63%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:compiler;progress:94",
+      "description": "project-status-area:compiler;progress:95",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -294,7 +294,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Compiler en reproduceerbaarheid · 94%",
+                  "fixed": "Compiler en reproduceerbaarheid · 95%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -358,7 +358,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 564
+                "width": 570
               },
               "type": "rectangle"
             },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 235 regressietests vormen een werkende kwaliteitsketen; een afzonderlijke SVG backend ontvangt uitsluitend vooraf opgeloste native assetsemantiek.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 243 regressietests vormen een werkende kwaliteitsketen; SVG artifacts en de HTML catalogus consumeren dezelfde vooraf opgeloste native assetsemantiek.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -394,12 +394,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Compiler en reproduceerbaarheid · 94%",
+      "title": "Compiler en reproduceerbaarheid · 95%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-model;progress:98",
+      "description": "project-status-area:world-model;progress:99",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -432,7 +432,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Model en productcontracten · 98%",
+                  "fixed": "World Model en productcontracten · 99%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -496,7 +496,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 588
+                "width": 594
               },
               "type": "rectangle"
             },
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, vijf unieke homepageproductroutes en een veilig getypeerd SVG assetcontract.\nResterend: Bredere wereldsemantiek en aanvullende assetfamilies moeten nog in BAT worden verdiept.",
+                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, zes unieke homepageproductroutes en een expliciet volledig SVG assetcataloguscontract.\nResterend: Aanvullende assetfamilies moeten nog in BAT worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -532,7 +532,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 98%",
+      "title": "World Model en productcontracten · 99%",
       "transparent": true,
       "type": "canvas"
     },
@@ -951,7 +951,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:svg-library;progress:35",
+      "description": "project-status-area:svg-library;progress:50",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -984,7 +984,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "SVG component library en icon set · 35%",
+                  "fixed": "SVG component library en icon set · 50%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1048,7 +1048,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 210
+                "width": 300
               },
               "type": "rectangle"
             },
@@ -1060,7 +1060,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en genereert het eerste statische SVG product met snapshotidentiteit.\nResterend: Een navigeerbare catalogus en een brede, consistente iconenbibliotheek ontbreken nog.",
+                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en ontsluit alle native assets met previews, contractmetadata en relatieve artifactlinks in één statische catalogus.\nResterend: Een brede, consistente iconenbibliotheek ontbreekt nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1084,7 +1084,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "SVG component library en icon set · 35%",
+      "title": "SVG component library en icon set · 50%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:90",
+      "description": "project-status-area:homepage;progress:95",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "HTML homepage · 90%",
+                  "fixed": "HTML homepage · 95%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 540
+                "width": 570
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Zes geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; vijf unieke routekaarten ontsluiten nu ook de native Keycloak en terminal producten via relatieve artifactpaden.\nResterend: De visuele motieven en bredere productinhoud van de homepage moeten nog worden verdiept.",
+                  "fixed": "Onderbouwing: Zeven geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; zes unieke routekaarten ontsluiten ook de native assetcatalogus, Keycloak en terminal via relatieve artifactpaden.\nResterend: De visuele motieven en bredere productinhoud van de homepage moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 90%",
+      "title": "HTML homepage · 95%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:47",
+      "description": "project-status-area:world-bible;progress:50",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 47%",
+                  "fixed": "World Bible · 50%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 282
+                "width": 300
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie en het native SVG assetcontract zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, het native SVG assetcontract en de catalogus zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 47%",
+      "title": "World Bible · 50%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:61",
-    "sha256:f53360b68c65fb8c51d7fb2c468c4d6b2b6ef4367dc8105f9465a7c381370fce"
+    "overall-progress:63",
+    "sha256:eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4"
   ],
   "templating": {
     "list": []

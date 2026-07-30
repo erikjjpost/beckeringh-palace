@@ -35,6 +35,7 @@ class BrandIdentityTests(unittest.TestCase):
                 "Homelab Dashboard",
                 "Keycloak login",
                 "Terminal",
+                "SVG Asset Catalog",
                 "CV Database",
                 "ISMS Challenger",
                 "Roadmap",
@@ -71,7 +72,8 @@ class BrandIdentityTests(unittest.TestCase):
             (
                 source.replace(
                     '    producten: ["Homelab Dashboard", "Keycloak login", '
-                    '"Terminal", "CV Database", "ISMS Challenger", "Roadmap", '
+                    '"Terminal", "SVG Asset Catalog", "CV Database", '
+                    '"ISMS Challenger", "Roadmap", '
                     '"Marketing en merkoppervlakken"]',
                     '    producten: []',
                     1,

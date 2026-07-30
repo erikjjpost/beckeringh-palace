@@ -48,6 +48,7 @@ class HomepageProductTests(unittest.TestCase):
                 "homepage-intro",
                 "homepage-world",
                 "homepage-design-system",
+                "homepage-svg-assets",
                 "homepage-project-status",
                 "homepage-keycloak",
                 "homepage-terminal",
@@ -62,6 +63,7 @@ class HomepageProductTests(unittest.TestCase):
                 "homepage-entrance",
                 "homepage-world-area",
                 "homepage-design-system-area",
+                "homepage-svg-assets-area",
                 "homepage-project-status-area",
                 "homepage-keycloak-area",
                 "homepage-terminal-area",
@@ -81,7 +83,7 @@ class HomepageProductTests(unittest.TestCase):
         self.assertEqual(960, definition.opgeloste_layout.responsive_breakpoint)
         self.assertEqual(1, definition.opgeloste_layout.compact_columns)
         self.assertEqual(
-            (1, 2, 3, 4, 5, 6),
+            (1, 2, 3, 4, 5, 6, 7),
             tuple(
                 region.compact_order
                 for region in definition.opgeloste_layout.regions
@@ -89,7 +91,7 @@ class HomepageProductTests(unittest.TestCase):
         )
         self.assertEqual(64, len(definition.snapshot_id))
 
-    def test_homepage_rendert_de_vijf_native_productroutes(self) -> None:
+    def test_homepage_rendert_de_zes_native_productroutes(self) -> None:
         html = self.products["beckeringh-palace-homepage"].inhoud
 
         self.assertIn("<h1>Beckeringh Palace</h1>", html)
@@ -109,9 +111,9 @@ class HomepageProductTests(unittest.TestCase):
             'data-appearance="forge-panel-hero-appearance"',
             html,
         )
-        self.assertEqual(5, html.count('data-component-role="routekaart"'))
+        self.assertEqual(6, html.count('data-component-role="routekaart"'))
         self.assertEqual(
-            5,
+            6,
             html.count(
                 'data-variant="forge-panel-route" '
                 'data-appearance="forge-panel-card-rest-appearance"'
@@ -149,6 +151,7 @@ class HomepageProductTests(unittest.TestCase):
             "Homelab Dashboard",
             "Keycloak login",
             "Terminal",
+            "SVG Asset Catalog",
             "CV Database",
             "ISMS Challenger",
             "Roadmap",
@@ -163,8 +166,8 @@ class HomepageProductTests(unittest.TestCase):
         self.assertIn('data-compact-columns="1"', html)
         self.assertIn("@media (max-width: 960px)", html)
         self.assertIn("order:4", html)
-        self.assertEqual(6, html.count('data-compact-order="'))
-        self.assertEqual(5, html.count('data-navigation-behavior="volledige-kaart"'))
+        self.assertEqual(7, html.count('data-compact-order="'))
+        self.assertEqual(6, html.count('data-navigation-behavior="volledige-kaart"'))
         self.assertEqual(1, html.count('data-navigation-behavior="geen"'))
         self.assertIn(
             'href="forge-dashboard.html" '
@@ -182,6 +185,11 @@ class HomepageProductTests(unittest.TestCase):
             html,
         )
         self.assertIn(
+            'href="assets.html" '
+            'data-navigation-target="emberforge-svg-asset-catalog-html"',
+            html,
+        )
+        self.assertIn(
             'href="emberforge-keycloak-login.html" '
             'data-navigation-target="emberforge-keycloak-login-html"',
             html,
@@ -191,7 +199,7 @@ class HomepageProductTests(unittest.TestCase):
             'data-navigation-target="emberforge-terminal-html"',
             html,
         )
-        self.assertEqual(5, html.count('data-navigation-target="'))
+        self.assertEqual(6, html.count('data-navigation-target="'))
         self.assertIn('data-product-mode="static"', html)
         self.assertIn('data-time-context="none"', html)
 

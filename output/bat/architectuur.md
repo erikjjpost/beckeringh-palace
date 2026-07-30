@@ -655,7 +655,7 @@ Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
 
 - **belofte:** Sovereignty over your own stack.
 - **principes:** Own your data., Own your nodes., Own your forge.
-- **producten:** Homelab Dashboard, Keycloak login, Terminal, CV Database, ISMS Challenger, Roadmap, Marketing en merkoppervlakken
+- **producten:** Homelab Dashboard, Keycloak login, Terminal, SVG Asset Catalog, CV Database, ISMS Challenger, Roadmap, Marketing en merkoppervlakken
 - **stem:** Zelfverzekerd, technisch en rustig
 - **taal:** Nederlands met technische termen in het Engels
 - **tagline:** Sovereign Infrastructure.
@@ -2985,7 +2985,7 @@ De digitale wereld, haar merk en haar reproduceerbare bronassets.
 
 - **inhoud:** beckeringh-palace, emberforge-vector-node
 - **leesvolgorde:** 1
-- **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-vector-node-svg
+- **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-svg-asset-catalog-html, emberforge-vector-node-svg
 - **soorten:** wereld, merk, asset
 - **toegankelijkheidslabel:** Wereld en identiteit, overzicht van wereld, merk en bronassets
 
@@ -3019,7 +3019,7 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, forge-design-system-reference-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
 - **leesvolgorde:** 3
 - **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, project-status-grafana
 - **soorten:** homepagegebied, compositie, componentinstantie, layout, region, product, renderdoel
@@ -3982,6 +3982,88 @@ Tokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontrac
 - **referentiesecties:** forge-reference-primitives, forge-reference-tokens, forge-reference-states, forge-reference-examples, forge-reference-accessibility
 - **wereld:** beckeringh-palace
 
+## EmberForge SVG Asset Catalog
+
+**Soort:** compositie
+
+**Identifier:** `emberforge-svg-asset-catalog-composition`
+
+### Doel
+
+Ordent alle native SVG assets als één expliciet catalogusproduct.
+
+### Eigenschappen
+
+- **instanties:** emberforge-svg-asset-catalog-content
+
+## Native SVG assets
+
+**Soort:** componentinstantie
+
+**Identifier:** `emberforge-svg-asset-catalog-content`
+
+### Doel
+
+Navigeerbare previews en contractmetadata van alle getypeerde SVG assets.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **compositie:** emberforge-svg-asset-catalog-composition
+- **variant:** forge-panel-compact
+
+## EmberForge SVG Asset Catalog Stack
+
+**Soort:** layout
+
+**Identifier:** `emberforge-svg-asset-catalog-stack`
+
+### Doel
+
+Plaatst de volledige native SVG assetcatalogus in één verticale productregio.
+
+### Eigenschappen
+
+- **direction:** vertical
+- **regions:** emberforge-svg-asset-catalog-region
+- **type:** stack
+
+## SVG assetcatalogusregio
+
+**Soort:** region
+
+**Identifier:** `emberforge-svg-asset-catalog-region`
+
+### Doel
+
+Enige inhoudsregio van het EmberForge SVG assetcatalogusproduct.
+
+### Eigenschappen
+
+- **instantie:** emberforge-svg-asset-catalog-content
+- **layout:** emberforge-svg-asset-catalog-stack
+
+## EmberForge SVG Asset Catalog
+
+**Soort:** product
+
+**Identifier:** `emberforge-svg-asset-catalog-html`
+
+### Doel
+
+Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.
+
+### Eigenschappen
+
+- **assets:** emberforge-vector-node
+- **backend:** html
+- **compositie:** emberforge-svg-asset-catalog-composition
+- **inhoud:** asset-catalog
+- **layout:** emberforge-svg-asset-catalog-stack
+- **mode:** static
+- **pad:** output/products/assets.html
+- **wereld:** beckeringh-palace
+
 ## Beckeringh Palace
 
 **Soort:** compositie
@@ -3990,11 +4072,11 @@ Tokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontrac
 
 ### Doel
 
-Toegangspoort tot de digitale wereld, het ontwerpsysteem, de EmberForge productsurfaces en de actuele projectstatus.
+Toegangspoort tot de digitale wereld, het ontwerpsysteem, de native assetcatalogus, de EmberForge productsurfaces en de actuele projectstatus.
 
 ### Eigenschappen
 
-- **instanties:** homepage-intro, homepage-world, homepage-design-system, homepage-project-status, homepage-keycloak, homepage-terminal
+- **instanties:** homepage-intro, homepage-world, homepage-design-system, homepage-svg-assets, homepage-project-status, homepage-keycloak, homepage-terminal
 
 ## Design is data
 
@@ -4076,10 +4158,32 @@ Volg de actuele voortgang, onderbouwing en eerstvolgende milestone.
 
 - **component:** forge-panel
 - **componentrol:** routekaart
-- **focusvolgorde:** 3
+- **focusvolgorde:** 4
 - **kernboodschap:** Voortgang en vervolgstappen komen uit dezelfde normatieve projectstatus.
-- **leesvolgorde:** 4
+- **leesvolgorde:** 5
 - **navigatie:** project-status-html
+- **navigatiegedrag:** volledige-kaart
+- **rol:** route
+- **variant:** forge-panel-route
+
+## SVG assetcatalogus
+
+**Soort:** homepagegebied
+
+**Identifier:** `homepage-svg-assets-area`
+
+### Doel
+
+Bekijk de getypeerde vectorassets en hun reproduceerbare artifacts.
+
+### Eigenschappen
+
+- **component:** forge-panel
+- **componentrol:** routekaart
+- **focusvolgorde:** 3
+- **kernboodschap:** Veilige padgeometrie, contractmetadata en SVG artifacts komen uit hetzelfde BAT model.
+- **leesvolgorde:** 4
+- **navigatie:** emberforge-svg-asset-catalog-html
 - **navigatiegedrag:** volledige-kaart
 - **rol:** route
 - **variant:** forge-panel-route
@@ -4098,9 +4202,9 @@ Open de native EmberForge login productsurface.
 
 - **component:** forge-panel
 - **componentrol:** routekaart
-- **focusvolgorde:** 4
+- **focusvolgorde:** 5
 - **kernboodschap:** Email, wachtwoord en submitsemantiek zonder authenticatieclaim.
-- **leesvolgorde:** 5
+- **leesvolgorde:** 6
 - **navigatie:** emberforge-keycloak-login-html
 - **navigatiegedrag:** volledige-kaart
 - **rol:** route
@@ -4120,9 +4224,9 @@ Open de statische EmberForge terminal productsurface.
 
 - **component:** forge-panel
 - **componentrol:** routekaart
-- **focusvolgorde:** 5
+- **focusvolgorde:** 6
 - **kernboodschap:** Een bronbewezen systeemoverzicht zonder shelluitvoering of actuele telemetrie.
-- **leesvolgorde:** 6
+- **leesvolgorde:** 7
 - **navigatie:** emberforge-terminal-html
 - **navigatiegedrag:** volledige-kaart
 - **rol:** route
@@ -4172,6 +4276,21 @@ Bekijk de reproduceerbare componenten en ontwerpprimitieven.
 
 - **compositie:** beckeringh-palace-homepage-composition
 - **homepagegebied:** homepage-design-system-area
+
+## SVG assetcatalogus
+
+**Soort:** componentinstantie
+
+**Identifier:** `homepage-svg-assets`
+
+### Doel
+
+Bekijk de getypeerde vectorassets en hun reproduceerbare artifacts.
+
+### Eigenschappen
+
+- **compositie:** beckeringh-palace-homepage-composition
+- **homepagegebied:** homepage-svg-assets-area
 
 ## Projectstatus
 
@@ -4226,13 +4345,13 @@ Open de statische EmberForge terminal productsurface.
 
 ### Doel
 
-Ordent de homepage entree en vijf productroutes in een responsief grid.
+Ordent de homepage entree en zes productroutes in een responsief grid.
 
 ### Eigenschappen
 
 - **columns:** 6
 - **compact-columns:** 1
-- **regions:** homepage-intro-region, homepage-world-region, homepage-design-system-region, homepage-project-status-region, homepage-keycloak-region, homepage-terminal-region
+- **regions:** homepage-intro-region, homepage-world-region, homepage-design-system-region, homepage-svg-assets-region, homepage-project-status-region, homepage-keycloak-region, homepage-terminal-region
 - **responsive-breakpoint:** 960
 - **rows:** 3
 - **type:** grid
@@ -4309,10 +4428,30 @@ Route naar de actuele projectstatus.
 
 ### Eigenschappen
 
+- **column:** 1
+- **column-span:** 2
+- **compact-order:** 5
+- **instantie:** homepage-project-status
+- **layout:** beckeringh-palace-homepage-grid
+- **row:** 3
+- **row-span:** 1
+
+## SVG assetcatalogusroute
+
+**Soort:** region
+
+**Identifier:** `homepage-svg-assets-region`
+
+### Doel
+
+Route naar de native SVG assetcatalogus.
+
+### Eigenschappen
+
 - **column:** 5
 - **column-span:** 2
 - **compact-order:** 4
-- **instantie:** homepage-project-status
+- **instantie:** homepage-svg-assets
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 2
 - **row-span:** 1
@@ -4329,9 +4468,9 @@ Route naar de native EmberForge login productsurface.
 
 ### Eigenschappen
 
-- **column:** 1
-- **column-span:** 3
-- **compact-order:** 5
+- **column:** 3
+- **column-span:** 2
+- **compact-order:** 6
 - **instantie:** homepage-keycloak
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 3
@@ -4349,9 +4488,9 @@ Route naar de statische EmberForge terminal productsurface.
 
 ### Eigenschappen
 
-- **column:** 4
-- **column-span:** 3
-- **compact-order:** 6
+- **column:** 5
+- **column-span:** 2
+- **compact-order:** 7
 - **instantie:** homepage-terminal
 - **layout:** beckeringh-palace-homepage-grid
 - **row:** 3

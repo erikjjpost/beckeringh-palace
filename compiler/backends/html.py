@@ -15,6 +15,11 @@ from compiler.design_variants import resolveer_varianten
 from compiler.native_layout_html_renderer import naar_native_layout_html
 from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
 from compiler.project_status import ProjectStatus
+from compiler.svg_asset_catalog import SVG_ASSET_CATALOG_CONTENT
+from compiler.svg_asset_catalog_html_renderer import (
+    asset_catalog_content_lines,
+    asset_catalog_css_lines,
+)
 from compiler.theme_css import theme_variable_lines
 
 
@@ -181,6 +186,8 @@ def _theme_css(product: ProductDefinition) -> str:
 
     if product.inhoud == "design-system":
         regels.extend(reference_css_lines())
+    if product.inhoud == SVG_ASSET_CATALOG_CONTENT:
+        regels.extend(asset_catalog_css_lines())
 
     return "\n".join(regels) + "\n"
 
@@ -310,6 +317,28 @@ def _render(
                 product.thema,
             )
         }
+    if product.inhoud == SVG_ASSET_CATALOG_CONTENT:
+        if product.asset_catalog is None:
+            raise ValueError(
+                f"Product '{product.id}' vereist een opgeloste "
+                "SVG assetcatalogus"
+            )
+        if len(product.opgeloste_compositie.instances) != 1:
+            raise ValueError(
+                f"Product '{product.id}' vereist exact één inhoudsinstantie"
+            )
+        if not product.snapshot_ref:
+            raise ValueError(
+                f"Product '{product.id}' vereist statische snapshotidentiteit"
+            )
+        instance_id = product.opgeloste_compositie.instances[0].id
+        instance_content = {
+            instance_id: asset_catalog_content_lines(
+                product.asset_catalog,
+                catalog_path=product.pad,
+                snapshot_ref=product.snapshot_ref,
+            )
+        }
     inhoud = naar_native_layout_html(
         product.opgeloste_compositie,
         product.opgeloste_layout,
@@ -324,12 +353,22 @@ def _render(
         ),
         inhoud_naam=(
             product.naam
-            if product.inhoud in {"project-status", "design-system"}
+            if product.inhoud
+            in {
+                "project-status",
+                "design-system",
+                SVG_ASSET_CATALOG_CONTENT,
+            }
             else None
         ),
         inhoud_doel=(
             product.doel
-            if product.inhoud in {"project-status", "design-system"}
+            if product.inhoud
+            in {
+                "project-status",
+                "design-system",
+                SVG_ASSET_CATALOG_CONTENT,
+            }
             else None
         ),
         instance_content=instance_content,

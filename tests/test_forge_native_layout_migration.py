@@ -99,7 +99,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertEqual(1, product.inhoud.count('data-variant="'))
         self.assertEqual(
-            ("3", "145", "80"),
+            ("3", "145", "88"),
             tuple(
                 str(instantie.metric_value)
                 for instantie in compositie.instances
@@ -114,7 +114,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">80</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">88</p>',
             product.inhoud,
         )
         self.assertIn(
@@ -148,6 +148,13 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
+            '<a href="assets.html" '
+            'data-navigation-target="emberforge-svg-asset-catalog-html" '
+            'data-navigation-kind="product">'
+            'EmberForge SVG Asset Catalog</a>',
+            product.inhoud,
+        )
+        self.assertIn(
             '<a href="emberforge-vector-node.svg" '
             'data-navigation-target="emberforge-vector-node-svg" '
             'data-navigation-kind="product">EmberForge Vector Node SVG</a>',
@@ -164,7 +171,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             'data-object-kind="asset"><strong>EmberForge Vector Node</strong>',
             product.inhoud,
         )
-        self.assertEqual(25, product.inhoud.count('data-content-anchor="'))
+        self.assertEqual(26, product.inhoud.count('data-content-anchor="'))
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
         self.assertIn('data-product-mode="static"', product.inhoud)
         self.assertIn('data-time-context="none"', product.inhoud)

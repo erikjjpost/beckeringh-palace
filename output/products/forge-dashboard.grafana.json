@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f53360b68c65",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot eeee000b514c",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 352,
+                "height": 364,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -360,7 +360,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana\nEmberForge Vector Node SVG",
+                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana\nEmberForge SVG Asset Catalog\nEmberForge Vector Node SVG",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -382,13 +382,18 @@
                 },
                 {
                   "targetBlank": false,
+                  "title": "EmberForge SVG Asset Catalog",
+                  "url": "assets.html"
+                },
+                {
+                  "targetBlank": false,
                   "title": "EmberForge Vector Node SVG",
                   "url": "emberforge-vector-node.svg"
                 }
               ],
               "name": "forge-dashboard-left-panel-product-navigation",
               "placement": {
-                "height": 36,
+                "height": 48,
                 "left": 20,
                 "top": 188,
                 "width": 360
@@ -416,7 +421,7 @@
               "placement": {
                 "height": 64,
                 "left": 20,
-                "top": 236,
+                "top": 248,
                 "width": 360
               },
               "type": "text"
@@ -442,7 +447,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 312,
+                "top": 324,
                 "width": 360
               },
               "type": "text"
@@ -1216,7 +1221,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 604,
+                "height": 636,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1257,7 +1262,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "80",
+                  "fixed": "88",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1309,7 +1314,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "24\n6\n6\n6\n11\n24\n3",
+                  "fixed": "26\n7\n7\n7\n12\n26\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1558,7 +1563,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nEmberForge Homelab · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nEmberForge Homelab Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Homelab Dashboard · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nEmberForge Homelab Dashboard Grafana · product\nHet native homelab overzicht als importeerbaar Grafana dashboard genereren.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.",
+                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nEmberForge Homelab · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nEmberForge Homelab Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Homelab Dashboard · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nEmberForge Homelab Dashboard Grafana · product\nHet native homelab overzicht als importeerbaar Grafana dashboard genereren.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.\nEmberForge SVG Asset Catalog · product\nAlle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1569,7 +1574,7 @@
               },
               "name": "forge-dashboard-right-panel-content-anchors",
               "placement": {
-                "height": 256,
+                "height": 288,
                 "left": 20,
                 "top": 296,
                 "width": 360
@@ -1597,7 +1602,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 564,
+                "top": 596,
                 "width": 360
               },
               "type": "text"
@@ -1618,7 +1623,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:f53360b68c65fb8c51d7fb2c468c4d6b2b6ef4367dc8105f9465a7c381370fce"
+    "sha256:eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4"
   ],
   "templating": {
     "list": []
