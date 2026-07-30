@@ -11,7 +11,7 @@ World Model + Organisatie + Voorstellen
                   ↓
               Renderers
                   ↓
-Markdown / Mermaid / SVG / HTML / Grafana / Figma
+Markdown / Mermaid / SVG / PNG / HTML / Grafana / Figma
 ```
 
 De productcompiler groeit langs de volgende normatieve keten:
@@ -54,6 +54,19 @@ grid-layouts naar het klassieke, importeerbare dashboard JSON model met een
 dashboardstijl. Component-, variant- en appearance-identiteit blijven in
 paneelbeschrijvingen traceerbaar. Het domeinmodel bevat geen HTML-, CSS- of
 Grafana-eigenschappen.
+
+Productbackends kunnen tekst of bytes opleveren. De productcompiler behandelt
+beide als dezelfde afgeleide artifactpayload. Tekstproducten worden met UTF-8
+geschreven. Binaire producten worden bytegelijk geschreven. De native
+wallpaperbackend gebruikt die grens om een PNG te produceren zonder een
+bestandsconversie of handmatig onderhouden tussenartifact.
+
+Voor wallpapers lost de productcompiler canvas, materiaalrollen, laagvolgorde,
+plaatsingsgeometrie, fit, dekking en SVG assets vooraf op. De PNG backend
+interpreteert alleen deze context. Zij bevat geen eigen assetgeometrie,
+plaatsingstabel of kleurkeuze. De rasterisatie en PNG codering gebruiken
+uitsluitend de Python standaardbibliotheek. De encoder schrijft een
+geïndexeerde PNG waar mogelijk en legt geen tijdstempel vast.
 
 HTML en Grafana tonen daarnaast dezelfde opgeloste dashboardidentiteit:
 compositie, wereld, thema en BAT-generatiestatus. HTML rendert deze als een
@@ -159,7 +172,9 @@ Een native BAT-concept moet nodig zijn om Beckeringh Palace-producten te specifi
     en `project-status.grafana.json`: importeerbare Grafana-dashboards;
   - `components.html`: statisch EmberForge designsystem referentieproduct;
   - `components.css`: afgeleide componentstijlen;
-  - `tokens.json` en `tokens.css`: opgeloste ontwerptokens.
+  - `tokens.json` en `tokens.css`: opgeloste ontwerptokens;
+  - `emberforge-ultrawide.wallpaper.json`: opgelost wallpapercontract;
+  - `emberforge-ultrawide.png`: native 3840 bij 1080 wallpaperbeeld.
 
 Output wordt gecommit om deterministische regeneratie te kunnen controleren. Zij blijft afgeleid; rechtstreekse wijzigingen worden bij de volgende compilatie overschreven en gelden niet als modelwijziging.
 

@@ -38,7 +38,7 @@ SNAPSHOT_ALGORITHM = "sha256"
 @dataclass(frozen=True)
 class CompiledProduct:
     definitie: ProductDefinition
-    inhoud: str
+    inhoud: str | bytes
 
 
 def _los_productcontext_op(

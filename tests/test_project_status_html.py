@@ -75,6 +75,7 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "emberforge-merkteken-svg",
                 "emberforge-woordmerk-svg",
                 "emberforge-ultrawide-wallpaper-manifest",
+                "emberforge-ultrawide-wallpaper-png",
             },
             {product.definitie.id for product in products},
         )

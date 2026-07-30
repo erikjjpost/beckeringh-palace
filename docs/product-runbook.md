@@ -54,8 +54,14 @@ familielid ook het opgeloste familietype en de variant.
 `output/products/emberforge-ultrawide.wallpaper.json` is het machineleesbare
 contractproduct voor de eerste 3840 bij 1080 EmberForge wallpaper. Het bevat
 het opgeloste canvas, PNG doelformaat, twee geordende lagen en vier
-assetplaatsingen. Het bestand is nog geen afbeelding en bevat geen tweede bron
-voor SVG geometrie of plaatsing.
+assetplaatsingen met hun semantische materiaalrollen. Het bevat geen tweede
+bron voor SVG geometrie of plaatsing.
+
+`output/products/emberforge-ultrawide.png` is het bijbehorende beeldartifact.
+De native backend rastert dezelfde vier opgeloste SVG assetplaatsingen in
+BAT volgorde op het donkere canvas. Het bestand is exact 3840 bij 1080 pixels,
+bevat geen tijdstempel en draagt product, wallpaper en volledige
+snapshotreferentie als PNG metadata.
 
 `output/products/emberforge-keycloak-login.html` is de reproduceerbare login
 productsurface. Het artifact toont native email-, wachtwoord- en
@@ -100,6 +106,7 @@ Statische producten delen één canonieke referentie in de vorm
 
 - HTML bewaart deze in het attribuut `data-snapshot-ref` op het productelement.
 - Grafana bewaart dezelfde waarde als dashboardtag.
+- PNG bewaart dezelfde waarde in het tekstveld `bp-snapshot`.
 
 De eerste twaalf tekens worden als compacte identiteit getoond. Vergelijk voor
 verificatie altijd de volledige referentie. Gelijke referenties betekenen dat

@@ -14,11 +14,13 @@ De repository bevat nu:
 - parser, semantische validatie, dependency-analyse, constraints en getypeerde foutdiagnostiek;
 - native thema's, appearances, componentvarianten met volledige
   statecontracten, toegankelijkheidscontracten, composities en layouts;
-- een gedeeld productcontract met expliciete HTML- en Grafana-backends;
+- een gedeeld productcontract met tekstuele en binaire productbackends;
 - een Forge Dashboard en projectstatusproduct uit dezelfde opgeloste informatiearchitectuur;
 - een native homepage met vier geordende inhoudsgebieden en drie productroutes;
 - een statisch EmberForge designsystem referentieproduct met geordende
   primitives, tokens, componenttoestanden, voorbeelden en toegankelijkheid;
+- een native 3840 bij 1080 EmberForge wallpaper die rechtstreeks uit BAT,
+  het opgeloste thema en dezelfde SVG assets als de catalogus wordt gerenderd;
 - statische snapshotidentiteit voor verificatie en rollback;
 - generatie van Markdown, Mermaid, CSS, HTML en importeerbare Grafana JSON;
 - reproduceerbaarheidscontrole in lokale tooling en CI.

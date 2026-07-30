@@ -707,7 +707,7 @@
     "eigenschappen": {
       "breedte": "3840",
       "canvas": "canvas",
-      "doel": "Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend.",
+      "doel": "Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar beeldproduct.",
       "formaat": "png",
       "hoogte": "1080",
       "lagen": [
@@ -757,6 +757,7 @@
       "doel": "Plaatst het technische lijnornament met ruime marge links.",
       "fit": "contain",
       "hoogte": "840",
+      "kleur": "interaction",
       "laag": "emberforge-wallpaper-ornamentlaag",
       "naam": "EmberForge Vector Node Links",
       "x": "120",
@@ -773,6 +774,7 @@
       "doel": "Plaatst het technische lijnornament symmetrisch rechts.",
       "fit": "contain",
       "hoogte": "840",
+      "kleur": "interaction",
       "laag": "emberforge-wallpaper-ornamentlaag",
       "naam": "EmberForge Vector Node Rechts",
       "x": "2880",
@@ -789,6 +791,7 @@
       "doel": "Plaatst het merkteken centraal binnen de ultrawide compositie.",
       "fit": "contain",
       "hoogte": "480",
+      "kleur": "accent",
       "laag": "emberforge-wallpaper-merklaag",
       "naam": "EmberForge Wallpaper Merkteken",
       "x": "1680",
@@ -805,6 +808,7 @@
       "doel": "Plaatst het woordmerk onder het centrale merkteken.",
       "fit": "contain",
       "hoogte": "136",
+      "kleur": "foreground",
       "laag": "emberforge-wallpaper-merklaag",
       "naam": "EmberForge Wallpaper Woordmerk",
       "x": "1420",
@@ -2714,6 +2718,7 @@
         "emberforge-ultrawide-wallpaper",
         "emberforge-homelab-dashboard-html",
         "emberforge-homelab-dashboard-grafana",
+        "emberforge-ultrawide-wallpaper-png",
         "project-status-html",
         "forge-design-system-reference-html",
         "emberforge-svg-asset-catalog-html"
@@ -2723,6 +2728,7 @@
       "navigatie": [
         "emberforge-homelab-dashboard-html",
         "emberforge-homelab-dashboard-grafana",
+        "emberforge-ultrawide-wallpaper-png",
         "emberforge-ultrawide-wallpaper-manifest",
         "project-status-html",
         "project-status-grafana"
@@ -3994,6 +4000,20 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-ultrawide-wallpaper-manifest",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "backend": "wallpaper-png",
+      "doel": "Rendert het opgeloste native wallpapercontract als deterministisch 3840 bij 1080 beeldartifact.",
+      "inhoud": "wallpaper",
+      "mode": "static",
+      "naam": "EmberForge Ultrawide Wallpaper PNG",
+      "pad": "output/products/emberforge-ultrawide.png",
+      "wallpaper": "emberforge-ultrawide-wallpaper",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-ultrawide-wallpaper-png",
     "soort": "product"
   },
   {

@@ -273,8 +273,8 @@ metadata en blijft onafhankelijk van het familietype.
 
 ### `wallpaper`
 
-M11.6a modelleert wallpaperintentie zonder beeldbackend. Iedere wallpaper
-vereist:
+M11.6a modelleert wallpaperintentie backendonafhankelijk. M11.6b rendert
+dezelfde opgeloste context als beeld. Iedere wallpaper vereist:
 
 - `naam` en `doel`;
 - `wereld`: de wereld waaruit het thema en canvas worden opgelost;
@@ -312,7 +312,8 @@ Een assetplaatsing vereist:
 - `x`, `y`, `breedte` en `hoogte`: canonieke pixelgeometrie die volledig
   binnen het canvas valt;
 - `fit`: `contain`, `cover` of `stretch`;
-- `dekking`: een canonieke waarde tussen 0 en 1.
+- `dekking`: een canonieke waarde tussen 0 en 1;
+- `kleur`: een bestaande semantische materiaalrol uit het wereldthema.
 
 De plaatsing bevat geen SVG geometrie, bronpad of backendveld. De resolver
 koppelt de assetreferentie aan hetzelfde `ResolvedSvgAsset` dat ook de
@@ -350,6 +351,7 @@ assetplaatsing forge-node-links {
     hoogte: "840"
     fit: "contain"
     dekking: "0.14"
+    kleur: "interaction"
 }
 ```
 
@@ -375,10 +377,11 @@ componentinstanties bevatten. Een assetproduct gebruikt uitsluitend backend
 blijft het product de enige expliciete koppeling tussen inhoud en backend,
 zonder een lege compositie of layout te modelleren.
 
-Een wallpaperproduct gebruikt in M11.6a uitsluitend backend
-`wallpaper-manifest`, modus `static`, dezelfde wereld als zijn wallpaper en
-een `.wallpaper.json` artifactpad. Het manifest is een machineleesbaar bewijs
-van het opgeloste contract en nog geen beeldartifact.
+Een wallpaperproduct gebruikt modus `static`, dezelfde wereld als zijn
+wallpaper en één expliciete wallpaperbackend. `wallpaper-manifest` vereist een
+`.wallpaper.json` artifactpad. `wallpaper-png` vereist een `.png` artifactpad.
+Beide consumeren exact dezelfde `ResolvedWallpaper`; het manifest bewijst het
+contract en de PNG is het binaire beeldartifact.
 
 ### Homepage productcontract
 
@@ -977,6 +980,14 @@ publiceert deze context deterministisch als
 `output/products/emberforge-ultrawide.wallpaper.json`. Er wordt in deze
 milestone geen wallpaperafbeelding gegenereerd.
 
+M11.6b maakt de kleurkeuze per plaatsing expliciet als semantische
+materiaalrol en voegt `wallpaper-png` toe. De backend ondersteunt de veilige
+SVG padcommando's, respecteert `contain`, `cover`, `stretch`, lijncontracten,
+laagvolgorde, clipping en dekking en schrijft een deterministische PNG zonder
+tijdstempel. De encoder gebruikt waar mogelijk een compact geïndexeerd
+kleurenpalet. Het eerste beeldartifact is
+`output/products/emberforge-ultrawide.png` van exact 3840 bij 1080 pixels.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -1166,12 +1177,13 @@ milestone geen wallpaperafbeelding gegenereerd.
 | `BP4371` | Assetplaatsing gebruikt een onbekende fitmodus |
 | `BP4372` | Assetplaatsing heeft geen geldige dekking tussen 0 en 1 |
 | `BP4373` | Assetrol past niet bij de semantische wallpaperlaagrol |
+| `BP4374` | Assetplaatsing gebruikt geen oplosbare semantische materiaalrol |
 | `BP4380` | Product gebruikt `wallpaper` zonder inhoud `wallpaper` |
 | `BP4381` | Wallpaperproduct verwijst naar een onbekende wallpaper |
-| `BP4382` | Wallpaperproduct gebruikt niet de manifestbackend |
+| `BP4382` | Wallpaperproduct gebruikt geen bekende wallpaperbackend |
 | `BP4383` | Wallpaperproduct is niet statisch |
 | `BP4384` | Wallpaperproduct en wallpaper gebruiken verschillende werelden |
 | `BP4385` | Wallpaperproduct declareert een ander inhoudscontract |
-| `BP4386` | Wallpaperproduct gebruikt geen `.wallpaper.json` artifactpad |
+| `BP4386` | Wallpaperproduct gebruikt geen bij zijn backend passend artifactpad |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

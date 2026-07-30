@@ -39,6 +39,8 @@ materiaal forge-material {
     naam: "Forge material"
     doel: "Semantisch canvasmateriaal."
     canvas: "ink"
+    outline: "ink"
+    foreground: "ink"
 }
 thema forge {
     naam: "Forge"
@@ -127,6 +129,7 @@ assetplaatsing forge-node-placement {
     hoogte: "840"
     fit: "contain"
     dekking: "0.14"
+    kleur: "outline"
 }
 assetplaatsing forge-mark-placement {
     naam: "Forge merkteken"
@@ -139,6 +142,7 @@ assetplaatsing forge-mark-placement {
     hoogte: "480"
     fit: "contain"
     dekking: "1"
+    kleur: "foreground"
 }
 product forge-ultrawide-manifest {
     naam: "Forge Ultrawide Wallpaper Manifest"
@@ -181,7 +185,17 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
             tuple(item.id for item in wallpaper.lagen[0].plaatsingen),
         )
         self.assertEqual(
-            ("forge-node", 120, 120, 840, 840, "contain", 0.14),
+            (
+                "forge-node",
+                120,
+                120,
+                840,
+                840,
+                "contain",
+                0.14,
+                "outline",
+                "#0F1724",
+            ),
             (
                 wallpaper.lagen[0].plaatsingen[0].asset.id,
                 wallpaper.lagen[0].plaatsingen[0].x,
@@ -190,6 +204,8 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
                 wallpaper.lagen[0].plaatsingen[0].hoogte,
                 wallpaper.lagen[0].plaatsingen[0].fit,
                 wallpaper.lagen[0].plaatsingen[0].dekking,
+                wallpaper.lagen[0].plaatsingen[0].color_role,
+                wallpaper.lagen[0].plaatsingen[0].color.waarde,
             ),
         )
 
@@ -211,7 +227,7 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
             "forge-ultrawide",
             product.definitie.opgeloste_wallpaper.id,
         )
-        self.assertEqual(1, manifest["schema_version"])
+        self.assertEqual(2, manifest["schema_version"])
         self.assertEqual(
             product.definitie.snapshot_ref,
             manifest["product"]["snapshot"],
@@ -233,6 +249,16 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
         self.assertEqual(
             "forge-node",
             manifest["wallpaper"]["lagen"][0]["plaatsingen"][0]["asset"],
+        )
+        self.assertEqual(
+            {
+                "materiaalrol": "outline",
+                "kleur": "#0F1724",
+            },
+            {
+                key: manifest["wallpaper"]["lagen"][0]["plaatsingen"][0][key]
+                for key in ("materiaalrol", "kleur")
+            },
         )
         self.assertNotIn("<script", product.inhoud)
         self.assertNotIn("://", product.inhoud)
@@ -362,6 +388,12 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
             "BP4373",
             self._diagnostic_codes(
                 BRON.replace('    asset: "forge-node"', '    asset: "forge-mark"')
+            ),
+        )
+        self.assertIn(
+            "BP4374",
+            self._diagnostic_codes(
+                BRON.replace('    kleur: "outline"', '    kleur: "missing"')
             ),
         )
 

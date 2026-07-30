@@ -452,7 +452,7 @@ asset emberforge-woordmerk {
 
 wallpaper emberforge-ultrawide-wallpaper {
     naam: "EmberForge Ultrawide Wallpaper"
-    doel: "Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend."
+    doel: "Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar beeldproduct."
     wereld: "beckeringh-palace"
     merk: "emberforge"
     formaat: "png"
@@ -489,6 +489,7 @@ assetplaatsing emberforge-vector-node-left {
     hoogte: "840"
     fit: "contain"
     dekking: "0.14"
+    kleur: "interaction"
 }
 
 assetplaatsing emberforge-vector-node-right {
@@ -502,6 +503,7 @@ assetplaatsing emberforge-vector-node-right {
     hoogte: "840"
     fit: "contain"
     dekking: "0.14"
+    kleur: "interaction"
 }
 
 assetplaatsing emberforge-wallpaper-merkteken {
@@ -515,6 +517,7 @@ assetplaatsing emberforge-wallpaper-merkteken {
     hoogte: "480"
     fit: "contain"
     dekking: "1"
+    kleur: "accent"
 }
 
 assetplaatsing emberforge-wallpaper-woordmerk {
@@ -528,6 +531,7 @@ assetplaatsing emberforge-wallpaper-woordmerk {
     hoogte: "136"
     fit: "contain"
     dekking: "1"
+    kleur: "foreground"
 }
 
 token color-ember {
@@ -1964,8 +1968,8 @@ informatiegebied palace-product-family {
     toegankelijkheidslabel: "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
     leesvolgorde: "3"
     soorten: ["homepagegebied", "compositie", "componentinstantie", "layout", "region", "wallpaper", "wallpaperlaag", "assetplaatsing", "product", "renderdoel"]
-    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-homelab-dashboard", "emberforge-homelab-dashboard-responsive", "emberforge-ultrawide-wallpaper", "emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "project-status-html", "forge-design-system-reference-html", "emberforge-svg-asset-catalog-html"]
-    navigatie: ["emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "emberforge-ultrawide-wallpaper-manifest", "project-status-html", "project-status-grafana"]
+    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-homelab-dashboard", "emberforge-homelab-dashboard-responsive", "emberforge-ultrawide-wallpaper", "emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "emberforge-ultrawide-wallpaper-png", "project-status-html", "forge-design-system-reference-html", "emberforge-svg-asset-catalog-html"]
+    navigatie: ["emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "emberforge-ultrawide-wallpaper-png", "emberforge-ultrawide-wallpaper-manifest", "project-status-html", "project-status-grafana"]
 }
 
 compositie forge-dashboard {
@@ -2858,6 +2862,17 @@ product emberforge-ultrawide-wallpaper-manifest {
     wereld: "beckeringh-palace"
     wallpaper: "emberforge-ultrawide-wallpaper"
     pad: "output/products/emberforge-ultrawide.wallpaper.json"
+}
+
+product emberforge-ultrawide-wallpaper-png {
+    naam: "EmberForge Ultrawide Wallpaper PNG"
+    doel: "Rendert het opgeloste native wallpapercontract als deterministisch 3840 bij 1080 beeldartifact."
+    backend: "wallpaper-png"
+    mode: "static"
+    inhoud: "wallpaper"
+    wereld: "beckeringh-palace"
+    wallpaper: "emberforge-ultrawide-wallpaper"
+    pad: "output/products/emberforge-ultrawide.png"
 }
 
 renderdoel css-tokens {

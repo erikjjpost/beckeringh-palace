@@ -6,6 +6,8 @@
 - Python 3.12 of hoger
 
 Er zijn voor de huidige vertical slice geen externe Python-packages nodig.
+Ook de native PNG-rasterisatie en codering gebruiken uitsluitend de
+standaardbibliotheek.
 
 ## Volledige controle
 
