@@ -683,6 +683,102 @@ Herbruikbaar technisch lijnornament voor native EmberForge vectorproducten.
 - **viewbox:** 0 0 64 64
 - **vulling:** none
 
+## EmberForge Dashboard Icon
+
+**Soort:** asset
+
+**Identifier:** `emberforge-icon-dashboard`
+
+### Doel
+
+Herkenbaar lijnicoon voor het EmberForge dashboardproduct.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **label:** Dashboard
+- **lijn:** currentColor
+- **lijndikte:** 1.5
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M4 4 L10 4 L10 10 L4 10 Z, M14 4 L20 4 L20 10 L14 10 Z, M4 14 L10 14 L10 20 L4 20 Z, M14 14 L20 14 L20 20 L14 20 Z
+- **rol:** icoon
+- **toegankelijkheid:** informatief
+- **viewbox:** 0 0 24 24
+- **vulling:** none
+
+## EmberForge Identity Icon
+
+**Soort:** asset
+
+**Identifier:** `emberforge-icon-identity`
+
+### Doel
+
+Herkenbaar lijnicoon voor identiteit en toegang.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **label:** Identity
+- **lijn:** currentColor
+- **lijndikte:** 1.5
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M12 3 C15 3 17 5 17 8 C17 11 15 13 12 13 C9 13 7 11 7 8 C7 5 9 3 12 3 Z, M4 21 C4 17 7 15 12 15 C17 15 20 17 20 21
+- **rol:** icoon
+- **toegankelijkheid:** informatief
+- **viewbox:** 0 0 24 24
+- **vulling:** none
+
+## EmberForge Terminal Icon
+
+**Soort:** asset
+
+**Identifier:** `emberforge-icon-terminal`
+
+### Doel
+
+Herkenbaar lijnicoon voor de EmberForge terminal.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **label:** Terminal
+- **lijn:** currentColor
+- **lijndikte:** 1.5
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M4 5 L20 5 L20 19 L4 19 Z, M7 9 L10 12 L7 15, M12 15 L16 15
+- **rol:** icoon
+- **toegankelijkheid:** informatief
+- **viewbox:** 0 0 24 24
+- **vulling:** none
+
+## EmberForge Assets Icon
+
+**Soort:** asset
+
+**Identifier:** `emberforge-icon-assets`
+
+### Doel
+
+Herkenbaar lijnicoon voor de native assetcatalogus.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **label:** Assets
+- **lijn:** currentColor
+- **lijndikte:** 1.5
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M12 3 L20 7 L20 17 L12 21 L4 17 L4 7 Z, M4 7 L12 11 L20 7, M12 11 L12 21
+- **rol:** icoon
+- **toegankelijkheid:** informatief
+- **viewbox:** 0 0 24 24
+- **vulling:** none
+
 ## Ember Copper
 
 **Soort:** token
@@ -4055,7 +4151,7 @@ Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar cataloguspr
 
 ### Eigenschappen
 
-- **assets:** emberforge-vector-node
+- **assets:** emberforge-vector-node, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets
 - **backend:** html
 - **compositie:** emberforge-svg-asset-catalog-composition
 - **inhoud:** asset-catalog
@@ -4532,6 +4628,82 @@ Genereert het native technische lijnornament als veilig SVG product.
 - **inhoud:** asset
 - **mode:** static
 - **pad:** output/products/emberforge-vector-node.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Dashboard Icon SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-icon-dashboard-svg`
+
+### Doel
+
+Genereert het native dashboardicoon als veilig SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-icon-dashboard
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-icon-dashboard.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Identity Icon SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-icon-identity-svg`
+
+### Doel
+
+Genereert het native identity icoon als veilig SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-icon-identity
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-icon-identity.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Terminal Icon SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-icon-terminal-svg`
+
+### Doel
+
+Genereert het native terminalicoon als veilig SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-icon-terminal
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-icon-terminal.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Assets Icon SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-icon-assets-svg`
+
+### Doel
+
+Genereert het native assetcatalogusicoon als veilig SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-icon-assets
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-icon-assets.svg
 - **wereld:** beckeringh-palace
 
 ## CSS design tokens

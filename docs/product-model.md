@@ -833,6 +833,13 @@ De standalone SVG backend en de cataloguspreview gebruiken dezelfde veilige
 serialisatie. De catalogus bevat daardoor geen gekopieerde padgeometrie,
 handmatig onderhouden routetabel, ruwe SVG markup of externe bron.
 
+M11.5c voegt vier informatieve assets aan diezelfde keten toe:
+`emberforge-icon-dashboard`, `emberforge-icon-identity`,
+`emberforge-icon-terminal` en `emberforge-icon-assets`. Zij delen een 24 bij 24
+viewbox, `currentColor`, geen vulling, een lijndikte van 1,5 en ronde
+lijnuiteinden en verbindingen. Ieder asset krijgt precies één statisch SVG
+product en één catalogusvermelding.
+
 ## Diagnostics
 
 | Code | Betekenis |

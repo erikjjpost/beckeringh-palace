@@ -518,6 +518,98 @@
   },
   {
     "eigenschappen": {
+      "doel": "Herkenbaar lijnicoon voor het EmberForge dashboardproduct.",
+      "formaat": "svg",
+      "label": "Dashboard",
+      "lijn": "currentColor",
+      "lijndikte": "1.5",
+      "lijneinde": "round",
+      "lijnverbinding": "round",
+      "naam": "EmberForge Dashboard Icon",
+      "paden": [
+        "M4 4 L10 4 L10 10 L4 10 Z",
+        "M14 4 L20 4 L20 10 L14 10 Z",
+        "M4 14 L10 14 L10 20 L4 20 Z",
+        "M14 14 L20 14 L20 20 L14 20 Z"
+      ],
+      "rol": "icoon",
+      "toegankelijkheid": "informatief",
+      "viewbox": "0 0 24 24",
+      "vulling": "none"
+    },
+    "id": "emberforge-icon-dashboard",
+    "soort": "asset"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Herkenbaar lijnicoon voor identiteit en toegang.",
+      "formaat": "svg",
+      "label": "Identity",
+      "lijn": "currentColor",
+      "lijndikte": "1.5",
+      "lijneinde": "round",
+      "lijnverbinding": "round",
+      "naam": "EmberForge Identity Icon",
+      "paden": [
+        "M12 3 C15 3 17 5 17 8 C17 11 15 13 12 13 C9 13 7 11 7 8 C7 5 9 3 12 3 Z",
+        "M4 21 C4 17 7 15 12 15 C17 15 20 17 20 21"
+      ],
+      "rol": "icoon",
+      "toegankelijkheid": "informatief",
+      "viewbox": "0 0 24 24",
+      "vulling": "none"
+    },
+    "id": "emberforge-icon-identity",
+    "soort": "asset"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Herkenbaar lijnicoon voor de EmberForge terminal.",
+      "formaat": "svg",
+      "label": "Terminal",
+      "lijn": "currentColor",
+      "lijndikte": "1.5",
+      "lijneinde": "round",
+      "lijnverbinding": "round",
+      "naam": "EmberForge Terminal Icon",
+      "paden": [
+        "M4 5 L20 5 L20 19 L4 19 Z",
+        "M7 9 L10 12 L7 15",
+        "M12 15 L16 15"
+      ],
+      "rol": "icoon",
+      "toegankelijkheid": "informatief",
+      "viewbox": "0 0 24 24",
+      "vulling": "none"
+    },
+    "id": "emberforge-icon-terminal",
+    "soort": "asset"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Herkenbaar lijnicoon voor de native assetcatalogus.",
+      "formaat": "svg",
+      "label": "Assets",
+      "lijn": "currentColor",
+      "lijndikte": "1.5",
+      "lijneinde": "round",
+      "lijnverbinding": "round",
+      "naam": "EmberForge Assets Icon",
+      "paden": [
+        "M12 3 L20 7 L20 17 L12 21 L4 17 L4 7 Z",
+        "M4 7 L12 11 L20 7",
+        "M12 11 L12 21"
+      ],
+      "rol": "icoon",
+      "toegankelijkheid": "informatief",
+      "viewbox": "0 0 24 24",
+      "vulling": "none"
+    },
+    "id": "emberforge-icon-assets",
+    "soort": "asset"
+  },
+  {
+    "eigenschappen": {
       "doel": "Ruwe warme accentkleur uit het EmberForge bronpalet.",
       "naam": "Ember Copper",
       "type": "color",
@@ -3224,7 +3316,11 @@
   {
     "eigenschappen": {
       "assets": [
-        "emberforge-vector-node"
+        "emberforge-vector-node",
+        "emberforge-icon-dashboard",
+        "emberforge-icon-identity",
+        "emberforge-icon-terminal",
+        "emberforge-icon-assets"
       ],
       "backend": "html",
       "compositie": "emberforge-svg-asset-catalog-composition",
@@ -3584,6 +3680,62 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-vector-node-svg",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-icon-dashboard",
+      "backend": "svg",
+      "doel": "Genereert het native dashboardicoon als veilig SVG product.",
+      "inhoud": "asset",
+      "mode": "static",
+      "naam": "EmberForge Dashboard Icon SVG",
+      "pad": "output/products/emberforge-icon-dashboard.svg",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-icon-dashboard-svg",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-icon-identity",
+      "backend": "svg",
+      "doel": "Genereert het native identity icoon als veilig SVG product.",
+      "inhoud": "asset",
+      "mode": "static",
+      "naam": "EmberForge Identity Icon SVG",
+      "pad": "output/products/emberforge-icon-identity.svg",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-icon-identity-svg",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-icon-terminal",
+      "backend": "svg",
+      "doel": "Genereert het native terminalicoon als veilig SVG product.",
+      "inhoud": "asset",
+      "mode": "static",
+      "naam": "EmberForge Terminal Icon SVG",
+      "pad": "output/products/emberforge-icon-terminal.svg",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-icon-terminal-svg",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-icon-assets",
+      "backend": "svg",
+      "doel": "Genereert het native assetcatalogusicoon als veilig SVG product.",
+      "inhoud": "asset",
+      "mode": "static",
+      "naam": "EmberForge Assets Icon SVG",
+      "pad": "output/products/emberforge-icon-assets.svg",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-icon-assets-svg",
     "soort": "product"
   },
   {
