@@ -45,6 +45,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("appearance", Domeinstatus.NATIVE, "Koppelt een component aan semantische theme-rollen en primitiveprofielen."),
     ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
+    ObjectsoortDefinitie("assetfamilie", Domeinstatus.NATIVE, "Ordent samenhangende assets onder één merk en expliciet familietype."),
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
     ObjectsoortDefinitie("toegankelijkheid", Domeinstatus.NATIVE, "Legt naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag van een component vast."),
     ObjectsoortDefinitie("componentvoorbeeld", Domeinstatus.NATIVE, "Legt productgedragen voorbeeldinhoud voor één componentvariant vast."),

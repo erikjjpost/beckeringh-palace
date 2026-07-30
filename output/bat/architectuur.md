@@ -660,6 +660,38 @@ Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
 - **taal:** Nederlands met technische termen in het Engels
 - **tagline:** Sovereign Infrastructure.
 
+## EmberForge iconen
+
+**Soort:** assetfamilie
+
+**Identifier:** `emberforge-iconen`
+
+### Doel
+
+Ordent de native producticonen als één samenhangende merkgebonden familie.
+
+### Eigenschappen
+
+- **assets:** emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets
+- **merk:** emberforge
+- **type:** iconen
+
+## EmberForge merkassets
+
+**Soort:** assetfamilie
+
+**Identifier:** `emberforge-merkassets`
+
+### Doel
+
+Ordent het native merkteken en woordmerk als één reproduceerbare merkfamilie.
+
+### Eigenschappen
+
+- **assets:** emberforge-merkteken, emberforge-woordmerk
+- **merk:** emberforge
+- **type:** merk
+
 ## EmberForge Vector Node
 
 **Soort:** asset
@@ -695,6 +727,7 @@ Herkenbaar lijnicoon voor het EmberForge dashboardproduct.
 
 ### Eigenschappen
 
+- **familie:** emberforge-iconen
 - **formaat:** svg
 - **label:** Dashboard
 - **lijn:** currentColor
@@ -704,6 +737,7 @@ Herkenbaar lijnicoon voor het EmberForge dashboardproduct.
 - **paden:** M4 4 L10 4 L10 10 L4 10 Z, M14 4 L20 4 L20 10 L14 10 Z, M4 14 L10 14 L10 20 L4 20 Z, M14 14 L20 14 L20 20 L14 20 Z
 - **rol:** icoon
 - **toegankelijkheid:** informatief
+- **variant:** dashboard
 - **viewbox:** 0 0 24 24
 - **vulling:** none
 
@@ -719,6 +753,7 @@ Herkenbaar lijnicoon voor identiteit en toegang.
 
 ### Eigenschappen
 
+- **familie:** emberforge-iconen
 - **formaat:** svg
 - **label:** Identity
 - **lijn:** currentColor
@@ -728,6 +763,7 @@ Herkenbaar lijnicoon voor identiteit en toegang.
 - **paden:** M12 3 C15 3 17 5 17 8 C17 11 15 13 12 13 C9 13 7 11 7 8 C7 5 9 3 12 3 Z, M4 21 C4 17 7 15 12 15 C17 15 20 17 20 21
 - **rol:** icoon
 - **toegankelijkheid:** informatief
+- **variant:** identity
 - **viewbox:** 0 0 24 24
 - **vulling:** none
 
@@ -743,6 +779,7 @@ Herkenbaar lijnicoon voor de EmberForge terminal.
 
 ### Eigenschappen
 
+- **familie:** emberforge-iconen
 - **formaat:** svg
 - **label:** Terminal
 - **lijn:** currentColor
@@ -752,6 +789,7 @@ Herkenbaar lijnicoon voor de EmberForge terminal.
 - **paden:** M4 5 L20 5 L20 19 L4 19 Z, M7 9 L10 12 L7 15, M12 15 L16 15
 - **rol:** icoon
 - **toegankelijkheid:** informatief
+- **variant:** terminal
 - **viewbox:** 0 0 24 24
 - **vulling:** none
 
@@ -767,6 +805,7 @@ Herkenbaar lijnicoon voor de native assetcatalogus.
 
 ### Eigenschappen
 
+- **familie:** emberforge-iconen
 - **formaat:** svg
 - **label:** Assets
 - **lijn:** currentColor
@@ -776,7 +815,60 @@ Herkenbaar lijnicoon voor de native assetcatalogus.
 - **paden:** M12 3 L20 7 L20 17 L12 21 L4 17 L4 7 Z, M4 7 L12 11 L20 7, M12 11 L12 21
 - **rol:** icoon
 - **toegankelijkheid:** informatief
+- **variant:** assets
 - **viewbox:** 0 0 24 24
+- **vulling:** none
+
+## EmberForge merkteken
+
+**Soort:** asset
+
+**Identifier:** `emberforge-merkteken`
+
+### Doel
+
+Compact technisch merkteken waarin een gesmede rand, ember en aambeeld samenkomen.
+
+### Eigenschappen
+
+- **familie:** emberforge-merkassets
+- **formaat:** svg
+- **label:** EmberForge
+- **lijn:** currentColor
+- **lijndikte:** 2.5
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M48 6 L78 22 L88 52 L72 82 L48 92 L24 82 L8 52 L18 22 Z, M48 18 C59 29 63 38 59 48 C57 54 52 58 48 62 C43 58 38 53 36 47 C33 39 38 31 44 25 C44 34 47 39 51 42 C54 34 53 26 48 18 Z, M26 62 H70 L64 70 H55 V80 H41 V70 H32 Z
+- **rol:** logo
+- **toegankelijkheid:** informatief
+- **variant:** merkteken
+- **viewbox:** 0 0 96 96
+- **vulling:** none
+
+## EmberForge woordmerk
+
+**Soort:** asset
+
+**Identifier:** `emberforge-woordmerk`
+
+### Doel
+
+Horizontaal technisch woordmerk voor brede EmberForge merkoppervlakken.
+
+### Eigenschappen
+
+- **familie:** emberforge-merkassets
+- **formaat:** svg
+- **label:** EmberForge
+- **lijn:** currentColor
+- **lijndikte:** 3
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M12 16 V64 M12 16 H50 M12 40 H44 M12 64 H50, M66 64 V16 L86 42 L106 16 V64, M124 16 V64 M124 16 H148 C158 16 162 22 162 28 C162 34 158 40 148 40 H124 M148 40 C158 40 164 46 164 52 C164 59 159 64 148 64 H124, M182 16 V64 M182 16 H220 M182 40 H214 M182 64 H220, M238 64 V16 H258 C269 16 274 22 274 28 C274 36 269 40 258 40 H238 M256 40 L276 64, M296 64 V16 H334 M296 40 H328, M368 16 H384 C395 16 400 24 400 40 C400 56 395 64 384 64 H368 C357 64 352 56 352 40 C352 24 357 16 368 16 Z, M418 64 V16 H438 C449 16 454 22 454 28 C454 36 449 40 438 40 H418 M436 40 L456 64, M524 26 C519 19 512 16 500 16 H492 C481 16 476 24 476 40 C476 56 481 64 492 64 H510 C519 64 524 58 524 48 V40 H506, M542 16 V64 M542 16 H580 M542 40 H574 M542 64 H580
+- **rol:** logo
+- **toegankelijkheid:** informatief
+- **variant:** woordmerk
+- **viewbox:** 0 0 592 80
 - **vulling:** none
 
 ## Ember Copper
@@ -3079,11 +3171,11 @@ De digitale wereld, haar merk en haar reproduceerbare bronassets.
 
 ### Eigenschappen
 
-- **inhoud:** beckeringh-palace, emberforge-vector-node
+- **inhoud:** beckeringh-palace, emberforge-merkassets, emberforge-vector-node
 - **leesvolgorde:** 1
-- **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-svg-asset-catalog-html, emberforge-vector-node-svg
-- **soorten:** wereld, merk, asset
-- **toegankelijkheidslabel:** Wereld en identiteit, overzicht van wereld, merk en bronassets
+- **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-svg-asset-catalog-html, emberforge-vector-node-svg, emberforge-merkteken-svg, emberforge-woordmerk-svg
+- **soorten:** wereld, merk, assetfamilie, asset
+- **toegankelijkheidslabel:** Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets
 
 ## Forge ontwerpsysteem
 
@@ -4151,7 +4243,7 @@ Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar cataloguspr
 
 ### Eigenschappen
 
-- **assets:** emberforge-vector-node, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets
+- **assets:** emberforge-vector-node, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets, emberforge-merkteken, emberforge-woordmerk
 - **backend:** html
 - **compositie:** emberforge-svg-asset-catalog-composition
 - **inhoud:** asset-catalog
@@ -4704,6 +4796,44 @@ Genereert het native assetcatalogusicoon als veilig SVG product.
 - **inhoud:** asset
 - **mode:** static
 - **pad:** output/products/emberforge-icon-assets.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge merkteken SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-merkteken-svg`
+
+### Doel
+
+Genereert het native EmberForge merkteken als veilig SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-merkteken
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-merkteken.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge woordmerk SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-woordmerk-svg`
+
+### Doel
+
+Genereert het native EmberForge woordmerk als veilig SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-woordmerk
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-woordmerk.svg
 - **wereld:** beckeringh-palace
 
 ## CSS design tokens

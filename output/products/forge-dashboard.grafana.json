@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 81ca74154985",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f91ea6232a15",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "De digitale wereld, haar merk en haar reproduceerbare bronassets.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT toegankelijkheid: forge-panel-accessibility\nToegankelijkheidsrol: groep\nNaambron: titel\nWaardebron: niet-van-toepassing\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen\nBAT informatiegebied: palace-world\nToegankelijkheidslabel: Wereld en identiteit, overzicht van wereld, merk en bronassets\nLeesvolgorde: 1",
+      "description": "De digitale wereld, haar merk en haar reproduceerbare bronassets.\n\nBAT component: forge-panel\nBAT appearance: forge-panel-appearance\nBAT toegankelijkheid: forge-panel-accessibility\nToegankelijkheidsrol: groep\nNaambron: titel\nWaardebron: niet-van-toepassing\nFoutbron: niet-van-toepassing\nDisabled gedrag: niet-van-toepassing\nFocusgedrag: geen\nToetsenbordgedrag: geen\nBAT informatiegebied: palace-world\nToegankelijkheidslabel: Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets\nLeesvolgorde: 1",
       "gridPos": {
         "h": 16,
         "w": 8,
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 364,
+                "height": 432,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -207,7 +207,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "7",
+                  "fixed": "11",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -233,7 +233,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "asset\nmerk\nwereld",
+                  "fixed": "asset\nassetfamilie\nmerk\nwereld",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -244,7 +244,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-labels",
               "placement": {
-                "height": 48,
+                "height": 60,
                 "left": 20,
                 "top": 128,
                 "width": 280
@@ -259,7 +259,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "5\n1\n1",
+                  "fixed": "7\n2\n1\n1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -270,7 +270,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-values",
               "placement": {
-                "height": 48,
+                "height": 60,
                 "left": 300,
                 "top": 128,
                 "width": 80
@@ -353,6 +353,31 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-4",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 176,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -360,7 +385,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana\nEmberForge SVG Asset Catalog\nEmberForge Vector Node SVG",
+                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana\nEmberForge SVG Asset Catalog\nEmberForge Vector Node SVG\nEmberForge merkteken SVG\nEmberForge woordmerk SVG",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -389,13 +414,23 @@
                   "targetBlank": false,
                   "title": "EmberForge Vector Node SVG",
                   "url": "emberforge-vector-node.svg"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "EmberForge merkteken SVG",
+                  "url": "emberforge-merkteken.svg"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "EmberForge woordmerk SVG",
+                  "url": "emberforge-woordmerk.svg"
                 }
               ],
               "name": "forge-dashboard-left-panel-product-navigation",
               "placement": {
-                "height": 48,
+                "height": 72,
                 "left": 20,
-                "top": 188,
+                "top": 200,
                 "width": 360
               },
               "type": "text"
@@ -408,7 +443,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.",
+                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge merkassets · assetfamilie\nOrdent het native merkteken en woordmerk als één reproduceerbare merkfamilie.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -419,9 +454,9 @@
               },
               "name": "forge-dashboard-left-panel-content-anchors",
               "placement": {
-                "height": 64,
+                "height": 96,
                 "left": 20,
-                "top": 248,
+                "top": 284,
                 "width": 360
               },
               "type": "text"
@@ -447,7 +482,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 324,
+                "top": 392,
                 "width": 360
               },
               "type": "text"
@@ -458,7 +493,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Wereld en identiteit, overzicht van wereld, merk en bronassets",
+      "title": "Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets",
       "transparent": true,
       "type": "canvas"
     },
@@ -1262,7 +1297,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "92",
+                  "fixed": "94",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1314,7 +1349,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "26\n7\n7\n7\n16\n26\n3",
+                  "fixed": "26\n7\n7\n7\n18\n26\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1623,7 +1658,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:81ca74154985e2d781b7a8050b653fd90e02e1aa58904c842ee95771e72331a0"
+    "sha256:f91ea6232a152938a62a594108da18b1371f41035a3008d88f6e51261c3fa14f"
   ],
   "templating": {
     "list": []

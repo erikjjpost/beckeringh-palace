@@ -214,6 +214,8 @@ padgeometrie. Ieder SVG asset vereist:
 - een volledig lijncontract wanneer `lijn` niet `none` is;
 - `toegankelijkheid`: `informatief` met een verplicht `label`, of `decoratief`
   zonder label.
+- optioneel `familie` en `variant`, uitsluitend samen en via een bekende
+  wederkerige `assetfamilie`.
 
 Het contract bevat geen ruwe XML, scripts, eventhandlers, externe referenties,
 fonts of URL-gebaseerde paint. De SVG backend ontvangt alleen
@@ -236,6 +238,36 @@ asset forge-vector-node {
     toegankelijkheid: "decoratief"
 }
 ```
+
+### `assetfamilie`
+
+M11.5d ordent samenhangende assets met een expliciet backendonafhankelijk
+familiecontract. Iedere familie vereist:
+
+- `naam` en `doel`;
+- `type`: `iconen` of `merk`;
+- `merk`: een bestaande native merkidentiteit;
+- `assets`: minstens twee unieke assets in normatieve volgorde.
+
+Ieder familielid verwijst met `familie` terug naar exact dezelfde familie en
+draagt een unieke betekenisvolle `variant`. Een iconenfamilie accepteert alleen
+assets met rol `icoon`. Een merkfamilie accepteert alleen rol `logo` en vereist
+exact de varianten `merkteken` en `woordmerk`.
+
+```bp
+assetfamilie forge-merkassets {
+    naam: "Forge merkassets"
+    doel: "Ordent het merkteken en woordmerk."
+    type: "merk"
+    merk: "forge"
+    assets: ["forge-merkteken", "forge-woordmerk"]
+}
+```
+
+De resolver levert geordende `ResolvedSvgAssetFamily` objecten zonder backend
+of artifactkennis. De catalogus koppelt een asset aan haar opgeloste familie.
+De generieke SVG serialisatie publiceert alleen de familie en variant als
+metadata en blijft onafhankelijk van het familietype.
 
 ### `product`
 
@@ -840,6 +872,13 @@ viewbox, `currentColor`, geen vulling, een lijndikte van 1,5 en ronde
 lijnuiteinden en verbindingen. Ieder asset krijgt precies één statisch SVG
 product en één catalogusvermelding.
 
+M11.5d voegt `emberforge-merkteken` en `emberforge-woordmerk` toe als de twee
+verplichte varianten van `emberforge-merkassets`. De bestaande iconen zijn
+tegelijk onder `emberforge-iconen` gebracht. Beide families zijn expliciet,
+wederkerig, merkgebonden en worden vóór HTML rendering opgelost. Het merkteken
+en woordmerk zijn nieuwe BAT geometrie en activeren geen placeholder uit de
+ontwerpinput.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -996,5 +1035,15 @@ product en één catalogusvermelding.
 | `BP4327` | SVG assetcatalogus is niet statisch |
 | `BP4328` | SVG assetcatalogus gebruikt geen `.html` artifactpad |
 | `BP4329` | SVG assetcatalogus heeft niet exact één inhoudsinstantie |
+| `BP4331` | SVG assetfamilie bevat een onbekende eigenschap |
+| `BP4332` | SVG assetfamilie gebruikt een onbekend familietype |
+| `BP4333` | SVG assetfamilie verwijst naar een onbekend merk |
+| `BP4334` | SVG assetfamilie mist minstens twee unieke geordende assets |
+| `BP4335` | SVG assetfamilie verwijst naar een onbekend asset |
+| `BP4336` | SVG asset mist een bekende familie of betekenisvolle variant |
+| `BP4337` | SVG assetfamilie en haar leden zijn niet exact wederkerig |
+| `BP4338` | SVG assetfamilie bevat ontbrekende of dubbele varianten |
+| `BP4339` | Assetrol past niet bij het familietype |
+| `BP4340` | SVG merkfamilie bevat niet exact merkteken en woordmerk |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

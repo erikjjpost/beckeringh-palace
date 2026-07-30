@@ -82,11 +82,18 @@ def asset_catalog_content_lines(
             catalog_path,
             entry.artifact_path,
         )
+        familie_attributen = (
+            f'data-asset-family="{html.escape(asset.familie)}" '
+            f'data-asset-variant="{html.escape(asset.variant)}" '
+            if asset.familie is not None and asset.variant is not None
+            else ""
+        )
         regels.extend([
             (
                 f'  <article class="bp-asset-card" '
                 f'data-asset="{html.escape(asset.id)}" '
                 f'data-asset-role="{html.escape(asset.rol)}" '
+                f"{familie_attributen}"
                 f'data-asset-accessibility="'
                 f'{html.escape(asset.toegankelijkheid)}" '
                 f'aria-labelledby="{html.escape(heading_id)}">'
@@ -132,6 +139,16 @@ def asset_catalog_content_lines(
             "      <dt>Toegankelijkheid</dt>",
             f"      <dd>{html.escape(asset.toegankelijkheid)}</dd>",
         ])
+        if entry.familie is not None and asset.variant is not None:
+            regels.extend([
+                "      <dt>Familie</dt>",
+                (
+                    f"      <dd>{html.escape(entry.familie.naam)} "
+                    f"({html.escape(entry.familie.familietype)})</dd>"
+                ),
+                "      <dt>Variant</dt>",
+                f"      <dd>{html.escape(asset.variant)}</dd>",
+            ])
         if asset.label is not None:
             regels.extend([
                 "      <dt>Toegankelijke naam</dt>",

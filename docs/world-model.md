@@ -23,6 +23,7 @@ De native objectsoorten zijn:
 | `thema` | visuele en semantische varianten |
 | `token` | herbruikbare ontwerpwaarden |
 | `asset` | veilige, getypeerde en reproduceerbare bronassets |
+| `assetfamilie` | geordende, merkgebonden samenhang tussen native assets |
 | `component` | herbruikbare productonderdelen |
 | `toegankelijkheid` | backendonafhankelijke naam, rol, waarde, fout, disabled, focus en toetsenbordsemantiek |
 | `componentvoorbeeld` | productgedragen voorbeeldinhoud voor één componentvariant |
@@ -54,6 +55,13 @@ M11.5c gebruikt datzelfde contract voor Dashboard, Identity, Terminal en
 Assets. Deze vier informatieve iconen delen één expliciete 24 bij 24 viewbox,
 lijnstijl en toegankelijkheidscontract. De iconenfamilie is BAT inhoud en
 introduceert geen nieuw domeinconcept of rendererpad.
+
+M11.5d maakt families zelf native. Een `assetfamilie` declareert een merk, het
+type `iconen` of `merk` en minstens twee geordende assets. Lidmaatschap is
+wederkerig en iedere assetvariant is uniek binnen haar familie. Een merkfamilie
+bevat exact een merkteken en woordmerk. De HTML catalogus consumeert de
+opgeloste familiesemantiek. De SVG backend blijft uitsluitend de veilige
+assetgeometrie serialiseren.
 
 ## Niet native
 

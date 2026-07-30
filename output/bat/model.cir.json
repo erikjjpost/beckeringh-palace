@@ -497,6 +497,36 @@
   },
   {
     "eigenschappen": {
+      "assets": [
+        "emberforge-icon-dashboard",
+        "emberforge-icon-identity",
+        "emberforge-icon-terminal",
+        "emberforge-icon-assets"
+      ],
+      "doel": "Ordent de native producticonen als één samenhangende merkgebonden familie.",
+      "merk": "emberforge",
+      "naam": "EmberForge iconen",
+      "type": "iconen"
+    },
+    "id": "emberforge-iconen",
+    "soort": "assetfamilie"
+  },
+  {
+    "eigenschappen": {
+      "assets": [
+        "emberforge-merkteken",
+        "emberforge-woordmerk"
+      ],
+      "doel": "Ordent het native merkteken en woordmerk als één reproduceerbare merkfamilie.",
+      "merk": "emberforge",
+      "naam": "EmberForge merkassets",
+      "type": "merk"
+    },
+    "id": "emberforge-merkassets",
+    "soort": "assetfamilie"
+  },
+  {
+    "eigenschappen": {
       "doel": "Herbruikbaar technisch lijnornament voor native EmberForge vectorproducten.",
       "formaat": "svg",
       "lijn": "currentColor",
@@ -519,6 +549,7 @@
   {
     "eigenschappen": {
       "doel": "Herkenbaar lijnicoon voor het EmberForge dashboardproduct.",
+      "familie": "emberforge-iconen",
       "formaat": "svg",
       "label": "Dashboard",
       "lijn": "currentColor",
@@ -534,6 +565,7 @@
       ],
       "rol": "icoon",
       "toegankelijkheid": "informatief",
+      "variant": "dashboard",
       "viewbox": "0 0 24 24",
       "vulling": "none"
     },
@@ -543,6 +575,7 @@
   {
     "eigenschappen": {
       "doel": "Herkenbaar lijnicoon voor identiteit en toegang.",
+      "familie": "emberforge-iconen",
       "formaat": "svg",
       "label": "Identity",
       "lijn": "currentColor",
@@ -556,6 +589,7 @@
       ],
       "rol": "icoon",
       "toegankelijkheid": "informatief",
+      "variant": "identity",
       "viewbox": "0 0 24 24",
       "vulling": "none"
     },
@@ -565,6 +599,7 @@
   {
     "eigenschappen": {
       "doel": "Herkenbaar lijnicoon voor de EmberForge terminal.",
+      "familie": "emberforge-iconen",
       "formaat": "svg",
       "label": "Terminal",
       "lijn": "currentColor",
@@ -579,6 +614,7 @@
       ],
       "rol": "icoon",
       "toegankelijkheid": "informatief",
+      "variant": "terminal",
       "viewbox": "0 0 24 24",
       "vulling": "none"
     },
@@ -588,6 +624,7 @@
   {
     "eigenschappen": {
       "doel": "Herkenbaar lijnicoon voor de native assetcatalogus.",
+      "familie": "emberforge-iconen",
       "formaat": "svg",
       "label": "Assets",
       "lijn": "currentColor",
@@ -602,10 +639,68 @@
       ],
       "rol": "icoon",
       "toegankelijkheid": "informatief",
+      "variant": "assets",
       "viewbox": "0 0 24 24",
       "vulling": "none"
     },
     "id": "emberforge-icon-assets",
+    "soort": "asset"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Compact technisch merkteken waarin een gesmede rand, ember en aambeeld samenkomen.",
+      "familie": "emberforge-merkassets",
+      "formaat": "svg",
+      "label": "EmberForge",
+      "lijn": "currentColor",
+      "lijndikte": "2.5",
+      "lijneinde": "round",
+      "lijnverbinding": "round",
+      "naam": "EmberForge merkteken",
+      "paden": [
+        "M48 6 L78 22 L88 52 L72 82 L48 92 L24 82 L8 52 L18 22 Z",
+        "M48 18 C59 29 63 38 59 48 C57 54 52 58 48 62 C43 58 38 53 36 47 C33 39 38 31 44 25 C44 34 47 39 51 42 C54 34 53 26 48 18 Z",
+        "M26 62 H70 L64 70 H55 V80 H41 V70 H32 Z"
+      ],
+      "rol": "logo",
+      "toegankelijkheid": "informatief",
+      "variant": "merkteken",
+      "viewbox": "0 0 96 96",
+      "vulling": "none"
+    },
+    "id": "emberforge-merkteken",
+    "soort": "asset"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Horizontaal technisch woordmerk voor brede EmberForge merkoppervlakken.",
+      "familie": "emberforge-merkassets",
+      "formaat": "svg",
+      "label": "EmberForge",
+      "lijn": "currentColor",
+      "lijndikte": "3",
+      "lijneinde": "round",
+      "lijnverbinding": "round",
+      "naam": "EmberForge woordmerk",
+      "paden": [
+        "M12 16 V64 M12 16 H50 M12 40 H44 M12 64 H50",
+        "M66 64 V16 L86 42 L106 16 V64",
+        "M124 16 V64 M124 16 H148 C158 16 162 22 162 28 C162 34 158 40 148 40 H124 M148 40 C158 40 164 46 164 52 C164 59 159 64 148 64 H124",
+        "M182 16 V64 M182 16 H220 M182 40 H214 M182 64 H220",
+        "M238 64 V16 H258 C269 16 274 22 274 28 C274 36 269 40 258 40 H238 M256 40 L276 64",
+        "M296 64 V16 H334 M296 40 H328",
+        "M368 16 H384 C395 16 400 24 400 40 C400 56 395 64 384 64 H368 C357 64 352 56 352 40 C352 24 357 16 368 16 Z",
+        "M418 64 V16 H438 C449 16 454 22 454 28 C454 36 449 40 438 40 H418 M436 40 L456 64",
+        "M524 26 C519 19 512 16 500 16 H492 C481 16 476 24 476 40 C476 56 481 64 492 64 H510 C519 64 524 58 524 48 V40 H506",
+        "M542 16 V64 M542 16 H580 M542 40 H574 M542 64 H580"
+      ],
+      "rol": "logo",
+      "toegankelijkheid": "informatief",
+      "variant": "woordmerk",
+      "viewbox": "0 0 592 80",
+      "vulling": "none"
+    },
+    "id": "emberforge-woordmerk",
     "soort": "asset"
   },
   {
@@ -2421,6 +2516,7 @@
       "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
       "inhoud": [
         "beckeringh-palace",
+        "emberforge-merkassets",
         "emberforge-vector-node"
       ],
       "leesvolgorde": "1",
@@ -2429,14 +2525,17 @@
         "forge-dashboard-html",
         "forge-dashboard-grafana",
         "emberforge-svg-asset-catalog-html",
-        "emberforge-vector-node-svg"
+        "emberforge-vector-node-svg",
+        "emberforge-merkteken-svg",
+        "emberforge-woordmerk-svg"
       ],
       "soorten": [
         "wereld",
         "merk",
+        "assetfamilie",
         "asset"
       ],
-      "toegankelijkheidslabel": "Wereld en identiteit, overzicht van wereld, merk en bronassets"
+      "toegankelijkheidslabel": "Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets"
     },
     "id": "palace-world",
     "soort": "informatiegebied"
@@ -3320,7 +3419,9 @@
         "emberforge-icon-dashboard",
         "emberforge-icon-identity",
         "emberforge-icon-terminal",
-        "emberforge-icon-assets"
+        "emberforge-icon-assets",
+        "emberforge-merkteken",
+        "emberforge-woordmerk"
       ],
       "backend": "html",
       "compositie": "emberforge-svg-asset-catalog-composition",
@@ -3736,6 +3837,34 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-icon-assets-svg",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-merkteken",
+      "backend": "svg",
+      "doel": "Genereert het native EmberForge merkteken als veilig SVG product.",
+      "inhoud": "asset",
+      "mode": "static",
+      "naam": "EmberForge merkteken SVG",
+      "pad": "output/products/emberforge-merkteken.svg",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-merkteken-svg",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-woordmerk",
+      "backend": "svg",
+      "doel": "Genereert het native EmberForge woordmerk als veilig SVG product.",
+      "inhoud": "asset",
+      "mode": "static",
+      "naam": "EmberForge woordmerk SVG",
+      "pad": "output/products/emberforge-woordmerk.svg",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-woordmerk-svg",
     "soort": "product"
   },
   {

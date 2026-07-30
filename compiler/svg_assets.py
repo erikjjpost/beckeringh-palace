@@ -56,6 +56,8 @@ class ResolvedSvgAsset:
     lijnverbinding: str | None
     toegankelijkheid: str
     label: str | None
+    familie: str | None
+    variant: str | None
 
 
 class SvgAssetResolutionError(ValueError):
@@ -184,6 +186,8 @@ class SvgAssetConstraint:
             "lijnverbinding",
             "toegankelijkheid",
             "label",
+            "familie",
+            "variant",
         }
 
         for asset in (obj for obj in context.objecten if obj.soort == "asset"):
@@ -386,6 +390,16 @@ def svg_asset_uit_object(
         label=(
             _tekst(obj, "label")
             if "label" in obj.eigenschappen
+            else None
+        ),
+        familie=(
+            _tekst(obj, "familie")
+            if "familie" in obj.eigenschappen
+            else None
+        ),
+        variant=(
+            _tekst(obj, "variant")
+            if "variant" in obj.eigenschappen
             else None
         ),
     )

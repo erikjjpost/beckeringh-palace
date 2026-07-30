@@ -8,6 +8,10 @@ from typing import Iterable
 from compiler.cir import Architectuurobject
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
+from compiler.svg_asset_families import (
+    ResolvedSvgAssetFamily,
+    resolveer_svg_assetfamilies,
+)
 from compiler.svg_assets import ResolvedSvgAsset, resolveer_svg_assets
 
 
@@ -19,6 +23,7 @@ class ResolvedSvgAssetCatalogEntry:
     asset: ResolvedSvgAsset
     artifact_product_id: str
     artifact_path: str
+    familie: ResolvedSvgAssetFamily | None
 
 
 @dataclass(frozen=True)
@@ -38,6 +43,11 @@ def resolveer_svg_assetcatalogus(
     assets = {
         asset.id: asset
         for asset in resolveer_svg_assets(objecten)
+    }
+    families = {
+        asset.id: familie
+        for familie in resolveer_svg_assetfamilies(objecten)
+        for asset in familie.assets
     }
     artifact_producten: dict[str, list[Architectuurobject]] = {}
     for obj in objecten:
@@ -67,6 +77,7 @@ def resolveer_svg_assetcatalogus(
             asset=asset,
             artifact_product_id=product.id,
             artifact_path=artifact_path,
+            familie=families.get(asset_id),
         ))
     return ResolvedSvgAssetCatalog(entries=tuple(entries))
 

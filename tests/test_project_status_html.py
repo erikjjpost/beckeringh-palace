@@ -72,6 +72,8 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "emberforge-icon-identity-svg",
                 "emberforge-icon-terminal-svg",
                 "emberforge-icon-assets-svg",
+                "emberforge-merkteken-svg",
+                "emberforge-woordmerk-svg",
             },
             {product.definitie.id for product in products},
         )

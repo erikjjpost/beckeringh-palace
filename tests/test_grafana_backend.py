@@ -57,8 +57,8 @@ class GrafanaBackendTests(unittest.TestCase):
             [
                 "Forge Dashboard",
                 (
-                    "Wereld en identiteit, overzicht van wereld, merk en "
-                    "bronassets"
+                    "Wereld en identiteit, overzicht van wereld, merk, "
+                    "assetfamilies en bronassets"
                 ),
                 (
                     "Forge ontwerpsysteem, overzicht van ontwerpprimitieven "
@@ -229,7 +229,7 @@ class GrafanaBackendTests(unittest.TestCase):
             ]["fixed"],
         )
         self.assertEqual(
-            ["7", "145", "92"],
+            ["11", "145", "94"],
             [
                 panel["options"]["root"]["elements"][2]["config"]["text"][
                     "fixed"

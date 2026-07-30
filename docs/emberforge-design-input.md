@@ -19,7 +19,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
 | Componenten, states, toegankelijkheid en referentie | Gemigreerd in M11.3f tot en met M11.3i | appearance, component, variant, componentvoorbeeld, toegankelijkheid en native referentieproduct |
 | Dashboard, Keycloak en terminal | Gemigreerd in M11.4a tot en met M11.4d | composition, layout en product |
-| Vectorassets | Native contract, catalogus en iconenfamilie in M11.5a tot en met M11.5c; bronpakket geblokkeerd | BAT asset, statisch SVG product en navigeerbare catalogus |
+| Vectorassets | Native contract, catalogus, iconenfamilie en merkfamilie in M11.5a tot en met M11.5d; bronpakket geblokkeerd | BAT assetfamilies, statische SVG producten en navigeerbare catalogus |
 | Merkverhaal, productfamilie en contentregels | Gemigreerd in M11.1e en M11.4e | Native merkidentiteit, homepage entree en productroutes |
 
 De PNG logo's, placeholder SVG logo's, ontbrekende bestanden, Google Fonts,
@@ -63,6 +63,22 @@ De geometrie, rol en semantiek staan volledig in BAT. De bestaande SVG backend
 genereert vier zelfstandige artifacts en de bestaande catalogus ontsluit ze in
 vaste volgorde naast het decoratieve lijnornament. Er is geen tweede
 iconenmodel en geen runtimeafhankelijkheid toegevoegd.
+
+## Native SVG merkfamilie
+
+M11.5d maakt de samenhang tussen vectorassets expliciet met het native
+`assetfamilie` contract. Een familie noemt zelf haar merk, type en geordende
+leden. Ieder lid verwijst wederkerig naar die familie en draagt een unieke
+variant. Een merkfamilie vereist exact de varianten `merkteken` en `woordmerk`.
+De bestaande vier iconen zijn tegelijk onder één expliciete iconenfamilie
+gebracht.
+
+`emberforge-merkteken` en `emberforge-woordmerk` zijn nieuwe technische
+lijntekeningen die volledig in BAT zijn opgebouwd. Zij zijn geen reconstructie,
+import of activering van de aangeleverde placeholder SVG's of PNG's. De
+bestaande SVG backend genereert beide artifacts en de catalogus toont hun
+opgeloste familie en variant zonder familiespecifieke geometrie of
+rendererlogica.
 
 ## Eerste activering
 

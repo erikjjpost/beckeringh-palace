@@ -325,6 +325,8 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
                 "emberforge-icon-identity",
                 "emberforge-icon-terminal",
                 "emberforge-icon-assets",
+                "emberforge-merkteken",
+                "emberforge-woordmerk",
             ),
             catalog.definitie.asset_ids,
         )
@@ -342,6 +344,8 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
             "emberforge-icon-identity",
             "emberforge-icon-terminal",
             "emberforge-icon-assets",
+            "emberforge-merkteken",
+            "emberforge-woordmerk",
         ):
             self.assertIn(f'data-asset="{asset_id}"', catalog.inhoud)
             self.assertIn(
@@ -349,6 +353,15 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
                 f'data-asset-product="{asset_id}-svg"',
                 catalog.inhoud,
             )
+        self.assertIn(
+            'data-asset-family="emberforge-merkassets" '
+            'data-asset-variant="merkteken"',
+            catalog.inhoud,
+        )
+        self.assertIn(
+            "<dd>EmberForge merkassets (merk)</dd>",
+            catalog.inhoud,
+        )
         self.assertEqual(
             1,
             homepage.count(

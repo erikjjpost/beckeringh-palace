@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 592 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" focusable="false" data-bp-asset="emberforge-woordmerk" data-bp-role="logo" data-bp-family="emberforge-merkassets" data-bp-variant="woordmerk" data-bp-snapshot="sha256:f91ea6232a152938a62a594108da18b1371f41035a3008d88f6e51261c3fa14f" role="img" aria-labelledby="emberforge-woordmerk-title">
+  <title id="emberforge-woordmerk-title">EmberForge</title>
+  <path d="M12 16 V64 M12 16 H50 M12 40 H44 M12 64 H50"/>
+  <path d="M66 64 V16 L86 42 L106 16 V64"/>
+  <path d="M124 16 V64 M124 16 H148 C158 16 162 22 162 28 C162 34 158 40 148 40 H124 M148 40 C158 40 164 46 164 52 C164 59 159 64 148 64 H124"/>
+  <path d="M182 16 V64 M182 16 H220 M182 40 H214 M182 64 H220"/>
+  <path d="M238 64 V16 H258 C269 16 274 22 274 28 C274 36 269 40 258 40 H238 M256 40 L276 64"/>
+  <path d="M296 64 V16 H334 M296 40 H328"/>
+  <path d="M368 16 H384 C395 16 400 24 400 40 C400 56 395 64 384 64 H368 C357 64 352 56 352 40 C352 24 357 16 368 16 Z"/>
+  <path d="M418 64 V16 H438 C449 16 454 22 454 28 C454 36 449 40 438 40 H418 M436 40 L456 64"/>
+  <path d="M524 26 C519 19 512 16 500 16 H492 C481 16 476 24 476 40 C476 56 481 64 492 64 H510 C519 64 524 58 524 48 V40 H506"/>
+  <path d="M542 16 V64 M542 16 H580 M542 40 H574 M542 64 H580"/>
+</svg>
