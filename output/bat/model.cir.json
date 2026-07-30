@@ -705,6 +705,116 @@
   },
   {
     "eigenschappen": {
+      "breedte": "3840",
+      "canvas": "canvas",
+      "doel": "Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend.",
+      "formaat": "png",
+      "hoogte": "1080",
+      "lagen": [
+        "emberforge-wallpaper-ornamentlaag",
+        "emberforge-wallpaper-merklaag"
+      ],
+      "merk": "emberforge",
+      "naam": "EmberForge Ultrawide Wallpaper",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-ultrawide-wallpaper",
+    "soort": "wallpaper"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Ordent twee rustige technische lijnornamenten binnen de canvasgrens.",
+      "naam": "EmberForge Wallpaper Ornamentlaag",
+      "plaatsingen": [
+        "emberforge-vector-node-left",
+        "emberforge-vector-node-right"
+      ],
+      "rol": "ornament",
+      "wallpaper": "emberforge-ultrawide-wallpaper"
+    },
+    "id": "emberforge-wallpaper-ornamentlaag",
+    "soort": "wallpaperlaag"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Ordent het merkteken en woordmerk als afzonderlijke merkplaatsingen.",
+      "naam": "EmberForge Wallpaper Merklaag",
+      "plaatsingen": [
+        "emberforge-wallpaper-merkteken",
+        "emberforge-wallpaper-woordmerk"
+      ],
+      "rol": "merk",
+      "wallpaper": "emberforge-ultrawide-wallpaper"
+    },
+    "id": "emberforge-wallpaper-merklaag",
+    "soort": "wallpaperlaag"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-vector-node",
+      "breedte": "840",
+      "dekking": "0.14",
+      "doel": "Plaatst het technische lijnornament met ruime marge links.",
+      "fit": "contain",
+      "hoogte": "840",
+      "laag": "emberforge-wallpaper-ornamentlaag",
+      "naam": "EmberForge Vector Node Links",
+      "x": "120",
+      "y": "120"
+    },
+    "id": "emberforge-vector-node-left",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-vector-node",
+      "breedte": "840",
+      "dekking": "0.14",
+      "doel": "Plaatst het technische lijnornament symmetrisch rechts.",
+      "fit": "contain",
+      "hoogte": "840",
+      "laag": "emberforge-wallpaper-ornamentlaag",
+      "naam": "EmberForge Vector Node Rechts",
+      "x": "2880",
+      "y": "120"
+    },
+    "id": "emberforge-vector-node-right",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-merkteken",
+      "breedte": "480",
+      "dekking": "1",
+      "doel": "Plaatst het merkteken centraal binnen de ultrawide compositie.",
+      "fit": "contain",
+      "hoogte": "480",
+      "laag": "emberforge-wallpaper-merklaag",
+      "naam": "EmberForge Wallpaper Merkteken",
+      "x": "1680",
+      "y": "260"
+    },
+    "id": "emberforge-wallpaper-merkteken",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-woordmerk",
+      "breedte": "1000",
+      "dekking": "1",
+      "doel": "Plaatst het woordmerk onder het centrale merkteken.",
+      "fit": "contain",
+      "hoogte": "136",
+      "laag": "emberforge-wallpaper-merklaag",
+      "naam": "EmberForge Wallpaper Woordmerk",
+      "x": "1420",
+      "y": "800"
+    },
+    "id": "emberforge-wallpaper-woordmerk",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
       "doel": "Ruwe warme accentkleur uit het EmberForge bronpalet.",
       "naam": "Ember Copper",
       "type": "color",
@@ -2601,6 +2711,7 @@
         "forge-dashboard-ultrawide",
         "emberforge-homelab-dashboard",
         "emberforge-homelab-dashboard-responsive",
+        "emberforge-ultrawide-wallpaper",
         "emberforge-homelab-dashboard-html",
         "emberforge-homelab-dashboard-grafana",
         "project-status-html",
@@ -2612,6 +2723,7 @@
       "navigatie": [
         "emberforge-homelab-dashboard-html",
         "emberforge-homelab-dashboard-grafana",
+        "emberforge-ultrawide-wallpaper-manifest",
         "project-status-html",
         "project-status-grafana"
       ],
@@ -2621,6 +2733,9 @@
         "componentinstantie",
         "layout",
         "region",
+        "wallpaper",
+        "wallpaperlaag",
+        "assetplaatsing",
         "product",
         "renderdoel"
       ],
@@ -3865,6 +3980,20 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-woordmerk-svg",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "backend": "wallpaper-manifest",
+      "doel": "Publiceert canvas, formaat, lagen en assetplaatsingen als machineleesbaar contractproduct.",
+      "inhoud": "wallpaper",
+      "mode": "static",
+      "naam": "EmberForge Ultrawide Wallpaper Manifest",
+      "pad": "output/products/emberforge-ultrawide.wallpaper.json",
+      "wallpaper": "emberforge-ultrawide-wallpaper",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-ultrawide-wallpaper-manifest",
     "soort": "product"
   },
   {

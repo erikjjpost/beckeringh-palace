@@ -1,0 +1,88 @@
+{
+  "product": {
+    "id": "emberforge-ultrawide-wallpaper-manifest",
+    "snapshot": "sha256:8f56d6fd0dd9cb38251f201d2bc944235a024e353f714ff69016179e717045a4"
+  },
+  "schema_version": 1,
+  "wallpaper": {
+    "canvas": {
+      "breedte": 3840,
+      "eenheid": "px",
+      "hoogte": 1080,
+      "kleur": "#0F1724",
+      "materiaalrol": "canvas"
+    },
+    "doel": "Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend.",
+    "formaat": "png",
+    "id": "emberforge-ultrawide-wallpaper",
+    "lagen": [
+      {
+        "doel": "Ordent twee rustige technische lijnornamenten binnen de canvasgrens.",
+        "id": "emberforge-wallpaper-ornamentlaag",
+        "naam": "EmberForge Wallpaper Ornamentlaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-vector-node",
+            "breedte": 840,
+            "dekking": 0.14,
+            "doel": "Plaatst het technische lijnornament met ruime marge links.",
+            "fit": "contain",
+            "hoogte": 840,
+            "id": "emberforge-vector-node-left",
+            "naam": "EmberForge Vector Node Links",
+            "x": 120,
+            "y": 120
+          },
+          {
+            "asset": "emberforge-vector-node",
+            "breedte": 840,
+            "dekking": 0.14,
+            "doel": "Plaatst het technische lijnornament symmetrisch rechts.",
+            "fit": "contain",
+            "hoogte": 840,
+            "id": "emberforge-vector-node-right",
+            "naam": "EmberForge Vector Node Rechts",
+            "x": 2880,
+            "y": 120
+          }
+        ],
+        "rol": "ornament"
+      },
+      {
+        "doel": "Ordent het merkteken en woordmerk als afzonderlijke merkplaatsingen.",
+        "id": "emberforge-wallpaper-merklaag",
+        "naam": "EmberForge Wallpaper Merklaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-merkteken",
+            "breedte": 480,
+            "dekking": 1.0,
+            "doel": "Plaatst het merkteken centraal binnen de ultrawide compositie.",
+            "fit": "contain",
+            "hoogte": 480,
+            "id": "emberforge-wallpaper-merkteken",
+            "naam": "EmberForge Wallpaper Merkteken",
+            "x": 1680,
+            "y": 260
+          },
+          {
+            "asset": "emberforge-woordmerk",
+            "breedte": 1000,
+            "dekking": 1.0,
+            "doel": "Plaatst het woordmerk onder het centrale merkteken.",
+            "fit": "contain",
+            "hoogte": 136,
+            "id": "emberforge-wallpaper-woordmerk",
+            "naam": "EmberForge Wallpaper Woordmerk",
+            "x": 1420,
+            "y": 800
+          }
+        ],
+        "rol": "merk"
+      }
+    ],
+    "merk": "emberforge",
+    "naam": "EmberForge Ultrawide Wallpaper",
+    "wereld": "beckeringh-palace"
+  }
+}

@@ -19,6 +19,7 @@ from compiler.svg_asset_catalog import (
 )
 from compiler.svg_assets import ResolvedSvgAsset, resolveer_svg_assets
 from compiler.theme_resolution import resolveer_thema
+from compiler.wallpaper_products import ResolvedWallpaper, resolveer_wallpapers
 
 
 PRODUCT_MODE_LABELS = {
@@ -46,6 +47,7 @@ def _los_productcontext_op(
     composities: dict[str, ResolvedComposition],
     layouts: dict[str, ResolvedLayout],
     assets: dict[str, ResolvedSvgAsset],
+    wallpapers: dict[str, ResolvedWallpaper],
     project_status: ProjectStatus | None,
 ) -> ProductDefinition:
     thema = resolveer_thema(objecten, product.wereld) if product.wereld else None
@@ -65,6 +67,7 @@ def _los_productcontext_op(
         opgeloste_compositie=composities.get(product.compositie),
         opgeloste_layout=layouts.get(product.layout),
         opgelost_asset=assets.get(product.asset),
+        opgeloste_wallpaper=wallpapers.get(product.wallpaper),
         asset_catalog=(
             resolveer_svg_assetcatalogus(objecten, product.asset_ids)
             if product.inhoud == SVG_ASSET_CATALOG_CONTENT
@@ -106,6 +109,10 @@ def compileer_producten(
     }
     layouts = {layout.id: layout for layout in resolveer_layouts(objecten)}
     assets = {asset.id: asset for asset in resolveer_svg_assets(objecten)}
+    wallpapers = {
+        wallpaper.id: wallpaper
+        for wallpaper in resolveer_wallpapers(objecten)
+    }
     return tuple(
         CompiledProduct(
             definitie=opgelost,
@@ -120,6 +127,7 @@ def compileer_producten(
                 composities,
                 layouts,
                 assets,
+                wallpapers,
                 project_status,
             ),
         )

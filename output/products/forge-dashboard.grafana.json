@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f91ea6232a15",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 8f56d6fd0dd9",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1256,7 +1256,7 @@
               },
               "name": "forge-dashboard-right-panel-accent",
               "placement": {
-                "height": 636,
+                "height": 716,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -1297,7 +1297,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "94",
+                  "fixed": "102",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1323,7 +1323,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "componentinstantie\ncompositie\nhomepagegebied\nlayout\nproduct\nregion\nrenderdoel",
+                  "fixed": "assetplaatsing\ncomponentinstantie\ncompositie\nhomepagegebied\nlayout\nproduct\nregion\nrenderdoel\nwallpaper\nwallpaperlaag",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1334,7 +1334,7 @@
               },
               "name": "forge-dashboard-right-panel-metric-detail-labels",
               "placement": {
-                "height": 96,
+                "height": 132,
                 "left": 20,
                 "top": 128,
                 "width": 280
@@ -1349,7 +1349,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "26\n7\n7\n7\n18\n26\n3",
+                  "fixed": "4\n26\n7\n7\n7\n19\n26\n3\n1\n2",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
               },
               "name": "forge-dashboard-right-panel-metric-detail-values",
               "placement": {
-                "height": 96,
+                "height": 132,
                 "left": 300,
                 "top": 128,
                 "width": 80
@@ -1543,6 +1543,81 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-8",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 224,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-9",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 236,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-right-panel-metric-detail-rule-10",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 248,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -1550,7 +1625,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "EmberForge Homelab Dashboard\nEmberForge Homelab Dashboard Grafana\nBeckeringh Palace Projectstatus\nBeckeringh Palace Projectstatus Grafana",
+                  "fixed": "EmberForge Homelab Dashboard\nEmberForge Homelab Dashboard Grafana\nEmberForge Ultrawide Wallpaper Manifest\nBeckeringh Palace Projectstatus\nBeckeringh Palace Projectstatus Grafana",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1572,6 +1647,11 @@
                 },
                 {
                   "targetBlank": false,
+                  "title": "EmberForge Ultrawide Wallpaper Manifest",
+                  "url": "emberforge-ultrawide.wallpaper.json"
+                },
+                {
+                  "targetBlank": false,
                   "title": "Beckeringh Palace Projectstatus",
                   "url": "project-status.html"
                 },
@@ -1583,9 +1663,9 @@
               ],
               "name": "forge-dashboard-right-panel-product-navigation",
               "placement": {
-                "height": 48,
+                "height": 60,
                 "left": 20,
-                "top": 236,
+                "top": 272,
                 "width": 360
               },
               "type": "text"
@@ -1598,7 +1678,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nEmberForge Homelab · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nEmberForge Homelab Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Homelab Dashboard · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nEmberForge Homelab Dashboard Grafana · product\nHet native homelab overzicht als importeerbaar Grafana dashboard genereren.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.\nEmberForge SVG Asset Catalog · product\nAlle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.",
+                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nEmberForge Homelab · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nEmberForge Homelab Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Ultrawide Wallpaper · wallpaper\nLegt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend.\nEmberForge Homelab Dashboard · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nEmberForge Homelab Dashboard Grafana · product\nHet native homelab overzicht als importeerbaar Grafana dashboard genereren.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.\nEmberForge SVG Asset Catalog · product\nAlle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1609,9 +1689,9 @@
               },
               "name": "forge-dashboard-right-panel-content-anchors",
               "placement": {
-                "height": 288,
+                "height": 320,
                 "left": 20,
-                "top": 296,
+                "top": 344,
                 "width": 360
               },
               "type": "text"
@@ -1637,7 +1717,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 596,
+                "top": 676,
                 "width": 360
               },
               "type": "text"
@@ -1658,7 +1738,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:f91ea6232a152938a62a594108da18b1371f41035a3008d88f6e51261c3fa14f"
+    "sha256:8f56d6fd0dd9cb38251f201d2bc944235a024e353f714ff69016179e717045a4"
   ],
   "templating": {
     "list": []

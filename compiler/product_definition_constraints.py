@@ -7,6 +7,7 @@ from pathlib import PurePosixPath
 from compiler.backend_discovery import backend_namen
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
+from compiler.wallpaper_products import WALLPAPER_CONTENT
 
 
 @dataclass(frozen=True)
@@ -51,6 +52,7 @@ class ProductDefinitionConstraint:
             "referentiesecties",
             "asset",
             "assets",
+            "wallpaper",
         }
         for obj in context.objecten:
             if obj.soort != "product":
@@ -105,7 +107,7 @@ class ProductDefinitionConstraint:
                         ),
                         locatie=obj.bronlocatie,
                     ))
-            else:
+            elif inhoud != WALLPAPER_CONTENT:
                 layout = obj.eigenschappen.get("layout")
                 if layout not in layouts:
                     diagnostics.append(Diagnostic(
@@ -164,12 +166,17 @@ class ProductDefinitionConstraint:
                             ),
                             locatie=obj.bronlocatie,
                         ))
-                if "asset" in obj.eigenschappen or backend == "svg":
+                if (
+                    "asset" in obj.eigenschappen
+                    or "wallpaper" in obj.eigenschappen
+                    or backend == "svg"
+                ):
                     diagnostics.append(Diagnostic(
                         code="BP3515",
                         boodschap=(
-                            f"Product '{obj.id}' mag asset en SVG backend "
-                            "alleen met inhoud 'asset' gebruiken"
+                            f"Product '{obj.id}' mag asset, wallpaper en SVG "
+                            "backend alleen met passende expliciete inhoud "
+                            "gebruiken"
                         ),
                         locatie=obj.eigenschaplocaties.get(
                             "asset", obj.bronlocatie
@@ -227,6 +234,7 @@ class ProductDefinitionConstraint:
                 "design-system",
                 "asset",
                 "asset-catalog",
+                WALLPAPER_CONTENT,
             }:
                 diagnostics.append(Diagnostic(
                     code="BP3509",

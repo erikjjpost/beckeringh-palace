@@ -24,6 +24,9 @@ De native objectsoorten zijn:
 | `token` | herbruikbare ontwerpwaarden |
 | `asset` | veilige, getypeerde en reproduceerbare bronassets |
 | `assetfamilie` | geordende, merkgebonden samenhang tussen native assets |
+| `wallpaper` | canvas, doelformaat en geordende wallpaperlagen |
+| `wallpaperlaag` | semantische laag met een expliciete plaatsingenlijst |
+| `assetplaatsing` | begrensde plaats van één native asset op het canvas |
 | `component` | herbruikbare productonderdelen |
 | `toegankelijkheid` | backendonafhankelijke naam, rol, waarde, fout, disabled, focus en toetsenbordsemantiek |
 | `componentvoorbeeld` | productgedragen voorbeeldinhoud voor één componentvariant |
@@ -62,6 +65,19 @@ wederkerig en iedere assetvariant is uniek binnen haar familie. Een merkfamilie
 bevat exact een merkteken en woordmerk. De HTML catalogus consumeert de
 opgeloste familiesemantiek. De SVG backend blijft uitsluitend de veilige
 assetgeometrie serialiseren.
+
+M11.6a voegt het backendonafhankelijke wallpaperproductcontract toe. Een
+`wallpaper` kiest expliciet wereld, merk, PNG doelformaat, pixelafmetingen,
+semantische canvasrol en geordende lagen. Iedere `wallpaperlaag` noemt haar
+plaatsingen wederkerig. Een `assetplaatsing` koppelt één bestaand native SVG
+asset aan canonieke coördinaten, afmetingen, fitmodus en dekking binnen de
+canvasgrens.
+
+De eerste 3840 bij 1080 EmberForge specificatie wordt als deterministisch
+`.wallpaper.json` manifest gepubliceerd. Dit manifest bewijst de opgeloste
+productcontext en is geen wallpaperafbeelding. Een beeldbackend volgt pas in
+M11.6b. Geometrie, laagvolgorde en plaatsing mogen daarbij niet opnieuw in de
+backend worden vastgelegd.
 
 ## Niet native
 

@@ -51,8 +51,10 @@ Een compositieproduct verwijst in BAT verplicht naar één compositie en één
 layout. Na semantische validatie lost de productcompiler beide één keer op en
 levert deze als `opgeloste_compositie` en `opgeloste_layout` aan de backend.
 Een assetproduct verwijst in plaats daarvan expliciet naar één native asset en
-ontvangt dit als `opgelost_asset`. Een backend hoeft daardoor geen compositie-,
-layout- of assetsemantiek opnieuw uit losse CIR-objecten af te leiden.
+ontvangt dit als `opgelost_asset`. Een wallpaperproduct verwijst naar één
+native wallpaper en ontvangt canvas, formaat, lagen en assetplaatsingen als
+`opgeloste_wallpaper`. Een backend hoeft daardoor geen compositie-, layout-,
+asset- of wallpapersemantiek opnieuw uit losse CIR-objecten af te leiden.
 
 De componentinstanties van de compositie moeten exact overeenkomen met de
 instanties die door de regions van de layout worden geplaatst. Een ontbrekende,
@@ -269,6 +271,88 @@ of artifactkennis. De catalogus koppelt een asset aan haar opgeloste familie.
 De generieke SVG serialisatie publiceert alleen de familie en variant als
 metadata en blijft onafhankelijk van het familietype.
 
+### `wallpaper`
+
+M11.6a modelleert wallpaperintentie zonder beeldbackend. Iedere wallpaper
+vereist:
+
+- `naam` en `doel`;
+- `wereld`: de wereld waaruit het thema en canvas worden opgelost;
+- `merk`: de bestaande native merkidentiteit;
+- `formaat`: in deze eerste slice exact `png`;
+- `breedte` en `hoogte`: canonieke positieve pixelmaten tot 16384;
+- `canvas`: een bestaande semantische materiaalrol in het wereldthema;
+- `lagen`: een niet-lege, unieke en geordende lijst wallpaperlagen.
+
+De lagenlijst is wederkerig. Iedere genoemde `wallpaperlaag` verwijst terug naar
+dezelfde wallpaper en iedere laag van die wallpaper staat expliciet in de
+lijst.
+
+### `wallpaperlaag`
+
+Een wallpaperlaag vereist:
+
+- `naam` en `doel`;
+- `wallpaper`: de eigenaar van de laag;
+- `rol`: `ornament`, `illustratie`, `merk` of `voorgrond`;
+- `plaatsingen`: een niet-lege, unieke en geordende lijst
+  assetplaatsingen.
+
+De laagrol begrenst de toegestane native assetrol. Een ornamentlaag bevat
+alleen ornamenten, een illustratielaag alleen illustraties en een merklaag
+alleen logo's. De voorgrondrol kan iedere bestaande SVG assetrol dragen.
+
+### `assetplaatsing`
+
+Een assetplaatsing vereist:
+
+- `naam` en `doel`;
+- `laag`: de wederkerige wallpaperlaag;
+- `asset`: één bestaand native SVG asset;
+- `x`, `y`, `breedte` en `hoogte`: canonieke pixelgeometrie die volledig
+  binnen het canvas valt;
+- `fit`: `contain`, `cover` of `stretch`;
+- `dekking`: een canonieke waarde tussen 0 en 1.
+
+De plaatsing bevat geen SVG geometrie, bronpad of backendveld. De resolver
+koppelt de assetreferentie aan hetzelfde `ResolvedSvgAsset` dat ook de
+standalone SVG producten en catalogus gebruiken.
+
+```bp
+wallpaper forge-ultrawide {
+    naam: "Forge Ultrawide"
+    doel: "Geordende 3840 bij 1080 wallpaperintentie."
+    wereld: "palace"
+    merk: "emberforge"
+    formaat: "png"
+    breedte: "3840"
+    hoogte: "1080"
+    canvas: "canvas"
+    lagen: ["forge-ornamentlaag"]
+}
+
+wallpaperlaag forge-ornamentlaag {
+    naam: "Ornamentlaag"
+    doel: "Ordent rustige lijnornamentiek."
+    wallpaper: "forge-ultrawide"
+    rol: "ornament"
+    plaatsingen: ["forge-node-links"]
+}
+
+assetplaatsing forge-node-links {
+    naam: "Forge Node Links"
+    doel: "Plaatst het native ornament binnen de canvasgrens."
+    laag: "forge-ornamentlaag"
+    asset: "forge-vector-node"
+    x: "120"
+    y: "120"
+    breedte: "840"
+    hoogte: "840"
+    fit: "contain"
+    dekking: "0.14"
+}
+```
+
 ### `product`
 
 Ieder product vereist:
@@ -277,10 +361,11 @@ Ieder product vereist:
 - `doel`: het te genereren product;
 - `backend`: de expliciete backend;
 - `mode`: optioneel `interactive` of `static`; standaard `interactive`;
-- `inhoud`: optioneel `composition`, `project-status`, `design-system` of
-  `asset`; standaard `composition`;
-- `compositie` en `layout`: verplicht voor alle niet-assetproducten;
+- `inhoud`: optioneel `composition`, `project-status`, `design-system`,
+  `asset`, `asset-catalog` of `wallpaper`; standaard `composition`;
+- `compositie` en `layout`: verplicht voor compositiegedragen producten;
 - `asset`: verplicht en exclusief voor `inhoud: "asset"`;
+- `wallpaper`: verplicht en exclusief voor `inhoud: "wallpaper"`;
 - `pad`: het veilige relatieve uitvoerpad;
 - `wereld`: verplicht wanneer een themalaag aanwezig is.
 
@@ -289,6 +374,11 @@ componentinstanties bevatten. Een assetproduct gebruikt uitsluitend backend
 `svg`, modus `static`, een bestaand SVG asset en een `.svg` uitvoerpad. Daarmee
 blijft het product de enige expliciete koppeling tussen inhoud en backend,
 zonder een lege compositie of layout te modelleren.
+
+Een wallpaperproduct gebruikt in M11.6a uitsluitend backend
+`wallpaper-manifest`, modus `static`, dezelfde wereld als zijn wallpaper en
+een `.wallpaper.json` artifactpad. Het manifest is een machineleesbaar bewijs
+van het opgeloste contract en nog geen beeldartifact.
 
 ### Homepage productcontract
 
@@ -879,6 +969,14 @@ wederkerig, merkgebonden en worden vóór HTML rendering opgelost. Het merkteken
 en woordmerk zijn nieuwe BAT geometrie en activeren geen placeholder uit de
 ontwerpinput.
 
+M11.6a introduceert `ResolvedWallpaper`, `ResolvedWallpaperLayer` en
+`ResolvedWallpaperAssetPlacement` als één geordende productcontext. De eerste
+EmberForge specificatie kiest een 3840 bij 1080 canvas, twee lagen en vier
+plaatsingen van bestaande native assets. De `wallpaper-manifest` backend
+publiceert deze context deterministisch als
+`output/products/emberforge-ultrawide.wallpaper.json`. Er wordt in deze
+milestone geen wallpaperafbeelding gegenereerd.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -1045,5 +1143,35 @@ ontwerpinput.
 | `BP4338` | SVG assetfamilie bevat ontbrekende of dubbele varianten |
 | `BP4339` | Assetrol past niet bij het familietype |
 | `BP4340` | SVG merkfamilie bevat niet exact merkteken en woordmerk |
+| `BP4351` | Wallpaper bevat een onbekende eigenschap |
+| `BP4352` | Wallpaper verwijst naar een onbekende wereld |
+| `BP4353` | Wallpaper verwijst naar een onbekend merk |
+| `BP4354` | Wallpaper gebruikt een onbekend doelformaat |
+| `BP4355` | Wallpaper heeft geen geldige canonieke canvasmaten |
+| `BP4356` | Wallpapercanvas kan niet uit het wereldthema worden opgelost |
+| `BP4357` | Wallpaper mist een geldige geordende lagenlijst |
+| `BP4358` | Wallpaper verwijst naar een onbekende laag |
+| `BP4359` | Wallpaper en lagen zijn niet exact wederkerig |
+| `BP4360` | Wallpaperlaag bevat een onbekende eigenschap |
+| `BP4361` | Wallpaperlaag verwijst naar een onbekende wallpaper |
+| `BP4362` | Wallpaperlaag gebruikt een onbekende semantische rol |
+| `BP4363` | Wallpaperlaag mist een geldige geordende plaatsingenlijst |
+| `BP4364` | Wallpaperlaag verwijst naar een onbekende assetplaatsing |
+| `BP4365` | Wallpaperlaag en plaatsingen zijn niet exact wederkerig |
+| `BP4366` | Assetplaatsing bevat een onbekende eigenschap |
+| `BP4367` | Assetplaatsing verwijst naar een onbekende wallpaperlaag |
+| `BP4368` | Assetplaatsing verwijst naar een onbekend native asset |
+| `BP4369` | Assetplaatsing heeft ongeldige coördinaten of afmetingen |
+| `BP4370` | Assetplaatsing valt buiten het wallpapercanvas |
+| `BP4371` | Assetplaatsing gebruikt een onbekende fitmodus |
+| `BP4372` | Assetplaatsing heeft geen geldige dekking tussen 0 en 1 |
+| `BP4373` | Assetrol past niet bij de semantische wallpaperlaagrol |
+| `BP4380` | Product gebruikt `wallpaper` zonder inhoud `wallpaper` |
+| `BP4381` | Wallpaperproduct verwijst naar een onbekende wallpaper |
+| `BP4382` | Wallpaperproduct gebruikt niet de manifestbackend |
+| `BP4383` | Wallpaperproduct is niet statisch |
+| `BP4384` | Wallpaperproduct en wallpaper gebruiken verschillende werelden |
+| `BP4385` | Wallpaperproduct declareert een ander inhoudscontract |
+| `BP4386` | Wallpaperproduct gebruikt geen `.wallpaper.json` artifactpad |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |
