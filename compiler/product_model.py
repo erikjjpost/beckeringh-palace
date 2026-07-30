@@ -12,6 +12,7 @@ from compiler.project_status import ProjectStatus
 from compiler.svg_asset_catalog import ResolvedSvgAssetCatalog
 from compiler.svg_assets import ResolvedSvgAsset
 from compiler.theme_resolution import ResolvedTheme
+from compiler.wallpaper_products import ResolvedWallpaper
 
 SNAPSHOT_ID_LENGTH = 12
 
@@ -43,6 +44,8 @@ class ProductDefinition:
     opgelost_asset: ResolvedSvgAsset | None = None
     asset_ids: tuple[str, ...] = ()
     asset_catalog: ResolvedSvgAssetCatalog | None = None
+    wallpaper: str = ""
+    opgeloste_wallpaper: ResolvedWallpaper | None = None
 
 
 def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
@@ -73,6 +76,7 @@ def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
             if isinstance(asset_ids, list)
             else ()
         ),
+        wallpaper=str(obj.eigenschappen.get("wallpaper", "")),
     )
 
 

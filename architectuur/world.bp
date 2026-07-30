@@ -450,6 +450,86 @@ asset emberforge-woordmerk {
     label: "EmberForge"
 }
 
+wallpaper emberforge-ultrawide-wallpaper {
+    naam: "EmberForge Ultrawide Wallpaper"
+    doel: "Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend."
+    wereld: "beckeringh-palace"
+    merk: "emberforge"
+    formaat: "png"
+    breedte: "3840"
+    hoogte: "1080"
+    canvas: "canvas"
+    lagen: ["emberforge-wallpaper-ornamentlaag", "emberforge-wallpaper-merklaag"]
+}
+
+wallpaperlaag emberforge-wallpaper-ornamentlaag {
+    naam: "EmberForge Wallpaper Ornamentlaag"
+    doel: "Ordent twee rustige technische lijnornamenten binnen de canvasgrens."
+    wallpaper: "emberforge-ultrawide-wallpaper"
+    rol: "ornament"
+    plaatsingen: ["emberforge-vector-node-left", "emberforge-vector-node-right"]
+}
+
+wallpaperlaag emberforge-wallpaper-merklaag {
+    naam: "EmberForge Wallpaper Merklaag"
+    doel: "Ordent het merkteken en woordmerk als afzonderlijke merkplaatsingen."
+    wallpaper: "emberforge-ultrawide-wallpaper"
+    rol: "merk"
+    plaatsingen: ["emberforge-wallpaper-merkteken", "emberforge-wallpaper-woordmerk"]
+}
+
+assetplaatsing emberforge-vector-node-left {
+    naam: "EmberForge Vector Node Links"
+    doel: "Plaatst het technische lijnornament met ruime marge links."
+    laag: "emberforge-wallpaper-ornamentlaag"
+    asset: "emberforge-vector-node"
+    x: "120"
+    y: "120"
+    breedte: "840"
+    hoogte: "840"
+    fit: "contain"
+    dekking: "0.14"
+}
+
+assetplaatsing emberforge-vector-node-right {
+    naam: "EmberForge Vector Node Rechts"
+    doel: "Plaatst het technische lijnornament symmetrisch rechts."
+    laag: "emberforge-wallpaper-ornamentlaag"
+    asset: "emberforge-vector-node"
+    x: "2880"
+    y: "120"
+    breedte: "840"
+    hoogte: "840"
+    fit: "contain"
+    dekking: "0.14"
+}
+
+assetplaatsing emberforge-wallpaper-merkteken {
+    naam: "EmberForge Wallpaper Merkteken"
+    doel: "Plaatst het merkteken centraal binnen de ultrawide compositie."
+    laag: "emberforge-wallpaper-merklaag"
+    asset: "emberforge-merkteken"
+    x: "1680"
+    y: "260"
+    breedte: "480"
+    hoogte: "480"
+    fit: "contain"
+    dekking: "1"
+}
+
+assetplaatsing emberforge-wallpaper-woordmerk {
+    naam: "EmberForge Wallpaper Woordmerk"
+    doel: "Plaatst het woordmerk onder het centrale merkteken."
+    laag: "emberforge-wallpaper-merklaag"
+    asset: "emberforge-woordmerk"
+    x: "1420"
+    y: "800"
+    breedte: "1000"
+    hoogte: "136"
+    fit: "contain"
+    dekking: "1"
+}
+
 token color-ember {
     naam: "Ember Copper"
     doel: "Ruwe warme accentkleur uit het EmberForge bronpalet."
@@ -1883,9 +1963,9 @@ informatiegebied palace-product-family {
     doel: "De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegenereerd."
     toegankelijkheidslabel: "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
     leesvolgorde: "3"
-    soorten: ["homepagegebied", "compositie", "componentinstantie", "layout", "region", "product", "renderdoel"]
-    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-homelab-dashboard", "emberforge-homelab-dashboard-responsive", "emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "project-status-html", "forge-design-system-reference-html", "emberforge-svg-asset-catalog-html"]
-    navigatie: ["emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "project-status-html", "project-status-grafana"]
+    soorten: ["homepagegebied", "compositie", "componentinstantie", "layout", "region", "wallpaper", "wallpaperlaag", "assetplaatsing", "product", "renderdoel"]
+    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-homelab-dashboard", "emberforge-homelab-dashboard-responsive", "emberforge-ultrawide-wallpaper", "emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "project-status-html", "forge-design-system-reference-html", "emberforge-svg-asset-catalog-html"]
+    navigatie: ["emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "emberforge-ultrawide-wallpaper-manifest", "project-status-html", "project-status-grafana"]
 }
 
 compositie forge-dashboard {
@@ -2767,6 +2847,17 @@ product emberforge-woordmerk-svg {
     inhoud: "asset"
     asset: "emberforge-woordmerk"
     pad: "output/products/emberforge-woordmerk.svg"
+}
+
+product emberforge-ultrawide-wallpaper-manifest {
+    naam: "EmberForge Ultrawide Wallpaper Manifest"
+    doel: "Publiceert canvas, formaat, lagen en assetplaatsingen als machineleesbaar contractproduct."
+    backend: "wallpaper-manifest"
+    mode: "static"
+    inhoud: "wallpaper"
+    wereld: "beckeringh-palace"
+    wallpaper: "emberforge-ultrawide-wallpaper"
+    pad: "output/products/emberforge-ultrawide.wallpaper.json"
 }
 
 renderdoel css-tokens {

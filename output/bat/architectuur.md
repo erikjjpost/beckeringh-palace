@@ -871,6 +871,142 @@ Horizontaal technisch woordmerk voor brede EmberForge merkoppervlakken.
 - **viewbox:** 0 0 592 80
 - **vulling:** none
 
+## EmberForge Ultrawide Wallpaper
+
+**Soort:** wallpaper
+
+**Identifier:** `emberforge-ultrawide-wallpaper`
+
+### Doel
+
+Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend.
+
+### Eigenschappen
+
+- **breedte:** 3840
+- **canvas:** canvas
+- **formaat:** png
+- **hoogte:** 1080
+- **lagen:** emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-merklaag
+- **merk:** emberforge
+- **wereld:** beckeringh-palace
+
+## EmberForge Wallpaper Ornamentlaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-wallpaper-ornamentlaag`
+
+### Doel
+
+Ordent twee rustige technische lijnornamenten binnen de canvasgrens.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-vector-node-left, emberforge-vector-node-right
+- **rol:** ornament
+- **wallpaper:** emberforge-ultrawide-wallpaper
+
+## EmberForge Wallpaper Merklaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-wallpaper-merklaag`
+
+### Doel
+
+Ordent het merkteken en woordmerk als afzonderlijke merkplaatsingen.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-wallpaper-merkteken, emberforge-wallpaper-woordmerk
+- **rol:** merk
+- **wallpaper:** emberforge-ultrawide-wallpaper
+
+## EmberForge Vector Node Links
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-vector-node-left`
+
+### Doel
+
+Plaatst het technische lijnornament met ruime marge links.
+
+### Eigenschappen
+
+- **asset:** emberforge-vector-node
+- **breedte:** 840
+- **dekking:** 0.14
+- **fit:** contain
+- **hoogte:** 840
+- **laag:** emberforge-wallpaper-ornamentlaag
+- **x:** 120
+- **y:** 120
+
+## EmberForge Vector Node Rechts
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-vector-node-right`
+
+### Doel
+
+Plaatst het technische lijnornament symmetrisch rechts.
+
+### Eigenschappen
+
+- **asset:** emberforge-vector-node
+- **breedte:** 840
+- **dekking:** 0.14
+- **fit:** contain
+- **hoogte:** 840
+- **laag:** emberforge-wallpaper-ornamentlaag
+- **x:** 2880
+- **y:** 120
+
+## EmberForge Wallpaper Merkteken
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-wallpaper-merkteken`
+
+### Doel
+
+Plaatst het merkteken centraal binnen de ultrawide compositie.
+
+### Eigenschappen
+
+- **asset:** emberforge-merkteken
+- **breedte:** 480
+- **dekking:** 1
+- **fit:** contain
+- **hoogte:** 480
+- **laag:** emberforge-wallpaper-merklaag
+- **x:** 1680
+- **y:** 260
+
+## EmberForge Wallpaper Woordmerk
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-wallpaper-woordmerk`
+
+### Doel
+
+Plaatst het woordmerk onder het centrale merkteken.
+
+### Eigenschappen
+
+- **asset:** emberforge-woordmerk
+- **breedte:** 1000
+- **dekking:** 1
+- **fit:** contain
+- **hoogte:** 136
+- **laag:** emberforge-wallpaper-merklaag
+- **x:** 1420
+- **y:** 800
+
 ## Ember Copper
 
 **Soort:** token
@@ -3207,10 +3343,10 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-ultrawide-wallpaper, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
 - **leesvolgorde:** 3
-- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, project-status-grafana
-- **soorten:** homepagegebied, compositie, componentinstantie, layout, region, product, renderdoel
+- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-manifest, project-status-html, project-status-grafana
+- **soorten:** homepagegebied, compositie, componentinstantie, layout, region, wallpaper, wallpaperlaag, assetplaatsing, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
 ## Forge Dashboard
@@ -4834,6 +4970,25 @@ Genereert het native EmberForge woordmerk als veilig SVG product.
 - **inhoud:** asset
 - **mode:** static
 - **pad:** output/products/emberforge-woordmerk.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Ultrawide Wallpaper Manifest
+
+**Soort:** product
+
+**Identifier:** `emberforge-ultrawide-wallpaper-manifest`
+
+### Doel
+
+Publiceert canvas, formaat, lagen en assetplaatsingen als machineleesbaar contractproduct.
+
+### Eigenschappen
+
+- **backend:** wallpaper-manifest
+- **inhoud:** wallpaper
+- **mode:** static
+- **pad:** output/products/emberforge-ultrawide.wallpaper.json
+- **wallpaper:** emberforge-ultrawide-wallpaper
 - **wereld:** beckeringh-palace
 
 ## CSS design tokens

@@ -51,6 +51,12 @@ merkfamilie. Beide artifacts zijn nieuwe BAT lijngeometrie. De aangeleverde
 placeholder SVG's en PNG's blijven uitgesloten. De catalogus toont voor ieder
 familielid ook het opgeloste familietype en de variant.
 
+`output/products/emberforge-ultrawide.wallpaper.json` is het machineleesbare
+contractproduct voor de eerste 3840 bij 1080 EmberForge wallpaper. Het bevat
+het opgeloste canvas, PNG doelformaat, twee geordende lagen en vier
+assetplaatsingen. Het bestand is nog geen afbeelding en bevat geen tweede bron
+voor SVG geometrie of plaatsing.
+
 `output/products/emberforge-keycloak-login.html` is de reproduceerbare login
 productsurface. Het artifact toont native email-, wachtwoord- en
 submitsemantiek. Het bevat bewust geen realm, clientconfiguratie,

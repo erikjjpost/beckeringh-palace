@@ -99,7 +99,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertEqual(1, product.inhoud.count('data-variant="'))
         self.assertEqual(
-            ("11", "145", "94"),
+            ("11", "145", "102"),
             tuple(
                 str(instantie.metric_value)
                 for instantie in compositie.instances
@@ -114,7 +114,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">94</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">102</p>',
             product.inhoud,
         )
         self.assertIn(
@@ -171,7 +171,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             'data-object-kind="asset"><strong>EmberForge Vector Node</strong>',
             product.inhoud,
         )
-        self.assertEqual(27, product.inhoud.count('data-content-anchor="'))
+        self.assertEqual(28, product.inhoud.count('data-content-anchor="'))
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
         self.assertIn('data-product-mode="static"', product.inhoud)
         self.assertIn('data-time-context="none"', product.inhoud)

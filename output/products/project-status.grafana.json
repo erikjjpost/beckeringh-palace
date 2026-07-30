@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f91ea6232a15",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 8f56d6fd0dd9",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:70",
+      "description": "project-status-schema:1;overall-progress:72",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 70%",
+                  "fixed": "Totale voortgang · 72%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 420
+                "width": 432
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.5d · Native SVG merkfamilie (in uitvoering)\nVoltooid: M11.5c · Native SVG iconenset (PR #89)\nVolgende stap: M11.6a · Native wallpaperproductcontract\nCanvas, formaat, lagen en assetplaatsing als backendonafhankelijk BAT contract voor reproduceerbare wallpaperproducten modelleren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.6a · Native wallpaperproductcontract (in uitvoering)\nVoltooid: M11.5d · Native SVG merkfamilie (PR #90)\nVolgende stap: M11.6b · Native wallpaperrenderer\nHet opgeloste wallpapercontract en de native SVG assets deterministisch tot het eerste 3840 bij 1080 beeldartifact renderen, zonder geometrie of plaatsing buiten BAT.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,12 +256,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 70%",
+      "title": "Totale voortgang · 72%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:compiler;progress:95",
+      "description": "project-status-area:compiler;progress:96",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -294,7 +294,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Compiler en reproduceerbaarheid · 95%",
+                  "fixed": "Compiler en reproduceerbaarheid · 96%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -358,7 +358,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 570
+                "width": 576
               },
               "type": "rectangle"
             },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 250 regressietests vormen een werkende kwaliteitsketen; lijnornament, iconen, merkassets en catalogus consumeren dezelfde vooraf opgeloste native asset en familiesemantiek.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 258 regressietests vormen een werkende kwaliteitsketen; de productcompiler draagt nu ook een volledig opgeloste wallpapercontext aan een afzonderlijke manifestbackend.\nResterend: De beeldrenderer, meer adapters en volwassen foutdiagnostiek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -394,12 +394,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Compiler en reproduceerbaarheid · 95%",
+      "title": "Compiler en reproduceerbaarheid · 96%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-model;progress:99",
+      "description": "project-status-area:world-model;progress:100",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -432,7 +432,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Model en productcontracten · 99%",
+                  "fixed": "World Model en productcontracten · 100%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -496,7 +496,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 594
+                "width": 600
               },
               "type": "rectangle"
             },
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, zes unieke homepageproductroutes en twee expliciete merkgebonden SVG assetfamilies.\nResterend: Het wallpaperproductcontract en aanvullende producttypen ontbreken nog.",
+                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies en een native wallpapercontract met canvas, formaat, lagen en assetplaatsingen.\nResterend: Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -532,7 +532,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 99%",
+      "title": "World Model en productcontracten · 100%",
       "transparent": true,
       "type": "canvas"
     },
@@ -813,7 +813,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:visual-world;progress:40",
+      "description": "project-status-area:visual-world;progress:42",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -846,7 +846,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Visuele wereld en art direction · 40%",
+                  "fixed": "Visuele wereld en art direction · 42%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -910,7 +910,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 240
+                "width": 252
               },
               "type": "rectangle"
             },
@@ -922,7 +922,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen, een technisch lijnornament en een nieuw getekend merkteken en woordmerk.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
+                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen, native merkassets en een eerste rustige ultrawide laag- en plaatsingsintentie.\nResterend: De gerenderde wallpaper en Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -946,7 +946,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Visuele wereld en art direction · 40%",
+      "title": "Visuele wereld en art direction · 42%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1089,7 +1089,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:logos-wallpapers;progress:35",
+      "description": "project-status-area:logos-wallpapers;progress:45",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1122,7 +1122,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Logo's en wallpapers · 35%",
+                  "fixed": "Logo's en wallpapers · 45%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1186,7 +1186,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 210
+                "width": 270
               },
               "type": "rectangle"
             },
@@ -1198,7 +1198,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het EmberForge merkteken en woordmerk zijn reproduceerbare SVG compilerproducten uit één expliciete BAT merkfamilie.\nResterend: Wallpaperfamilies en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd.",
+                  "fixed": "Onderbouwing: Het EmberForge merkteken en woordmerk zijn reproduceerbare SVG compilerproducten; een 3840 bij 1080 wallpaper is nu als getypeerd BAT contract en deterministisch manifestproduct vastgelegd.\nResterend: Het beeldartifact, wallpaperfamilies en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1222,7 +1222,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Logo's en wallpapers · 35%",
+      "title": "Logo's en wallpapers · 45%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:55",
+      "description": "project-status-area:world-bible;progress:57",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 55%",
+                  "fixed": "World Bible · 57%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 330
+                "width": 342
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie en beide native SVG assetfamilies zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, SVG assetfamilies en het wallpaperproductcontract zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 55%",
+      "title": "World Bible · 57%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:70",
-    "sha256:f91ea6232a152938a62a594108da18b1371f41035a3008d88f6e51261c3fa14f"
+    "overall-progress:72",
+    "sha256:8f56d6fd0dd9cb38251f201d2bc944235a024e353f714ff69016179e717045a4"
   ],
   "templating": {
     "list": []
