@@ -319,7 +319,13 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
             catalog.inhoud,
         )
         self.assertEqual(
-            ("emberforge-vector-node",),
+            (
+                "emberforge-vector-node",
+                "emberforge-icon-dashboard",
+                "emberforge-icon-identity",
+                "emberforge-icon-terminal",
+                "emberforge-icon-assets",
+            ),
             catalog.definitie.asset_ids,
         )
         self.assertIn(
@@ -331,6 +337,18 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
             'data-asset-product="emberforge-vector-node-svg"',
             catalog.inhoud,
         )
+        for asset_id in (
+            "emberforge-icon-dashboard",
+            "emberforge-icon-identity",
+            "emberforge-icon-terminal",
+            "emberforge-icon-assets",
+        ):
+            self.assertIn(f'data-asset="{asset_id}"', catalog.inhoud)
+            self.assertIn(
+                f'href="{asset_id}.svg" '
+                f'data-asset-product="{asset_id}-svg"',
+                catalog.inhoud,
+            )
         self.assertEqual(
             1,
             homepage.count(

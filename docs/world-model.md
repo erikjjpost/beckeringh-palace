@@ -50,6 +50,11 @@ expliciet. Iedere catalogusvermelding verwijst naar exact één statisch SVG
 product. Previews, contractmetadata en artifactlinks worden afgeleid en bevatten
 geen tweede geometriebron.
 
+M11.5c gebruikt datzelfde contract voor Dashboard, Identity, Terminal en
+Assets. Deze vier informatieve iconen delen één expliciete 24 bij 24 viewbox,
+lijnstijl en toegankelijkheidscontract. De iconenfamilie is BAT inhoud en
+introduceert geen nieuw domeinconcept of rendererpad.
+
 ## Niet native
 
 Concepten zoals `capability`, `dienst` en `agent` blijven tijdelijk beschikbaar als migratieconcepten. Zij mogen de kern van het World Model niet uitbreiden en worden niet als precedent gebruikt voor nieuwe enterprise-architectuursemantiek.

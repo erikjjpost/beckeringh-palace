@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot eeee000b514c",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 81ca74154985",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:63",
+      "description": "project-status-schema:1;overall-progress:65",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 63%",
+                  "fixed": "Totale voortgang · 65%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 378
+                "width": 390
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.5b · Native SVG assetcatalogus (in uitvoering)\nVoltooid: M11.5a · Native SVG assetcontract (PR #87)\nVolgende stap: M11.5c · Native SVG iconenset\nDe eerste samenhangende EmberForge iconenfamilie als getypeerde BAT assets, SVG producten en catalogusitems modelleren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.5c · Native SVG iconenset (in uitvoering)\nVoltooid: M11.5b · Native SVG assetcatalogus (PR #88)\nVolgende stap: M11.5d · Native SVG merkfamilie\nLogo en wordmark als een expliciete, reproduceerbare en onderling samenhangende BAT assetfamilie modelleren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 63%",
+      "title": "Totale voortgang · 65%",
       "transparent": true,
       "type": "canvas"
     },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 243 regressietests vormen een werkende kwaliteitsketen; SVG artifacts en de HTML catalogus consumeren dezelfde vooraf opgeloste native assetsemantiek.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 244 regressietests vormen een werkende kwaliteitsketen; het lijnornament, de iconen en de HTML catalogus consumeren dezelfde vooraf opgeloste native assetsemantiek.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, zes unieke homepageproductroutes en een expliciet volledig SVG assetcataloguscontract.\nResterend: Aanvullende assetfamilies moeten nog in BAT worden verdiept.",
+                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, zes unieke homepageproductroutes en een expliciet volledig SVG assetcataloguscontract met een native iconenfamilie.\nResterend: De merkassetfamilie moet nog in BAT worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -951,7 +951,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:svg-library;progress:50",
+      "description": "project-status-area:svg-library;progress:65",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -984,7 +984,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "SVG component library en icon set · 50%",
+                  "fixed": "SVG component library en icon set · 65%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1048,7 +1048,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 300
+                "width": 390
               },
               "type": "rectangle"
             },
@@ -1060,7 +1060,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en ontsluit alle native assets met previews, contractmetadata en relatieve artifactlinks in één statische catalogus.\nResterend: Een brede, consistente iconenbibliotheek ontbreekt nog.",
+                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en ontsluit een samenhangende vierdelige EmberForge iconenfamilie met het lijnornament in één statische catalogus.\nResterend: De reproduceerbare logo en wordmarkfamilie en een bredere iconenbibliotheek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1084,7 +1084,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "SVG component library en icon set · 50%",
+      "title": "SVG component library en icon set · 65%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, het native SVG assetcontract en de catalogus zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, het native SVG assetcontract, de catalogus en de eerste iconenfamilie zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:63",
-    "sha256:eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4"
+    "overall-progress:65",
+    "sha256:81ca74154985e2d781b7a8050b653fd90e02e1aa58904c842ee95771e72331a0"
   ],
   "templating": {
     "list": []

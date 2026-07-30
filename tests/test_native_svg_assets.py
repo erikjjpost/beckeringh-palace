@@ -98,6 +98,62 @@ class NativeSvgAssetTests(unittest.TestCase):
         )
         self.assertIn('aria-hidden="true"', product.inhoud)
 
+    def test_world_model_publiceert_een_samenhangende_iconenfamilie(self):
+        model = analyseer(
+            parseer_bestand(WORLD),
+            constraints=WORLD_MODEL_CONSTRAINTS,
+        )
+        assets = {
+            asset.id: asset
+            for asset in resolveer_svg_assets(model.objecten)
+        }
+        icon_ids = (
+            "emberforge-icon-dashboard",
+            "emberforge-icon-identity",
+            "emberforge-icon-terminal",
+            "emberforge-icon-assets",
+        )
+
+        self.assertEqual(set(icon_ids), {
+            asset_id for asset_id in assets if asset_id.startswith("emberforge-icon-")
+        })
+        self.assertEqual(
+            {"icoon"},
+            {assets[asset_id].rol for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {(0.0, 0.0, 24.0, 24.0)},
+            {assets[asset_id].viewbox for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {"none"},
+            {assets[asset_id].vulling for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {"currentColor"},
+            {assets[asset_id].lijn for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {1.5},
+            {assets[asset_id].lijndikte for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {"round"},
+            {assets[asset_id].lijneinde for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {"round"},
+            {assets[asset_id].lijnverbinding for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {"informatief"},
+            {assets[asset_id].toegankelijkheid for asset_id in icon_ids},
+        )
+        self.assertEqual(
+            {"Dashboard", "Identity", "Terminal", "Assets"},
+            {assets[asset_id].label for asset_id in icon_ids},
+        )
+
     def test_compileert_een_veilig_statisch_svg_product(self):
         model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
 

@@ -40,6 +40,11 @@ productmap.
 product. Het bevat uitsluitend gevalideerde padgeometrie, paint,
 lijnattributen, assetmetadata en snapshotidentiteit.
 
+`output/products/emberforge-icon-*.svg` vormt de eerste native EmberForge
+iconenfamilie. Dashboard, Identity, Terminal en Assets gebruiken hetzelfde
+24 bij 24 lijncontract en worden samen met het ornament vanuit BAT in de
+assetcatalogus gepubliceerd.
+
 `output/products/emberforge-keycloak-login.html` is de reproduceerbare login
 productsurface. Het artifact toont native email-, wachtwoord- en
 submitsemantiek. Het bevat bewust geen realm, clientconfiguratie,
