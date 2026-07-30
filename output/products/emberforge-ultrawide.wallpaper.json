@@ -1,9 +1,9 @@
 {
   "product": {
     "id": "emberforge-ultrawide-wallpaper-manifest",
-    "snapshot": "sha256:8f56d6fd0dd9cb38251f201d2bc944235a024e353f714ff69016179e717045a4"
+    "snapshot": "sha256:e3c8ea5b8be1940ffd01244e6830cd66451e79a75e2548e3a0b315d41f32cc67"
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "wallpaper": {
     "canvas": {
       "breedte": 3840,
@@ -12,7 +12,7 @@
       "kleur": "#0F1724",
       "materiaalrol": "canvas"
     },
-    "doel": "Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend.",
+    "doel": "Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar beeldproduct.",
     "formaat": "png",
     "id": "emberforge-ultrawide-wallpaper",
     "lagen": [
@@ -29,6 +29,8 @@
             "fit": "contain",
             "hoogte": 840,
             "id": "emberforge-vector-node-left",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
             "naam": "EmberForge Vector Node Links",
             "x": 120,
             "y": 120
@@ -41,6 +43,8 @@
             "fit": "contain",
             "hoogte": 840,
             "id": "emberforge-vector-node-right",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
             "naam": "EmberForge Vector Node Rechts",
             "x": 2880,
             "y": 120
@@ -61,6 +65,8 @@
             "fit": "contain",
             "hoogte": 480,
             "id": "emberforge-wallpaper-merkteken",
+            "kleur": "#C9895B",
+            "materiaalrol": "accent",
             "naam": "EmberForge Wallpaper Merkteken",
             "x": 1680,
             "y": 260
@@ -73,6 +79,8 @@
             "fit": "contain",
             "hoogte": 136,
             "id": "emberforge-wallpaper-woordmerk",
+            "kleur": "#E6EDF5",
+            "materiaalrol": "foreground",
             "naam": "EmberForge Wallpaper Woordmerk",
             "x": 1420,
             "y": 800

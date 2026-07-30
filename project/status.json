@@ -3,35 +3,35 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.6a",
-    "name": "Native wallpaperproductcontract",
+    "id": "M11.6b",
+    "name": "Native wallpaperrenderer",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.5d",
-    "name": "Native SVG merkfamilie",
-    "pull_request": 90
+    "id": "M11.6a",
+    "name": "Native wallpaperproductcontract",
+    "pull_request": 91
   },
   "next_step": {
-    "id": "M11.6b",
-    "name": "Native wallpaperrenderer",
-    "purpose": "Het opgeloste wallpapercontract en de native SVG assets deterministisch tot het eerste 3840 bij 1080 beeldartifact renderen, zonder geometrie of plaatsing buiten BAT."
+    "id": "M11.6c",
+    "name": "Native wallpaperfamilie",
+    "purpose": "Meerdere expliciete formaten als één merkgebonden wallpaperfamilie ordenen en renderer en assets hergebruiken zonder impliciete schaallogica."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 96,
+      "progress": 98,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 258 regressietests vormen een werkende kwaliteitsketen; de productcompiler draagt nu ook een volledig opgeloste wallpapercontext aan een afzonderlijke manifestbackend.",
-      "remaining": "De beeldrenderer, meer adapters en volwassen foutdiagnostiek ontbreken nog."
+      "evidence": "Validatie, deterministische generatie, CI en 263 regressietests vormen een werkende kwaliteitsketen; productbackends leveren nu tekst of bytes en de standaardbibliotheek rendert en codeert het opgeloste wallpapercontract als PNG.",
+      "remaining": "Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
       "progress": 100,
       "weight": 10,
-      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies en een native wallpapercontract met canvas, formaat, lagen en assetplaatsingen.",
+      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies en een native wallpapercontract met canvas, formaat, lagen, assetplaatsingen en expliciete materiaalrollen.",
       "remaining": "Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist."
     },
     {
@@ -53,10 +53,10 @@
     {
       "id": "visual-world",
       "name": "Visuele wereld en art direction",
-      "progress": 42,
+      "progress": 46,
       "weight": 10,
-      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen, native merkassets en een eerste rustige ultrawide laag- en plaatsingsintentie.",
-      "remaining": "De gerenderde wallpaper en Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
+      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen, native merkassets en een eerste rustige gerenderde ultrawide compositie.",
+      "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
     },
     {
       "id": "svg-library",
@@ -69,10 +69,10 @@
     {
       "id": "logos-wallpapers",
       "name": "Logo's en wallpapers",
-      "progress": 45,
+      "progress": 55,
       "weight": 10,
-      "evidence": "Het EmberForge merkteken en woordmerk zijn reproduceerbare SVG compilerproducten; een 3840 bij 1080 wallpaper is nu als getypeerd BAT contract en deterministisch manifestproduct vastgelegd.",
-      "remaining": "Het beeldartifact, wallpaperfamilies en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd."
+      "evidence": "Het EmberForge merkteken en woordmerk zijn reproduceerbare SVG compilerproducten; dezelfde assets worden nu met het getypeerde BAT contract tot een echte deterministische 3840 bij 1080 PNG gerenderd.",
+      "remaining": "Wallpaperfamilies, rijkere wereldsymboliek en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd."
     },
     {
       "id": "homepage",
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 57,
+      "progress": 59,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, SVG assetfamilies en het wallpaperproductcontract zijn normatief vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, SVG assetfamilies, het wallpapercontract en de native PNG afleiding zijn normatief vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

@@ -16,6 +16,15 @@ from compiler.theme_resolution import ResolvedColor, resolveer_thema
 
 WALLPAPER_CONTENT = "wallpaper"
 WALLPAPER_MANIFEST_BACKEND = "wallpaper-manifest"
+WALLPAPER_PNG_BACKEND = "wallpaper-png"
+WALLPAPER_BACKENDS = frozenset({
+    WALLPAPER_MANIFEST_BACKEND,
+    WALLPAPER_PNG_BACKEND,
+})
+WALLPAPER_BACKEND_SUFFIXES = {
+    WALLPAPER_MANIFEST_BACKEND: ".wallpaper.json",
+    WALLPAPER_PNG_BACKEND: ".png",
+}
 WALLPAPER_FORMATEN = frozenset({"png"})
 WALLPAPER_LAAGROLLEN = frozenset({
     "ornament",
@@ -51,6 +60,8 @@ class ResolvedWallpaperAssetPlacement:
     hoogte: int
     fit: str
     dekking: float
+    color_role: str
+    color: ResolvedColor
 
 
 @dataclass(frozen=True)
@@ -218,6 +229,17 @@ def resolveer_wallpapers(
                         f"Assetplaatsing '{plaatsing.id}' is niet semantisch "
                         "gevalideerd"
                     )
+                color_role = _tekst(plaatsing, "kleur")
+                color = (
+                    thema.materiaal.kleur(color_role)
+                    if thema.materiaal is not None
+                    else None
+                )
+                if color is None:
+                    raise WallpaperResolutionError(
+                        f"Assetplaatsing '{plaatsing.id}' kan kleurrol "
+                        f"'{color_role}' niet oplossen"
+                    )
                 opgeloste_plaatsingen.append(
                     ResolvedWallpaperAssetPlacement(
                         id=plaatsing.id,
@@ -231,6 +253,8 @@ def resolveer_wallpapers(
                         hoogte=hoogte,
                         fit=_tekst(plaatsing, "fit"),
                         dekking=dekking,
+                        color_role=color_role,
+                        color=color,
                     )
                 )
             opgeloste_lagen.append(
@@ -608,6 +632,7 @@ class WallpaperProductConstraint:
                 "hoogte",
                 "fit",
                 "dekking",
+                "kleur",
             }
             for veld in plaatsing.eigenschappen:
                 if veld not in toegestane_velden:
@@ -723,6 +748,43 @@ class WallpaperProductConstraint:
                     locatie=plaatsing.eigenschaplocaties.get(
                         "dekking", plaatsing.bronlocatie
                     ),
+                    ))
+
+            color_role = plaatsing.eigenschappen.get("kleur")
+            materiaal = None
+            if laag is not None:
+                wallpaper = wallpapers.get(
+                    laag.eigenschappen.get("wallpaper")
+                )
+                wereld = (
+                    werelden.get(wallpaper.eigenschappen.get("wereld"))
+                    if wallpaper is not None
+                    else None
+                )
+                thema = (
+                    themas.get(wereld.eigenschappen.get("thema"))
+                    if wereld is not None
+                    else None
+                )
+                materiaal = (
+                    materialen.get(thema.eigenschappen.get("materiaal"))
+                    if thema is not None
+                    else None
+                )
+            if (
+                materiaal is None
+                or not isinstance(color_role, str)
+                or color_role not in materiaal.eigenschappen
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP4374",
+                    boodschap=(
+                        f"Assetplaatsing '{plaatsing.id}' kan kleurrol "
+                        f"'{color_role}' niet uit het wallpaperthema oplossen"
+                    ),
+                    locatie=plaatsing.eigenschaplocaties.get(
+                        "kleur", plaatsing.bronlocatie
+                    ),
                 ))
 
             if laag is not None and asset is not None:
@@ -752,11 +814,11 @@ class WallpaperProductConstraint:
         ):
             inhoud = product.eigenschappen.get("inhoud", "composition")
             wallpaper_id = product.eigenschappen.get("wallpaper")
+            backend = product.eigenschappen.get("backend")
             if inhoud != WALLPAPER_CONTENT:
                 if (
                     "wallpaper" in product.eigenschappen
-                    or product.eigenschappen.get("backend")
-                    == WALLPAPER_MANIFEST_BACKEND
+                    or backend in WALLPAPER_BACKENDS
                 ):
                     diagnostics.append(Diagnostic(
                         code="BP4380",
@@ -783,15 +845,12 @@ class WallpaperProductConstraint:
                         "wallpaper", product.bronlocatie
                     ),
                 ))
-            if (
-                product.eigenschappen.get("backend")
-                != WALLPAPER_MANIFEST_BACKEND
-            ):
+            if backend not in WALLPAPER_BACKENDS:
                 diagnostics.append(Diagnostic(
                     code="BP4382",
                     boodschap=(
-                        f"Wallpaperproduct '{product.id}' vereist backend "
-                        f"'{WALLPAPER_MANIFEST_BACKEND}'"
+                        f"Wallpaperproduct '{product.id}' vereist een "
+                        "expliciete wallpaperbackend"
                     ),
                     locatie=product.eigenschaplocaties.get(
                         "backend", product.bronlocatie
@@ -842,16 +901,18 @@ class WallpaperProductConstraint:
                     locatie=product.bronlocatie,
                 ))
             pad = product.eigenschappen.get("pad")
+            suffix = WALLPAPER_BACKEND_SUFFIXES.get(backend)
             if (
                 not isinstance(pad, str)
-                or not pad.lower().endswith(".wallpaper.json")
+                or suffix is None
+                or not pad.lower().endswith(suffix)
                 or PurePosixPath(pad).is_absolute()
             ):
                 diagnostics.append(Diagnostic(
                     code="BP4386",
                     boodschap=(
-                        f"Wallpaperproduct '{product.id}' vereist een "
-                        ".wallpaper.json artifactpad"
+                        f"Wallpaperproduct '{product.id}' vereist een bij "
+                        f"backend '{backend}' passend artifactpad"
                     ),
                     locatie=product.eigenschaplocaties.get(
                         "pad", product.bronlocatie

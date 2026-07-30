@@ -70,14 +70,15 @@ M11.6a voegt het backendonafhankelijke wallpaperproductcontract toe. Een
 `wallpaper` kiest expliciet wereld, merk, PNG doelformaat, pixelafmetingen,
 semantische canvasrol en geordende lagen. Iedere `wallpaperlaag` noemt haar
 plaatsingen wederkerig. Een `assetplaatsing` koppelt één bestaand native SVG
-asset aan canonieke coördinaten, afmetingen, fitmodus en dekking binnen de
-canvasgrens.
+asset aan canonieke coördinaten, afmetingen, fitmodus, dekking en een
+semantische materiaalrol binnen de canvasgrens.
 
 De eerste 3840 bij 1080 EmberForge specificatie wordt als deterministisch
-`.wallpaper.json` manifest gepubliceerd. Dit manifest bewijst de opgeloste
-productcontext en is geen wallpaperafbeelding. Een beeldbackend volgt pas in
-M11.6b. Geometrie, laagvolgorde en plaatsing mogen daarbij niet opnieuw in de
-backend worden vastgelegd.
+`.wallpaper.json` manifest en als echte `.png` gepubliceerd. M11.6b voegt
+daarvoor een binaire productpayload en een native rasterbackend toe. De backend
+consumeert uitsluitend de opgeloste productcontext. Geometrie, kleurkeuze,
+laagvolgorde en plaatsing blijven daardoor in BAT en worden niet opnieuw in de
+backend vastgelegd.
 
 ## Niet native
 

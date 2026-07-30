@@ -51,7 +51,10 @@ def main() -> None:
     ):
         pad = ROOT / product.definitie.pad
         pad.parent.mkdir(parents=True, exist_ok=True)
-        pad.write_text(product.inhoud, encoding="utf-8")
+        if isinstance(product.inhoud, bytes):
+            pad.write_bytes(product.inhoud)
+        else:
+            pad.write_text(product.inhoud, encoding="utf-8")
         productpaden.append(product.definitie.pad)
 
     print(f"BAT gecompileerd: {len(model.objecten)} object(en)")

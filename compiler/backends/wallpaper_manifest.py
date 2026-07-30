@@ -21,7 +21,7 @@ def _render_manifest(_objecten, product: ProductDefinition) -> str:
         )
 
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "product": {
             "id": product.id,
             "snapshot": product.snapshot_ref,
@@ -58,6 +58,8 @@ def _render_manifest(_objecten, product: ProductDefinition) -> str:
                             "hoogte": plaatsing.hoogte,
                             "fit": plaatsing.fit,
                             "dekking": plaatsing.dekking,
+                            "materiaalrol": plaatsing.color_role,
+                            "kleur": plaatsing.color.waarde,
                         }
                         for plaatsing in laag.plaatsingen
                     ],

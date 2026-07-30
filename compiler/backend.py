@@ -7,7 +7,11 @@ from dataclasses import dataclass
 from compiler.cir import Architectuurobject
 from compiler.product_model import ProductDefinition
 
-BackendRenderer = Callable[[Iterable[Architectuurobject], ProductDefinition], str]
+BackendPayload = str | bytes
+BackendRenderer = Callable[
+    [Iterable[Architectuurobject], ProductDefinition],
+    BackendPayload,
+]
 
 
 @dataclass(frozen=True)

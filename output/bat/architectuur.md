@@ -879,7 +879,7 @@ Horizontaal technisch woordmerk voor brede EmberForge merkoppervlakken.
 
 ### Doel
 
-Legt een eerste rustige 3840 bij 1080 EmberForge wallpaperintentie vast zonder beeldbackend.
+Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar beeldproduct.
 
 ### Eigenschappen
 
@@ -940,6 +940,7 @@ Plaatst het technische lijnornament met ruime marge links.
 - **dekking:** 0.14
 - **fit:** contain
 - **hoogte:** 840
+- **kleur:** interaction
 - **laag:** emberforge-wallpaper-ornamentlaag
 - **x:** 120
 - **y:** 120
@@ -961,6 +962,7 @@ Plaatst het technische lijnornament symmetrisch rechts.
 - **dekking:** 0.14
 - **fit:** contain
 - **hoogte:** 840
+- **kleur:** interaction
 - **laag:** emberforge-wallpaper-ornamentlaag
 - **x:** 2880
 - **y:** 120
@@ -982,6 +984,7 @@ Plaatst het merkteken centraal binnen de ultrawide compositie.
 - **dekking:** 1
 - **fit:** contain
 - **hoogte:** 480
+- **kleur:** accent
 - **laag:** emberforge-wallpaper-merklaag
 - **x:** 1680
 - **y:** 260
@@ -1003,6 +1006,7 @@ Plaatst het woordmerk onder het centrale merkteken.
 - **dekking:** 1
 - **fit:** contain
 - **hoogte:** 136
+- **kleur:** foreground
 - **laag:** emberforge-wallpaper-merklaag
 - **x:** 1420
 - **y:** 800
@@ -3343,9 +3347,9 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-ultrawide-wallpaper, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-ultrawide-wallpaper, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
 - **leesvolgorde:** 3
-- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-manifest, project-status-html, project-status-grafana
+- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-ultrawide-wallpaper-manifest, project-status-html, project-status-grafana
 - **soorten:** homepagegebied, compositie, componentinstantie, layout, region, wallpaper, wallpaperlaag, assetplaatsing, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
@@ -4988,6 +4992,25 @@ Publiceert canvas, formaat, lagen en assetplaatsingen als machineleesbaar contra
 - **inhoud:** wallpaper
 - **mode:** static
 - **pad:** output/products/emberforge-ultrawide.wallpaper.json
+- **wallpaper:** emberforge-ultrawide-wallpaper
+- **wereld:** beckeringh-palace
+
+## EmberForge Ultrawide Wallpaper PNG
+
+**Soort:** product
+
+**Identifier:** `emberforge-ultrawide-wallpaper-png`
+
+### Doel
+
+Rendert het opgeloste native wallpapercontract als deterministisch 3840 bij 1080 beeldartifact.
+
+### Eigenschappen
+
+- **backend:** wallpaper-png
+- **inhoud:** wallpaper
+- **mode:** static
+- **pad:** output/products/emberforge-ultrawide.png
 - **wallpaper:** emberforge-ultrawide-wallpaper
 - **wereld:** beckeringh-palace
 
