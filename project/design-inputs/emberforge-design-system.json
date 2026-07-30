@@ -102,8 +102,8 @@
     {
       "id": "vector-assets",
       "status": "geblokkeerd",
-      "doel": "SVG component library",
-      "bewijs": "Logo en wordmark SVG zijn als placeholders aangemerkt en symbol-valk.svg ontbreekt."
+      "doel": "Native BAT asset en statisch SVG product",
+      "bewijs": "M11.5a introduceert een veilig getypeerd SVG assetcontract en genereert een nieuw technisch lijnornament rechtstreeks uit BAT. Logo en wordmark SVG blijven placeholders en symbol-valk.svg ontbreekt, zodat geen van deze bronbestanden wordt geïmporteerd of geactiveerd."
     },
     {
       "id": "world-language",

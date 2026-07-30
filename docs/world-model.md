@@ -22,7 +22,7 @@ De native objectsoorten zijn:
 | `merk` | identiteit en merkregels |
 | `thema` | visuele en semantische varianten |
 | `token` | herbruikbare ontwerpwaarden |
-| `asset` | reproduceerbare bronassets |
+| `asset` | veilige, getypeerde en reproduceerbare bronassets |
 | `component` | herbruikbare productonderdelen |
 | `toegankelijkheid` | backendonafhankelijke naam, rol, waarde, fout, disabled, focus en toetsenbordsemantiek |
 | `componentvoorbeeld` | productgedragen voorbeeldinhoud voor één componentvariant |
@@ -36,6 +36,13 @@ De native objectsoorten zijn:
 | `renderdoel` | te genereren representaties |
 
 Daaruit worden onder andere SVG, HTML, Grafana-thema's, documentatie, logo's, iconen, wallpapers en Figma-componenten afgeleid.
+
+M11.5a activeert het eerste concrete native assetcontract. Een SVG asset
+declareert uitsluitend gecontroleerde padgeometrie, een positieve viewbox,
+begrensde kleur- en lijnwaarden, een semantische rol en expliciete
+toegankelijkheid. BAT accepteert geen ruwe SVG markup, scripts, externe
+referenties of runtimebestanden. Een statisch `product` met backend `svg`
+vertaalt het vooraf opgeloste asset naar een reproduceerbaar vectorartifact.
 
 ## Niet native
 

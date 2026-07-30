@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 2ed7bebda1a8",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f53360b68c65",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 296,
+                "height": 352,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -207,7 +207,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "2",
+                  "fixed": "3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -233,7 +233,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "merk\nwereld",
+                  "fixed": "asset\nmerk\nwereld",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -244,7 +244,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-labels",
               "placement": {
-                "height": 36,
+                "height": 48,
                 "left": 20,
                 "top": 128,
                 "width": 280
@@ -259,7 +259,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "1\n1",
+                  "fixed": "1\n1\n1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -270,7 +270,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-values",
               "placement": {
-                "height": 36,
+                "height": 48,
                 "left": 300,
                 "top": 128,
                 "width": 80
@@ -328,6 +328,31 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-3",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 164,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -335,7 +360,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana",
+                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana\nEmberForge Vector Node SVG",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -354,13 +379,18 @@
                   "targetBlank": false,
                   "title": "Forge Dashboard Grafana",
                   "url": "forge-dashboard.grafana.json"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "EmberForge Vector Node SVG",
+                  "url": "emberforge-vector-node.svg"
                 }
               ],
               "name": "forge-dashboard-left-panel-product-navigation",
               "placement": {
-                "height": 24,
+                "height": 36,
                 "left": 20,
-                "top": 176,
+                "top": 188,
                 "width": 360
               },
               "type": "text"
@@ -373,7 +403,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.",
+                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -384,9 +414,9 @@
               },
               "name": "forge-dashboard-left-panel-content-anchors",
               "placement": {
-                "height": 32,
+                "height": 64,
                 "left": 20,
-                "top": 212,
+                "top": 236,
                 "width": 360
               },
               "type": "text"
@@ -412,7 +442,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 256,
+                "top": 312,
                 "width": 360
               },
               "type": "text"
@@ -1227,7 +1257,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "79",
+                  "fixed": "80",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1279,7 +1309,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "24\n6\n6\n6\n10\n24\n3",
+                  "fixed": "24\n6\n6\n6\n11\n24\n3",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1588,7 +1618,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:2ed7bebda1a8ce59e1e14b0a2eecde89dba3adf6a6ee5b20862891be206db3c0"
+    "sha256:f53360b68c65fb8c51d7fb2c468c4d6b2b6ef4367dc8105f9465a7c381370fce"
   ],
   "templating": {
     "list": []

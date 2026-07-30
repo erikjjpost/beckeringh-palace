@@ -19,13 +19,25 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
 | Componenten, states, toegankelijkheid en referentie | Gemigreerd in M11.3f tot en met M11.3i | appearance, component, variant, componentvoorbeeld, toegankelijkheid en native referentieproduct |
 | Dashboard, Keycloak en terminal | Gemigreerd in M11.4a tot en met M11.4d | composition, layout en product |
-| Vectorassets | Geblokkeerd | SVG component library |
+| Vectorassets | Native contract in M11.5a; bronpakket geblokkeerd | BAT asset en statisch SVG product |
 | Merkverhaal, productfamilie en contentregels | Gemigreerd in M11.1e en M11.4e | Native merkidentiteit, homepage entree en productroutes |
 
 De PNG logo's, placeholder SVG logo's, ontbrekende bestanden, Google Fonts,
 CDN iconen en UI kit implementatiecode worden niet als productbron overgenomen.
 Daarmee kan geen renderer ongemerkt afhankelijk worden van het aangeleverde
 voorbeeldpakket.
+
+## Native SVG assetcontract
+
+M11.5a maakt het vectorassetcontract onafhankelijk van de geblokkeerde
+bronbestanden. De eerste verticale slice legt gecontroleerde padgeometrie,
+viewbox, rol, paint, lijnstijl en toegankelijkheid rechtstreeks in BAT vast en
+genereert daaruit een statisch SVG product met snapshotidentiteit.
+
+`emberforge-vector-node` is een nieuw technisch lijnornament en geen import,
+reconstructie of activering van de placeholderlogo's. Ruwe SVG markup, scripts,
+eventhandlers, externe URL's en runtimebestanden kunnen niet door het contract
+worden aangeleverd.
 
 ## Eerste activering
 

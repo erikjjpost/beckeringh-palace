@@ -311,6 +311,21 @@ merk emberforge {
     stem: "Zelfverzekerd, technisch en rustig"
 }
 
+asset emberforge-vector-node {
+    naam: "EmberForge Vector Node"
+    doel: "Herbruikbaar technisch lijnornament voor native EmberForge vectorproducten."
+    formaat: "svg"
+    rol: "ornament"
+    viewbox: "0 0 64 64"
+    paden: ["M32 6 L38 24 L56 32 L38 40 L32 58 L26 40 L8 32 L26 24 Z", "M32 22 L42 32 L32 42 L22 32 Z"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "2"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "decoratief"
+}
+
 token color-ember {
     naam: "Ember Copper"
     doel: "Ruwe warme accentkleur uit het EmberForge bronpalet."
@@ -1725,8 +1740,8 @@ informatiegebied palace-world {
     toegankelijkheidslabel: "Wereld en identiteit, overzicht van wereld, merk en bronassets"
     leesvolgorde: "1"
     soorten: ["wereld", "merk", "asset"]
-    inhoud: ["beckeringh-palace"]
-    navigatie: ["forge-dashboard-html", "forge-dashboard-grafana"]
+    inhoud: ["beckeringh-palace", "emberforge-vector-node"]
+    navigatie: ["forge-dashboard-html", "forge-dashboard-grafana", "emberforge-vector-node-svg"]
 }
 
 informatiegebied forge-design-system {
@@ -2478,6 +2493,17 @@ product beckeringh-palace-homepage {
     compositie: "beckeringh-palace-homepage-composition"
     layout: "beckeringh-palace-homepage-grid"
     pad: "output/products/index.html"
+}
+
+product emberforge-vector-node-svg {
+    naam: "EmberForge Vector Node SVG"
+    doel: "Genereert het native technische lijnornament als veilig SVG product."
+    backend: "svg"
+    mode: "static"
+    wereld: "beckeringh-palace"
+    inhoud: "asset"
+    asset: "emberforge-vector-node"
+    pad: "output/products/emberforge-vector-node.svg"
 }
 
 renderdoel css-tokens {

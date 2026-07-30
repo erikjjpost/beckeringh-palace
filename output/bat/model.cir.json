@@ -496,6 +496,27 @@
   },
   {
     "eigenschappen": {
+      "doel": "Herbruikbaar technisch lijnornament voor native EmberForge vectorproducten.",
+      "formaat": "svg",
+      "lijn": "currentColor",
+      "lijndikte": "2",
+      "lijneinde": "round",
+      "lijnverbinding": "round",
+      "naam": "EmberForge Vector Node",
+      "paden": [
+        "M32 6 L38 24 L56 32 L38 40 L32 58 L26 40 L8 32 L26 24 Z",
+        "M32 22 L42 32 L32 42 L22 32 Z"
+      ],
+      "rol": "ornament",
+      "toegankelijkheid": "decoratief",
+      "viewbox": "0 0 64 64",
+      "vulling": "none"
+    },
+    "id": "emberforge-vector-node",
+    "soort": "asset"
+  },
+  {
+    "eigenschappen": {
       "doel": "Ruwe warme accentkleur uit het EmberForge bronpalet.",
       "naam": "Ember Copper",
       "type": "color",
@@ -2306,13 +2327,15 @@
     "eigenschappen": {
       "doel": "De digitale wereld, haar merk en haar reproduceerbare bronassets.",
       "inhoud": [
-        "beckeringh-palace"
+        "beckeringh-palace",
+        "emberforge-vector-node"
       ],
       "leesvolgorde": "1",
       "naam": "Wereld en identiteit",
       "navigatie": [
         "forge-dashboard-html",
-        "forge-dashboard-grafana"
+        "forge-dashboard-grafana",
+        "emberforge-vector-node-svg"
       ],
       "soorten": [
         "wereld",
@@ -3439,6 +3462,20 @@
       "wereld": "beckeringh-palace"
     },
     "id": "beckeringh-palace-homepage",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-vector-node",
+      "backend": "svg",
+      "doel": "Genereert het native technische lijnornament als veilig SVG product.",
+      "inhoud": "asset",
+      "mode": "static",
+      "naam": "EmberForge Vector Node SVG",
+      "pad": "output/products/emberforge-vector-node.svg",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-vector-node-svg",
     "soort": "product"
   },
   {
