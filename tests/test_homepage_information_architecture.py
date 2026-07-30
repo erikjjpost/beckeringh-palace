@@ -29,6 +29,7 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
                 "homepage-entrance",
                 "homepage-world-area",
                 "homepage-design-system-area",
+                "homepage-svg-assets-area",
                 "homepage-project-status-area",
                 "homepage-keycloak-area",
                 "homepage-terminal-area",
@@ -36,7 +37,7 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
             tuple(gebied.id for gebied in gebieden),
         )
         self.assertEqual(
-            ("entree", "route", "route", "route", "route", "route"),
+            ("entree", "route", "route", "route", "route", "route", "route"),
             tuple(gebied.role for gebied in gebieden),
         )
         self.assertEqual(
@@ -47,16 +48,18 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
                 "routekaart",
                 "routekaart",
                 "routekaart",
+                "routekaart",
             ),
             tuple(gebied.component_role for gebied in gebieden),
         )
         self.assertEqual(
-            (0, 1, 2, 3, 4, 5),
+            (0, 1, 2, 3, 4, 5, 6),
             tuple(gebied.focus_order for gebied in gebieden),
         )
         self.assertEqual(
             (
                 "geen",
+                "volledige-kaart",
                 "volledige-kaart",
                 "volledige-kaart",
                 "volledige-kaart",
@@ -73,6 +76,7 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
                 "forge-panel-card-rest-appearance",
                 "forge-panel-card-rest-appearance",
                 "forge-panel-card-rest-appearance",
+                "forge-panel-card-rest-appearance",
             ),
             tuple(gebied.appearance_id for gebied in gebieden),
         )
@@ -80,6 +84,7 @@ class HomepageInformationArchitectureTests(unittest.TestCase):
             (
                 "forge-dashboard-html",
                 "forge-design-system-reference-html",
+                "emberforge-svg-asset-catalog-html",
                 "project-status-html",
                 "emberforge-keycloak-login-html",
                 "emberforge-terminal-html",

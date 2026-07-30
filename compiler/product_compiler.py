@@ -13,6 +13,10 @@ from compiler.design_system_reference import resolveer_designsystemreferentie
 from compiler.layout_model import ResolvedLayout, resolveer_layouts
 from compiler.product_model import ProductDefinition, verzamel_producten
 from compiler.project_status import ProjectStatus
+from compiler.svg_asset_catalog import (
+    SVG_ASSET_CATALOG_CONTENT,
+    resolveer_svg_assetcatalogus,
+)
 from compiler.svg_assets import ResolvedSvgAsset, resolveer_svg_assets
 from compiler.theme_resolution import resolveer_thema
 
@@ -61,6 +65,11 @@ def _los_productcontext_op(
         opgeloste_compositie=composities.get(product.compositie),
         opgeloste_layout=layouts.get(product.layout),
         opgelost_asset=assets.get(product.asset),
+        asset_catalog=(
+            resolveer_svg_assetcatalogus(objecten, product.asset_ids)
+            if product.inhoud == SVG_ASSET_CATALOG_CONTENT
+            else None
+        ),
         design_system_reference=(
             resolveer_designsystemreferentie(
                 objecten,

@@ -50,6 +50,7 @@ class ProductDefinitionConstraint:
             "inhoud",
             "referentiesecties",
             "asset",
+            "assets",
         }
         for obj in context.objecten:
             if obj.soort != "product":
@@ -225,6 +226,7 @@ class ProductDefinitionConstraint:
                 "project-status",
                 "design-system",
                 "asset",
+                "asset-catalog",
             }:
                 diagnostics.append(Diagnostic(
                     code="BP3509",

@@ -9,6 +9,7 @@ from compiler.design_compositions import ResolvedComposition
 from compiler.design_system_reference import ResolvedDesignSystemReference
 from compiler.layout_model import ResolvedLayout
 from compiler.project_status import ProjectStatus
+from compiler.svg_asset_catalog import ResolvedSvgAssetCatalog
 from compiler.svg_assets import ResolvedSvgAsset
 from compiler.theme_resolution import ResolvedTheme
 
@@ -40,12 +41,15 @@ class ProductDefinition:
     design_system_reference: ResolvedDesignSystemReference | None = None
     asset: str = ""
     opgelost_asset: ResolvedSvgAsset | None = None
+    asset_ids: tuple[str, ...] = ()
+    asset_catalog: ResolvedSvgAssetCatalog | None = None
 
 
 def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
     if obj.soort != "product":
         return None
     reference_sections = obj.eigenschappen.get("referentiesecties")
+    asset_ids = obj.eigenschappen.get("assets")
     return ProductDefinition(
         id=obj.id,
         naam=str(obj.eigenschappen.get("naam", "")),
@@ -64,6 +68,11 @@ def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
             else ()
         ),
         asset=str(obj.eigenschappen.get("asset", "")),
+        asset_ids=(
+            tuple(str(item) for item in asset_ids)
+            if isinstance(asset_ids, list)
+            else ()
+        ),
     )
 
 

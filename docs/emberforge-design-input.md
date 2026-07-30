@@ -19,7 +19,7 @@ en ieder ontwerpgebied een expliciete bestemming en bewijs heeft.
 | Art direction | Gemigreerd in M11.3d | artdirection en opgelost thema |
 | Componenten, states, toegankelijkheid en referentie | Gemigreerd in M11.3f tot en met M11.3i | appearance, component, variant, componentvoorbeeld, toegankelijkheid en native referentieproduct |
 | Dashboard, Keycloak en terminal | Gemigreerd in M11.4a tot en met M11.4d | composition, layout en product |
-| Vectorassets | Native contract in M11.5a; bronpakket geblokkeerd | BAT asset en statisch SVG product |
+| Vectorassets | Native contract en catalogus in M11.5a en M11.5b; bronpakket geblokkeerd | BAT asset, statisch SVG product en navigeerbare catalogus |
 | Merkverhaal, productfamilie en contentregels | Gemigreerd in M11.1e en M11.4e | Native merkidentiteit, homepage entree en productroutes |
 
 De PNG logo's, placeholder SVG logo's, ontbrekende bestanden, Google Fonts,
@@ -38,6 +38,18 @@ genereert daaruit een statisch SVG product met snapshotidentiteit.
 reconstructie of activering van de placeholderlogo's. Ruwe SVG markup, scripts,
 eventhandlers, externe URL's en runtimebestanden kunnen niet door het contract
 worden aangeleverd.
+
+## Native SVG assetcatalogus
+
+M11.5b ontsluit alle native SVG assets in één statisch HTML catalogusproduct.
+De geordende assetlijst staat expliciet in BAT en moet de volledige native
+assetverzameling dekken. Ieder item wordt gekoppeld aan exact één gegenereerd
+SVG product.
+
+De catalogus rendert previews, rol, viewbox, paint, padtelling,
+toegankelijkheidssemantiek en een relatieve artifactlink uit dezelfde opgeloste
+assetdata. De gedeelde serialisatie houdt het standalone SVG product en de
+cataloguspreview gelijk zonder padgeometrie te dupliceren.
 
 ## Eerste activering
 

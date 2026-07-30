@@ -44,6 +44,12 @@ toegankelijkheid. BAT accepteert geen ruwe SVG markup, scripts, externe
 referenties of runtimebestanden. Een statisch `product` met backend `svg`
 vertaalt het vooraf opgeloste asset naar een reproduceerbaar vectorartifact.
 
+M11.5b ontsluit dezelfde opgeloste assets via een regulier statisch
+catalogusproduct. Het product noemt de volledige geordende assetlijst
+expliciet. Iedere catalogusvermelding verwijst naar exact één statisch SVG
+product. Previews, contractmetadata en artifactlinks worden afgeleid en bevatten
+geen tweede geometriebron.
+
 ## Niet native
 
 Concepten zoals `capability`, `dienst` en `agent` blijven tijdelijk beschikbaar als migratieconcepten. Zij mogen de kern van het World Model niet uitbreiden en worden niet als precedent gebruikt voor nieuwe enterprise-architectuursemantiek.

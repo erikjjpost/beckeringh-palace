@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="utf-8">
-  <title>Beckeringh Palace Projectstatus</title>
+  <title>EmberForge SVG Asset Catalog</title>
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="components.css">
   <style>
@@ -225,112 +225,91 @@
     @media (max-width: 960px) {
       .bp-status-summary, .bp-status-milestones, .bp-status-areas { grid-template-columns: 1fr; }
     }
+    .bp-asset-catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: var(--bp-spacing-large);
+    }
+    .bp-asset-card {
+      display: grid;
+      gap: var(--bp-spacing-medium);
+      padding: var(--bp-spacing-large);
+      background: var(--bp-material-surface);
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-radius: var(--bp-radius-medium);
+    }
+    .bp-asset-preview {
+      display: grid;
+      min-height: 12rem;
+      place-items: center;
+      color: var(--bp-material-accent);
+      background: var(--bp-material-canvas);
+      border: var(--bp-border-hairline) var(--bp-border-style) var(--bp-material-outline);
+      border-radius: var(--bp-radius-small);
+    }
+    .bp-asset-preview svg {
+      width: min(100%, 10rem);
+      height: auto;
+      overflow: visible;
+    }
+    .bp-asset-card h3, .bp-asset-card p { margin: 0; }
+    .bp-asset-contract {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: var(--bp-spacing-xs) var(--bp-spacing-medium);
+      margin: 0;
+      font-size: var(--bp-type-caption);
+    }
+    .bp-asset-contract dt { color: var(--bp-material-muted); }
+    .bp-asset-contract dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+    .bp-asset-link {
+      color: var(--bp-theme-accent);
+      font-weight: 700;
+    }
     .bp-layout { box-sizing: border-box; }
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-product-content="project-status" data-time-context="none" data-snapshot-id="eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4" data-snapshot-ref="sha256:eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-product-content="asset-catalog" data-time-context="none" data-snapshot-id="eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4" data-snapshot-ref="sha256:eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4">
   <header class="bp-product-header">
     <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot eeee000b514c</p>
-    <h1>Beckeringh Palace Projectstatus</h1>
-    <p class="bp-product-purpose">De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.</p>
+    <h1>EmberForge SVG Asset Catalog</h1>
+    <p class="bp-product-purpose">Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.</p>
   </header>
-  <main class="bp-status" data-status-schema="1">
-    <section class="bp-status-summary">
-      <div class="bp-status-overall">
-        <span class="bp-status-label">Totale voortgang</span>
-        <strong>63%</strong>
-        <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
+  <main class="bp-layout bp-layout-emberforge-svg-asset-catalog-stack" data-layout-type="stack" data-responsive-breakpoint="" data-compact-columns="" style="display:flex;flex-direction:column">
+    <section class="bp-region bp-forge-panel bp-variant-forge-panel-compact" data-region="emberforge-svg-asset-catalog-region" data-instance="emberforge-svg-asset-catalog-content" data-component="forge-panel" data-variant="forge-panel-compact" data-appearance="forge-panel-card-rest-appearance" data-component-states="rest hover focus pressed disabled" data-state-rest-appearance="forge-panel-card-rest-appearance" data-state-hover-appearance="forge-panel-card-hover-appearance" data-state-focus-appearance="forge-panel-card-focus-appearance" data-state-pressed-appearance="forge-panel-card-pressed-appearance" data-state-disabled-appearance="forge-panel-card-disabled-appearance" data-accessibility-contract="forge-panel-accessibility" data-accessibility-role="groep" data-accessibility-name-source="titel" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-instance-emberforge-svg-asset-catalog-content-title">
+      <h2 id="bp-instance-emberforge-svg-asset-catalog-content-title">Native SVG assets</h2>
+      <div class="bp-asset-catalog" data-asset-count="1">
+        <article class="bp-asset-card" data-asset="emberforge-vector-node" data-asset-role="ornament" data-asset-accessibility="decoratief" aria-labelledby="bp-asset-emberforge-vector-node-title">
+          <div class="bp-asset-preview">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" data-bp-asset="emberforge-vector-node" data-bp-role="ornament" data-bp-snapshot="sha256:eeee000b514cab914e1707b388324e38eda64d8ab2b2a57c759e0114def037b4" class="bp-asset-preview-graphic" data-bp-preview="true" aria-hidden="true">
+              <path d="M32 6 L38 24 L56 32 L38 40 L32 58 L26 40 L8 32 L26 24 Z"/>
+              <path d="M32 22 L42 32 L32 42 L22 32 Z"/>
+            </svg>
+          </div>
+          <h3 id="bp-asset-emberforge-vector-node-title">EmberForge Vector Node</h3>
+          <p>Herbruikbaar technisch lijnornament voor native EmberForge vectorproducten.</p>
+          <dl class="bp-asset-contract">
+            <dt>Rol</dt>
+            <dd>ornament</dd>
+            <dt>Viewbox</dt>
+            <dd>0 0 64 64</dd>
+            <dt>Paden</dt>
+            <dd>2</dd>
+            <dt>Vulling</dt>
+            <dd>none</dd>
+            <dt>Lijn</dt>
+            <dd>currentColor</dd>
+            <dt>Toegankelijkheid</dt>
+            <dd>decoratief</dd>
+          </dl>
+          <a class="bp-asset-link" href="emberforge-vector-node.svg" data-asset-product="emberforge-vector-node-svg">Open SVG</a>
+        </article>
       </div>
-      <div class="bp-status-milestones">
-        <article class="bp-status-card">
-          <span class="bp-status-label">Laatst voltooid</span>
-          <h2>M11.5a — Native SVG assetcontract</h2>
-          <p>PR #87</p>
-        </article>
-        <article class="bp-status-card">
-          <span class="bp-status-label">Actueel</span>
-          <h2>M11.5b — Native SVG assetcatalogus</h2>
-          <p>in uitvoering</p>
-        </article>
-        <article class="bp-status-card">
-          <span class="bp-status-label">Volgende stap</span>
-          <h2>M11.5c — Native SVG iconenset</h2>
-          <p>De eerste samenhangende EmberForge iconenfamilie als getypeerde BAT assets, SVG producten en catalogusitems modelleren.</p>
-        </article>
-      </div>
-    </section>
-    <section class="bp-status-areas" aria-label="Productgebieden">
-      <article class="bp-status-card" data-status-area="compiler">
-        <h3>Compiler en reproduceerbaarheid</h3>
-        <progress class="bp-status-progress" max="100" value="95">95%</progress>
-        <p><strong>95%</strong></p>
-        <p>Validatie, deterministische generatie, CI en 243 regressietests vormen een werkende kwaliteitsketen; SVG artifacts en de HTML catalogus consumeren dezelfde vooraf opgeloste native assetsemantiek.</p>
-        <p class="bp-status-label">Meer producttypen, adapters en volwassen foutdiagnostiek.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="world-model">
-        <h3>World Model en productcontracten</h3>
-        <progress class="bp-status-progress" max="100" value="99">99%</progress>
-        <p><strong>99%</strong></p>
-        <p>Het world model draagt thema&#x27;s, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, zes unieke homepageproductroutes en een expliciet volledig SVG assetcataloguscontract.</p>
-        <p class="bp-status-label">Aanvullende assetfamilies moeten nog in BAT worden verdiept.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="design-system">
-        <h3>Design System</h3>
-        <progress class="bp-status-progress" max="100" value="100">100%</progress>
-        <p><strong>100%</strong></p>
-        <p>Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks, interactietoestanden, componentfamilies en toegankelijkheidscontracten zijn native gemigreerd en samengebracht in één navigeerbaar statisch referentieproduct.</p>
-        <p class="bp-status-label">Nieuwe design system contracten worden alleen toegevoegd wanneer een volgende productsurface een aantoonbare ontbrekende rol heeft.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="dashboard">
-        <h3>Dashboard UI en Grafana</h3>
-        <progress class="bp-status-progress" max="100" value="90">90%</progress>
-        <p><strong>90%</strong></p>
-        <p>Het HTML en Grafana homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde opgeloste voorbeelden, componentsemantiek en native layout.</p>
-        <p class="bp-status-label">Operationele databroncontracten en toetsing met echte hulptechnologie ontbreken nog.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="visual-world">
-        <h3>Visuele wereld en art direction</h3>
-        <progress class="bp-status-progress" max="100" value="35">35%</progress>
-        <p><strong>35%</strong></p>
-        <p>EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen en een eerste technisch lijnornament.</p>
-        <p class="bp-status-label">Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="svg-library">
-        <h3>SVG component library en icon set</h3>
-        <progress class="bp-status-progress" max="100" value="50">50%</progress>
-        <p><strong>50%</strong></p>
-        <p>BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en ontsluit alle native assets met previews, contractmetadata en relatieve artifactlinks in één statische catalogus.</p>
-        <p class="bp-status-label">Een brede, consistente iconenbibliotheek ontbreekt nog.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="logos-wallpapers">
-        <h3>Logo&#x27;s en wallpapers</h3>
-        <progress class="bp-status-progress" max="100" value="10">10%</progress>
-        <p><strong>10%</strong></p>
-        <p>De visuele richting en producteisen zijn bekend.</p>
-        <p class="bp-status-label">De reproduceerbare logo en wallpaperfamilies moeten nog als compilerproducten worden gerealiseerd.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="homepage">
-        <h3>HTML homepage</h3>
-        <progress class="bp-status-progress" max="100" value="95">95%</progress>
-        <p><strong>95%</strong></p>
-        <p>Zeven geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; zes unieke routekaarten ontsluiten ook de native assetcatalogus, Keycloak en terminal via relatieve artifactpaden.</p>
-        <p class="bp-status-label">De visuele motieven en bredere productinhoud van de homepage moeten nog worden verdiept.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="figma">
-        <h3>Figma masterbestand</h3>
-        <progress class="bp-status-progress" max="100" value="10">10%</progress>
-        <p><strong>10%</strong></p>
-        <p>Figma is onderdeel van de doelarchitectuur.</p>
-        <p class="bp-status-label">Het masterbestand en de reproduceerbare synchronisatie zijn nog niet gerealiseerd.</p>
-      </article>
-      <article class="bp-status-card" data-status-area="world-bible">
-        <h3>World Bible</h3>
-        <progress class="bp-status-progress" max="100" value="50">50%</progress>
-        <p><strong>50%</strong></p>
-        <p>Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, het native SVG assetcontract en de catalogus zijn normatief vastgelegd.</p>
-        <p class="bp-status-label">De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.</p>
-      </article>
+      <p class="bp-description">Navigeerbare previews en contractmetadata van alle getypeerde SVG assets.</p>
     </section>
   </main>
 </body>
