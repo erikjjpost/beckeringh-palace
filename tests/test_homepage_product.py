@@ -49,6 +49,8 @@ class HomepageProductTests(unittest.TestCase):
                 "homepage-world",
                 "homepage-design-system",
                 "homepage-project-status",
+                "homepage-keycloak",
+                "homepage-terminal",
             ),
             tuple(
                 instance.id
@@ -61,6 +63,8 @@ class HomepageProductTests(unittest.TestCase):
                 "homepage-world-area",
                 "homepage-design-system-area",
                 "homepage-project-status-area",
+                "homepage-keycloak-area",
+                "homepage-terminal-area",
             ),
             tuple(
                 instance.homepage_area_id
@@ -68,7 +72,7 @@ class HomepageProductTests(unittest.TestCase):
             ),
         )
         self.assertEqual(
-            (3, 2),
+            (6, 3),
             (
                 definition.opgeloste_layout.columns,
                 definition.opgeloste_layout.rows,
@@ -77,7 +81,7 @@ class HomepageProductTests(unittest.TestCase):
         self.assertEqual(960, definition.opgeloste_layout.responsive_breakpoint)
         self.assertEqual(1, definition.opgeloste_layout.compact_columns)
         self.assertEqual(
-            (1, 2, 3, 4),
+            (1, 2, 3, 4, 5, 6),
             tuple(
                 region.compact_order
                 for region in definition.opgeloste_layout.regions
@@ -85,7 +89,7 @@ class HomepageProductTests(unittest.TestCase):
         )
         self.assertEqual(64, len(definition.snapshot_id))
 
-    def test_homepage_rendert_de_drie_native_productroutes(self) -> None:
+    def test_homepage_rendert_de_vijf_native_productroutes(self) -> None:
         html = self.products["beckeringh-palace-homepage"].inhoud
 
         self.assertIn("<h1>Beckeringh Palace</h1>", html)
@@ -105,9 +109,9 @@ class HomepageProductTests(unittest.TestCase):
             'data-appearance="forge-panel-hero-appearance"',
             html,
         )
-        self.assertEqual(3, html.count('data-component-role="routekaart"'))
+        self.assertEqual(5, html.count('data-component-role="routekaart"'))
         self.assertEqual(
-            3,
+            5,
             html.count(
                 'data-variant="forge-panel-route" '
                 'data-appearance="forge-panel-card-rest-appearance"'
@@ -144,6 +148,7 @@ class HomepageProductTests(unittest.TestCase):
         for product in (
             "Homelab Dashboard",
             "Keycloak login",
+            "Terminal",
             "CV Database",
             "ISMS Challenger",
             "Roadmap",
@@ -151,15 +156,15 @@ class HomepageProductTests(unittest.TestCase):
         ):
             self.assertIn(f"<li>{product}</li>", html)
         self.assertIn(
-            "grid-template-columns:repeat(3,minmax(0,1fr))",
+            "grid-template-columns:repeat(6,minmax(0,1fr))",
             html,
         )
         self.assertIn('data-responsive-breakpoint="960"', html)
         self.assertIn('data-compact-columns="1"', html)
         self.assertIn("@media (max-width: 960px)", html)
         self.assertIn("order:4", html)
-        self.assertEqual(4, html.count('data-compact-order="'))
-        self.assertEqual(3, html.count('data-navigation-behavior="volledige-kaart"'))
+        self.assertEqual(6, html.count('data-compact-order="'))
+        self.assertEqual(5, html.count('data-navigation-behavior="volledige-kaart"'))
         self.assertEqual(1, html.count('data-navigation-behavior="geen"'))
         self.assertIn(
             'href="forge-dashboard.html" '
@@ -176,7 +181,17 @@ class HomepageProductTests(unittest.TestCase):
             'data-navigation-target="project-status-html"',
             html,
         )
-        self.assertEqual(3, html.count('data-navigation-target="'))
+        self.assertIn(
+            'href="emberforge-keycloak-login.html" '
+            'data-navigation-target="emberforge-keycloak-login-html"',
+            html,
+        )
+        self.assertIn(
+            'href="emberforge-terminal.html" '
+            'data-navigation-target="emberforge-terminal-html"',
+            html,
+        )
+        self.assertEqual(5, html.count('data-navigation-target="'))
         self.assertIn('data-product-mode="static"', html)
         self.assertIn('data-time-context="none"', html)
 

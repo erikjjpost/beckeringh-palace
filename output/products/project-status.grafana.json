@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 375db91983ad",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 2ed7bebda1a8",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:57",
+      "description": "project-status-schema:1;overall-progress:59",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 57%",
+                  "fixed": "Totale voortgang · 59%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 342
+                "width": 354
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.4d · EmberForge terminal productsurface (in uitvoering)\nVoltooid: M11.4c · EmberForge Keycloak login product (PR #84)\nVolgende stap: M11.4e · EmberForge productnavigatie\nDe native Keycloak en terminal productsurfaces via de bestaande homepage en productfamilie ontsluiten.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.4e · EmberForge productnavigatie (in uitvoering)\nVoltooid: M11.4d · EmberForge terminal productsurface (PR #85)\nVolgende stap: M11.5a · Native SVG assetcontract\nEen veilig, getypeerd en reproduceerbaar BAT contract voor SVG bronassets en afgeleide vectorproducten introduceren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,12 +256,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 57%",
+      "title": "Totale voortgang · 59%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:compiler;progress:92",
+      "description": "project-status-area:compiler;progress:93",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -294,7 +294,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Compiler en reproduceerbaarheid · 92%",
+                  "fixed": "Compiler en reproduceerbaarheid · 93%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -358,7 +358,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 552
+                "width": 558
               },
               "type": "rectangle"
             },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 221 regressietests vormen een werkende kwaliteitsketen; HTML en Grafana consumeren backendonafhankelijk opgeloste componentvoorbeelden en de statische terminalinhoud is volledig getypeerd.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 225 regressietests vormen een werkende kwaliteitsketen; productroutes worden via dezelfde backendonafhankelijk opgeloste homepagecontracten gevalideerd en gegenereerd.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -394,12 +394,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Compiler en reproduceerbaarheid · 92%",
+      "title": "Compiler en reproduceerbaarheid · 93%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-model;progress:95",
+      "description": "project-status-area:world-model;progress:96",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -432,7 +432,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Model en productcontracten · 95%",
+                  "fixed": "World Model en productcontracten · 96%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -496,7 +496,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 570
+                "width": 576
               },
               "type": "rectangle"
             },
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Naast thema's, informatiearchitectuur en designsystemcontracten zijn het homelab dashboard, de Keycloak login en de statische terminal als afzonderlijke native productsurfaces gemodelleerd.\nResterend: Productnavigatie en bredere wereldsemantiek moeten nog in BAT worden verdiept.",
+                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces en vijf unieke native homepageproductroutes.\nResterend: Bredere wereldsemantiek en het native vectorassetcontract moeten nog in BAT worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -532,7 +532,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 95%",
+      "title": "World Model en productcontracten · 96%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1227,7 +1227,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:homepage;progress:80",
+      "description": "project-status-area:homepage;progress:90",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1260,7 +1260,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "HTML homepage · 80%",
+                  "fixed": "HTML homepage · 90%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1324,7 +1324,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 480
+                "width": 540
               },
               "type": "rectangle"
             },
@@ -1336,7 +1336,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Vier geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; naast projectstatus, designsystem en homelab dashboard bestaan nu native Keycloak en terminal producten.\nResterend: De Keycloak en terminal productsurfaces moeten nog als routes in de homepage informatiearchitectuur worden ontsloten.",
+                  "fixed": "Onderbouwing: Zes geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; vijf unieke routekaarten ontsluiten nu ook de native Keycloak en terminal producten via relatieve artifactpaden.\nResterend: De visuele motieven en bredere productinhoud van de homepage moeten nog worden verdiept.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1360,7 +1360,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 80%",
+      "title": "HTML homepage · 90%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:43",
+      "description": "project-status-area:world-bible;progress:45",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 43%",
+                  "fixed": "World Bible · 45%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 258
+                "width": 270
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; naast merk, componenten, toegankelijkheid en designsystemreferentie zijn het homelab dashboard, de Keycloak login en de statische terminal als concrete productsurfaces vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces en de native productnavigatie zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 43%",
+      "title": "World Bible · 45%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:57",
-    "sha256:375db91983ad0633bb5a0f1cd56e64c9fcf2aeb20e762c27511980e3904fd630"
+    "overall-progress:59",
+    "sha256:2ed7bebda1a8ce59e1e14b0a2eecde89dba3adf6a6ee5b20862891be206db3c0"
   ],
   "templating": {
     "list": []
