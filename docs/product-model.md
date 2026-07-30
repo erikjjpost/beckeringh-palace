@@ -47,11 +47,12 @@ van het component. Er is geen impliciete standaardvariant.
 
 ## Productcontext
 
-Een product verwijst in BAT verplicht naar één compositie en één layout. Na
-semantische validatie lost de productcompiler beide één keer op en levert deze
-als `opgeloste_compositie` en `opgeloste_layout` aan de backend. Een backend
-hoeft daardoor geen compositie- of layoutsemantiek opnieuw uit losse
-CIR-objecten af te leiden.
+Een compositieproduct verwijst in BAT verplicht naar één compositie en één
+layout. Na semantische validatie lost de productcompiler beide één keer op en
+levert deze als `opgeloste_compositie` en `opgeloste_layout` aan de backend.
+Een assetproduct verwijst in plaats daarvan expliciet naar één native asset en
+ontvangt dit als `opgelost_asset`. Een backend hoeft daardoor geen compositie-,
+layout- of assetsemantiek opnieuw uit losse CIR-objecten af te leiden.
 
 De componentinstanties van de compositie moeten exact overeenkomen met de
 instanties die door de regions van de layout worden geplaatst. Een ontbrekende,
@@ -198,6 +199,44 @@ terug naar diezelfde layout. Daardoor ontstaan geen impliciete regionselecties.
 De onderliggende componentdefinitie wordt via de componentinstantie opgelost en
 wordt niet opnieuw in de region gedeclareerd.
 
+### `asset`
+
+M11.5a begrenst het native assetobject tot veilig genereerbare SVG
+padgeometrie. Ieder SVG asset vereist:
+
+- `naam` en `doel`;
+- `formaat`: exact `svg`;
+- `rol`: `icoon`, `logo`, `illustratie` of `ornament`;
+- `viewbox`: vier eindige getallen met positieve breedte en hoogte;
+- `paden`: een niet-lege, unieke en begrensde lijst geldige SVG paden;
+- `vulling` en `lijn`: `none`, `currentColor` of een hexkleur, waarbij minstens
+  één zichtbaar is;
+- een volledig lijncontract wanneer `lijn` niet `none` is;
+- `toegankelijkheid`: `informatief` met een verplicht `label`, of `decoratief`
+  zonder label.
+
+Het contract bevat geen ruwe XML, scripts, eventhandlers, externe referenties,
+fonts of URL-gebaseerde paint. De SVG backend ontvangt alleen
+`ResolvedSvgAsset` en kan daardoor uitsluitend bekende elementen en attributen
+schrijven.
+
+```bp
+asset forge-vector-node {
+    naam: "Forge Vector Node"
+    doel: "Herbruikbaar technisch lijnornament."
+    formaat: "svg"
+    rol: "ornament"
+    viewbox: "0 0 64 64"
+    paden: ["M32 6 L56 32 L32 58 L8 32 Z"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "2"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "decoratief"
+}
+```
+
 ### `product`
 
 Ieder product vereist:
@@ -206,15 +245,18 @@ Ieder product vereist:
 - `doel`: het te genereren product;
 - `backend`: de expliciete backend;
 - `mode`: optioneel `interactive` of `static`; standaard `interactive`;
-- `inhoud`: optioneel `composition` of `project-status`; standaard `composition`;
-- `compositie`: de productinhoud;
-- `layout`: de plaatsingsintentie;
+- `inhoud`: optioneel `composition`, `project-status`, `design-system` of
+  `asset`; standaard `composition`;
+- `compositie` en `layout`: verplicht voor alle niet-assetproducten;
+- `asset`: verplicht en exclusief voor `inhoud: "asset"`;
 - `pad`: het veilige relatieve uitvoerpad;
 - `wereld`: verplicht wanneer een themalaag aanwezig is.
 
 De productvalidator vereist dat `compositie` en `layout` exact dezelfde
-componentinstanties bevatten. Daarmee is het product de enige expliciete
-koppeling tussen inhoud, plaatsing en backend.
+componentinstanties bevatten. Een assetproduct gebruikt uitsluitend backend
+`svg`, modus `static`, een bestaand SVG asset en een `.svg` uitvoerpad. Daarmee
+blijft het product de enige expliciete koppeling tussen inhoud en backend,
+zonder een lege compositie of layout te modelleren.
 
 ### Homepage productcontract
 
@@ -773,6 +815,13 @@ de Keycloak en terminal producten via afzonderlijke homepagegebieden. De
 gegenereerde links gebruiken uitsluitend de reeds opgeloste product-id, naam
 en het veilige relatieve artifactpad.
 
+M11.5a introduceert `ResolvedSvgAsset` als afzonderlijke productcontext. De
+eerste verticale slice modelleert `emberforge-vector-node` als decoratief
+technisch lijnornament en genereert
+`output/products/emberforge-vector-node.svg`. De SVG backend schrijft alleen
+vaste SVG elementen en attributen, draagt de statische model snapshot en leest
+geen bronbestand of externe ontwerpinput.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -781,6 +830,12 @@ en het veilige relatieve artifactpad.
 | `BP3507` | Compositie en layout bevatten niet exact dezelfde instanties |
 | `BP3508` | Product gebruikt een onbekende modus |
 | `BP3509` | Product gebruikt een onbekende inhoudsbron |
+| `BP3510` | Assetproduct verwijst naar een onbekend of ontbrekend asset |
+| `BP3511` | Assetproduct gebruikt niet de SVG backend |
+| `BP3512` | Assetproduct is niet statisch |
+| `BP3513` | Assetproduct declareert compositie-, layout- of referentievelden |
+| `BP3514` | Assetproduct gebruikt geen `.svg` uitvoerpad |
+| `BP3515` | Niet-assetproduct gebruikt een asset of SVG backend |
 | `BP3601` | Onbekend layouttype |
 | `BP3602` | Eigenschap past niet bij het layouttype |
 | `BP3603` | `regions` is niet expliciet, uniek of geldig |
@@ -904,5 +959,15 @@ en het veilige relatieve artifactpad.
 | `BP4202` | Merk mist een betekenisvol tekstveld |
 | `BP4203` | Merk heeft geen drie unieke betekenisvolle principes |
 | `BP4204` | Merk heeft geen unieke betekenisvolle productfamilie |
+| `BP4301` | SVG asset bevat een onbekende eigenschap |
+| `BP4302` | Asset gebruikt niet expliciet formaat `svg` |
+| `BP4303` | SVG asset gebruikt een onbekende semantische rol |
+| `BP4304` | SVG asset heeft geen geldige positieve viewbox |
+| `BP4305` | SVG asset heeft geen geldige unieke en begrensde padenlijst |
+| `BP4306` | SVG asset bevat ongeldige of onveilige padgeometrie |
+| `BP4307` | SVG asset bevat onveilige of volledig onzichtbare paint |
+| `BP4308` | SVG asset heeft een inconsistent lijncontract |
+| `BP4309` | SVG asset gebruikt onbekende toegankelijkheidssemantiek |
+| `BP4310` | SVG asset heeft een ontbrekend of onterecht label |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |

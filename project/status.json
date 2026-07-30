@@ -3,36 +3,36 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.4e",
-    "name": "EmberForge productnavigatie",
+    "id": "M11.5a",
+    "name": "Native SVG assetcontract",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.4d",
-    "name": "EmberForge terminal productsurface",
-    "pull_request": 85
+    "id": "M11.4e",
+    "name": "EmberForge productnavigatie",
+    "pull_request": 86
   },
   "next_step": {
-    "id": "M11.5a",
-    "name": "Native SVG assetcontract",
-    "purpose": "Een veilig, getypeerd en reproduceerbaar BAT contract voor SVG bronassets en afgeleide vectorproducten introduceren."
+    "id": "M11.5b",
+    "name": "Native SVG assetcatalogus",
+    "purpose": "De getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct ontsluiten."
   },
   "areas": [
     {
       "id": "compiler",
       "name": "Compiler en reproduceerbaarheid",
-      "progress": 93,
+      "progress": 94,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 225 regressietests vormen een werkende kwaliteitsketen; productroutes worden via dezelfde backendonafhankelijk opgeloste homepagecontracten gevalideerd en gegenereerd.",
+      "evidence": "Validatie, deterministische generatie, CI en 235 regressietests vormen een werkende kwaliteitsketen; een afzonderlijke SVG backend ontvangt uitsluitend vooraf opgeloste native assetsemantiek.",
       "remaining": "Meer producttypen, adapters en volwassen foutdiagnostiek."
     },
     {
       "id": "world-model",
       "name": "World Model en productcontracten",
-      "progress": 96,
+      "progress": 98,
       "weight": 10,
-      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces en vijf unieke native homepageproductroutes.",
-      "remaining": "Bredere wereldsemantiek en het native vectorassetcontract moeten nog in BAT worden verdiept."
+      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, vijf unieke homepageproductroutes en een veilig getypeerd SVG assetcontract.",
+      "remaining": "Bredere wereldsemantiek en aanvullende assetfamilies moeten nog in BAT worden verdiept."
     },
     {
       "id": "design-system",
@@ -53,18 +53,18 @@
     {
       "id": "visual-world",
       "name": "Visuele wereld en art direction",
-      "progress": 33,
+      "progress": 35,
       "weight": 10,
-      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en bronbewezen cyaan, koper en statusprofielen voor de componentfamilie.",
+      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen en een eerste technisch lijnornament.",
       "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
     },
     {
       "id": "svg-library",
       "name": "SVG component library en icon set",
-      "progress": 20,
+      "progress": 35,
       "weight": 10,
-      "evidence": "De compiler kan componenten en SVG gerichte producten dragen.",
-      "remaining": "Een brede, consistente en gedocumenteerde bibliotheek ontbreekt nog."
+      "evidence": "BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en genereert het eerste statische SVG product met snapshotidentiteit.",
+      "remaining": "Een navigeerbare catalogus en een brede, consistente iconenbibliotheek ontbreken nog."
     },
     {
       "id": "logos-wallpapers",
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 45,
+      "progress": 47,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces en de native productnavigatie zijn normatief vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie en het native SVG assetcontract zijn normatief vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

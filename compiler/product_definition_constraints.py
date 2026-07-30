@@ -25,6 +25,11 @@ class ProductDefinitionConstraint:
             for obj in context.objecten
             if obj.soort == "compositie"
         }
+        assets = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "asset"
+        }
         regions = {
             obj.id: obj
             for obj in context.objecten
@@ -44,6 +49,7 @@ class ProductDefinitionConstraint:
             "wereld",
             "inhoud",
             "referentiesecties",
+            "asset",
         }
         for obj in context.objecten:
             if obj.soort != "product":
@@ -62,63 +68,111 @@ class ProductDefinitionConstraint:
                     boodschap=f"Product '{obj.id}' heeft onbekende backend '{backend}'",
                     locatie=obj.eigenschaplocaties.get("backend", obj.bronlocatie),
                 ))
-            layout = obj.eigenschappen.get("layout")
-            if layout not in layouts:
-                diagnostics.append(Diagnostic(
-                    code="BP3503",
-                    boodschap=f"Product '{obj.id}' verwijst naar onbekende layout '{layout}'",
-                    locatie=obj.eigenschaplocaties.get("layout", obj.bronlocatie),
-                ))
-            compositie = obj.eigenschappen.get("compositie")
-            if compositie not in composities:
-                diagnostics.append(Diagnostic(
-                    code="BP3506",
-                    boodschap=(
-                        f"Product '{obj.id}' verwijst naar onbekende of ontbrekende "
-                        f"compositie '{compositie}'"
-                    ),
-                    locatie=obj.eigenschaplocaties.get("compositie", obj.bronlocatie),
-                ))
-            if layout in layouts and compositie in composities:
-                layout_obj = layouts[layout]
-                compositie_obj = composities[compositie]
-                region_ids = layout_obj.eigenschappen.get("regions")
-                composition_instances = compositie_obj.eigenschappen.get("instanties")
-                kan_vergelijken = (
-                    isinstance(region_ids, list)
-                    and all(
-                        isinstance(region_id, str) and region_id in regions
-                        for region_id in region_ids
-                    )
-                    and isinstance(composition_instances, list)
-                    and all(
-                        isinstance(instance_id, str)
-                        for instance_id in composition_instances
-                    )
-                )
-                layout_instances = (
-                    [
-                        regions[region_id].eigenschappen.get("instantie")
-                        for region_id in region_ids
-                    ]
-                    if kan_vergelijken
-                    else []
-                )
-                kan_vergelijken = kan_vergelijken and all(
-                    isinstance(instance_id, str)
-                    for instance_id in layout_instances
-                )
-                if kan_vergelijken and (
-                    set(layout_instances) != set(composition_instances)
-                    or len(layout_instances) != len(composition_instances)
+            inhoud = obj.eigenschappen.get("inhoud", "composition")
+            if inhoud == "asset":
+                asset = obj.eigenschappen.get("asset")
+                if asset not in assets:
+                    diagnostics.append(Diagnostic(
+                        code="BP3510",
+                        boodschap=(
+                            f"SVG product '{obj.id}' verwijst naar onbekend of "
+                            f"ontbrekend asset '{asset}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "asset", obj.bronlocatie
+                        ),
+                    ))
+                if backend != "svg":
+                    diagnostics.append(Diagnostic(
+                        code="BP3511",
+                        boodschap=(
+                            f"Assetproduct '{obj.id}' vereist backend 'svg'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "backend", obj.bronlocatie
+                        ),
+                    ))
+                if any(
+                    veld in obj.eigenschappen
+                    for veld in ("compositie", "layout", "referentiesecties")
                 ):
                     diagnostics.append(Diagnostic(
-                        code="BP3507",
+                        code="BP3513",
                         boodschap=(
-                            f"Product '{obj.id}' vereist exact dezelfde "
-                            "componentinstanties in compositie en layout"
+                            f"Assetproduct '{obj.id}' mag geen compositie, "
+                            "layout of referentiesecties declareren"
                         ),
                         locatie=obj.bronlocatie,
+                    ))
+            else:
+                layout = obj.eigenschappen.get("layout")
+                if layout not in layouts:
+                    diagnostics.append(Diagnostic(
+                        code="BP3503",
+                        boodschap=f"Product '{obj.id}' verwijst naar onbekende layout '{layout}'",
+                        locatie=obj.eigenschaplocaties.get("layout", obj.bronlocatie),
+                    ))
+                compositie = obj.eigenschappen.get("compositie")
+                if compositie not in composities:
+                    diagnostics.append(Diagnostic(
+                        code="BP3506",
+                        boodschap=(
+                            f"Product '{obj.id}' verwijst naar onbekende of ontbrekende "
+                            f"compositie '{compositie}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get("compositie", obj.bronlocatie),
+                    ))
+                if layout in layouts and compositie in composities:
+                    layout_obj = layouts[layout]
+                    compositie_obj = composities[compositie]
+                    region_ids = layout_obj.eigenschappen.get("regions")
+                    composition_instances = compositie_obj.eigenschappen.get("instanties")
+                    kan_vergelijken = (
+                        isinstance(region_ids, list)
+                        and all(
+                            isinstance(region_id, str) and region_id in regions
+                            for region_id in region_ids
+                        )
+                        and isinstance(composition_instances, list)
+                        and all(
+                            isinstance(instance_id, str)
+                            for instance_id in composition_instances
+                        )
+                    )
+                    layout_instances = (
+                        [
+                            regions[region_id].eigenschappen.get("instantie")
+                            for region_id in region_ids
+                        ]
+                        if kan_vergelijken
+                        else []
+                    )
+                    kan_vergelijken = kan_vergelijken and all(
+                        isinstance(instance_id, str)
+                        for instance_id in layout_instances
+                    )
+                    if kan_vergelijken and (
+                        set(layout_instances) != set(composition_instances)
+                        or len(layout_instances) != len(composition_instances)
+                    ):
+                        diagnostics.append(Diagnostic(
+                            code="BP3507",
+                            boodschap=(
+                                f"Product '{obj.id}' vereist exact dezelfde "
+                                "componentinstanties in compositie en layout"
+                            ),
+                            locatie=obj.bronlocatie,
+                        ))
+                if "asset" in obj.eigenschappen or backend == "svg":
+                    diagnostics.append(Diagnostic(
+                        code="BP3515",
+                        boodschap=(
+                            f"Product '{obj.id}' mag asset en SVG backend "
+                            "alleen met inhoud 'asset' gebruiken"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "asset", obj.bronlocatie
+                        ),
                     ))
             pad = obj.eigenschappen.get("pad")
             geldig_pad = isinstance(pad, str) and bool(pad.strip()) and not PurePosixPath(pad).is_absolute() and ".." not in PurePosixPath(pad).parts
@@ -142,11 +196,35 @@ class ProductDefinitionConstraint:
                     boodschap=f"Product '{obj.id}' heeft onbekende modus '{mode}'",
                     locatie=obj.eigenschaplocaties.get("mode", obj.bronlocatie),
                 ))
-            inhoud = obj.eigenschappen.get("inhoud", "composition")
+            if inhoud == "asset" and mode != "static":
+                diagnostics.append(Diagnostic(
+                    code="BP3512",
+                    boodschap=(
+                        f"Assetproduct '{obj.id}' vereist modus 'static'"
+                    ),
+                    locatie=obj.eigenschaplocaties.get(
+                        "mode", obj.bronlocatie
+                    ),
+                ))
+            if (
+                inhoud == "asset"
+                and isinstance(pad, str)
+                and not pad.lower().endswith(".svg")
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP3514",
+                    boodschap=(
+                        f"Assetproduct '{obj.id}' vereist een .svg uitvoerpad"
+                    ),
+                    locatie=obj.eigenschaplocaties.get(
+                        "pad", obj.bronlocatie
+                    ),
+                ))
             if inhoud not in {
                 "composition",
                 "project-status",
                 "design-system",
+                "asset",
             }:
                 diagnostics.append(Diagnostic(
                     code="BP3509",

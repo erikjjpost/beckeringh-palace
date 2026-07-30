@@ -13,6 +13,7 @@ from compiler.design_system_reference import resolveer_designsystemreferentie
 from compiler.layout_model import ResolvedLayout, resolveer_layouts
 from compiler.product_model import ProductDefinition, verzamel_producten
 from compiler.project_status import ProjectStatus
+from compiler.svg_assets import ResolvedSvgAsset, resolveer_svg_assets
 from compiler.theme_resolution import resolveer_thema
 
 
@@ -40,6 +41,7 @@ def _los_productcontext_op(
     product: ProductDefinition,
     composities: dict[str, ResolvedComposition],
     layouts: dict[str, ResolvedLayout],
+    assets: dict[str, ResolvedSvgAsset],
     project_status: ProjectStatus | None,
 ) -> ProductDefinition:
     thema = resolveer_thema(objecten, product.wereld) if product.wereld else None
@@ -58,6 +60,7 @@ def _los_productcontext_op(
         thema=thema,
         opgeloste_compositie=composities.get(product.compositie),
         opgeloste_layout=layouts.get(product.layout),
+        opgelost_asset=assets.get(product.asset),
         design_system_reference=(
             resolveer_designsystemreferentie(
                 objecten,
@@ -93,6 +96,7 @@ def compileer_producten(
         for compositie in resolveer_composities(objecten)
     }
     layouts = {layout.id: layout for layout in resolveer_layouts(objecten)}
+    assets = {asset.id: asset for asset in resolveer_svg_assets(objecten)}
     return tuple(
         CompiledProduct(
             definitie=opgelost,
@@ -102,7 +106,12 @@ def compileer_producten(
         if product.inhoud != "project-status" or project_status is not None
         for opgelost in (
             _los_productcontext_op(
-                objecten, product, composities, layouts, project_status
+                objecten,
+                product,
+                composities,
+                layouts,
+                assets,
+                project_status,
             ),
         )
     )

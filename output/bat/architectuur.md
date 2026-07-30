@@ -660,6 +660,29 @@ Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
 - **taal:** Nederlands met technische termen in het Engels
 - **tagline:** Sovereign Infrastructure.
 
+## EmberForge Vector Node
+
+**Soort:** asset
+
+**Identifier:** `emberforge-vector-node`
+
+### Doel
+
+Herbruikbaar technisch lijnornament voor native EmberForge vectorproducten.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **lijn:** currentColor
+- **lijndikte:** 2
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M32 6 L38 24 L56 32 L38 40 L32 58 L26 40 L8 32 L26 24 Z, M32 22 L42 32 L32 42 L22 32 Z
+- **rol:** ornament
+- **toegankelijkheid:** decoratief
+- **viewbox:** 0 0 64 64
+- **vulling:** none
+
 ## Ember Copper
 
 **Soort:** token
@@ -2960,9 +2983,9 @@ De digitale wereld, haar merk en haar reproduceerbare bronassets.
 
 ### Eigenschappen
 
-- **inhoud:** beckeringh-palace
+- **inhoud:** beckeringh-palace, emberforge-vector-node
 - **leesvolgorde:** 1
-- **navigatie:** forge-dashboard-html, forge-dashboard-grafana
+- **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-vector-node-svg
 - **soorten:** wereld, merk, asset
 - **toegankelijkheidslabel:** Wereld en identiteit, overzicht van wereld, merk en bronassets
 
@@ -4351,6 +4374,25 @@ Homepage en toegangspoort voor de reproduceerbare Beckeringh Palace productwerel
 - **layout:** beckeringh-palace-homepage-grid
 - **mode:** static
 - **pad:** output/products/index.html
+- **wereld:** beckeringh-palace
+
+## EmberForge Vector Node SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-vector-node-svg`
+
+### Doel
+
+Genereert het native technische lijnornament als veilig SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-vector-node
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-vector-node.svg
 - **wereld:** beckeringh-palace
 
 ## CSS design tokens

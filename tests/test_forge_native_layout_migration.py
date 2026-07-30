@@ -99,14 +99,14 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertEqual(1, product.inhoud.count('data-variant="'))
         self.assertEqual(
-            ("2", "145", "79"),
+            ("3", "145", "80"),
             tuple(
                 str(instantie.metric_value)
                 for instantie in compositie.instances
             ),
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-world">2</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-world">3</p>',
             product.inhoud,
         )
         self.assertIn(
@@ -114,7 +114,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
-            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">79</p>',
+            '<p class="bp-metric" data-metric-kind="informatiegebied:palace-product-family">80</p>',
             product.inhoud,
         )
         self.assertIn(
@@ -148,12 +148,23 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             product.inhoud,
         )
         self.assertIn(
+            '<a href="emberforge-vector-node.svg" '
+            'data-navigation-target="emberforge-vector-node-svg" '
+            'data-navigation-kind="product">EmberForge Vector Node SVG</a>',
+            product.inhoud,
+        )
+        self.assertIn(
             '<li data-content-anchor="forge" data-object-kind="thema">'
             "<strong>Forge</strong><span>Nordic forge-ontwerpidentiteit voor "
             "Beckeringh Palace.</span></li>",
             product.inhoud,
         )
-        self.assertEqual(24, product.inhoud.count('data-content-anchor="'))
+        self.assertIn(
+            '<li data-content-anchor="emberforge-vector-node" '
+            'data-object-kind="asset"><strong>EmberForge Vector Node</strong>',
+            product.inhoud,
+        )
+        self.assertEqual(25, product.inhoud.count('data-content-anchor="'))
         self.assertIn('<ul class="bp-metric-details">', product.inhoud)
         self.assertIn('data-product-mode="static"', product.inhoud)
         self.assertIn('data-time-context="none"', product.inhoud)
