@@ -20,6 +20,7 @@ from compiler.homepage_information_architecture import (
 from compiler.product_definition_constraints import ProductDefinitionConstraint
 from compiler.render_target_constraints import RenderTargetConstraint
 from compiler.svg_asset_catalog import SvgAssetCatalogConstraint
+from compiler.svg_asset_families import SvgAssetFamilyConstraint
 from compiler.svg_assets import SvgAssetConstraint
 from compiler.theme_constraints import ThemeFoundationConstraint
 from compiler.variant_constraints import ComponentVariantConstraint
@@ -111,6 +112,7 @@ WORLD_MODEL_CONSTRAINTS = (
     BrandIdentityConstraint(),
     DesignTokenConstraint(),
     SvgAssetConstraint(),
+    SvgAssetFamilyConstraint(),
     SvgAssetCatalogConstraint(),
     ThemeFoundationConstraint(),
     DesignComponentConstraint(),

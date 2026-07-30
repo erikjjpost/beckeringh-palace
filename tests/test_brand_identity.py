@@ -82,7 +82,9 @@ class BrandIdentityTests(unittest.TestCase):
             ),
             (
                 source.replace(
+                    '    kernboodschap: "Design is data."\n'
                     '    merk: "emberforge"',
+                    '    kernboodschap: "Design is data."\n'
                     '    merk: "missing-brand"',
                     1,
                 ),

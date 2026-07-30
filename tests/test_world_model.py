@@ -17,6 +17,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "appearance",
                 "artdirection",
                 "asset",
+                "assetfamilie",
                 "border",
                 "component",
                 "componentvoorbeeld",

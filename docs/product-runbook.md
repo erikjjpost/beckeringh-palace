@@ -45,6 +45,12 @@ iconenfamilie. Dashboard, Identity, Terminal en Assets gebruiken hetzelfde
 24 bij 24 lijncontract en worden samen met het ornament vanuit BAT in de
 assetcatalogus gepubliceerd.
 
+`output/products/emberforge-merkteken.svg` en
+`output/products/emberforge-woordmerk.svg` vormen de native EmberForge
+merkfamilie. Beide artifacts zijn nieuwe BAT lijngeometrie. De aangeleverde
+placeholder SVG's en PNG's blijven uitgesloten. De catalogus toont voor ieder
+familielid ook het opgeloste familietype en de variant.
+
 `output/products/emberforge-keycloak-login.html` is de reproduceerbare login
 productsurface. Het artifact toont native email-, wachtwoord- en
 submitsemantiek. Het bevat bewust geen realm, clientconfiguratie,

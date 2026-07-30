@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 81ca74154985",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot f91ea6232a15",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:65",
+      "description": "project-status-schema:1;overall-progress:70",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 65%",
+                  "fixed": "Totale voortgang · 70%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 390
+                "width": 420
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.5c · Native SVG iconenset (in uitvoering)\nVoltooid: M11.5b · Native SVG assetcatalogus (PR #88)\nVolgende stap: M11.5d · Native SVG merkfamilie\nLogo en wordmark als een expliciete, reproduceerbare en onderling samenhangende BAT assetfamilie modelleren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.5d · Native SVG merkfamilie (in uitvoering)\nVoltooid: M11.5c · Native SVG iconenset (PR #89)\nVolgende stap: M11.6a · Native wallpaperproductcontract\nCanvas, formaat, lagen en assetplaatsing als backendonafhankelijk BAT contract voor reproduceerbare wallpaperproducten modelleren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 65%",
+      "title": "Totale voortgang · 70%",
       "transparent": true,
       "type": "canvas"
     },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 244 regressietests vormen een werkende kwaliteitsketen; het lijnornament, de iconen en de HTML catalogus consumeren dezelfde vooraf opgeloste native assetsemantiek.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 250 regressietests vormen een werkende kwaliteitsketen; lijnornament, iconen, merkassets en catalogus consumeren dezelfde vooraf opgeloste native asset en familiesemantiek.\nResterend: Meer producttypen, adapters en volwassen foutdiagnostiek.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, zes unieke homepageproductroutes en een expliciet volledig SVG assetcataloguscontract met een native iconenfamilie.\nResterend: De merkassetfamilie moet nog in BAT worden verdiept.",
+                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, zes unieke homepageproductroutes en twee expliciete merkgebonden SVG assetfamilies.\nResterend: Het wallpaperproductcontract en aanvullende producttypen ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -813,7 +813,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:visual-world;progress:35",
+      "description": "project-status-area:visual-world;progress:40",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -846,7 +846,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Visuele wereld en art direction · 35%",
+                  "fixed": "Visuele wereld en art direction · 40%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -910,7 +910,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 210
+                "width": 240
               },
               "type": "rectangle"
             },
@@ -922,7 +922,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen en een eerste technisch lijnornament.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
+                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen, een technisch lijnornament en een nieuw getekend merkteken en woordmerk.\nResterend: Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -946,12 +946,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Visuele wereld en art direction · 35%",
+      "title": "Visuele wereld en art direction · 40%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:svg-library;progress:65",
+      "description": "project-status-area:svg-library;progress:80",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -984,7 +984,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "SVG component library en icon set · 65%",
+                  "fixed": "SVG component library en icon set · 80%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1048,7 +1048,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 390
+                "width": 480
               },
               "type": "rectangle"
             },
@@ -1060,7 +1060,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en ontsluit een samenhangende vierdelige EmberForge iconenfamilie met het lijnornament in één statische catalogus.\nResterend: De reproduceerbare logo en wordmarkfamilie en een bredere iconenbibliotheek ontbreken nog.",
+                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol, toegankelijkheid en wederkerige families en ontsluit een vierdelige iconenfamilie en tweedelige merkfamilie in één statische catalogus.\nResterend: Aanvullende merklockups en een bredere iconenbibliotheek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1084,12 +1084,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "SVG component library en icon set · 65%",
+      "title": "SVG component library en icon set · 80%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:logos-wallpapers;progress:10",
+      "description": "project-status-area:logos-wallpapers;progress:35",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1122,7 +1122,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Logo's en wallpapers · 10%",
+                  "fixed": "Logo's en wallpapers · 35%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1186,7 +1186,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 60
+                "width": 210
               },
               "type": "rectangle"
             },
@@ -1198,7 +1198,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: De visuele richting en producteisen zijn bekend.\nResterend: De reproduceerbare logo en wallpaperfamilies moeten nog als compilerproducten worden gerealiseerd.",
+                  "fixed": "Onderbouwing: Het EmberForge merkteken en woordmerk zijn reproduceerbare SVG compilerproducten uit één expliciete BAT merkfamilie.\nResterend: Wallpaperfamilies en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1222,7 +1222,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Logo's en wallpapers · 10%",
+      "title": "Logo's en wallpapers · 35%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:50",
+      "description": "project-status-area:world-bible;progress:55",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 50%",
+                  "fixed": "World Bible · 55%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 300
+                "width": 330
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, het native SVG assetcontract, de catalogus en de eerste iconenfamilie zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie en beide native SVG assetfamilies zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 50%",
+      "title": "World Bible · 55%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:65",
-    "sha256:81ca74154985e2d781b7a8050b653fd90e02e1aa58904c842ee95771e72331a0"
+    "overall-progress:70",
+    "sha256:f91ea6232a152938a62a594108da18b1371f41035a3008d88f6e51261c3fa14f"
   ],
   "templating": {
     "list": []

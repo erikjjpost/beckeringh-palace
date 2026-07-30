@@ -48,6 +48,11 @@ def svg_element_lines(
         ("data-bp-asset", asset.id),
         ("data-bp-role", asset.rol),
     ])
+    if asset.familie is not None and asset.variant is not None:
+        attributen.extend([
+            ("data-bp-family", asset.familie),
+            ("data-bp-variant", asset.variant),
+        ])
     if snapshot_ref:
         attributen.append(("data-bp-snapshot", snapshot_ref))
     attributen.extend(tuple(extra_attributes))
