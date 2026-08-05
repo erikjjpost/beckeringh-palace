@@ -72,6 +72,11 @@ De native `muziekcirkel` resolver valideert de canonieke Circle of Fifths en
 zet haar waarden vóór de wallpaperbackend om naar veilige vectorgeometrie. De
 backend bevat daardoor geen majeur-, mineur- of voortekenmapping.
 
+Een assetplaatsing kan daarnaast expliciet `solid` of `radial-glow` kiezen.
+BAT bepaalt asset, geometrie, materiaalrol en dekking. De PNG backend past bij
+`radial-glow` uitsluitend een deterministische zachte falloff toe. Kleurkeuze,
+intensiteit en positie blijven daarmee normatieve productdata.
+
 HTML en Grafana tonen daarnaast dezelfde opgeloste dashboardidentiteit:
 compositie, wereld, thema en BAT-generatiestatus. HTML rendert deze als een
 responsieve productshell. Grafana rendert deze als een vaste Canvas-header

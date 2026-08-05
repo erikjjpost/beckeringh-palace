@@ -1,7 +1,7 @@
 {
   "product": {
     "id": "emberforge-ultrawide-wallpaper-manifest",
-    "snapshot": "sha256:2584c2e3202d77291204f3255095f4d4f2114c3c18b027ca8b0deec49fc56269"
+    "snapshot": "sha256:115f041bb272d6ea834f9b637fa61fbe32047d9b27d3ae4e7462475394261db2"
   },
   "schema_version": 3,
   "wallpaper": {
@@ -21,6 +21,74 @@
     "id": "emberforge-ultrawide-wallpaper",
     "lagen": [
       {
+        "doel": "Componeert koelblauw hoofdlicht en maximaal twee begrensde warme accenten achter de muziekinformatie.",
+        "id": "emberforge-wallpaper-lichtlaag",
+        "naam": "EmberForge Wallpaper Lichtlaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 1320,
+            "dekking": 0.06,
+            "doel": "Legt een brede, zachte koelblauwe lichtbasis achter de functionele muziekcirkel.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 1080,
+            "id": "emberforge-ultrawide-cool-light-outer",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Ultrawide Koel Licht Buiten",
+            "x": 1260,
+            "y": 0
+          },
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 1020,
+            "dekking": 0.09,
+            "doel": "Verdicht het koelblauwe licht rond de informatieringen zonder hun contrast te verminderen.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 1020,
+            "id": "emberforge-ultrawide-cool-light-inner",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Ultrawide Koel Licht Binnen",
+            "x": 1410,
+            "y": 30
+          },
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 720,
+            "dekking": 0.08,
+            "doel": "Plaatst het eerste begrensde emberaccent onder de Circle of Fifths.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 480,
+            "id": "emberforge-ultrawide-warm-light-outer",
+            "kleur": "#C9895B",
+            "materiaalrol": "accent",
+            "naam": "EmberForge Ultrawide Warm Licht Buiten",
+            "x": 1560,
+            "y": 590
+          },
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 420,
+            "dekking": 0.14,
+            "doel": "Concentreert het tweede en laatste emberaccent rond het centrale merkteken.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 360,
+            "id": "emberforge-ultrawide-warm-light-inner",
+            "kleur": "#C9895B",
+            "materiaalrol": "accent",
+            "naam": "EmberForge Ultrawide Warm Licht Binnen",
+            "x": 1710,
+            "y": 690
+          }
+        ],
+        "rol": "ornament"
+      },
+      {
         "doel": "Ordent twee rustige technische lijnornamenten binnen de canvasgrens.",
         "id": "emberforge-wallpaper-ornamentlaag",
         "naam": "EmberForge Wallpaper Ornamentlaag",
@@ -30,6 +98,7 @@
             "breedte": 840,
             "dekking": 0.14,
             "doel": "Plaatst het technische lijnornament met ruime marge links.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 840,
             "id": "emberforge-vector-node-left",
@@ -44,6 +113,7 @@
             "breedte": 840,
             "dekking": 0.14,
             "doel": "Plaatst het technische lijnornament symmetrisch rechts.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 840,
             "id": "emberforge-vector-node-right",
@@ -66,6 +136,7 @@
             "breedte": 1020,
             "dekking": 1.0,
             "doel": "Plaatst de volledige functionele muziekcirkel centraal en zonder afsnijding.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 1020,
             "id": "emberforge-wallpaper-circle-of-fifths",
@@ -88,6 +159,7 @@
             "breedte": 240,
             "dekking": 1.0,
             "doel": "Plaatst het merkteken centraal binnen de ultrawide compositie.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 240,
             "id": "emberforge-wallpaper-merkteken",

@@ -1028,6 +1028,13 @@ hieruit drie ringen, twaalf sectoren en vectorglyphs. De resulterende
 `ResolvedSvgAsset` wordt via een gewone `assetplaatsing` aan iedere wallpaper
 gekoppeld. De PNG backend kent daardoor geen toonsoorten en verzint geen tekst.
 
+M11.6e voegt een expliciet beeldeffect toe aan
+`ResolvedWallpaperAssetPlacement`. `solid` blijft de standaard.
+`radial-glow` is alleen een opgeloste falloff-intentie; asset, kleurrol,
+dekking en geometrie blijven afzonderlijke BAT velden en worden ook in het
+wallpapermanifest gepubliceerd. Beide wallpaperformaten componeren hiermee
+eigen koelblauwe lichtvelden en exact twee begrensde warme accenten.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -1225,6 +1232,8 @@ gekoppeld. De PNG backend kent daardoor geen toonsoorten en verzint geen tekst.
 | `BP4384` | Wallpaperproduct en wallpaper gebruiken verschillende werelden |
 | `BP4385` | Wallpaperproduct declareert een ander inhoudscontract |
 | `BP4386` | Wallpaperproduct gebruikt geen bij zijn backend passend artifactpad |
+| `BP4387` | Assetplaatsing gebruikt een onbekend native beeldeffect |
+| `BP4388` | Radiale gloed gebruikt geen gevuld asset zonder lijn |
 | `BP4390` | Wallpaperfamilie bevat een onbekende eigenschap |
 | `BP4391` | Wallpaperfamilie verwijst naar een onbekend merk |
 | `BP4392` | Wallpaperfamilie mist minstens twee unieke geordende wallpapers |

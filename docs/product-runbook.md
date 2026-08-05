@@ -66,6 +66,10 @@ Circle of Fifths met majeur, relatieve mineur en voortekens. Beide bestanden bev
 dragen product, wallpaper, familie, variant en volledige snapshotreferentie als
 PNG metadata.
 
+De manifesten publiceren per plaatsing ook `solid` of `radial-glow`. Controleer
+bij visuele QA dat het koele hoofdlicht achter de informatielaag blijft, de
+warme gloed geen hard vlak vormt en links geen onverwacht gevuld vlak ontstaat.
+
 `output/products/emberforge-keycloak-login.html` is de reproduceerbare login
 productsurface. Het artifact toont native email-, wachtwoord- en
 submitsemantiek. Het bevat bewust geen realm, clientconfiguratie,

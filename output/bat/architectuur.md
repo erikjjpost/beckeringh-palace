@@ -715,6 +715,26 @@ Herbruikbaar technisch lijnornament voor native EmberForge vectorproducten.
 - **viewbox:** 0 0 64 64
 - **vulling:** none
 
+## EmberForge Lichtschijf
+
+**Soort:** asset
+
+**Identifier:** `emberforge-light-disc`
+
+### Doel
+
+Levert een neutrale gevulde vectorvorm voor expliciet gecomponeerde wallpaperlichtvelden.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **lijn:** none
+- **paden:** M500 20 A480 480 0 1 0 500 980 A480 480 0 1 0 500 20 Z
+- **rol:** ornament
+- **toegankelijkheid:** decoratief
+- **viewbox:** 0 0 1000 1000
+- **vulling:** currentColor
+
 ## EmberForge Dashboard Icon
 
 **Soort:** asset
@@ -919,10 +939,26 @@ Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar bee
 - **familie:** emberforge-wallpapers
 - **formaat:** png
 - **hoogte:** 1080
-- **lagen:** emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-muzieklaag, emberforge-wallpaper-merklaag
+- **lagen:** emberforge-wallpaper-lichtlaag, emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-muzieklaag, emberforge-wallpaper-merklaag
 - **merk:** emberforge
 - **variant:** ultrawide-3840x1080
 - **wereld:** beckeringh-palace
+
+## EmberForge Wallpaper Lichtlaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-wallpaper-lichtlaag`
+
+### Doel
+
+Componeert koelblauw hoofdlicht en maximaal twee begrensde warme accenten achter de muziekinformatie.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-ultrawide-cool-light-outer, emberforge-ultrawide-cool-light-inner, emberforge-ultrawide-warm-light-outer, emberforge-ultrawide-warm-light-inner
+- **rol:** ornament
+- **wallpaper:** emberforge-ultrawide-wallpaper
 
 ## EmberForge Wallpaper Muzieklaag
 
@@ -993,6 +1029,98 @@ Plaatst het technische lijnornament met ruime marge links.
 - **laag:** emberforge-wallpaper-ornamentlaag
 - **x:** 120
 - **y:** 120
+
+## EmberForge Ultrawide Koel Licht Buiten
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-cool-light-outer`
+
+### Doel
+
+Legt een brede, zachte koelblauwe lichtbasis achter de functionele muziekcirkel.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 1320
+- **dekking:** 0.06
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 1080
+- **kleur:** interaction
+- **laag:** emberforge-wallpaper-lichtlaag
+- **x:** 1260
+- **y:** 0
+
+## EmberForge Ultrawide Koel Licht Binnen
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-cool-light-inner`
+
+### Doel
+
+Verdicht het koelblauwe licht rond de informatieringen zonder hun contrast te verminderen.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 1020
+- **dekking:** 0.09
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 1020
+- **kleur:** interaction
+- **laag:** emberforge-wallpaper-lichtlaag
+- **x:** 1410
+- **y:** 30
+
+## EmberForge Ultrawide Warm Licht Buiten
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-warm-light-outer`
+
+### Doel
+
+Plaatst het eerste begrensde emberaccent onder de Circle of Fifths.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 720
+- **dekking:** 0.08
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 480
+- **kleur:** accent
+- **laag:** emberforge-wallpaper-lichtlaag
+- **x:** 1560
+- **y:** 590
+
+## EmberForge Ultrawide Warm Licht Binnen
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-warm-light-inner`
+
+### Doel
+
+Concentreert het tweede en laatste emberaccent rond het centrale merkteken.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 420
+- **dekking:** 0.14
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 360
+- **kleur:** accent
+- **laag:** emberforge-wallpaper-lichtlaag
+- **x:** 1710
+- **y:** 690
 
 ## EmberForge Vector Node Rechts
 
@@ -1077,10 +1205,26 @@ Legt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen explic
 - **familie:** emberforge-wallpapers
 - **formaat:** png
 - **hoogte:** 1200
-- **lagen:** emberforge-desktop-ornamentlaag, emberforge-desktop-muzieklaag, emberforge-desktop-merklaag
+- **lagen:** emberforge-desktop-lichtlaag, emberforge-desktop-ornamentlaag, emberforge-desktop-muzieklaag, emberforge-desktop-merklaag
 - **merk:** emberforge
 - **variant:** desktop-1900x1200
 - **wereld:** beckeringh-palace
+
+## EmberForge Desktop Lichtlaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-desktop-lichtlaag`
+
+### Doel
+
+Componeert eigen koelblauw hoofdlicht en twee begrensde warme accenten voor het desktopcanvas.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-desktop-cool-light-outer, emberforge-desktop-cool-light-inner, emberforge-desktop-warm-light-outer, emberforge-desktop-warm-light-inner
+- **rol:** ornament
+- **wallpaper:** emberforge-desktop-wallpaper
 
 ## EmberForge Desktop Muzieklaag
 
@@ -1151,6 +1295,98 @@ Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.
 - **laag:** emberforge-desktop-ornamentlaag
 - **x:** 80
 - **y:** 250
+
+## EmberForge Desktop Koel Licht Buiten
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-cool-light-outer`
+
+### Doel
+
+Legt een brede koelblauwe lichtbasis achter de zelfstandig geplaatste desktopcirkel.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 1200
+- **dekking:** 0.06
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 1200
+- **kleur:** interaction
+- **laag:** emberforge-desktop-lichtlaag
+- **x:** 350
+- **y:** 0
+
+## EmberForge Desktop Koel Licht Binnen
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-cool-light-inner`
+
+### Doel
+
+Verdicht het koele licht binnen de desktopcompositie zonder automatische schaling.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 1000
+- **dekking:** 0.09
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 1000
+- **kleur:** interaction
+- **laag:** emberforge-desktop-lichtlaag
+- **x:** 450
+- **y:** 100
+
+## EmberForge Desktop Warm Licht Buiten
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-warm-light-outer`
+
+### Doel
+
+Plaatst het eerste begrensde emberaccent laag in de desktopcompositie.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 650
+- **dekking:** 0.08
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 500
+- **kleur:** accent
+- **laag:** emberforge-desktop-lichtlaag
+- **x:** 625
+- **y:** 680
+
+## EmberForge Desktop Warm Licht Binnen
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-warm-light-inner`
+
+### Doel
+
+Concentreert het tweede en laatste emberaccent rond het desktopmerkteken.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 360
+- **dekking:** 0.14
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 340
+- **kleur:** accent
+- **laag:** emberforge-desktop-lichtlaag
+- **x:** 770
+- **y:** 790
 
 ## EmberForge Desktop Vector Node Rechts
 
@@ -4590,7 +4826,7 @@ Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar cataloguspr
 
 ### Eigenschappen
 
-- **assets:** emberforge-vector-node, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets, emberforge-merkteken, emberforge-woordmerk
+- **assets:** emberforge-vector-node, emberforge-light-disc, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets, emberforge-merkteken, emberforge-woordmerk
 - **backend:** html
 - **compositie:** emberforge-svg-asset-catalog-composition
 - **inhoud:** asset-catalog
@@ -5067,6 +5303,25 @@ Genereert het native technische lijnornament als veilig SVG product.
 - **inhoud:** asset
 - **mode:** static
 - **pad:** output/products/emberforge-vector-node.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Lichtschijf SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-light-disc-svg`
+
+### Doel
+
+Genereert de neutrale native lichtschijf als veilig en herbruikbaar SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-light-disc.svg
 - **wereld:** beckeringh-palace
 
 ## EmberForge Dashboard Icon SVG

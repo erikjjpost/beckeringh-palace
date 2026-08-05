@@ -204,6 +204,22 @@ def _indexed_pixel(info: dict[str, object], x: int, y: int) -> tuple[int, ...]:
     return palette[index]
 
 
+def _truecolor_pixels(info: dict[str, object]) -> set[tuple[int, int, int]]:
+    width = int(info["width"])
+    rows = info["rows"]
+    row_length = width * 3
+    colors = set()
+    for row_offset in range(0, len(rows), row_length + 1):
+        if rows[row_offset] != 0:
+            raise AssertionError("Testdecoder ondersteunt alleen PNG filter 0")
+        row = rows[row_offset + 1:row_offset + 1 + row_length]
+        colors.update(
+            tuple(row[offset:offset + 3])
+            for offset in range(0, row_length, 3)
+        )
+    return colors
+
+
 class NativeWallpaperRendererTests(unittest.TestCase):
     def _compile(self, bron: str = BRON) -> bytes:
         model = analyseer(
@@ -307,7 +323,7 @@ class NativeWallpaperRendererTests(unittest.TestCase):
         info = _png_info(product.inhoud)
 
         self.assertEqual((3840, 1080), (info["width"], info["height"]))
-        self.assertEqual(3, info["color_type"])
+        self.assertEqual(2, info["color_type"])
         self.assertLess(len(product.inhoud), 2_000_000)
         self.assertEqual(
             product.definitie.snapshot_ref,
@@ -317,7 +333,7 @@ class NativeWallpaperRendererTests(unittest.TestCase):
             (0x0F, 0x17, 0x24),
             (0xC9, 0x89, 0x5B),
             (0x7D, 0xD3, 0xFC),
-        }.issubset(set(info["palette"])))
+        }.issubset(_truecolor_pixels(info)))
 
 
 if __name__ == "__main__":
