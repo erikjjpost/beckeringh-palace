@@ -254,5 +254,8 @@ voortekens publiceren. Zij blijft volledig binnen de veilige beeldmarge.
 Een eerder gegenereerde beeldvariant bevat links een onverklaard gevuld vlak.
 Dat vlak is geen onderdeel van de art direction en geldt als afkeurcriterium.
 De beeldvariant is niet normatief. M11.6d modelleert de muziekinformatie en
-geometrie eerst expliciet in BAT voordat deze richting in de wallpaperfamilie
-wordt opgenomen.
+geometrie expliciet in BAT. De canonieke kwintencirkel staat nu op beide
+wallpaperformaten, met C op twaalf uur en de kwinten met de klok mee. Het
+onverklaarde vlak links komt niet voor. De volgende visuele slice verfijnt de
+koelblauwe en begrensd warme lichtwerking zonder de functionele informatielaag
+te wijzigen.

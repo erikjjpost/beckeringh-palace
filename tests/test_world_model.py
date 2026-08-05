@@ -16,7 +16,8 @@ class WorldModelBoundaryTests(unittest.TestCase):
             {
                 "appearance",
                 "artdirection",
-                "asset",
+            "asset",
+            "muziekcirkel",
                 "assetfamilie",
                 "assetplaatsing",
                 "border",

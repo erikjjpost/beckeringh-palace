@@ -13,6 +13,7 @@ from compiler.design_tokens import TokenType, token_uit_object, waarde_past_bij_
 from compiler.design_system_reference import DesignSystemReferenceConstraint
 from compiler.diagnostics import Diagnostic
 from compiler.layout_constraints import NativeLayoutConstraint
+from compiler.music_circle import MusicCircleConstraint
 from compiler.information_architecture import InformationArchitectureConstraint
 from compiler.homepage_information_architecture import (
     HomepageInformationArchitectureConstraint,
@@ -114,6 +115,7 @@ WORLD_MODEL_CONSTRAINTS = (
     BrandIdentityConstraint(),
     DesignTokenConstraint(),
     SvgAssetConstraint(),
+    MusicCircleConstraint(),
     SvgAssetFamilyConstraint(),
     SvgAssetCatalogConstraint(),
     WallpaperProductConstraint(),

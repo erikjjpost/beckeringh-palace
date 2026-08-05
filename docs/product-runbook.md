@@ -60,8 +60,9 @@ voor SVG geometrie of een schaalregel naar het andere formaat.
 
 `output/products/emberforge-ultrawide.png` en
 `output/products/emberforge-desktop.png` zijn de bijbehorende beeldartifacts.
-De native backend rastert voor iedere variant de eigen vier opgeloste SVG
-assetplaatsingen in BAT volgorde. Beide bestanden bevatten geen tijdstempel en
+De native backend rastert voor iedere variant de eigen opgeloste SVG
+assetplaatsingen in BAT volgorde. Daaronder valt dezelfde uit BAT gegenereerde
+Circle of Fifths met majeur, relatieve mineur en voortekens. Beide bestanden bevatten geen tijdstempel en
 dragen product, wallpaper, familie, variant en volledige snapshotreferentie als
 PNG metadata.
 
