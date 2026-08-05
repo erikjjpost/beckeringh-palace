@@ -68,6 +68,10 @@ plaatsingstabel of kleurkeuze. De rasterisatie en PNG codering gebruiken
 uitsluitend de Python standaardbibliotheek. De encoder schrijft een
 geïndexeerde PNG waar mogelijk en legt geen tijdstempel vast.
 
+De native `muziekcirkel` resolver valideert de canonieke Circle of Fifths en
+zet haar waarden vóór de wallpaperbackend om naar veilige vectorgeometrie. De
+backend bevat daardoor geen majeur-, mineur- of voortekenmapping.
+
 HTML en Grafana tonen daarnaast dezelfde opgeloste dashboardidentiteit:
 compositie, wereld, thema en BAT-generatiestatus. HTML rendert deze als een
 responsieve productshell. Grafana rendert deze als een vaste Canvas-header

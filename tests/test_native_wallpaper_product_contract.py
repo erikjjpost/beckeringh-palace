@@ -496,15 +496,15 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
         self.assertEqual((3840, 1080), (wallpaper.breedte, wallpaper.hoogte))
         self.assertEqual("#0F1724", wallpaper.canvas.waarde)
         self.assertEqual(
-            ("ornament", "merk"),
+            ("ornament", "illustratie", "merk"),
             tuple(laag.rol for laag in wallpaper.lagen),
         )
         self.assertEqual(
             (
                 "emberforge-vector-node-left",
                 "emberforge-vector-node-right",
+                "emberforge-wallpaper-circle-of-fifths",
                 "emberforge-wallpaper-merkteken",
-                "emberforge-wallpaper-woordmerk",
             ),
             tuple(
                 plaatsing.id

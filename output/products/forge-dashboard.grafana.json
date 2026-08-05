@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 53266d93d938",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 2584c2e3202d",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 432,
+                "height": 476,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -207,7 +207,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "11",
+                  "fixed": "12",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -233,7 +233,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "asset\nassetfamilie\nmerk\nwereld",
+                  "fixed": "asset\nassetfamilie\nmerk\nmuziekcirkel\nwereld",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -244,7 +244,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-labels",
               "placement": {
-                "height": 60,
+                "height": 72,
                 "left": 20,
                 "top": 128,
                 "width": 280
@@ -259,7 +259,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "7\n2\n1\n1",
+                  "fixed": "7\n2\n1\n1\n1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -270,7 +270,7 @@
               },
               "name": "forge-dashboard-left-panel-metric-detail-values",
               "placement": {
-                "height": 60,
+                "height": 72,
                 "left": 300,
                 "top": 128,
                 "width": 80
@@ -378,6 +378,31 @@
               "type": "rectangle"
             },
             {
+              "background": {
+                "color": {
+                  "fixed": "#2F4259"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#2F4259"
+                },
+                "width": 0
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "forge-dashboard-left-panel-metric-detail-rule-5",
+              "placement": {
+                "height": 1,
+                "left": 20,
+                "top": 188,
+                "width": 360
+              },
+              "type": "rectangle"
+            },
+            {
               "config": {
                 "align": "left",
                 "color": {
@@ -430,7 +455,7 @@
               "placement": {
                 "height": 72,
                 "left": 20,
-                "top": 200,
+                "top": 212,
                 "width": 360
               },
               "type": "text"
@@ -443,7 +468,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge merkassets · assetfamilie\nOrdent het native merkteken en woordmerk als één reproduceerbare merkfamilie.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.",
+                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge merkassets · assetfamilie\nOrdent het native merkteken en woordmerk als één reproduceerbare merkfamilie.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.\nEmberForge Circle of Fifths · muziekcirkel\nPubliceert twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens als functionele gitaarreferentie.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -454,9 +479,9 @@
               },
               "name": "forge-dashboard-left-panel-content-anchors",
               "placement": {
-                "height": 96,
+                "height": 128,
                 "left": 20,
-                "top": 284,
+                "top": 296,
                 "width": 360
               },
               "type": "text"
@@ -482,7 +507,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 392,
+                "top": 436,
                 "width": 360
               },
               "type": "text"
@@ -1297,7 +1322,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "113",
+                  "fixed": "115",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1349,7 +1374,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "8\n26\n7\n7\n7\n22\n26\n3\n2\n1\n4",
+                  "fixed": "8\n26\n7\n7\n7\n22\n26\n3\n2\n1\n6",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1778,7 +1803,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:53266d93d938d5faad4e6c35aa93ce8ac699ec2efbe370b33e94885e0a6846f4"
+    "sha256:2584c2e3202d77291204f3255095f4d4f2114c3c18b027ca8b0deec49fc56269"
   ],
   "templating": {
     "list": []

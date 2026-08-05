@@ -871,6 +871,22 @@ Horizontaal technisch woordmerk voor brede EmberForge merkoppervlakken.
 - **viewbox:** 0 0 592 80
 - **vulling:** none
 
+## EmberForge Circle of Fifths
+
+**Soort:** muziekcirkel
+
+**Identifier:** `emberforge-circle-of-fifths`
+
+### Doel
+
+Publiceert twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens als functionele gitaarreferentie.
+
+### Eigenschappen
+
+- **majeur:** C, G, D, A, E, B, F#/Gb, Db, Ab, Eb, Bb, F
+- **mineur:** Am, Em, Bm, F#m, C#m, G#m, D#m/Ebm, Bbm, Fm, Cm, Gm, Dm
+- **voortekens:** 0, 1#, 2#, 3#, 4#, 5#, 6#/6b, 5b, 4b, 3b, 2b, 1b
+
 ## EmberForge Wallpapers
 
 **Soort:** wallpaperfamilie
@@ -903,10 +919,26 @@ Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar bee
 - **familie:** emberforge-wallpapers
 - **formaat:** png
 - **hoogte:** 1080
-- **lagen:** emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-merklaag
+- **lagen:** emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-muzieklaag, emberforge-wallpaper-merklaag
 - **merk:** emberforge
 - **variant:** ultrawide-3840x1080
 - **wereld:** beckeringh-palace
+
+## EmberForge Wallpaper Muzieklaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-wallpaper-muzieklaag`
+
+### Doel
+
+Draagt de functionele Circle of Fifths volledig binnen de veilige beeldmarge.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-wallpaper-circle-of-fifths
+- **rol:** illustratie
+- **wallpaper:** emberforge-ultrawide-wallpaper
 
 ## EmberForge Wallpaper Ornamentlaag
 
@@ -936,7 +968,7 @@ Ordent het merkteken en woordmerk als afzonderlijke merkplaatsingen.
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-wallpaper-merkteken, emberforge-wallpaper-woordmerk
+- **plaatsingen:** emberforge-wallpaper-merkteken
 - **rol:** merk
 - **wallpaper:** emberforge-ultrawide-wallpaper
 
@@ -997,36 +1029,36 @@ Plaatst het merkteken centraal binnen de ultrawide compositie.
 ### Eigenschappen
 
 - **asset:** emberforge-merkteken
-- **breedte:** 480
+- **breedte:** 240
 - **dekking:** 1
 - **fit:** contain
-- **hoogte:** 480
+- **hoogte:** 240
 - **kleur:** accent
 - **laag:** emberforge-wallpaper-merklaag
-- **x:** 1680
-- **y:** 260
+- **x:** 1800
+- **y:** 420
 
-## EmberForge Wallpaper Woordmerk
+## EmberForge Ultrawide Circle of Fifths
 
 **Soort:** assetplaatsing
 
-**Identifier:** `emberforge-wallpaper-woordmerk`
+**Identifier:** `emberforge-wallpaper-circle-of-fifths`
 
 ### Doel
 
-Plaatst het woordmerk onder het centrale merkteken.
+Plaatst de volledige functionele muziekcirkel centraal en zonder afsnijding.
 
 ### Eigenschappen
 
-- **asset:** emberforge-woordmerk
-- **breedte:** 1000
+- **asset:** emberforge-circle-of-fifths
+- **breedte:** 1020
 - **dekking:** 1
 - **fit:** contain
-- **hoogte:** 136
-- **kleur:** foreground
-- **laag:** emberforge-wallpaper-merklaag
-- **x:** 1420
-- **y:** 800
+- **hoogte:** 1020
+- **kleur:** interaction
+- **laag:** emberforge-wallpaper-muzieklaag
+- **x:** 1410
+- **y:** 30
 
 ## EmberForge Desktop Wallpaper
 
@@ -1045,10 +1077,26 @@ Legt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen explic
 - **familie:** emberforge-wallpapers
 - **formaat:** png
 - **hoogte:** 1200
-- **lagen:** emberforge-desktop-ornamentlaag, emberforge-desktop-merklaag
+- **lagen:** emberforge-desktop-ornamentlaag, emberforge-desktop-muzieklaag, emberforge-desktop-merklaag
 - **merk:** emberforge
 - **variant:** desktop-1900x1200
 - **wereld:** beckeringh-palace
+
+## EmberForge Desktop Muzieklaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-desktop-muzieklaag`
+
+### Doel
+
+Draagt de functionele Circle of Fifths met een eigen desktopplaatsing.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-desktop-circle-of-fifths
+- **rol:** illustratie
+- **wallpaper:** emberforge-desktop-wallpaper
 
 ## EmberForge Desktop Ornamentlaag
 
@@ -1078,7 +1126,7 @@ Ordent merkteken en woordmerk met eigen desktopplaatsingen.
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-desktop-merkteken, emberforge-desktop-woordmerk
+- **plaatsingen:** emberforge-desktop-merkteken
 - **rol:** merk
 - **wallpaper:** emberforge-desktop-wallpaper
 
@@ -1096,7 +1144,7 @@ Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.
 
 - **asset:** emberforge-vector-node
 - **breedte:** 560
-- **dekking:** 0.14
+- **dekking:** 0.08
 - **fit:** contain
 - **hoogte:** 560
 - **kleur:** interaction
@@ -1118,7 +1166,7 @@ Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas.
 
 - **asset:** emberforge-vector-node
 - **breedte:** 560
-- **dekking:** 0.14
+- **dekking:** 0.08
 - **fit:** contain
 - **hoogte:** 560
 - **kleur:** interaction
@@ -1139,36 +1187,36 @@ Plaatst het merkteken centraal binnen het desktopcanvas.
 ### Eigenschappen
 
 - **asset:** emberforge-merkteken
-- **breedte:** 480
+- **breedte:** 240
 - **dekking:** 1
 - **fit:** contain
-- **hoogte:** 480
+- **hoogte:** 240
 - **kleur:** accent
 - **laag:** emberforge-desktop-merklaag
-- **x:** 710
-- **y:** 220
+- **x:** 830
+- **y:** 480
 
-## EmberForge Desktop Woordmerk
+## EmberForge Desktop Circle of Fifths
 
 **Soort:** assetplaatsing
 
-**Identifier:** `emberforge-desktop-woordmerk`
+**Identifier:** `emberforge-desktop-circle-of-fifths`
 
 ### Doel
 
-Plaatst het woordmerk onder het centrale desktopmerkteken.
+Plaatst de volledige functionele muziekcirkel op het 1900 bij 1200 canvas.
 
 ### Eigenschappen
 
-- **asset:** emberforge-woordmerk
-- **breedte:** 1000
+- **asset:** emberforge-circle-of-fifths
+- **breedte:** 1200
 - **dekking:** 1
 - **fit:** contain
-- **hoogte:** 136
-- **kleur:** foreground
-- **laag:** emberforge-desktop-merklaag
-- **x:** 450
-- **y:** 830
+- **hoogte:** 1100
+- **kleur:** interaction
+- **laag:** emberforge-desktop-muzieklaag
+- **x:** 350
+- **y:** 50
 
 ## Ember Copper
 
@@ -3470,10 +3518,10 @@ De digitale wereld, haar merk en haar reproduceerbare bronassets.
 
 ### Eigenschappen
 
-- **inhoud:** beckeringh-palace, emberforge-merkassets, emberforge-vector-node
+- **inhoud:** beckeringh-palace, emberforge-merkassets, emberforge-vector-node, emberforge-circle-of-fifths
 - **leesvolgorde:** 1
 - **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-svg-asset-catalog-html, emberforge-vector-node-svg, emberforge-merkteken-svg, emberforge-woordmerk-svg
-- **soorten:** wereld, merk, assetfamilie, asset
+- **soorten:** wereld, merk, assetfamilie, asset, muziekcirkel
 - **toegankelijkheidslabel:** Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets
 
 ## Forge ontwerpsysteem

@@ -45,6 +45,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("appearance", Domeinstatus.NATIVE, "Koppelt een component aan semantische theme-rollen en primitiveprofielen."),
     ObjectsoortDefinitie("token", Domeinstatus.NATIVE, "Definieert een herbruikbare ontwerpwaarde."),
     ObjectsoortDefinitie("asset", Domeinstatus.NATIVE, "Beschrijft een reproduceerbaar bronasset."),
+    ObjectsoortDefinitie("muziekcirkel", Domeinstatus.NATIVE, "Legt een functionele Circle of Fifths met canonieke muziekinformatie vast."),
     ObjectsoortDefinitie("assetfamilie", Domeinstatus.NATIVE, "Ordent samenhangende assets onder één merk en expliciet familietype."),
     ObjectsoortDefinitie("wallpaperfamilie", Domeinstatus.NATIVE, "Ordent expliciete wallpaperformaten onder één merk zonder schaallogica."),
     ObjectsoortDefinitie("wallpaper", Domeinstatus.NATIVE, "Bundelt canvas, formaat en geordende lagen tot één wallpaperintentie."),

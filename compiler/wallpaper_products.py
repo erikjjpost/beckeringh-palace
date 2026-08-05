@@ -11,6 +11,7 @@ from compiler.cir import Architectuurobject
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
 from compiler.svg_assets import ResolvedSvgAsset, resolveer_svg_assets
+from compiler.music_circle import resolveer_muziekcirkels
 from compiler.theme_resolution import ResolvedColor, resolveer_thema
 
 
@@ -148,6 +149,9 @@ def resolveer_wallpapers(
         asset.id: asset
         for asset in resolveer_svg_assets(objecten)
     }
+    assets.update(
+        {circle.id: circle.asset for circle in resolveer_muziekcirkels(objecten)}
+    )
     lagen = {
         obj.id: obj
         for obj in objecten
@@ -321,7 +325,7 @@ class WallpaperProductConstraint:
         assets = {
             obj.id: obj
             for obj in context.objecten
-            if obj.soort == "asset"
+            if obj.soort in {"asset", "muziekcirkel"}
         }
         werelden = {
             obj.id: obj
@@ -798,16 +802,20 @@ class WallpaperProductConstraint:
                 toegestane_assetrollen = WALLPAPER_LAAG_ASSETROLLEN.get(
                     laagrol
                 )
+                assetrol = (
+                    "illustratie"
+                    if asset.soort == "muziekcirkel"
+                    else asset.eigenschappen.get("rol")
+                )
                 if (
                     toegestane_assetrollen is not None
-                    and asset.eigenschappen.get("rol")
-                    not in toegestane_assetrollen
+                    and assetrol not in toegestane_assetrollen
                 ):
                     diagnostics.append(Diagnostic(
                         code="BP4373",
                         boodschap=(
                             f"Assetplaatsing '{plaatsing.id}' gebruikt assetrol "
-                            f"'{asset.eigenschappen.get('rol')}' in "
+                            f"'{assetrol}' in "
                             f"wallpaperlaagrol '{laagrol}'"
                         ),
                         locatie=plaatsing.eigenschaplocaties.get(

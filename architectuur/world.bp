@@ -450,6 +450,14 @@ asset emberforge-woordmerk {
     label: "EmberForge"
 }
 
+muziekcirkel emberforge-circle-of-fifths {
+    naam: "EmberForge Circle of Fifths"
+    doel: "Publiceert twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens als functionele gitaarreferentie."
+    majeur: ["C", "G", "D", "A", "E", "B", "F#/Gb", "Db", "Ab", "Eb", "Bb", "F"]
+    mineur: ["Am", "Em", "Bm", "F#m", "C#m", "G#m", "D#m/Ebm", "Bbm", "Fm", "Cm", "Gm", "Dm"]
+    voortekens: ["0", "1#", "2#", "3#", "4#", "5#", "6#/6b", "5b", "4b", "3b", "2b", "1b"]
+}
+
 wallpaperfamilie emberforge-wallpapers {
     naam: "EmberForge Wallpapers"
     doel: "Ordent de expliciete ultrawide en desktop canvasformaten als één merkgebonden familie."
@@ -468,7 +476,15 @@ wallpaper emberforge-ultrawide-wallpaper {
     breedte: "3840"
     hoogte: "1080"
     canvas: "canvas"
-    lagen: ["emberforge-wallpaper-ornamentlaag", "emberforge-wallpaper-merklaag"]
+    lagen: ["emberforge-wallpaper-ornamentlaag", "emberforge-wallpaper-muzieklaag", "emberforge-wallpaper-merklaag"]
+}
+
+wallpaperlaag emberforge-wallpaper-muzieklaag {
+    naam: "EmberForge Wallpaper Muzieklaag"
+    doel: "Draagt de functionele Circle of Fifths volledig binnen de veilige beeldmarge."
+    wallpaper: "emberforge-ultrawide-wallpaper"
+    rol: "illustratie"
+    plaatsingen: ["emberforge-wallpaper-circle-of-fifths"]
 }
 
 wallpaperlaag emberforge-wallpaper-ornamentlaag {
@@ -484,7 +500,7 @@ wallpaperlaag emberforge-wallpaper-merklaag {
     doel: "Ordent het merkteken en woordmerk als afzonderlijke merkplaatsingen."
     wallpaper: "emberforge-ultrawide-wallpaper"
     rol: "merk"
-    plaatsingen: ["emberforge-wallpaper-merkteken", "emberforge-wallpaper-woordmerk"]
+    plaatsingen: ["emberforge-wallpaper-merkteken"]
 }
 
 assetplaatsing emberforge-vector-node-left {
@@ -520,27 +536,27 @@ assetplaatsing emberforge-wallpaper-merkteken {
     doel: "Plaatst het merkteken centraal binnen de ultrawide compositie."
     laag: "emberforge-wallpaper-merklaag"
     asset: "emberforge-merkteken"
-    x: "1680"
-    y: "260"
-    breedte: "480"
-    hoogte: "480"
+    x: "1800"
+    y: "420"
+    breedte: "240"
+    hoogte: "240"
     fit: "contain"
     dekking: "1"
     kleur: "accent"
 }
 
-assetplaatsing emberforge-wallpaper-woordmerk {
-    naam: "EmberForge Wallpaper Woordmerk"
-    doel: "Plaatst het woordmerk onder het centrale merkteken."
-    laag: "emberforge-wallpaper-merklaag"
-    asset: "emberforge-woordmerk"
-    x: "1420"
-    y: "800"
-    breedte: "1000"
-    hoogte: "136"
+assetplaatsing emberforge-wallpaper-circle-of-fifths {
+    naam: "EmberForge Ultrawide Circle of Fifths"
+    doel: "Plaatst de volledige functionele muziekcirkel centraal en zonder afsnijding."
+    laag: "emberforge-wallpaper-muzieklaag"
+    asset: "emberforge-circle-of-fifths"
+    x: "1410"
+    y: "30"
+    breedte: "1020"
+    hoogte: "1020"
     fit: "contain"
     dekking: "1"
-    kleur: "foreground"
+    kleur: "interaction"
 }
 
 wallpaper emberforge-desktop-wallpaper {
@@ -554,7 +570,15 @@ wallpaper emberforge-desktop-wallpaper {
     breedte: "1900"
     hoogte: "1200"
     canvas: "canvas"
-    lagen: ["emberforge-desktop-ornamentlaag", "emberforge-desktop-merklaag"]
+    lagen: ["emberforge-desktop-ornamentlaag", "emberforge-desktop-muzieklaag", "emberforge-desktop-merklaag"]
+}
+
+wallpaperlaag emberforge-desktop-muzieklaag {
+    naam: "EmberForge Desktop Muzieklaag"
+    doel: "Draagt de functionele Circle of Fifths met een eigen desktopplaatsing."
+    wallpaper: "emberforge-desktop-wallpaper"
+    rol: "illustratie"
+    plaatsingen: ["emberforge-desktop-circle-of-fifths"]
 }
 
 wallpaperlaag emberforge-desktop-ornamentlaag {
@@ -570,7 +594,7 @@ wallpaperlaag emberforge-desktop-merklaag {
     doel: "Ordent merkteken en woordmerk met eigen desktopplaatsingen."
     wallpaper: "emberforge-desktop-wallpaper"
     rol: "merk"
-    plaatsingen: ["emberforge-desktop-merkteken", "emberforge-desktop-woordmerk"]
+    plaatsingen: ["emberforge-desktop-merkteken"]
 }
 
 assetplaatsing emberforge-desktop-vector-node-left {
@@ -583,7 +607,7 @@ assetplaatsing emberforge-desktop-vector-node-left {
     breedte: "560"
     hoogte: "560"
     fit: "contain"
-    dekking: "0.14"
+    dekking: "0.08"
     kleur: "interaction"
 }
 
@@ -597,7 +621,7 @@ assetplaatsing emberforge-desktop-vector-node-right {
     breedte: "560"
     hoogte: "560"
     fit: "contain"
-    dekking: "0.14"
+    dekking: "0.08"
     kleur: "interaction"
 }
 
@@ -606,27 +630,27 @@ assetplaatsing emberforge-desktop-merkteken {
     doel: "Plaatst het merkteken centraal binnen het desktopcanvas."
     laag: "emberforge-desktop-merklaag"
     asset: "emberforge-merkteken"
-    x: "710"
-    y: "220"
-    breedte: "480"
-    hoogte: "480"
+    x: "830"
+    y: "480"
+    breedte: "240"
+    hoogte: "240"
     fit: "contain"
     dekking: "1"
     kleur: "accent"
 }
 
-assetplaatsing emberforge-desktop-woordmerk {
-    naam: "EmberForge Desktop Woordmerk"
-    doel: "Plaatst het woordmerk onder het centrale desktopmerkteken."
-    laag: "emberforge-desktop-merklaag"
-    asset: "emberforge-woordmerk"
-    x: "450"
-    y: "830"
-    breedte: "1000"
-    hoogte: "136"
+assetplaatsing emberforge-desktop-circle-of-fifths {
+    naam: "EmberForge Desktop Circle of Fifths"
+    doel: "Plaatst de volledige functionele muziekcirkel op het 1900 bij 1200 canvas."
+    laag: "emberforge-desktop-muzieklaag"
+    asset: "emberforge-circle-of-fifths"
+    x: "350"
+    y: "50"
+    breedte: "1200"
+    hoogte: "1100"
     fit: "contain"
     dekking: "1"
-    kleur: "foreground"
+    kleur: "interaction"
 }
 
 token color-ember {
@@ -2042,8 +2066,8 @@ informatiegebied palace-world {
     doel: "De digitale wereld, haar merk en haar reproduceerbare bronassets."
     toegankelijkheidslabel: "Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets"
     leesvolgorde: "1"
-    soorten: ["wereld", "merk", "assetfamilie", "asset"]
-    inhoud: ["beckeringh-palace", "emberforge-merkassets", "emberforge-vector-node"]
+    soorten: ["wereld", "merk", "assetfamilie", "asset", "muziekcirkel"]
+    inhoud: ["beckeringh-palace", "emberforge-merkassets", "emberforge-vector-node", "emberforge-circle-of-fifths"]
     navigatie: ["forge-dashboard-html", "forge-dashboard-grafana", "emberforge-svg-asset-catalog-html", "emberforge-vector-node-svg", "emberforge-merkteken-svg", "emberforge-woordmerk-svg"]
 }
 

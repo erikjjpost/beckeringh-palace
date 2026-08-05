@@ -23,6 +23,7 @@ De native objectsoorten zijn:
 | `thema` | visuele en semantische varianten |
 | `token` | herbruikbare ontwerpwaarden |
 | `asset` | veilige, getypeerde en reproduceerbare bronassets |
+| `muziekcirkel` | canonieke Circle of Fifths semantiek en reproduceerbare vectorgeometrie |
 | `assetfamilie` | geordende, merkgebonden samenhang tussen native assets |
 | `wallpaperfamilie` | geordende, merkgebonden samenhang tussen zelfstandige canvasformaten |
 | `wallpaper` | canvas, doelformaat en geordende wallpaperlagen |
@@ -86,6 +87,14 @@ M11.6c ordent de 3840 bij 1080 ultrawide en 1900 bij 1200 desktopvariant als
 vereist unieke varianten en canvasmaten. Iedere wallpaper houdt eigen lagen,
 plaatsingen en producten. De compiler leidt geen verhouding, schaalfactor of
 plaatsing van een andere variant af.
+
+M11.6d voegt `muziekcirkel` toe als native informatieobject. BAT bewaart de
+twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens in
+canonieke klokvolgorde. De resolver zet deze gevalideerde waarden om naar
+veilige vectorlijnen en generieke enkel-lijn vectorglyphs. De wallpaperbackend
+ontvangt alleen opgeloste geometrie en bevat geen muziektheorie. Beide
+wallpaperformaten plaatsen dezelfde functionele cirkel met eigen coördinaten
+volledig binnen hun canvas.
 
 ## Niet native
 

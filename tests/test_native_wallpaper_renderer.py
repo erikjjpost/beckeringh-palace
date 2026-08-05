@@ -316,7 +316,7 @@ class NativeWallpaperRendererTests(unittest.TestCase):
         self.assertTrue({
             (0x0F, 0x17, 0x24),
             (0xC9, 0x89, 0x5B),
-            (0xE6, 0xED, 0xF5),
+            (0x7D, 0xD3, 0xFC),
         }.issubset(set(info["palette"])))
 
 

@@ -1021,6 +1021,13 @@ manifest en PNG product. De manifesten publiceren familie en variant. De PNG
 metadata draagt dezelfde identiteit. Assets en backends worden hergebruikt
 zonder coördinaten of schaalregels tussen de varianten te delen.
 
+M11.6d introduceert `ResolvedMusicCircle`. Het BAT object `muziekcirkel`
+publiceert exact twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en
+voortekens. Afwijkende volgorde of inhoud faalt semantisch. De resolver bouwt
+hieruit drie ringen, twaalf sectoren en vectorglyphs. De resulterende
+`ResolvedSvgAsset` wordt via een gewone `assetplaatsing` aan iedere wallpaper
+gekoppeld. De PNG backend kent daardoor geen toonsoorten en verzint geen tekst.
+
 ## Diagnostics
 
 | Code | Betekenis |

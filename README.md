@@ -19,7 +19,8 @@ De repository bevat nu:
 - een native homepage met vier geordende inhoudsgebieden en drie productroutes;
 - een statisch EmberForge designsystem referentieproduct met geordende
   primitives, tokens, componenttoestanden, voorbeelden en toegankelijkheid;
-- een native EmberForge wallpaperfamilie met zelfstandige 3840 bij 1080 en
+- een native EmberForge wallpaperfamilie met een functionele Circle of Fifths
+  en zelfstandige 3840 bij 1080 en
   1900 bij 1200 varianten die rechtstreeks uit BAT, het opgeloste thema en
   dezelfde SVG assets als de catalogus worden gerenderd;
 - statische snapshotidentiteit voor verificatie en rollback;
