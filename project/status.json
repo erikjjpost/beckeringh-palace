@@ -3,19 +3,19 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.6b",
-    "name": "Native wallpaperrenderer",
+    "id": "M11.6c",
+    "name": "Native wallpaperfamilie",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.6a",
-    "name": "Native wallpaperproductcontract",
-    "pull_request": 91
+    "id": "M11.6b",
+    "name": "Native wallpaperrenderer",
+    "pull_request": 92
   },
   "next_step": {
-    "id": "M11.6c",
-    "name": "Native wallpaperfamilie",
-    "purpose": "Meerdere expliciete formaten als één merkgebonden wallpaperfamilie ordenen en renderer en assets hergebruiken zonder impliciete schaallogica."
+    "id": "M11.6d",
+    "name": "Native Circle of Fifths model",
+    "purpose": "De functionele Circle of Fifths als gevalideerde BAT semantiek en reproduceerbare geometrie modelleren, met exacte muziekinformatie en zonder onverklaarde beeldvlakken."
   },
   "areas": [
     {
@@ -23,7 +23,7 @@
       "name": "Compiler en reproduceerbaarheid",
       "progress": 98,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 263 regressietests vormen een werkende kwaliteitsketen; productbackends leveren nu tekst of bytes en de standaardbibliotheek rendert en codeert het opgeloste wallpapercontract als PNG.",
+      "evidence": "Validatie, deterministische generatie, CI en 271 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en dezelfde standaardbibliotheekrenderer verwerkt meerdere expliciete wallpaperformaten.",
       "remaining": "Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog."
     },
     {
@@ -31,7 +31,7 @@
       "name": "World Model en productcontracten",
       "progress": 100,
       "weight": 10,
-      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies en een native wallpapercontract met canvas, formaat, lagen, assetplaatsingen en expliciete materiaalrollen.",
+      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies en een merkgebonden wallpaperfamilie met zelfstandige canvasformaten, lagen en plaatsingen.",
       "remaining": "Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist."
     },
     {
@@ -53,10 +53,10 @@
     {
       "id": "visual-world",
       "name": "Visuele wereld en art direction",
-      "progress": 46,
+      "progress": 48,
       "weight": 10,
-      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen, native merkassets en een eerste rustige gerenderde ultrawide compositie.",
-      "remaining": "Palace, het Noorse thema, bevers, muziek en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
+      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen, native merkassets en twee zelfstandig gecomponeerde wallpaperformaten.",
+      "remaining": "De functionele Circle of Fifths, Palace, het Noorse thema, bevers en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
     },
     {
       "id": "svg-library",
@@ -69,10 +69,10 @@
     {
       "id": "logos-wallpapers",
       "name": "Logo's en wallpapers",
-      "progress": 55,
+      "progress": 65,
       "weight": 10,
-      "evidence": "Het EmberForge merkteken en woordmerk zijn reproduceerbare SVG compilerproducten; dezelfde assets worden nu met het getypeerde BAT contract tot een echte deterministische 3840 bij 1080 PNG gerenderd.",
-      "remaining": "Wallpaperfamilies, rijkere wereldsymboliek en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd."
+      "evidence": "Het EmberForge merkteken en woordmerk zijn reproduceerbare SVG compilerproducten; een native familie ordent zelfstandige 3840 bij 1080 en 1900 bij 1200 manifesten en PNG artifacts zonder impliciete schaalregel.",
+      "remaining": "De functionele Circle of Fifths, rijkere wereldsymboliek en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd."
     },
     {
       "id": "homepage",
@@ -93,9 +93,9 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 59,
+      "progress": 61,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, SVG assetfamilies, het wallpapercontract en de native PNG afleiding zijn normatief vastgelegd.",
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, SVG assetfamilies en de formaatonafhankelijke wallpaperfamilie zijn normatief vastgelegd.",
       "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
     }
   ]

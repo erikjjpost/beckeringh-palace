@@ -24,6 +24,7 @@ from compiler.svg_asset_families import SvgAssetFamilyConstraint
 from compiler.svg_assets import SvgAssetConstraint
 from compiler.theme_constraints import ThemeFoundationConstraint
 from compiler.variant_constraints import ComponentVariantConstraint
+from compiler.wallpaper_families import WallpaperFamilyConstraint
 from compiler.wallpaper_products import WallpaperProductConstraint
 from compiler.world_model import Domeinstatus, objectsoortdefinitie
 
@@ -116,6 +117,7 @@ WORLD_MODEL_CONSTRAINTS = (
     SvgAssetFamilyConstraint(),
     SvgAssetCatalogConstraint(),
     WallpaperProductConstraint(),
+    WallpaperFamilyConstraint(),
     ThemeFoundationConstraint(),
     DesignComponentConstraint(),
     ComponentAccessibilityConstraint(),

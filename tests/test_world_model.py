@@ -46,6 +46,7 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "typeschaal",
                 "variant",
                 "wallpaper",
+                "wallpaperfamilie",
                 "wallpaperlaag",
                 "wereld",
             },

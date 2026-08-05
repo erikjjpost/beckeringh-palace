@@ -705,9 +705,23 @@
   },
   {
     "eigenschappen": {
+      "doel": "Ordent de expliciete ultrawide en desktop canvasformaten als één merkgebonden familie.",
+      "merk": "emberforge",
+      "naam": "EmberForge Wallpapers",
+      "wallpapers": [
+        "emberforge-ultrawide-wallpaper",
+        "emberforge-desktop-wallpaper"
+      ]
+    },
+    "id": "emberforge-wallpapers",
+    "soort": "wallpaperfamilie"
+  },
+  {
+    "eigenschappen": {
       "breedte": "3840",
       "canvas": "canvas",
       "doel": "Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar beeldproduct.",
+      "familie": "emberforge-wallpapers",
       "formaat": "png",
       "hoogte": "1080",
       "lagen": [
@@ -716,6 +730,7 @@
       ],
       "merk": "emberforge",
       "naam": "EmberForge Ultrawide Wallpaper",
+      "variant": "ultrawide-3840x1080",
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-ultrawide-wallpaper",
@@ -815,6 +830,122 @@
       "y": "800"
     },
     "id": "emberforge-wallpaper-woordmerk",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
+      "breedte": "1900",
+      "canvas": "canvas",
+      "doel": "Legt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen expliciete geometrie.",
+      "familie": "emberforge-wallpapers",
+      "formaat": "png",
+      "hoogte": "1200",
+      "lagen": [
+        "emberforge-desktop-ornamentlaag",
+        "emberforge-desktop-merklaag"
+      ],
+      "merk": "emberforge",
+      "naam": "EmberForge Desktop Wallpaper",
+      "variant": "desktop-1900x1200",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-desktop-wallpaper",
+    "soort": "wallpaper"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Ordent twee rustige technische lijnornamenten voor het 1900 bij 1200 canvas.",
+      "naam": "EmberForge Desktop Ornamentlaag",
+      "plaatsingen": [
+        "emberforge-desktop-vector-node-left",
+        "emberforge-desktop-vector-node-right"
+      ],
+      "rol": "ornament",
+      "wallpaper": "emberforge-desktop-wallpaper"
+    },
+    "id": "emberforge-desktop-ornamentlaag",
+    "soort": "wallpaperlaag"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Ordent merkteken en woordmerk met eigen desktopplaatsingen.",
+      "naam": "EmberForge Desktop Merklaag",
+      "plaatsingen": [
+        "emberforge-desktop-merkteken",
+        "emberforge-desktop-woordmerk"
+      ],
+      "rol": "merk",
+      "wallpaper": "emberforge-desktop-wallpaper"
+    },
+    "id": "emberforge-desktop-merklaag",
+    "soort": "wallpaperlaag"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-vector-node",
+      "breedte": "560",
+      "dekking": "0.14",
+      "doel": "Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.",
+      "fit": "contain",
+      "hoogte": "560",
+      "kleur": "interaction",
+      "laag": "emberforge-desktop-ornamentlaag",
+      "naam": "EmberForge Desktop Vector Node Links",
+      "x": "80",
+      "y": "250"
+    },
+    "id": "emberforge-desktop-vector-node-left",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-vector-node",
+      "breedte": "560",
+      "dekking": "0.14",
+      "doel": "Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas.",
+      "fit": "contain",
+      "hoogte": "560",
+      "kleur": "interaction",
+      "laag": "emberforge-desktop-ornamentlaag",
+      "naam": "EmberForge Desktop Vector Node Rechts",
+      "x": "1260",
+      "y": "250"
+    },
+    "id": "emberforge-desktop-vector-node-right",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-merkteken",
+      "breedte": "480",
+      "dekking": "1",
+      "doel": "Plaatst het merkteken centraal binnen het desktopcanvas.",
+      "fit": "contain",
+      "hoogte": "480",
+      "kleur": "accent",
+      "laag": "emberforge-desktop-merklaag",
+      "naam": "EmberForge Desktop Merkteken",
+      "x": "710",
+      "y": "220"
+    },
+    "id": "emberforge-desktop-merkteken",
+    "soort": "assetplaatsing"
+  },
+  {
+    "eigenschappen": {
+      "asset": "emberforge-woordmerk",
+      "breedte": "1000",
+      "dekking": "1",
+      "doel": "Plaatst het woordmerk onder het centrale desktopmerkteken.",
+      "fit": "contain",
+      "hoogte": "136",
+      "kleur": "foreground",
+      "laag": "emberforge-desktop-merklaag",
+      "naam": "EmberForge Desktop Woordmerk",
+      "x": "450",
+      "y": "830"
+    },
+    "id": "emberforge-desktop-woordmerk",
     "soort": "assetplaatsing"
   },
   {
@@ -2715,10 +2846,13 @@
         "forge-dashboard-ultrawide",
         "emberforge-homelab-dashboard",
         "emberforge-homelab-dashboard-responsive",
+        "emberforge-wallpapers",
         "emberforge-ultrawide-wallpaper",
+        "emberforge-desktop-wallpaper",
         "emberforge-homelab-dashboard-html",
         "emberforge-homelab-dashboard-grafana",
         "emberforge-ultrawide-wallpaper-png",
+        "emberforge-desktop-wallpaper-png",
         "project-status-html",
         "forge-design-system-reference-html",
         "emberforge-svg-asset-catalog-html"
@@ -2730,6 +2864,8 @@
         "emberforge-homelab-dashboard-grafana",
         "emberforge-ultrawide-wallpaper-png",
         "emberforge-ultrawide-wallpaper-manifest",
+        "emberforge-desktop-wallpaper-png",
+        "emberforge-desktop-wallpaper-manifest",
         "project-status-html",
         "project-status-grafana"
       ],
@@ -2739,6 +2875,7 @@
         "componentinstantie",
         "layout",
         "region",
+        "wallpaperfamilie",
         "wallpaper",
         "wallpaperlaag",
         "assetplaatsing",
@@ -4014,6 +4151,34 @@
       "wereld": "beckeringh-palace"
     },
     "id": "emberforge-ultrawide-wallpaper-png",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "backend": "wallpaper-manifest",
+      "doel": "Publiceert het zelfstandige 1900 bij 1200 wallpapercontract als familievariant.",
+      "inhoud": "wallpaper",
+      "mode": "static",
+      "naam": "EmberForge Desktop Wallpaper Manifest",
+      "pad": "output/products/emberforge-desktop.wallpaper.json",
+      "wallpaper": "emberforge-desktop-wallpaper",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-desktop-wallpaper-manifest",
+    "soort": "product"
+  },
+  {
+    "eigenschappen": {
+      "backend": "wallpaper-png",
+      "doel": "Rendert de zelfstandige 1900 bij 1200 EmberForge familievariant.",
+      "inhoud": "wallpaper",
+      "mode": "static",
+      "naam": "EmberForge Desktop Wallpaper PNG",
+      "pad": "output/products/emberforge-desktop.png",
+      "wallpaper": "emberforge-desktop-wallpaper",
+      "wereld": "beckeringh-palace"
+    },
+    "id": "emberforge-desktop-wallpaper-png",
     "soort": "product"
   },
   {

@@ -173,8 +173,10 @@ Een native BAT-concept moet nodig zijn om Beckeringh Palace-producten te specifi
   - `components.html`: statisch EmberForge designsystem referentieproduct;
   - `components.css`: afgeleide componentstijlen;
   - `tokens.json` en `tokens.css`: opgeloste ontwerptokens;
-  - `emberforge-ultrawide.wallpaper.json`: opgelost wallpapercontract;
-  - `emberforge-ultrawide.png`: native 3840 bij 1080 wallpaperbeeld.
+  - `emberforge-ultrawide.wallpaper.json` en
+    `emberforge-desktop.wallpaper.json`: opgeloste wallpapercontracten;
+  - `emberforge-ultrawide.png`: native 3840 bij 1080 wallpaperbeeld;
+  - `emberforge-desktop.png`: native 1900 bij 1200 wallpaperbeeld.
 
 Output wordt gecommit om deterministische regeneratie te kunnen controleren. Zij blijft afgeleid; rechtstreekse wijzigingen worden bij de volgende compilatie overschreven en gelden niet als modelwijziging.
 

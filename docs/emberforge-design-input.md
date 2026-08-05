@@ -242,3 +242,17 @@ de Keycloak en terminal productsurfaces als afzonderlijke routekaarten op de
 bestaande homepage. De routes verwijzen naar reguliere BAT producten. De
 generieke HTML backend ontvangt alleen opgeloste relatieve artifactpaden en
 bevat geen handmatig onderhouden routetabel.
+
+## Functionele Circle of Fifths
+
+De gekozen visuele richting voor een volgende wallpaperstap is een rustige,
+donkerblauwe EmberForge compositie met koel blauw licht en een begrensd warm
+oranje accent rond een functionele Circle of Fifths. De cirkel moet tijdens het
+gitaarspelen bruikbaar zijn en daarom exact majeur, relatieve mineur en
+voortekens publiceren. Zij blijft volledig binnen de veilige beeldmarge.
+
+Een eerder gegenereerde beeldvariant bevat links een onverklaard gevuld vlak.
+Dat vlak is geen onderdeel van de art direction en geldt als afkeurcriterium.
+De beeldvariant is niet normatief. M11.6d modelleert de muziekinformatie en
+geometrie eerst expliciet in BAT voordat deze richting in de wallpaperfamilie
+wordt opgenomen.

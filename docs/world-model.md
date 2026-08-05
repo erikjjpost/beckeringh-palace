@@ -24,6 +24,7 @@ De native objectsoorten zijn:
 | `token` | herbruikbare ontwerpwaarden |
 | `asset` | veilige, getypeerde en reproduceerbare bronassets |
 | `assetfamilie` | geordende, merkgebonden samenhang tussen native assets |
+| `wallpaperfamilie` | geordende, merkgebonden samenhang tussen zelfstandige canvasformaten |
 | `wallpaper` | canvas, doelformaat en geordende wallpaperlagen |
 | `wallpaperlaag` | semantische laag met een expliciete plaatsingenlijst |
 | `assetplaatsing` | begrensde plaats van één native asset op het canvas |
@@ -79,6 +80,12 @@ daarvoor een binaire productpayload en een native rasterbackend toe. De backend
 consumeert uitsluitend de opgeloste productcontext. Geometrie, kleurkeuze,
 laagvolgorde en plaatsing blijven daardoor in BAT en worden niet opnieuw in de
 backend vastgelegd.
+
+M11.6c ordent de 3840 bij 1080 ultrawide en 1900 bij 1200 desktopvariant als
+één `wallpaperfamilie`. De familie bindt beide wallpapers aan hetzelfde merk en
+vereist unieke varianten en canvasmaten. Iedere wallpaper houdt eigen lagen,
+plaatsingen en producten. De compiler leidt geen verhouding, schaalfactor of
+plaatsing van een andere variant af.
 
 ## Niet native
 

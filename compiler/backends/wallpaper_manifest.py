@@ -20,53 +20,60 @@ def _render_manifest(_objecten, product: ProductDefinition) -> str:
             "snapshotidentiteit"
         )
 
+    wallpaper_manifest = {
+        "id": wallpaper.id,
+        "naam": wallpaper.naam,
+        "doel": wallpaper.doel,
+        "wereld": wallpaper.wereld,
+        "merk": wallpaper.merk,
+        "formaat": wallpaper.formaat,
+        "canvas": {
+            "breedte": wallpaper.breedte,
+            "hoogte": wallpaper.hoogte,
+            "eenheid": "px",
+            "materiaalrol": wallpaper.canvas_role,
+            "kleur": wallpaper.canvas.waarde,
+        },
+        "lagen": [
+            {
+                "id": laag.id,
+                "naam": laag.naam,
+                "doel": laag.doel,
+                "rol": laag.rol,
+                "plaatsingen": [
+                    {
+                        "id": plaatsing.id,
+                        "naam": plaatsing.naam,
+                        "doel": plaatsing.doel,
+                        "asset": plaatsing.asset.id,
+                        "x": plaatsing.x,
+                        "y": plaatsing.y,
+                        "breedte": plaatsing.breedte,
+                        "hoogte": plaatsing.hoogte,
+                        "fit": plaatsing.fit,
+                        "dekking": plaatsing.dekking,
+                        "materiaalrol": plaatsing.color_role,
+                        "kleur": plaatsing.color.waarde,
+                    }
+                    for plaatsing in laag.plaatsingen
+                ],
+            }
+            for laag in wallpaper.lagen
+        ],
+    }
+    if wallpaper.familie:
+        wallpaper_manifest["familie"] = {
+            "id": wallpaper.familie,
+            "variant": wallpaper.variant,
+        }
+
     manifest = {
-        "schema_version": 2,
+        "schema_version": 3,
         "product": {
             "id": product.id,
             "snapshot": product.snapshot_ref,
         },
-        "wallpaper": {
-            "id": wallpaper.id,
-            "naam": wallpaper.naam,
-            "doel": wallpaper.doel,
-            "wereld": wallpaper.wereld,
-            "merk": wallpaper.merk,
-            "formaat": wallpaper.formaat,
-            "canvas": {
-                "breedte": wallpaper.breedte,
-                "hoogte": wallpaper.hoogte,
-                "eenheid": "px",
-                "materiaalrol": wallpaper.canvas_role,
-                "kleur": wallpaper.canvas.waarde,
-            },
-            "lagen": [
-                {
-                    "id": laag.id,
-                    "naam": laag.naam,
-                    "doel": laag.doel,
-                    "rol": laag.rol,
-                    "plaatsingen": [
-                        {
-                            "id": plaatsing.id,
-                            "naam": plaatsing.naam,
-                            "doel": plaatsing.doel,
-                            "asset": plaatsing.asset.id,
-                            "x": plaatsing.x,
-                            "y": plaatsing.y,
-                            "breedte": plaatsing.breedte,
-                            "hoogte": plaatsing.hoogte,
-                            "fit": plaatsing.fit,
-                            "dekking": plaatsing.dekking,
-                            "materiaalrol": plaatsing.color_role,
-                            "kleur": plaatsing.color.waarde,
-                        }
-                        for plaatsing in laag.plaatsingen
-                    ],
-                }
-                for laag in wallpaper.lagen
-            ],
-        },
+        "wallpaper": wallpaper_manifest,
     }
     return json.dumps(
         manifest,

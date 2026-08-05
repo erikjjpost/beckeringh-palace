@@ -227,7 +227,7 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
             "forge-ultrawide",
             product.definitie.opgeloste_wallpaper.id,
         )
-        self.assertEqual(2, manifest["schema_version"])
+        self.assertEqual(3, manifest["schema_version"])
         self.assertEqual(
             product.definitie.snapshot_ref,
             manifest["product"]["snapshot"],
@@ -250,6 +250,7 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
             "forge-node",
             manifest["wallpaper"]["lagen"][0]["plaatsingen"][0]["asset"],
         )
+        self.assertNotIn("familie", manifest["wallpaper"])
         self.assertEqual(
             {
                 "materiaalrol": "outline",

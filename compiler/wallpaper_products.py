@@ -85,6 +85,8 @@ class ResolvedWallpaper:
     doel: str
     wereld: str
     merk: str
+    familie: str
+    variant: str
     formaat: str
     breedte: int
     hoogte: int
@@ -280,6 +282,8 @@ def resolveer_wallpapers(
                 doel=_tekst(obj, "doel"),
                 wereld=wereld,
                 merk=_tekst(obj, "merk"),
+                familie=str(obj.eigenschappen.get("familie", "")),
+                variant=str(obj.eigenschappen.get("variant", "")),
                 formaat=_tekst(obj, "formaat"),
                 breedte=breedte,
                 hoogte=hoogte,
@@ -346,6 +350,8 @@ class WallpaperProductConstraint:
                 "doel",
                 "wereld",
                 "merk",
+                "familie",
+                "variant",
                 "formaat",
                 "breedte",
                 "hoogte",
