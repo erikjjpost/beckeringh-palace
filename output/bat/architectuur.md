@@ -3975,6 +3975,25 @@ Naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag per component.
 
 - **rol:** toegankelijkheid
 
+## EmberForge Figma Master
+
+**Soort:** figmamaster
+
+**Identifier:** `emberforge-figma-master`
+
+### Doel
+
+Selecteert expliciet dezelfde opgeloste ontwerpsemantiek voor een reproduceerbare Figma masterbeschrijving zonder live Figma synchronisatie.
+
+### Eigenschappen
+
+- **assets:** emberforge-vector-node, emberforge-light-disc, emberforge-palace, emberforge-beaver, emberforge-nordic-weave, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets, emberforge-merkteken, emberforge-woordmerk
+- **componenten:** forge-panel, forge-button, forge-input, forge-status, forge-app-tile, forge-stat-card, forge-terminal
+- **composities:** forge-dashboard, emberforge-homelab-dashboard, emberforge-keycloak-login, emberforge-terminal, forge-design-system-reference-composition, emberforge-svg-asset-catalog-composition, beckeringh-palace-homepage-composition
+- **layouts:** forge-dashboard-ultrawide, emberforge-homelab-dashboard-responsive, emberforge-keycloak-login-responsive, emberforge-terminal-stack, forge-design-system-reference-stack, emberforge-svg-asset-catalog-stack, beckeringh-palace-homepage-grid
+- **varianten:** forge-panel-compact, forge-panel-hero, forge-panel-route, forge-button-primary, forge-button-secondary, forge-button-ghost, forge-button-ember, forge-input-default, forge-input-error, forge-status-running, forge-status-pending, forge-status-failed, forge-status-info, forge-app-tile-default, forge-app-tile-ember, forge-stat-card-value, forge-stat-card-health, forge-stat-card-progress, forge-stat-card-progress-ember, forge-terminal-neofetch
+- **wereld:** beckeringh-palace
+
 ## Wereld en identiteit
 
 **Soort:** informatiegebied
@@ -4023,10 +4042,10 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-wallpapers, emberforge-ultrawide-wallpaper, emberforge-desktop-wallpaper, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-desktop-wallpaper-png, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-wallpapers, emberforge-ultrawide-wallpaper, emberforge-desktop-wallpaper, emberforge-figma-master, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-desktop-wallpaper-png, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html, emberforge-figma-master-manifest
 - **leesvolgorde:** 3
-- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-ultrawide-wallpaper-manifest, emberforge-desktop-wallpaper-png, emberforge-desktop-wallpaper-manifest, project-status-html, project-status-grafana
-- **soorten:** homepagegebied, compositie, componentinstantie, layout, region, wallpaperfamilie, wallpaper, wallpaperlaag, assetplaatsing, product, renderdoel
+- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-ultrawide-wallpaper-manifest, emberforge-desktop-wallpaper-png, emberforge-desktop-wallpaper-manifest, emberforge-figma-master-manifest, project-status-html, project-status-grafana
+- **soorten:** homepagegebied, compositie, componentinstantie, layout, region, wallpaperfamilie, wallpaper, wallpaperlaag, assetplaatsing, figmamaster, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
 ## Forge Dashboard
@@ -5802,6 +5821,25 @@ Rendert de zelfstandige 1900 bij 1200 EmberForge familievariant.
 - **mode:** static
 - **pad:** output/products/emberforge-desktop.png
 - **wallpaper:** emberforge-desktop-wallpaper
+- **wereld:** beckeringh-palace
+
+## EmberForge Figma Master Manifest
+
+**Soort:** product
+
+**Identifier:** `emberforge-figma-master-manifest`
+
+### Doel
+
+Publiceert het opgeloste Figma mastercontract als deterministische machineleesbare overdracht voor een latere synchronisatieadapter.
+
+### Eigenschappen
+
+- **backend:** figma-manifest
+- **figma-master:** emberforge-figma-master
+- **inhoud:** figma-master
+- **mode:** static
+- **pad:** output/products/emberforge-master.figma.json
 - **wereld:** beckeringh-palace
 
 ## CSS design tokens

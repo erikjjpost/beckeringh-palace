@@ -18,6 +18,7 @@ from compiler.information_architecture import InformationArchitectureConstraint
 from compiler.homepage_information_architecture import (
     HomepageInformationArchitectureConstraint,
 )
+from compiler.figma_master import FigmaMasterConstraint
 from compiler.product_definition_constraints import ProductDefinitionConstraint
 from compiler.render_target_constraints import RenderTargetConstraint
 from compiler.svg_asset_catalog import SvgAssetCatalogConstraint
@@ -120,6 +121,7 @@ WORLD_MODEL_CONSTRAINTS = (
     SvgAssetCatalogConstraint(),
     WallpaperProductConstraint(),
     WallpaperFamilyConstraint(),
+    FigmaMasterConstraint(),
     ThemeFoundationConstraint(),
     DesignComponentConstraint(),
     ComponentAccessibilityConstraint(),

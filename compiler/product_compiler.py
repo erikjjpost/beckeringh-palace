@@ -10,6 +10,7 @@ from compiler.backend import BackendRegistry
 from compiler.cir import Architectuurobject
 from compiler.design_compositions import ResolvedComposition, resolveer_composities
 from compiler.design_system_reference import resolveer_designsystemreferentie
+from compiler.figma_master import ResolvedFigmaMaster, resolveer_figma_masters
 from compiler.layout_model import ResolvedLayout, resolveer_layouts
 from compiler.product_model import ProductDefinition, verzamel_producten
 from compiler.project_status import ProjectStatus
@@ -48,6 +49,7 @@ def _los_productcontext_op(
     layouts: dict[str, ResolvedLayout],
     assets: dict[str, ResolvedSvgAsset],
     wallpapers: dict[str, ResolvedWallpaper],
+    figma_masters: dict[str, ResolvedFigmaMaster],
     project_status: ProjectStatus | None,
 ) -> ProductDefinition:
     thema = resolveer_thema(objecten, product.wereld) if product.wereld else None
@@ -68,6 +70,7 @@ def _los_productcontext_op(
         opgeloste_layout=layouts.get(product.layout),
         opgelost_asset=assets.get(product.asset),
         opgeloste_wallpaper=wallpapers.get(product.wallpaper),
+        opgelost_figma_master=figma_masters.get(product.figma_master),
         asset_catalog=(
             resolveer_svg_assetcatalogus(objecten, product.asset_ids)
             if product.inhoud == SVG_ASSET_CATALOG_CONTENT
@@ -113,6 +116,10 @@ def compileer_producten(
         wallpaper.id: wallpaper
         for wallpaper in resolveer_wallpapers(objecten)
     }
+    figma_masters = {
+        master.id: master
+        for master in resolveer_figma_masters(objecten)
+    }
     return tuple(
         CompiledProduct(
             definitie=opgelost,
@@ -128,6 +135,7 @@ def compileer_producten(
                 layouts,
                 assets,
                 wallpapers,
+                figma_masters,
                 project_status,
             ),
         )

@@ -1043,6 +1043,16 @@ de bestaande catalogus gepubliceerd. Beide wallpaperformaten hebben een eigen
 wereldlaag en eigen plaatsingen. De muzieklaag blijft erboven staan en de
 Circle of Fifths behoudt exact haar M11.6d geometrie.
 
+M11.7a introduceert `ResolvedFigmaMaster` als productcontext voor de eerste
+Figma verticale slice. BAT selecteert expliciet de wereld, assets, componenten,
+varianten, composities en layouts. De resolver koppelt daar hetzelfde opgeloste
+thema aan dat HTML, Grafana en wallpaperproducten al gebruiken. De
+`figma-manifest` backend schrijft vervolgens een statisch
+`output/products/emberforge-master.figma.json` met snapshotidentiteit,
+theme waarden, vectorgeometrie, component appearances en states en de native
+surface-layouts. Er wordt nog geen Figma bestand gewijzigd en de backend bevat
+geen eigen designwaarden.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -1057,6 +1067,13 @@ Circle of Fifths behoudt exact haar M11.6d geometrie.
 | `BP3513` | Assetproduct declareert compositie-, layout- of referentievelden |
 | `BP3514` | Assetproduct gebruikt geen `.svg` uitvoerpad |
 | `BP3515` | Niet-assetproduct gebruikt een asset of SVG backend |
+| `BP3516` | Figma product verwijst naar een onbekende of ontbrekende Figma master |
+| `BP3517` | Figma product gebruikt niet de `figma-manifest` backend |
+| `BP3518` | Figma product declareert inhoud buiten de expliciete masterreferentie |
+| `BP3519` | Figma product is niet statisch |
+| `BP3520` | Figma product gebruikt geen `.figma.json` uitvoerpad |
+| `BP3521` | Figma product en Figma master gebruiken niet dezelfde wereld |
+| `BP3522` | Een ander producttype probeert de Figma master of backend te gebruiken |
 | `BP3601` | Onbekend layouttype |
 | `BP3602` | Eigenschap past niet bij het layouttype |
 | `BP3603` | `regions` is niet expliciet, uniek of geldig |
@@ -1078,6 +1095,15 @@ Circle of Fifths behoudt exact haar M11.6d geometrie.
 | `BP3630` | Art direction verwijst naar een onbekende semantische kleurrol |
 | `BP3631` | Art direction begrenst warme accenten niet op één of twee |
 | `BP3632` | Art direction gebruikt een onbekende visuele modus |
+| `BP4401` | Figma master bevat een onbekend veld |
+| `BP4402` | Figma master verwijst naar een onbekende wereld |
+| `BP4403` | Figma master mist een expliciete niet-lege referentielijst |
+| `BP4404` | Figma master bevat een dubbele referentie |
+| `BP4405` | Figma master bevat een onbekende objectreferentie |
+| `BP4406` | Figma master selecteert een variant zonder diens component |
+| `BP4407` | Figma mastercompositie gebruikt een component buiten de selectie |
+| `BP4408` | Figma masterlayout gebruikt een instantie buiten de geselecteerde composities |
+| `BP4409` | Figma mastercompositie gebruikt een variant buiten de selectie |
 | `BP3640` | Typografie gebruikt geen expliciete `local-only` levering |
 | `BP3641` | Typografierol bevat geen geldige unieke fontstack |
 | `BP3642` | Typografierol bevat een externe fontbron |

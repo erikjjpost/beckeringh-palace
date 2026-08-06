@@ -67,6 +67,7 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "emberforge-keycloak-login-html",
                 "emberforge-terminal-html",
                 "emberforge-svg-asset-catalog-html",
+                "emberforge-figma-master-manifest",
                 "emberforge-vector-node-svg",
                 "emberforge-light-disc-svg",
                 "emberforge-palace-svg",
