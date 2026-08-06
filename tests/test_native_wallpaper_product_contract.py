@@ -397,6 +397,26 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
                 BRON.replace('    kleur: "outline"', '    kleur: "missing"')
             ),
         )
+        self.assertIn(
+            "BP4387",
+            self._diagnostic_codes(
+                BRON.replace(
+                    '    kleur: "outline"',
+                    '    kleur: "outline"\n    effect: "magic-glow"',
+                    1,
+                )
+            ),
+        )
+        self.assertIn(
+            "BP4388",
+            self._diagnostic_codes(
+                BRON.replace(
+                    '    kleur: "outline"',
+                    '    kleur: "outline"\n    effect: "radial-glow"',
+                    1,
+                )
+            ),
+        )
 
     def test_weigert_impliciet_of_inconsistent_productcontract(self) -> None:
         self.assertIn(
@@ -496,11 +516,15 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
         self.assertEqual((3840, 1080), (wallpaper.breedte, wallpaper.hoogte))
         self.assertEqual("#0F1724", wallpaper.canvas.waarde)
         self.assertEqual(
-            ("ornament", "illustratie", "merk"),
+            ("ornament", "ornament", "illustratie", "merk"),
             tuple(laag.rol for laag in wallpaper.lagen),
         )
         self.assertEqual(
             (
+                "emberforge-ultrawide-cool-light-outer",
+                "emberforge-ultrawide-cool-light-inner",
+                "emberforge-ultrawide-warm-light-outer",
+                "emberforge-ultrawide-warm-light-inner",
                 "emberforge-vector-node-left",
                 "emberforge-vector-node-right",
                 "emberforge-wallpaper-circle-of-fifths",

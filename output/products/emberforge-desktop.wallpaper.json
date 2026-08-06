@@ -1,7 +1,7 @@
 {
   "product": {
     "id": "emberforge-desktop-wallpaper-manifest",
-    "snapshot": "sha256:2584c2e3202d77291204f3255095f4d4f2114c3c18b027ca8b0deec49fc56269"
+    "snapshot": "sha256:115f041bb272d6ea834f9b637fa61fbe32047d9b27d3ae4e7462475394261db2"
   },
   "schema_version": 3,
   "wallpaper": {
@@ -21,6 +21,74 @@
     "id": "emberforge-desktop-wallpaper",
     "lagen": [
       {
+        "doel": "Componeert eigen koelblauw hoofdlicht en twee begrensde warme accenten voor het desktopcanvas.",
+        "id": "emberforge-desktop-lichtlaag",
+        "naam": "EmberForge Desktop Lichtlaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 1200,
+            "dekking": 0.06,
+            "doel": "Legt een brede koelblauwe lichtbasis achter de zelfstandig geplaatste desktopcirkel.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 1200,
+            "id": "emberforge-desktop-cool-light-outer",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Koel Licht Buiten",
+            "x": 350,
+            "y": 0
+          },
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 1000,
+            "dekking": 0.09,
+            "doel": "Verdicht het koele licht binnen de desktopcompositie zonder automatische schaling.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 1000,
+            "id": "emberforge-desktop-cool-light-inner",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Koel Licht Binnen",
+            "x": 450,
+            "y": 100
+          },
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 650,
+            "dekking": 0.08,
+            "doel": "Plaatst het eerste begrensde emberaccent laag in de desktopcompositie.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 500,
+            "id": "emberforge-desktop-warm-light-outer",
+            "kleur": "#C9895B",
+            "materiaalrol": "accent",
+            "naam": "EmberForge Desktop Warm Licht Buiten",
+            "x": 625,
+            "y": 680
+          },
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 360,
+            "dekking": 0.14,
+            "doel": "Concentreert het tweede en laatste emberaccent rond het desktopmerkteken.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 340,
+            "id": "emberforge-desktop-warm-light-inner",
+            "kleur": "#C9895B",
+            "materiaalrol": "accent",
+            "naam": "EmberForge Desktop Warm Licht Binnen",
+            "x": 770,
+            "y": 790
+          }
+        ],
+        "rol": "ornament"
+      },
+      {
         "doel": "Ordent twee rustige technische lijnornamenten voor het 1900 bij 1200 canvas.",
         "id": "emberforge-desktop-ornamentlaag",
         "naam": "EmberForge Desktop Ornamentlaag",
@@ -30,6 +98,7 @@
             "breedte": 560,
             "dekking": 0.08,
             "doel": "Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 560,
             "id": "emberforge-desktop-vector-node-left",
@@ -44,6 +113,7 @@
             "breedte": 560,
             "dekking": 0.08,
             "doel": "Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 560,
             "id": "emberforge-desktop-vector-node-right",
@@ -66,6 +136,7 @@
             "breedte": 1200,
             "dekking": 1.0,
             "doel": "Plaatst de volledige functionele muziekcirkel op het 1900 bij 1200 canvas.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 1100,
             "id": "emberforge-desktop-circle-of-fifths",
@@ -88,6 +159,7 @@
             "breedte": 240,
             "dekking": 1.0,
             "doel": "Plaatst het merkteken centraal binnen het desktopcanvas.",
+            "effect": "solid",
             "fit": "contain",
             "hoogte": 240,
             "id": "emberforge-desktop-merkteken",

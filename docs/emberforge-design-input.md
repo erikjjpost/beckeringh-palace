@@ -256,6 +256,8 @@ Dat vlak is geen onderdeel van de art direction en geldt als afkeurcriterium.
 De beeldvariant is niet normatief. M11.6d modelleert de muziekinformatie en
 geometrie expliciet in BAT. De canonieke kwintencirkel staat nu op beide
 wallpaperformaten, met C op twaalf uur en de kwinten met de klok mee. Het
-onverklaarde vlak links komt niet voor. De volgende visuele slice verfijnt de
-koelblauwe en begrensd warme lichtwerking zonder de functionele informatielaag
-te wijzigen.
+onverklaarde vlak links komt niet voor. M11.6e realiseert de koelblauwe en
+begrensd warme lichtwerking met een native lichtschijf en expliciete
+`radial-glow` plaatsingen. Ieder formaat heeft eigen geometrie, koelblauw blijft
+het hoofdlicht en per wallpaper zijn exact twee warme accenten toegestaan. De
+muziekinformatie en haar vectorgeometrie veranderen niet.

@@ -321,6 +321,7 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
         self.assertEqual(
             (
                 "emberforge-vector-node",
+                "emberforge-light-disc",
                 "emberforge-icon-dashboard",
                 "emberforge-icon-identity",
                 "emberforge-icon-terminal",
@@ -340,6 +341,7 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
             catalog.inhoud,
         )
         for asset_id in (
+            "emberforge-light-disc",
             "emberforge-icon-dashboard",
             "emberforge-icon-identity",
             "emberforge-icon-terminal",

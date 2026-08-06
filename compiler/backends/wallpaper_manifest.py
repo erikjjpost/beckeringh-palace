@@ -54,6 +54,7 @@ def _render_manifest(_objecten, product: ProductDefinition) -> str:
                         "dekking": plaatsing.dekking,
                         "materiaalrol": plaatsing.color_role,
                         "kleur": plaatsing.color.waarde,
+                        "effect": plaatsing.effect,
                     }
                     for plaatsing in laag.plaatsingen
                 ],

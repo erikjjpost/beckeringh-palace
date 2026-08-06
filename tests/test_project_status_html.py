@@ -68,6 +68,7 @@ class ProjectStatusHtmlTests(unittest.TestCase):
                 "emberforge-terminal-html",
                 "emberforge-svg-asset-catalog-html",
                 "emberforge-vector-node-svg",
+                "emberforge-light-disc-svg",
                 "emberforge-icon-dashboard-svg",
                 "emberforge-icon-identity-svg",
                 "emberforge-icon-terminal-svg",

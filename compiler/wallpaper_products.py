@@ -34,6 +34,7 @@ WALLPAPER_LAAGROLLEN = frozenset({
     "voorgrond",
 })
 WALLPAPER_FIT_MODES = frozenset({"contain", "cover", "stretch"})
+WALLPAPER_EFFECTS = frozenset({"solid", "radial-glow"})
 WALLPAPER_LAAG_ASSETROLLEN = {
     "ornament": frozenset({"ornament"}),
     "illustratie": frozenset({"illustratie"}),
@@ -63,6 +64,7 @@ class ResolvedWallpaperAssetPlacement:
     dekking: float
     color_role: str
     color: ResolvedColor
+    effect: str
 
 
 @dataclass(frozen=True)
@@ -261,6 +263,7 @@ def resolveer_wallpapers(
                         dekking=dekking,
                         color_role=color_role,
                         color=color,
+                        effect=plaatsing.eigenschappen.get("effect", "solid"),
                     )
                 )
             opgeloste_lagen.append(
@@ -643,6 +646,7 @@ class WallpaperProductConstraint:
                 "fit",
                 "dekking",
                 "kleur",
+                "effect",
             }
             for veld in plaatsing.eigenschappen:
                 if veld not in toegestane_velden:
@@ -794,6 +798,37 @@ class WallpaperProductConstraint:
                     ),
                     locatie=plaatsing.eigenschaplocaties.get(
                         "kleur", plaatsing.bronlocatie
+                    ),
+                ))
+
+            effect = plaatsing.eigenschappen.get("effect", "solid")
+            if effect not in WALLPAPER_EFFECTS:
+                diagnostics.append(Diagnostic(
+                    code="BP4387",
+                    boodschap=(
+                        f"Assetplaatsing '{plaatsing.id}' heeft onbekend "
+                        f"beeldeffect '{effect}'"
+                    ),
+                    locatie=plaatsing.eigenschaplocaties.get(
+                        "effect", plaatsing.bronlocatie
+                    ),
+                ))
+            elif (
+                effect == "radial-glow"
+                and asset is not None
+                and (
+                    asset.eigenschappen.get("vulling") == "none"
+                    or asset.eigenschappen.get("lijn") != "none"
+                )
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP4388",
+                    boodschap=(
+                        f"Assetplaatsing '{plaatsing.id}' vereist voor "
+                        "radial-glow een gevuld asset zonder lijn"
+                    ),
+                    locatie=plaatsing.eigenschaplocaties.get(
+                        "effect", plaatsing.bronlocatie
                     ),
                 ))
 

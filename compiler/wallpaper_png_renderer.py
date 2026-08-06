@@ -78,7 +78,7 @@ class _Mask:
     def mark(self, x: int, y: int) -> None:
         left, top, right, bottom = self.bounds
         if left <= x < right and top <= y < bottom:
-            self.pixels[(y - top) * self.width + x - left] = 1
+            self.pixels[(y - top) * self.width + x - left] = 255
 
 
 @dataclass
@@ -108,18 +108,41 @@ class _Raster:
             mask_row = local_y * mask_width
             target_row = ((top + local_y) * self.width + left) * 3
             for local_x in range(mask_width):
-                if not mask.pixels[mask_row + local_x]:
+                mask_alpha = mask.pixels[mask_row + local_x]
+                if not mask_alpha:
                     continue
+                pixel_alpha = (alpha * mask_alpha + 127) // 255
                 offset = target_row + local_x * 3
                 self.pixels[offset] = _blend(
-                    source_r, self.pixels[offset], alpha
+                    source_r, self.pixels[offset], pixel_alpha
                 )
                 self.pixels[offset + 1] = _blend(
-                    source_g, self.pixels[offset + 1], alpha
+                    source_g, self.pixels[offset + 1], pixel_alpha
                 )
                 self.pixels[offset + 2] = _blend(
-                    source_b, self.pixels[offset + 2], alpha
+                    source_b, self.pixels[offset + 2], pixel_alpha
                 )
+
+
+def _apply_radial_falloff(mask: _Mask) -> None:
+    """Maak een gevuld plaatsingsmasker zacht vanuit het centrum naar de rand."""
+
+    left, top, right, bottom = mask.bounds
+    center_x = (left + right) / 2
+    center_y = (top + bottom) / 2
+    radius_x = max(1.0, (right - left) / 2)
+    radius_y = max(1.0, (bottom - top) / 2)
+    for y in range(top, bottom):
+        row = (y - top) * mask.width
+        normalized_y = (y + 0.5 - center_y) / radius_y
+        for x in range(left, right):
+            offset = row + x - left
+            if not mask.pixels[offset]:
+                continue
+            normalized_x = (x + 0.5 - center_x) / radius_x
+            distance = math.sqrt(normalized_x ** 2 + normalized_y ** 2)
+            strength = max(0.0, 1.0 - distance)
+            mask.pixels[offset] = int(strength * strength * 255 + 0.5)
 
 
 def _blend(source: int, target: int, alpha: int) -> int:
@@ -851,6 +874,8 @@ def _render_placement(
         fill_mask = _Mask.create(transform.clip)
         for path in paths:
             _fill_subpaths(fill_mask, path)
+        if placement.effect == "radial-glow":
+            _apply_radial_falloff(fill_mask)
         raster.composite(
             fill_mask,
             _paint(asset.vulling, placement),
@@ -858,6 +883,10 @@ def _render_placement(
         )
 
     if asset.lijn != "none":
+        if placement.effect != "solid":
+            raise ValueError(
+                f"Beeldeffect '{placement.effect}' vereist een gevuld asset"
+            )
         if (
             asset.lijndikte is None
             or asset.lijneinde is None

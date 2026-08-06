@@ -342,6 +342,18 @@ asset emberforge-vector-node {
     toegankelijkheid: "decoratief"
 }
 
+asset emberforge-light-disc {
+    naam: "EmberForge Lichtschijf"
+    doel: "Levert een neutrale gevulde vectorvorm voor expliciet gecomponeerde wallpaperlichtvelden."
+    formaat: "svg"
+    rol: "ornament"
+    viewbox: "0 0 1000 1000"
+    paden: ["M500 20 A480 480 0 1 0 500 980 A480 480 0 1 0 500 20 Z"]
+    vulling: "currentColor"
+    lijn: "none"
+    toegankelijkheid: "decoratief"
+}
+
 asset emberforge-icon-dashboard {
     naam: "EmberForge Dashboard Icon"
     doel: "Herkenbaar lijnicoon voor het EmberForge dashboardproduct."
@@ -476,7 +488,15 @@ wallpaper emberforge-ultrawide-wallpaper {
     breedte: "3840"
     hoogte: "1080"
     canvas: "canvas"
-    lagen: ["emberforge-wallpaper-ornamentlaag", "emberforge-wallpaper-muzieklaag", "emberforge-wallpaper-merklaag"]
+    lagen: ["emberforge-wallpaper-lichtlaag", "emberforge-wallpaper-ornamentlaag", "emberforge-wallpaper-muzieklaag", "emberforge-wallpaper-merklaag"]
+}
+
+wallpaperlaag emberforge-wallpaper-lichtlaag {
+    naam: "EmberForge Wallpaper Lichtlaag"
+    doel: "Componeert koelblauw hoofdlicht en maximaal twee begrensde warme accenten achter de muziekinformatie."
+    wallpaper: "emberforge-ultrawide-wallpaper"
+    rol: "ornament"
+    plaatsingen: ["emberforge-ultrawide-cool-light-outer", "emberforge-ultrawide-cool-light-inner", "emberforge-ultrawide-warm-light-outer", "emberforge-ultrawide-warm-light-inner"]
 }
 
 wallpaperlaag emberforge-wallpaper-muzieklaag {
@@ -515,6 +535,66 @@ assetplaatsing emberforge-vector-node-left {
     fit: "contain"
     dekking: "0.14"
     kleur: "interaction"
+}
+
+assetplaatsing emberforge-ultrawide-cool-light-outer {
+    naam: "EmberForge Ultrawide Koel Licht Buiten"
+    doel: "Legt een brede, zachte koelblauwe lichtbasis achter de functionele muziekcirkel."
+    laag: "emberforge-wallpaper-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "1260"
+    y: "0"
+    breedte: "1320"
+    hoogte: "1080"
+    fit: "contain"
+    dekking: "0.06"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-ultrawide-cool-light-inner {
+    naam: "EmberForge Ultrawide Koel Licht Binnen"
+    doel: "Verdicht het koelblauwe licht rond de informatieringen zonder hun contrast te verminderen."
+    laag: "emberforge-wallpaper-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "1410"
+    y: "30"
+    breedte: "1020"
+    hoogte: "1020"
+    fit: "contain"
+    dekking: "0.09"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-ultrawide-warm-light-outer {
+    naam: "EmberForge Ultrawide Warm Licht Buiten"
+    doel: "Plaatst het eerste begrensde emberaccent onder de Circle of Fifths."
+    laag: "emberforge-wallpaper-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "1560"
+    y: "590"
+    breedte: "720"
+    hoogte: "480"
+    fit: "contain"
+    dekking: "0.08"
+    kleur: "accent"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-ultrawide-warm-light-inner {
+    naam: "EmberForge Ultrawide Warm Licht Binnen"
+    doel: "Concentreert het tweede en laatste emberaccent rond het centrale merkteken."
+    laag: "emberforge-wallpaper-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "1710"
+    y: "690"
+    breedte: "420"
+    hoogte: "360"
+    fit: "contain"
+    dekking: "0.14"
+    kleur: "accent"
+    effect: "radial-glow"
 }
 
 assetplaatsing emberforge-vector-node-right {
@@ -570,7 +650,15 @@ wallpaper emberforge-desktop-wallpaper {
     breedte: "1900"
     hoogte: "1200"
     canvas: "canvas"
-    lagen: ["emberforge-desktop-ornamentlaag", "emberforge-desktop-muzieklaag", "emberforge-desktop-merklaag"]
+    lagen: ["emberforge-desktop-lichtlaag", "emberforge-desktop-ornamentlaag", "emberforge-desktop-muzieklaag", "emberforge-desktop-merklaag"]
+}
+
+wallpaperlaag emberforge-desktop-lichtlaag {
+    naam: "EmberForge Desktop Lichtlaag"
+    doel: "Componeert eigen koelblauw hoofdlicht en twee begrensde warme accenten voor het desktopcanvas."
+    wallpaper: "emberforge-desktop-wallpaper"
+    rol: "ornament"
+    plaatsingen: ["emberforge-desktop-cool-light-outer", "emberforge-desktop-cool-light-inner", "emberforge-desktop-warm-light-outer", "emberforge-desktop-warm-light-inner"]
 }
 
 wallpaperlaag emberforge-desktop-muzieklaag {
@@ -609,6 +697,66 @@ assetplaatsing emberforge-desktop-vector-node-left {
     fit: "contain"
     dekking: "0.08"
     kleur: "interaction"
+}
+
+assetplaatsing emberforge-desktop-cool-light-outer {
+    naam: "EmberForge Desktop Koel Licht Buiten"
+    doel: "Legt een brede koelblauwe lichtbasis achter de zelfstandig geplaatste desktopcirkel."
+    laag: "emberforge-desktop-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "350"
+    y: "0"
+    breedte: "1200"
+    hoogte: "1200"
+    fit: "contain"
+    dekking: "0.06"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-desktop-cool-light-inner {
+    naam: "EmberForge Desktop Koel Licht Binnen"
+    doel: "Verdicht het koele licht binnen de desktopcompositie zonder automatische schaling."
+    laag: "emberforge-desktop-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "450"
+    y: "100"
+    breedte: "1000"
+    hoogte: "1000"
+    fit: "contain"
+    dekking: "0.09"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-desktop-warm-light-outer {
+    naam: "EmberForge Desktop Warm Licht Buiten"
+    doel: "Plaatst het eerste begrensde emberaccent laag in de desktopcompositie."
+    laag: "emberforge-desktop-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "625"
+    y: "680"
+    breedte: "650"
+    hoogte: "500"
+    fit: "contain"
+    dekking: "0.08"
+    kleur: "accent"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-desktop-warm-light-inner {
+    naam: "EmberForge Desktop Warm Licht Binnen"
+    doel: "Concentreert het tweede en laatste emberaccent rond het desktopmerkteken."
+    laag: "emberforge-desktop-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "770"
+    y: "790"
+    breedte: "360"
+    hoogte: "340"
+    fit: "contain"
+    dekking: "0.14"
+    kleur: "accent"
+    effect: "radial-glow"
 }
 
 assetplaatsing emberforge-desktop-vector-node-right {
@@ -2646,7 +2794,7 @@ product emberforge-svg-asset-catalog-html {
     wereld: "beckeringh-palace"
     compositie: "emberforge-svg-asset-catalog-composition"
     layout: "emberforge-svg-asset-catalog-stack"
-    assets: ["emberforge-vector-node", "emberforge-icon-dashboard", "emberforge-icon-identity", "emberforge-icon-terminal", "emberforge-icon-assets", "emberforge-merkteken", "emberforge-woordmerk"]
+    assets: ["emberforge-vector-node", "emberforge-light-disc", "emberforge-icon-dashboard", "emberforge-icon-identity", "emberforge-icon-terminal", "emberforge-icon-assets", "emberforge-merkteken", "emberforge-woordmerk"]
     pad: "output/products/assets.html"
 }
 
@@ -2904,6 +3052,17 @@ product emberforge-vector-node-svg {
     inhoud: "asset"
     asset: "emberforge-vector-node"
     pad: "output/products/emberforge-vector-node.svg"
+}
+
+product emberforge-light-disc-svg {
+    naam: "EmberForge Lichtschijf SVG"
+    doel: "Genereert de neutrale native lichtschijf als veilig en herbruikbaar SVG product."
+    backend: "svg"
+    mode: "static"
+    wereld: "beckeringh-palace"
+    inhoud: "asset"
+    asset: "emberforge-light-disc"
+    pad: "output/products/emberforge-light-disc.svg"
 }
 
 product emberforge-icon-dashboard-svg {
