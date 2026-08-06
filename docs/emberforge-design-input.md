@@ -268,3 +268,11 @@ muzieklaag gecomponeerd. De generieke technische zijornamenten verdwijnen uit
 de wallpapers en blijven wel beschikbaar in de assetcatalogus. Omdat de drie
 nieuwe wereldassets geen vulling hebben, kunnen zij het eerder afgekeurde
 gevulde vlak niet introduceren.
+
+M11.7a trekt dezelfde ontwerpbron door naar Figma zonder een tweede designbron
+te introduceren. `emberforge-figma-master` selecteert expliciet de native
+assets, componenten, varianten, composities en layouts. Het gegenereerde
+`emberforge-master.figma.json` bevat de opgeloste theme waarden en veilige
+vectorgeometrie met dezelfde BAT snapshotidentiteit. Een volgende adapter mag
+alleen dit contract naar Figma synchroniseren en geen kleuren, componentstates
+of layoutkeuzes aanvullen.

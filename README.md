@@ -24,6 +24,9 @@ De repository bevat nu:
   zelfstandige 3840 bij 1080 en
   1900 bij 1200 varianten die rechtstreeks uit BAT, het opgeloste thema en
   dezelfde SVG assets als de catalogus worden gerenderd;
+- een native EmberForge Figma mastercontract dat dezelfde opgeloste theme
+  waarden, assets, componentvarianten, composities en layouts als een statisch
+  machineleesbaar manifest publiceert;
 - statische snapshotidentiteit voor verificatie en rollback;
 - generatie van Markdown, Mermaid, CSS, HTML en importeerbare Grafana JSON;
 - reproduceerbaarheidscontrole in lokale tooling en CI.

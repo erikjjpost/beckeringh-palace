@@ -106,6 +106,14 @@ componeren ze in zelfstandige lagen voor ornamenten en illustraties onder de
 muziekcirkel. De eerdere technische vectornode blijft beschikbaar in de
 assetcatalogus en is geen onderdeel meer van de wallpapercompositie.
 
+M11.7a voegt `figmamaster` toe omdat een Figma master een concrete productsurface
+is die expliciet moet selecteren welke bestaande ontwerpsemantiek wordt
+gesynchroniseerd. Het object bezit geen Figma node-id's, pluginvelden of
+rendererlogica. Het verwijst uitsluitend naar één wereld en expliciete native
+assets, componenten, varianten, composities en layouts. De
+`figma-manifest` backend publiceert die opgeloste selectie als statisch JSON
+contract. Live synchronisatie naar Figma valt buiten deze milestone.
+
 ## Niet native
 
 Concepten zoals `capability`, `dienst` en `agent` blijven tijdelijk beschikbaar als migratieconcepten. Zij mogen de kern van het World Model niet uitbreiden en worden niet als precedent gebruikt voor nieuwe enterprise-architectuursemantiek.

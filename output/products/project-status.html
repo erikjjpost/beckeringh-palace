@@ -229,9 +229,9 @@
     .bp-region { box-sizing: border-box; }
   </style>
 </head>
-<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-product-content="project-status" data-time-context="none" data-snapshot-id="d12d3ef7eb3c16ec82c8db1225f4461d9cb38054e814a17a1b582dd4ace72728" data-snapshot-ref="sha256:d12d3ef7eb3c16ec82c8db1225f4461d9cb38054e814a17a1b582dd4ace72728">
+<body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="static" data-product-content="project-status" data-time-context="none" data-snapshot-id="36f4de68f0a4a759082fc304d061603b90c6f3be6d68e18a30a10bb3f0365b01" data-snapshot-ref="sha256:36f4de68f0a4a759082fc304d061603b90c6f3be6d68e18a30a10bb3f0365b01">
   <header class="bp-product-header">
-    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d12d3ef7eb3c</p>
+    <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 36f4de68f0a4</p>
     <h1>Beckeringh Palace Projectstatus</h1>
     <p class="bp-product-purpose">De normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.</p>
   </header>
@@ -239,24 +239,24 @@
     <section class="bp-status-summary">
       <div class="bp-status-overall">
         <span class="bp-status-label">Totale voortgang</span>
-        <strong>81%</strong>
+        <strong>84%</strong>
         <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
       </div>
       <div class="bp-status-milestones">
         <article class="bp-status-card">
           <span class="bp-status-label">Laatst voltooid</span>
-          <h2>M11.6e — Native wallpaper art direction</h2>
-          <p>PR #95</p>
+          <h2>M11.6f — Native wallpaper wereldsymboliek</h2>
+          <p>PR #96</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Actueel</span>
-          <h2>M11.6f — Native wallpaper wereldsymboliek</h2>
+          <h2>M11.7a — Native Figma productcontract</h2>
           <p>in uitvoering</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Volgende stap</span>
-          <h2>M11.7a — Native Figma productcontract</h2>
-          <p>Een reproduceerbare Figma masterbeschrijving uit dezelfde thema-, asset-, component- en layoutsemantiek definiëren voordat synchronisatie naar Figma wordt toegevoegd.</p>
+          <h2>M11.7b — Native Figma synchronisatieadapter</h2>
+          <p>Het gegenereerde Figma mastermanifest idempotent naar een Figma masterbestand synchroniseren zonder BAT semantiek of designwaarden in de adapter te dupliceren.</p>
         </article>
       </div>
     </section>
@@ -265,7 +265,7 @@
         <h3>Compiler en reproduceerbaarheid</h3>
         <progress class="bp-status-progress" max="100" value="98">98%</progress>
         <p><strong>98%</strong></p>
-        <p>Validatie, deterministische generatie, CI en 282 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en dezelfde standaardbibliotheekrenderer verwerkt meerdere expliciete wallpaperformaten, zachte radiale lichteffecten en veilige native lijnsymboliek.</p>
+        <p>Validatie, deterministische generatie, CI en 286 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en publiceren nu ook een statisch Figma mastermanifest uit dezelfde opgeloste BAT semantiek.</p>
         <p class="bp-status-label">Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog.</p>
       </article>
       <article class="bp-status-card" data-status-area="world-model">
@@ -319,10 +319,10 @@
       </article>
       <article class="bp-status-card" data-status-area="figma">
         <h3>Figma masterbestand</h3>
-        <progress class="bp-status-progress" max="100" value="10">10%</progress>
-        <p><strong>10%</strong></p>
-        <p>Figma is onderdeel van de doelarchitectuur.</p>
-        <p class="bp-status-label">Het masterbestand en de reproduceerbare synchronisatie zijn nog niet gerealiseerd.</p>
+        <progress class="bp-status-progress" max="100" value="40">40%</progress>
+        <p><strong>40%</strong></p>
+        <p>BAT selecteert expliciet de 11 assets, 7 componenten, 20 varianten en 7 bestaande compositie- en layoutoppervlakken voor EmberForge en genereert daaruit een snapshotgebonden machineleesbaar Figma mastermanifest met opgeloste theme waarden.</p>
+        <p class="bp-status-label">De idempotente synchronisatieadapter en het daadwerkelijke Figma masterbestand moeten nog worden gerealiseerd.</p>
       </article>
       <article class="bp-status-card" data-status-area="world-bible">
         <h3>World Bible</h3>

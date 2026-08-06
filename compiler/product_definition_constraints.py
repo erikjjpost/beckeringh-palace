@@ -7,6 +7,11 @@ from pathlib import PurePosixPath
 from compiler.backend_discovery import backend_namen
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
+from compiler.figma_master import (
+    FIGMA_MASTER_BACKEND,
+    FIGMA_MASTER_CONTENT,
+    FIGMA_MASTER_SUFFIX,
+)
 from compiler.wallpaper_products import WALLPAPER_CONTENT
 
 
@@ -31,6 +36,11 @@ class ProductDefinitionConstraint:
             for obj in context.objecten
             if obj.soort == "asset"
         }
+        figma_masters = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "figmamaster"
+        }
         regions = {
             obj.id: obj
             for obj in context.objecten
@@ -53,6 +63,7 @@ class ProductDefinitionConstraint:
             "asset",
             "assets",
             "wallpaper",
+            "figma-master",
         }
         for obj in context.objecten:
             if obj.soort != "product":
@@ -104,6 +115,63 @@ class ProductDefinitionConstraint:
                         boodschap=(
                             f"Assetproduct '{obj.id}' mag geen compositie, "
                             "layout of referentiesecties declareren"
+                        ),
+                        locatie=obj.bronlocatie,
+                    ))
+            elif inhoud == FIGMA_MASTER_CONTENT:
+                figma_master = obj.eigenschappen.get("figma-master")
+                if figma_master not in figma_masters:
+                    diagnostics.append(Diagnostic(
+                        code="BP3516",
+                        boodschap=(
+                            f"Figma product '{obj.id}' verwijst naar onbekende "
+                            f"of ontbrekende Figma master '{figma_master}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "figma-master", obj.bronlocatie
+                        ),
+                    ))
+                elif (
+                    obj.eigenschappen.get("wereld")
+                    != figma_masters[figma_master].eigenschappen.get("wereld")
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3521",
+                        boodschap=(
+                            f"Figma product '{obj.id}' en master "
+                            f"'{figma_master}' moeten dezelfde wereld gebruiken"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "wereld", obj.bronlocatie
+                        ),
+                    ))
+                if backend != FIGMA_MASTER_BACKEND:
+                    diagnostics.append(Diagnostic(
+                        code="BP3517",
+                        boodschap=(
+                            f"Figma product '{obj.id}' vereist backend "
+                            f"'{FIGMA_MASTER_BACKEND}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "backend", obj.bronlocatie
+                        ),
+                    ))
+                if any(
+                    veld in obj.eigenschappen
+                    for veld in (
+                        "compositie",
+                        "layout",
+                        "asset",
+                        "assets",
+                        "wallpaper",
+                        "referentiesecties",
+                    )
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3518",
+                        boodschap=(
+                            f"Figma product '{obj.id}' gebruikt uitsluitend "
+                            "de expliciete figma-masterreferentie voor inhoud"
                         ),
                         locatie=obj.bronlocatie,
                     ))
@@ -214,6 +282,29 @@ class ProductDefinitionConstraint:
                         "mode", obj.bronlocatie
                     ),
                 ))
+            if inhoud == FIGMA_MASTER_CONTENT and mode != "static":
+                diagnostics.append(Diagnostic(
+                    code="BP3519",
+                    boodschap=f"Figma product '{obj.id}' vereist modus 'static'",
+                    locatie=obj.eigenschaplocaties.get("mode", obj.bronlocatie),
+                ))
+            if (
+                inhoud != FIGMA_MASTER_CONTENT
+                and (
+                    "figma-master" in obj.eigenschappen
+                    or backend == FIGMA_MASTER_BACKEND
+                )
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP3522",
+                    boodschap=(
+                        f"Product '{obj.id}' mag een Figma master en backend "
+                        "alleen met expliciete inhoud 'figma-master' gebruiken"
+                    ),
+                    locatie=obj.eigenschaplocaties.get(
+                        "figma-master", obj.bronlocatie
+                    ),
+                ))
             if (
                 inhoud == "asset"
                 and isinstance(pad, str)
@@ -228,6 +319,19 @@ class ProductDefinitionConstraint:
                         "pad", obj.bronlocatie
                     ),
                 ))
+            if (
+                inhoud == FIGMA_MASTER_CONTENT
+                and isinstance(pad, str)
+                and not pad.lower().endswith(FIGMA_MASTER_SUFFIX)
+            ):
+                diagnostics.append(Diagnostic(
+                    code="BP3520",
+                    boodschap=(
+                        f"Figma product '{obj.id}' vereist een "
+                        f"{FIGMA_MASTER_SUFFIX} uitvoerpad"
+                    ),
+                    locatie=obj.eigenschaplocaties.get("pad", obj.bronlocatie),
+                ))
             if inhoud not in {
                 "composition",
                 "project-status",
@@ -235,6 +339,7 @@ class ProductDefinitionConstraint:
                 "asset",
                 "asset-catalog",
                 WALLPAPER_CONTENT,
+                FIGMA_MASTER_CONTENT,
             }:
                 diagnostics.append(Diagnostic(
                     code="BP3509",

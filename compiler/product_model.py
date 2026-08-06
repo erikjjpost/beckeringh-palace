@@ -7,6 +7,7 @@ from typing import Iterable
 from compiler.cir import Architectuurobject
 from compiler.design_compositions import ResolvedComposition
 from compiler.design_system_reference import ResolvedDesignSystemReference
+from compiler.figma_master import ResolvedFigmaMaster
 from compiler.layout_model import ResolvedLayout
 from compiler.project_status import ProjectStatus
 from compiler.svg_asset_catalog import ResolvedSvgAssetCatalog
@@ -46,6 +47,8 @@ class ProductDefinition:
     asset_catalog: ResolvedSvgAssetCatalog | None = None
     wallpaper: str = ""
     opgeloste_wallpaper: ResolvedWallpaper | None = None
+    figma_master: str = ""
+    opgelost_figma_master: ResolvedFigmaMaster | None = None
 
 
 def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
@@ -77,6 +80,7 @@ def product_uit_object(obj: Architectuurobject) -> ProductDefinition | None:
             else ()
         ),
         wallpaper=str(obj.eigenschappen.get("wallpaper", "")),
+        figma_master=str(obj.eigenschappen.get("figma-master", "")),
     )
 
 

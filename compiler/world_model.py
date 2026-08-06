@@ -51,6 +51,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("wallpaper", Domeinstatus.NATIVE, "Bundelt canvas, formaat en geordende lagen tot één wallpaperintentie."),
     ObjectsoortDefinitie("wallpaperlaag", Domeinstatus.NATIVE, "Ordent semantisch samenhangende assetplaatsingen binnen een wallpaper."),
     ObjectsoortDefinitie("assetplaatsing", Domeinstatus.NATIVE, "Plaatst één native asset expliciet binnen een wallpapercanvas."),
+    ObjectsoortDefinitie("figmamaster", Domeinstatus.NATIVE, "Selecteert expliciet thema-, asset-, component-, compositie- en layoutsemantiek voor een reproduceerbare Figma masterbeschrijving."),
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
     ObjectsoortDefinitie("toegankelijkheid", Domeinstatus.NATIVE, "Legt naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag van een component vast."),
     ObjectsoortDefinitie("componentvoorbeeld", Domeinstatus.NATIVE, "Legt productgedragen voorbeeldinhoud voor één componentvariant vast."),

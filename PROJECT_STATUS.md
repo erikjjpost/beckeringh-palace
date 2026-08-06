@@ -4,19 +4,19 @@
 
 ## Totaalbeeld
 
-**Geschatte voortgang: 81%**
+**Geschatte voortgang: 84%**
 
 Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.
 
-- Actuele milestone: **M11.6f — Native wallpaper wereldsymboliek** (in uitvoering)
-- Laatst voltooid: **M11.6e — Native wallpaper art direction** (PR #95)
-- Volgende stap: **M11.7a — Native Figma productcontract**
+- Actuele milestone: **M11.7a — Native Figma productcontract** (in uitvoering)
+- Laatst voltooid: **M11.6f — Native wallpaper wereldsymboliek** (PR #96)
+- Volgende stap: **M11.7b — Native Figma synchronisatieadapter**
 
 ## Voortgang per productgebied
 
 | Productgebied | Gewicht | Voortgang | Onderbouwing | Resterend werk |
 |---|---:|---:|---|---|
-| Compiler en reproduceerbaarheid | 10% | 98% | Validatie, deterministische generatie, CI en 282 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en dezelfde standaardbibliotheekrenderer verwerkt meerdere expliciete wallpaperformaten, zachte radiale lichteffecten en veilige native lijnsymboliek. | Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog. |
+| Compiler en reproduceerbaarheid | 10% | 98% | Validatie, deterministische generatie, CI en 286 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en publiceren nu ook een statisch Figma mastermanifest uit dezelfde opgeloste BAT semantiek. | Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog. |
 | World Model en productcontracten | 10% | 100% | Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies, een merkgebonden wallpaperfamilie, een functionele muziekcirkel en expliciete Palace-, bever- en Noorse wereldsymboliek. | Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist. |
 | Design System | 10% | 100% | Het geverifieerde EmberForge palet, de theme primitives, art direction, lokale typografiestacks, interactietoestanden, componentfamilies en toegankelijkheidscontracten zijn native gemigreerd en samengebracht in één navigeerbaar statisch referentieproduct. | Nieuwe design system contracten worden alleen toegevoegd wanneer een volgende productsurface een aantoonbare ontbrekende rol heeft. |
 | Dashboard UI en Grafana | 10% | 90% | Het HTML en Grafana homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde opgeloste voorbeelden, componentsemantiek en native layout. | Operationele databroncontracten en toetsing met echte hulptechnologie ontbreken nog. |
@@ -24,11 +24,11 @@ Gewogen architectuurschatting van het volledige einddoel. De expliciete productg
 | SVG component library en icon set | 10% | 88% | BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie nieuwe wereldassets zonder vulling in dezelfde catalogus. | Aanvullende merklockups en een bredere iconenbibliotheek ontbreken nog. |
 | Logo's en wallpapers | 10% | 90% | Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die nu met eigen lichtgeometrie, Palace, bevers en Noorse lijnsymboliek. | Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten. |
 | HTML homepage | 10% | 95% | Zeven geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; zes unieke routekaarten ontsluiten ook de native assetcatalogus, Keycloak en terminal via relatieve artifactpaden. | De visuele motieven en bredere productinhoud van de homepage moeten nog worden verdiept. |
-| Figma masterbestand | 10% | 10% | Figma is onderdeel van de doelarchitectuur. | Het masterbestand en de reproduceerbare synchronisatie zijn nog niet gerealiseerd. |
+| Figma masterbestand | 10% | 40% | BAT selecteert expliciet de 11 assets, 7 componenten, 20 varianten en 7 bestaande compositie- en layoutoppervlakken voor EmberForge en genereert daaruit een snapshotgebonden machineleesbaar Figma mastermanifest met opgeloste theme waarden. | De idempotente synchronisatieadapter en het daadwerkelijke Figma masterbestand moeten nog worden gerealiseerd. |
 | World Bible | 10% | 66% | Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. | De bredere wereldbeschrijving en cross product ontwerpregels moeten nog worden samengebracht. |
 
 ## Eerstvolgende stap
 
-### M11.7a — Native Figma productcontract
+### M11.7b — Native Figma synchronisatieadapter
 
-Een reproduceerbare Figma masterbeschrijving uit dezelfde thema-, asset-, component- en layoutsemantiek definiëren voordat synchronisatie naar Figma wordt toegevoegd.
+Het gegenereerde Figma mastermanifest idempotent naar een Figma masterbestand synchroniseren zonder BAT semantiek of designwaarden in de adapter te dupliceren.
