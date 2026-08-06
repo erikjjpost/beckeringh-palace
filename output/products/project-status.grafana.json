@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 115f041bb272",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d12d3ef7eb3c",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:78",
+      "description": "project-status-schema:1;overall-progress:81",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 78%",
+                  "fixed": "Totale voortgang · 81%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 468
+                "width": 486
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.6e · Native wallpaper art direction (in uitvoering)\nVoltooid: M11.6d · Native Circle of Fifths model (PR #94)\nVolgende stap: M11.6f · Native wallpaper wereldsymboliek\nPalace, Noorse vormtaal en bevers als rustige reproduceerbare symboliek toevoegen zonder de functionele Circle of Fifths te verdringen.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.6f · Native wallpaper wereldsymboliek (in uitvoering)\nVoltooid: M11.6e · Native wallpaper art direction (PR #95)\nVolgende stap: M11.7a · Native Figma productcontract\nEen reproduceerbare Figma masterbeschrijving uit dezelfde thema-, asset-, component- en layoutsemantiek definiëren voordat synchronisatie naar Figma wordt toegevoegd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 78%",
+      "title": "Totale voortgang · 81%",
       "transparent": true,
       "type": "canvas"
     },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 277 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en dezelfde standaardbibliotheekrenderer verwerkt meerdere expliciete wallpaperformaten en zachte radiale lichteffecten.\nResterend: Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 282 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en dezelfde standaardbibliotheekrenderer verwerkt meerdere expliciete wallpaperformaten, zachte radiale lichteffecten en veilige native lijnsymboliek.\nResterend: Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -508,7 +508,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies, een merkgebonden wallpaperfamilie en een functionele muziekcirkel met canonieke semantiek.\nResterend: Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist.",
+                  "fixed": "Onderbouwing: Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies, een merkgebonden wallpaperfamilie, een functionele muziekcirkel en expliciete Palace-, bever- en Noorse wereldsymboliek.\nResterend: Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -813,7 +813,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:visual-world;progress:60",
+      "description": "project-status-area:visual-world;progress:70",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -846,7 +846,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Visuele wereld en art direction · 60%",
+                  "fixed": "Visuele wereld en art direction · 70%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -910,7 +910,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 360
+                "width": 420
               },
               "type": "rectangle"
             },
@@ -922,7 +922,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen en zelfstandige wallpapers met een functionele Circle of Fifths, koelblauw hoofdlicht en maximaal twee warme accenten.\nResterend: Palace, het Noorse thema, bevers en de bredere symboliek moeten nog samenhangend worden uitgewerkt.",
+                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en zelfstandige wallpapers met functionele muziekinformatie, gecontroleerd licht, Palace lijnarchitectuur, beverwachters en Noorse vlechtvormen.\nResterend: De wereldsymboliek moet nog naar andere productsurfaces worden doorgetrokken en de bredere wereldbeschrijving blijft onvolledig.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -946,12 +946,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Visuele wereld en art direction · 60%",
+      "title": "Visuele wereld en art direction · 70%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:svg-library;progress:84",
+      "description": "project-status-area:svg-library;progress:88",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -984,7 +984,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "SVG component library en icon set · 84%",
+                  "fixed": "SVG component library en icon set · 88%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1048,7 +1048,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 504
+                "width": 528
               },
               "type": "rectangle"
             },
@@ -1060,7 +1060,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en genereert naast twee assetfamilies ook generieke vectorglyphs en een herbruikbare lichtschijf voor functionele beeldcomposities.\nResterend: Aanvullende merklockups en een bredere iconenbibliotheek ontbreken nog.",
+                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie nieuwe wereldassets zonder vulling in dezelfde catalogus.\nResterend: Aanvullende merklockups en een bredere iconenbibliotheek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1084,12 +1084,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "SVG component library en icon set · 84%",
+      "title": "SVG component library en icon set · 88%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:logos-wallpapers;progress:80",
+      "description": "project-status-area:logos-wallpapers;progress:90",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1122,7 +1122,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Logo's en wallpapers · 80%",
+                  "fixed": "Logo's en wallpapers · 90%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1186,7 +1186,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 480
+                "width": 540
               },
               "type": "rectangle"
             },
@@ -1198,7 +1198,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; een native familie rendert ze met zachte koelblauwe en begrensd warme lichtwerking in zelfstandige 3840 bij 1080 en 1900 bij 1200 PNG artifacts.\nResterend: Wereldsymboliek en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd.",
+                  "fixed": "Onderbouwing: Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die nu met eigen lichtgeometrie, Palace, bevers en Noorse lijnsymboliek.\nResterend: Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1222,7 +1222,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Logo's en wallpapers · 80%",
+      "title": "Logo's en wallpapers · 90%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:63",
+      "description": "project-status-area:world-bible;progress:66",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 63%",
+                  "fixed": "World Bible · 66%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 378
+                "width": 396
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie en muzieksemantiek zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving en cross product ontwerpregels moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 63%",
+      "title": "World Bible · 66%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:78",
-    "sha256:115f041bb272d6ea834f9b637fa61fbe32047d9b27d3ae4e7462475394261db2"
+    "overall-progress:81",
+    "sha256:d12d3ef7eb3c16ec82c8db1225f4461d9cb38054e814a17a1b582dd4ace72728"
   ],
   "templating": {
     "list": []

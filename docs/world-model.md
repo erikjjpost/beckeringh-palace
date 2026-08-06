@@ -96,6 +96,16 @@ ontvangt alleen opgeloste geometrie en bevat geen muziektheorie. Beide
 wallpaperformaten plaatsen dezelfde functionele cirkel met eigen coördinaten
 volledig binnen hun canvas.
 
+M11.6e maakt zachte lichtwerking expliciet met `radial-glow` op gevulde
+plaatsingsmaskers. Het effect blijft achter de informatielaag, koelblauw is het
+hoofdlicht en ieder formaat houdt exact twee begrensde warme accenten.
+
+M11.6f voegt geen nieuwe objectsoort toe. Palace, bever en Noorse vlecht zijn
+gewone veilige `asset` objecten met expliciete lijngeometrie. De wallpapers
+componeren ze in zelfstandige lagen voor ornamenten en illustraties onder de
+muziekcirkel. De eerdere technische vectornode blijft beschikbaar in de
+assetcatalogus en is geen onderdeel meer van de wallpapercompositie.
+
 ## Niet native
 
 Concepten zoals `capability`, `dienst` en `agent` blijven tijdelijk beschikbaar als migratieconcepten. Zij mogen de kern van het World Model niet uitbreiden en worden niet als precedent gebruikt voor nieuwe enterprise-architectuursemantiek.

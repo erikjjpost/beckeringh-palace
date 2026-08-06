@@ -1,7 +1,7 @@
 {
   "product": {
     "id": "emberforge-ultrawide-wallpaper-manifest",
-    "snapshot": "sha256:115f041bb272d6ea834f9b637fa61fbe32047d9b27d3ae4e7462475394261db2"
+    "snapshot": "sha256:d12d3ef7eb3c16ec82c8db1225f4461d9cb38054e814a17a1b582dd4ace72728"
   },
   "schema_version": 3,
   "wallpaper": {
@@ -89,42 +89,95 @@
         "rol": "ornament"
       },
       {
-        "doel": "Ordent twee rustige technische lijnornamenten binnen de canvasgrens.",
+        "doel": "Ordent Noorse vlechtvormen rustig achter de wereldsymboliek.",
         "id": "emberforge-wallpaper-ornamentlaag",
         "naam": "EmberForge Wallpaper Ornamentlaag",
         "plaatsingen": [
           {
-            "asset": "emberforge-vector-node",
-            "breedte": 840,
-            "dekking": 0.14,
-            "doel": "Plaatst het technische lijnornament met ruime marge links.",
+            "asset": "emberforge-nordic-weave",
+            "breedte": 900,
+            "dekking": 0.1,
+            "doel": "Plaatst een terughoudende Noorse vlecht boven de linker wereldsymboliek.",
             "effect": "solid",
             "fit": "contain",
-            "hoogte": 840,
-            "id": "emberforge-vector-node-left",
+            "hoogte": 200,
+            "id": "emberforge-nordic-weave-left",
             "kleur": "#7DD3FC",
             "materiaalrol": "interaction",
-            "naam": "EmberForge Vector Node Links",
+            "naam": "EmberForge Noorse Vlecht Links",
             "x": 120,
-            "y": 120
+            "y": 70
           },
           {
-            "asset": "emberforge-vector-node",
-            "breedte": 840,
-            "dekking": 0.14,
-            "doel": "Plaatst het technische lijnornament symmetrisch rechts.",
+            "asset": "emberforge-nordic-weave",
+            "breedte": 900,
+            "dekking": 0.1,
+            "doel": "Plaatst dezelfde Noorse vormtaal met een zelfstandige rechter plaatsing.",
             "effect": "solid",
             "fit": "contain",
-            "hoogte": 840,
-            "id": "emberforge-vector-node-right",
+            "hoogte": 200,
+            "id": "emberforge-nordic-weave-right",
             "kleur": "#7DD3FC",
             "materiaalrol": "interaction",
-            "naam": "EmberForge Vector Node Rechts",
-            "x": 2880,
-            "y": 120
+            "naam": "EmberForge Noorse Vlecht Rechts",
+            "x": 2820,
+            "y": 70
           }
         ],
         "rol": "ornament"
+      },
+      {
+        "doel": "Componeert Palace en twee beverwachters als rustige lijnsymboliek onder de functionele muziekcirkel.",
+        "id": "emberforge-wallpaper-wereldlaag",
+        "naam": "EmberForge Wallpaper Wereldlaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-palace",
+            "breedte": 1320,
+            "dekking": 0.1,
+            "doel": "Plaatst het abstracte Palace laag en centraal zonder de muziekinformatie te veranderen.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 300,
+            "id": "emberforge-ultrawide-palace",
+            "kleur": "#B8C5D6",
+            "materiaalrol": "muted",
+            "naam": "EmberForge Ultrawide Palace",
+            "x": 1260,
+            "y": 760
+          },
+          {
+            "asset": "emberforge-beaver",
+            "breedte": 520,
+            "dekking": 0.16,
+            "doel": "Plaatst een rustige beverwachter in het vrije linker beeldveld.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 520,
+            "id": "emberforge-ultrawide-beaver-left",
+            "kleur": "#B8C5D6",
+            "materiaalrol": "muted",
+            "naam": "EmberForge Ultrawide Bever Links",
+            "x": 420,
+            "y": 310
+          },
+          {
+            "asset": "emberforge-beaver",
+            "breedte": 520,
+            "dekking": 0.16,
+            "doel": "Plaatst de tweede beverwachter zelfstandig in het vrije rechter beeldveld.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 520,
+            "id": "emberforge-ultrawide-beaver-right",
+            "kleur": "#B8C5D6",
+            "materiaalrol": "muted",
+            "naam": "EmberForge Ultrawide Bever Rechts",
+            "x": 2900,
+            "y": 310
+          }
+        ],
+        "rol": "illustratie"
       },
       {
         "doel": "Draagt de functionele Circle of Fifths volledig binnen de veilige beeldmarge.",

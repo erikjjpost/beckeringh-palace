@@ -1035,6 +1035,14 @@ dekking en geometrie blijven afzonderlijke BAT velden en worden ook in het
 wallpapermanifest gepubliceerd. Beide wallpaperformaten componeren hiermee
 eigen koelblauwe lichtvelden en exact twee begrensde warme accenten.
 
+M11.6f gebruikt het bestaande assetcontract en wallpapercontract zonder nieuwe
+renderersemantiek voor wereldsymboliek. `emberforge-palace` en
+`emberforge-beaver` zijn illustraties zonder vulling; `emberforge-nordic-weave`
+is ornamentiek zonder vulling. Ieder asset wordt als zelfstandig SVG product en via
+de bestaande catalogus gepubliceerd. Beide wallpaperformaten hebben een eigen
+wereldlaag en eigen plaatsingen. De muzieklaag blijft erboven staan en de
+Circle of Fifths behoudt exact haar M11.6d geometrie.
+
 ## Diagnostics
 
 | Code | Betekenis |

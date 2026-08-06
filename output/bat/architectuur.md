@@ -735,6 +735,75 @@ Levert een neutrale gevulde vectorvorm voor expliciet gecomponeerde wallpaperlic
 - **viewbox:** 0 0 1000 1000
 - **vulling:** currentColor
 
+## EmberForge Palace lijnsilhouet
+
+**Soort:** asset
+
+**Identifier:** `emberforge-palace`
+
+### Doel
+
+Verbeeldt Palace als abstracte Noords geïnspireerde lijnarchitectuur zonder een historisch gebouw te claimen.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **lijn:** currentColor
+- **lijndikte:** 4
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M40 310 H920, M180 250 L480 70 L780 250 M140 250 H820 M180 250 V310 M780 250 V310, M40 310 V235 L150 165 L260 235 V310 M700 235 L810 165 L920 235 V310, M300 245 L480 130 L660 245 M340 245 L480 160 L620 245, M430 310 V230 H530 V310, M150 165 V120 M480 70 V35 M810 165 V120, M320 310 V265 M640 310 V265
+- **rol:** illustratie
+- **toegankelijkheid:** decoratief
+- **viewbox:** 0 0 960 360
+- **vulling:** none
+
+## EmberForge bever
+
+**Soort:** asset
+
+**Identifier:** `emberforge-beaver`
+
+### Doel
+
+Levert een rustige bever in zijprofiel met platte staart en snijtand als herbruikbaar lijnsymbool voor de EmberForge wereld.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **lijn:** currentColor
+- **lijndikte:** 5
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M82 206 C70 166 84 122 118 98 C148 76 188 74 220 90 C246 104 262 124 268 146 C282 144 294 150 296 160 C298 170 288 178 272 180 C264 202 246 220 220 234 C186 252 136 256 102 238 Z, M214 106 C202 94 204 80 216 74 C228 68 242 74 246 86 C250 98 242 108 232 112, M238 132 C242 128 247 128 251 132, M252 180 V206 H264 V180 M264 180 V206 H276 V180 M252 206 H276, M272 176 L304 184 M270 184 L300 196, M98 220 C66 206 28 216 14 244 C0 272 20 302 52 306 C82 310 110 290 128 260, M32 238 L92 292 M18 260 L70 304 M56 222 L116 274, M140 246 C136 268 124 282 106 286 M202 240 C208 264 224 278 244 278
+- **rol:** illustratie
+- **toegankelijkheid:** decoratief
+- **viewbox:** 0 0 320 320
+- **vulling:** none
+
+## EmberForge Noorse vlecht
+
+**Soort:** asset
+
+**Identifier:** `emberforge-nordic-weave`
+
+### Doel
+
+Levert een geometrische Noords geïnspireerde vlecht als rustige herhaalbare lijnornamentiek.
+
+### Eigenschappen
+
+- **formaat:** svg
+- **lijn:** currentColor
+- **lijndikte:** 3
+- **lijneinde:** round
+- **lijnverbinding:** round
+- **paden:** M20 80 L80 20 L160 100 L240 20 L320 100 L400 20 L480 100 L560 20 L640 100 L700 40, M20 80 L80 140 L160 60 L240 140 L320 60 L400 140 L480 60 L560 140 L640 60 L700 120
+- **rol:** ornament
+- **toegankelijkheid:** decoratief
+- **viewbox:** 0 0 720 160
+- **vulling:** none
+
 ## EmberForge Dashboard Icon
 
 **Soort:** asset
@@ -939,7 +1008,7 @@ Legt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar bee
 - **familie:** emberforge-wallpapers
 - **formaat:** png
 - **hoogte:** 1080
-- **lagen:** emberforge-wallpaper-lichtlaag, emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-muzieklaag, emberforge-wallpaper-merklaag
+- **lagen:** emberforge-wallpaper-lichtlaag, emberforge-wallpaper-ornamentlaag, emberforge-wallpaper-wereldlaag, emberforge-wallpaper-muzieklaag, emberforge-wallpaper-merklaag
 - **merk:** emberforge
 - **variant:** ultrawide-3840x1080
 - **wereld:** beckeringh-palace
@@ -984,12 +1053,28 @@ Draagt de functionele Circle of Fifths volledig binnen de veilige beeldmarge.
 
 ### Doel
 
-Ordent twee rustige technische lijnornamenten binnen de canvasgrens.
+Ordent Noorse vlechtvormen rustig achter de wereldsymboliek.
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-vector-node-left, emberforge-vector-node-right
+- **plaatsingen:** emberforge-nordic-weave-left, emberforge-nordic-weave-right
 - **rol:** ornament
+- **wallpaper:** emberforge-ultrawide-wallpaper
+
+## EmberForge Wallpaper Wereldlaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-wallpaper-wereldlaag`
+
+### Doel
+
+Componeert Palace en twee beverwachters als rustige lijnsymboliek onder de functionele muziekcirkel.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-ultrawide-palace, emberforge-ultrawide-beaver-left, emberforge-ultrawide-beaver-right
+- **rol:** illustratie
 - **wallpaper:** emberforge-ultrawide-wallpaper
 
 ## EmberForge Wallpaper Merklaag
@@ -1008,27 +1093,27 @@ Ordent het merkteken en woordmerk als afzonderlijke merkplaatsingen.
 - **rol:** merk
 - **wallpaper:** emberforge-ultrawide-wallpaper
 
-## EmberForge Vector Node Links
+## EmberForge Noorse Vlecht Links
 
 **Soort:** assetplaatsing
 
-**Identifier:** `emberforge-vector-node-left`
+**Identifier:** `emberforge-nordic-weave-left`
 
 ### Doel
 
-Plaatst het technische lijnornament met ruime marge links.
+Plaatst een terughoudende Noorse vlecht boven de linker wereldsymboliek.
 
 ### Eigenschappen
 
-- **asset:** emberforge-vector-node
-- **breedte:** 840
-- **dekking:** 0.14
+- **asset:** emberforge-nordic-weave
+- **breedte:** 900
+- **dekking:** 0.1
 - **fit:** contain
-- **hoogte:** 840
+- **hoogte:** 200
 - **kleur:** interaction
 - **laag:** emberforge-wallpaper-ornamentlaag
 - **x:** 120
-- **y:** 120
+- **y:** 70
 
 ## EmberForge Ultrawide Koel Licht Buiten
 
@@ -1122,27 +1207,93 @@ Concentreert het tweede en laatste emberaccent rond het centrale merkteken.
 - **x:** 1710
 - **y:** 690
 
-## EmberForge Vector Node Rechts
+## EmberForge Noorse Vlecht Rechts
 
 **Soort:** assetplaatsing
 
-**Identifier:** `emberforge-vector-node-right`
+**Identifier:** `emberforge-nordic-weave-right`
 
 ### Doel
 
-Plaatst het technische lijnornament symmetrisch rechts.
+Plaatst dezelfde Noorse vormtaal met een zelfstandige rechter plaatsing.
 
 ### Eigenschappen
 
-- **asset:** emberforge-vector-node
-- **breedte:** 840
-- **dekking:** 0.14
+- **asset:** emberforge-nordic-weave
+- **breedte:** 900
+- **dekking:** 0.1
 - **fit:** contain
-- **hoogte:** 840
+- **hoogte:** 200
 - **kleur:** interaction
 - **laag:** emberforge-wallpaper-ornamentlaag
-- **x:** 2880
-- **y:** 120
+- **x:** 2820
+- **y:** 70
+
+## EmberForge Ultrawide Palace
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-palace`
+
+### Doel
+
+Plaatst het abstracte Palace laag en centraal zonder de muziekinformatie te veranderen.
+
+### Eigenschappen
+
+- **asset:** emberforge-palace
+- **breedte:** 1320
+- **dekking:** 0.1
+- **fit:** contain
+- **hoogte:** 300
+- **kleur:** muted
+- **laag:** emberforge-wallpaper-wereldlaag
+- **x:** 1260
+- **y:** 760
+
+## EmberForge Ultrawide Bever Links
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-beaver-left`
+
+### Doel
+
+Plaatst een rustige beverwachter in het vrije linker beeldveld.
+
+### Eigenschappen
+
+- **asset:** emberforge-beaver
+- **breedte:** 520
+- **dekking:** 0.16
+- **fit:** contain
+- **hoogte:** 520
+- **kleur:** muted
+- **laag:** emberforge-wallpaper-wereldlaag
+- **x:** 420
+- **y:** 310
+
+## EmberForge Ultrawide Bever Rechts
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-beaver-right`
+
+### Doel
+
+Plaatst de tweede beverwachter zelfstandig in het vrije rechter beeldveld.
+
+### Eigenschappen
+
+- **asset:** emberforge-beaver
+- **breedte:** 520
+- **dekking:** 0.16
+- **fit:** contain
+- **hoogte:** 520
+- **kleur:** muted
+- **laag:** emberforge-wallpaper-wereldlaag
+- **x:** 2900
+- **y:** 310
 
 ## EmberForge Wallpaper Merkteken
 
@@ -1205,7 +1356,7 @@ Legt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen explic
 - **familie:** emberforge-wallpapers
 - **formaat:** png
 - **hoogte:** 1200
-- **lagen:** emberforge-desktop-lichtlaag, emberforge-desktop-ornamentlaag, emberforge-desktop-muzieklaag, emberforge-desktop-merklaag
+- **lagen:** emberforge-desktop-lichtlaag, emberforge-desktop-ornamentlaag, emberforge-desktop-wereldlaag, emberforge-desktop-muzieklaag, emberforge-desktop-merklaag
 - **merk:** emberforge
 - **variant:** desktop-1900x1200
 - **wereld:** beckeringh-palace
@@ -1250,12 +1401,28 @@ Draagt de functionele Circle of Fifths met een eigen desktopplaatsing.
 
 ### Doel
 
-Ordent twee rustige technische lijnornamenten voor het 1900 bij 1200 canvas.
+Ordent terughoudende Noorse lijnornamentiek voor het 1900 bij 1200 canvas.
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-desktop-vector-node-left, emberforge-desktop-vector-node-right
+- **plaatsingen:** emberforge-desktop-nordic-weave-left, emberforge-desktop-nordic-weave-right
 - **rol:** ornament
+- **wallpaper:** emberforge-desktop-wallpaper
+
+## EmberForge Desktop Wereldlaag
+
+**Soort:** wallpaperlaag
+
+**Identifier:** `emberforge-desktop-wereldlaag`
+
+### Doel
+
+Componeert Palace en twee beverwachters binnen de smalle desktopmarges zonder de muziekcirkel te verplaatsen.
+
+### Eigenschappen
+
+- **plaatsingen:** emberforge-desktop-palace, emberforge-desktop-beaver-left, emberforge-desktop-beaver-right
+- **rol:** illustratie
 - **wallpaper:** emberforge-desktop-wallpaper
 
 ## EmberForge Desktop Merklaag
@@ -1274,27 +1441,27 @@ Ordent merkteken en woordmerk met eigen desktopplaatsingen.
 - **rol:** merk
 - **wallpaper:** emberforge-desktop-wallpaper
 
-## EmberForge Desktop Vector Node Links
+## EmberForge Desktop Noorse Vlecht Links
 
 **Soort:** assetplaatsing
 
-**Identifier:** `emberforge-desktop-vector-node-left`
+**Identifier:** `emberforge-desktop-nordic-weave-left`
 
 ### Doel
 
-Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.
+Plaatst de Noorse vlecht compact in de linker desktopmarge.
 
 ### Eigenschappen
 
-- **asset:** emberforge-vector-node
-- **breedte:** 560
+- **asset:** emberforge-nordic-weave
+- **breedte:** 300
 - **dekking:** 0.08
 - **fit:** contain
-- **hoogte:** 560
+- **hoogte:** 100
 - **kleur:** interaction
 - **laag:** emberforge-desktop-ornamentlaag
-- **x:** 80
-- **y:** 250
+- **x:** 40
+- **y:** 160
 
 ## EmberForge Desktop Koel Licht Buiten
 
@@ -1388,27 +1555,93 @@ Concentreert het tweede en laatste emberaccent rond het desktopmerkteken.
 - **x:** 770
 - **y:** 790
 
-## EmberForge Desktop Vector Node Rechts
+## EmberForge Desktop Noorse Vlecht Rechts
 
 **Soort:** assetplaatsing
 
-**Identifier:** `emberforge-desktop-vector-node-right`
+**Identifier:** `emberforge-desktop-nordic-weave-right`
 
 ### Doel
 
-Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas.
+Plaatst dezelfde Noorse vlecht met een zelfstandige rechter desktopgeometrie.
 
 ### Eigenschappen
 
-- **asset:** emberforge-vector-node
-- **breedte:** 560
+- **asset:** emberforge-nordic-weave
+- **breedte:** 300
 - **dekking:** 0.08
 - **fit:** contain
-- **hoogte:** 560
+- **hoogte:** 100
 - **kleur:** interaction
 - **laag:** emberforge-desktop-ornamentlaag
-- **x:** 1260
-- **y:** 250
+- **x:** 1560
+- **y:** 160
+
+## EmberForge Desktop Palace
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-palace`
+
+### Doel
+
+Plaatst het Palace laag in de desktopcompositie als subtiel lijnanker.
+
+### Eigenschappen
+
+- **asset:** emberforge-palace
+- **breedte:** 800
+- **dekking:** 0.08
+- **fit:** contain
+- **hoogte:** 250
+- **kleur:** muted
+- **laag:** emberforge-desktop-wereldlaag
+- **x:** 550
+- **y:** 930
+
+## EmberForge Desktop Bever Links
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-beaver-left`
+
+### Doel
+
+Plaatst een compacte beverwachter buiten de functionele kern.
+
+### Eigenschappen
+
+- **asset:** emberforge-beaver
+- **breedte:** 300
+- **dekking:** 0.14
+- **fit:** contain
+- **hoogte:** 300
+- **kleur:** muted
+- **laag:** emberforge-desktop-wereldlaag
+- **x:** 30
+- **y:** 420
+
+## EmberForge Desktop Bever Rechts
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-beaver-right`
+
+### Doel
+
+Plaatst de tweede compacte beverwachter zelfstandig in de rechter desktopmarge.
+
+### Eigenschappen
+
+- **asset:** emberforge-beaver
+- **breedte:** 300
+- **dekking:** 0.14
+- **fit:** contain
+- **hoogte:** 300
+- **kleur:** muted
+- **laag:** emberforge-desktop-wereldlaag
+- **x:** 1570
+- **y:** 420
 
 ## EmberForge Desktop Merkteken
 
@@ -3754,9 +3987,9 @@ De digitale wereld, haar merk en haar reproduceerbare bronassets.
 
 ### Eigenschappen
 
-- **inhoud:** beckeringh-palace, emberforge-merkassets, emberforge-vector-node, emberforge-circle-of-fifths
+- **inhoud:** beckeringh-palace, emberforge-merkassets, emberforge-vector-node, emberforge-palace, emberforge-beaver, emberforge-nordic-weave, emberforge-circle-of-fifths
 - **leesvolgorde:** 1
-- **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-svg-asset-catalog-html, emberforge-vector-node-svg, emberforge-merkteken-svg, emberforge-woordmerk-svg
+- **navigatie:** forge-dashboard-html, forge-dashboard-grafana, emberforge-svg-asset-catalog-html, emberforge-vector-node-svg, emberforge-palace-svg, emberforge-beaver-svg, emberforge-nordic-weave-svg, emberforge-merkteken-svg, emberforge-woordmerk-svg
 - **soorten:** wereld, merk, assetfamilie, asset, muziekcirkel
 - **toegankelijkheidslabel:** Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets
 
@@ -4826,7 +5059,7 @@ Alle getypeerde SVG assets als één navigeerbaar en reproduceerbaar cataloguspr
 
 ### Eigenschappen
 
-- **assets:** emberforge-vector-node, emberforge-light-disc, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets, emberforge-merkteken, emberforge-woordmerk
+- **assets:** emberforge-vector-node, emberforge-light-disc, emberforge-palace, emberforge-beaver, emberforge-nordic-weave, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets, emberforge-merkteken, emberforge-woordmerk
 - **backend:** html
 - **compositie:** emberforge-svg-asset-catalog-composition
 - **inhoud:** asset-catalog
@@ -5322,6 +5555,63 @@ Genereert de neutrale native lichtschijf als veilig en herbruikbaar SVG product.
 - **inhoud:** asset
 - **mode:** static
 - **pad:** output/products/emberforge-light-disc.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Palace SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-palace-svg`
+
+### Doel
+
+Genereert het abstracte Noords geïnspireerde Palace lijnsilhouet als herbruikbaar SVG product.
+
+### Eigenschappen
+
+- **asset:** emberforge-palace
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-palace.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Bever SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-beaver-svg`
+
+### Doel
+
+Genereert de beverwachter als herbruikbaar en veilig lijnasset.
+
+### Eigenschappen
+
+- **asset:** emberforge-beaver
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-beaver.svg
+- **wereld:** beckeringh-palace
+
+## EmberForge Noorse Vlecht SVG
+
+**Soort:** product
+
+**Identifier:** `emberforge-nordic-weave-svg`
+
+### Doel
+
+Genereert de Noords geïnspireerde vlecht als herbruikbaar ornamentproduct.
+
+### Eigenschappen
+
+- **asset:** emberforge-nordic-weave
+- **backend:** svg
+- **inhoud:** asset
+- **mode:** static
+- **pad:** output/products/emberforge-nordic-weave.svg
 - **wereld:** beckeringh-palace
 
 ## EmberForge Dashboard Icon SVG

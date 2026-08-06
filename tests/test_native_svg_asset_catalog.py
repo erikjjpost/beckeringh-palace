@@ -322,6 +322,9 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
             (
                 "emberforge-vector-node",
                 "emberforge-light-disc",
+                "emberforge-palace",
+                "emberforge-beaver",
+                "emberforge-nordic-weave",
                 "emberforge-icon-dashboard",
                 "emberforge-icon-identity",
                 "emberforge-icon-terminal",
@@ -342,6 +345,9 @@ class NativeSvgAssetCatalogTests(unittest.TestCase):
         )
         for asset_id in (
             "emberforge-light-disc",
+            "emberforge-palace",
+            "emberforge-beaver",
+            "emberforge-nordic-weave",
             "emberforge-icon-dashboard",
             "emberforge-icon-identity",
             "emberforge-icon-terminal",

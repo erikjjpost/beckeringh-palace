@@ -103,7 +103,7 @@
       "id": "vector-assets",
       "status": "geblokkeerd",
       "doel": "Native BAT asset en statisch SVG product",
-      "bewijs": "M11.5a introduceert een veilig getypeerd SVG assetcontract en genereert een nieuw technisch lijnornament rechtstreeks uit BAT. M11.5b ontsluit alle native assets in één statische catalogus met expliciete volledige dekking, veilige previews, contractmetadata en relatieve artifactlinks. M11.5c modelleert Dashboard, Identity, Terminal en Assets als één nieuw getekende, samenhangende native iconenfamilie. M11.5d introduceert een expliciet assetfamiliecontract en tekent een nieuw EmberForge merkteken en woordmerk volledig in BAT. De aangeleverde SVG en PNG placeholders en het ontbrekende symbol-valk.svg blijven uitgesloten en worden niet geïmporteerd of geactiveerd."
+      "bewijs": "M11.5a introduceert een veilig getypeerd SVG assetcontract en genereert een nieuw technisch lijnornament rechtstreeks uit BAT. M11.5b ontsluit alle native assets in één statische catalogus met expliciete volledige dekking, veilige previews, contractmetadata en relatieve artifactlinks. M11.5c modelleert Dashboard, Identity, Terminal en Assets als één nieuw getekende, samenhangende native iconenfamilie. M11.5d introduceert een expliciet assetfamiliecontract en tekent een nieuw EmberForge merkteken en woordmerk volledig in BAT. M11.6f tekent Palace, bever en Noorse vlecht opnieuw als native wereldassets zonder vulling en publiceert ze via dezelfde catalogus. De aangeleverde SVG en PNG placeholders en het ontbrekende symbol-valk.svg blijven uitgesloten en worden niet geïmporteerd of geactiveerd."
     },
     {
       "id": "world-language",

@@ -1,7 +1,7 @@
 {
   "product": {
     "id": "emberforge-desktop-wallpaper-manifest",
-    "snapshot": "sha256:115f041bb272d6ea834f9b637fa61fbe32047d9b27d3ae4e7462475394261db2"
+    "snapshot": "sha256:d12d3ef7eb3c16ec82c8db1225f4461d9cb38054e814a17a1b582dd4ace72728"
   },
   "schema_version": 3,
   "wallpaper": {
@@ -89,42 +89,95 @@
         "rol": "ornament"
       },
       {
-        "doel": "Ordent twee rustige technische lijnornamenten voor het 1900 bij 1200 canvas.",
+        "doel": "Ordent terughoudende Noorse lijnornamentiek voor het 1900 bij 1200 canvas.",
         "id": "emberforge-desktop-ornamentlaag",
         "naam": "EmberForge Desktop Ornamentlaag",
         "plaatsingen": [
           {
-            "asset": "emberforge-vector-node",
-            "breedte": 560,
+            "asset": "emberforge-nordic-weave",
+            "breedte": 300,
             "dekking": 0.08,
-            "doel": "Plaatst het technische lijnornament met ruime marge links op het desktopcanvas.",
+            "doel": "Plaatst de Noorse vlecht compact in de linker desktopmarge.",
             "effect": "solid",
             "fit": "contain",
-            "hoogte": 560,
-            "id": "emberforge-desktop-vector-node-left",
+            "hoogte": 100,
+            "id": "emberforge-desktop-nordic-weave-left",
             "kleur": "#7DD3FC",
             "materiaalrol": "interaction",
-            "naam": "EmberForge Desktop Vector Node Links",
-            "x": 80,
-            "y": 250
+            "naam": "EmberForge Desktop Noorse Vlecht Links",
+            "x": 40,
+            "y": 160
           },
           {
-            "asset": "emberforge-vector-node",
-            "breedte": 560,
+            "asset": "emberforge-nordic-weave",
+            "breedte": 300,
             "dekking": 0.08,
-            "doel": "Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas.",
+            "doel": "Plaatst dezelfde Noorse vlecht met een zelfstandige rechter desktopgeometrie.",
             "effect": "solid",
             "fit": "contain",
-            "hoogte": 560,
-            "id": "emberforge-desktop-vector-node-right",
+            "hoogte": 100,
+            "id": "emberforge-desktop-nordic-weave-right",
             "kleur": "#7DD3FC",
             "materiaalrol": "interaction",
-            "naam": "EmberForge Desktop Vector Node Rechts",
-            "x": 1260,
-            "y": 250
+            "naam": "EmberForge Desktop Noorse Vlecht Rechts",
+            "x": 1560,
+            "y": 160
           }
         ],
         "rol": "ornament"
+      },
+      {
+        "doel": "Componeert Palace en twee beverwachters binnen de smalle desktopmarges zonder de muziekcirkel te verplaatsen.",
+        "id": "emberforge-desktop-wereldlaag",
+        "naam": "EmberForge Desktop Wereldlaag",
+        "plaatsingen": [
+          {
+            "asset": "emberforge-palace",
+            "breedte": 800,
+            "dekking": 0.08,
+            "doel": "Plaatst het Palace laag in de desktopcompositie als subtiel lijnanker.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 250,
+            "id": "emberforge-desktop-palace",
+            "kleur": "#B8C5D6",
+            "materiaalrol": "muted",
+            "naam": "EmberForge Desktop Palace",
+            "x": 550,
+            "y": 930
+          },
+          {
+            "asset": "emberforge-beaver",
+            "breedte": 300,
+            "dekking": 0.14,
+            "doel": "Plaatst een compacte beverwachter buiten de functionele kern.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 300,
+            "id": "emberforge-desktop-beaver-left",
+            "kleur": "#B8C5D6",
+            "materiaalrol": "muted",
+            "naam": "EmberForge Desktop Bever Links",
+            "x": 30,
+            "y": 420
+          },
+          {
+            "asset": "emberforge-beaver",
+            "breedte": 300,
+            "dekking": 0.14,
+            "doel": "Plaatst de tweede compacte beverwachter zelfstandig in de rechter desktopmarge.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 300,
+            "id": "emberforge-desktop-beaver-right",
+            "kleur": "#B8C5D6",
+            "materiaalrol": "muted",
+            "naam": "EmberForge Desktop Bever Rechts",
+            "x": 1570,
+            "y": 420
+          }
+        ],
+        "rol": "illustratie"
       },
       {
         "doel": "Draagt de functionele Circle of Fifths met een eigen desktopplaatsing.",

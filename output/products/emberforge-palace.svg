@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" focusable="false" data-bp-asset="emberforge-palace" data-bp-role="illustratie" data-bp-snapshot="sha256:d12d3ef7eb3c16ec82c8db1225f4461d9cb38054e814a17a1b582dd4ace72728" aria-hidden="true">
+  <path d="M40 310 H920"/>
+  <path d="M180 250 L480 70 L780 250 M140 250 H820 M180 250 V310 M780 250 V310"/>
+  <path d="M40 310 V235 L150 165 L260 235 V310 M700 235 L810 165 L920 235 V310"/>
+  <path d="M300 245 L480 130 L660 245 M340 245 L480 160 L620 245"/>
+  <path d="M430 310 V230 H530 V310"/>
+  <path d="M150 165 V120 M480 70 V35 M810 165 V120"/>
+  <path d="M320 310 V265 M640 310 V265"/>
+</svg>
