@@ -516,7 +516,13 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
         self.assertEqual((3840, 1080), (wallpaper.breedte, wallpaper.hoogte))
         self.assertEqual("#0F1724", wallpaper.canvas.waarde)
         self.assertEqual(
-            ("ornament", "ornament", "illustratie", "merk"),
+            (
+                "ornament",
+                "ornament",
+                "illustratie",
+                "illustratie",
+                "merk",
+            ),
             tuple(laag.rol for laag in wallpaper.lagen),
         )
         self.assertEqual(
@@ -525,8 +531,11 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
                 "emberforge-ultrawide-cool-light-inner",
                 "emberforge-ultrawide-warm-light-outer",
                 "emberforge-ultrawide-warm-light-inner",
-                "emberforge-vector-node-left",
-                "emberforge-vector-node-right",
+                "emberforge-nordic-weave-left",
+                "emberforge-nordic-weave-right",
+                "emberforge-ultrawide-palace",
+                "emberforge-ultrawide-beaver-left",
+                "emberforge-ultrawide-beaver-right",
                 "emberforge-wallpaper-circle-of-fifths",
                 "emberforge-wallpaper-merkteken",
             ),

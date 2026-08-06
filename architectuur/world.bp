@@ -354,6 +354,51 @@ asset emberforge-light-disc {
     toegankelijkheid: "decoratief"
 }
 
+asset emberforge-palace {
+    naam: "EmberForge Palace lijnsilhouet"
+    doel: "Verbeeldt Palace als abstracte Noords geïnspireerde lijnarchitectuur zonder een historisch gebouw te claimen."
+    formaat: "svg"
+    rol: "illustratie"
+    viewbox: "0 0 960 360"
+    paden: ["M40 310 H920", "M180 250 L480 70 L780 250 M140 250 H820 M180 250 V310 M780 250 V310", "M40 310 V235 L150 165 L260 235 V310 M700 235 L810 165 L920 235 V310", "M300 245 L480 130 L660 245 M340 245 L480 160 L620 245", "M430 310 V230 H530 V310", "M150 165 V120 M480 70 V35 M810 165 V120", "M320 310 V265 M640 310 V265"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "4"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "decoratief"
+}
+
+asset emberforge-beaver {
+    naam: "EmberForge bever"
+    doel: "Levert een rustige bever in zijprofiel met platte staart en snijtand als herbruikbaar lijnsymbool voor de EmberForge wereld."
+    formaat: "svg"
+    rol: "illustratie"
+    viewbox: "0 0 320 320"
+    paden: ["M82 206 C70 166 84 122 118 98 C148 76 188 74 220 90 C246 104 262 124 268 146 C282 144 294 150 296 160 C298 170 288 178 272 180 C264 202 246 220 220 234 C186 252 136 256 102 238 Z", "M214 106 C202 94 204 80 216 74 C228 68 242 74 246 86 C250 98 242 108 232 112", "M238 132 C242 128 247 128 251 132", "M252 180 V206 H264 V180 M264 180 V206 H276 V180 M252 206 H276", "M272 176 L304 184 M270 184 L300 196", "M98 220 C66 206 28 216 14 244 C0 272 20 302 52 306 C82 310 110 290 128 260", "M32 238 L92 292 M18 260 L70 304 M56 222 L116 274", "M140 246 C136 268 124 282 106 286 M202 240 C208 264 224 278 244 278"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "5"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "decoratief"
+}
+
+asset emberforge-nordic-weave {
+    naam: "EmberForge Noorse vlecht"
+    doel: "Levert een geometrische Noords geïnspireerde vlecht als rustige herhaalbare lijnornamentiek."
+    formaat: "svg"
+    rol: "ornament"
+    viewbox: "0 0 720 160"
+    paden: ["M20 80 L80 20 L160 100 L240 20 L320 100 L400 20 L480 100 L560 20 L640 100 L700 40", "M20 80 L80 140 L160 60 L240 140 L320 60 L400 140 L480 60 L560 140 L640 60 L700 120"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "3"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "decoratief"
+}
+
 asset emberforge-icon-dashboard {
     naam: "EmberForge Dashboard Icon"
     doel: "Herkenbaar lijnicoon voor het EmberForge dashboardproduct."
@@ -488,7 +533,7 @@ wallpaper emberforge-ultrawide-wallpaper {
     breedte: "3840"
     hoogte: "1080"
     canvas: "canvas"
-    lagen: ["emberforge-wallpaper-lichtlaag", "emberforge-wallpaper-ornamentlaag", "emberforge-wallpaper-muzieklaag", "emberforge-wallpaper-merklaag"]
+    lagen: ["emberforge-wallpaper-lichtlaag", "emberforge-wallpaper-ornamentlaag", "emberforge-wallpaper-wereldlaag", "emberforge-wallpaper-muzieklaag", "emberforge-wallpaper-merklaag"]
 }
 
 wallpaperlaag emberforge-wallpaper-lichtlaag {
@@ -509,10 +554,18 @@ wallpaperlaag emberforge-wallpaper-muzieklaag {
 
 wallpaperlaag emberforge-wallpaper-ornamentlaag {
     naam: "EmberForge Wallpaper Ornamentlaag"
-    doel: "Ordent twee rustige technische lijnornamenten binnen de canvasgrens."
+    doel: "Ordent Noorse vlechtvormen rustig achter de wereldsymboliek."
     wallpaper: "emberforge-ultrawide-wallpaper"
     rol: "ornament"
-    plaatsingen: ["emberforge-vector-node-left", "emberforge-vector-node-right"]
+    plaatsingen: ["emberforge-nordic-weave-left", "emberforge-nordic-weave-right"]
+}
+
+wallpaperlaag emberforge-wallpaper-wereldlaag {
+    naam: "EmberForge Wallpaper Wereldlaag"
+    doel: "Componeert Palace en twee beverwachters als rustige lijnsymboliek onder de functionele muziekcirkel."
+    wallpaper: "emberforge-ultrawide-wallpaper"
+    rol: "illustratie"
+    plaatsingen: ["emberforge-ultrawide-palace", "emberforge-ultrawide-beaver-left", "emberforge-ultrawide-beaver-right"]
 }
 
 wallpaperlaag emberforge-wallpaper-merklaag {
@@ -523,17 +576,17 @@ wallpaperlaag emberforge-wallpaper-merklaag {
     plaatsingen: ["emberforge-wallpaper-merkteken"]
 }
 
-assetplaatsing emberforge-vector-node-left {
-    naam: "EmberForge Vector Node Links"
-    doel: "Plaatst het technische lijnornament met ruime marge links."
+assetplaatsing emberforge-nordic-weave-left {
+    naam: "EmberForge Noorse Vlecht Links"
+    doel: "Plaatst een terughoudende Noorse vlecht boven de linker wereldsymboliek."
     laag: "emberforge-wallpaper-ornamentlaag"
-    asset: "emberforge-vector-node"
+    asset: "emberforge-nordic-weave"
     x: "120"
-    y: "120"
-    breedte: "840"
-    hoogte: "840"
+    y: "70"
+    breedte: "900"
+    hoogte: "200"
     fit: "contain"
-    dekking: "0.14"
+    dekking: "0.1"
     kleur: "interaction"
 }
 
@@ -597,18 +650,60 @@ assetplaatsing emberforge-ultrawide-warm-light-inner {
     effect: "radial-glow"
 }
 
-assetplaatsing emberforge-vector-node-right {
-    naam: "EmberForge Vector Node Rechts"
-    doel: "Plaatst het technische lijnornament symmetrisch rechts."
+assetplaatsing emberforge-nordic-weave-right {
+    naam: "EmberForge Noorse Vlecht Rechts"
+    doel: "Plaatst dezelfde Noorse vormtaal met een zelfstandige rechter plaatsing."
     laag: "emberforge-wallpaper-ornamentlaag"
-    asset: "emberforge-vector-node"
-    x: "2880"
-    y: "120"
-    breedte: "840"
-    hoogte: "840"
+    asset: "emberforge-nordic-weave"
+    x: "2820"
+    y: "70"
+    breedte: "900"
+    hoogte: "200"
     fit: "contain"
-    dekking: "0.14"
+    dekking: "0.1"
     kleur: "interaction"
+}
+
+assetplaatsing emberforge-ultrawide-palace {
+    naam: "EmberForge Ultrawide Palace"
+    doel: "Plaatst het abstracte Palace laag en centraal zonder de muziekinformatie te veranderen."
+    laag: "emberforge-wallpaper-wereldlaag"
+    asset: "emberforge-palace"
+    x: "1260"
+    y: "760"
+    breedte: "1320"
+    hoogte: "300"
+    fit: "contain"
+    dekking: "0.1"
+    kleur: "muted"
+}
+
+assetplaatsing emberforge-ultrawide-beaver-left {
+    naam: "EmberForge Ultrawide Bever Links"
+    doel: "Plaatst een rustige beverwachter in het vrije linker beeldveld."
+    laag: "emberforge-wallpaper-wereldlaag"
+    asset: "emberforge-beaver"
+    x: "420"
+    y: "310"
+    breedte: "520"
+    hoogte: "520"
+    fit: "contain"
+    dekking: "0.16"
+    kleur: "muted"
+}
+
+assetplaatsing emberforge-ultrawide-beaver-right {
+    naam: "EmberForge Ultrawide Bever Rechts"
+    doel: "Plaatst de tweede beverwachter zelfstandig in het vrije rechter beeldveld."
+    laag: "emberforge-wallpaper-wereldlaag"
+    asset: "emberforge-beaver"
+    x: "2900"
+    y: "310"
+    breedte: "520"
+    hoogte: "520"
+    fit: "contain"
+    dekking: "0.16"
+    kleur: "muted"
 }
 
 assetplaatsing emberforge-wallpaper-merkteken {
@@ -650,7 +745,7 @@ wallpaper emberforge-desktop-wallpaper {
     breedte: "1900"
     hoogte: "1200"
     canvas: "canvas"
-    lagen: ["emberforge-desktop-lichtlaag", "emberforge-desktop-ornamentlaag", "emberforge-desktop-muzieklaag", "emberforge-desktop-merklaag"]
+    lagen: ["emberforge-desktop-lichtlaag", "emberforge-desktop-ornamentlaag", "emberforge-desktop-wereldlaag", "emberforge-desktop-muzieklaag", "emberforge-desktop-merklaag"]
 }
 
 wallpaperlaag emberforge-desktop-lichtlaag {
@@ -671,10 +766,18 @@ wallpaperlaag emberforge-desktop-muzieklaag {
 
 wallpaperlaag emberforge-desktop-ornamentlaag {
     naam: "EmberForge Desktop Ornamentlaag"
-    doel: "Ordent twee rustige technische lijnornamenten voor het 1900 bij 1200 canvas."
+    doel: "Ordent terughoudende Noorse lijnornamentiek voor het 1900 bij 1200 canvas."
     wallpaper: "emberforge-desktop-wallpaper"
     rol: "ornament"
-    plaatsingen: ["emberforge-desktop-vector-node-left", "emberforge-desktop-vector-node-right"]
+    plaatsingen: ["emberforge-desktop-nordic-weave-left", "emberforge-desktop-nordic-weave-right"]
+}
+
+wallpaperlaag emberforge-desktop-wereldlaag {
+    naam: "EmberForge Desktop Wereldlaag"
+    doel: "Componeert Palace en twee beverwachters binnen de smalle desktopmarges zonder de muziekcirkel te verplaatsen."
+    wallpaper: "emberforge-desktop-wallpaper"
+    rol: "illustratie"
+    plaatsingen: ["emberforge-desktop-palace", "emberforge-desktop-beaver-left", "emberforge-desktop-beaver-right"]
 }
 
 wallpaperlaag emberforge-desktop-merklaag {
@@ -685,15 +788,15 @@ wallpaperlaag emberforge-desktop-merklaag {
     plaatsingen: ["emberforge-desktop-merkteken"]
 }
 
-assetplaatsing emberforge-desktop-vector-node-left {
-    naam: "EmberForge Desktop Vector Node Links"
-    doel: "Plaatst het technische lijnornament met ruime marge links op het desktopcanvas."
+assetplaatsing emberforge-desktop-nordic-weave-left {
+    naam: "EmberForge Desktop Noorse Vlecht Links"
+    doel: "Plaatst de Noorse vlecht compact in de linker desktopmarge."
     laag: "emberforge-desktop-ornamentlaag"
-    asset: "emberforge-vector-node"
-    x: "80"
-    y: "250"
-    breedte: "560"
-    hoogte: "560"
+    asset: "emberforge-nordic-weave"
+    x: "40"
+    y: "160"
+    breedte: "300"
+    hoogte: "100"
     fit: "contain"
     dekking: "0.08"
     kleur: "interaction"
@@ -759,18 +862,60 @@ assetplaatsing emberforge-desktop-warm-light-inner {
     effect: "radial-glow"
 }
 
-assetplaatsing emberforge-desktop-vector-node-right {
-    naam: "EmberForge Desktop Vector Node Rechts"
-    doel: "Plaatst het technische lijnornament met ruime marge rechts op het desktopcanvas."
+assetplaatsing emberforge-desktop-nordic-weave-right {
+    naam: "EmberForge Desktop Noorse Vlecht Rechts"
+    doel: "Plaatst dezelfde Noorse vlecht met een zelfstandige rechter desktopgeometrie."
     laag: "emberforge-desktop-ornamentlaag"
-    asset: "emberforge-vector-node"
-    x: "1260"
-    y: "250"
-    breedte: "560"
-    hoogte: "560"
+    asset: "emberforge-nordic-weave"
+    x: "1560"
+    y: "160"
+    breedte: "300"
+    hoogte: "100"
     fit: "contain"
     dekking: "0.08"
     kleur: "interaction"
+}
+
+assetplaatsing emberforge-desktop-palace {
+    naam: "EmberForge Desktop Palace"
+    doel: "Plaatst het Palace laag in de desktopcompositie als subtiel lijnanker."
+    laag: "emberforge-desktop-wereldlaag"
+    asset: "emberforge-palace"
+    x: "550"
+    y: "930"
+    breedte: "800"
+    hoogte: "250"
+    fit: "contain"
+    dekking: "0.08"
+    kleur: "muted"
+}
+
+assetplaatsing emberforge-desktop-beaver-left {
+    naam: "EmberForge Desktop Bever Links"
+    doel: "Plaatst een compacte beverwachter buiten de functionele kern."
+    laag: "emberforge-desktop-wereldlaag"
+    asset: "emberforge-beaver"
+    x: "30"
+    y: "420"
+    breedte: "300"
+    hoogte: "300"
+    fit: "contain"
+    dekking: "0.14"
+    kleur: "muted"
+}
+
+assetplaatsing emberforge-desktop-beaver-right {
+    naam: "EmberForge Desktop Bever Rechts"
+    doel: "Plaatst de tweede compacte beverwachter zelfstandig in de rechter desktopmarge."
+    laag: "emberforge-desktop-wereldlaag"
+    asset: "emberforge-beaver"
+    x: "1570"
+    y: "420"
+    breedte: "300"
+    hoogte: "300"
+    fit: "contain"
+    dekking: "0.14"
+    kleur: "muted"
 }
 
 assetplaatsing emberforge-desktop-merkteken {
@@ -2215,8 +2360,8 @@ informatiegebied palace-world {
     toegankelijkheidslabel: "Wereld en identiteit, overzicht van wereld, merk, assetfamilies en bronassets"
     leesvolgorde: "1"
     soorten: ["wereld", "merk", "assetfamilie", "asset", "muziekcirkel"]
-    inhoud: ["beckeringh-palace", "emberforge-merkassets", "emberforge-vector-node", "emberforge-circle-of-fifths"]
-    navigatie: ["forge-dashboard-html", "forge-dashboard-grafana", "emberforge-svg-asset-catalog-html", "emberforge-vector-node-svg", "emberforge-merkteken-svg", "emberforge-woordmerk-svg"]
+    inhoud: ["beckeringh-palace", "emberforge-merkassets", "emberforge-vector-node", "emberforge-palace", "emberforge-beaver", "emberforge-nordic-weave", "emberforge-circle-of-fifths"]
+    navigatie: ["forge-dashboard-html", "forge-dashboard-grafana", "emberforge-svg-asset-catalog-html", "emberforge-vector-node-svg", "emberforge-palace-svg", "emberforge-beaver-svg", "emberforge-nordic-weave-svg", "emberforge-merkteken-svg", "emberforge-woordmerk-svg"]
 }
 
 informatiegebied forge-design-system {
@@ -2794,7 +2939,7 @@ product emberforge-svg-asset-catalog-html {
     wereld: "beckeringh-palace"
     compositie: "emberforge-svg-asset-catalog-composition"
     layout: "emberforge-svg-asset-catalog-stack"
-    assets: ["emberforge-vector-node", "emberforge-light-disc", "emberforge-icon-dashboard", "emberforge-icon-identity", "emberforge-icon-terminal", "emberforge-icon-assets", "emberforge-merkteken", "emberforge-woordmerk"]
+    assets: ["emberforge-vector-node", "emberforge-light-disc", "emberforge-palace", "emberforge-beaver", "emberforge-nordic-weave", "emberforge-icon-dashboard", "emberforge-icon-identity", "emberforge-icon-terminal", "emberforge-icon-assets", "emberforge-merkteken", "emberforge-woordmerk"]
     pad: "output/products/assets.html"
 }
 
@@ -3063,6 +3208,39 @@ product emberforge-light-disc-svg {
     inhoud: "asset"
     asset: "emberforge-light-disc"
     pad: "output/products/emberforge-light-disc.svg"
+}
+
+product emberforge-palace-svg {
+    naam: "EmberForge Palace SVG"
+    doel: "Genereert het abstracte Noords geïnspireerde Palace lijnsilhouet als herbruikbaar SVG product."
+    backend: "svg"
+    mode: "static"
+    wereld: "beckeringh-palace"
+    inhoud: "asset"
+    asset: "emberforge-palace"
+    pad: "output/products/emberforge-palace.svg"
+}
+
+product emberforge-beaver-svg {
+    naam: "EmberForge Bever SVG"
+    doel: "Genereert de beverwachter als herbruikbaar en veilig lijnasset."
+    backend: "svg"
+    mode: "static"
+    wereld: "beckeringh-palace"
+    inhoud: "asset"
+    asset: "emberforge-beaver"
+    pad: "output/products/emberforge-beaver.svg"
+}
+
+product emberforge-nordic-weave-svg {
+    naam: "EmberForge Noorse Vlecht SVG"
+    doel: "Genereert de Noords geïnspireerde vlecht als herbruikbaar ornamentproduct."
+    backend: "svg"
+    mode: "static"
+    wereld: "beckeringh-palace"
+    inhoud: "asset"
+    asset: "emberforge-nordic-weave"
+    pad: "output/products/emberforge-nordic-weave.svg"
 }
 
 product emberforge-icon-dashboard-svg {

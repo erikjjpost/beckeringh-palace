@@ -3,19 +3,19 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.6e",
-    "name": "Native wallpaper art direction",
+    "id": "M11.6f",
+    "name": "Native wallpaper wereldsymboliek",
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.6d",
-    "name": "Native Circle of Fifths model",
-    "pull_request": 94
+    "id": "M11.6e",
+    "name": "Native wallpaper art direction",
+    "pull_request": 95
   },
   "next_step": {
-    "id": "M11.6f",
-    "name": "Native wallpaper wereldsymboliek",
-    "purpose": "Palace, Noorse vormtaal en bevers als rustige reproduceerbare symboliek toevoegen zonder de functionele Circle of Fifths te verdringen."
+    "id": "M11.7a",
+    "name": "Native Figma productcontract",
+    "purpose": "Een reproduceerbare Figma masterbeschrijving uit dezelfde thema-, asset-, component- en layoutsemantiek definiëren voordat synchronisatie naar Figma wordt toegevoegd."
   },
   "areas": [
     {
@@ -23,7 +23,7 @@
       "name": "Compiler en reproduceerbaarheid",
       "progress": 98,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie, CI en 277 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en dezelfde standaardbibliotheekrenderer verwerkt meerdere expliciete wallpaperformaten en zachte radiale lichteffecten.",
+      "evidence": "Validatie, deterministische generatie, CI en 282 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en dezelfde standaardbibliotheekrenderer verwerkt meerdere expliciete wallpaperformaten, zachte radiale lichteffecten en veilige native lijnsymboliek.",
       "remaining": "Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog."
     },
     {
@@ -31,7 +31,7 @@
       "name": "World Model en productcontracten",
       "progress": 100,
       "weight": 10,
-      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies, een merkgebonden wallpaperfamilie en een functionele muziekcirkel met canonieke semantiek.",
+      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies, een merkgebonden wallpaperfamilie, een functionele muziekcirkel en expliciete Palace-, bever- en Noorse wereldsymboliek.",
       "remaining": "Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist."
     },
     {
@@ -53,26 +53,26 @@
     {
       "id": "visual-world",
       "name": "Visuele wereld en art direction",
-      "progress": 60,
+      "progress": 70,
       "weight": 10,
-      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem, bronbewezen kleurprofielen en zelfstandige wallpapers met een functionele Circle of Fifths, koelblauw hoofdlicht en maximaal twee warme accenten.",
-      "remaining": "Palace, het Noorse thema, bevers en de bredere symboliek moeten nog samenhangend worden uitgewerkt."
+      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en zelfstandige wallpapers met functionele muziekinformatie, gecontroleerd licht, Palace lijnarchitectuur, beverwachters en Noorse vlechtvormen.",
+      "remaining": "De wereldsymboliek moet nog naar andere productsurfaces worden doorgetrokken en de bredere wereldbeschrijving blijft onvolledig."
     },
     {
       "id": "svg-library",
       "name": "SVG component library en icon set",
-      "progress": 84,
+      "progress": 88,
       "weight": 10,
-      "evidence": "BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en genereert naast twee assetfamilies ook generieke vectorglyphs en een herbruikbare lichtschijf voor functionele beeldcomposities.",
+      "evidence": "BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie nieuwe wereldassets zonder vulling in dezelfde catalogus.",
       "remaining": "Aanvullende merklockups en een bredere iconenbibliotheek ontbreken nog."
     },
     {
       "id": "logos-wallpapers",
       "name": "Logo's en wallpapers",
-      "progress": 80,
+      "progress": 90,
       "weight": 10,
-      "evidence": "Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; een native familie rendert ze met zachte koelblauwe en begrensd warme lichtwerking in zelfstandige 3840 bij 1080 en 1900 bij 1200 PNG artifacts.",
-      "remaining": "Wereldsymboliek en aanvullende merklockups moeten nog als compilerproducten worden gerealiseerd."
+      "evidence": "Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die nu met eigen lichtgeometrie, Palace, bevers en Noorse lijnsymboliek.",
+      "remaining": "Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten."
     },
     {
       "id": "homepage",
@@ -93,10 +93,10 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 63,
+      "progress": 66,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie en muzieksemantiek zijn normatief vastgelegd.",
-      "remaining": "De bredere wereldbeschrijving, symboliek en ontwerpregels moeten nog worden samengebracht."
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd.",
+      "remaining": "De bredere wereldbeschrijving en cross product ontwerpregels moeten nog worden samengebracht."
     }
   ]
 }

@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 115f041bb272",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d12d3ef7eb3c",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -166,7 +166,7 @@
               },
               "name": "forge-dashboard-left-panel-accent",
               "placement": {
-                "height": 476,
+                "height": 608,
                 "left": 8,
                 "top": 8,
                 "width": 4
@@ -207,7 +207,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "13",
+                  "fixed": "16",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -259,7 +259,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "8\n2\n1\n1\n1",
+                  "fixed": "11\n2\n1\n1\n1",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -410,7 +410,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana\nEmberForge SVG Asset Catalog\nEmberForge Vector Node SVG\nEmberForge merkteken SVG\nEmberForge woordmerk SVG",
+                  "fixed": "Forge Dashboard HTML\nForge Dashboard Grafana\nEmberForge SVG Asset Catalog\nEmberForge Vector Node SVG\nEmberForge Palace SVG\nEmberForge Bever SVG\nEmberForge Noorse Vlecht SVG\nEmberForge merkteken SVG\nEmberForge woordmerk SVG",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -442,6 +442,21 @@
                 },
                 {
                   "targetBlank": false,
+                  "title": "EmberForge Palace SVG",
+                  "url": "emberforge-palace.svg"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "EmberForge Bever SVG",
+                  "url": "emberforge-beaver.svg"
+                },
+                {
+                  "targetBlank": false,
+                  "title": "EmberForge Noorse Vlecht SVG",
+                  "url": "emberforge-nordic-weave.svg"
+                },
+                {
+                  "targetBlank": false,
                   "title": "EmberForge merkteken SVG",
                   "url": "emberforge-merkteken.svg"
                 },
@@ -453,7 +468,7 @@
               ],
               "name": "forge-dashboard-left-panel-product-navigation",
               "placement": {
-                "height": 72,
+                "height": 108,
                 "left": 20,
                 "top": 212,
                 "width": 360
@@ -468,7 +483,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge merkassets · assetfamilie\nOrdent het native merkteken en woordmerk als één reproduceerbare merkfamilie.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.\nEmberForge Circle of Fifths · muziekcirkel\nPubliceert twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens als functionele gitaarreferentie.",
+                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge merkassets · assetfamilie\nOrdent het native merkteken en woordmerk als één reproduceerbare merkfamilie.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.\nEmberForge Palace lijnsilhouet · asset\nVerbeeldt Palace als abstracte Noords geïnspireerde lijnarchitectuur zonder een historisch gebouw te claimen.\nEmberForge bever · asset\nLevert een rustige bever in zijprofiel met platte staart en snijtand als herbruikbaar lijnsymbool voor de EmberForge wereld.\nEmberForge Noorse vlecht · asset\nLevert een geometrische Noords geïnspireerde vlecht als rustige herhaalbare lijnornamentiek.\nEmberForge Circle of Fifths · muziekcirkel\nPubliceert twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens als functionele gitaarreferentie.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -479,9 +494,9 @@
               },
               "name": "forge-dashboard-left-panel-content-anchors",
               "placement": {
-                "height": 128,
+                "height": 224,
                 "left": 20,
-                "top": 296,
+                "top": 332,
                 "width": 360
               },
               "type": "text"
@@ -507,7 +522,7 @@
               "placement": {
                 "height": 48,
                 "left": 20,
-                "top": 436,
+                "top": 568,
                 "width": 360
               },
               "type": "text"
@@ -1322,7 +1337,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "126",
+                  "fixed": "137",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1374,7 +1389,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "16\n26\n7\n7\n7\n23\n26\n3\n2\n1\n8",
+                  "fixed": "22\n26\n7\n7\n7\n26\n26\n3\n2\n1\n10",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1803,7 +1818,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:115f041bb272d6ea834f9b637fa61fbe32047d9b27d3ae4e7462475394261db2"
+    "sha256:d12d3ef7eb3c16ec82c8db1225f4461d9cb38054e814a17a1b582dd4ace72728"
   ],
   "templating": {
     "list": []

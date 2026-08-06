@@ -260,4 +260,11 @@ onverklaarde vlak links komt niet voor. M11.6e realiseert de koelblauwe en
 begrensd warme lichtwerking met een native lichtschijf en expliciete
 `radial-glow` plaatsingen. Ieder formaat heeft eigen geometrie, koelblauw blijft
 het hoofdlicht en per wallpaper zijn exact twee warme accenten toegestaan. De
-muziekinformatie en haar vectorgeometrie veranderen niet.
+muziekinformatie en haar vectorgeometrie veranderen niet. M11.6f voegt Palace,
+een bever met expliciete platte staart en snijtand en een geometrische Noorse
+vlecht toe als nieuw getekende BAT assets zonder vulling. Zij worden afzonderlijk
+als SVG gepubliceerd en per wallpaperformaat met eigen plaatsingen onder de
+muzieklaag gecomponeerd. De generieke technische zijornamenten verdwijnen uit
+de wallpapers en blijven wel beschikbaar in de assetcatalogus. Omdat de drie
+nieuwe wereldassets geen vulling hebben, kunnen zij het eerder afgekeurde
+gevulde vlak niet introduceren.
