@@ -1076,6 +1076,17 @@ bron. Een door Figma toegekende publicatie-identiteit, het draaien van de plugin
 in Figma Desktop en visuele inspectie van het resulterende masterbestand zijn
 externe lifecyclehandelingen en veranderen BAT niet.
 
+M11.7c laat de development plugin na de eerste synchronisatie de beheerde Figma
+toestand opnieuw uitlezen. De verificatie controleert de acht collections en
+hun variables, text en effect styles, componentsets en concrete statevarianten,
+assets en surfaces tegen hetzelfde schema-v2 manifest en controleert de
+snapshotidentiteit op de beheerde documentatie, componenten en assets. De plugin
+voert vervolgens dezelfde synchronisatie nogmaals uit en vereist een identieke
+live fingerprint. Daarmee is idempotentie een runtimecontrole in het echte
+Figma bestand in plaats van alleen een eigenschap van de adapterplanning. De
+visuele beoordeling van het resultaat blijft een expliciete externe
+lifecyclecontrole en kan niet door de netwerkloze adapter worden vervangen.
+
 ## Diagnostics
 
 | Code | Betekenis |

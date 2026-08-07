@@ -733,6 +733,192 @@ async function syncFileStructure(figmaApi, manifest, refs, textStyles) {
   if (refs.material.surface) foundationFrame.fills = [boundPaint(figmaApi, refs.material.surface)];
 }
 
+function assertExactNames(kind, actual, expected) {
+  const normalizedActual = [...actual].sort();
+  const normalizedExpected = [...expected].sort();
+  if (JSON.stringify(normalizedActual) !== JSON.stringify(normalizedExpected)) {
+    throw new Error(
+      `${kind} mismatch: expected ${JSON.stringify(normalizedExpected)}, got ${JSON.stringify(normalizedActual)}`,
+    );
+  }
+}
+
+/** @param {PluginAPI} figmaApi */
+async function exactPage(figmaApi, name) {
+  const pages = figmaApi.root.children.filter((page) => page.name === name);
+  if (pages.length !== 1) {
+    throw new Error(`Expected exactly one Figma page '${name}', got ${pages.length}`);
+  }
+  const page = pages[0];
+  if (typeof page.loadAsync === "function") await page.loadAsync();
+  return page;
+}
+
+function normalizedVariableValue(value) {
+  if (value && typeof value === "object" && value.type === "VARIABLE_ALIAS") {
+    return {type: value.type, id: value.id};
+  }
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).sort(([left], [right]) => left.localeCompare(right)));
+  }
+  return value;
+}
+
+/** @param {PluginAPI} figmaApi */
+async function verifyLiveState(figmaApi, manifest) {
+  const desired = desiredState(manifest);
+  const collections = await figmaApi.variables.getLocalVariableCollectionsAsync();
+  const variables = await figmaApi.variables.getLocalVariablesAsync();
+  const managedCollections = [];
+  for (const [key, name] of Object.entries(COLLECTION_NAMES)) {
+    const matches = collections.filter((collection) => collection.name === name);
+    if (matches.length !== 1) {
+      throw new Error(`Expected exactly one variable collection '${name}', got ${matches.length}`);
+    }
+    const collection = matches[0];
+    if (collection.modes.length !== 1 || collection.modes[0].name !== "Value") {
+      throw new Error(`Variable collection '${name}' must have exactly one 'Value' mode`);
+    }
+    const owned = variables
+      .filter((variable) => variable.variableCollectionId === collection.id)
+      .sort((left, right) => left.name.localeCompare(right.name));
+    if (owned.length !== desired.collections[key]) {
+      throw new Error(
+        `Variable collection '${name}' expected ${desired.collections[key]} variables, got ${owned.length}`,
+      );
+    }
+    const modeId = collection.modes[0].modeId;
+    managedCollections.push({
+      name,
+      variables: owned.map((variable) => ({
+        id: variable.id,
+        name: variable.name,
+        type: variable.resolvedType,
+        scopes: [...variable.scopes].sort(),
+        web: variable.codeSyntax.WEB || null,
+        value: normalizedVariableValue(variable.valuesByMode[modeId]),
+      })),
+    });
+  }
+
+  const localTextStyles = await figmaApi.getLocalTextStylesAsync();
+  const textStyleNames = desired.textStyles.map((role) => `Type/${role}`);
+  const textStyles = localTextStyles.filter((style) => textStyleNames.includes(style.name));
+  assertExactNames("Text styles", textStyles.map((style) => style.name), textStyleNames);
+  const textStyleState = textStyles
+    .map((style) => ({
+      id: style.id,
+      name: style.name,
+      fontName: style.fontName,
+      fontSize: style.fontSize,
+      lineHeight: style.lineHeight,
+      letterSpacing: style.letterSpacing,
+      description: style.description,
+    }))
+    .sort((left, right) => left.name.localeCompare(right.name));
+
+  const localEffectStyles = await figmaApi.getLocalEffectStylesAsync();
+  const effectStyleNames = desired.effectStyles.map((role) => `Shadow/${role.replace("_", "-")}`);
+  const effectStyles = localEffectStyles.filter((style) => effectStyleNames.includes(style.name));
+  assertExactNames("Effect styles", effectStyles.map((style) => style.name), effectStyleNames);
+  const effectStyleState = effectStyles
+    .map((style) => ({id: style.id, name: style.name, effects: style.effects, description: style.description}))
+    .sort((left, right) => left.name.localeCompare(right.name));
+
+  const componentState = [];
+  for (const definition of desired.components) {
+    const page = await exactPage(figmaApi, `Component / ${definition.naam}`);
+    const sets = /** @type {ComponentSetNode[]} */ (page.children.filter(
+      (node) => node.type === "COMPONENT_SET" && node.name === definition.naam,
+    ));
+    if (sets.length !== 1) {
+      throw new Error(`Component '${definition.id}' expected exactly one component set, got ${sets.length}`);
+    }
+    const set = sets[0];
+    const expectedVariants = definition.figmaVariants.map(
+      (variant) => `Variant=${variant.profile}, State=${variant.state}`,
+    );
+    assertExactNames(
+      `Component '${definition.id}' variants`,
+      set.children.map((child) => child.name),
+      expectedVariants,
+    );
+    if (!set.description.includes(desired.snapshot)) {
+      throw new Error(`Component '${definition.id}' does not carry snapshot '${desired.snapshot}'`);
+    }
+    for (const child of set.children) {
+      if (child.type !== "COMPONENT" || !child.description.includes(desired.snapshot)) {
+        throw new Error(`Component '${definition.id}' contains an unverified variant '${child.name}'`);
+      }
+    }
+    componentState.push({
+      id: set.id,
+      name: definition.id,
+      variants: [...set.children].map((child) => ({id: child.id, name: child.name})).sort(
+        (left, right) => left.name.localeCompare(right.name),
+      ),
+    });
+  }
+
+  const assetsPage = await exactPage(figmaApi, "Assets");
+  const assetNames = desired.assets.map((id) => `Asset / ${id}`);
+  const assetNodes = /** @type {ComponentNode[]} */ (assetsPage.children.filter(
+    (node) => node.type === "COMPONENT" && assetNames.includes(node.name),
+  ));
+  assertExactNames("Assets", assetNodes.map((node) => node.name), assetNames);
+  for (const node of assetNodes) {
+    if (!node.description.includes(desired.snapshot)) {
+      throw new Error(`Asset '${node.name}' does not carry snapshot '${desired.snapshot}'`);
+    }
+  }
+  const assetState = assetNodes
+    .map((node) => ({id: node.id, name: node.name, width: node.width, height: node.height, children: node.children.length}))
+    .sort((left, right) => left.name.localeCompare(right.name));
+
+  const surfacesPage = await exactPage(figmaApi, "Surfaces");
+  const surfaceNames = desired.layouts.map((id) => `Surface / ${id}`);
+  const surfaceNodes = /** @type {FrameNode[]} */ (surfacesPage.children.filter(
+    (node) => node.type === "FRAME" && surfaceNames.includes(node.name),
+  ));
+  assertExactNames("Surfaces", surfaceNodes.map((node) => node.name), surfaceNames);
+  const surfaceState = surfaceNodes
+    .map((node) => ({
+      id: node.id,
+      name: node.name,
+      width: node.width,
+      height: node.height,
+      instances: /** @type {InstanceNode[]} */ (node.children
+        .filter((child) => child.type === "INSTANCE"))
+        .map((child) => ({id: child.id, name: child.name, mainComponent: child.mainComponent && child.mainComponent.id}))
+        .sort((left, right) => left.name.localeCompare(right.name)),
+    }))
+    .sort((left, right) => left.name.localeCompare(right.name));
+
+  const documentedPages = ["Cover", "Getting Started", "Foundations", "Assets", "Surfaces"];
+  for (const name of documentedPages) {
+    const page = await exactPage(figmaApi, name);
+    const documentation = /** @type {FrameNode | undefined} */ (page.children.find(
+      (node) => node.type === "FRAME" && node.name === "_Documentation",
+    ));
+    const labels = documentation && /** @type {TextNode[]} */ (documentation.children.filter(
+      (child) => child.type === "TEXT" && child.name === "_GeneratedLabel",
+    ));
+    if (!labels || !labels.some((label) => label.characters.includes(desired.snapshot))) {
+      throw new Error(`Page '${name}' does not document snapshot '${desired.snapshot}'`);
+    }
+  }
+
+  return {
+    snapshot: desired.snapshot,
+    collections: managedCollections,
+    textStyles: textStyleState,
+    effectStyles: effectStyleState,
+    components: componentState,
+    assets: assetState,
+    surfaces: surfaceState,
+  };
+}
+
 /** @param {PluginAPI} figmaApi */
 async function runSync(figmaApi, manifest) {
   assertManifest(manifest);
@@ -759,14 +945,34 @@ async function runSync(figmaApi, manifest) {
   };
 }
 
+/** @param {PluginAPI} figmaApi */
+async function runVerifiedSync(figmaApi, manifest) {
+  const firstSummary = await runSync(figmaApi, manifest);
+  const firstState = await verifyLiveState(figmaApi, manifest);
+  const secondSummary = await runSync(figmaApi, manifest);
+  const secondState = await verifyLiveState(figmaApi, manifest);
+  if (JSON.stringify(firstState) !== JSON.stringify(secondState)) {
+    throw new Error("Second Figma sync changed managed state; adapter is not idempotent");
+  }
+  return {...secondSummary, verified: true, idempotent: true, firstSummary};
+}
+
 if (typeof figma !== "undefined") {
-  runSync(figma, BP_MANIFEST)
+  runVerifiedSync(figma, BP_MANIFEST)
     .then((summary) => figma.closePlugin(
-      `Beckeringh Palace synced ${summary.componentFamilies} component families, ${summary.assets} assets and ${summary.surfaces} surfaces.`,
+      `Beckeringh Palace verified ${summary.variables} variables, ${summary.componentFamilies} component families, ${summary.assets} assets and ${summary.surfaces} surfaces; second sync is idempotent.`,
     ))
     .catch((error) => figma.closePlugin(`Beckeringh Palace sync failed: ${error.message}`));
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = {manifest: BP_MANIFEST, assertManifest, desiredState, parseCssShadow, runSync};
+  module.exports = {
+    manifest: BP_MANIFEST,
+    assertManifest,
+    desiredState,
+    parseCssShadow,
+    runSync,
+    verifyLiveState,
+    runVerifiedSync,
+  };
 }
