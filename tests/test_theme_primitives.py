@@ -43,11 +43,35 @@ typeschaal forge-type-scale {
     naam: "Forge Type Scale"
     doel: "Semantische tekstgroottes."
     display: "64px"
+    display-font: "heading"
+    display-weight: "600"
+    display-line-height: "1"
+    display-letter-spacing: "0.08em"
     title: "40px"
+    title-font: "heading"
+    title-weight: "600"
+    title-line-height: "1.15"
+    title-letter-spacing: "-0.01em"
     heading: "28px"
+    heading-font: "heading"
+    heading-weight: "600"
+    heading-line-height: "1.3"
+    heading-letter-spacing: "normal"
     body: "16px"
+    body-font: "body"
+    body-weight: "400"
+    body-line-height: "1.55"
+    body-letter-spacing: "normal"
     label: "14px"
+    label-font: "body"
+    label-weight: "500"
+    label-line-height: "normal"
+    label-letter-spacing: "0.08em"
     caption: "12px"
+    caption-font: "body"
+    caption-weight: "400"
+    caption-line-height: "normal"
+    caption-letter-spacing: "normal"
 }
 materiaal forged-iron {
     naam: "Forged Iron"
@@ -136,6 +160,10 @@ class ThemePrimitiveTests(unittest.TestCase):
         self.assertEqual("40px", thema.spacing.xl)
         self.assertEqual("64px", thema.typeschaal.display)
         self.assertEqual("12px", thema.typeschaal.caption)
+        self.assertEqual("600", thema.typeschaal.display_weight)
+        self.assertEqual("heading", thema.typeschaal.display_font)
+        self.assertEqual("1.55", thema.typeschaal.body_line_height)
+        self.assertEqual("0.08em", thema.typeschaal.label_letter_spacing)
 
     def test_afwezige_primitieven_worden_niet_verzonnen(self):
         bron = BRON
@@ -171,6 +199,21 @@ class ThemePrimitiveTests(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertEqual("BP3614", context.exception.diagnostics[0].code)
+
+    def test_weigert_typeschaal_zonder_expliciete_typografiemetriek(self):
+        bron = BRON.replace('    body-line-height: "1.55"\n', "")
+        with self.assertRaises(Exception) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3644", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_ongeldige_typografiemetriek(self):
+        bron = BRON.replace(
+            '    title-letter-spacing: "-0.01em"',
+            '    title-letter-spacing: "breed"',
+        )
+        with self.assertRaises(Exception) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        self.assertIn("BP3645", {item.code for item in context.exception.diagnostics})
 
 
 if __name__ == "__main__":

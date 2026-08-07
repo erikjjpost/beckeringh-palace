@@ -205,9 +205,13 @@ class HtmlThemeBackendTests(unittest.TestCase):
         model = analyseer(parseer(BRON), constraints=WORLD_MODEL_CONSTRAINTS)
         product = compileer_producten(model.objecten, standaard_backend_registry())[0]
 
-        self.assertIn('--bp-theme-primary: #D86A35;', product.inhoud)
-        self.assertIn('--bp-theme-background: #171A1F;', product.inhoud)
-        self.assertIn('--bp-theme-foreground: #ECECEC;', product.inhoud)
+        self.assertIn('--bp-color-ember-orange: #D86A35;', product.inhoud)
+        self.assertIn(
+            '--bp-theme-primary: var(--bp-color-ember-orange);',
+            product.inhoud,
+        )
+        self.assertIn('--bp-theme-background: var(--bp-color-iron-black);', product.inhoud)
+        self.assertIn('--bp-theme-foreground: var(--bp-color-smoke-white);', product.inhoud)
         self.assertIn(
             '--bp-font-heading: "Aptos Display", sans-serif;',
             product.inhoud,
@@ -217,12 +221,12 @@ class HtmlThemeBackendTests(unittest.TestCase):
             '--bp-font-mono: "JetBrains Mono", monospace;',
             product.inhoud,
         )
-        self.assertIn('--bp-material-canvas: #171A1F;', product.inhoud)
-        self.assertIn('--bp-material-surface: #20252C;', product.inhoud)
-        self.assertIn('--bp-material-raised: #282E36;', product.inhoud)
-        self.assertIn('--bp-material-muted: #AEB4BD;', product.inhoud)
-        self.assertIn('--bp-material-accent: #D86A35;', product.inhoud)
-        self.assertIn('--bp-material-outline: #46505C;', product.inhoud)
+        self.assertIn('--bp-material-canvas: var(--bp-color-iron-black);', product.inhoud)
+        self.assertIn('--bp-material-surface: var(--bp-color-forged-iron);', product.inhoud)
+        self.assertIn('--bp-material-raised: var(--bp-color-raised-iron);', product.inhoud)
+        self.assertIn('--bp-material-muted: var(--bp-color-ash-grey);', product.inhoud)
+        self.assertIn('--bp-material-accent: var(--bp-color-ember-orange);', product.inhoud)
+        self.assertIn('--bp-material-outline: var(--bp-color-iron-edge);', product.inhoud)
         self.assertIn('--bp-border-hairline: 1px;', product.inhoud)
         self.assertIn('--bp-border-style: solid;', product.inhoud)
         self.assertIn('--bp-radius-medium: 12px;', product.inhoud)

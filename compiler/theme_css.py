@@ -43,9 +43,23 @@ def theme_variable_lines(
 
     property_indent = indent + "  "
     regels = [f"{indent}:root {{"]
+    kleurprimitieven = {
+        kleur.id: kleur
+        for _rol, kleur in thema.palet.kleuren
+    }
+    if thema.materiaal is not None:
+        kleurprimitieven.update({
+            kleur.id: kleur
+            for _rol, kleur in thema.materiaal.kleuren
+        })
+    for kleur_id in sorted(kleurprimitieven):
+        regels.append(
+            f"{property_indent}--bp-color-{kleur_id}: "
+            f"{kleurprimitieven[kleur_id].waarde};"
+        )
     for rol, kleur in thema.palet.kleuren:
         regels.append(
-            f"{property_indent}--bp-theme-{rol}: {kleur.waarde};"
+            f"{property_indent}--bp-theme-{rol}: var(--bp-color-{kleur.id});"
         )
     regels.extend([
         f"{property_indent}--bp-font-heading: "
@@ -57,18 +71,23 @@ def theme_variable_lines(
     ])
 
     if thema.typeschaal is not None:
-        regels.extend([
-            f"{property_indent}--bp-type-display: {thema.typeschaal.display};",
-            f"{property_indent}--bp-type-title: {thema.typeschaal.title};",
-            f"{property_indent}--bp-type-heading: {thema.typeschaal.heading};",
-            f"{property_indent}--bp-type-body: {thema.typeschaal.body};",
-            f"{property_indent}--bp-type-label: {thema.typeschaal.label};",
-            f"{property_indent}--bp-type-caption: {thema.typeschaal.caption};",
-        ])
+        for rol in ("display", "title", "heading", "body", "label", "caption"):
+            fontrol = getattr(thema.typeschaal, f"{rol}_font")
+            regels.extend([
+                f"{property_indent}--bp-type-{rol}: {getattr(thema.typeschaal, rol)};",
+                f"{property_indent}--bp-type-{rol}-font: var(--bp-font-{fontrol});",
+                f"{property_indent}--bp-type-{rol}-weight: "
+                f"{getattr(thema.typeschaal, f'{rol}_weight')};",
+                f"{property_indent}--bp-type-{rol}-line-height: "
+                f"{getattr(thema.typeschaal, f'{rol}_line_height')};",
+                f"{property_indent}--bp-type-{rol}-letter-spacing: "
+                f"{getattr(thema.typeschaal, f'{rol}_letter_spacing')};",
+            ])
     if thema.materiaal is not None:
         for rol, kleur in thema.materiaal.kleuren:
             regels.append(
-                f"{property_indent}--bp-material-{rol}: {kleur.waarde};"
+                f"{property_indent}--bp-material-{rol}: "
+                f"var(--bp-color-{kleur.id});"
             )
     if thema.border is not None:
         regels.extend([

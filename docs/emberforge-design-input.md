@@ -127,11 +127,14 @@ technische tekst. Iedere rol bevat een geordende lokale voorkeursstack met een
 generieke fallback. De levering is expliciet `local-only`.
 
 De bestaande semantische productrollen krijgen de geverifieerde EmberForge
-groottes 80, 56, 32, 16, 12 en 12 pixels. Niet gebruikte bronstappen worden
-niet als losse BAT velden toegevoegd. De HTML backend vertaalt uitsluitend de
-opgeloste stacks naar geldige CSS en voegt geen `@import`, URL of fontdownload
-toe. Daardoor blijft de compiler onafhankelijk van Google Fonts en ontbrekende
-fontbestanden.
+groottes 80, 56, 32, 16, 12 en 12 pixels. M11.7b expliciteert voor diezelfde
+rollen ook de brongebonden fontrol, weight, line height en letter spacing.
+Waar de designbron geen afwijking specificeert blijft de waarde expliciet
+`normal`; de compiler verzint daar geen numerieke metriek voor. Niet gebruikte
+bronstappen worden niet als losse BAT velden toegevoegd. De HTML backend
+vertaalt uitsluitend de opgeloste stacks en metrics naar geldige CSS en voegt
+geen `@import`, URL of fontdownload toe. Daardoor blijft de compiler
+onafhankelijk van Google Fonts en ontbrekende fontbestanden.
 
 ## Componenttoestanden
 
@@ -276,3 +279,17 @@ assets, componenten, varianten, composities en layouts. Het gegenereerde
 vectorgeometrie met dezelfde BAT snapshotidentiteit. Een volgende adapter mag
 alleen dit contract naar Figma synchroniseren en geen kleuren, componentstates
 of layoutkeuzes aanvullen.
+
+M11.7b scherpt dit contract aan tot schema versie 2. Semantische palette en
+material kleuren dragen naast hun opgeloste waarde ook het native BAT kleur-ID,
+zodat een synchronisatieadapter Figma aliases naar echte primitives kan maken
+zonder op hexwaarden te dedupliceren. De zes typeschaalrollen dragen een
+volledige tekststijl met fontstack, fontrol, grootte, weight, line height en
+letter spacing. CSS publiceert dezelfde kleurprimitives als `--bp-color-*` en
+semantische kleurrollen als verwijzingen daarnaar.
+
+Dezelfde milestone verpakt dit manifest als een lokale netwerkloze Figma
+development plugin. Die adapter maakt uitsluitend native Figma representaties
+van de gepubliceerde schema-v2 waarden en selecties. Er is geen MCP- of
+REST-call nodig en de plugin bevat geen alternatieve EmberForge ontwerpwaarden.
+Live uitvoering en visuele inspectie van het masterbestand volgen afzonderlijk.

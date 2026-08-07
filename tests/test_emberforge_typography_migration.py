@@ -66,6 +66,25 @@ class EmberForgeTypographyMigrationTests(unittest.TestCase):
                 self.theme.typeschaal.caption,
             ),
         )
+        self.assertEqual(
+            (
+                ("heading", "500", "1", "0.08em"),
+                ("heading", "600", "1.15", "-0.01em"),
+                ("heading", "700", "1.3", "normal"),
+                ("body", "400", "1.55", "normal"),
+                ("body", "500", "normal", "0.18em"),
+                ("body", "400", "normal", "normal"),
+            ),
+            tuple(
+                (
+                    getattr(self.theme.typeschaal, f"{rol}_font"),
+                    getattr(self.theme.typeschaal, f"{rol}_weight"),
+                    getattr(self.theme.typeschaal, f"{rol}_line_height"),
+                    getattr(self.theme.typeschaal, f"{rol}_letter_spacing"),
+                )
+                for rol in ("display", "title", "heading", "body", "label", "caption")
+            ),
+        )
 
     def test_html_activeert_stacks_zonder_externe_runtimebron(self) -> None:
         html = self.products["beckeringh-palace-homepage"].inhoud

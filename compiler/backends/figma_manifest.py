@@ -16,7 +16,8 @@ def _theme_manifest(theme):
         "palet": {
             "id": theme.palet.id,
             "rollen": {
-                role: color.waarde for role, color in theme.palet.kleuren
+                role: {"color_id": color.id, "value": color.waarde}
+                for role, color in theme.palet.kleuren
             },
         },
         "typografie": {
@@ -27,8 +28,25 @@ def _theme_manifest(theme):
             "levering": theme.typografie.levering,
         },
     }
+    if theme.typeschaal is not None:
+        schaal = theme.typeschaal
+        manifest["typeschaal"] = {
+            "id": schaal.id,
+            "rollen": {
+                rol: {
+                    "font_role": getattr(schaal, f"{rol}_font"),
+                    "font_family": list(
+                        getattr(theme.typografie, getattr(schaal, f"{rol}_font"))
+                    ),
+                    "font_size": getattr(schaal, rol),
+                    "font_weight": getattr(schaal, f"{rol}_weight"),
+                    "line_height": getattr(schaal, f"{rol}_line_height"),
+                    "letter_spacing": getattr(schaal, f"{rol}_letter_spacing"),
+                }
+                for rol in ("display", "title", "heading", "body", "label", "caption")
+            },
+        }
     for naam, resolved, velden in (
-        ("typeschaal", theme.typeschaal, ("display", "title", "heading", "body", "label", "caption")),
         ("spacing", theme.spacing, ("none", "xs", "small", "medium", "large", "xl")),
         ("border", theme.border, ("hairline", "regular", "strong", "style")),
         ("radius", theme.radius, ("small", "medium", "large", "pill", "control")),
@@ -48,20 +66,34 @@ def _theme_manifest(theme):
         manifest["materiaal"] = {
             "id": theme.materiaal.id,
             "rollen": {
-                role: color.waarde for role, color in theme.materiaal.kleuren
+                role: {"color_id": color.id, "value": color.waarde}
+                for role, color in theme.materiaal.kleuren
             },
         }
+    color_primitives = {}
+    for _role, color in theme.palet.kleuren:
+        color_primitives[color.id] = color.waarde
+    if theme.materiaal is not None:
+        for _role, color in theme.materiaal.kleuren:
+            color_primitives[color.id] = color.waarde
+    manifest["color_primitives"] = dict(sorted(color_primitives.items()))
     if theme.artdirection is not None:
         art = theme.artdirection
         manifest["art_direction"] = {
             "id": art.id,
-            "canvas": {"rol": art.canvas_role, "kleur": art.canvas.waarde},
+            "canvas": {
+                "rol": art.canvas_role,
+                "color_id": art.canvas.id,
+                "kleur": art.canvas.waarde,
+            },
             "interaction": {
                 "rol": art.interaction_role,
+                "color_id": art.interaction.id,
                 "kleur": art.interaction.waarde,
             },
             "warm_accent": {
                 "rol": art.warm_accent_role,
+                "color_id": art.warm_accent.id,
                 "kleur": art.warm_accent.waarde,
                 "limiet": art.warm_accent_limit,
             },
@@ -102,7 +134,7 @@ def _render(objecten, product: ProductDefinition) -> str:
     ]
 
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "product": {
             "id": product.id,
             "snapshot": product.snapshot_ref,

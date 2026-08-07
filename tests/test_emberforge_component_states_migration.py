@@ -156,9 +156,9 @@ class EmberForgeComponentStatesMigrationTests(unittest.TestCase):
     def test_catalogus_toont_iedere_opgeloste_state(self) -> None:
         catalog = self.products["forge-design-system-reference-html"].inhoud
 
-        self.assertIn("--bp-material-interaction: #7DD3FC;", catalog)
+        self.assertIn("--bp-material-interaction: var(--bp-color-sky-400);", catalog)
         self.assertIn(
-            "--bp-material-interaction-pressed: #38BDF8;",
+            "--bp-material-interaction-pressed: var(--bp-color-sky-500);",
             catalog,
         )
         self.assertIn("--bp-shadow-glow:", catalog)

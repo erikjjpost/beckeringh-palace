@@ -1,0 +1,15 @@
+{
+  "api": "1.0.0",
+  "documentAccess": "dynamic-page",
+  "editorType": [
+    "figma"
+  ],
+  "id": "000000000000000000",
+  "main": "code.js",
+  "name": "Beckeringh Palace Sync",
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

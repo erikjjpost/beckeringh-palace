@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import re
 
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
@@ -17,6 +18,8 @@ PRIMITIEF_SOORTEN = (
     "typeschaal", "artdirection",
 )
 TYPOGRAFIE_ROLLEN = ("heading", "body", "mono")
+TYPESCHAAL_ROLLEN = ("display", "title", "heading", "body", "label", "caption")
+TYPESCHAAL_METRIEKEN = ("font", "weight", "line-height", "letter-spacing")
 TYPOGRAFIE_FALLBACKS = {
     "heading": "sans-serif",
     "body": "sans-serif",
@@ -46,7 +49,14 @@ class ThemeFoundationConstraint:
             "typografie": {
                 "naam", "doel", *TYPOGRAFIE_ROLLEN, "levering",
             },
-            "typeschaal": {"naam", "doel", "display", "title", "heading", "body", "label", "caption"},
+            "typeschaal": {
+                "naam", "doel", *TYPESCHAAL_ROLLEN,
+                *{
+                    f"{rol}-{metriek}"
+                    for rol in TYPESCHAAL_ROLLEN
+                    for metriek in TYPESCHAAL_METRIEKEN
+                },
+            },
             "materiaal": {
                 "naam", "doel", *MATERIAAL_ROLLEN,
             },
@@ -149,6 +159,48 @@ class ThemeFoundationConstraint:
                             rol, typografie.bronlocatie
                         ),
                     ))
+
+        for typeschaal in objecten_per_soort["typeschaal"].values():
+            for rol in TYPESCHAAL_ROLLEN:
+                for metriek in TYPESCHAAL_METRIEKEN:
+                    veld = f"{rol}-{metriek}"
+                    waarde = typeschaal.eigenschappen.get(veld)
+                    if not isinstance(waarde, str) or not waarde.strip():
+                        diagnostics.append(Diagnostic(
+                            code="BP3644",
+                            boodschap=(
+                                f"Typeschaal '{typeschaal.id}' vereist expliciete "
+                                f"typografiemetriek '{veld}'"
+                            ),
+                            locatie=typeschaal.eigenschaplocaties.get(
+                                veld, typeschaal.bronlocatie
+                            ),
+                        ))
+                        continue
+                    geldig = True
+                    if metriek == "font":
+                        geldig = waarde in TYPOGRAFIE_ROLLEN
+                    elif metriek == "weight":
+                        geldig = bool(re.fullmatch(r"[1-9]00", waarde))
+                    elif metriek == "line-height":
+                        geldig = waarde == "normal" or bool(
+                            re.fullmatch(r"(?:0|[1-9][0-9]*)(?:\.[0-9]+)?", waarde)
+                        )
+                    elif metriek == "letter-spacing":
+                        geldig = waarde == "normal" or bool(
+                            re.fullmatch(r"-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?em", waarde)
+                        )
+                    if not geldig:
+                        diagnostics.append(Diagnostic(
+                            code="BP3645",
+                            boodschap=(
+                                f"Typeschaal '{typeschaal.id}' heeft ongeldige "
+                                f"typografiemetriek '{veld}': '{waarde}'"
+                            ),
+                            locatie=typeschaal.eigenschaplocaties.get(
+                                veld, typeschaal.bronlocatie
+                            ),
+                        ))
 
         paletten = objecten_per_soort["palet"]
         for palet in paletten.values():
