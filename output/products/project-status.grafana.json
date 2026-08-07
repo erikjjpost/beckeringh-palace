@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 36f4de68f0a4",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 216e457f1d2b",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:84",
+      "description": "project-status-schema:1;overall-progress:87",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 84%",
+                  "fixed": "Totale voortgang · 87%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 504
+                "width": 522
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.7a · Native Figma productcontract (in uitvoering)\nVoltooid: M11.6f · Native wallpaper wereldsymboliek (PR #96)\nVolgende stap: M11.7b · Native Figma synchronisatieadapter\nHet gegenereerde Figma mastermanifest idempotent naar een Figma masterbestand synchroniseren zonder BAT semantiek of designwaarden in de adapter te dupliceren.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.7b · Native Figma synchronisatieadapter (in uitvoering)\nVoltooid: M11.7a · Native Figma productcontract (PR #97)\nVolgende stap: M11.7c · Native Figma masterverificatie\nDe gegenereerde netwerkloze development plugin in EmberForge Master uitvoeren en de resulterende variables, styles, assets, componentvarianten en surfaces structureel en visueel tegen hetzelfde BAT snapshot verifiëren.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,12 +256,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 84%",
+      "title": "Totale voortgang · 87%",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:compiler;progress:98",
+      "description": "project-status-area:compiler;progress:99",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -294,7 +294,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Compiler en reproduceerbaarheid · 98%",
+                  "fixed": "Compiler en reproduceerbaarheid · 99%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -358,7 +358,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 588
+                "width": 594
               },
               "type": "rectangle"
             },
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie, CI en 286 regressietests vormen een werkende kwaliteitsketen; productbackends leveren tekst of bytes en publiceren nu ook een statisch Figma mastermanifest uit dezelfde opgeloste BAT semantiek.\nResterend: Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie en CI vormen een werkende kwaliteitsketen; naast het statische Figma mastermanifest wordt nu ook een netwerkloze, snapshotgebonden development plugin deterministisch uit hetzelfde manifest verpakt.\nResterend: Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -394,7 +394,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Compiler en reproduceerbaarheid · 98%",
+      "title": "Compiler en reproduceerbaarheid · 99%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1365,7 +1365,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:figma;progress:40",
+      "description": "project-status-area:figma;progress:70",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1398,7 +1398,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Figma masterbestand · 40%",
+                  "fixed": "Figma masterbestand · 70%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1462,7 +1462,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 240
+                "width": 420
               },
               "type": "rectangle"
             },
@@ -1474,7 +1474,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT selecteert expliciet de 11 assets, 7 componenten, 20 varianten en 7 bestaande compositie- en layoutoppervlakken voor EmberForge en genereert daaruit een snapshotgebonden machineleesbaar Figma mastermanifest met opgeloste theme waarden.\nResterend: De idempotente synchronisatieadapter en het daadwerkelijke Figma masterbestand moeten nog worden gerealiseerd.",
+                  "fixed": "Onderbouwing: BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt nu deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API.\nResterend: De development plugin moet nog in EmberForge Master worden uitgevoerd en de werkelijke Figma toestand moet daarna structureel en visueel tegen het BAT snapshot worden geverifieerd.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1498,7 +1498,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Figma masterbestand · 40%",
+      "title": "Figma masterbestand · 70%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:1",
-    "overall-progress:84",
-    "sha256:36f4de68f0a4a759082fc304d061603b90c6f3be6d68e18a30a10bb3f0365b01"
+    "overall-progress:87",
+    "sha256:216e457f1d2b16b1da63d6b233f42270160676e35204dda2c4db15322a90ba94"
   ],
   "templating": {
     "list": []

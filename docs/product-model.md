@@ -1053,6 +1053,29 @@ theme waarden, vectorgeometrie, component appearances en states en de native
 surface-layouts. Er wordt nog geen Figma bestand gewijzigd en de backend bevat
 geen eigen designwaarden.
 
+M11.7b maakt de foundationsemantiek volledig genoeg voor een domme,
+idempotente Figma adapter. Iedere typeschaalrol bevat naast grootte expliciet
+de fontrol, weight, line height en letter spacing. Semantische palette en
+material kleuren publiceren hun native kleur-ID naast de opgeloste waarde en
+het Figma manifest publiceert de gebruikte kleurprimitives afzonderlijk.
+`schema_version: 2` kan daardoor native Figma aliases en volledige text styles
+opbouwen zonder waarden of fontkoppelingen te raden.
+
+De synchronisatieadapter zelf is een lokale Figma development plugin. De
+compiler verpakt `emberforge-master.figma.json` deterministisch in
+`output/products/figma-plugin/code.js`; het bijbehorende `manifest.json`
+declareert uitsluitend Figma design, dynamic page access en geen
+netwerktoegang. Er is daarmee geen MCP-, REST- of netwerkruntime nodig. De
+adapter vertaalt schema v2 naar acht single-mode foundation collections, zes
+text styles, zeven effect styles, elf SVG assets, zeven componentfamilies en
+de geselecteerde composition-layout surfaces. De twintig BAT variantprofielen
+worden daarbij uitgewerkt tot 57 concrete statevarianten.
+
+De lokaal gegenereerde plugin is een adapterartifact en geen nieuwe normatieve
+bron. Een door Figma toegekende publicatie-identiteit, het draaien van de plugin
+in Figma Desktop en visuele inspectie van het resulterende masterbestand zijn
+externe lifecyclehandelingen en veranderen BAT niet.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -1108,6 +1131,8 @@ geen eigen designwaarden.
 | `BP3641` | Typografierol bevat geen geldige unieke fontstack |
 | `BP3642` | Typografierol bevat een externe fontbron |
 | `BP3643` | Typografierol eindigt niet in de vereiste generieke fallback |
+| `BP3644` | Typeschaal mist een expliciete fontrol of typografiemetriek |
+| `BP3645` | Typeschaal bevat een ongeldige fontrol of typografiemetriek |
 | `BP3633` | Thema verwijst naar een onbekende art direction |
 | `BP3634` | Thema activeert art direction zonder expliciet materiaal |
 | `BP3620` | Compact grid heeft meer kolommen dan het brede grid |

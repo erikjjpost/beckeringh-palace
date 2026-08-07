@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from compiler.parser import parseer_bestand
+from compiler.figma_plugin_adapter import package_plugin
 from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
@@ -22,6 +23,8 @@ BRON = ROOT / "architectuur"
 UITVOER = ROOT / "output" / "bat"
 PRODUCTUITVOER = ROOT / "output" / "products"
 PROJECTSTATUS = ROOT / "project" / "status.json"
+FIGMA_MANIFEST = PRODUCTUITVOER / "emberforge-master.figma.json"
+FIGMA_PLUGIN = PRODUCTUITVOER / "figma-plugin"
 
 
 def main() -> None:
@@ -56,6 +59,12 @@ def main() -> None:
         else:
             pad.write_text(product.inhoud, encoding="utf-8")
         productpaden.append(product.definitie.pad)
+
+    plugin_code, plugin_manifest = package_plugin(FIGMA_MANIFEST, FIGMA_PLUGIN)
+    productpaden.extend((
+        str(plugin_code.relative_to(ROOT)),
+        str(plugin_manifest.relative_to(ROOT)),
+    ))
 
     print(f"BAT gecompileerd: {len(model.objecten)} object(en)")
     for pad in (

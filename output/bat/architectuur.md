@@ -439,16 +439,40 @@ Gecontroleerd gemigreerde EmberForge fontrollen met lokale fallbacks.
 
 ### Doel
 
-Gecontroleerd gemigreerde semantische EmberForge tekstgroottes.
+Gecontroleerd gemigreerde semantische EmberForge tekststijlen.
 
 ### Eigenschappen
 
 - **body:** 16px
+- **body-font:** body
+- **body-letter-spacing:** normal
+- **body-line-height:** 1.55
+- **body-weight:** 400
 - **caption:** 12px
+- **caption-font:** body
+- **caption-letter-spacing:** normal
+- **caption-line-height:** normal
+- **caption-weight:** 400
 - **display:** 80px
+- **display-font:** heading
+- **display-letter-spacing:** 0.08em
+- **display-line-height:** 1
+- **display-weight:** 500
 - **heading:** 32px
+- **heading-font:** heading
+- **heading-letter-spacing:** normal
+- **heading-line-height:** 1.3
+- **heading-weight:** 700
 - **label:** 12px
+- **label-font:** body
+- **label-letter-spacing:** 0.18em
+- **label-line-height:** normal
+- **label-weight:** 500
 - **title:** 56px
+- **title-font:** heading
+- **title-letter-spacing:** -0.01em
+- **title-line-height:** 1.15
+- **title-weight:** 600
 
 ## Forge Materials
 

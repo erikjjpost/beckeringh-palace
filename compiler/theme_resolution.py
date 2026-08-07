@@ -97,6 +97,30 @@ class ResolvedTypeScale:
     body: str
     label: str
     caption: str
+    display_font: str
+    display_weight: str
+    display_line_height: str
+    display_letter_spacing: str
+    title_font: str
+    title_weight: str
+    title_line_height: str
+    title_letter_spacing: str
+    heading_font: str
+    heading_weight: str
+    heading_line_height: str
+    heading_letter_spacing: str
+    body_font: str
+    body_weight: str
+    body_line_height: str
+    body_letter_spacing: str
+    label_font: str
+    label_weight: str
+    label_line_height: str
+    label_letter_spacing: str
+    caption_font: str
+    caption_weight: str
+    caption_line_height: str
+    caption_letter_spacing: str
 
 
 @dataclass(frozen=True)
@@ -360,8 +384,39 @@ def resolveer_thema(objecten: Iterable[Architectuurobject], wereld_id: str) -> R
             **_waarden(spacing, ("none", "xs", "small", "medium", "large", "xl")),
         ),
         typeschaal=None if typeschaal is None else ResolvedTypeScale(
-            typeschaal.id, _tekst(typeschaal, "naam"), _tekst(typeschaal, "doel"),
-            **_waarden(typeschaal, ("display", "title", "heading", "body", "label", "caption")),
+            id=typeschaal.id,
+            naam=_tekst(typeschaal, "naam"),
+            doel=_tekst(typeschaal, "doel"),
+            display=_tekst(typeschaal, "display"),
+            title=_tekst(typeschaal, "title"),
+            heading=_tekst(typeschaal, "heading"),
+            body=_tekst(typeschaal, "body"),
+            label=_tekst(typeschaal, "label"),
+            caption=_tekst(typeschaal, "caption"),
+            display_font=_tekst(typeschaal, "display-font"),
+            display_weight=_tekst(typeschaal, "display-weight"),
+            display_line_height=_tekst(typeschaal, "display-line-height"),
+            display_letter_spacing=_tekst(typeschaal, "display-letter-spacing"),
+            title_font=_tekst(typeschaal, "title-font"),
+            title_weight=_tekst(typeschaal, "title-weight"),
+            title_line_height=_tekst(typeschaal, "title-line-height"),
+            title_letter_spacing=_tekst(typeschaal, "title-letter-spacing"),
+            heading_font=_tekst(typeschaal, "heading-font"),
+            heading_weight=_tekst(typeschaal, "heading-weight"),
+            heading_line_height=_tekst(typeschaal, "heading-line-height"),
+            heading_letter_spacing=_tekst(typeschaal, "heading-letter-spacing"),
+            body_font=_tekst(typeschaal, "body-font"),
+            body_weight=_tekst(typeschaal, "body-weight"),
+            body_line_height=_tekst(typeschaal, "body-line-height"),
+            body_letter_spacing=_tekst(typeschaal, "body-letter-spacing"),
+            label_font=_tekst(typeschaal, "label-font"),
+            label_weight=_tekst(typeschaal, "label-weight"),
+            label_line_height=_tekst(typeschaal, "label-line-height"),
+            label_letter_spacing=_tekst(typeschaal, "label-letter-spacing"),
+            caption_font=_tekst(typeschaal, "caption-font"),
+            caption_weight=_tekst(typeschaal, "caption-weight"),
+            caption_line_height=_tekst(typeschaal, "caption-line-height"),
+            caption_letter_spacing=_tekst(typeschaal, "caption-letter-spacing"),
         ),
         artdirection=None if artdirection is None else ResolvedArtDirection(
             id=artdirection.id,

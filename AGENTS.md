@@ -56,3 +56,9 @@ Publiceer uitsluitend een vooraf gecontroleerde scope. Bewijs na de definitieve
 commit opnieuw dat tests, generatie en reproduceerbaarheid groen zijn. Wanneer
 de gekoppelde GitHub route een remote tree opbouwt, moet die tree exact gelijk
 zijn aan de lokaal gevalideerde tree voordat de PR wordt geopend.
+
+M11.7b gebruikt geen Figma MCP of REST API als productiedependency. De
+gegenereerde schema-v2 Figma masterbeschrijving wordt deterministisch verpakt
+als netwerkloze Figma development plugin. BAT blijft de enige ontwerpbron;
+live uitvoering en visuele verificatie van het masterbestand behoren tot
+M11.7c.

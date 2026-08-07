@@ -93,10 +93,10 @@ class EmberForgePaletteMigrationTests(unittest.TestCase):
     def test_html_activeert_sky_primary_en_spaarzaam_ember_accent(self) -> None:
         html = self.products["beckeringh-palace-homepage"].inhoud
 
-        self.assertIn("--bp-theme-primary: #7DD3FC;", html)
-        self.assertIn("--bp-theme-background: #0F1724;", html)
-        self.assertIn("--bp-theme-accent: #C9895B;", html)
-        self.assertIn("--bp-material-raised: #243447;", html)
+        self.assertIn("--bp-theme-primary: var(--bp-color-sky-400);", html)
+        self.assertIn("--bp-theme-background: var(--bp-color-ink-900);", html)
+        self.assertIn("--bp-theme-accent: var(--bp-color-ember-500);", html)
+        self.assertIn("--bp-material-raised: var(--bp-color-ink-700);", html)
 
     def test_grafana_activeert_hetzelfde_opgeloste_materiaal(self) -> None:
         grafana = self.products["forge-dashboard-grafana"].inhoud

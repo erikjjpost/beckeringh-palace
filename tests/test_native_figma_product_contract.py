@@ -60,7 +60,7 @@ class NativeFigmaProductContractTests(unittest.TestCase):
         self.assertEqual("static", product.definitie.mode)
         self.assertTrue(product.definitie.snapshot_ref.startswith("sha256:"))
         payload = json.loads(product.inhoud)
-        self.assertEqual(1, payload["schema_version"])
+        self.assertEqual(2, payload["schema_version"])
         self.assertEqual(
             product.definitie.snapshot_ref,
             payload["product"]["snapshot"],
@@ -68,8 +68,28 @@ class NativeFigmaProductContractTests(unittest.TestCase):
         self.assertEqual("forge", payload["theme"]["id"])
         self.assertEqual(
             "#0F1724",
-            payload["theme"]["palet"]["rollen"]["background"],
+            payload["theme"]["palet"]["rollen"]["background"]["value"],
         )
+        self.assertEqual(
+            "ink-900",
+            payload["theme"]["palet"]["rollen"]["background"]["color_id"],
+        )
+        self.assertEqual(
+            "#0F1724",
+            payload["theme"]["color_primitives"]["ink-900"],
+        )
+        display = payload["theme"]["typeschaal"]["rollen"]["display"]
+        self.assertEqual("heading", display["font_role"])
+        self.assertEqual("Orbitron", display["font_family"][0])
+        self.assertEqual("80px", display["font_size"])
+        self.assertEqual("500", display["font_weight"])
+        self.assertEqual("1", display["line_height"])
+        self.assertEqual("0.08em", display["letter_spacing"])
+        body = payload["theme"]["typeschaal"]["rollen"]["body"]
+        self.assertEqual("Inter", body["font_family"][0])
+        self.assertEqual("400", body["font_weight"])
+        self.assertEqual("1.55", body["line_height"])
+        self.assertEqual("normal", body["letter_spacing"])
         self.assertEqual(11, len(payload["assets"]))
         self.assertEqual(7, len(payload["components"]))
         self.assertEqual(20, len(payload["variants"]))
