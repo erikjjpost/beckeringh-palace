@@ -35,6 +35,8 @@ class FigmaPluginAdapterTests(unittest.TestCase):
         self.assertIn(self.payload["product"]["snapshot"], eerste)
         self.assertNotIn("fetch(", eerste)
         self.assertNotIn("figmaApi.fetch", eerste)
+        self.assertIn("runVerifiedSync(figma, BP_MANIFEST)", eerste)
+        self.assertIn("Second Figma sync changed managed state", eerste)
 
     def test_plugin_planning_dekt_het_volledige_mastermanifest(self) -> None:
         code = render_plugin_code(self.manifest_text)
