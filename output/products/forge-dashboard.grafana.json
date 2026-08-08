@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 216e457f1d2b",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 741a50b311cc",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -483,7 +483,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge merkassets · assetfamilie\nOrdent het native merkteken en woordmerk als één reproduceerbare merkfamilie.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.\nEmberForge Palace lijnsilhouet · asset\nVerbeeldt Palace als abstracte Noords geïnspireerde lijnarchitectuur zonder een historisch gebouw te claimen.\nEmberForge bever · asset\nLevert een rustige bever in zijprofiel met platte staart en snijtand als herbruikbaar lijnsymbool voor de EmberForge wereld.\nEmberForge Noorse vlecht · asset\nLevert een geometrische Noords geïnspireerde vlecht als rustige herhaalbare lijnornamentiek.\nEmberForge Circle of Fifths · muziekcirkel\nPubliceert twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens als functionele gitaarreferentie.",
+                  "fixed": "Beckeringh Palace · wereld\nEén reproduceerbare digitale ontwerpwereld leveren.\nEmberForge merkassets · assetfamilie\nOrdent het native merkteken en woordmerk als één reproduceerbare merkfamilie.\nEmberForge Vector Node · asset\nHerbruikbaar technisch lijnornament voor native EmberForge vectorproducten.\nEmberForge Palace lijnsilhouet · asset\nVerbeeldt Palace als abstracte Noords geïnspireerde lijnarchitectuur zonder een historisch gebouw te claimen.\nEmberForge bever · asset\nLevert het compacte EmberForge beverembleem met smidshamer, aambeeld, snijtanden en platte staart als herbruikbaar wereldsymbool.\nEmberForge Noorse vlecht · asset\nLevert een geometrische Noords geïnspireerde vlecht als rustige herhaalbare lijnornamentiek.\nEmberForge Circle of Fifths · muziekcirkel\nPubliceert twaalf majeurtoonsoorten, relatieve mineurtoonsoorten en voortekens als functionele gitaarreferentie.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1848,7 +1848,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:216e457f1d2b16b1da63d6b233f42270160676e35204dda2c4db15322a90ba94"
+    "sha256:741a50b311cc12d5314cdf9dc960fa1f5c2627b761364986880ac323b05fc492"
   ],
   "templating": {
     "list": []
