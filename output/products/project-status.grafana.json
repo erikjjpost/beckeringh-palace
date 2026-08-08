@@ -42,7 +42,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 216e457f1d2b",
+                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot 741a50b311cc",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -922,7 +922,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en zelfstandige wallpapers met functionele muziekinformatie, gecontroleerd licht, Palace lijnarchitectuur, beverwachters en Noorse vlechtvormen.\nResterend: De wereldsymboliek moet nog naar andere productsurfaces worden doorgetrokken en de bredere wereldbeschrijving blijft onvolledig.",
+                  "fixed": "Onderbouwing: EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en zelfstandige wallpapers met functionele muziekinformatie, gecontroleerd licht, Palace lijnarchitectuur, het compacte beverembleem met smidshamer en aambeeld en Noorse vlechtvormen.\nResterend: De wereldsymboliek moet nog naar andere productsurfaces worden doorgetrokken en de bredere wereldbeschrijving blijft onvolledig.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1060,7 +1060,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie nieuwe wereldassets zonder vulling in dezelfde catalogus.\nResterend: Aanvullende merklockups en een bredere iconenbibliotheek ontbreken nog.",
+                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie wereldassets zonder vulling, waaronder het compacte EmberForge beverembleem met smidshamer en aambeeld.\nResterend: Aanvullende merklockups en een bredere iconenbibliotheek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1198,7 +1198,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die nu met eigen lichtgeometrie, Palace, bevers en Noorse lijnsymboliek.\nResterend: Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten.",
+                  "fixed": "Onderbouwing: Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die met eigen lichtgeometrie, Palace, het vernieuwde beverembleem en Noorse lijnsymboliek.\nResterend: Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1648,7 +1648,7 @@
     "generated",
     "project-status-schema:1",
     "overall-progress:87",
-    "sha256:216e457f1d2b16b1da63d6b233f42270160676e35204dda2c4db15322a90ba94"
+    "sha256:741a50b311cc12d5314cdf9dc960fa1f5c2627b761364986880ac323b05fc492"
   ],
   "templating": {
     "list": []
