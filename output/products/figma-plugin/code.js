@@ -398,6 +398,19 @@ async function ensurePage(figmaApi, name) {
 }
 
 /** @param {PluginAPI} figmaApi */
+async function ensureSection(figmaApi, page, name) {
+  let section = /** @type {SectionNode | undefined} */ (page.children.find(
+    (candidate) => candidate.type === "SECTION" && candidate.name === name,
+  ));
+  if (!section) {
+    section = figmaApi.createSection();
+    section.name = name;
+    page.appendChild(section);
+  }
+  return section;
+}
+
+/** @param {PluginAPI} figmaApi */
 async function ensurePageLabel(figmaApi, page, name, description, snapshot, textStyle) {
   /** @type {FrameNode | undefined} */
   let frame = /** @type {FrameNode | undefined} */ (page.children.find(
@@ -506,12 +519,16 @@ async function syncComponentVariant(figmaApi, componentNode, definition, appeara
 async function syncComponents(figmaApi, manifest, refs, textStyles, effectStyles) {
   const appearances = appearanceIndex(manifest);
   const desired = desiredState(manifest);
+  const page = await ensurePage(figmaApi, "Components");
   const result = {};
+  let sectionY = 40;
   for (const definition of desired.components) {
-    const page = await ensurePage(figmaApi, `Component / ${definition.naam}`);
-    await ensurePageLabel(figmaApi, page, definition.naam, `BAT component ${definition.id}`, desired.snapshot, textStyles.heading);
+    const section = await ensureSection(figmaApi, page, `Component / ${definition.naam}`);
+    const labelFrame = await ensurePageLabel(figmaApi, section, definition.naam, `BAT component ${definition.id}`, desired.snapshot, textStyles.heading);
+    labelFrame.x = 40;
+    labelFrame.y = sectionY;
     /** @type {ComponentSetNode | undefined} */
-    let componentSet = /** @type {ComponentSetNode | undefined} */ (page.children.find(
+    let componentSet = /** @type {ComponentSetNode | undefined} */ (section.children.find(
       (node) => node.type === "COMPONENT_SET" && node.name === definition.naam,
     ));
     const byName = new Map();
@@ -536,7 +553,7 @@ async function syncComponents(figmaApi, manifest, refs, textStyles, effectStyles
     }
     if (!componentSet) {
       if (!created.length) throw new Error(`Component '${definition.id}' has no Figma variants`);
-      componentSet = figmaApi.combineAsVariants(created, page);
+      componentSet = figmaApi.combineAsVariants(created, section);
       componentSet.name = definition.naam;
     } else {
       for (const component of created) componentSet.appendChild(component);
@@ -557,7 +574,14 @@ async function syncComponents(figmaApi, manifest, refs, textStyles, effectStyles
     }
     componentSet.resizeWithoutConstraints(maxX + gap, maxY + gap);
     componentSet.x = 500;
-    componentSet.y = 40;
+    componentSet.y = sectionY;
+    section.x = 40;
+    section.y = sectionY;
+    section.resizeWithoutConstraints(
+      Math.max(componentSet.x + componentSet.width, labelFrame.x + labelFrame.width) + gap - section.x,
+      Math.max(componentSet.height, labelFrame.height) + gap * 2,
+    );
+    sectionY += section.height + 120;
     result[definition.id] = {set: componentSet, variants: refsForComponent};
   }
   return result;
@@ -576,22 +600,27 @@ function svgForAsset(asset) {
 
 /** @param {PluginAPI} figmaApi */
 async function syncAssets(figmaApi, manifest, textStyles) {
-  const page = await ensurePage(figmaApi, "Assets");
-  await ensurePageLabel(figmaApi, page, "Assets", `${manifest.assets.length} BAT vector assets`, manifest.product.snapshot, textStyles.heading);
+  const page = await ensurePage(figmaApi, "Assets & Surfaces");
+  const section = await ensureSection(figmaApi, page, "Assets");
+  const labelFrame = await ensurePageLabel(figmaApi, section, "Assets", `${manifest.assets.length} BAT vector assets`, manifest.product.snapshot, textStyles.heading);
+  labelFrame.x = 40;
+  labelFrame.y = 40;
   const result = {};
   let x = 500;
   let y = 40;
+  let maxX = x;
+  let maxY = y;
   for (const asset of manifest.assets) {
     const name = `Asset / ${asset.id}`;
     /** @type {ComponentNode | undefined} */
-    let component = /** @type {ComponentNode | undefined} */ (page.children.find(
+    let component = /** @type {ComponentNode | undefined} */ (section.children.find(
       (node) => node.type === "COMPONENT" && node.name === name,
     ));
     const marker = `BAT asset ${asset.id}; ${manifest.product.snapshot}`;
     if (!component) {
       component = figmaApi.createComponent();
       component.name = name;
-      page.appendChild(component);
+      section.appendChild(component);
     }
     if (component.description !== marker) {
       for (const child of [...component.children]) child.remove();
@@ -605,13 +634,21 @@ async function syncAssets(figmaApi, manifest, textStyles) {
     }
     component.x = x;
     component.y = y;
+    maxX = Math.max(maxX, x + component.width);
     x += component.width + 48;
     if (x > 1800) {
       x = 500;
       y += 420;
     }
+    maxY = Math.max(maxY, y + 420);
     result[asset.id] = component;
   }
+  section.x = 40;
+  section.y = 40;
+  section.resizeWithoutConstraints(
+    Math.max(maxX + 48, labelFrame.x + labelFrame.width) - section.x,
+    Math.max(maxY, labelFrame.y + labelFrame.height + 40) - section.y,
+  );
   return result;
 }
 
@@ -638,22 +675,30 @@ function componentForInstance(componentRefs, instance) {
 
 /** @param {PluginAPI} figmaApi */
 async function syncSurfaces(figmaApi, manifest, refs, componentRefs, textStyles) {
-  const page = await ensurePage(figmaApi, "Surfaces");
-  await ensurePageLabel(figmaApi, page, "Surfaces", `${manifest.layouts.length} native BAT layouts`, manifest.product.snapshot, textStyles.heading);
+  const page = await ensurePage(figmaApi, "Assets & Surfaces");
+  /** @type {SectionNode | undefined} */
+  const assetsSection = /** @type {SectionNode | undefined} */ (page.children.find(
+    (node) => node.type === "SECTION" && node.name === "Assets",
+  ));
+  const baseY = assetsSection ? assetsSection.y + assetsSection.height + 120 : 40;
+  const section = await ensureSection(figmaApi, page, "Surfaces");
+  const labelFrame = await ensurePageLabel(figmaApi, section, "Surfaces", `${manifest.layouts.length} native BAT layouts`, manifest.product.snapshot, textStyles.heading);
+  labelFrame.x = 40;
+  labelFrame.y = baseY;
   const gap = px(manifest.theme.spacing.rollen.medium);
-  let surfaceY = 220;
+  let surfaceY = baseY + 180;
   const result = {};
   for (const layout of manifest.layouts) {
     const composition = matchingComposition(layout, manifest.compositions);
     const name = `Surface / ${layout.id}`;
     /** @type {FrameNode | undefined} */
-    let frame = /** @type {FrameNode | undefined} */ (page.children.find(
+    let frame = /** @type {FrameNode | undefined} */ (section.children.find(
       (node) => node.type === "FRAME" && node.name === name,
     ));
     if (!frame) {
       frame = figmaApi.createFrame();
       frame.name = name;
-      page.appendChild(frame);
+      section.appendChild(frame);
     }
     /** @type {Record<string, InstanceNode>} */
     const instances = {};
@@ -705,32 +750,58 @@ async function syncSurfaces(figmaApi, manifest, refs, componentRefs, textStyles)
     surfaceY += frame.height + 120;
     result[layout.id] = frame;
   }
+  section.x = 40;
+  section.y = baseY;
+  section.resizeWithoutConstraints(
+    Math.max(labelFrame.x + labelFrame.width, 900) - section.x,
+    surfaceY - baseY,
+  );
   return result;
 }
 
 /** @param {PluginAPI} figmaApi */
 async function syncFileStructure(figmaApi, manifest, refs, textStyles) {
-  const cover = await ensurePage(figmaApi, "Cover");
-  const gettingStarted = await ensurePage(figmaApi, "Getting Started");
-  const foundations = await ensurePage(figmaApi, "Foundations");
-  await ensurePage(figmaApi, "--- Components ---");
-  await ensurePage(figmaApi, "--- Utilities ---");
+  const page = await ensurePage(figmaApi, "Foundations");
+  let sectionY = 40;
+
+  const cover = await ensureSection(figmaApi, page, "Cover");
   const coverFrame = await ensurePageLabel(
     figmaApi, cover, manifest.figma_master.naam, manifest.figma_master.doel,
     manifest.product.snapshot, textStyles.title,
   );
+  coverFrame.x = 40;
+  coverFrame.y = sectionY;
   if (refs.material.canvas) coverFrame.fills = [boundPaint(figmaApi, refs.material.canvas)];
-  await ensurePageLabel(
+  cover.x = 40;
+  cover.y = sectionY;
+  cover.resizeWithoutConstraints(Math.max(coverFrame.width, 480) + 80, coverFrame.height + 80);
+  sectionY += cover.height + 80;
+
+  const gettingStarted = await ensureSection(figmaApi, page, "Getting Started");
+  const gettingStartedFrame = await ensurePageLabel(
     figmaApi, gettingStarted, "Getting Started",
     `Generated from ${manifest.product.id} ${manifest.product.snapshot}`,
     manifest.product.snapshot, textStyles.heading,
   );
+  gettingStartedFrame.x = 40;
+  gettingStartedFrame.y = sectionY;
+  gettingStarted.x = 40;
+  gettingStarted.y = sectionY;
+  gettingStarted.resizeWithoutConstraints(Math.max(gettingStartedFrame.width, 480) + 80, gettingStartedFrame.height + 80);
+  sectionY += gettingStarted.height + 80;
+
+  const foundations = await ensureSection(figmaApi, page, "Foundations");
   const foundationFrame = await ensurePageLabel(
     figmaApi, foundations, "Foundations",
     "Color primitives, semantic colors, spacing, radius, borders, motion, typography and shadows are native Figma foundations.",
     manifest.product.snapshot, textStyles.heading,
   );
+  foundationFrame.x = 40;
+  foundationFrame.y = sectionY;
   if (refs.material.surface) foundationFrame.fills = [boundPaint(figmaApi, refs.material.surface)];
+  foundations.x = 40;
+  foundations.y = sectionY;
+  foundations.resizeWithoutConstraints(Math.max(foundationFrame.width, 480) + 80, foundationFrame.height + 80);
 }
 
 function assertExactNames(kind, actual, expected) {
@@ -752,6 +823,18 @@ async function exactPage(figmaApi, name) {
   const page = pages[0];
   if (typeof page.loadAsync === "function") await page.loadAsync();
   return page;
+}
+
+/** @param {PluginAPI} figmaApi */
+async function exactSection(figmaApi, pageName, sectionName) {
+  const page = await exactPage(figmaApi, pageName);
+  const sections = page.children.filter(
+    (node) => node.type === "SECTION" && node.name === sectionName,
+  );
+  if (sections.length !== 1) {
+    throw new Error(`Expected exactly one Figma section '${sectionName}' on page '${pageName}', got ${sections.length}`);
+  }
+  return sections[0];
 }
 
 function normalizedVariableValue(value) {
@@ -827,8 +910,8 @@ async function verifyLiveState(figmaApi, manifest) {
 
   const componentState = [];
   for (const definition of desired.components) {
-    const page = await exactPage(figmaApi, `Component / ${definition.naam}`);
-    const sets = /** @type {ComponentSetNode[]} */ (page.children.filter(
+    const section = await exactSection(figmaApi, "Components", `Component / ${definition.naam}`);
+    const sets = /** @type {ComponentSetNode[]} */ (section.children.filter(
       (node) => node.type === "COMPONENT_SET" && node.name === definition.naam,
     ));
     if (sets.length !== 1) {
@@ -860,9 +943,9 @@ async function verifyLiveState(figmaApi, manifest) {
     });
   }
 
-  const assetsPage = await exactPage(figmaApi, "Assets");
+  const assetsSection = await exactSection(figmaApi, "Assets & Surfaces", "Assets");
   const assetNames = desired.assets.map((id) => `Asset / ${id}`);
-  const assetNodes = /** @type {ComponentNode[]} */ (assetsPage.children.filter(
+  const assetNodes = /** @type {ComponentNode[]} */ (assetsSection.children.filter(
     (node) => node.type === "COMPONENT" && assetNames.includes(node.name),
   ));
   assertExactNames("Assets", assetNodes.map((node) => node.name), assetNames);
@@ -875,9 +958,9 @@ async function verifyLiveState(figmaApi, manifest) {
     .map((node) => ({id: node.id, name: node.name, width: node.width, height: node.height, children: node.children.length}))
     .sort((left, right) => left.name.localeCompare(right.name));
 
-  const surfacesPage = await exactPage(figmaApi, "Surfaces");
+  const surfacesSection = await exactSection(figmaApi, "Assets & Surfaces", "Surfaces");
   const surfaceNames = desired.layouts.map((id) => `Surface / ${id}`);
-  const surfaceNodes = /** @type {FrameNode[]} */ (surfacesPage.children.filter(
+  const surfaceNodes = /** @type {FrameNode[]} */ (surfacesSection.children.filter(
     (node) => node.type === "FRAME" && surfaceNames.includes(node.name),
   ));
   assertExactNames("Surfaces", surfaceNodes.map((node) => node.name), surfaceNames);
@@ -894,17 +977,23 @@ async function verifyLiveState(figmaApi, manifest) {
     }))
     .sort((left, right) => left.name.localeCompare(right.name));
 
-  const documentedPages = ["Cover", "Getting Started", "Foundations", "Assets", "Surfaces"];
-  for (const name of documentedPages) {
-    const page = await exactPage(figmaApi, name);
-    const documentation = /** @type {FrameNode | undefined} */ (page.children.find(
+  const documentedSections = [
+    {page: "Foundations", section: "Cover"},
+    {page: "Foundations", section: "Getting Started"},
+    {page: "Foundations", section: "Foundations"},
+    {page: "Assets & Surfaces", section: "Assets"},
+    {page: "Assets & Surfaces", section: "Surfaces"},
+  ];
+  for (const {page: pageName, section: sectionName} of documentedSections) {
+    const section = await exactSection(figmaApi, pageName, sectionName);
+    const documentation = /** @type {FrameNode | undefined} */ (section.children.find(
       (node) => node.type === "FRAME" && node.name === "_Documentation",
     ));
     const labels = documentation && /** @type {TextNode[]} */ (documentation.children.filter(
       (child) => child.type === "TEXT" && child.name === "_GeneratedLabel",
     ));
     if (!labels || !labels.some((label) => label.characters.includes(desired.snapshot))) {
-      throw new Error(`Page '${name}' does not document snapshot '${desired.snapshot}'`);
+      throw new Error(`Section '${sectionName}' on page '${pageName}' does not document snapshot '${desired.snapshot}'`);
     }
   }
 
