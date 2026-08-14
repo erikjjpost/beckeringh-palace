@@ -572,6 +572,7 @@ async function syncComponents(figmaApi, manifest, refs, textStyles, effectStyles
       if (!created.length) throw new Error(`Component '${definition.id}' has no Figma variants`);
       componentSet = figmaApi.combineAsVariants(created, section);
       componentSet.name = definition.naam;
+      section.appendChild(componentSet);
     } else {
       for (const component of created) componentSet.appendChild(component);
     }
