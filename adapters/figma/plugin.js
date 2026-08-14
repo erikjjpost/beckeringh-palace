@@ -399,14 +399,18 @@ async function ensurePage(figmaApi, name) {
 
 /** @param {PluginAPI} figmaApi */
 async function reclaimDefaultPage(figmaApi, name) {
-  const fallback = figmaApi.root.children.find((page) => page.name === "Page 1");
-  if (!fallback) return;
-  if (typeof fallback.loadAsync === "function") await fallback.loadAsync();
-  if (fallback.children.length !== 0) return;
-  if (figmaApi.root.children.some((page) => page.name === name)) {
-    fallback.remove();
-  } else {
-    fallback.name = name;
+  const pages = [...figmaApi.root.children];
+  let claimed = pages.some((page) => page.name === name);
+  for (const page of pages) {
+    if (page.name === name) continue;
+    if (typeof page.loadAsync === "function") await page.loadAsync();
+    if (page.children.length !== 0) continue;
+    if (!claimed) {
+      page.name = name;
+      claimed = true;
+    } else {
+      page.remove();
+    }
   }
 }
 
