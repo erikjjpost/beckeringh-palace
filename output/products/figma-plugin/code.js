@@ -398,6 +398,19 @@ async function ensurePage(figmaApi, name) {
 }
 
 /** @param {PluginAPI} figmaApi */
+async function reclaimDefaultPage(figmaApi, name) {
+  const fallback = figmaApi.root.children.find((page) => page.name === "Page 1");
+  if (!fallback) return;
+  if (typeof fallback.loadAsync === "function") await fallback.loadAsync();
+  if (fallback.children.length !== 0) return;
+  if (figmaApi.root.children.some((page) => page.name === name)) {
+    fallback.remove();
+  } else {
+    fallback.name = name;
+  }
+}
+
+/** @param {PluginAPI} figmaApi */
 async function ensureSection(figmaApi, page, name) {
   let section = /** @type {SectionNode | undefined} */ (page.children.find(
     (candidate) => candidate.type === "SECTION" && candidate.name === name,
@@ -1011,6 +1024,7 @@ async function verifyLiveState(figmaApi, manifest) {
 /** @param {PluginAPI} figmaApi */
 async function runSync(figmaApi, manifest) {
   assertManifest(manifest);
+  await reclaimDefaultPage(figmaApi, "Foundations");
   const foundations = await syncFoundations(figmaApi, manifest);
   const textStyles = await syncTextStyles(figmaApi, manifest);
   const effectStyles = await syncEffectStyles(figmaApi, manifest);
