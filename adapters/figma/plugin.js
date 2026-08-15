@@ -1071,7 +1071,10 @@ if (typeof figma !== "undefined") {
     .then((summary) => figma.closePlugin(
       `Beckeringh Palace verified ${summary.variables} variables, ${summary.componentFamilies} component families, ${summary.assets} assets and ${summary.surfaces} surfaces; second sync is idempotent.`,
     ))
-    .catch((error) => figma.closePlugin(`Beckeringh Palace sync failed: ${error.message}`));
+    .catch((error) => {
+      console.error("Beckeringh Palace sync failed:", error);
+      figma.closePlugin(`Beckeringh Palace sync failed: ${error.message} (zie console voor details)`);
+    });
 }
 
 if (typeof module !== "undefined" && module.exports) {
