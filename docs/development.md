@@ -30,6 +30,11 @@ Een succesvolle controle eindigt met:
 RESULTAAT: GELDIG EN REPRODUCEERBAAR
 ```
 
+Met `python tools/bp.py check --pre-commit` draait dezelfde keten zonder de
+controle op gewijzigde of nieuwe bestanden. Gebruik dat vóór een definitieve
+commit, wanneer BAT-broncode bewust nog ongecommit staat; de standaardaanroep
+zonder vlag blijft na de commit op een schone werkboom vereist.
+
 ## Losse commando's
 
 ```bash
@@ -44,16 +49,14 @@ Gebruik losse commando's alleen voor ontwikkeling. Voor commits en pull requests
 
 ## Continuous integration
 
-`.github/workflows/validate.yml` voert bij iedere pull request dezelfde
-kwaliteitsketen uit als lokaal. De workflow:
+`.github/workflows/validate.yml` roept bij iedere push naar `main` en iedere
+pull request letterlijk `python tools/bp.py check` aan, dezelfde gate als
+lokaal. Er bestaat geen aparte CI-implementatie van de keten. De workflow:
 
-1. vereist een wijziging in `project/status.json`;
-2. valideert het bronmodel;
-3. compileert BAT;
-4. genereert producten, documentatie en projectstatus;
-5. draait de gerichte productslicetest en de volledige regressiesuite;
-6. weigert de wijziging wanneer generatie de werkboom wijzigt of nieuwe
-   bestanden achterlaat.
+1. vereist bij een pull request een wijziging in `project/status.json`;
+2. draait `python tools/bp.py check`, dat modelvalidatie, BAT-compilatie,
+   product- en documentatiegeneratie, projectstatusgeneratie, de volledige
+   testsuite en de reproduceerbaarheidscontrole in die volgorde uitvoert.
 
-De workflow draait met Python 3.12 en `PYTHONDONTWRITEBYTECODE=1`, zodat
+`tools/bp.py` zet zelf `PYTHONDONTWRITEBYTECODE=1` voor iedere stap, zodat
 Python-cachebestanden de reproduceerbaarheidscontrole niet vervuilen.

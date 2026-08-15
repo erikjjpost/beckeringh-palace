@@ -28,34 +28,5 @@ jobs:
             echo "Iedere pull request moet project/status.json actualiseren."
             exit 1
           fi
-      - name: Validate source model
-        run: python tools/validate.py
-      - name: Compile BAT
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python tools/compile_bat.py
-      - name: Generate legacy outputs
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python tools/generate.py
-      - name: Generate project status
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python tools/render_status.py
-      - name: Run M5.3 token tests
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m unittest discover -s tests -p 'test_native_product_slice.py' -v
-      - name: Run regression tests
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
-        run: python -m unittest discover -s tests -v
-      - name: Verify reproducibility
-        run: |
-          changes="$(git status --porcelain --untracked-files=all)"
-          if [ -n "$changes" ]; then
-            echo "RESULTAAT: NIET REPRODUCEERBAAR"
-            printf '%s\n' "$changes"
-            exit 1
-          fi
-          echo "RESULTAAT: GELDIG EN REPRODUCEERBAAR"
+      - name: Repository gate
+        run: python tools/bp.py check
