@@ -45,6 +45,10 @@ class ProjectStatusGrafanaTests(unittest.TestCase):
         self.assertIn(
             f"overall-progress:{status.overall_progress}", dashboard["tags"]
         )
+        self.assertIn(
+            f"milestone-verification:{status.current_milestone.verification.state}",
+            dashboard["tags"],
+        )
         rendered = json.dumps(dashboard, ensure_ascii=False)
         self.assertIn(status.current_milestone.id, rendered)
         self.assertIn(status.last_completed_milestone.id, rendered)

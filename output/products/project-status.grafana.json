@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:1;overall-progress:87",
+      "description": "project-status-schema:2;overall-progress:87",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.7c · Native Figma masterverificatie (in uitvoering)\nVoltooid: M11.8a · EmberForge beverembleem (PR #100)\nVolgende stap: M11.7c · Native Figma verificatie afronden\nDe herstelde netwerkloze development plugin opnieuw in EmberForge Master uitvoeren en het succesvolle eindresultaat van de drie pagina's, sections, variables, styles, assets, componentvarianten en surfaces structureel en visueel tegen hetzelfde BAT snapshot vastleggen.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.7c · Native Figma masterverificatie (in uitvoering) · Verificatie: wacht-op-menselijke-verificatie\nVoltooid: M11.8a · EmberForge beverembleem (PR #100)\nVolgende stap: M11.7c · Native Figma verificatie afronden\nDe herstelde netwerkloze development plugin opnieuw in EmberForge Master uitvoeren en het succesvolle eindresultaat van de drie pagina's, sections, variables, styles, assets, componentvarianten en surfaces structureel en visueel tegen hetzelfde BAT snapshot vastleggen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -370,7 +370,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie en CI vormen een werkende kwaliteitsketen; naast het statische Figma mastermanifest wordt ook een netwerkloze, snapshotgebonden development plugin deterministisch uit hetzelfde manifest verpakt. De M11.7c verifier controleert de live toestand plus een tweede idempotente synchronisatie en logt bij mislukking de volledige fout voordat de plugin sluit. `bp.py check` kent sinds de agentcontract-validatie een precommit- en postcommitfase: `--pre-commit` draait dezelfde keten zonder werkboomeis, zodat een agent de gate ook kan draaien terwijl BAT-broncode nog bewust ongecommit staat; de standaardaanroep blijft de volledige reproduceerbaarheidscontrole eisen. CI (`.github/workflows/validate.yml`) roept diezelfde `bp.py check` letterlijk aan in plaats van de keten los te herimplementeren; de eerdere losstaande, overbodige testronde voor `test_native_product_slice.py` is verwijderd omdat de volledige testsuite die al dekt. `AGENTS.md` legt nu een `fix/<slug>`-branchroute vast naast `agent/<milestone-id>-<slug>`, zodat werk zonder milestone-ID (een geïsoleerde bugfix, een procesfix) een legitieme PR-route heeft in plaats van rechtstreeks op `main` te landen. `AGENTS.md` legt nu ook vast dat conflicten in `output/` nooit handmatig worden opgelost: de snapshot-hash herschrijft vrijwel alle gecommitte artifacts bij iedere BAT-wijziging, dus rebasen en `bp.py check` opnieuw draaien is de enige correcte conflictresolutie.\nResterend: Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie en CI vormen een werkende kwaliteitsketen; naast het statische Figma mastermanifest wordt ook een netwerkloze, snapshotgebonden development plugin deterministisch uit hetzelfde manifest verpakt. De M11.7c verifier controleert de live toestand plus een tweede idempotente synchronisatie en logt bij mislukking de volledige fout voordat de plugin sluit. `bp.py check` kent sinds de agentcontract-validatie een precommit- en postcommitfase: `--pre-commit` draait dezelfde keten zonder werkboomeis, zodat een agent de gate ook kan draaien terwijl BAT-broncode nog bewust ongecommit staat; de standaardaanroep blijft de volledige reproduceerbaarheidscontrole eisen. CI (`.github/workflows/validate.yml`) roept diezelfde `bp.py check` letterlijk aan in plaats van de keten los te herimplementeren; de eerdere losstaande, overbodige testronde voor `test_native_product_slice.py` is verwijderd omdat de volledige testsuite die al dekt. `AGENTS.md` legt nu een `fix/<slug>`-branchroute vast naast `agent/<milestone-id>-<slug>`, zodat werk zonder milestone-ID (een geïsoleerde bugfix, een procesfix) een legitieme PR-route heeft in plaats van rechtstreeks op `main` te landen. `AGENTS.md` legt nu ook vast dat conflicten in `output/` nooit handmatig worden opgelost: de snapshot-hash herschrijft vrijwel alle gecommitte artifacts bij iedere BAT-wijziging, dus rebasen en `bp.py check` opnieuw draaien is de enige correcte conflictresolutie. `project/status.json` (schema_version 2) draagt nu een verplicht `verification`-veld per current_milestone (`automatisch`, `wacht-op-menselijke-verificatie` of `geverifieerd` met verplichte actor en datum), zichtbaar in de HTML-, Grafana- en Markdown-statusproducten, zodat een geïmplementeerde verifier niet stilzwijgend als succesvolle live verificatie kan worden gelezen.\nResterend: Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1646,8 +1646,9 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "project-status-schema:1",
+    "project-status-schema:2",
     "overall-progress:87",
+    "milestone-verification:wacht-op-menselijke-verificatie",
     "sha256:40aed99a123f1c8249b67a787c3b6fe4c5547d43537497881b68b73968235598"
   ],
   "templating": {

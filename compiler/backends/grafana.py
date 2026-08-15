@@ -716,7 +716,8 @@ def _render_project_status(product: ProductDefinition) -> str:
                 (
                     f"Actueel: {status.current_milestone.id} · "
                     f"{status.current_milestone.name} "
-                    f"({status.current_milestone.state})"
+                    f"({status.current_milestone.state}) · "
+                    f"Verificatie: {status.current_milestone.verification.state}"
                 ),
                 (
                     f"Voltooid: {status.last_completed_milestone.id} · "
@@ -753,6 +754,7 @@ def _render_project_status(product: ProductDefinition) -> str:
             "generated",
             f"project-status-schema:{status.schema_version}",
             f"overall-progress:{status.overall_progress}",
+            f"milestone-verification:{status.current_milestone.verification.state}",
             *([product.snapshot_ref] if product.snapshot_ref else []),
         ],
         "templating": {"list": []},

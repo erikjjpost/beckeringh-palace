@@ -44,6 +44,12 @@ def render_status(status: dict[str, Any]) -> str:
         status["overall_method"],
         "",
         f"- Actuele milestone: **{current['id']} — {current['name']}** ({current['state']})",
+        f"- Verificatie: **{current['verification']['state']}**"
+        + (
+            f" ({current['verification']['actor']}, {current['verification']['date']})"
+            if current["verification"]["state"] == "geverifieerd"
+            else ""
+        ),
         f"- Laatst voltooid: **{completed['id']} — {completed['name']}** "
         f"(PR #{completed['pull_request']})",
         f"- Volgende stap: **{next_step['id']} — {next_step['name']}**",
