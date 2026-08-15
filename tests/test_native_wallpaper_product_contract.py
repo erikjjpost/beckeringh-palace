@@ -527,12 +527,16 @@ class NativeWallpaperProductContractTests(unittest.TestCase):
         )
         self.assertEqual(
             (
+                "emberforge-ultrawide-ambient-wash",
                 "emberforge-ultrawide-cool-light-outer",
+                "emberforge-ultrawide-cool-light-mid",
                 "emberforge-ultrawide-cool-light-inner",
                 "emberforge-ultrawide-warm-light-outer",
                 "emberforge-ultrawide-warm-light-inner",
                 "emberforge-nordic-weave-left",
                 "emberforge-nordic-weave-right",
+                "emberforge-nordic-weave-bottom-left",
+                "emberforge-nordic-weave-bottom-right",
                 "emberforge-ultrawide-palace",
                 "emberforge-ultrawide-beaver-left",
                 "emberforge-ultrawide-beaver-right",

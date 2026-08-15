@@ -45,9 +45,12 @@ class NativeWallpaperArtDirectionTests(unittest.TestCase):
         for wallpaper in self.wallpapers.values():
             with self.subTest(wallpaper=wallpaper.id):
                 light_placements = wallpaper.lagen[0].plaatsingen
-                self.assertEqual(4, len(light_placements))
+                self.assertEqual(6, len(light_placements))
                 self.assertEqual(
-                    ("interaction", "interaction", "accent", "accent"),
+                    (
+                        "interaction", "interaction", "interaction", "interaction",
+                        "accent", "accent",
+                    ),
                     tuple(item.color_role for item in light_placements),
                 )
                 self.assertTrue(

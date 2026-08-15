@@ -1049,7 +1049,7 @@ Componeert koelblauw hoofdlicht en maximaal twee begrensde warme accenten achter
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-ultrawide-cool-light-outer, emberforge-ultrawide-cool-light-inner, emberforge-ultrawide-warm-light-outer, emberforge-ultrawide-warm-light-inner
+- **plaatsingen:** emberforge-ultrawide-ambient-wash, emberforge-ultrawide-cool-light-outer, emberforge-ultrawide-cool-light-mid, emberforge-ultrawide-cool-light-inner, emberforge-ultrawide-warm-light-outer, emberforge-ultrawide-warm-light-inner
 - **rol:** ornament
 - **wallpaper:** emberforge-ultrawide-wallpaper
 
@@ -1081,7 +1081,7 @@ Ordent Noorse vlechtvormen rustig achter de wereldsymboliek.
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-nordic-weave-left, emberforge-nordic-weave-right
+- **plaatsingen:** emberforge-nordic-weave-left, emberforge-nordic-weave-right, emberforge-nordic-weave-bottom-left, emberforge-nordic-weave-bottom-right
 - **rol:** ornament
 - **wallpaper:** emberforge-ultrawide-wallpaper
 
@@ -1139,6 +1139,29 @@ Plaatst een terughoudende Noorse vlecht boven de linker wereldsymboliek.
 - **x:** 120
 - **y:** 70
 
+## EmberForge Ultrawide Omgevingsgloed
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-ambient-wash`
+
+### Doel
+
+Legt een zeer brede, zeer zachte koelblauwe gloed over het volledige canvas als achtergrondlicht.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 3840
+- **dekking:** 0.07
+- **effect:** radial-glow
+- **fit:** stretch
+- **hoogte:** 1080
+- **kleur:** interaction
+- **laag:** emberforge-wallpaper-lichtlaag
+- **x:** 0
+- **y:** 0
+
 ## EmberForge Ultrawide Koel Licht Buiten
 
 **Soort:** assetplaatsing
@@ -1161,6 +1184,29 @@ Legt een brede, zachte koelblauwe lichtbasis achter de functionele muziekcirkel.
 - **laag:** emberforge-wallpaper-lichtlaag
 - **x:** 1260
 - **y:** 0
+
+## EmberForge Ultrawide Koel Licht Midden
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-ultrawide-cool-light-mid`
+
+### Doel
+
+Voegt een tussenstap toe aan het koelblauwe licht voor een vloeiendere overgang.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 1170
+- **dekking:** 0.075
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 1050
+- **kleur:** interaction
+- **laag:** emberforge-wallpaper-lichtlaag
+- **x:** 1335
+- **y:** 15
 
 ## EmberForge Ultrawide Koel Licht Binnen
 
@@ -1252,6 +1298,50 @@ Plaatst dezelfde Noorse vormtaal met een zelfstandige rechter plaatsing.
 - **laag:** emberforge-wallpaper-ornamentlaag
 - **x:** 2820
 - **y:** 70
+
+## EmberForge Noorse Vlecht Linksonder
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-nordic-weave-bottom-left`
+
+### Doel
+
+Herhaalt de Noorse vlecht rustig langs de onderrand links.
+
+### Eigenschappen
+
+- **asset:** emberforge-nordic-weave
+- **breedte:** 900
+- **dekking:** 0.1
+- **fit:** contain
+- **hoogte:** 200
+- **kleur:** interaction
+- **laag:** emberforge-wallpaper-ornamentlaag
+- **x:** 120
+- **y:** 810
+
+## EmberForge Noorse Vlecht Rechtsonder
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-nordic-weave-bottom-right`
+
+### Doel
+
+Herhaalt de Noorse vlecht rustig langs de onderrand rechts.
+
+### Eigenschappen
+
+- **asset:** emberforge-nordic-weave
+- **breedte:** 900
+- **dekking:** 0.1
+- **fit:** contain
+- **hoogte:** 200
+- **kleur:** interaction
+- **laag:** emberforge-wallpaper-ornamentlaag
+- **x:** 2820
+- **y:** 810
 
 ## EmberForge Ultrawide Palace
 
@@ -1397,7 +1487,7 @@ Componeert eigen koelblauw hoofdlicht en twee begrensde warme accenten voor het 
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-desktop-cool-light-outer, emberforge-desktop-cool-light-inner, emberforge-desktop-warm-light-outer, emberforge-desktop-warm-light-inner
+- **plaatsingen:** emberforge-desktop-ambient-wash, emberforge-desktop-cool-light-outer, emberforge-desktop-cool-light-mid, emberforge-desktop-cool-light-inner, emberforge-desktop-warm-light-outer, emberforge-desktop-warm-light-inner
 - **rol:** ornament
 - **wallpaper:** emberforge-desktop-wallpaper
 
@@ -1429,7 +1519,7 @@ Ordent terughoudende Noorse lijnornamentiek voor het 1900 bij 1200 canvas.
 
 ### Eigenschappen
 
-- **plaatsingen:** emberforge-desktop-nordic-weave-left, emberforge-desktop-nordic-weave-right
+- **plaatsingen:** emberforge-desktop-nordic-weave-left, emberforge-desktop-nordic-weave-right, emberforge-desktop-nordic-weave-bottom-left, emberforge-desktop-nordic-weave-bottom-right
 - **rol:** ornament
 - **wallpaper:** emberforge-desktop-wallpaper
 
@@ -1487,6 +1577,29 @@ Plaatst de Noorse vlecht compact in de linker desktopmarge.
 - **x:** 40
 - **y:** 160
 
+## EmberForge Desktop Omgevingsgloed
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-ambient-wash`
+
+### Doel
+
+Legt een zeer zachte koelblauwe gloed over het volledige desktopcanvas als achtergrondlicht.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 1900
+- **dekking:** 0.07
+- **effect:** radial-glow
+- **fit:** stretch
+- **hoogte:** 1200
+- **kleur:** interaction
+- **laag:** emberforge-desktop-lichtlaag
+- **x:** 0
+- **y:** 0
+
 ## EmberForge Desktop Koel Licht Buiten
 
 **Soort:** assetplaatsing
@@ -1532,6 +1645,29 @@ Verdicht het koele licht binnen de desktopcompositie zonder automatische schalin
 - **laag:** emberforge-desktop-lichtlaag
 - **x:** 450
 - **y:** 100
+
+## EmberForge Desktop Koel Licht Midden
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-cool-light-mid`
+
+### Doel
+
+Voegt een tussenstap toe aan het koelblauwe licht voor een vloeiendere overgang.
+
+### Eigenschappen
+
+- **asset:** emberforge-light-disc
+- **breedte:** 1100
+- **dekking:** 0.075
+- **effect:** radial-glow
+- **fit:** contain
+- **hoogte:** 1100
+- **kleur:** interaction
+- **laag:** emberforge-desktop-lichtlaag
+- **x:** 400
+- **y:** 50
 
 ## EmberForge Desktop Warm Licht Buiten
 
@@ -1600,6 +1736,50 @@ Plaatst dezelfde Noorse vlecht met een zelfstandige rechter desktopgeometrie.
 - **laag:** emberforge-desktop-ornamentlaag
 - **x:** 1560
 - **y:** 160
+
+## EmberForge Desktop Noorse Vlecht Linksonder
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-nordic-weave-bottom-left`
+
+### Doel
+
+Herhaalt de Noorse vlecht compact langs de onderrand links.
+
+### Eigenschappen
+
+- **asset:** emberforge-nordic-weave
+- **breedte:** 300
+- **dekking:** 0.08
+- **fit:** contain
+- **hoogte:** 100
+- **kleur:** interaction
+- **laag:** emberforge-desktop-ornamentlaag
+- **x:** 40
+- **y:** 940
+
+## EmberForge Desktop Noorse Vlecht Rechtsonder
+
+**Soort:** assetplaatsing
+
+**Identifier:** `emberforge-desktop-nordic-weave-bottom-right`
+
+### Doel
+
+Herhaalt de Noorse vlecht compact langs de onderrand rechts.
+
+### Eigenschappen
+
+- **asset:** emberforge-nordic-weave
+- **breedte:** 300
+- **dekking:** 0.08
+- **fit:** contain
+- **hoogte:** 100
+- **kleur:** interaction
+- **laag:** emberforge-desktop-ornamentlaag
+- **x:** 1560
+- **y:** 940
 
 ## EmberForge Desktop Palace
 

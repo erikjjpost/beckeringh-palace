@@ -565,7 +565,7 @@ wallpaperlaag emberforge-wallpaper-lichtlaag {
     doel: "Componeert koelblauw hoofdlicht en maximaal twee begrensde warme accenten achter de muziekinformatie."
     wallpaper: "emberforge-ultrawide-wallpaper"
     rol: "ornament"
-    plaatsingen: ["emberforge-ultrawide-cool-light-outer", "emberforge-ultrawide-cool-light-inner", "emberforge-ultrawide-warm-light-outer", "emberforge-ultrawide-warm-light-inner"]
+    plaatsingen: ["emberforge-ultrawide-ambient-wash", "emberforge-ultrawide-cool-light-outer", "emberforge-ultrawide-cool-light-mid", "emberforge-ultrawide-cool-light-inner", "emberforge-ultrawide-warm-light-outer", "emberforge-ultrawide-warm-light-inner"]
 }
 
 wallpaperlaag emberforge-wallpaper-muzieklaag {
@@ -581,7 +581,7 @@ wallpaperlaag emberforge-wallpaper-ornamentlaag {
     doel: "Ordent Noorse vlechtvormen rustig achter de wereldsymboliek."
     wallpaper: "emberforge-ultrawide-wallpaper"
     rol: "ornament"
-    plaatsingen: ["emberforge-nordic-weave-left", "emberforge-nordic-weave-right"]
+    plaatsingen: ["emberforge-nordic-weave-left", "emberforge-nordic-weave-right", "emberforge-nordic-weave-bottom-left", "emberforge-nordic-weave-bottom-right"]
 }
 
 wallpaperlaag emberforge-wallpaper-wereldlaag {
@@ -614,6 +614,21 @@ assetplaatsing emberforge-nordic-weave-left {
     kleur: "interaction"
 }
 
+assetplaatsing emberforge-ultrawide-ambient-wash {
+    naam: "EmberForge Ultrawide Omgevingsgloed"
+    doel: "Legt een zeer brede, zeer zachte koelblauwe gloed over het volledige canvas als achtergrondlicht."
+    laag: "emberforge-wallpaper-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "0"
+    y: "0"
+    breedte: "3840"
+    hoogte: "1080"
+    fit: "stretch"
+    dekking: "0.07"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
 assetplaatsing emberforge-ultrawide-cool-light-outer {
     naam: "EmberForge Ultrawide Koel Licht Buiten"
     doel: "Legt een brede, zachte koelblauwe lichtbasis achter de functionele muziekcirkel."
@@ -625,6 +640,21 @@ assetplaatsing emberforge-ultrawide-cool-light-outer {
     hoogte: "1080"
     fit: "contain"
     dekking: "0.06"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-ultrawide-cool-light-mid {
+    naam: "EmberForge Ultrawide Koel Licht Midden"
+    doel: "Voegt een tussenstap toe aan het koelblauwe licht voor een vloeiendere overgang."
+    laag: "emberforge-wallpaper-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "1335"
+    y: "15"
+    breedte: "1170"
+    hoogte: "1050"
+    fit: "contain"
+    dekking: "0.075"
     kleur: "interaction"
     effect: "radial-glow"
 }
@@ -681,6 +711,34 @@ assetplaatsing emberforge-nordic-weave-right {
     asset: "emberforge-nordic-weave"
     x: "2820"
     y: "70"
+    breedte: "900"
+    hoogte: "200"
+    fit: "contain"
+    dekking: "0.1"
+    kleur: "interaction"
+}
+
+assetplaatsing emberforge-nordic-weave-bottom-left {
+    naam: "EmberForge Noorse Vlecht Linksonder"
+    doel: "Herhaalt de Noorse vlecht rustig langs de onderrand links."
+    laag: "emberforge-wallpaper-ornamentlaag"
+    asset: "emberforge-nordic-weave"
+    x: "120"
+    y: "810"
+    breedte: "900"
+    hoogte: "200"
+    fit: "contain"
+    dekking: "0.1"
+    kleur: "interaction"
+}
+
+assetplaatsing emberforge-nordic-weave-bottom-right {
+    naam: "EmberForge Noorse Vlecht Rechtsonder"
+    doel: "Herhaalt de Noorse vlecht rustig langs de onderrand rechts."
+    laag: "emberforge-wallpaper-ornamentlaag"
+    asset: "emberforge-nordic-weave"
+    x: "2820"
+    y: "810"
     breedte: "900"
     hoogte: "200"
     fit: "contain"
@@ -777,7 +835,7 @@ wallpaperlaag emberforge-desktop-lichtlaag {
     doel: "Componeert eigen koelblauw hoofdlicht en twee begrensde warme accenten voor het desktopcanvas."
     wallpaper: "emberforge-desktop-wallpaper"
     rol: "ornament"
-    plaatsingen: ["emberforge-desktop-cool-light-outer", "emberforge-desktop-cool-light-inner", "emberforge-desktop-warm-light-outer", "emberforge-desktop-warm-light-inner"]
+    plaatsingen: ["emberforge-desktop-ambient-wash", "emberforge-desktop-cool-light-outer", "emberforge-desktop-cool-light-mid", "emberforge-desktop-cool-light-inner", "emberforge-desktop-warm-light-outer", "emberforge-desktop-warm-light-inner"]
 }
 
 wallpaperlaag emberforge-desktop-muzieklaag {
@@ -793,7 +851,7 @@ wallpaperlaag emberforge-desktop-ornamentlaag {
     doel: "Ordent terughoudende Noorse lijnornamentiek voor het 1900 bij 1200 canvas."
     wallpaper: "emberforge-desktop-wallpaper"
     rol: "ornament"
-    plaatsingen: ["emberforge-desktop-nordic-weave-left", "emberforge-desktop-nordic-weave-right"]
+    plaatsingen: ["emberforge-desktop-nordic-weave-left", "emberforge-desktop-nordic-weave-right", "emberforge-desktop-nordic-weave-bottom-left", "emberforge-desktop-nordic-weave-bottom-right"]
 }
 
 wallpaperlaag emberforge-desktop-wereldlaag {
@@ -826,6 +884,21 @@ assetplaatsing emberforge-desktop-nordic-weave-left {
     kleur: "interaction"
 }
 
+assetplaatsing emberforge-desktop-ambient-wash {
+    naam: "EmberForge Desktop Omgevingsgloed"
+    doel: "Legt een zeer zachte koelblauwe gloed over het volledige desktopcanvas als achtergrondlicht."
+    laag: "emberforge-desktop-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "0"
+    y: "0"
+    breedte: "1900"
+    hoogte: "1200"
+    fit: "stretch"
+    dekking: "0.07"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
 assetplaatsing emberforge-desktop-cool-light-outer {
     naam: "EmberForge Desktop Koel Licht Buiten"
     doel: "Legt een brede koelblauwe lichtbasis achter de zelfstandig geplaatste desktopcirkel."
@@ -852,6 +925,21 @@ assetplaatsing emberforge-desktop-cool-light-inner {
     hoogte: "1000"
     fit: "contain"
     dekking: "0.09"
+    kleur: "interaction"
+    effect: "radial-glow"
+}
+
+assetplaatsing emberforge-desktop-cool-light-mid {
+    naam: "EmberForge Desktop Koel Licht Midden"
+    doel: "Voegt een tussenstap toe aan het koelblauwe licht voor een vloeiendere overgang."
+    laag: "emberforge-desktop-lichtlaag"
+    asset: "emberforge-light-disc"
+    x: "400"
+    y: "50"
+    breedte: "1100"
+    hoogte: "1100"
+    fit: "contain"
+    dekking: "0.075"
     kleur: "interaction"
     effect: "radial-glow"
 }
@@ -893,6 +981,34 @@ assetplaatsing emberforge-desktop-nordic-weave-right {
     asset: "emberforge-nordic-weave"
     x: "1560"
     y: "160"
+    breedte: "300"
+    hoogte: "100"
+    fit: "contain"
+    dekking: "0.08"
+    kleur: "interaction"
+}
+
+assetplaatsing emberforge-desktop-nordic-weave-bottom-left {
+    naam: "EmberForge Desktop Noorse Vlecht Linksonder"
+    doel: "Herhaalt de Noorse vlecht compact langs de onderrand links."
+    laag: "emberforge-desktop-ornamentlaag"
+    asset: "emberforge-nordic-weave"
+    x: "40"
+    y: "940"
+    breedte: "300"
+    hoogte: "100"
+    fit: "contain"
+    dekking: "0.08"
+    kleur: "interaction"
+}
+
+assetplaatsing emberforge-desktop-nordic-weave-bottom-right {
+    naam: "EmberForge Desktop Noorse Vlecht Rechtsonder"
+    doel: "Herhaalt de Noorse vlecht compact langs de onderrand rechts."
+    laag: "emberforge-desktop-ornamentlaag"
+    asset: "emberforge-nordic-weave"
+    x: "1560"
+    y: "940"
     breedte: "300"
     hoogte: "100"
     fit: "contain"

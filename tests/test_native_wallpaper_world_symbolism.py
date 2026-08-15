@@ -92,8 +92,8 @@ class NativeWallpaperWorldSymbolismTests(unittest.TestCase):
                     for item in ornament.plaatsingen
                     if item.asset.id == "emberforge-nordic-weave"
                 ]
-                self.assertEqual(2, len(weave))
-                self.assertEqual(2, len(ornament.plaatsingen))
+                self.assertEqual(4, len(weave))
+                self.assertEqual(4, len(ornament.plaatsingen))
                 self.assertTrue(
                     all(item.color_role == "interaction" for item in weave)
                 )

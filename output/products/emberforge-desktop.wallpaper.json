@@ -1,7 +1,7 @@
 {
   "product": {
     "id": "emberforge-desktop-wallpaper-manifest",
-    "snapshot": "sha256:77d242023b5cf2672da9fa91c7a1a1d9a1f25501a589d63515494a9dca07e27c"
+    "snapshot": "sha256:40aed99a123f1c8249b67a787c3b6fe4c5547d43537497881b68b73968235598"
   },
   "schema_version": 3,
   "wallpaper": {
@@ -27,6 +27,21 @@
         "plaatsingen": [
           {
             "asset": "emberforge-light-disc",
+            "breedte": 1900,
+            "dekking": 0.07,
+            "doel": "Legt een zeer zachte koelblauwe gloed over het volledige desktopcanvas als achtergrondlicht.",
+            "effect": "radial-glow",
+            "fit": "stretch",
+            "hoogte": 1200,
+            "id": "emberforge-desktop-ambient-wash",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Omgevingsgloed",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "asset": "emberforge-light-disc",
             "breedte": 1200,
             "dekking": 0.06,
             "doel": "Legt een brede koelblauwe lichtbasis achter de zelfstandig geplaatste desktopcirkel.",
@@ -39,6 +54,21 @@
             "naam": "EmberForge Desktop Koel Licht Buiten",
             "x": 350,
             "y": 0
+          },
+          {
+            "asset": "emberforge-light-disc",
+            "breedte": 1100,
+            "dekking": 0.075,
+            "doel": "Voegt een tussenstap toe aan het koelblauwe licht voor een vloeiendere overgang.",
+            "effect": "radial-glow",
+            "fit": "contain",
+            "hoogte": 1100,
+            "id": "emberforge-desktop-cool-light-mid",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Koel Licht Midden",
+            "x": 400,
+            "y": 50
           },
           {
             "asset": "emberforge-light-disc",
@@ -122,6 +152,36 @@
             "naam": "EmberForge Desktop Noorse Vlecht Rechts",
             "x": 1560,
             "y": 160
+          },
+          {
+            "asset": "emberforge-nordic-weave",
+            "breedte": 300,
+            "dekking": 0.08,
+            "doel": "Herhaalt de Noorse vlecht compact langs de onderrand links.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 100,
+            "id": "emberforge-desktop-nordic-weave-bottom-left",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Noorse Vlecht Linksonder",
+            "x": 40,
+            "y": 940
+          },
+          {
+            "asset": "emberforge-nordic-weave",
+            "breedte": 300,
+            "dekking": 0.08,
+            "doel": "Herhaalt de Noorse vlecht compact langs de onderrand rechts.",
+            "effect": "solid",
+            "fit": "contain",
+            "hoogte": 100,
+            "id": "emberforge-desktop-nordic-weave-bottom-right",
+            "kleur": "#7DD3FC",
+            "materiaalrol": "interaction",
+            "naam": "EmberForge Desktop Noorse Vlecht Rechtsonder",
+            "x": 1560,
+            "y": 940
           }
         ],
         "rol": "ornament"
