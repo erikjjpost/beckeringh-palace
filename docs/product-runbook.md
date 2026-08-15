@@ -106,6 +106,30 @@ voorbeeldinhoud als het HTML product. Een nieuwe import kan een bestaand
 dashboard met dezelfde UID vervangen. Controleer daarom vóór import de
 snapshotreferentie en bewaar zo nodig de bestaande JSON-export.
 
+## Figma synchroniseren
+
+De plugin staat in `output/products/figma-plugin/` (`manifest.json` +
+`code.js`). Importeer eenmalig in Figma Desktop via **Plugins → Development →
+Import plugin from manifest...**, wijs `manifest.json` aan. Draai daarna via
+**Plugins → Development → Beckeringh Palace Sync**.
+
+Verwacht resultaat: exact drie pagina's (`Foundations`, `Components`,
+`Assets & Surfaces`), geen dubbele componenten, en een afsluitende melding die
+eindigt met "second sync is idempotent". Bij een fout: open de console
+(**Plugins → Development → Open Console**, filter op "Beckeringh") voor de
+volledige foutmelding en, bij een mislukte idempotentiecheck, het exacte pad
+waar de eerste en tweede sync uiteenlopen.
+
+**Bekende Figma-renderquirk**: direct na een eerste sync kunnen net
+aangemaakte, aan variables gebonden fills/strokes/teksten zwart of onzichtbaar
+ogen, terwijl de onderliggende variabele en binding al correct zijn (te
+verifiëren via het Variables-paneel). Dit is een canvasrenderprobleem van
+Figma Desktop zelf bij vers gebonden variables, geen fout in de plugin of het
+BAT-model. Workaround: raak een eigenschap van het component aan (bijvoorbeeld
+een andere variant selecteren en terugzetten, of een waarde tijdelijk wijzigen
+en terugzetten) om een repaint te forceren, of sluit het bestand en open het
+opnieuw.
+
 ## Snapshot verifiëren
 
 Statische producten delen één canonieke referentie in de vorm
