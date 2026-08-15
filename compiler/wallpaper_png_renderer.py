@@ -876,6 +876,12 @@ def _render_placement(
             _fill_subpaths(fill_mask, path)
         if placement.effect == "radial-glow":
             _apply_radial_falloff(fill_mask)
+        elif placement.effect != "solid":
+            raise ValueError(
+                f"Wallpaperrenderer kan beeldeffect '{placement.effect}' niet "
+                f"realiseren voor assetplaatsing '{placement.id}'; ondersteund "
+                "zijn uitsluitend 'solid' en 'radial-glow'"
+            )
         raster.composite(
             fill_mask,
             _paint(asset.vulling, placement),

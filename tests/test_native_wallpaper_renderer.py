@@ -11,7 +11,14 @@ from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import analyseer
-from compiler.wallpaper_png_renderer import PNG_SIGNATURE
+from compiler.svg_assets import ResolvedSvgAsset
+from compiler.theme_resolution import ResolvedColor
+from compiler.wallpaper_png_renderer import PNG_SIGNATURE, render_wallpaper_png
+from compiler.wallpaper_products import (
+    ResolvedWallpaper,
+    ResolvedWallpaperAssetPlacement,
+    ResolvedWallpaperLayer,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -334,6 +341,74 @@ class NativeWallpaperRendererTests(unittest.TestCase):
             (0xC9, 0x89, 0x5B),
             (0x7D, 0xD3, 0xFC),
         }.issubset(_truecolor_pixels(info)))
+
+
+    def test_renderer_weigert_expliciet_een_onbekend_beeldeffect(self) -> None:
+        """De renderer degradeert nooit stil naar 'solid' gedrag (ADR-0002)."""
+
+        canvas = ResolvedColor(id="ink", naam="Ink", doel="Canvas", waarde="#102030")
+        fill = ResolvedColor(id="bone", naam="Bone", doel="Vulling", waarde="#F0E0D0")
+        asset = ResolvedSvgAsset(
+            id="test-disc",
+            naam="Test Disc",
+            doel="Testvulling voor de effectcontrole.",
+            rol="ornament",
+            viewbox=(0.0, 0.0, 10.0, 10.0),
+            paden=("M0 0 H10 V10 H0 Z",),
+            vulling="currentColor",
+            lijn="none",
+            lijndikte=None,
+            lijneinde=None,
+            lijnverbinding=None,
+            toegankelijkheid="decoratief",
+            label=None,
+            familie=None,
+            variant=None,
+        )
+        placement = ResolvedWallpaperAssetPlacement(
+            id="test-placement",
+            naam="Test Placement",
+            doel="Plaatst het testasset met een niet-ondersteund effect.",
+            laag="test-laag",
+            asset=asset,
+            x=0,
+            y=0,
+            breedte=10,
+            hoogte=10,
+            fit="stretch",
+            dekking=1.0,
+            color_role="foreground",
+            color=fill,
+            effect="linear-gradient",
+        )
+        layer = ResolvedWallpaperLayer(
+            id="test-laag",
+            naam="Test Laag",
+            doel="Enkele testlaag.",
+            wallpaper="test-wallpaper",
+            rol="ornament",
+            plaatsingen=(placement,),
+        )
+        wallpaper = ResolvedWallpaper(
+            id="test-wallpaper",
+            naam="Test Wallpaper",
+            doel="Bewijst dat een onbekend effect expliciet faalt.",
+            wereld="test",
+            merk="test",
+            familie="",
+            variant="",
+            formaat="png",
+            breedte=10,
+            hoogte=10,
+            canvas_role="canvas",
+            canvas=canvas,
+            lagen=(layer,),
+        )
+
+        with self.assertRaisesRegex(
+            ValueError, "kan beeldeffect 'linear-gradient' niet realiseren"
+        ):
+            render_wallpaper_png(wallpaper, "sha256:" + "0" * 64, "test-product")
 
 
 if __name__ == "__main__":
