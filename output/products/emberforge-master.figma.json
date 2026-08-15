@@ -952,9 +952,8 @@
         "M32 236 L88 286 M22 258 L67 298 M55 219 L108 267",
         "M109 239 H211 L203 254 H187 L181 265 H139 L133 254 H117 Z",
         "M127 265 H193 M142 265 L135 286 H185 L178 265",
-        "M226 49 L248 65 L194 142 L176 129 Z",
-        "M230 39 L266 65 L250 87 L214 61 Z",
-        "M216 102 L253 111 M207 117 L245 129"
+        "M290 305 V195",
+        "M262 178 H318 V203 H262 Z"
       ],
       "rol": "illustratie",
       "toegankelijkheid": "decoratief",
@@ -1794,7 +1793,7 @@
   ],
   "product": {
     "id": "emberforge-figma-master-manifest",
-    "snapshot": "sha256:741a50b311cc12d5314cdf9dc960fa1f5c2627b761364986880ac323b05fc492"
+    "snapshot": "sha256:77d242023b5cf2672da9fa91c7a1a1d9a1f25501a589d63515494a9dca07e27c"
   },
   "schema_version": 2,
   "theme": {
