@@ -24,6 +24,20 @@ erikjjpost/beckeringh-palace` te herhalen.
 Dit mandaat omvat niet het mergen van de PR. Merge alleen na een afzonderlijke
 expliciete opdracht.
 
+## Branches
+
+Milestonewerk krijgt een branch `agent/<milestone-id>-<korte-slug>`, bijvoorbeeld
+`agent/m11.5c-native-svg-icon-set`, gelijk aan de bestaande PR-geschiedenis.
+
+Werk zonder milestone-ID — een geïsoleerde bugfix, een procesfix, een
+toolingcorrectie — krijgt in plaats daarvan de route `fix/<korte-slug>`. Dat is
+de enige legitieme uitwijkroute voor werk dat niet op `main` mag landen maar
+ook geen bestaande milestone verlengt. Stappen 4 tot en met 9 van het mandaat
+gelden voor een `fix/`-branch onverkort: eigen branch, eigen PR, volledige
+gate, waarheidsgetrouwe `project/status.json`-evidence (een fix is relevant
+bewijs voor een bestaand productgebied, ook zonder eigen milestone-ID), groene
+CI, rapportage. Bundel geen ongerelateerde fixes in dezelfde `fix/`-PR.
+
 ## Publicatieroute
 
 Probeer de publicatie daadwerkelijk voordat je een blokkade rapporteert.
