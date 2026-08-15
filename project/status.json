@@ -8,14 +8,14 @@
     "state": "in uitvoering"
   },
   "last_completed_milestone": {
-    "id": "M11.7b",
-    "name": "Native Figma synchronisatieadapter",
-    "pull_request": 98
+    "id": "M11.8a",
+    "name": "EmberForge beverembleem",
+    "pull_request": 100
   },
   "next_step": {
     "id": "M11.7c",
-    "name": "Native Figma desktopproef",
-    "purpose": "De gegenereerde netwerkloze development plugin in EmberForge Master uitvoeren en de resulterende variables, styles, assets, componentvarianten en surfaces structureel en visueel tegen hetzelfde BAT snapshot verifiëren."
+    "name": "Native Figma verificatie afronden",
+    "purpose": "De herstelde netwerkloze development plugin opnieuw in EmberForge Master uitvoeren en het succesvolle eindresultaat van de drie pagina's, sections, variables, styles, assets, componentvarianten en surfaces structureel en visueel tegen hetzelfde BAT snapshot vastleggen."
   },
   "areas": [
     {
@@ -23,7 +23,7 @@
       "name": "Compiler en reproduceerbaarheid",
       "progress": 99,
       "weight": 10,
-      "evidence": "Validatie, deterministische generatie en CI vormen een werkende kwaliteitsketen; naast het statische Figma mastermanifest wordt ook een netwerkloze, snapshotgebonden development plugin deterministisch uit hetzelfde manifest verpakt en controleert de M11.7c verifier de live toestand plus een tweede idempotente synchronisatie.",
+      "evidence": "Validatie, deterministische generatie en CI vormen een werkende kwaliteitsketen; naast het statische Figma mastermanifest wordt ook een netwerkloze, snapshotgebonden development plugin deterministisch uit hetzelfde manifest verpakt. De M11.7c verifier controleert de live toestand plus een tweede idempotente synchronisatie en logt bij mislukking de volledige fout voordat de plugin sluit.",
       "remaining": "Meer adapters, aanvullende renderergrenzen en volwassen foutdiagnostiek ontbreken nog."
     },
     {
@@ -55,7 +55,7 @@
       "name": "Visuele wereld en art direction",
       "progress": 70,
       "weight": 10,
-      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en zelfstandige wallpapers met functionele muziekinformatie, gecontroleerd licht, Palace lijnarchitectuur, het compacte beverembleem met smidshamer en aambeeld en Noorse vlechtvormen.",
+      "evidence": "EmberForge heeft een native merkidentiteit, expliciete visuele balans, een eigen typografische stem en zelfstandige wallpapers met functionele muziekinformatie, verdiept gecontroleerd licht, atmosferische vectorlagen, Palace lijnarchitectuur, het gecorrigeerde beverembleem met vrij leesbaar oog, smidshamer en aambeeld en Noorse vlechtvormen.",
       "remaining": "De wereldsymboliek moet nog naar andere productsurfaces worden doorgetrokken en de bredere wereldbeschrijving blijft onvolledig."
     },
     {
@@ -71,7 +71,7 @@
       "name": "Logo's en wallpapers",
       "progress": 90,
       "weight": 10,
-      "evidence": "Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die met eigen lichtgeometrie, Palace, het vernieuwde beverembleem en Noorse lijnsymboliek.",
+      "evidence": "Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die met verdiepte atmosferische lichtgeometrie, Palace, het gecorrigeerde beverembleem en Noorse lijnsymboliek.",
       "remaining": "Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten."
     },
     {
@@ -87,8 +87,8 @@
       "name": "Figma masterbestand",
       "progress": 70,
       "weight": 10,
-      "evidence": "BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API; M11.7c leest de managed toestand live terug en vergelijkt twee synchronisatieruns.",
-      "remaining": "De development plugin moet nog in EmberForge Master worden uitgevoerd en de werkelijke Figma toestand moet daarna structureel en visueel tegen het BAT snapshot worden geverifieerd."
+      "evidence": "BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API. De plugin consolideert de inhoud binnen de Starter-limiet tot drie pagina's met transparante sections, ruimt lege standaardpagina's op en brengt gecombineerde componentsets expliciet onder hun section.",
+      "remaining": "Na de runtimeherstelcommits moet de plugin opnieuw in EmberForge Master worden uitgevoerd en moet het succesvolle structurele en visuele eindresultaat tegen het BAT snapshot worden vastgelegd."
     },
     {
       "id": "world-bible",
