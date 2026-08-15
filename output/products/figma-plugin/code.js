@@ -1057,6 +1057,27 @@ async function runSync(figmaApi, manifest) {
   };
 }
 
+function firstDifferingPath(first, second, path = "$") {
+  if (first === second) return null;
+  const firstIsObject = first !== null && typeof first === "object";
+  const secondIsObject = second !== null && typeof second === "object";
+  if (!firstIsObject || !secondIsObject) {
+    return {path, first, second};
+  }
+  const firstKeys = Array.isArray(first)
+    ? first.map((_, index) => String(index))
+    : Object.keys(first);
+  const secondKeys = Array.isArray(second)
+    ? second.map((_, index) => String(index))
+    : Object.keys(second);
+  const keys = [...new Set([...firstKeys, ...secondKeys])];
+  for (const key of keys) {
+    const found = firstDifferingPath(first[key], second[key], `${path}.${key}`);
+    if (found) return found;
+  }
+  return null;
+}
+
 /** @param {PluginAPI} figmaApi */
 async function runVerifiedSync(figmaApi, manifest) {
   const firstSummary = await runSync(figmaApi, manifest);
@@ -1064,7 +1085,12 @@ async function runVerifiedSync(figmaApi, manifest) {
   const secondSummary = await runSync(figmaApi, manifest);
   const secondState = await verifyLiveState(figmaApi, manifest);
   if (JSON.stringify(firstState) !== JSON.stringify(secondState)) {
-    throw new Error("Second Figma sync changed managed state; adapter is not idempotent");
+    const diff = firstDifferingPath(firstState, secondState);
+    console.error("Beckeringh Palace idempotency diff:", diff);
+    throw new Error(
+      `Second Figma sync changed managed state; adapter is not idempotent at ` +
+      `${diff ? diff.path : "(unknown path)"} (zie console voor de volledige waarden)`,
+    );
   }
   return {...secondSummary, verified: true, idempotent: true, firstSummary};
 }
