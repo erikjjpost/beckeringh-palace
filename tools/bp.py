@@ -32,13 +32,25 @@ def repository_status() -> list[str]:
     return [line for line in result.stdout.splitlines() if line.strip()]
 
 
-def check() -> int:
-    """Validate, compile, generate, test and verify reproducibility."""
+def check(require_clean_tree: bool = True) -> int:
+    """Validate, compile, generate, test and, by default, verify reproducibility.
+
+    De keten (validate, compile, generate, render_status, tests) is identiek in
+    beide fasen. Met ``require_clean_tree=False`` (precommit) wordt de
+    werkboomcontrole overgeslagen, omdat een agent op dat moment nog
+    ongecommitte BAT-broncode heeft die de generatie bewust wijzigt. Met
+    ``require_clean_tree=True`` (postcommit, de standaard) moet een tweede
+    generatie op een schone boom géén wijziging meer opleveren.
+    """
     run([sys.executable, "tools/validate.py"])
     run([sys.executable, "tools/compile_bat.py"])
     run([sys.executable, "tools/generate.py"])
     run([sys.executable, "tools/render_status.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
+
+    if not require_clean_tree:
+        print("\nRESULTAAT: GELDIG (precommit, reproduceerbaarheid niet gecontroleerd)")
+        return 0
 
     changes = repository_status()
     if changes:
@@ -55,10 +67,18 @@ def check() -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(prog="bp", description="Beckeringh Palace project tooling")
     parser.add_argument("command", choices=("check",), help="Project command to execute")
+    parser.add_argument(
+        "--pre-commit",
+        action="store_true",
+        help=(
+            "Sla de werkboomcontrole over. Gebruik dit vóór de definitieve "
+            "commit, wanneer BAT-bronwijzigingen bewust nog ongecommit staan."
+        ),
+    )
     args = parser.parse_args()
 
     if args.command == "check":
-        return check()
+        return check(require_clean_tree=not args.pre_commit)
     return 2
 
 

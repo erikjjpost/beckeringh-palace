@@ -45,6 +45,27 @@ class RepositoryStatusTests(unittest.TestCase):
         self.assertEqual(run.call_count, 5)
         repository_status.assert_called_once_with()
 
+    @mock.patch.object(bp, "repository_status", return_value=["M architectuur/world.bp"])
+    @mock.patch.object(bp, "run")
+    def test_check_pre_commit_skips_worktree_gate(
+        self, run: mock.Mock, repository_status: mock.Mock
+    ) -> None:
+        self.assertEqual(bp.check(require_clean_tree=False), 0)
+        self.assertEqual(run.call_count, 5)
+        repository_status.assert_not_called()
+
+    def test_main_pre_commit_flag_disables_worktree_gate(self) -> None:
+        with mock.patch.object(bp, "check", return_value=0) as check:
+            with mock.patch("sys.argv", ["bp.py", "check", "--pre-commit"]):
+                self.assertEqual(bp.main(), 0)
+        check.assert_called_once_with(require_clean_tree=False)
+
+    def test_main_defaults_to_worktree_gate(self) -> None:
+        with mock.patch.object(bp, "check", return_value=0) as check:
+            with mock.patch("sys.argv", ["bp.py", "check"]):
+                self.assertEqual(bp.main(), 0)
+        check.assert_called_once_with(require_clean_tree=True)
+
 
 if __name__ == "__main__":
     unittest.main()
