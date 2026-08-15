@@ -44,11 +44,8 @@ python tools/bp.py check
 ```text
 architectuur/   BAT-bronnen tijdens de migratie naar het World Model
 compiler/       parser, semantisch model, constraints en renderers
-model/          bestaande architectuurobjecten tijdens de migratie
-organisation/   rollen, contracten en workflows
-proposals/      gecontroleerde wijzigingsvoorstellen
 project/        normatieve projectstatus
-tools/          validator, generator en project-CLI
+tools/          validator, compiler en project-CLI
 tests/          geautomatiseerde tests
 output/         reproduceerbare gegenereerde output
 docs/           ontwerpbesluiten en ontwikkelrichtlijnen
