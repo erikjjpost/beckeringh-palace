@@ -4,6 +4,8 @@
 
 `main` moet altijd valide en reproduceerbaar zijn. Wijzigingen worden via een branch en pull request aangeboden. Nooit rechtstreeks op `main` committen.
 
+Dit is ook technisch afgedwongen: branch protection op `main` vereist een pull request en een groene `validate`-check, inclusief voor repo-admins. Directe pushes en force-pushes naar `main` worden door GitHub geweigerd.
+
 Voor coding agents is `AGENTS.md` het bindende werkcontract: branchconventies (`agent/<milestone-id>-<slug>`, `fix/<slug>`), publicatieroute, conflictregels en verplichte `project/status.json`-evidence staan daar volledig uitgewerkt.
 
 ## Werkwijze
