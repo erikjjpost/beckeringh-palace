@@ -735,6 +735,7 @@ async function syncSurfaces(figmaApi, manifest, refs, componentRefs, textStyles)
       } else {
         node.swapComponent(target);
       }
+      node.resizeWithoutConstraints(target.width, target.height);
       instances[instance.id] = node;
     }
     if (layout.type === "grid") {
