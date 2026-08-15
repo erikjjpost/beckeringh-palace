@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:2;overall-progress:87",
+      "description": "project-status-schema:2;overall-progress:88",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 87%",
+                  "fixed": "Totale voortgang · 88%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 522
+                "width": 528
               },
               "type": "rectangle"
             },
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 87%",
+      "title": "Totale voortgang · 88%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1503,7 +1503,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:world-bible;progress:66",
+      "description": "project-status-area:world-bible;progress:75",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1536,7 +1536,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "World Bible · 66%",
+                  "fixed": "World Bible · 75%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1600,7 +1600,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 396
+                "width": 450
               },
               "type": "rectangle"
             },
@@ -1612,7 +1612,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd.\nResterend: De bredere wereldbeschrijving en cross product ontwerpregels moeten nog worden samengebracht.",
+                  "fixed": "Onderbouwing: Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt nu de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths), met per kamer expliciet of het al een BAT-product/-object is of nog puur narratief.\nResterend: De meeste kamers uit de wereldkaart (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) hebben nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Cross product ontwerpregels tussen kamers moeten nog worden samengebracht.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1636,7 +1636,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 66%",
+      "title": "World Bible · 75%",
       "transparent": true,
       "type": "canvas"
     }
@@ -1647,7 +1647,7 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:2",
-    "overall-progress:87",
+    "overall-progress:88",
     "milestone-verification:wacht-op-menselijke-verificatie",
     "sha256:40aed99a123f1c8249b67a787c3b6fe4c5547d43537497881b68b73968235598"
   ],

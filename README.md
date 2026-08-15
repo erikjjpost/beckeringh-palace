@@ -56,7 +56,8 @@ Lees [docs/world-model.md](docs/world-model.md) voor de domeingrens,
 [docs/architecture.md](docs/architecture.md) voor de compilerarchitectuur,
 [docs/product-model.md](docs/product-model.md) voor het productcontract,
 [docs/beckeringh-architectuurtaal.md](docs/beckeringh-architectuurtaal.md) voor BAT,
-[docs/product-runbook.md](docs/product-runbook.md) voor het gebruiken van de producten en
+[docs/product-runbook.md](docs/product-runbook.md) voor het gebruiken van de producten,
+[docs/world-bible.md](docs/world-bible.md) voor de narratieve wereldkaart en
 [docs/adr-convention.md](docs/adr-convention.md) voor ontwerpbesluiten en
 [CONTRIBUTING.md](CONTRIBUTING.md) voor de wijzigingsregels. De actuele,
 reproduceerbare voortgang staat in [PROJECT_STATUS.md](PROJECT_STATUS.md).
