@@ -424,6 +424,7 @@ async function ensureSection(figmaApi, page, name) {
     section.name = name;
     page.appendChild(section);
   }
+  section.fills = [];
   return section;
 }
 
