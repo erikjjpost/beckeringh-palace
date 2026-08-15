@@ -33,9 +33,9 @@ def repository_status() -> list[str]:
 
 
 def check(require_clean_tree: bool = True) -> int:
-    """Validate, compile, generate, test and, by default, verify reproducibility.
+    """Validate, compile, render status, test and, by default, verify reproducibility.
 
-    De keten (validate, compile, generate, render_status, tests) is identiek in
+    De keten (validate, compile, render_status, tests) is identiek in
     beide fasen. Met ``require_clean_tree=False`` (precommit) wordt de
     werkboomcontrole overgeslagen, omdat een agent op dat moment nog
     ongecommitte BAT-broncode heeft die de generatie bewust wijzigt. Met
@@ -44,7 +44,6 @@ def check(require_clean_tree: bool = True) -> int:
     """
     run([sys.executable, "tools/validate.py"])
     run([sys.executable, "tools/compile_bat.py"])
-    run([sys.executable, "tools/generate.py"])
     run([sys.executable, "tools/render_status.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
 

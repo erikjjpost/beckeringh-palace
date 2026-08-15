@@ -40,7 +40,6 @@ zonder vlag blijft na de commit op een schone werkboom vereist.
 ```bash
 python tools/validate.py
 PYTHONDONTWRITEBYTECODE=1 python tools/compile_bat.py
-python tools/generate.py
 python tools/render_status.py
 python -m unittest discover -s tests -v
 ```

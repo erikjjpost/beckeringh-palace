@@ -132,6 +132,22 @@ SVG / HTML / Grafana / Figma / documentatie
 
 BAT neemt dus geen ArchiMate-elementtypen, relatietypen of notatieleer over in de kern.
 
+## Second Brain en informatiebeheer
+
+Second Brain is het capability-concept achter Beckeringh Palace: ideeën,
+kennis en besluiten vastleggen, verbinden en terugvinden. Het steunt op
+Information Management (informatie beheersbaar, vindbaar en herleidbaar over
+de volledige levenscyclus) en wordt bediend door de service Architectuur
+Synchronisatie, die ideeën omzet in gecontroleerde voorstellen voor het
+architectuurmodel. The Library is de visuele en narratieve representatie van
+Second Brain binnen Beckeringh Palace.
+
+Dit is beschrijvend narratief, geen native BAT-objectsoort. Het voormalige
+`model/`/`organisation/`/`proposals/`-YAML-systeem dat dit genereerde is
+verwijderd: het contradicteerde ontwerpregel 3 hieronder (renderers lezen
+geen handmatig onderhouden productbestanden) en werd nooit als BAT-product
+uitgedrukt.
+
 ## Ontwerpregels
 
 1. Een native objectsoort moet aantoonbaar nodig zijn voor minstens één productrenderer.

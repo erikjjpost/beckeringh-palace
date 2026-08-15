@@ -154,24 +154,18 @@ Een native BAT-concept moet nodig zijn om Beckeringh Palace-producten te specifi
 ### Normatieve bron
 
 - `architectuur/`: BAT-bronnen (`.bp`) tijdens de migratie naar het World Model.
-- `model/`: bestaande capabilities, services, assets, relaties en representaties tijdens de migratie.
-- `organisation/`: rollen, contracten en workflows.
-- `proposals/`: gecontroleerde wijzigingen.
 
 ### Compiler tooling
 
 - `compiler/`: parser, canonieke tussenrepresentatie, World Model, semantische analyse en renderers.
 - `compiler/world_model.py`: normatieve catalogus en domeingrens van objectsoorten.
-- `tools/validate.py`: controleert modelintegriteit en regels.
+- `tools/validate.py`: controleert de ontwerpbroncontracten in `project/design-inputs/`.
 - `tools/compile_bat.py`: compileert BAT naar CIR en afgeleide output.
-- `tools/generate.py`: genereert bestaande afgeleide representaties.
 - `tools/bp.py`: voert de volledige kwaliteitsketen uit.
 
 ### Afgeleide output
 
 - `output/bat/`: vanuit BAT gegenereerde CIR- en documentatie-output.
-- `output/docs/`: gegenereerde documentatie.
-- `output/diagrams/`: gegenereerde diagrambron.
 - `output/products/`: de echte productartefacten:
   - `index.html`: de Beckeringh Palace homepage;
   - `forge-dashboard.html`, `emberforge-homelab-dashboard.html`,

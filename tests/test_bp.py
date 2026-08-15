@@ -33,7 +33,7 @@ class RepositoryStatusTests(unittest.TestCase):
         self, run: mock.Mock, repository_status: mock.Mock
     ) -> None:
         self.assertEqual(bp.check(), 0)
-        self.assertEqual(run.call_count, 5)
+        self.assertEqual(run.call_count, 4)
         repository_status.assert_called_once_with()
 
     @mock.patch.object(bp, "repository_status", return_value=["?? output/new.md"])
@@ -42,7 +42,7 @@ class RepositoryStatusTests(unittest.TestCase):
         self, run: mock.Mock, repository_status: mock.Mock
     ) -> None:
         self.assertEqual(bp.check(), 1)
-        self.assertEqual(run.call_count, 5)
+        self.assertEqual(run.call_count, 4)
         repository_status.assert_called_once_with()
 
     @mock.patch.object(bp, "repository_status", return_value=["M architectuur/world.bp"])
@@ -51,7 +51,7 @@ class RepositoryStatusTests(unittest.TestCase):
         self, run: mock.Mock, repository_status: mock.Mock
     ) -> None:
         self.assertEqual(bp.check(require_clean_tree=False), 0)
-        self.assertEqual(run.call_count, 5)
+        self.assertEqual(run.call_count, 4)
         repository_status.assert_not_called()
 
     def test_main_pre_commit_flag_disables_worktree_gate(self) -> None:

@@ -1,7 +1,0 @@
-{
-  "id": "bp.asset.synchronisation_log",
-  "type": "Asset",
-  "name": "Synchronisatielog",
-  "purpose": "Audit trail van analyse, review, goedkeuring en modelwijziging.",
-  "owned_by": "bp.capability.second_brain"
-}
