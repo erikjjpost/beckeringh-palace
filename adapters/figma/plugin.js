@@ -983,18 +983,21 @@ async function verifyLiveState(figmaApi, manifest) {
     (node) => node.type === "FRAME" && surfaceNames.includes(node.name),
   ));
   assertExactNames("Surfaces", surfaceNodes.map((node) => node.name), surfaceNames);
-  const surfaceState = surfaceNodes
-    .map((node) => ({
+  const surfaceState = (await Promise.all(surfaceNodes.map(async (node) => {
+    const instanceNodes = /** @type {InstanceNode[]} */ (node.children
+      .filter((child) => child.type === "INSTANCE"));
+    const instances = await Promise.all(instanceNodes.map(async (child) => {
+      const mainComponent = await child.getMainComponentAsync();
+      return {id: child.id, name: child.name, mainComponent: mainComponent && mainComponent.id};
+    }));
+    return {
       id: node.id,
       name: node.name,
       width: node.width,
       height: node.height,
-      instances: /** @type {InstanceNode[]} */ (node.children
-        .filter((child) => child.type === "INSTANCE"))
-        .map((child) => ({id: child.id, name: child.name, mainComponent: child.mainComponent && child.mainComponent.id}))
-        .sort((left, right) => left.name.localeCompare(right.name)),
-    }))
-    .sort((left, right) => left.name.localeCompare(right.name));
+      instances: instances.sort((left, right) => left.name.localeCompare(right.name)),
+    };
+  }))).sort((left, right) => left.name.localeCompare(right.name));
 
   const documentedSections = [
     {page: "Foundations", section: "Cover"},
