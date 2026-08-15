@@ -51,7 +51,7 @@ class ProjectStatusTests(unittest.TestCase):
 
     def test_total_progress_is_deterministically_calculated(self) -> None:
         self.assertNotIn("overall_progress", self.status)
-        self.assertEqual(87, calculate_overall_progress(self.status))
+        self.assertEqual(88, calculate_overall_progress(self.status))
 
     def test_schema_version_must_be_two(self) -> None:
         invalid = copy.deepcopy(self.status)
@@ -114,7 +114,7 @@ class ProjectStatusTests(unittest.TestCase):
 
         def render(_objecten, product):
             self.assertIs(product.project_status, status)
-            self.assertEqual(87, product.project_status.overall_progress)
+            self.assertEqual(88, product.project_status.overall_progress)
             self.assertEqual(10, len(product.project_status.areas))
             self.assertEqual(
                 "M11.7c", product.project_status.current_milestone.id

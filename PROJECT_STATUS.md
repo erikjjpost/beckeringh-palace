@@ -4,7 +4,7 @@
 
 ## Totaalbeeld
 
-**Geschatte voortgang: 87%**
+**Geschatte voortgang: 88%**
 
 Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.
 
@@ -26,7 +26,7 @@ Gewogen architectuurschatting van het volledige einddoel. De expliciete productg
 | Logo's en wallpapers | 10% | 90% | Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die met verdiepte atmosferische lichtgeometrie, Palace, het gecorrigeerde beverembleem en Noorse lijnsymboliek. | Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten. |
 | HTML homepage | 10% | 95% | Zeven geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; zes unieke routekaarten ontsluiten ook de native assetcatalogus, Keycloak en terminal via relatieve artifactpaden. | De visuele motieven en bredere productinhoud van de homepage moeten nog worden verdiept. |
 | Figma masterbestand | 10% | 70% | BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API. De plugin consolideert de inhoud binnen de Starter-limiet tot drie pagina's met transparante sections, ruimt lege standaardpagina's op en brengt gecombineerde componentsets expliciet onder hun section. | Na de runtimeherstelcommits moet de plugin opnieuw in EmberForge Master worden uitgevoerd en moet het succesvolle structurele en visuele eindresultaat tegen het BAT snapshot worden vastgelegd. |
-| World Bible | 10% | 66% | Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. | De bredere wereldbeschrijving en cross product ontwerpregels moeten nog worden samengebracht. |
+| World Bible | 10% | 75% | Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt nu de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths), met per kamer expliciet of het al een BAT-product/-object is of nog puur narratief. | De meeste kamers uit de wereldkaart (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) hebben nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Cross product ontwerpregels tussen kamers moeten nog worden samengebracht. |
 
 ## Eerstvolgende stap
 

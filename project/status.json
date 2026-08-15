@@ -98,10 +98,10 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 66,
+      "progress": 75,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd.",
-      "remaining": "De bredere wereldbeschrijving en cross product ontwerpregels moeten nog worden samengebracht."
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt nu de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths), met per kamer expliciet of het al een BAT-product/-object is of nog puur narratief.",
+      "remaining": "De meeste kamers uit de wereldkaart (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) hebben nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Cross product ontwerpregels tussen kamers moeten nog worden samengebracht."
     }
   ]
 }
