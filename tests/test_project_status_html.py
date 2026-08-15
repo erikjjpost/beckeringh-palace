@@ -35,9 +35,16 @@ class ProjectStatusHtmlTests(unittest.TestCase):
         html = product.inhoud
 
         self.assertEqual("project-status", product.definitie.inhoud)
-        self.assertIn('data-status-schema="1"', html)
+        self.assertIn(f'data-status-schema="{status.schema_version}"', html)
         self.assertIn(f"<strong>{status.overall_progress}%</strong>", html)
         self.assertIn(status.current_milestone.id, html)
+        self.assertIn(
+            f'data-verification="{status.current_milestone.verification.state}"',
+            html,
+        )
+        self.assertIn(
+            f"Verificatie: {status.current_milestone.verification.state}", html
+        )
         self.assertIn(status.last_completed_milestone.id, html)
         self.assertIn(status.next_step.id, html)
         for area in status.areas:

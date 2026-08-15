@@ -53,6 +53,54 @@ class ProjectStatusTests(unittest.TestCase):
         self.assertNotIn("overall_progress", self.status)
         self.assertEqual(87, calculate_overall_progress(self.status))
 
+    def test_schema_version_must_be_two(self) -> None:
+        invalid = copy.deepcopy(self.status)
+        invalid["schema_version"] = 1
+
+        with self.assertRaisesRegex(ValueError, "schema_version moet 2 zijn"):
+            render_status.validate_status(invalid)
+
+    def test_verification_state_must_be_known(self) -> None:
+        invalid = copy.deepcopy(self.status)
+        invalid["current_milestone"]["verification"]["state"] = "onbekend"
+
+        with self.assertRaisesRegex(ValueError, "verification.state moet"):
+            render_status.validate_status(invalid)
+
+    def test_verification_geverifieerd_requires_actor_and_date(self) -> None:
+        invalid = copy.deepcopy(self.status)
+        invalid["current_milestone"]["verification"] = {
+            "state": "geverifieerd",
+            "actor": None,
+            "date": None,
+        }
+
+        with self.assertRaisesRegex(ValueError, "verification.actor is verplicht"):
+            render_status.validate_status(invalid)
+
+    def test_verification_non_geverifieerd_forbids_actor_and_date(self) -> None:
+        invalid = copy.deepcopy(self.status)
+        invalid["current_milestone"]["verification"] = {
+            "state": "wacht-op-menselijke-verificatie",
+            "actor": "Erik Post",
+            "date": "2026-08-15",
+        }
+
+        with self.assertRaisesRegex(
+            ValueError, "moeten leeg zijn zolang state niet"
+        ):
+            render_status.validate_status(invalid)
+
+    def test_verification_geverifieerd_with_actor_and_date_is_valid(self) -> None:
+        valid = copy.deepcopy(self.status)
+        valid["current_milestone"]["verification"] = {
+            "state": "geverifieerd",
+            "actor": "Erik Post",
+            "date": "2026-08-15",
+        }
+
+        render_status.validate_status(valid)
+
     def test_area_weights_must_total_one_hundred(self) -> None:
         invalid = copy.deepcopy(self.status)
         invalid["areas"][0]["weight"] = 9

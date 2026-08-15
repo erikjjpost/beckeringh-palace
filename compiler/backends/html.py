@@ -195,26 +195,33 @@ def _theme_css(product: ProductDefinition) -> str:
 def _status_html(status: ProjectStatus) -> str:
     import html
 
+    verification = status.current_milestone.verification
+    verification_detail = f"Verificatie: {verification.state}"
+    if verification.state == "geverifieerd":
+        verification_detail += f" ({verification.actor}, {verification.date})"
     milestone_cards = (
         (
             "Laatst voltooid",
             f"{status.last_completed_milestone.id} — "
             f"{status.last_completed_milestone.name}",
             f"PR #{status.last_completed_milestone.pull_request}",
+            None,
         ),
         (
             "Actueel",
             f"{status.current_milestone.id} — {status.current_milestone.name}",
             status.current_milestone.state,
+            (verification.state, verification_detail),
         ),
         (
             "Volgende stap",
             f"{status.next_step.id} — {status.next_step.name}",
             status.next_step.purpose,
+            None,
         ),
     )
     regels = [
-        '  <main class="bp-status" data-status-schema="1">',
+        f'  <main class="bp-status" data-status-schema="{status.schema_version}">',
         '    <section class="bp-status-summary">',
         '      <div class="bp-status-overall">',
         '        <span class="bp-status-label">Totale voortgang</span>',
@@ -223,12 +230,19 @@ def _status_html(status: ProjectStatus) -> str:
         "      </div>",
         '      <div class="bp-status-milestones">',
     ]
-    for label, title, detail in milestone_cards:
+    for label, title, detail, verification_info in milestone_cards:
+        attr = ""
+        extra = []
+        if verification_info is not None:
+            state, verification_text = verification_info
+            attr = f' data-verification="{html.escape(state)}"'
+            extra.append(f"          <p>{html.escape(verification_text)}</p>")
         regels.extend([
-            '        <article class="bp-status-card">',
+            f'        <article class="bp-status-card"{attr}>',
             f'          <span class="bp-status-label">{html.escape(label)}</span>',
             f"          <h2>{html.escape(title)}</h2>",
             f"          <p>{html.escape(detail)}</p>",
+            *extra,
             "        </article>",
         ])
     regels.extend([

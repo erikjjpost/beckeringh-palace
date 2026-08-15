@@ -7,12 +7,27 @@ from pathlib import Path
 from typing import Any
 
 
+VERIFICATION_STATES = frozenset({
+    "automatisch",
+    "wacht-op-menselijke-verificatie",
+    "geverifieerd",
+})
+
+
+@dataclass(frozen=True)
+class MilestoneVerification:
+    state: str
+    actor: str | None = None
+    date: str | None = None
+
+
 @dataclass(frozen=True)
 class MilestoneStatus:
     id: str
     name: str
     state: str = ""
     pull_request: int | None = None
+    verification: MilestoneVerification | None = None
 
 
 @dataclass(frozen=True)
@@ -51,10 +66,38 @@ def _required_text(mapping: dict[str, Any], key: str, context: str) -> str:
     return value
 
 
+def _validate_verification(verification: Any, context: str) -> None:
+    if not isinstance(verification, dict):
+        raise ValueError(f"{context}: verification moet een object zijn")
+    state = verification.get("state")
+    if state not in VERIFICATION_STATES:
+        raise ValueError(
+            f"{context}: verification.state moet één van "
+            f"{sorted(VERIFICATION_STATES)} zijn"
+        )
+    actor = verification.get("actor")
+    date = verification.get("date")
+    if state == "geverifieerd":
+        if not isinstance(actor, str) or not actor.strip():
+            raise ValueError(
+                f"{context}: verification.actor is verplicht bij state 'geverifieerd'"
+            )
+        if not isinstance(date, str) or not date.strip():
+            raise ValueError(
+                f"{context}: verification.date is verplicht bij state 'geverifieerd'"
+            )
+    else:
+        if actor is not None or date is not None:
+            raise ValueError(
+                f"{context}: verification.actor en verification.date moeten "
+                f"leeg zijn zolang state niet 'geverifieerd' is"
+            )
+
+
 def validate_project_status(status: dict[str, Any]) -> None:
     context = "project/status.json"
-    if status.get("schema_version") != 1:
-        raise ValueError(f"{context}: schema_version moet 1 zijn")
+    if status.get("schema_version") != 2:
+        raise ValueError(f"{context}: schema_version moet 2 zijn")
 
     for key in ("project", "overall_method"):
         _required_text(status, key, context)
@@ -75,6 +118,9 @@ def validate_project_status(status: dict[str, Any]) -> None:
         raise ValueError(f"{context}: next_step moet een object zijn")
     for key in ("id", "name", "state"):
         _required_text(current, key, f"{context}: current_milestone")
+    _validate_verification(
+        current.get("verification"), f"{context}: current_milestone"
+    )
     for key in ("id", "name"):
         _required_text(completed, key, f"{context}: last_completed_milestone")
     pull_request = completed.get("pull_request")
@@ -145,6 +191,11 @@ def project_status_from_dict(status: dict[str, Any]) -> ProjectStatus:
             id=current["id"],
             name=current["name"],
             state=current["state"],
+            verification=MilestoneVerification(
+                state=current["verification"]["state"],
+                actor=current["verification"].get("actor"),
+                date=current["verification"].get("date"),
+            ),
         ),
         last_completed_milestone=MilestoneStatus(
             id=completed["id"],
