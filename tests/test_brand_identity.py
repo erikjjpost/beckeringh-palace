@@ -32,7 +32,7 @@ class BrandIdentityTests(unittest.TestCase):
         )
         self.assertEqual(
             (
-                "Homelab Dashboard",
+                "The Observatory",
                 "Keycloak login",
                 "Terminal",
                 "SVG Asset Catalog",
@@ -71,7 +71,7 @@ class BrandIdentityTests(unittest.TestCase):
             ),
             (
                 source.replace(
-                    '    producten: ["Homelab Dashboard", "Keycloak login", '
+                    '    producten: ["The Observatory", "Keycloak login", '
                     '"Terminal", "SVG Asset Catalog", "CV Database", '
                     '"ISMS Challenger", "Roadmap", '
                     '"Marketing en merkoppervlakken"]',

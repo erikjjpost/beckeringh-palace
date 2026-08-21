@@ -35,16 +35,18 @@ identiteitsoverzicht, ontwerpsysteem, productfamilie.
 De toren met het observatorium, uitkijkend over de bergen. Waar de Great Hall
 overzicht en besturing biedt (wat is de toestand nu, en wat kun je erop
 doen), kijkt de Observatory continu en meldt wanneer iets afwijkt: meten,
-signaleren, waarschuwen, zonder zelf te besturen. Correspondeert met het
-bestaande **Grafana-dashboard** (`emberforge-homelab-dashboard`): vier
-statistiekkaarten, vier statussen, twee app-tegels, exact hetzelfde
-correspondentieniveau als de Great Hall met Forge Dashboard. Net als de Great
-Hall is dit geen nieuwe native objectsoort — beide bestaan al volledig via
-het generieke `compositie`/`component`/`layout`/`product`-pad, zonder eigen
-Python-objectsoort. Een nieuwe objectsoort is hier niet aantoonbaar nodig
-(ontwerpregel 1): er is geen berekening die het generieke model niet al
-uitdrukt. Het waarschuwingsdeel (alerting, escalatie) blijft wel volledig
-narratief; daar bestaat nog geen enkele representatie.
+signaleren, waarschuwen, zonder zelf te besturen. Dit is nu een expliciet
+benoemd product: `compositie emberforge-observatory` (voorheen
+`emberforge-homelab-dashboard`), gerenderd naar `emberforge-observatory-html`
+en `emberforge-observatory-grafana` — vier statistiekkaarten, vier statussen,
+twee app-tegels. Zelfde correspondentieniveau als de Great Hall met Forge
+Dashboard: geen nieuwe native objectsoort, want er is geen berekening die het
+generieke `compositie`/`component`/`layout`/`product`-pad niet al uitdrukt
+(ontwerpregel 1 vraagt daar niet om). Kleuren en typografie komen automatisch
+mee via dezelfde generieke component→appearance→thema-keten die ook Great
+Hall en de rest van het designsysteem draagt — geen aparte styling nodig.
+Het waarschuwingsdeel (alerting, escalatie) blijft wel volledig narratief;
+daar bestaat nog geen enkele representatie.
 
 ### The Harbor — External Connections & Integrations
 
@@ -160,7 +162,7 @@ volledig als reproduceerbaar BAT-product bestaat.
 | Kamer | BAT-status |
 |---|---|
 | Great Hall | bestaand product (Forge Dashboard) |
-| Observatory | bestaand product (`emberforge-homelab-dashboard`), zelfde correspondentieniveau als Great Hall |
+| Observatory | bestaand, expliciet benoemd product (`emberforge-observatory`), zelfde correspondentieniveau als Great Hall |
 | Circle of Fifths | bestaand native object (`muziekcirkel`) |
 | Entrance to EmberForge / EmberForge zelf | bestaand native merk (`emberforge`) |
 | Archive | narratief (Second Brain-tekst in `world-model.md`), geen eigen product |

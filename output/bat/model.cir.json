@@ -503,7 +503,7 @@
         "Own your forge."
       ],
       "producten": [
-        "Homelab Dashboard",
+        "The Observatory",
         "Keycloak login",
         "Terminal",
         "SVG Asset Catalog",
@@ -3438,7 +3438,7 @@
       ],
       "composities": [
         "forge-dashboard",
-        "emberforge-homelab-dashboard",
+        "emberforge-observatory",
         "emberforge-keycloak-login",
         "emberforge-terminal",
         "forge-design-system-reference-composition",
@@ -3448,7 +3448,7 @@
       "doel": "Selecteert expliciet dezelfde opgeloste ontwerpsemantiek voor een reproduceerbare Figma masterbeschrijving zonder live Figma synchronisatie.",
       "layouts": [
         "forge-dashboard-ultrawide",
-        "emberforge-homelab-dashboard-responsive",
+        "emberforge-observatory-responsive",
         "emberforge-keycloak-login-responsive",
         "emberforge-terminal-stack",
         "forge-design-system-reference-stack",
@@ -3579,14 +3579,14 @@
       "inhoud": [
         "forge-dashboard",
         "forge-dashboard-ultrawide",
-        "emberforge-homelab-dashboard",
-        "emberforge-homelab-dashboard-responsive",
+        "emberforge-observatory",
+        "emberforge-observatory-responsive",
         "emberforge-wallpapers",
         "emberforge-ultrawide-wallpaper",
         "emberforge-desktop-wallpaper",
         "emberforge-figma-master",
-        "emberforge-homelab-dashboard-html",
-        "emberforge-homelab-dashboard-grafana",
+        "emberforge-observatory-html",
+        "emberforge-observatory-grafana",
         "emberforge-ultrawide-wallpaper-png",
         "emberforge-desktop-wallpaper-png",
         "project-status-html",
@@ -3597,8 +3597,8 @@
       "leesvolgorde": "3",
       "naam": "Productfamilie",
       "navigatie": [
-        "emberforge-homelab-dashboard-html",
-        "emberforge-homelab-dashboard-grafana",
+        "emberforge-observatory-html",
+        "emberforge-observatory-grafana",
         "emberforge-ultrawide-wallpaper-png",
         "emberforge-ultrawide-wallpaper-manifest",
         "emberforge-desktop-wallpaper-png",
@@ -3761,7 +3761,7 @@
   },
   {
     "eigenschappen": {
-      "doel": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
+      "doel": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.",
       "instanties": [
         "homelab-stat-nodes",
         "homelab-stat-health",
@@ -3774,14 +3774,14 @@
         "homelab-app-isms",
         "homelab-app-cv"
       ],
-      "naam": "EmberForge Homelab"
+      "naam": "The Observatory"
     },
-    "id": "emberforge-homelab-dashboard",
+    "id": "emberforge-observatory",
     "soort": "compositie"
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Aantal actieve clusternodes.",
       "naam": "Nodes",
       "voorbeeld": "forge-stat-card-nodes-example"
@@ -3791,7 +3791,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Actuele gezondheid van het cluster.",
       "naam": "Cluster Health",
       "voorbeeld": "forge-stat-card-health-example"
@@ -3801,7 +3801,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Actueel CPU gebruik.",
       "naam": "CPU Usage",
       "voorbeeld": "forge-stat-card-cpu-example"
@@ -3811,7 +3811,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Actueel geheugengebruik.",
       "naam": "Memory",
       "voorbeeld": "forge-stat-card-memory-example"
@@ -3821,7 +3821,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Aantal actieve workloads.",
       "naam": "Running",
       "voorbeeld": "forge-status-running-example"
@@ -3831,7 +3831,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Aantal wachtende workloads.",
       "naam": "Pending",
       "voorbeeld": "forge-status-pending-example"
@@ -3841,7 +3841,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Aantal gefaalde workloads.",
       "naam": "Failed",
       "voorbeeld": "forge-status-failed-example"
@@ -3851,7 +3851,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Samengevatte clustergezondheid.",
       "naam": "Healthy",
       "voorbeeld": "forge-status-info-example"
@@ -3861,7 +3861,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Homelab applicatie voor Information Security Management.",
       "naam": "ISMS Challenger",
       "voorbeeld": "forge-app-tile-isms-example"
@@ -3871,7 +3871,7 @@
   },
   {
     "eigenschappen": {
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Homelab applicatie voor consultant CV beheer.",
       "naam": "CV Tool",
       "voorbeeld": "forge-app-tile-cv-example"
@@ -3884,7 +3884,7 @@
       "columns": "4",
       "compact-columns": "2",
       "doel": "Ordent statistieken, statussen en applicaties op desktop en compact scherm.",
-      "naam": "EmberForge Homelab Responsive",
+      "naam": "The Observatory Responsive",
       "regions": [
         "homelab-stat-nodes-region",
         "homelab-stat-health-region",
@@ -3901,7 +3901,7 @@
       "rows": "3",
       "type": "grid"
     },
-    "id": "emberforge-homelab-dashboard-responsive",
+    "id": "emberforge-observatory-responsive",
     "soort": "layout"
   },
   {
@@ -3911,7 +3911,7 @@
       "compact-order": "1",
       "doel": "Eerste statistiekpositie.",
       "instantie": "homelab-stat-nodes",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "Nodes statistiek",
       "row": "1",
       "row-span": "1"
@@ -3926,7 +3926,7 @@
       "compact-order": "2",
       "doel": "Tweede statistiekpositie.",
       "instantie": "homelab-stat-health",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "Gezondheid statistiek",
       "row": "1",
       "row-span": "1"
@@ -3941,7 +3941,7 @@
       "compact-order": "3",
       "doel": "Derde statistiekpositie.",
       "instantie": "homelab-stat-cpu",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "CPU statistiek",
       "row": "1",
       "row-span": "1"
@@ -3956,7 +3956,7 @@
       "compact-order": "4",
       "doel": "Vierde statistiekpositie.",
       "instantie": "homelab-stat-memory",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "Geheugen statistiek",
       "row": "1",
       "row-span": "1"
@@ -3971,7 +3971,7 @@
       "compact-order": "5",
       "doel": "Eerste statuspositie.",
       "instantie": "homelab-status-running",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "Running status",
       "row": "2",
       "row-span": "1"
@@ -3986,7 +3986,7 @@
       "compact-order": "6",
       "doel": "Tweede statuspositie.",
       "instantie": "homelab-status-pending",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "Pending status",
       "row": "2",
       "row-span": "1"
@@ -4001,7 +4001,7 @@
       "compact-order": "7",
       "doel": "Derde statuspositie.",
       "instantie": "homelab-status-failed",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "Failed status",
       "row": "2",
       "row-span": "1"
@@ -4016,7 +4016,7 @@
       "compact-order": "8",
       "doel": "Vierde statuspositie.",
       "instantie": "homelab-status-healthy",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "Healthy status",
       "row": "2",
       "row-span": "1"
@@ -4031,7 +4031,7 @@
       "compact-order": "9",
       "doel": "Eerste applicatiepositie.",
       "instantie": "homelab-app-isms",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "ISMS applicatie",
       "row": "3",
       "row-span": "1"
@@ -4046,7 +4046,7 @@
       "compact-order": "10",
       "doel": "Tweede applicatiepositie.",
       "instantie": "homelab-app-cv",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "naam": "CV applicatie",
       "row": "3",
       "row-span": "1"
@@ -4057,29 +4057,29 @@
   {
     "eigenschappen": {
       "backend": "html",
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Responsief homelab overzicht van statistieken, statussen en applicaties.",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "mode": "interactive",
-      "naam": "EmberForge Homelab Dashboard",
-      "pad": "output/products/emberforge-homelab-dashboard.html",
+      "naam": "The Observatory",
+      "pad": "output/products/emberforge-observatory.html",
       "wereld": "beckeringh-palace"
     },
-    "id": "emberforge-homelab-dashboard-html",
+    "id": "emberforge-observatory-html",
     "soort": "product"
   },
   {
     "eigenschappen": {
       "backend": "grafana",
-      "compositie": "emberforge-homelab-dashboard",
+      "compositie": "emberforge-observatory",
       "doel": "Het native homelab overzicht als importeerbaar Grafana dashboard genereren.",
-      "layout": "emberforge-homelab-dashboard-responsive",
+      "layout": "emberforge-observatory-responsive",
       "mode": "interactive",
-      "naam": "EmberForge Homelab Dashboard Grafana",
-      "pad": "output/products/emberforge-homelab-dashboard.grafana.json",
+      "naam": "The Observatory Grafana",
+      "pad": "output/products/emberforge-observatory.grafana.json",
       "wereld": "beckeringh-palace"
     },
-    "id": "emberforge-homelab-dashboard-grafana",
+    "id": "emberforge-observatory-grafana",
     "soort": "product"
   },
   {

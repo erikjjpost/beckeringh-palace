@@ -330,7 +330,7 @@ merk emberforge {
     tagline: "Sovereign Infrastructure."
     belofte: "Sovereignty over your own stack."
     principes: ["Own your data.", "Own your nodes.", "Own your forge."]
-    producten: ["Homelab Dashboard", "Keycloak login", "Terminal", "SVG Asset Catalog", "CV Database", "ISMS Challenger", "Roadmap", "Marketing en merkoppervlakken"]
+    producten: ["The Observatory", "Keycloak login", "Terminal", "SVG Asset Catalog", "CV Database", "ISMS Challenger", "Roadmap", "Marketing en merkoppervlakken"]
     taal: "Nederlands met technische termen in het Engels"
     stem: "Zelfverzekerd, technisch en rustig"
 }
@@ -2501,8 +2501,8 @@ figmamaster emberforge-figma-master {
     assets: ["emberforge-vector-node", "emberforge-light-disc", "emberforge-palace", "emberforge-beaver", "emberforge-nordic-weave", "emberforge-icon-dashboard", "emberforge-icon-identity", "emberforge-icon-terminal", "emberforge-icon-assets", "emberforge-merkteken", "emberforge-woordmerk"]
     componenten: ["forge-panel", "forge-button", "forge-input", "forge-status", "forge-app-tile", "forge-stat-card", "forge-terminal"]
     varianten: ["forge-panel-compact", "forge-panel-hero", "forge-panel-route", "forge-button-primary", "forge-button-secondary", "forge-button-ghost", "forge-button-ember", "forge-input-default", "forge-input-error", "forge-status-running", "forge-status-pending", "forge-status-failed", "forge-status-info", "forge-app-tile-default", "forge-app-tile-ember", "forge-stat-card-value", "forge-stat-card-health", "forge-stat-card-progress", "forge-stat-card-progress-ember", "forge-terminal-neofetch"]
-    composities: ["forge-dashboard", "emberforge-homelab-dashboard", "emberforge-keycloak-login", "emberforge-terminal", "forge-design-system-reference-composition", "emberforge-svg-asset-catalog-composition", "beckeringh-palace-homepage-composition"]
-    layouts: ["forge-dashboard-ultrawide", "emberforge-homelab-dashboard-responsive", "emberforge-keycloak-login-responsive", "emberforge-terminal-stack", "forge-design-system-reference-stack", "emberforge-svg-asset-catalog-stack", "beckeringh-palace-homepage-grid"]
+    composities: ["forge-dashboard", "emberforge-observatory", "emberforge-keycloak-login", "emberforge-terminal", "forge-design-system-reference-composition", "emberforge-svg-asset-catalog-composition", "beckeringh-palace-homepage-composition"]
+    layouts: ["forge-dashboard-ultrawide", "emberforge-observatory-responsive", "emberforge-keycloak-login-responsive", "emberforge-terminal-stack", "forge-design-system-reference-stack", "emberforge-svg-asset-catalog-stack", "beckeringh-palace-homepage-grid"]
 }
 
 informatiegebied palace-world {
@@ -2531,8 +2531,8 @@ informatiegebied palace-product-family {
     toegankelijkheidslabel: "Productfamilie, overzicht van composities, layouts en uitvoerproducten"
     leesvolgorde: "3"
     soorten: ["homepagegebied", "compositie", "componentinstantie", "layout", "region", "wallpaperfamilie", "wallpaper", "wallpaperlaag", "assetplaatsing", "figmamaster", "product", "renderdoel"]
-    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-homelab-dashboard", "emberforge-homelab-dashboard-responsive", "emberforge-wallpapers", "emberforge-ultrawide-wallpaper", "emberforge-desktop-wallpaper", "emberforge-figma-master", "emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "emberforge-ultrawide-wallpaper-png", "emberforge-desktop-wallpaper-png", "project-status-html", "forge-design-system-reference-html", "emberforge-svg-asset-catalog-html", "emberforge-figma-master-manifest"]
-    navigatie: ["emberforge-homelab-dashboard-html", "emberforge-homelab-dashboard-grafana", "emberforge-ultrawide-wallpaper-png", "emberforge-ultrawide-wallpaper-manifest", "emberforge-desktop-wallpaper-png", "emberforge-desktop-wallpaper-manifest", "emberforge-figma-master-manifest", "project-status-html", "project-status-grafana"]
+    inhoud: ["forge-dashboard", "forge-dashboard-ultrawide", "emberforge-observatory", "emberforge-observatory-responsive", "emberforge-wallpapers", "emberforge-ultrawide-wallpaper", "emberforge-desktop-wallpaper", "emberforge-figma-master", "emberforge-observatory-html", "emberforge-observatory-grafana", "emberforge-ultrawide-wallpaper-png", "emberforge-desktop-wallpaper-png", "project-status-html", "forge-design-system-reference-html", "emberforge-svg-asset-catalog-html", "emberforge-figma-master-manifest"]
+    navigatie: ["emberforge-observatory-html", "emberforge-observatory-grafana", "emberforge-ultrawide-wallpaper-png", "emberforge-ultrawide-wallpaper-manifest", "emberforge-desktop-wallpaper-png", "emberforge-desktop-wallpaper-manifest", "emberforge-figma-master-manifest", "project-status-html", "project-status-grafana"]
 }
 
 compositie forge-dashboard {
@@ -2630,84 +2630,84 @@ product forge-dashboard-grafana {
     pad: "output/products/forge-dashboard.grafana.json"
 }
 
-compositie emberforge-homelab-dashboard {
-    naam: "EmberForge Homelab"
-    doel: "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties."
+compositie emberforge-observatory {
+    naam: "The Observatory"
+    doel: "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert."
     instanties: ["homelab-stat-nodes", "homelab-stat-health", "homelab-stat-cpu", "homelab-stat-memory", "homelab-status-running", "homelab-status-pending", "homelab-status-failed", "homelab-status-healthy", "homelab-app-isms", "homelab-app-cv"]
 }
 
 componentinstantie homelab-stat-nodes {
     naam: "Nodes"
     doel: "Aantal actieve clusternodes."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-nodes-example"
 }
 
 componentinstantie homelab-stat-health {
     naam: "Cluster Health"
     doel: "Actuele gezondheid van het cluster."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-health-example"
 }
 
 componentinstantie homelab-stat-cpu {
     naam: "CPU Usage"
     doel: "Actueel CPU gebruik."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-cpu-example"
 }
 
 componentinstantie homelab-stat-memory {
     naam: "Memory"
     doel: "Actueel geheugengebruik."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-memory-example"
 }
 
 componentinstantie homelab-status-running {
     naam: "Running"
     doel: "Aantal actieve workloads."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-status-running-example"
 }
 
 componentinstantie homelab-status-pending {
     naam: "Pending"
     doel: "Aantal wachtende workloads."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-status-pending-example"
 }
 
 componentinstantie homelab-status-failed {
     naam: "Failed"
     doel: "Aantal gefaalde workloads."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-status-failed-example"
 }
 
 componentinstantie homelab-status-healthy {
     naam: "Healthy"
     doel: "Samengevatte clustergezondheid."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-status-info-example"
 }
 
 componentinstantie homelab-app-isms {
     naam: "ISMS Challenger"
     doel: "Homelab applicatie voor Information Security Management."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-app-tile-isms-example"
 }
 
 componentinstantie homelab-app-cv {
     naam: "CV Tool"
     doel: "Homelab applicatie voor consultant CV beheer."
-    compositie: "emberforge-homelab-dashboard"
+    compositie: "emberforge-observatory"
     voorbeeld: "forge-app-tile-cv-example"
 }
 
-layout emberforge-homelab-dashboard-responsive {
-    naam: "EmberForge Homelab Responsive"
+layout emberforge-observatory-responsive {
+    naam: "The Observatory Responsive"
     doel: "Ordent statistieken, statussen en applicaties op desktop en compact scherm."
     type: "grid"
     regions: ["homelab-stat-nodes-region", "homelab-stat-health-region", "homelab-stat-cpu-region", "homelab-stat-memory-region", "homelab-status-running-region", "homelab-status-pending-region", "homelab-status-failed-region", "homelab-status-healthy-region", "homelab-app-isms-region", "homelab-app-cv-region"]
@@ -2720,7 +2720,7 @@ layout emberforge-homelab-dashboard-responsive {
 region homelab-stat-nodes-region {
     naam: "Nodes statistiek"
     doel: "Eerste statistiekpositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-stat-nodes"
     column: "1"
     row: "1"
@@ -2732,7 +2732,7 @@ region homelab-stat-nodes-region {
 region homelab-stat-health-region {
     naam: "Gezondheid statistiek"
     doel: "Tweede statistiekpositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-stat-health"
     column: "2"
     row: "1"
@@ -2744,7 +2744,7 @@ region homelab-stat-health-region {
 region homelab-stat-cpu-region {
     naam: "CPU statistiek"
     doel: "Derde statistiekpositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-stat-cpu"
     column: "3"
     row: "1"
@@ -2756,7 +2756,7 @@ region homelab-stat-cpu-region {
 region homelab-stat-memory-region {
     naam: "Geheugen statistiek"
     doel: "Vierde statistiekpositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-stat-memory"
     column: "4"
     row: "1"
@@ -2768,7 +2768,7 @@ region homelab-stat-memory-region {
 region homelab-status-running-region {
     naam: "Running status"
     doel: "Eerste statuspositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-status-running"
     column: "1"
     row: "2"
@@ -2780,7 +2780,7 @@ region homelab-status-running-region {
 region homelab-status-pending-region {
     naam: "Pending status"
     doel: "Tweede statuspositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-status-pending"
     column: "2"
     row: "2"
@@ -2792,7 +2792,7 @@ region homelab-status-pending-region {
 region homelab-status-failed-region {
     naam: "Failed status"
     doel: "Derde statuspositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-status-failed"
     column: "3"
     row: "2"
@@ -2804,7 +2804,7 @@ region homelab-status-failed-region {
 region homelab-status-healthy-region {
     naam: "Healthy status"
     doel: "Vierde statuspositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-status-healthy"
     column: "4"
     row: "2"
@@ -2816,7 +2816,7 @@ region homelab-status-healthy-region {
 region homelab-app-isms-region {
     naam: "ISMS applicatie"
     doel: "Eerste applicatiepositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-app-isms"
     column: "1"
     row: "3"
@@ -2828,7 +2828,7 @@ region homelab-app-isms-region {
 region homelab-app-cv-region {
     naam: "CV applicatie"
     doel: "Tweede applicatiepositie."
-    layout: "emberforge-homelab-dashboard-responsive"
+    layout: "emberforge-observatory-responsive"
     instantie: "homelab-app-cv"
     column: "3"
     row: "3"
@@ -2837,26 +2837,26 @@ region homelab-app-cv-region {
     compact-order: "10"
 }
 
-product emberforge-homelab-dashboard-html {
-    naam: "EmberForge Homelab Dashboard"
+product emberforge-observatory-html {
+    naam: "The Observatory"
     doel: "Responsief homelab overzicht van statistieken, statussen en applicaties."
     backend: "html"
     mode: "interactive"
     wereld: "beckeringh-palace"
-    compositie: "emberforge-homelab-dashboard"
-    layout: "emberforge-homelab-dashboard-responsive"
-    pad: "output/products/emberforge-homelab-dashboard.html"
+    compositie: "emberforge-observatory"
+    layout: "emberforge-observatory-responsive"
+    pad: "output/products/emberforge-observatory.html"
 }
 
-product emberforge-homelab-dashboard-grafana {
-    naam: "EmberForge Homelab Dashboard Grafana"
+product emberforge-observatory-grafana {
+    naam: "The Observatory Grafana"
     doel: "Het native homelab overzicht als importeerbaar Grafana dashboard genereren."
     backend: "grafana"
     mode: "interactive"
     wereld: "beckeringh-palace"
-    compositie: "emberforge-homelab-dashboard"
-    layout: "emberforge-homelab-dashboard-responsive"
-    pad: "output/products/emberforge-homelab-dashboard.grafana.json"
+    compositie: "emberforge-observatory"
+    layout: "emberforge-observatory-responsive"
+    pad: "output/products/emberforge-observatory.grafana.json"
 }
 
 compositie emberforge-keycloak-login {
