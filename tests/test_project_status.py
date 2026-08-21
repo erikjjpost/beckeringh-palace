@@ -119,12 +119,12 @@ class ProjectStatusTests(unittest.TestCase):
             self.assertEqual(
                 "M11.9a", product.project_status.current_milestone.id
             )
-            self.assertEqual("M11.9a", product.project_status.next_step.id)
+            self.assertEqual("TBD", product.project_status.next_step.id)
             self.assertEqual(
-                "M11.7c", product.project_status.last_completed_milestone.id
+                "M11.9a", product.project_status.last_completed_milestone.id
             )
             self.assertEqual(
-                113, product.project_status.last_completed_milestone.pull_request
+                116, product.project_status.last_completed_milestone.pull_request
             )
             return product.project_status.project
 
