@@ -3,13 +3,13 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.7c",
-    "name": "Native Figma masterverificatie",
-    "state": "voltooid",
+    "id": "M11.9a",
+    "name": "World Bible: kamers narratief verdiept",
+    "state": "in uitvoering",
     "verification": {
-      "state": "geverifieerd",
-      "actor": "Erik Post",
-      "date": "2026-08-16"
+      "state": "wacht-op-menselijke-verificatie",
+      "actor": null,
+      "date": null
     }
   },
   "last_completed_milestone": {
@@ -18,9 +18,9 @@
     "pull_request": 113
   },
   "next_step": {
-    "id": "TBD",
-    "name": "Volgende milestone nog te kiezen",
-    "purpose": "M11.7c is volledig afgerond: de plugin doorloopt een idempotente sync (`second sync is idempotent`) en Erik Post heeft dit live in EmberForge Master geverifieerd op 2026-08-16. De volgende milestone is nog niet gekozen door de Chief Architect."
+    "id": "M11.9a",
+    "name": "World Bible: kamers narratief verdiept",
+    "purpose": "De acht uitsluitend-narratieve kamers uit `docs/world-bible.md` (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) narratief verdiepen: functie, onderlinge afbakening en koppeling aan wat al echt bestaat (K3s, Proxmox, Keycloak, `AGENTS.md`-werkwijze, de credentials-regel, de output/-reproduceerbaarheidsregel). Expliciet geen nieuwe native BAT-objectsoorten of -producten in deze stap; dat blijft een aparte beslissing per kamer (ontwerpregel 1)."
   },
   "areas": [
     {
@@ -98,10 +98,10 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 75,
+      "progress": 88,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt nu de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths), met per kamer expliciet of het al een BAT-product/-object is of nog puur narratief.",
-      "remaining": "De meeste kamers uit de wereldkaart (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) hebben nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Cross product ontwerpregels tussen kamers moeten nog worden samengebracht."
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths). De acht uitsluitend-narratieve kamers zijn nu inhoudelijk verdiept: elk heeft een expliciete functionele afbakening ten opzichte van zijn buren (Observatory versus Great Hall, Vault versus Gatehouse, Forge Hall versus Machine Hall) en, waar het klopt, een koppeling aan wat al echt bestaat (Workshop aan de agentwerkwijze en `bp.py check`, Waterworks aan de output/-reproduceerbaarheidsregel, Library aan de bestaande Second Brain-representatie met een expliciet benoemde naamscollisie).",
+      "remaining": "De acht verdiepte kamers hebben bewust nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Openstaand: de Library-naamscollisie tussen `docs/world-model.md` (Second Brain) en `docs/world-bible.md` (AI-diensten) ontdubbelen, en cross-kamer ontwerpregels samenbrengen voordat een kamer ooit native wordt (ontwerpregel 1)."
     }
   ]
 }

@@ -288,7 +288,7 @@
     <section class="bp-status-summary">
       <div class="bp-status-overall">
         <span class="bp-status-label">Totale voortgang</span>
-        <strong>91%</strong>
+        <strong>92%</strong>
         <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
       </div>
       <div class="bp-status-milestones">
@@ -297,16 +297,16 @@
           <h2>M11.7c — Native Figma masterverificatie</h2>
           <p>PR #113</p>
         </article>
-        <article class="bp-status-card" data-verification="geverifieerd">
+        <article class="bp-status-card" data-verification="wacht-op-menselijke-verificatie">
           <span class="bp-status-label">Actueel</span>
-          <h2>M11.7c — Native Figma masterverificatie</h2>
-          <p>voltooid</p>
-          <p>Verificatie: geverifieerd (Erik Post, 2026-08-16)</p>
+          <h2>M11.9a — World Bible: kamers narratief verdiept</h2>
+          <p>in uitvoering</p>
+          <p>Verificatie: wacht-op-menselijke-verificatie</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Volgende stap</span>
-          <h2>TBD — Volgende milestone nog te kiezen</h2>
-          <p>M11.7c is volledig afgerond: de plugin doorloopt een idempotente sync (`second sync is idempotent`) en Erik Post heeft dit live in EmberForge Master geverifieerd op 2026-08-16. De volgende milestone is nog niet gekozen door de Chief Architect.</p>
+          <h2>M11.9a — World Bible: kamers narratief verdiept</h2>
+          <p>De acht uitsluitend-narratieve kamers uit `docs/world-bible.md` (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) narratief verdiepen: functie, onderlinge afbakening en koppeling aan wat al echt bestaat (K3s, Proxmox, Keycloak, `AGENTS.md`-werkwijze, de credentials-regel, de output/-reproduceerbaarheidsregel). Expliciet geen nieuwe native BAT-objectsoorten of -producten in deze stap; dat blijft een aparte beslissing per kamer (ontwerpregel 1).</p>
         </article>
       </div>
     </section>
@@ -376,10 +376,10 @@
       </article>
       <article class="bp-status-card" data-status-area="world-bible">
         <h3>World Bible</h3>
-        <progress class="bp-status-progress" max="100" value="75">75%</progress>
-        <p><strong>75%</strong></p>
-        <p>Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt nu de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths), met per kamer expliciet of het al een BAT-product/-object is of nog puur narratief.</p>
-        <p class="bp-status-label">De meeste kamers uit de wereldkaart (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) hebben nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Cross product ontwerpregels tussen kamers moeten nog worden samengebracht.</p>
+        <progress class="bp-status-progress" max="100" value="88">88%</progress>
+        <p><strong>88%</strong></p>
+        <p>Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths). De acht uitsluitend-narratieve kamers zijn nu inhoudelijk verdiept: elk heeft een expliciete functionele afbakening ten opzichte van zijn buren (Observatory versus Great Hall, Vault versus Gatehouse, Forge Hall versus Machine Hall) en, waar het klopt, een koppeling aan wat al echt bestaat (Workshop aan de agentwerkwijze en `bp.py check`, Waterworks aan de output/-reproduceerbaarheidsregel, Library aan de bestaande Second Brain-representatie met een expliciet benoemde naamscollisie).</p>
+        <p class="bp-status-label">De acht verdiepte kamers hebben bewust nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Openstaand: de Library-naamscollisie tussen `docs/world-model.md` (Second Brain) en `docs/world-bible.md` (AI-diensten) ontdubbelen, en cross-kamer ontwerpregels samenbrengen voordat een kamer ooit native wordt (ontwerpregel 1).</p>
       </article>
     </section>
   </main>
