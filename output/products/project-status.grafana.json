@@ -123,7 +123,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:2;overall-progress:89",
+      "description": "project-status-schema:2;overall-progress:91",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -156,7 +156,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 89%",
+                  "fixed": "Totale voortgang · 91%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -220,7 +220,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 534
+                "width": 546
               },
               "type": "rectangle"
             },
@@ -232,7 +232,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.7c · Native Figma masterverificatie (in uitvoering) · Verificatie: wacht-op-menselijke-verificatie\nVoltooid: M11.8a · EmberForge beverembleem (PR #100)\nVolgende stap: M11.7c · Native Figma verificatie afronden\nDe herstelde netwerkloze development plugin opnieuw in EmberForge Master uitvoeren en het succesvolle eindresultaat van de drie pagina's, sections, variables, styles, assets, componentvarianten en surfaces structureel en visueel tegen hetzelfde BAT snapshot vastleggen.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.7c · Native Figma masterverificatie (voltooid) · Verificatie: geverifieerd\nVoltooid: M11.7c · Native Figma masterverificatie (PR #113)\nVolgende stap: TBD · Volgende milestone nog te kiezen\nM11.7c is volledig afgerond: de plugin doorloopt een idempotente sync (`second sync is idempotent`) en Erik Post heeft dit live in EmberForge Master geverifieerd op 2026-08-16. De volgende milestone is nog niet gekozen door de Chief Architect.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -256,7 +256,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 89%",
+      "title": "Totale voortgang · 91%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1365,7 +1365,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:figma;progress:85",
+      "description": "project-status-area:figma;progress:100",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -1398,7 +1398,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Figma masterbestand · 85%",
+                  "fixed": "Figma masterbestand · 100%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1462,7 +1462,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 510
+                "width": 600
               },
               "type": "rectangle"
             },
@@ -1474,7 +1474,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API. De plugin consolideert de inhoud binnen de Starter-limiet tot drie pagina's met transparante sections, ruimt lege standaardpagina's op en brengt gecombineerde componentsets expliciet onder hun section. Live in EmberForge Master uitgevoerd: eerste sync slaagt, idempotentiecheck vond en fixte een echte cellWidth-drift (instanties behielden na `swapComponent` hun vorige grid-stretch). Variabelewaarden zijn direct in het Figma Variables-paneel geverifieerd correct (`surface` → `ink-800` → `#1F2937`). Een resterende visuele afwijking (zwart ogende, net gebonden fills) is bevestigd een Figma Desktop-renderquirk bij vers gebonden variables, geen plugin- of datafout; workaround gedocumenteerd in `docs/product-runbook.md`.\nResterend: Een volledige, schone `second sync is idempotent`-run zonder handmatige workaround moet nog bevestigd worden. Daarna pas structurele en visuele eindverificatie tegen het BAT snapshot vastleggen (`current_milestone.verification.state` naar `geverifieerd` met actor en datum).",
+                  "fixed": "Onderbouwing: BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API. De plugin consolideert de inhoud binnen de Starter-limiet tot drie pagina's met transparante sections, ruimt lege standaardpagina's op en brengt gecombineerde componentsets expliciet onder hun section. Live in EmberForge Master uitgevoerd: eerste sync slaagt, idempotentiecheck vond en fixte een echte cellWidth-drift (instanties behielden na `swapComponent` hun vorige grid-stretch). Variabelewaarden zijn direct in het Figma Variables-paneel geverifieerd correct (`surface` → `ink-800` → `#1F2937`). Een resterende visuele afwijking (zwart ogende, net gebonden fills) is bevestigd een Figma Desktop-renderquirk bij vers gebonden variables, geen plugin- of datafout; workaround gedocumenteerd in `docs/product-runbook.md`. Erik Post heeft op 2026-08-16 een volledige, schone sync in EmberForge Master bevestigd: de afsluitende melding meldde `second sync is idempotent`, zonder handmatige workaround nodig voor de structurele/idempotentiecontrole zelf. M11.7c staat daarmee op `current_milestone.verification.state: geverifieerd` met actor en datum.\nResterend: Geen resterend werk voor M11.7c. Een volgende Figma-gerelateerde milestone (bijv. live REST/MCP-synchronisatie, of aanvullende productsurfaces in de masterselectie) is nog niet gekozen.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1498,7 +1498,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Figma masterbestand · 85%",
+      "title": "Figma masterbestand · 100%",
       "transparent": true,
       "type": "canvas"
     },
@@ -1647,8 +1647,8 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:2",
-    "overall-progress:89",
-    "milestone-verification:wacht-op-menselijke-verificatie",
+    "overall-progress:91",
+    "milestone-verification:geverifieerd",
     "sha256:40aed99a123f1c8249b67a787c3b6fe4c5547d43537497881b68b73968235598"
   ],
   "templating": {

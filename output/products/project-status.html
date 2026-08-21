@@ -288,25 +288,25 @@
     <section class="bp-status-summary">
       <div class="bp-status-overall">
         <span class="bp-status-label">Totale voortgang</span>
-        <strong>89%</strong>
+        <strong>91%</strong>
         <p>Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.</p>
       </div>
       <div class="bp-status-milestones">
         <article class="bp-status-card">
           <span class="bp-status-label">Laatst voltooid</span>
-          <h2>M11.8a — EmberForge beverembleem</h2>
-          <p>PR #100</p>
+          <h2>M11.7c — Native Figma masterverificatie</h2>
+          <p>PR #113</p>
         </article>
-        <article class="bp-status-card" data-verification="wacht-op-menselijke-verificatie">
+        <article class="bp-status-card" data-verification="geverifieerd">
           <span class="bp-status-label">Actueel</span>
           <h2>M11.7c — Native Figma masterverificatie</h2>
-          <p>in uitvoering</p>
-          <p>Verificatie: wacht-op-menselijke-verificatie</p>
+          <p>voltooid</p>
+          <p>Verificatie: geverifieerd (Erik Post, 2026-08-16)</p>
         </article>
         <article class="bp-status-card">
           <span class="bp-status-label">Volgende stap</span>
-          <h2>M11.7c — Native Figma verificatie afronden</h2>
-          <p>De herstelde netwerkloze development plugin opnieuw in EmberForge Master uitvoeren en het succesvolle eindresultaat van de drie pagina&#x27;s, sections, variables, styles, assets, componentvarianten en surfaces structureel en visueel tegen hetzelfde BAT snapshot vastleggen.</p>
+          <h2>TBD — Volgende milestone nog te kiezen</h2>
+          <p>M11.7c is volledig afgerond: de plugin doorloopt een idempotente sync (`second sync is idempotent`) en Erik Post heeft dit live in EmberForge Master geverifieerd op 2026-08-16. De volgende milestone is nog niet gekozen door de Chief Architect.</p>
         </article>
       </div>
     </section>
@@ -369,10 +369,10 @@
       </article>
       <article class="bp-status-card" data-status-area="figma">
         <h3>Figma masterbestand</h3>
-        <progress class="bp-status-progress" max="100" value="85">85%</progress>
-        <p><strong>85%</strong></p>
-        <p>BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API. De plugin consolideert de inhoud binnen de Starter-limiet tot drie pagina&#x27;s met transparante sections, ruimt lege standaardpagina&#x27;s op en brengt gecombineerde componentsets expliciet onder hun section. Live in EmberForge Master uitgevoerd: eerste sync slaagt, idempotentiecheck vond en fixte een echte cellWidth-drift (instanties behielden na `swapComponent` hun vorige grid-stretch). Variabelewaarden zijn direct in het Figma Variables-paneel geverifieerd correct (`surface` → `ink-800` → `#1F2937`). Een resterende visuele afwijking (zwart ogende, net gebonden fills) is bevestigd een Figma Desktop-renderquirk bij vers gebonden variables, geen plugin- of datafout; workaround gedocumenteerd in `docs/product-runbook.md`.</p>
-        <p class="bp-status-label">Een volledige, schone `second sync is idempotent`-run zonder handmatige workaround moet nog bevestigd worden. Daarna pas structurele en visuele eindverificatie tegen het BAT snapshot vastleggen (`current_milestone.verification.state` naar `geverifieerd` met actor en datum).</p>
+        <progress class="bp-status-progress" max="100" value="100">100%</progress>
+        <p><strong>100%</strong></p>
+        <p>BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API. De plugin consolideert de inhoud binnen de Starter-limiet tot drie pagina&#x27;s met transparante sections, ruimt lege standaardpagina&#x27;s op en brengt gecombineerde componentsets expliciet onder hun section. Live in EmberForge Master uitgevoerd: eerste sync slaagt, idempotentiecheck vond en fixte een echte cellWidth-drift (instanties behielden na `swapComponent` hun vorige grid-stretch). Variabelewaarden zijn direct in het Figma Variables-paneel geverifieerd correct (`surface` → `ink-800` → `#1F2937`). Een resterende visuele afwijking (zwart ogende, net gebonden fills) is bevestigd een Figma Desktop-renderquirk bij vers gebonden variables, geen plugin- of datafout; workaround gedocumenteerd in `docs/product-runbook.md`. Erik Post heeft op 2026-08-16 een volledige, schone sync in EmberForge Master bevestigd: de afsluitende melding meldde `second sync is idempotent`, zonder handmatige workaround nodig voor de structurele/idempotentiecontrole zelf. M11.7c staat daarmee op `current_milestone.verification.state: geverifieerd` met actor en datum.</p>
+        <p class="bp-status-label">Geen resterend werk voor M11.7c. Een volgende Figma-gerelateerde milestone (bijv. live REST/MCP-synchronisatie, of aanvullende productsurfaces in de masterselectie) is nog niet gekozen.</p>
       </article>
       <article class="bp-status-card" data-status-area="world-bible">
         <h3>World Bible</h3>
