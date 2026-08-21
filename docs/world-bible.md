@@ -32,10 +32,26 @@ identiteitsoverzicht, ontwerpsysteem, productfamilie.
 
 ### The Observatory — Monitoring, Metrics & Alerting
 
-De toren met het observatorium, uitkijkend over de bergen. Meet, signaleert,
-waarschuwt. Nog geen eigen BAT-product; Grafana-dashboards
-(`emberforge-homelab-dashboard`) dekken een deel van deze functie zonder dat
-de kamer zelf al benoemd is.
+De toren met het observatorium, uitkijkend over de bergen. Waar de Great Hall
+overzicht en besturing biedt (wat is de toestand nu, en wat kun je erop
+doen), kijkt de Observatory continu en meldt wanneer iets afwijkt: meten,
+signaleren, waarschuwen, zonder zelf te besturen. Grafana-dashboards
+(`emberforge-homelab-dashboard`) dekken vandaag al de meetfunctie — vier
+statistiekkaarten, vier statussen, twee app-tegels — maar de kamer zelf is
+nog niet als aparte productsurface benoemd, en het waarschuwingsdeel
+(alerting, escalatie) heeft nog geen enkele representatie, native of
+narratief.
+
+### The Harbor — External Connections & Integrations
+
+De haven met watermolen, waar het paleis de buitenwereld raakt. Water dat
+binnenkomt en weer vertrekt is de beeldtaal voor data die het systeem in en
+uit stroomt: koppelingen met diensten buiten Beckeringh Palace zelf. Nog
+geen BAT-product. Er is nu al iets dat functioneel op een Harbor lijkt — de
+Figma-syncplugin praat met een externe wereld (Figma Desktop) — maar dat
+werk hoort vandaag bij `compiler`/`figma`, niet bij een eigen kamer; als er
+meer van dat soort externe koppelingen bijkomen, is dedupliceren met de
+Harbor een latere, expliciete beslissing, geen automatisme.
 
 ### The Archive — Documentation, Git & Knowledge
 
@@ -74,35 +90,64 @@ draagt.
 AI-diensten en kennissystemen. Narratief het tegenhangerdeel van de
 bestaande, aan Second Brain gekoppelde **The Library**-representatie in
 `docs/world-model.md` — daar is Library de representatie van Second Brain
-zelf; hier, in de smederij, is Library de plek waar AI-diensten draaien. Twee
-verschillende dingen die toevallig dezelfde naam dragen; bij verdere
-uitwerking moet dat ontdubbeld worden.
+zelf (het bewaarde weten); hier, in de smederij, is Library de plek waar dat
+weten wordt *uitgevoerd*: modellen die draaien, embeddings die worden
+opgevraagd, retrieval dat plaatsvindt. Kort gezegd: de Archive/Second Brain
+boven de grond bewaart wat er geweten wordt, de Library onder de grond is
+waar het werkend wordt gemaakt. Twee verschillende rollen die toevallig
+dezelfde naam dragen; bij verdere uitwerking moet dat ontdubbeld worden,
+bijvoorbeeld door de ondergrondse rol een eigen naam te geven.
 
 ### The Workshop — Development, CI/CD & Automation
 
 Waar gebouwd en geautomatiseerd wordt. Correspondeert met de agentwerkwijze
-uit `AGENTS.md`: branches, pull requests, de `validate`-CI-check.
+uit `AGENTS.md`: een `agent/<milestone-id>-<slug>`- of `fix/<slug>`-branch,
+een pull request, de verplichte groene `validate`-check op `main` (branch
+protection, ook voor admins), en `bp.py check` als de ene keten die validatie,
+compilatie, statusrender en de volledige testsuite bundelt. De Workshop is
+dus geen metafoor voor iets dat nog moet komen — het is de kamer waarin dit
+project zelf, letterlijk vandaag, werkt.
 
 ### The Vault — Secrets, Identity & Certificate Authority
 
 Geheimen, identiteit, certificaten. Strikt gescheiden van de rest, zoals ook
 `AGENTS.md` en de bredere Erik-regels (geen credentials in code of commits)
 al afdwingen — dat gedrag bestaat dus al, alleen nog niet onder deze naam.
+De grens met de Gatehouse is functioneel: de Gatehouse regelt wie van
+*buiten* het paleis binnenkomt (toegang, netwerkregie); de Vault bewaart wat
+er *binnen* geheim moet blijven (secrets, identiteitsmateriaal, certificaten)
+zodra het systeem eenmaal is binnengelaten. Een certificate authority is nog
+narratief; er is geen BAT-product dat er vandaag invulling aan geeft.
 
 ### The Forge Hall — Kubernetes Cluster & Orchestration
 
 De smidshal zelf: orkestratie. Naamgenoot van het beverembleem
 (`emberforge-beaver`, smidshamer en aambeeld) en van `thema forge` in BAT.
-Correspondeert met het K3s-cluster.
+Correspondeert met het K3s-cluster: waar workloads daadwerkelijk draaien en
+worden ingepland. Speelt onder de grond dezelfde rol als de Great Hall boven
+de grond — het besturende middelpunt — maar dan operationeel: niet overzicht
+tonen, maar het werk laten gebeuren.
 
 ### The Machine Hall — Proxmox, VMs & Bare Metal
 
-Fysieke en gevirtualiseerde machines.
+Fysieke en gevirtualiseerde machines. Eén laag dieper dan de Forge Hall: waar
+het K3s-cluster orkestreert, is de Machine Hall het fundament waar die
+clusterknopen zelf op draaien — de hypervisor en het fysieke metaal eronder.
+Orkestratie (Forge Hall) en het substraat waarop wordt georkestreerd (Machine
+Hall) zijn zo twee te onderscheiden kamers, ook al liggen ze in de praktijk
+op elkaar gestapeld.
 
 ### The Waterworks — Storage, Backups & Data Reservoirs
 
 Opslag en back-ups, gevoed door dezelfde waterval-beeldtaal als de haven
-boven de grond.
+boven de grond: wat door de Harbor naar binnen stroomt, komt uiteindelijk
+hier tot rust. De Waterworks is de enige plek in de smederij waar
+toestand *blijvend* mag bestaan — en dat is precies het spiegelbeeld van hoe
+dit project zelf al werkt: alles in `output/` wordt gegenereerd, nooit
+handmatig bewerkt, en conflicten daarin worden nooit opgelost maar altijd
+herbouwd (`AGENTS.md`). De Waterworks is narratief waar die ene uitzondering
+zou wonen: het reservoir dat *niet* zomaar herbouwbaar is en dus expliciete
+back-up- en retentiezorg verdient.
 
 ### Circle of Fifths — Harmony in Systems. Balance in Design.
 
@@ -120,7 +165,7 @@ volledig als reproduceerbaar BAT-product bestaat.
 | Entrance to EmberForge / EmberForge zelf | bestaand native merk (`emberforge`) |
 | Archive | narratief (Second Brain-tekst in `world-model.md`), geen eigen product |
 | Gatehouse | gedeeltelijk (Keycloak-login-product), geen eigen kamer-object |
-| Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks | uitsluitend narratief, geen BAT-product of -object |
+| Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks | narratief uitgewerkt (2026-08-21), nog geen BAT-product of -object |
 
 ## Wat dit document niet doet
 

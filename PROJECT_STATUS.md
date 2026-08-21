@@ -4,14 +4,14 @@
 
 ## Totaalbeeld
 
-**Geschatte voortgang: 91%**
+**Geschatte voortgang: 92%**
 
 Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.
 
-- Actuele milestone: **M11.7c — Native Figma masterverificatie** (voltooid)
-- Verificatie: **geverifieerd** (Erik Post, 2026-08-16)
+- Actuele milestone: **M11.9a — World Bible: kamers narratief verdiept** (in uitvoering)
+- Verificatie: **wacht-op-menselijke-verificatie**
 - Laatst voltooid: **M11.7c — Native Figma masterverificatie** (PR #113)
-- Volgende stap: **TBD — Volgende milestone nog te kiezen**
+- Volgende stap: **M11.9a — World Bible: kamers narratief verdiept**
 
 ## Voortgang per productgebied
 
@@ -26,10 +26,10 @@ Gewogen architectuurschatting van het volledige einddoel. De expliciete productg
 | Logo's en wallpapers | 10% | 90% | Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die met verdiepte atmosferische lichtgeometrie, Palace, het gecorrigeerde beverembleem en Noorse lijnsymboliek. | Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten. |
 | HTML homepage | 10% | 95% | Zeven geordende homepagegebieden dragen inhoud, appearance, focus en responsief gedrag; zes unieke routekaarten ontsluiten ook de native assetcatalogus, Keycloak en terminal via relatieve artifactpaden. | De visuele motieven en bredere productinhoud van de homepage moeten nog worden verdiept. |
 | Figma masterbestand | 10% | 100% | BAT selecteert expliciet 11 assets, 7 componentfamilies, 20 variantprofielen en 7 compositie- en layoutoppervlakken. Schema v2 wordt deterministisch verpakt als netwerkloze Figma development plugin die daaruit 8 foundation collections, 6 text styles, 7 effect styles en 57 concrete statevarianten plant zonder MCP of REST API. De plugin consolideert de inhoud binnen de Starter-limiet tot drie pagina's met transparante sections, ruimt lege standaardpagina's op en brengt gecombineerde componentsets expliciet onder hun section. Live in EmberForge Master uitgevoerd: eerste sync slaagt, idempotentiecheck vond en fixte een echte cellWidth-drift (instanties behielden na `swapComponent` hun vorige grid-stretch). Variabelewaarden zijn direct in het Figma Variables-paneel geverifieerd correct (`surface` → `ink-800` → `#1F2937`). Een resterende visuele afwijking (zwart ogende, net gebonden fills) is bevestigd een Figma Desktop-renderquirk bij vers gebonden variables, geen plugin- of datafout; workaround gedocumenteerd in `docs/product-runbook.md`. Erik Post heeft op 2026-08-16 een volledige, schone sync in EmberForge Master bevestigd: de afsluitende melding meldde `second sync is idempotent`, zonder handmatige workaround nodig voor de structurele/idempotentiecontrole zelf. M11.7c staat daarmee op `current_milestone.verification.state: geverifieerd` met actor en datum. | Geen resterend werk voor M11.7c. Een volgende Figma-gerelateerde milestone (bijv. live REST/MCP-synchronisatie, of aanvullende productsurfaces in de masterselectie) is nog niet gekozen. |
-| World Bible | 10% | 75% | Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt nu de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths), met per kamer expliciet of het al een BAT-product/-object is of nog puur narratief. | De meeste kamers uit de wereldkaart (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) hebben nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Cross product ontwerpregels tussen kamers moeten nog worden samengebracht. |
+| World Bible | 10% | 88% | Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths). De acht uitsluitend-narratieve kamers zijn nu inhoudelijk verdiept: elk heeft een expliciete functionele afbakening ten opzichte van zijn buren (Observatory versus Great Hall, Vault versus Gatehouse, Forge Hall versus Machine Hall) en, waar het klopt, een koppeling aan wat al echt bestaat (Workshop aan de agentwerkwijze en `bp.py check`, Waterworks aan de output/-reproduceerbaarheidsregel, Library aan de bestaande Second Brain-representatie met een expliciet benoemde naamscollisie). | De acht verdiepte kamers hebben bewust nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Openstaand: de Library-naamscollisie tussen `docs/world-model.md` (Second Brain) en `docs/world-bible.md` (AI-diensten) ontdubbelen, en cross-kamer ontwerpregels samenbrengen voordat een kamer ooit native wordt (ontwerpregel 1). |
 
 ## Eerstvolgende stap
 
-### TBD — Volgende milestone nog te kiezen
+### M11.9a — World Bible: kamers narratief verdiept
 
-M11.7c is volledig afgerond: de plugin doorloopt een idempotente sync (`second sync is idempotent`) en Erik Post heeft dit live in EmberForge Master geverifieerd op 2026-08-16. De volgende milestone is nog niet gekozen door de Chief Architect.
+De acht uitsluitend-narratieve kamers uit `docs/world-bible.md` (Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) narratief verdiepen: functie, onderlinge afbakening en koppeling aan wat al echt bestaat (K3s, Proxmox, Keycloak, `AGENTS.md`-werkwijze, de credentials-regel, de output/-reproduceerbaarheidsregel). Expliciet geen nieuwe native BAT-objectsoorten of -producten in deze stap; dat blijft een aparte beslissing per kamer (ontwerpregel 1).
