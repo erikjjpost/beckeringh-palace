@@ -3,13 +3,13 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.9a",
-    "name": "World Bible: kamers narratief verdiept",
-    "state": "voltooid",
+    "id": "M11.9b",
+    "name": "Observatory geformaliseerd op Great Hall-niveau",
+    "state": "in uitvoering",
     "verification": {
-      "state": "geverifieerd",
-      "actor": "Erik Post",
-      "date": "2026-08-22"
+      "state": "wacht-op-menselijke-verificatie",
+      "actor": null,
+      "date": null
     }
   },
   "last_completed_milestone": {
@@ -18,9 +18,9 @@
     "pull_request": 116
   },
   "next_step": {
-    "id": "TBD",
-    "name": "Volgende milestone nog te kiezen",
-    "purpose": "M11.9a is afgerond: de acht narratief-uitsluitende kamers in `docs/world-bible.md` zijn verdiept en Erik Post heeft de tekst op 2026-08-22 gelezen en akkoord bevonden. De volgende milestone is nog niet gekozen door de Chief Architect."
+    "id": "M11.9b",
+    "name": "Observatory geformaliseerd op Great Hall-niveau",
+    "purpose": "Erik Post koos Observatory als kandidaat-kamer voor een native BAT-object; onderzoek naar het `muziekcirkel`-precedent liet zien dat een nieuwe native objectsoort alleen gerechtvaardigd is bij een echt rekengat (zoals muziektheorie → SVG-geometrie), en dat ontbreekt voor Observatory. In plaats daarvan krijgt Observatory hetzelfde correspondentieniveau als Great Hall: expliciete koppeling aan het bestaande generieke product `emberforge-homelab-dashboard`, geen nieuwe Python-objectsoort. Terzelfder tijd gefixt: een dubbele `The Harbor`-sectie die bij M11.9a per ongeluk was blijven staan naast de verdiepte versie."
   },
   "areas": [
     {
@@ -98,10 +98,10 @@
     {
       "id": "world-bible",
       "name": "World Bible",
-      "progress": 88,
+      "progress": 90,
       "weight": 10,
-      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths). De acht uitsluitend-narratieve kamers zijn nu inhoudelijk verdiept: elk heeft een expliciete functionele afbakening ten opzichte van zijn buren (Observatory versus Great Hall, Vault versus Gatehouse, Forge Hall versus Machine Hall) en, waar het klopt, een koppeling aan wat al echt bestaat (Workshop aan de agentwerkwijze en `bp.py check`, Waterworks aan de output/-reproduceerbaarheidsregel, Library aan de bestaande Second Brain-representatie met een expliciet benoemde naamscollisie). Erik Post heeft de verdiepte tekst op 2026-08-22 gelezen en akkoord bevonden (`current_milestone.verification.state: geverifieerd`).",
-      "remaining": "De acht verdiepte kamers hebben bewust nog geen eigen BAT-product of -object; alleen Great Hall en Circle of Fifths bestaan al. Openstaand: de Library-naamscollisie tussen `docs/world-model.md` (Second Brain) en `docs/world-bible.md` (AI-diensten) ontdubbelen, en cross-kamer ontwerpregels samenbrengen voordat een kamer ooit native wordt (ontwerpregel 1)."
+      "evidence": "Architectuur en productregels zijn gedeeltelijk gedocumenteerd; merk, componenten, toegankelijkheid, productsurfaces, productnavigatie, assetfamilies, wallpaperfamilie, muzieksemantiek en de eerste wereldsymbolen zijn normatief vastgelegd. `docs/world-bible.md` legt de bredere wereldkaart vast: het Paleis boven de grond (Great Hall, Observatory, Archive, Gatehouse, Harbor) en EmberForge eronder (Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks, Circle of Fifths). De acht uitsluitend-narratieve kamers zijn inhoudelijk verdiept en Erik Post heeft de tekst op 2026-08-22 gelezen en akkoord bevonden. Observatory is daarna expliciet geformaliseerd naar hetzelfde correspondentieniveau als de Great Hall (bestaand generiek product `emberforge-homelab-dashboard`, geen nieuwe native objectsoort) nadat onderzoek naar het `muziekcirkel`-precedent liet zien dat ontwerpregel 1 (aantoonbaar nodig voor een productrenderer) daar geen echt rekengat vindt. Een dubbele `The Harbor`-sectie die bij het verdiepen per ongeluk was blijven staan, is verwijderd.",
+      "remaining": "Zeven verdiepte kamers (Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks) hebben bewust nog geen eigen BAT-product of -object; Great Hall, Observatory en Circle of Fifths bestaan al. Openstaand: de Library-naamscollisie tussen `docs/world-model.md` (Second Brain) en `docs/world-bible.md` (AI-diensten) ontdubbelen, en cross-kamer ontwerpregels samenbrengen voordat een kamer ooit een écht nieuwe native objectsoort wordt (ontwerpregel 1 eist een aantoonbaar rekengat, zoals bij `muziekcirkel`)."
     }
   ]
 }

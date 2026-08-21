@@ -35,12 +35,16 @@ identiteitsoverzicht, ontwerpsysteem, productfamilie.
 De toren met het observatorium, uitkijkend over de bergen. Waar de Great Hall
 overzicht en besturing biedt (wat is de toestand nu, en wat kun je erop
 doen), kijkt de Observatory continu en meldt wanneer iets afwijkt: meten,
-signaleren, waarschuwen, zonder zelf te besturen. Grafana-dashboards
-(`emberforge-homelab-dashboard`) dekken vandaag al de meetfunctie — vier
-statistiekkaarten, vier statussen, twee app-tegels — maar de kamer zelf is
-nog niet als aparte productsurface benoemd, en het waarschuwingsdeel
-(alerting, escalatie) heeft nog geen enkele representatie, native of
-narratief.
+signaleren, waarschuwen, zonder zelf te besturen. Correspondeert met het
+bestaande **Grafana-dashboard** (`emberforge-homelab-dashboard`): vier
+statistiekkaarten, vier statussen, twee app-tegels, exact hetzelfde
+correspondentieniveau als de Great Hall met Forge Dashboard. Net als de Great
+Hall is dit geen nieuwe native objectsoort — beide bestaan al volledig via
+het generieke `compositie`/`component`/`layout`/`product`-pad, zonder eigen
+Python-objectsoort. Een nieuwe objectsoort is hier niet aantoonbaar nodig
+(ontwerpregel 1): er is geen berekening die het generieke model niet al
+uitdrukt. Het waarschuwingsdeel (alerting, escalatie) blijft wel volledig
+narratief; daar bestaat nog geen enkele representatie.
 
 ### The Harbor — External Connections & Integrations
 
@@ -65,11 +69,6 @@ ideeën, besluiten en documentatie vastleggen, verbinden, terugvinden. Git
 De poort naar het paleis, aan het water. Toegang, identiteit, netwerkregie.
 Nog geen eigen BAT-product; Keycloak-login (`emberforge-keycloak-login-html`)
 is de dichtstbijzijnde bestaande productsurface.
-
-### The Harbor — External Connections & Integrations
-
-De haven met watermolen, waar het paleis de buitenwereld raakt. Externe
-koppelingen. Nog geen BAT-product.
 
 ### Entrance to EmberForge
 
@@ -161,11 +160,12 @@ volledig als reproduceerbaar BAT-product bestaat.
 | Kamer | BAT-status |
 |---|---|
 | Great Hall | bestaand product (Forge Dashboard) |
+| Observatory | bestaand product (`emberforge-homelab-dashboard`), zelfde correspondentieniveau als Great Hall |
 | Circle of Fifths | bestaand native object (`muziekcirkel`) |
 | Entrance to EmberForge / EmberForge zelf | bestaand native merk (`emberforge`) |
 | Archive | narratief (Second Brain-tekst in `world-model.md`), geen eigen product |
 | Gatehouse | gedeeltelijk (Keycloak-login-product), geen eigen kamer-object |
-| Observatory, Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks | narratief uitgewerkt (2026-08-21), nog geen BAT-product of -object |
+| Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks | narratief uitgewerkt (2026-08-21), nog geen BAT-product of -object |
 
 ## Wat dit document niet doet
 
