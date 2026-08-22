@@ -9,7 +9,7 @@
   "links": [],
   "panels": [
     {
-      "description": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
+      "description": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.",
       "gridPos": {
         "h": 4,
         "w": 24,
@@ -51,7 +51,7 @@
                 "horizontal": "left",
                 "vertical": "top"
               },
-              "name": "emberforge-homelab-dashboard-grafana-identity",
+              "name": "emberforge-observatory-grafana-identity",
               "placement": {
                 "height": 20,
                 "left": 16,
@@ -68,7 +68,7 @@
                 },
                 "size": 56,
                 "text": {
-                  "fixed": "EmberForge Homelab",
+                  "fixed": "The Observatory",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -77,7 +77,7 @@
                 "horizontal": "left",
                 "vertical": "top"
               },
-              "name": "emberforge-homelab-dashboard-grafana-title",
+              "name": "emberforge-observatory-grafana-title",
               "placement": {
                 "height": 64,
                 "left": 16,
@@ -94,7 +94,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
+                  "fixed": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -103,7 +103,7 @@
                 "horizontal": "left",
                 "vertical": "top"
               },
-              "name": "emberforge-homelab-dashboard-grafana-purpose",
+              "name": "emberforge-observatory-grafana-purpose",
               "placement": {
                 "height": 24,
                 "left": 776,
@@ -118,7 +118,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "EmberForge Homelab",
+      "title": "The Observatory",
       "transparent": true,
       "type": "canvas"
     },
@@ -1271,7 +1271,7 @@
     "hidden": false
   },
   "timezone": "browser",
-  "title": "EmberForge Homelab Dashboard Grafana",
-  "uid": "emberforge-homelab-dashboard-grafana",
+  "title": "The Observatory Grafana",
+  "uid": "emberforge-observatory-grafana",
   "version": 1
 }

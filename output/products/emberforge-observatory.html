@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="utf-8">
-  <title>EmberForge Homelab Dashboard</title>
+  <title>The Observatory</title>
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="components.css">
   <style>
@@ -277,7 +277,7 @@
     .bp-layout { box-sizing: border-box; }
     .bp-region { box-sizing: border-box; }
     @media (max-width: 960px) {
-      .bp-layout-emberforge-homelab-dashboard-responsive { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+      .bp-layout-emberforge-observatory-responsive { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
       [data-region="homelab-stat-nodes-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:1; }
       [data-region="homelab-stat-health-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:2; }
       [data-region="homelab-stat-cpu-region"] { grid-column:1 / span 2 !important; grid-row:auto !important; order:3; }
@@ -294,10 +294,10 @@
 <body data-world="beckeringh-palace" data-theme="forge" data-art-direction="emberforge-art-direction" data-art-glow="controlled" data-art-ornament="technical-linework" data-art-density="spacious" data-art-imagery="isometric-line-art" data-art-warm-accent-limit="2" data-typography="forge-interface" data-font-delivery="local-only" data-product-mode="interactive" data-product-content="composition" data-time-context="applicable">
   <header class="bp-product-header">
     <p class="bp-product-kicker">Beckeringh Palace · Forge · Gegenereerd uit BAT · Interactief product</p>
-    <h1>EmberForge Homelab</h1>
-    <p class="bp-product-purpose">Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.</p>
+    <h1>The Observatory</h1>
+    <p class="bp-product-purpose">Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.</p>
   </header>
-  <main class="bp-layout bp-layout-emberforge-homelab-dashboard-responsive" data-layout-type="grid" data-responsive-breakpoint="960" data-compact-columns="2" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr))">
+  <main class="bp-layout bp-layout-emberforge-observatory-responsive" data-layout-type="grid" data-responsive-breakpoint="960" data-compact-columns="2" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr))">
     <section class="bp-region" data-region="homelab-stat-nodes-region" data-instance="homelab-stat-nodes" data-compact-order="1" style="grid-column:1 / span 1;grid-row:1 / span 1">
       <h2>Nodes</h2>
             <article class="bp-forge-stat-card bp-variant-forge-stat-card-value" data-example="forge-stat-card-nodes-example" data-component="forge-stat-card" data-component-role="statistiek" data-component-anatomy="label waarde beschrijving" data-variant="forge-stat-card-value" data-component-state="rest" data-component-states="rest" data-appearance="forge-stat-card-value-appearance" data-accessibility-contract="forge-stat-card-accessibility" data-accessibility-role="groep" data-accessibility-name-source="label" data-accessibility-value-source="waarde" data-accessibility-disabled="niet-van-toepassing" data-accessibility-focus="geen" data-accessibility-keyboard="geen" aria-labelledby="bp-example-homelab-stat-nodes-forge-stat-card-nodes-example-rest-label">

@@ -168,10 +168,10 @@ Een native BAT-concept moet nodig zijn om Beckeringh Palace-producten te specifi
 - `output/bat/`: vanuit BAT gegenereerde CIR- en documentatie-output.
 - `output/products/`: de echte productartefacten:
   - `index.html`: de Beckeringh Palace homepage;
-  - `forge-dashboard.html`, `emberforge-homelab-dashboard.html`,
+  - `forge-dashboard.html`, `emberforge-observatory.html`,
     `emberforge-keycloak-login.html`, `emberforge-terminal.html` en
     `project-status.html`: HTML-producten;
-  - `forge-dashboard.grafana.json`, `emberforge-homelab-dashboard.grafana.json`
+  - `forge-dashboard.grafana.json`, `emberforge-observatory.grafana.json`
     en `project-status.grafana.json`: importeerbare Grafana-dashboards;
   - `components.html`: statisch EmberForge designsystem referentieproduct;
   - `components.css`: afgeleide componentstijlen;

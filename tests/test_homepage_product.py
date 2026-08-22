@@ -148,7 +148,7 @@ class HomepageProductTests(unittest.TestCase):
             html,
         )
         for product in (
-            "Homelab Dashboard",
+            "The Observatory",
             "Keycloak login",
             "Terminal",
             "SVG Asset Catalog",

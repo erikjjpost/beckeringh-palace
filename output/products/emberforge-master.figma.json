@@ -1252,7 +1252,7 @@
       "rol": null
     },
     {
-      "id": "emberforge-homelab-dashboard",
+      "id": "emberforge-observatory",
       "instances": [
         {
           "appearance": "forge-stat-card-value-appearance",
@@ -1315,7 +1315,7 @@
           "variant": "forge-app-tile-ember"
         }
       ],
-      "naam": "EmberForge Homelab",
+      "naam": "The Observatory",
       "rol": null
     },
     {
@@ -1486,8 +1486,8 @@
       "columns": 4,
       "compact_columns": 2,
       "direction": null,
-      "id": "emberforge-homelab-dashboard-responsive",
-      "naam": "EmberForge Homelab Responsive",
+      "id": "emberforge-observatory-responsive",
+      "naam": "The Observatory Responsive",
       "regions": [
         {
           "column": 1,
@@ -1793,7 +1793,7 @@
   ],
   "product": {
     "id": "emberforge-figma-master-manifest",
-    "snapshot": "sha256:40aed99a123f1c8249b67a787c3b6fe4c5547d43537497881b68b73968235598"
+    "snapshot": "sha256:d8ce1638a4cf5402b04a4998c32b3451ad66fa623338a0c044676c94117cb1d3"
   },
   "schema_version": 2,
   "theme": {

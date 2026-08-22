@@ -679,7 +679,7 @@ Merkidentiteit voor de soevereine infrastructuur binnen Beckeringh Palace.
 
 - **belofte:** Sovereignty over your own stack.
 - **principes:** Own your data., Own your nodes., Own your forge.
-- **producten:** Homelab Dashboard, Keycloak login, Terminal, SVG Asset Catalog, CV Database, ISMS Challenger, Roadmap, Marketing en merkoppervlakken
+- **producten:** The Observatory, Keycloak login, Terminal, SVG Asset Catalog, CV Database, ISMS Challenger, Roadmap, Marketing en merkoppervlakken
 - **stem:** Zelfverzekerd, technisch en rustig
 - **taal:** Nederlands met technische termen in het Engels
 - **tagline:** Sovereign Infrastructure.
@@ -4193,8 +4193,8 @@ Selecteert expliciet dezelfde opgeloste ontwerpsemantiek voor een reproduceerbar
 
 - **assets:** emberforge-vector-node, emberforge-light-disc, emberforge-palace, emberforge-beaver, emberforge-nordic-weave, emberforge-icon-dashboard, emberforge-icon-identity, emberforge-icon-terminal, emberforge-icon-assets, emberforge-merkteken, emberforge-woordmerk
 - **componenten:** forge-panel, forge-button, forge-input, forge-status, forge-app-tile, forge-stat-card, forge-terminal
-- **composities:** forge-dashboard, emberforge-homelab-dashboard, emberforge-keycloak-login, emberforge-terminal, forge-design-system-reference-composition, emberforge-svg-asset-catalog-composition, beckeringh-palace-homepage-composition
-- **layouts:** forge-dashboard-ultrawide, emberforge-homelab-dashboard-responsive, emberforge-keycloak-login-responsive, emberforge-terminal-stack, forge-design-system-reference-stack, emberforge-svg-asset-catalog-stack, beckeringh-palace-homepage-grid
+- **composities:** forge-dashboard, emberforge-observatory, emberforge-keycloak-login, emberforge-terminal, forge-design-system-reference-composition, emberforge-svg-asset-catalog-composition, beckeringh-palace-homepage-composition
+- **layouts:** forge-dashboard-ultrawide, emberforge-observatory-responsive, emberforge-keycloak-login-responsive, emberforge-terminal-stack, forge-design-system-reference-stack, emberforge-svg-asset-catalog-stack, beckeringh-palace-homepage-grid
 - **varianten:** forge-panel-compact, forge-panel-hero, forge-panel-route, forge-button-primary, forge-button-secondary, forge-button-ghost, forge-button-ember, forge-input-default, forge-input-error, forge-status-running, forge-status-pending, forge-status-failed, forge-status-info, forge-app-tile-default, forge-app-tile-ember, forge-stat-card-value, forge-stat-card-health, forge-stat-card-progress, forge-stat-card-progress-ember, forge-terminal-neofetch
 - **wereld:** beckeringh-palace
 
@@ -4246,9 +4246,9 @@ De composities, layouts en uitvoerproducten die uit dezelfde wereld worden gegen
 
 ### Eigenschappen
 
-- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-homelab-dashboard, emberforge-homelab-dashboard-responsive, emberforge-wallpapers, emberforge-ultrawide-wallpaper, emberforge-desktop-wallpaper, emberforge-figma-master, emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-desktop-wallpaper-png, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html, emberforge-figma-master-manifest
+- **inhoud:** forge-dashboard, forge-dashboard-ultrawide, emberforge-observatory, emberforge-observatory-responsive, emberforge-wallpapers, emberforge-ultrawide-wallpaper, emberforge-desktop-wallpaper, emberforge-figma-master, emberforge-observatory-html, emberforge-observatory-grafana, emberforge-ultrawide-wallpaper-png, emberforge-desktop-wallpaper-png, project-status-html, forge-design-system-reference-html, emberforge-svg-asset-catalog-html, emberforge-figma-master-manifest
 - **leesvolgorde:** 3
-- **navigatie:** emberforge-homelab-dashboard-html, emberforge-homelab-dashboard-grafana, emberforge-ultrawide-wallpaper-png, emberforge-ultrawide-wallpaper-manifest, emberforge-desktop-wallpaper-png, emberforge-desktop-wallpaper-manifest, emberforge-figma-master-manifest, project-status-html, project-status-grafana
+- **navigatie:** emberforge-observatory-html, emberforge-observatory-grafana, emberforge-ultrawide-wallpaper-png, emberforge-ultrawide-wallpaper-manifest, emberforge-desktop-wallpaper-png, emberforge-desktop-wallpaper-manifest, emberforge-figma-master-manifest, project-status-html, project-status-grafana
 - **soorten:** homepagegebied, compositie, componentinstantie, layout, region, wallpaperfamilie, wallpaper, wallpaperlaag, assetplaatsing, figmamaster, product, renderdoel
 - **toegankelijkheidslabel:** Productfamilie, overzicht van composities, layouts en uitvoerproducten
 
@@ -4427,15 +4427,15 @@ Het Forge-dashboard als importeerbaar Grafana dashboard genereren.
 - **pad:** output/products/forge-dashboard.grafana.json
 - **wereld:** beckeringh-palace
 
-## EmberForge Homelab
+## The Observatory
 
 **Soort:** compositie
 
-**Identifier:** `emberforge-homelab-dashboard`
+**Identifier:** `emberforge-observatory`
 
 ### Doel
 
-Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.
+Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.
 
 ### Eigenschappen
 
@@ -4453,7 +4453,7 @@ Aantal actieve clusternodes.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-stat-card-nodes-example
 
 ## Cluster Health
@@ -4468,7 +4468,7 @@ Actuele gezondheid van het cluster.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-stat-card-health-example
 
 ## CPU Usage
@@ -4483,7 +4483,7 @@ Actueel CPU gebruik.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-stat-card-cpu-example
 
 ## Memory
@@ -4498,7 +4498,7 @@ Actueel geheugengebruik.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-stat-card-memory-example
 
 ## Running
@@ -4513,7 +4513,7 @@ Aantal actieve workloads.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-status-running-example
 
 ## Pending
@@ -4528,7 +4528,7 @@ Aantal wachtende workloads.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-status-pending-example
 
 ## Failed
@@ -4543,7 +4543,7 @@ Aantal gefaalde workloads.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-status-failed-example
 
 ## Healthy
@@ -4558,7 +4558,7 @@ Samengevatte clustergezondheid.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-status-info-example
 
 ## ISMS Challenger
@@ -4573,7 +4573,7 @@ Homelab applicatie voor Information Security Management.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-app-tile-isms-example
 
 ## CV Tool
@@ -4588,14 +4588,14 @@ Homelab applicatie voor consultant CV beheer.
 
 ### Eigenschappen
 
-- **compositie:** emberforge-homelab-dashboard
+- **compositie:** emberforge-observatory
 - **voorbeeld:** forge-app-tile-cv-example
 
-## EmberForge Homelab Responsive
+## The Observatory Responsive
 
 **Soort:** layout
 
-**Identifier:** `emberforge-homelab-dashboard-responsive`
+**Identifier:** `emberforge-observatory-responsive`
 
 ### Doel
 
@@ -4626,7 +4626,7 @@ Eerste statistiekpositie.
 - **column-span:** 1
 - **compact-order:** 1
 - **instantie:** homelab-stat-nodes
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 1
 - **row-span:** 1
 
@@ -4646,7 +4646,7 @@ Tweede statistiekpositie.
 - **column-span:** 1
 - **compact-order:** 2
 - **instantie:** homelab-stat-health
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 1
 - **row-span:** 1
 
@@ -4666,7 +4666,7 @@ Derde statistiekpositie.
 - **column-span:** 1
 - **compact-order:** 3
 - **instantie:** homelab-stat-cpu
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 1
 - **row-span:** 1
 
@@ -4686,7 +4686,7 @@ Vierde statistiekpositie.
 - **column-span:** 1
 - **compact-order:** 4
 - **instantie:** homelab-stat-memory
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 1
 - **row-span:** 1
 
@@ -4706,7 +4706,7 @@ Eerste statuspositie.
 - **column-span:** 1
 - **compact-order:** 5
 - **instantie:** homelab-status-running
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 2
 - **row-span:** 1
 
@@ -4726,7 +4726,7 @@ Tweede statuspositie.
 - **column-span:** 1
 - **compact-order:** 6
 - **instantie:** homelab-status-pending
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 2
 - **row-span:** 1
 
@@ -4746,7 +4746,7 @@ Derde statuspositie.
 - **column-span:** 1
 - **compact-order:** 7
 - **instantie:** homelab-status-failed
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 2
 - **row-span:** 1
 
@@ -4766,7 +4766,7 @@ Vierde statuspositie.
 - **column-span:** 1
 - **compact-order:** 8
 - **instantie:** homelab-status-healthy
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 2
 - **row-span:** 1
 
@@ -4786,7 +4786,7 @@ Eerste applicatiepositie.
 - **column-span:** 2
 - **compact-order:** 9
 - **instantie:** homelab-app-isms
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 3
 - **row-span:** 1
 
@@ -4806,15 +4806,15 @@ Tweede applicatiepositie.
 - **column-span:** 2
 - **compact-order:** 10
 - **instantie:** homelab-app-cv
-- **layout:** emberforge-homelab-dashboard-responsive
+- **layout:** emberforge-observatory-responsive
 - **row:** 3
 - **row-span:** 1
 
-## EmberForge Homelab Dashboard
+## The Observatory
 
 **Soort:** product
 
-**Identifier:** `emberforge-homelab-dashboard-html`
+**Identifier:** `emberforge-observatory-html`
 
 ### Doel
 
@@ -4823,17 +4823,17 @@ Responsief homelab overzicht van statistieken, statussen en applicaties.
 ### Eigenschappen
 
 - **backend:** html
-- **compositie:** emberforge-homelab-dashboard
-- **layout:** emberforge-homelab-dashboard-responsive
+- **compositie:** emberforge-observatory
+- **layout:** emberforge-observatory-responsive
 - **mode:** interactive
-- **pad:** output/products/emberforge-homelab-dashboard.html
+- **pad:** output/products/emberforge-observatory.html
 - **wereld:** beckeringh-palace
 
-## EmberForge Homelab Dashboard Grafana
+## The Observatory Grafana
 
 **Soort:** product
 
-**Identifier:** `emberforge-homelab-dashboard-grafana`
+**Identifier:** `emberforge-observatory-grafana`
 
 ### Doel
 
@@ -4842,10 +4842,10 @@ Het native homelab overzicht als importeerbaar Grafana dashboard genereren.
 ### Eigenschappen
 
 - **backend:** grafana
-- **compositie:** emberforge-homelab-dashboard
-- **layout:** emberforge-homelab-dashboard-responsive
+- **compositie:** emberforge-observatory
+- **layout:** emberforge-observatory-responsive
 - **mode:** interactive
-- **pad:** output/products/emberforge-homelab-dashboard.grafana.json
+- **pad:** output/products/emberforge-observatory.grafana.json
 - **wereld:** beckeringh-palace
 
 ## EmberForge Sign In

@@ -28,7 +28,7 @@ class _IdCollector(HTMLParser):
         self.ids.extend(value for name, value in attrs if name == "id")
 
 
-class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
+class EmberForgeObservatoryProductTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.model = analyseer(
@@ -43,8 +43,8 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
             )
         }
 
-    def test_componeert_tien_bat_voorbeelden_als_homelab_dashboard(self) -> None:
-        product = self.products["emberforge-homelab-dashboard-html"]
+    def test_componeert_tien_bat_voorbeelden_als_observatory(self) -> None:
+        product = self.products["emberforge-observatory-html"]
         composition = product.definitie.opgeloste_compositie
 
         self.assertIsNotNone(composition)
@@ -72,7 +72,7 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
 
     def test_gebruikt_responsief_vier_naar_twee_kolomscontract(self) -> None:
         layout = self.products[
-            "emberforge-homelab-dashboard-html"
+            "emberforge-observatory-html"
         ].definitie.opgeloste_layout
 
         self.assertIsNotNone(layout)
@@ -86,9 +86,9 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
         )
 
     def test_rendert_productinhoud_semantisch_uit_de_voorbeelden(self) -> None:
-        html = self.products["emberforge-homelab-dashboard-html"].inhoud
+        html = self.products["emberforge-observatory-html"].inhoud
 
-        self.assertIn("<h1>EmberForge Homelab</h1>", html)
+        self.assertIn("<h1>The Observatory</h1>", html)
         self.assertIn('data-responsive-breakpoint="960"', html)
         self.assertIn('data-compact-columns="2"', html)
         self.assertEqual(10, html.count('data-example="'))
@@ -109,12 +109,12 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
         self.assertEqual(len(parser.ids), len(set(parser.ids)))
 
     def test_rendert_dezelfde_compositie_als_native_grafana_dashboard(self) -> None:
-        html_product = self.products["emberforge-homelab-dashboard-html"].definitie
+        html_product = self.products["emberforge-observatory-html"].definitie
         grafana_product = self.products[
-            "emberforge-homelab-dashboard-grafana"
+            "emberforge-observatory-grafana"
         ].definitie
         dashboard = json.loads(
-            self.products["emberforge-homelab-dashboard-grafana"].inhoud
+            self.products["emberforge-observatory-grafana"].inhoud
         )
 
         self.assertEqual(
@@ -125,9 +125,9 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
             html_product.opgeloste_layout,
             grafana_product.opgeloste_layout,
         )
-        self.assertEqual("EmberForge Homelab Dashboard Grafana", dashboard["title"])
+        self.assertEqual("The Observatory Grafana", dashboard["title"])
         self.assertEqual(
-            "emberforge-homelab-dashboard-grafana",
+            "emberforge-observatory-grafana",
             dashboard["uid"],
         )
         self.assertTrue(dashboard["editable"])
@@ -135,7 +135,7 @@ class EmberForgeHomelabDashboardProductTests(unittest.TestCase):
         self.assertEqual(11, len(dashboard["panels"]))
         self.assertEqual(
             [
-                "EmberForge Homelab",
+                "The Observatory",
                 "Nodes",
                 "Cluster Health",
                 "CPU Usage",

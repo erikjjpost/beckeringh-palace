@@ -97,11 +97,11 @@ Open daarna `http://localhost:8000/`.
 Importeer in Grafana via **Dashboards**, **New**, **Import**:
 
 - `output/products/forge-dashboard.grafana.json`;
-- `output/products/emberforge-homelab-dashboard.grafana.json`;
+- `output/products/emberforge-observatory.grafana.json`;
 - `output/products/project-status.grafana.json`.
 
 Deze dashboards bevatten geen datasource en geen actuele operationele
-meetgegevens. Het EmberForge homelab dashboard gebruikt dezelfde gevalideerde
+meetgegevens. The Observatory-dashboard gebruikt dezelfde gevalideerde
 voorbeeldinhoud als het HTML product. Een nieuwe import kan een bestaand
 dashboard met dezelfde UID vervangen. Controleer daarom vóór import de
 snapshotreferentie en bewaar zo nodig de bestaande JSON-export.
