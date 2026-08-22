@@ -100,7 +100,6 @@ def naar_native_layout_html(
     layout: ResolvedLayout,
     titel: str = "Beckeringh Palace product",
     inhoud_naam: str | None = None,
-    inhoud_doel: str | None = None,
     instance_content: Mapping[str, tuple[str, ...]] | None = None,
 ) -> str:
     """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
@@ -156,7 +155,6 @@ def naar_native_layout_html(
     )
     regels.extend([
         f"    <h1>{html.escape(inhoud_naam or compositie.naam)}</h1>",
-        f'    <p class="bp-product-purpose">{html.escape(inhoud_doel or compositie.doel)}</p>',
         "  </header>",
         (
             f'  <{container_tag} class="bp-layout bp-layout-{_css_naam(layout.id)}"'

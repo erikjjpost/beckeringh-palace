@@ -279,10 +279,8 @@ class GrafanaBackendTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            {"fixed": "#B8C5D6"},
-            dashboard["panels"][0]["options"]["root"]["elements"][1]["config"][
-                "color"
-            ],
+            1,
+            len(dashboard["panels"][0]["options"]["root"]["elements"]),
         )
         self.assertEqual(
             "output/products/forge-dashboard.grafana.json",

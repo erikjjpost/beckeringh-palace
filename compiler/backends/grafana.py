@@ -465,12 +465,10 @@ def _dashboard_header(
             f"product '{product.id}'"
         )
     voorgrond = _themakleur(thema, "materiaal", "foreground")
-    muted = _themakleur(thema, "materiaal", "muted")
     accent = _themakleur(thema, "materiaal", "accent")
     achtergrond = _themakleur(thema, "materiaal", "surface")
     padding = _pixels(thema.spacing.medium, "spacing.medium")
     titelgrootte = _pixels(thema.typeschaal.title, "typeschaal.title")
-    bodygrootte = _pixels(thema.typeschaal.body, "typeschaal.body")
     return {
         "description": compositie_doel,
         "gridPos": {"h": GRAFANA_HEADER_HEIGHT, "w": 24, "x": 0, "y": 0},
@@ -497,24 +495,6 @@ def _dashboard_header(
                             "height": titelgrootte + 8,
                             "left": padding,
                             "top": padding,
-                            "width": 720,
-                        },
-                        "type": "text",
-                    },
-                    {
-                        "config": {
-                            "align": "left",
-                            "color": {"fixed": muted},
-                            "size": bodygrootte,
-                            "text": {"fixed": compositie_doel, "mode": "fixed"},
-                            "valign": "top",
-                        },
-                        "constraint": {"horizontal": "left", "vertical": "top"},
-                        "name": f"{product.id}-purpose",
-                        "placement": {
-                            "height": bodygrootte + 8,
-                            "left": padding + 760,
-                            "top": padding + 8,
                             "width": 720,
                         },
                         "type": "text",

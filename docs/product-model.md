@@ -669,9 +669,16 @@ snapshotidentiteit blijven volledig machineleesbaar (`data-world`,
 `data-theme`, `data-product-mode`, `data-snapshot-id`, `data-snapshot-ref` op
 `<body>` respectievelijk dashboardtags), maar de zelfreferentiële tekst
 ("gegenereerd uit BAT", productmodus als leestekst) hoort niet thuis in wat
-een eindgebruiker daadwerkelijk leest. Zie
+een eindgebruiker daadwerkelijk leest.
+
+M11.9d verwijdert ook de `compositiedoel`-paragraaf uit de dashboardheader,
+opnieuw in zowel HTML als Grafana. Erik Post zag de doel-tekst nog gewoon
+staan na M11.9c en wees op de bredere regel: tekst zonder toegevoegde waarde
+voor wie het product gebruikt, hoort niet in de UI. `doel` blijft bestaan als
+verplicht BAT-veld en als Grafana-panelbeschrijving (info-icoon, alleen op
+hover zichtbaar), maar niet langer als permanent zichtbare paragraaf. Zie
 [beckeringh-architectuurtaal.md](beckeringh-architectuurtaal.md) voor de
-bredere regel: `naam` en `doel` zijn eindproducttekst, geen documentatie.
+volledige regel: `naam` is eindproducttekst, `doel` is dat expliciet niet.
 
 M10.2b voegt een gedeelde Forge-oppervlakhiërarchie toe. De native
 materiaalrollen `canvas`, `surface` en `raised` verwijzen naar afzonderlijke
