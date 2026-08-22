@@ -614,6 +614,22 @@ artifact naar het gedeclareerde pad. Formaat en bestandsextensie kiezen nooit
 impliciet een renderer. Een renderdoel zonder geregistreerde binding faalt
 expliciet. Productdefinities blijven via hun eigen backendcontract compileren.
 
+M11.11a voegt twee renderdoelen toe die het opgeloste EmberForge-materiaalthema
+naar echte terminalconfiguratie vertalen: `emberforge-dircolors` (GNU
+dircolors) en `emberforge-ps1` (bash PS1-snippet), beide in
+`compiler/terminal_theme_renderer.py`. Aanleiding: Erik Post had zijn echte
+bash-terminal eerder handmatig in EmberForge-kleuren gezet door de opgeloste
+themawaarden één keer over te typen naar `~/.dircolors` en `~/.bashrc` — een
+snapshot die stil zou blijven staan bij elke latere wijziging aan het BAT-thema.
+Beide renderers lezen dezelfde opgeloste materiaalrollen
+(`interaction`/`interaction-hover` voor mappen/links, `accent`/`accent-hover`
+voor archieven/media, `success`/`error` voor executables/orphans) via
+`resolveer_thema`, exact dezelfde route als `theme_css.py` voor productoutput.
+`~/.bashrc` source't nu `output/products/emberforge-dircolors` en
+`output/products/emberforge-ps1.sh` rechtstreeks in plaats van een handmatige
+kopie te onderhouden: elke `compile_bat.py`-run na een themawijziging in
+`world.bp` ververst de terminalkleuren automatisch, zonder handmatige stap.
+
 M10.0a voegt de eerste Grafana-productbackend toe. De backend vertaalt een
 opgeloste native grid-layout deterministisch naar het klassieke Grafana
 dashboard JSON model. BAT-gridkolommen worden proportioneel op Grafana's

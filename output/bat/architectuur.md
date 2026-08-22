@@ -6253,3 +6253,33 @@ Componenten als reproduceerbare CSS-klassen genereren.
 
 - **formaat:** css
 - **pad:** output/products/components.css
+
+## EmberForge dircolors
+
+**Soort:** renderdoel
+
+**Identifier:** `emberforge-dircolors`
+
+### Doel
+
+Het opgeloste materiaalthema als GNU dircolors-bestand genereren, zodat terminalkleuren automatisch meebewegen met wijzigingen in het BAT-thema.
+
+### Eigenschappen
+
+- **formaat:** dircolors
+- **pad:** output/products/emberforge-dircolors
+
+## EmberForge PS1
+
+**Soort:** renderdoel
+
+**Identifier:** `emberforge-ps1`
+
+### Doel
+
+Het opgeloste materiaalthema als bash PS1-snippet genereren, zodat de promptkleuren automatisch meebewegen met wijzigingen in het BAT-thema.
+
+### Eigenschappen
+
+- **formaat:** bash
+- **pad:** output/products/emberforge-ps1.sh
