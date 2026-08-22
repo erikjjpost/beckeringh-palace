@@ -2987,7 +2987,7 @@
       "appearance": "forge-status-running-appearance",
       "component": "forge-status",
       "doel": "Werkende operationele toestand.",
-      "naam": "Running"
+      "naam": "Actief"
     },
     "id": "forge-status-running",
     "soort": "variant"
@@ -2997,7 +2997,7 @@
       "appearance": "forge-status-pending-appearance",
       "component": "forge-status",
       "doel": "Wachtende operationele toestand.",
-      "naam": "Pending"
+      "naam": "In wachtrij"
     },
     "id": "forge-status-pending",
     "soort": "variant"
@@ -3007,7 +3007,7 @@
       "appearance": "forge-status-failed-appearance",
       "component": "forge-status",
       "doel": "Gefaalde operationele toestand.",
-      "naam": "Failed"
+      "naam": "Mislukt"
     },
     "id": "forge-status-failed",
     "soort": "variant"
@@ -3017,7 +3017,7 @@
       "appearance": "forge-status-info-appearance",
       "component": "forge-status",
       "doel": "Informatieve operationele gezondheid.",
-      "naam": "Healthy"
+      "naam": "Gezond"
     },
     "id": "forge-status-info",
     "soort": "variant"
@@ -3188,8 +3188,8 @@
     "eigenschappen": {
       "component": "forge-status",
       "doel": "Aantal actieve workloads uit het aangeleverde componentscherm.",
-      "label": "Running",
-      "naam": "Running Status",
+      "label": "Actief",
+      "naam": "Actief-status",
       "variant": "forge-status-running",
       "waarde": "62"
     },
@@ -3200,8 +3200,8 @@
     "eigenschappen": {
       "component": "forge-status",
       "doel": "Aantal wachtende workloads uit het aangeleverde componentscherm.",
-      "label": "Pending",
-      "naam": "Pending Status",
+      "label": "In wachtrij",
+      "naam": "Wachtrij-status",
       "variant": "forge-status-pending",
       "waarde": "3"
     },
@@ -3212,8 +3212,8 @@
     "eigenschappen": {
       "component": "forge-status",
       "doel": "Aantal gefaalde workloads uit het aangeleverde componentscherm.",
-      "label": "Failed",
-      "naam": "Failed Status",
+      "label": "Mislukt",
+      "naam": "Mislukt-status",
       "variant": "forge-status-failed",
       "waarde": "1"
     },
@@ -3224,8 +3224,8 @@
     "eigenschappen": {
       "component": "forge-status",
       "doel": "Informatieve gezondheid uit het aangeleverde componentscherm.",
-      "label": "Healthy",
-      "naam": "Healthy Status",
+      "label": "Gezond",
+      "naam": "Gezondheid-status",
       "variant": "forge-status-info",
       "waarde": "98%"
     },
@@ -3238,7 +3238,7 @@
       "component": "forge-app-tile",
       "doel": "Producttegel voor ISMS Challenger.",
       "label": "ISMS Challenger",
-      "naam": "ISMS App Tile",
+      "naam": "ISMS App-tegel",
       "status": "running",
       "variant": "forge-app-tile-default"
     },
@@ -3251,7 +3251,7 @@
       "component": "forge-app-tile",
       "doel": "Zeldzame warme producttegel voor CV beheer.",
       "label": "CV Tool",
-      "naam": "CV App Tile",
+      "naam": "CV App-tegel",
       "status": "running",
       "variant": "forge-app-tile-ember"
     },
@@ -3260,11 +3260,11 @@
   },
   {
     "eigenschappen": {
-      "beschrijving": "All Running",
+      "beschrijving": "Allemaal actief",
       "component": "forge-stat-card",
       "doel": "Aantal actieve clusternodes.",
       "label": "Nodes",
-      "naam": "Nodes Stat Card",
+      "naam": "Nodes statkaart",
       "variant": "forge-stat-card-value",
       "waarde": "12"
     },
@@ -3276,10 +3276,10 @@
       "beschrijving": "98%",
       "component": "forge-stat-card",
       "doel": "Clustergezondheid als feitelijke waarde.",
-      "label": "Cluster Health",
-      "naam": "Health Stat Card",
+      "label": "Clustergezondheid",
+      "naam": "Gezondheid statkaart",
       "variant": "forge-stat-card-health",
-      "waarde": "Healthy"
+      "waarde": "Gezond"
     },
     "id": "forge-stat-card-health-example",
     "soort": "componentvoorbeeld"
@@ -3288,8 +3288,8 @@
     "eigenschappen": {
       "component": "forge-stat-card",
       "doel": "Actueel CPU gebruik.",
-      "label": "CPU Usage",
-      "naam": "CPU Stat Card",
+      "label": "CPU-gebruik",
+      "naam": "CPU statkaart",
       "variant": "forge-stat-card-progress",
       "waarde": "24%"
     },
@@ -3300,8 +3300,8 @@
     "eigenschappen": {
       "component": "forge-stat-card",
       "doel": "Actueel geheugengebruik met één schaars koperaccent.",
-      "label": "Memory",
-      "naam": "Memory Stat Card",
+      "label": "Geheugen",
+      "naam": "Geheugen statkaart",
       "variant": "forge-stat-card-progress-ember",
       "waarde": "43%"
     },
@@ -3761,6 +3761,118 @@
   },
   {
     "eigenschappen": {
+      "doel": "Aantal actieve clusternodes via Prometheus kube-state-metrics.",
+      "eenheid": "aantal",
+      "expr": "count(kube_node_info)",
+      "naam": "Node count"
+    },
+    "id": "databron-homelab-nodes",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Of alle clusternodes de Ready-conditie dragen.",
+      "eenheid": "tekst",
+      "expr": "count(kube_node_status_condition{condition='Ready',status='true'}) == bool count(kube_node_info)",
+      "mapping": [
+        "1:Gezond",
+        "0:Verslechterd"
+      ],
+      "naam": "Cluster readiness"
+    },
+    "id": "databron-homelab-health",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Gemiddeld CPU-gebruik over clusternodes via node-exporter.",
+      "eenheid": "percentage",
+      "expr": "100 * avg(1 - rate(node_cpu_seconds_total{mode='idle'}[5m]))",
+      "naam": "CPU usage"
+    },
+    "id": "databron-homelab-cpu",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Gemiddeld geheugengebruik over clusternodes via node-exporter.",
+      "eenheid": "percentage",
+      "expr": "100 * (1 - avg(node_memory_MemAvailable_bytes) / avg(node_memory_MemTotal_bytes))",
+      "naam": "Memory usage"
+    },
+    "id": "databron-homelab-memory",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Aantal workloads in fase Running.",
+      "eenheid": "aantal",
+      "expr": "sum(kube_pod_status_phase{phase='Running'})",
+      "naam": "Running pods"
+    },
+    "id": "databron-homelab-running",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Aantal workloads in fase Pending.",
+      "eenheid": "aantal",
+      "expr": "sum(kube_pod_status_phase{phase='Pending'})",
+      "naam": "Pending pods"
+    },
+    "id": "databron-homelab-pending",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Aantal workloads in fase Failed.",
+      "eenheid": "aantal",
+      "expr": "sum(kube_pod_status_phase{phase='Failed'})",
+      "naam": "Failed pods"
+    },
+    "id": "databron-homelab-failed",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Aandeel workloads in fase Running ten opzichte van alle workloads.",
+      "eenheid": "percentage",
+      "expr": "100 * sum(kube_pod_status_phase{phase='Running'}) / sum(kube_pod_status_phase)",
+      "naam": "Cluster pod health"
+    },
+    "id": "databron-homelab-healthy",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Of ISMS Challenger minstens één Running pod heeft in namespace isms-challenger.",
+      "eenheid": "tekst",
+      "expr": "sum(kube_pod_status_phase{namespace='isms-challenger',phase='Running'}) > bool 0",
+      "mapping": [
+        "1:actief",
+        "0:gestopt"
+      ],
+      "naam": "ISMS Challenger status"
+    },
+    "id": "databron-homelab-isms",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
+      "doel": "Of CV Tool minstens één Running pod heeft in namespace cvdatabase.",
+      "eenheid": "tekst",
+      "expr": "sum(kube_pod_status_phase{namespace='cvdatabase',phase='Running'}) > bool 0",
+      "mapping": [
+        "1:actief",
+        "0:gestopt"
+      ],
+      "naam": "CV Tool status"
+    },
+    "id": "databron-homelab-cv",
+    "soort": "databron"
+  },
+  {
+    "eigenschappen": {
       "doel": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
       "instanties": [
         "homelab-stat-nodes",
@@ -3782,6 +3894,7 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-nodes",
       "doel": "Aantal actieve clusternodes.",
       "naam": "Nodes",
       "voorbeeld": "forge-stat-card-nodes-example"
@@ -3792,8 +3905,9 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-health",
       "doel": "Actuele gezondheid van het cluster.",
-      "naam": "Cluster Health",
+      "naam": "Clustergezondheid",
       "voorbeeld": "forge-stat-card-health-example"
     },
     "id": "homelab-stat-health",
@@ -3802,8 +3916,9 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-cpu",
       "doel": "Actueel CPU gebruik.",
-      "naam": "CPU Usage",
+      "naam": "CPU-gebruik",
       "voorbeeld": "forge-stat-card-cpu-example"
     },
     "id": "homelab-stat-cpu",
@@ -3812,8 +3927,9 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-memory",
       "doel": "Actueel geheugengebruik.",
-      "naam": "Memory",
+      "naam": "Geheugen",
       "voorbeeld": "forge-stat-card-memory-example"
     },
     "id": "homelab-stat-memory",
@@ -3822,8 +3938,9 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-running",
       "doel": "Aantal actieve workloads.",
-      "naam": "Running",
+      "naam": "Actief",
       "voorbeeld": "forge-status-running-example"
     },
     "id": "homelab-status-running",
@@ -3832,8 +3949,9 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-pending",
       "doel": "Aantal wachtende workloads.",
-      "naam": "Pending",
+      "naam": "In wachtrij",
       "voorbeeld": "forge-status-pending-example"
     },
     "id": "homelab-status-pending",
@@ -3842,8 +3960,9 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-failed",
       "doel": "Aantal gefaalde workloads.",
-      "naam": "Failed",
+      "naam": "Mislukt",
       "voorbeeld": "forge-status-failed-example"
     },
     "id": "homelab-status-failed",
@@ -3852,8 +3971,9 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-healthy",
       "doel": "Samengevatte clustergezondheid.",
-      "naam": "Healthy",
+      "naam": "Gezond",
       "voorbeeld": "forge-status-info-example"
     },
     "id": "homelab-status-healthy",
@@ -3862,6 +3982,7 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-isms",
       "doel": "Homelab applicatie voor Information Security Management.",
       "naam": "ISMS Challenger",
       "voorbeeld": "forge-app-tile-isms-example"
@@ -3872,6 +3993,7 @@
   {
     "eigenschappen": {
       "compositie": "emberforge-observatory",
+      "databron": "databron-homelab-cv",
       "doel": "Homelab applicatie voor consultant CV beheer.",
       "naam": "CV Tool",
       "voorbeeld": "forge-app-tile-cv-example"

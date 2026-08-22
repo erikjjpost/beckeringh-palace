@@ -9,6 +9,7 @@ from compiler.component_examples import ComponentExampleConstraint
 from compiler.brand_identity import BrandIdentityConstraint
 from compiler.composition_constraints import DesignCompositionConstraint
 from compiler.constraints import ConstraintContext
+from compiler.data_sources import DataSourceConstraint
 from compiler.design_tokens import TokenType, token_uit_object, waarde_past_bij_type
 from compiler.design_system_reference import DesignSystemReferenceConstraint
 from compiler.diagnostics import Diagnostic
@@ -127,6 +128,7 @@ WORLD_MODEL_CONSTRAINTS = (
     ComponentAccessibilityConstraint(),
     ComponentVariantConstraint(),
     ComponentExampleConstraint(),
+    DataSourceConstraint(),
     DesignSystemReferenceConstraint(),
     InformationArchitectureConstraint(),
     HomepageInformationArchitectureConstraint(),

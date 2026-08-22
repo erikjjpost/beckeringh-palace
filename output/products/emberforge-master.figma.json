@@ -1793,7 +1793,7 @@
   ],
   "product": {
     "id": "emberforge-figma-master-manifest",
-    "snapshot": "sha256:5f4ff7b57960ef306668746ffa9644eb73ee29ae5901485d051696a3c48705a8"
+    "snapshot": "sha256:dcd931de48970f0622102d479835d64bd756068cbf75b064f0429237adc9a11f"
   },
   "schema_version": 2,
   "theme": {
@@ -2271,7 +2271,7 @@
     {
       "component": "forge-status",
       "id": "forge-status-running",
-      "naam": "Running",
+      "naam": "Actief",
       "states": {
         "rest": "forge-status-running-appearance"
       }
@@ -2279,7 +2279,7 @@
     {
       "component": "forge-status",
       "id": "forge-status-pending",
-      "naam": "Pending",
+      "naam": "In wachtrij",
       "states": {
         "rest": "forge-status-pending-appearance"
       }
@@ -2287,7 +2287,7 @@
     {
       "component": "forge-status",
       "id": "forge-status-failed",
-      "naam": "Failed",
+      "naam": "Mislukt",
       "states": {
         "rest": "forge-status-failed-appearance"
       }
@@ -2295,7 +2295,7 @@
     {
       "component": "forge-status",
       "id": "forge-status-info",
-      "naam": "Healthy",
+      "naam": "Gezond",
       "states": {
         "rest": "forge-status-info-appearance"
       }

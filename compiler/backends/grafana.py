@@ -8,6 +8,7 @@ from pathlib import PurePosixPath
 
 from compiler.backend import Backend
 from compiler.cir import Architectuurobject
+from compiler.data_sources import ResolvedDataSource
 from compiler.design_components import ComponentAppearance, verzamel_appearances
 from compiler.design_compositions import ResolvedComponentInstance
 from compiler.layout_model import LayoutType, ResolvedLayout, ResolvedRegion
@@ -16,9 +17,32 @@ from compiler.project_status import ProductAreaStatus, ProjectStatus
 from compiler.theme_resolution import ResolvedTheme
 
 GRAFANA_GRID_COLUMNS = 24
-GRAFANA_ROW_HEIGHT = 16
 GRAFANA_HEADER_HEIGHT = 4
 PIXELWAARDE = re.compile(r"^(?P<waarde>\d+(?:\.\d+)?)px$")
+
+# Grafana's eigen, niet-configureerbare rasterschaal: elke gridPos.h-eenheid
+# rendert als GRAFANA_ROW_UNIT_PX pixels plus GRAFANA_ROW_MARGIN_PX marge.
+# Elk paneel krijgt een lege Grafana-titel ("title": "") zodat alleen de
+# gebrande Canvas-naam zichtbaar is; met een lege titel reserveert Grafana
+# geen eigen koptekstbalk meer (leeg getest tegen de echte Grafana-instantie),
+# dus GRAFANA_PANEL_HEADER_PX is 0. Rijhoogte wordt per product berekend uit
+# de daadwerkelijk opgeloste inhoud, niet als vaste aanname: paneelinhoud
+# varieert sterk tussen bijvoorbeeld statkaarten en informatiegebieden.
+GRAFANA_ROW_UNIT_PX = 30
+GRAFANA_ROW_MARGIN_PX = 8
+GRAFANA_PANEL_HEADER_PX = 0
+
+# Infra-binding voor live databronnen: welk Grafana-datasource-uid een
+# 'databron' op K3s daadwerkelijk bevraagt. Het World Model legt vast wélke
+# query hoort bij een componentinstantie (compileertijd, reproduceerbaar); de
+# backend legt vast wélke Prometheus-instantie die query op kijktijd uitvoert
+# (omgevingsfeit, geen wereldfeit).
+PROMETHEUS_DATASOURCE_UID = "PBFA97CFB590B2093"
+DATABRON_EENHEID_UNIT = {
+    "aantal": "short",
+    "percentage": "percent",
+    "tekst": "none",
+}
 
 
 def _grafana_stijl(product: ProductDefinition) -> str:
@@ -93,6 +117,8 @@ def _paneelbeschrijving(instantie: ResolvedComponentInstance) -> str:
         )
     if instantie.reading_order is not None:
         identiteit.append(f"Leesvolgorde: {instantie.reading_order}")
+    if instantie.databron is not None:
+        identiteit.append(f"BAT databron: {instantie.databron.id}")
     return f"{instantie.doel}\n\n" + "\n".join(identiteit)
 
 
@@ -247,6 +273,36 @@ def _canvasopties(
             }
         )
         body_top += metric_size + 12
+    elif instantie.databron is not None or (
+        instantie.example is not None and instantie.example.waarde is not None
+    ):
+        waarde_size = headinggrootte * 2
+        tekst = (
+            {"mode": "field", "field": "Value"}
+            if instantie.databron is not None
+            else {"fixed": instantie.example.waarde, "mode": "fixed"}
+        )
+        elementen.append(
+            {
+                "config": {
+                    "align": "left",
+                    "color": {"fixed": accent},
+                    "size": waarde_size,
+                    "text": tekst,
+                    "valign": "top",
+                },
+                "constraint": {"horizontal": "left", "vertical": "top"},
+                "name": f"{instantie.id}-value",
+                "placement": {
+                    "height": waarde_size + 8,
+                    "left": tekstlinks,
+                    "top": body_top,
+                    "width": 360,
+                },
+                "type": "text",
+            }
+        )
+        body_top += waarde_size + 12
     if instantie.metric_details:
         detailregels = tuple(instantie.metric_details)
         detailhoogte = captiongrootte * (len(detailregels) + 1)
@@ -382,27 +438,7 @@ def _canvasopties(
             }
         )
         body_top += inhoudhoogte + 12
-    elementen.append(
-        {
-            "config": {
-                "align": "left",
-                "color": {"fixed": muted},
-                "size": bodygrootte,
-                "text": {"fixed": instantie.doel, "mode": "fixed"},
-                "valign": "top",
-            },
-            "constraint": {"horizontal": "left", "vertical": "top"},
-            "name": f"{instantie.id}-body",
-            "placement": {
-                "height": bodygrootte * 3,
-                "left": tekstlinks,
-                "top": body_top,
-                "width": 360,
-            },
-            "type": "text",
-        }
-    )
-    elementen[0]["placement"]["height"] = body_top + bodygrootte * 3 - padding
+    elementen[0]["placement"]["height"] = body_top - padding - 12
 
     return {
         "infinitePan": False,
@@ -422,7 +458,60 @@ def _canvasopties(
     }
 
 
-def _gridpositie(layout: ResolvedLayout, region: ResolvedRegion) -> dict[str, int]:
+def _databron_paneelvelden(databron: ResolvedDataSource) -> dict[str, object]:
+    datasource = {"type": "prometheus", "uid": PROMETHEUS_DATASOURCE_UID}
+    defaults: dict[str, object] = {"unit": DATABRON_EENHEID_UNIT[databron.eenheid]}
+    if databron.mapping:
+        defaults["mappings"] = [
+            {
+                "type": "value",
+                "options": {
+                    item.waarde: {"text": item.label}
+                    for item in databron.mapping
+                },
+            }
+        ]
+    return {
+        "datasource": datasource,
+        "fieldConfig": {"defaults": defaults, "overrides": []},
+        "targets": [
+            {
+                "refId": "A",
+                "datasource": datasource,
+                "expr": databron.expr,
+                "instant": True,
+            }
+        ],
+    }
+
+
+def _inhoud_hoogte(canvasopties: dict[str, object]) -> float:
+    root = canvasopties["root"]
+    assert isinstance(root, dict)
+    elementen = root["elements"]
+    assert isinstance(elementen, list)
+    return max(
+        element["placement"]["top"] + element["placement"]["height"]
+        for element in elementen
+    )
+
+
+def _rijhoogte_eenheden(paneelinhouden: Iterable[dict[str, object]]) -> int:
+    hoogste_inhoud_px = max(
+        _inhoud_hoogte(opties) for opties in paneelinhouden
+    )
+    benodigde_px = (
+        hoogste_inhoud_px + GRAFANA_PANEL_HEADER_PX + GRAFANA_ROW_MARGIN_PX
+    )
+    eenheid = GRAFANA_ROW_UNIT_PX + GRAFANA_ROW_MARGIN_PX
+    return max(1, -(-int(benodigde_px + GRAFANA_ROW_MARGIN_PX) // eenheid))
+
+
+def _gridpositie(
+    layout: ResolvedLayout,
+    region: ResolvedRegion,
+    rijhoogte: int,
+) -> dict[str, int]:
     if None in (
         layout.columns,
         region.column,
@@ -445,10 +534,10 @@ def _gridpositie(layout: ResolvedLayout, region: ResolvedRegion) -> dict[str, in
         (region.column - 1 + region.column_span) * GRAFANA_GRID_COLUMNS
     ) // layout.columns
     return {
-        "h": region.row_span * GRAFANA_ROW_HEIGHT,
+        "h": region.row_span * rijhoogte,
         "w": einde - start,
         "x": start,
-        "y": GRAFANA_HEADER_HEIGHT + (region.row - 1) * GRAFANA_ROW_HEIGHT,
+        "y": GRAFANA_HEADER_HEIGHT + (region.row - 1) * rijhoogte,
     }
 
 
@@ -505,7 +594,7 @@ def _dashboard_header(
             },
             "showAdvancedTypes": False,
         },
-        "title": compositie_naam,
+        "title": "",
         "transparent": True,
         "type": "canvas",
     }
@@ -624,7 +713,7 @@ def _status_canvas(
             },
             "showAdvancedTypes": False,
         },
-        "title": title,
+        "title": "",
         "transparent": True,
         "type": "canvas",
     }
@@ -754,30 +843,40 @@ def _render(
             instanties,
             key=lambda instantie: instantie.reading_order or 0,
         ))
-    for panel_id, instantie in enumerate(instanties, start=2):
-        region = regions_per_instantie[instantie.id]
+
+    def _appearance_voor(instantie: ResolvedComponentInstance) -> ComponentAppearance:
         appearance = appearances.get(instantie.appearance_id or "")
         if appearance is None:
             raise ValueError(
                 f"Grafana Canvas vereist een opgeloste appearance voor "
                 f"componentinstantie '{instantie.id}'"
             )
-        panels.append(
-            {
-                "description": _paneelbeschrijving(instantie),
-                "gridPos": _gridpositie(layout, region),
-                "id": panel_id,
-                "options": _canvasopties(
-                    instantie,
-                    appearance,
-                    product.thema,
-                    instantie.metric_value,
-                ),
-                "title": instantie.accessibility_label or instantie.naam,
-                "transparent": True,
-                "type": "canvas",
-            }
+        return appearance
+
+    canvasopties_per_instantie = {
+        instantie.id: _canvasopties(
+            instantie,
+            _appearance_voor(instantie),
+            product.thema,
+            instantie.metric_value,
         )
+        for instantie in instanties
+    }
+    rijhoogte = _rijhoogte_eenheden(canvasopties_per_instantie.values())
+    for panel_id, instantie in enumerate(instanties, start=2):
+        region = regions_per_instantie[instantie.id]
+        panel = {
+            "description": _paneelbeschrijving(instantie),
+            "gridPos": _gridpositie(layout, region, rijhoogte),
+            "id": panel_id,
+            "options": canvasopties_per_instantie[instantie.id],
+            "title": "",
+            "transparent": True,
+            "type": "canvas",
+        }
+        if instantie.databron is not None:
+            panel.update(_databron_paneelvelden(instantie.databron))
+        panels.append(panel)
 
     dashboard = {
         "annotations": {"list": []},

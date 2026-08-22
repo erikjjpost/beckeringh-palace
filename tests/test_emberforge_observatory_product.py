@@ -101,7 +101,7 @@ class EmberForgeObservatoryProductTests(unittest.TestCase):
         )
         self.assertIn(">ISMS Challenger</strong>", html)
         self.assertIn(">CV Tool</strong>", html)
-        self.assertIn(">Running</span> · <span>62</span>", html)
+        self.assertIn(">Actief</span> · <span>62</span>", html)
         self.assertNotIn("fonts.googleapis.com", html)
 
         parser = _IdCollector()
@@ -134,34 +134,45 @@ class EmberForgeObservatoryProductTests(unittest.TestCase):
         self.assertEqual({"hidden": False}, dashboard["timepicker"])
         self.assertEqual(11, len(dashboard["panels"]))
         self.assertEqual(
-            [
-                "The Observatory",
-                "Nodes",
-                "Cluster Health",
-                "CPU Usage",
-                "Memory",
-                "Running",
-                "Pending",
-                "Failed",
-                "Healthy",
-                "ISMS Challenger",
-                "CV Tool",
-            ],
+            [""] * 11,
             [panel["title"] for panel in dashboard["panels"]],
         )
         self.assertEqual(
             [
+                "The Observatory",
+                "Nodes",
+                "Clustergezondheid",
+                "CPU-gebruik",
+                "Geheugen",
+                "Actief",
+                "In wachtrij",
+                "Mislukt",
+                "Gezond",
+                "ISMS Challenger",
+                "CV Tool",
+            ],
+            [
+                next(
+                    element["config"]["text"]["fixed"]
+                    for element in panel["options"]["root"]["elements"]
+                    if element["name"].endswith(("-title", "-heading"))
+                )
+                for panel in dashboard["panels"]
+            ],
+        )
+        self.assertEqual(
+            [
                 {"h": 4, "w": 24, "x": 0, "y": 0},
-                {"h": 16, "w": 6, "x": 0, "y": 4},
-                {"h": 16, "w": 6, "x": 6, "y": 4},
-                {"h": 16, "w": 6, "x": 12, "y": 4},
-                {"h": 16, "w": 6, "x": 18, "y": 4},
-                {"h": 16, "w": 6, "x": 0, "y": 20},
-                {"h": 16, "w": 6, "x": 6, "y": 20},
-                {"h": 16, "w": 6, "x": 12, "y": 20},
-                {"h": 16, "w": 6, "x": 18, "y": 20},
-                {"h": 16, "w": 12, "x": 0, "y": 36},
-                {"h": 16, "w": 12, "x": 12, "y": 36},
+                {"h": 4, "w": 6, "x": 0, "y": 4},
+                {"h": 4, "w": 6, "x": 6, "y": 4},
+                {"h": 4, "w": 6, "x": 12, "y": 4},
+                {"h": 4, "w": 6, "x": 18, "y": 4},
+                {"h": 4, "w": 6, "x": 0, "y": 8},
+                {"h": 4, "w": 6, "x": 6, "y": 8},
+                {"h": 4, "w": 6, "x": 12, "y": 8},
+                {"h": 4, "w": 6, "x": 18, "y": 8},
+                {"h": 4, "w": 12, "x": 0, "y": 12},
+                {"h": 4, "w": 12, "x": 12, "y": 12},
             ],
             [panel["gridPos"] for panel in dashboard["panels"]],
         )
@@ -173,6 +184,74 @@ class EmberForgeObservatoryProductTests(unittest.TestCase):
         self.assertIn("BAT variant: forge-app-tile-default", descriptions)
         self.assertIn("Toegankelijkheidsrol: status", descriptions)
         self.assertIn("Toetsenbordgedrag: activeren", descriptions)
+
+    def test_grafana_panelen_hebben_live_databronbindingen(self) -> None:
+        dashboard = json.loads(
+            self.products["emberforge-observatory-grafana"].inhoud
+        )
+        panels_bij_databron = {
+            panel["description"].rsplit("BAT databron: ", 1)[1]: panel
+            for panel in dashboard["panels"][1:]
+        }
+        verwachte_expr = {
+            "databron-homelab-nodes": "count(kube_node_info)",
+            "databron-homelab-cpu": (
+                "100 * avg(1 - rate(node_cpu_seconds_total{mode='idle'}[5m]))"
+            ),
+            "databron-homelab-running": "sum(kube_pod_status_phase{phase='Running'})",
+        }
+        for databron_id, expr in verwachte_expr.items():
+            panel = panels_bij_databron[databron_id]
+            self.assertEqual(
+                {"type": "prometheus", "uid": "PBFA97CFB590B2093"},
+                panel["datasource"],
+            )
+            self.assertEqual(expr, panel["targets"][0]["expr"])
+            self.assertTrue(panel["targets"][0]["instant"])
+
+        health = panels_bij_databron["databron-homelab-health"]
+        self.assertEqual(
+            [
+                {
+                    "type": "value",
+                    "options": {
+                        "1": {"text": "Gezond"},
+                        "0": {"text": "Verslechterd"},
+                    },
+                }
+            ],
+            health["fieldConfig"]["defaults"]["mappings"],
+        )
+        isms = panels_bij_databron["databron-homelab-isms"]
+        self.assertEqual(
+            [
+                {
+                    "type": "value",
+                    "options": {
+                        "1": {"text": "actief"},
+                        "0": {"text": "gestopt"},
+                    },
+                }
+            ],
+            isms["fieldConfig"]["defaults"]["mappings"],
+        )
+        cpu = panels_bij_databron["databron-homelab-cpu"]
+        self.assertEqual("percent", cpu["fieldConfig"]["defaults"]["unit"])
+
+        value_elements = health["options"]["root"]["elements"]
+        live_tekst = next(
+            element["config"]["text"]
+            for element in value_elements
+            if element["name"].endswith("-value")
+        )
+        self.assertEqual({"mode": "field", "field": "Value"}, live_tekst)
+
+    def test_html_bevat_geen_live_databronnen(self) -> None:
+        html = self.products["emberforge-observatory-html"].inhoud
+
+        self.assertNotIn("databron", html)
+        self.assertNotIn("prometheus", html)
+        self.assertNotIn("kube_node_info", html)
 
     def test_registreert_de_productsurface_als_gecontroleerde_migratie(self) -> None:
         source = json.loads(DESIGN_INPUT.read_text(encoding="utf-8"))

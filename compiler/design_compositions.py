@@ -13,6 +13,7 @@ from compiler.component_examples import (
     ResolvedComponentExample,
     resolveer_componentvoorbeelden,
 )
+from compiler.data_sources import ResolvedDataSource, resolveer_databronnen
 from compiler.design_variants import ResolvedComponentVariant, resolveer_varianten
 from compiler.information_architecture import (
     ResolvedContentAnchor,
@@ -60,6 +61,7 @@ class ResolvedComponentInstance:
     metric_details: tuple[ResolvedMetricDetail, ...]
     content_anchors: tuple[ResolvedContentAnchor, ...]
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
+    databron: ResolvedDataSource | None
 
 
 @dataclass(frozen=True)
@@ -95,6 +97,7 @@ def _instantie_uit_object(
     aantal_objecten: int,
     objecten: tuple[Architectuurobject, ...],
     voorbeelden: dict[str, ResolvedComponentExample],
+    databronnen: dict[str, ResolvedDataSource],
 ) -> ResolvedComponentInstance:
     symbolen = {item.id: item for item in objecten}
     homepagegebied_waarde = obj.eigenschappen.get("homepagegebied")
@@ -273,6 +276,7 @@ def _instantie_uit_object(
                 for doel_id in navigatie
             )
         ),
+        databron=databronnen.get(obj.eigenschappen.get("databron")),
     )
 
 
@@ -303,6 +307,10 @@ def resolveer_composities(
     voorbeelden = {
         voorbeeld.id: voorbeeld
         for voorbeeld in resolveer_componentvoorbeelden(objecten)
+    }
+    databronnen = {
+        databron.id: databron
+        for databron in resolveer_databronnen(objecten)
     }
     informatiegebieden = {
         gebied.id: gebied
@@ -337,6 +345,7 @@ def resolveer_composities(
                     len(objecten),
                     objecten,
                     voorbeelden,
+                    databronnen,
                 )
                 for instance_id in instance_ids
             )

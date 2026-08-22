@@ -2203,28 +2203,28 @@ variant forge-input-error {
 }
 
 variant forge-status-running {
-    naam: "Running"
+    naam: "Actief"
     doel: "Werkende operationele toestand."
     component: "forge-status"
     appearance: "forge-status-running-appearance"
 }
 
 variant forge-status-pending {
-    naam: "Pending"
+    naam: "In wachtrij"
     doel: "Wachtende operationele toestand."
     component: "forge-status"
     appearance: "forge-status-pending-appearance"
 }
 
 variant forge-status-failed {
-    naam: "Failed"
+    naam: "Mislukt"
     doel: "Gefaalde operationele toestand."
     component: "forge-status"
     appearance: "forge-status-failed-appearance"
 }
 
 variant forge-status-info {
-    naam: "Healthy"
+    naam: "Gezond"
     doel: "Informatieve operationele gezondheid."
     component: "forge-status"
     appearance: "forge-status-info-appearance"
@@ -2351,43 +2351,43 @@ componentvoorbeeld forge-input-error-example {
 }
 
 componentvoorbeeld forge-status-running-example {
-    naam: "Running Status"
+    naam: "Actief-status"
     doel: "Aantal actieve workloads uit het aangeleverde componentscherm."
     component: "forge-status"
     variant: "forge-status-running"
-    label: "Running"
+    label: "Actief"
     waarde: "62"
 }
 
 componentvoorbeeld forge-status-pending-example {
-    naam: "Pending Status"
+    naam: "Wachtrij-status"
     doel: "Aantal wachtende workloads uit het aangeleverde componentscherm."
     component: "forge-status"
     variant: "forge-status-pending"
-    label: "Pending"
+    label: "In wachtrij"
     waarde: "3"
 }
 
 componentvoorbeeld forge-status-failed-example {
-    naam: "Failed Status"
+    naam: "Mislukt-status"
     doel: "Aantal gefaalde workloads uit het aangeleverde componentscherm."
     component: "forge-status"
     variant: "forge-status-failed"
-    label: "Failed"
+    label: "Mislukt"
     waarde: "1"
 }
 
 componentvoorbeeld forge-status-info-example {
-    naam: "Healthy Status"
+    naam: "Gezondheid-status"
     doel: "Informatieve gezondheid uit het aangeleverde componentscherm."
     component: "forge-status"
     variant: "forge-status-info"
-    label: "Healthy"
+    label: "Gezond"
     waarde: "98%"
 }
 
 componentvoorbeeld forge-app-tile-isms-example {
-    naam: "ISMS App Tile"
+    naam: "ISMS App-tegel"
     doel: "Producttegel voor ISMS Challenger."
     component: "forge-app-tile"
     variant: "forge-app-tile-default"
@@ -2397,7 +2397,7 @@ componentvoorbeeld forge-app-tile-isms-example {
 }
 
 componentvoorbeeld forge-app-tile-cv-example {
-    naam: "CV App Tile"
+    naam: "CV App-tegel"
     doel: "Zeldzame warme producttegel voor CV beheer."
     component: "forge-app-tile"
     variant: "forge-app-tile-ember"
@@ -2407,40 +2407,40 @@ componentvoorbeeld forge-app-tile-cv-example {
 }
 
 componentvoorbeeld forge-stat-card-nodes-example {
-    naam: "Nodes Stat Card"
+    naam: "Nodes statkaart"
     doel: "Aantal actieve clusternodes."
     component: "forge-stat-card"
     variant: "forge-stat-card-value"
     label: "Nodes"
     waarde: "12"
-    beschrijving: "All Running"
+    beschrijving: "Allemaal actief"
 }
 
 componentvoorbeeld forge-stat-card-health-example {
-    naam: "Health Stat Card"
+    naam: "Gezondheid statkaart"
     doel: "Clustergezondheid als feitelijke waarde."
     component: "forge-stat-card"
     variant: "forge-stat-card-health"
-    label: "Cluster Health"
-    waarde: "Healthy"
+    label: "Clustergezondheid"
+    waarde: "Gezond"
     beschrijving: "98%"
 }
 
 componentvoorbeeld forge-stat-card-cpu-example {
-    naam: "CPU Stat Card"
+    naam: "CPU statkaart"
     doel: "Actueel CPU gebruik."
     component: "forge-stat-card"
     variant: "forge-stat-card-progress"
-    label: "CPU Usage"
+    label: "CPU-gebruik"
     waarde: "24%"
 }
 
 componentvoorbeeld forge-stat-card-memory-example {
-    naam: "Memory Stat Card"
+    naam: "Geheugen statkaart"
     doel: "Actueel geheugengebruik met één schaars koperaccent."
     component: "forge-stat-card"
     variant: "forge-stat-card-progress-ember"
-    label: "Memory"
+    label: "Geheugen"
     waarde: "43%"
 }
 
@@ -2630,6 +2630,79 @@ product forge-dashboard-grafana {
     pad: "output/products/forge-dashboard.grafana.json"
 }
 
+databron databron-homelab-nodes {
+    naam: "Node count"
+    doel: "Aantal actieve clusternodes via Prometheus kube-state-metrics."
+    expr: "count(kube_node_info)"
+    eenheid: "aantal"
+}
+
+databron databron-homelab-health {
+    naam: "Cluster readiness"
+    doel: "Of alle clusternodes de Ready-conditie dragen."
+    expr: "count(kube_node_status_condition{condition='Ready',status='true'}) == bool count(kube_node_info)"
+    eenheid: "tekst"
+    mapping: ["1:Gezond", "0:Verslechterd"]
+}
+
+databron databron-homelab-cpu {
+    naam: "CPU usage"
+    doel: "Gemiddeld CPU-gebruik over clusternodes via node-exporter."
+    expr: "100 * avg(1 - rate(node_cpu_seconds_total{mode='idle'}[5m]))"
+    eenheid: "percentage"
+}
+
+databron databron-homelab-memory {
+    naam: "Memory usage"
+    doel: "Gemiddeld geheugengebruik over clusternodes via node-exporter."
+    expr: "100 * (1 - avg(node_memory_MemAvailable_bytes) / avg(node_memory_MemTotal_bytes))"
+    eenheid: "percentage"
+}
+
+databron databron-homelab-running {
+    naam: "Running pods"
+    doel: "Aantal workloads in fase Running."
+    expr: "sum(kube_pod_status_phase{phase='Running'})"
+    eenheid: "aantal"
+}
+
+databron databron-homelab-pending {
+    naam: "Pending pods"
+    doel: "Aantal workloads in fase Pending."
+    expr: "sum(kube_pod_status_phase{phase='Pending'})"
+    eenheid: "aantal"
+}
+
+databron databron-homelab-failed {
+    naam: "Failed pods"
+    doel: "Aantal workloads in fase Failed."
+    expr: "sum(kube_pod_status_phase{phase='Failed'})"
+    eenheid: "aantal"
+}
+
+databron databron-homelab-healthy {
+    naam: "Cluster pod health"
+    doel: "Aandeel workloads in fase Running ten opzichte van alle workloads."
+    expr: "100 * sum(kube_pod_status_phase{phase='Running'}) / sum(kube_pod_status_phase)"
+    eenheid: "percentage"
+}
+
+databron databron-homelab-isms {
+    naam: "ISMS Challenger status"
+    doel: "Of ISMS Challenger minstens één Running pod heeft in namespace isms-challenger."
+    expr: "sum(kube_pod_status_phase{namespace='isms-challenger',phase='Running'}) > bool 0"
+    eenheid: "tekst"
+    mapping: ["1:actief", "0:gestopt"]
+}
+
+databron databron-homelab-cv {
+    naam: "CV Tool status"
+    doel: "Of CV Tool minstens één Running pod heeft in namespace cvdatabase."
+    expr: "sum(kube_pod_status_phase{namespace='cvdatabase',phase='Running'}) > bool 0"
+    eenheid: "tekst"
+    mapping: ["1:actief", "0:gestopt"]
+}
+
 compositie emberforge-observatory {
     naam: "The Observatory"
     doel: "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties."
@@ -2641,55 +2714,63 @@ componentinstantie homelab-stat-nodes {
     doel: "Aantal actieve clusternodes."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-nodes-example"
+    databron: "databron-homelab-nodes"
 }
 
 componentinstantie homelab-stat-health {
-    naam: "Cluster Health"
+    naam: "Clustergezondheid"
     doel: "Actuele gezondheid van het cluster."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-health-example"
+    databron: "databron-homelab-health"
 }
 
 componentinstantie homelab-stat-cpu {
-    naam: "CPU Usage"
+    naam: "CPU-gebruik"
     doel: "Actueel CPU gebruik."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-cpu-example"
+    databron: "databron-homelab-cpu"
 }
 
 componentinstantie homelab-stat-memory {
-    naam: "Memory"
+    naam: "Geheugen"
     doel: "Actueel geheugengebruik."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-stat-card-memory-example"
+    databron: "databron-homelab-memory"
 }
 
 componentinstantie homelab-status-running {
-    naam: "Running"
+    naam: "Actief"
     doel: "Aantal actieve workloads."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-status-running-example"
+    databron: "databron-homelab-running"
 }
 
 componentinstantie homelab-status-pending {
-    naam: "Pending"
+    naam: "In wachtrij"
     doel: "Aantal wachtende workloads."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-status-pending-example"
+    databron: "databron-homelab-pending"
 }
 
 componentinstantie homelab-status-failed {
-    naam: "Failed"
+    naam: "Mislukt"
     doel: "Aantal gefaalde workloads."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-status-failed-example"
+    databron: "databron-homelab-failed"
 }
 
 componentinstantie homelab-status-healthy {
-    naam: "Healthy"
+    naam: "Gezond"
     doel: "Samengevatte clustergezondheid."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-status-info-example"
+    databron: "databron-homelab-healthy"
 }
 
 componentinstantie homelab-app-isms {
@@ -2697,6 +2778,7 @@ componentinstantie homelab-app-isms {
     doel: "Homelab applicatie voor Information Security Management."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-app-tile-isms-example"
+    databron: "databron-homelab-isms"
 }
 
 componentinstantie homelab-app-cv {
@@ -2704,6 +2786,7 @@ componentinstantie homelab-app-cv {
     doel: "Homelab applicatie voor consultant CV beheer."
     compositie: "emberforge-observatory"
     voorbeeld: "forge-app-tile-cv-example"
+    databron: "databron-homelab-cv"
 }
 
 layout emberforge-observatory-responsive {

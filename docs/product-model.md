@@ -957,6 +957,69 @@ toegankelijkheidscontracten naar Canvas panelen en paneelmetadata. Het
 dashboard bevat geen datasource; de voorbeeldwaarden blijven normatieve
 productinhoud en worden niet als actuele telemetrie gepresenteerd.
 
+M11.10a doorbreekt die "geen datasource"-regel, expliciet en uitsluitend voor
+componentinstanties die dat zelf declareren. Het nieuwe native object
+`databron` (`naam`, `doel`, `expr`, `eenheid`, optioneel `mapping`) legt een
+deterministische PromQL-expressie vast; de componentinstantie krijgt daarmee
+optioneel een `databron`-veld, los te combineren met `voorbeeld`. De
+World Model beslist wélke query bij een componentinstantie hoort
+(compileertijd, reproduceerbaar); de Grafana-backend beslist wélke
+Prometheus-instantie die query op kijktijd uitvoert
+(`PROMETHEUS_DATASOURCE_UID` in `compiler/backends/grafana.py`, een
+omgevingsfeit, geen wereldfeit). Canvas-tekstelementen krijgen `text.mode:
+"field"` in plaats van `"fixed"`; teksteenheden krijgen een Grafana
+`fieldConfig`-waardemapping (bijvoorbeeld `1` naar `Healthy`). Alle tien
+Observatory-componentinstanties krijgen zo een `databron` gekoppeld aan echte
+Prometheus/kube-state-metrics-telemetrie op het K3s-cluster. De HTML-backend
+consumeert `databron` niet en blijft daardoor volledig statisch: hetzelfde
+product levert twee eerlijk verschillende garanties, een reproduceerbare
+snapshot en een live dashboard, uit dezelfde opgeloste compositie. Elk ander
+Grafana-product zonder expliciete `databron` (Forge Dashboard,
+Projectstatus) blijft zonder datasource; de regel uit M10.0a/M10.0c/M11.4b
+staat daarmee nog steeds, alleen niet meer zonder uitzondering.
+
+M11.10a maakt ook de Grafana-rijhoogte inhoudsgedreven in plaats van een vaste
+aanname. De vorige vaste rijhoogte was oorspronkelijk gekalibreerd op de
+langste bekende paneelinhoud (Forge Dashboard's informatiegebieden) en maakte
+daardoor elk ander paneel, waaronder Observatory's statkaarten, veel groter
+dan nodig. De backend berekent nu per product de werkelijk benodigde
+rijhoogte uit de opgeloste Canvas-inhoud van elk paneel (`_rijhoogte_eenheden`
+in `compiler/backends/grafana.py`), inclusief Grafana's eigen vaste
+paneelkoptekst. Dat onthulde bovendien dat Forge Dashboard's panelen al vóór
+deze milestone te weinig ruimte kregen (988px benodigd tegen 600px
+toegekend) en dus zichtbaar afgekapt waren zodra iemand het dashboard
+daadwerkelijk live opende; die overflow is met dezelfde berekening opgelost.
+
+Erik Post zag het live geïmporteerde Observatory-dashboard daarna en meldde
+twee dingen: elke paneltitel stond er dubbel (Grafana's eigen koptekstbalk
+toonde exact dezelfde naam als de gebrande Canvas-heading eronder), en onder
+elke statkaart stond alsnog een parafrase van diezelfde naam ("Running" met
+daaronder "Aantal actieve workloads"). Beide zijn opgelost, niet alleen voor
+Observatory maar voor elk Grafana-product. Een spike tegen de echte
+Grafana-instantie bevestigde eerst dat een lege paneltitel (`"title": ""`)
+Grafana's koptekstbalk volledig laat wegvallen in plaats van een lege balk
+achter te laten; `GRAFANA_PANEL_HEADER_PX` gaat daarom naar 0 en elk paneel
+(inclusief de dashboardheader en Forge Dashboard/Projectstatus) krijgt een
+lege `title`. Het canvas-`-body`-element dat `instantie.doel` toonde is
+verwijderd uit `_canvasopties`; hetzelfde geldt voor de HTML-backend's
+`bp-description`-paragraaf (`compiler/native_layout_html_renderer.py`), die
+`instantie.doel` toonde voor informatiegebied-gedreven producten zoals
+Forge Dashboard. Zie
+[beckeringh-architectuurtaal.md](beckeringh-architectuurtaal.md) voor de
+volledige regel.
+
+Erik Post voegde daarna een derde, bredere eis toe: alle eindproducttekst is
+Nederlands, ook waar de brondata (Kubernetes, Prometheus) Engelse termen
+gebruikt. Observatory's `naam`-, `label`-, `waarde`- en
+databron-`mapping`-velden zijn vertaald ("Running" naar "Actief", "CPU
+Usage" naar "CPU-gebruik", een Grafana-waardemapping van `1` naar "Gezond"
+in plaats van "Healthy"). Eigennamen (`ISMS Challenger`, `CV Tool`, `The
+Observatory`) en gangbare Nederlandse IT-leenwoorden (`cluster`, `node`)
+blijven staan. De rest van de productfamilie (Keycloak-loginformulier,
+Design System Reference's kleur-/tokennomenclatuur) is nog niet
+meegenomen; dat is een expliciet openstaande, nog niet gescopete
+vervolgstap.
+
 M11.4c modelleert de EmberForge Keycloak login als een tweede concrete
 productsurface. Een compositie kan daarvoor de expliciete rol
 `login-formulier` dragen. Componentvoorbeelden leggen het native
@@ -1182,6 +1245,7 @@ lifecyclecontrole en kan niet door de netwerkloze adapter worden vervangen.
 | `BP3718` | Componentinstantie combineert een informatiegebied met legacy metriekvelden |
 | `BP3719` | Componentinstantie verwijst naar een onbekend componentvoorbeeld |
 | `BP3720` | Componentinstantie combineert voorbeeldinhoud met losse inhoudsvelden |
+| `BP3721` | Componentinstantie verwijst naar een onbekende databron |
 | `BP3801` | Variant heeft een onbekende eigenschap |
 | `BP3802` | Variant verwijst naar een onbekend component |
 | `BP3803` | Variant verwijst naar een onbekende appearance |
@@ -1332,3 +1396,9 @@ lifecyclecontrole en kan niet door de netwerkloze adapter worden vervangen.
 | `BP4398` | Wallpaper mist een bekende familie of betekenisvolle variant |
 | `BP3722` | Componentinstantie verwijst naar een onbekend homepagegebied |
 | `BP3723` | Componentinstantie dupliceert inhoud van een homepagegebied |
+| `BP4410` | Databron bevat een onbekende eigenschap |
+| `BP4411` | Databron mist een verplicht tekstveld |
+| `BP4412` | Databron gebruikt een onbekende eenheid |
+| `BP4413` | Databron staat `mapping` alleen toe bij eenheid `tekst` |
+| `BP4414` | Databron mist een geldige `mapping`-lijst |
+| `BP4415` | Databron met eenheid `tekst` mist `mapping` |

@@ -46,28 +46,14 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertEqual(
             [
                 {"h": 4, "w": 24, "x": 0, "y": 0},
-                {"h": 16, "w": 8, "x": 0, "y": 4},
-                {"h": 16, "w": 8, "x": 8, "y": 4},
-                {"h": 16, "w": 8, "x": 16, "y": 4},
+                {"h": 25, "w": 8, "x": 0, "y": 4},
+                {"h": 25, "w": 8, "x": 8, "y": 4},
+                {"h": 25, "w": 8, "x": 16, "y": 4},
             ],
             [panel["gridPos"] for panel in dashboard["panels"]],
         )
         self.assertEqual(
-            [
-                "Forge Dashboard",
-                (
-                    "Wereld en identiteit, overzicht van wereld, merk, "
-                    "assetfamilies en bronassets"
-                ),
-                (
-                    "Forge ontwerpsysteem, overzicht van ontwerpprimitieven "
-                    "en componenten"
-                ),
-                (
-                    "Productfamilie, overzicht van composities, layouts en "
-                    "uitvoerproducten"
-                ),
-            ],
+            ["", "", "", ""],
             [panel["title"] for panel in dashboard["panels"]],
         )
         self.assertTrue(all(panel["type"] == "canvas" for panel in dashboard["panels"]))
@@ -92,10 +78,7 @@ class GrafanaBackendTests(unittest.TestCase):
         self.assertIn("forge-dashboard-center-panel-metric-detail-rule-15", middennamen)
         self.assertIn("forge-dashboard-center-panel-product-navigation", middennamen)
         self.assertIn("forge-dashboard-center-panel-content-anchors", middennamen)
-        self.assertEqual(
-            "Forge ontwerpsysteem, overzicht van ontwerpprimitieven en componenten",
-            dashboard["panels"][2]["title"],
-        )
+        self.assertEqual("", dashboard["panels"][2]["title"])
         self.assertIn(
             "Leesvolgorde: 2",
             dashboard["panels"][2]["description"],
@@ -110,7 +93,7 @@ class GrafanaBackendTests(unittest.TestCase):
             [link["url"] for link in navigatie["links"]],
         )
         self.assertEqual(
-            {"height": 960, "left": 16, "top": 16, "width": 4},
+            {"height": 900, "left": 16, "top": 16, "width": 4},
             dashboard["panels"][2]["options"]["root"]["elements"][0]["placement"],
         )
         inhoud = next(
@@ -141,11 +124,11 @@ class GrafanaBackendTests(unittest.TestCase):
             "Primair sign in voorbeeld uit het aangeleverde componentscherm.\n"
             "Error Input · componentvoorbeeld\n"
             "Ongeldige hostnaam met feitelijke foutmelding.\n"
-            "Running Status · componentvoorbeeld\n"
+            "Actief-status · componentvoorbeeld\n"
             "Aantal actieve workloads uit het aangeleverde componentscherm.\n"
-            "ISMS App Tile · componentvoorbeeld\n"
+            "ISMS App-tegel · componentvoorbeeld\n"
             "Producttegel voor ISMS Challenger.\n"
-            "Nodes Stat Card · componentvoorbeeld\n"
+            "Nodes statkaart · componentvoorbeeld\n"
             "Aantal actieve clusternodes.\n"
             "Primitieven · referentiesectie\n"
             "Palet, typografie, typeschaal, materiaal, randen, radius, "
@@ -186,7 +169,7 @@ class GrafanaBackendTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            {"fixed": "#B8C5D6"},
+            {"fixed": "#E6EDF5"},
             dashboard["panels"][2]["options"]["root"]["elements"][-1]["config"][
                 "color"
             ],

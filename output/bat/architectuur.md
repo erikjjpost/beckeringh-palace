@@ -3615,7 +3615,7 @@ Ongeldig invoerveld met feitelijke herstelmelding.
 - **appearance:** forge-input-error-appearance
 - **component:** forge-input
 
-## Running
+## Actief
 
 **Soort:** variant
 
@@ -3630,7 +3630,7 @@ Werkende operationele toestand.
 - **appearance:** forge-status-running-appearance
 - **component:** forge-status
 
-## Pending
+## In wachtrij
 
 **Soort:** variant
 
@@ -3645,7 +3645,7 @@ Wachtende operationele toestand.
 - **appearance:** forge-status-pending-appearance
 - **component:** forge-status
 
-## Failed
+## Mislukt
 
 **Soort:** variant
 
@@ -3660,7 +3660,7 @@ Gefaalde operationele toestand.
 - **appearance:** forge-status-failed-appearance
 - **component:** forge-status
 
-## Healthy
+## Gezond
 
 **Soort:** variant
 
@@ -3907,7 +3907,7 @@ Ongeldige hostnaam met feitelijke foutmelding.
 - **variant:** forge-input-error
 - **waarde:** lab..local
 
-## Running Status
+## Actief-status
 
 **Soort:** componentvoorbeeld
 
@@ -3920,11 +3920,11 @@ Aantal actieve workloads uit het aangeleverde componentscherm.
 ### Eigenschappen
 
 - **component:** forge-status
-- **label:** Running
+- **label:** Actief
 - **variant:** forge-status-running
 - **waarde:** 62
 
-## Pending Status
+## Wachtrij-status
 
 **Soort:** componentvoorbeeld
 
@@ -3937,11 +3937,11 @@ Aantal wachtende workloads uit het aangeleverde componentscherm.
 ### Eigenschappen
 
 - **component:** forge-status
-- **label:** Pending
+- **label:** In wachtrij
 - **variant:** forge-status-pending
 - **waarde:** 3
 
-## Failed Status
+## Mislukt-status
 
 **Soort:** componentvoorbeeld
 
@@ -3954,11 +3954,11 @@ Aantal gefaalde workloads uit het aangeleverde componentscherm.
 ### Eigenschappen
 
 - **component:** forge-status
-- **label:** Failed
+- **label:** Mislukt
 - **variant:** forge-status-failed
 - **waarde:** 1
 
-## Healthy Status
+## Gezondheid-status
 
 **Soort:** componentvoorbeeld
 
@@ -3971,11 +3971,11 @@ Informatieve gezondheid uit het aangeleverde componentscherm.
 ### Eigenschappen
 
 - **component:** forge-status
-- **label:** Healthy
+- **label:** Gezond
 - **variant:** forge-status-info
 - **waarde:** 98%
 
-## ISMS App Tile
+## ISMS App-tegel
 
 **Soort:** componentvoorbeeld
 
@@ -3993,7 +3993,7 @@ Producttegel voor ISMS Challenger.
 - **status:** running
 - **variant:** forge-app-tile-default
 
-## CV App Tile
+## CV App-tegel
 
 **Soort:** componentvoorbeeld
 
@@ -4011,7 +4011,7 @@ Zeldzame warme producttegel voor CV beheer.
 - **status:** running
 - **variant:** forge-app-tile-ember
 
-## Nodes Stat Card
+## Nodes statkaart
 
 **Soort:** componentvoorbeeld
 
@@ -4023,13 +4023,13 @@ Aantal actieve clusternodes.
 
 ### Eigenschappen
 
-- **beschrijving:** All Running
+- **beschrijving:** Allemaal actief
 - **component:** forge-stat-card
 - **label:** Nodes
 - **variant:** forge-stat-card-value
 - **waarde:** 12
 
-## Health Stat Card
+## Gezondheid statkaart
 
 **Soort:** componentvoorbeeld
 
@@ -4043,11 +4043,11 @@ Clustergezondheid als feitelijke waarde.
 
 - **beschrijving:** 98%
 - **component:** forge-stat-card
-- **label:** Cluster Health
+- **label:** Clustergezondheid
 - **variant:** forge-stat-card-health
-- **waarde:** Healthy
+- **waarde:** Gezond
 
-## CPU Stat Card
+## CPU statkaart
 
 **Soort:** componentvoorbeeld
 
@@ -4060,11 +4060,11 @@ Actueel CPU gebruik.
 ### Eigenschappen
 
 - **component:** forge-stat-card
-- **label:** CPU Usage
+- **label:** CPU-gebruik
 - **variant:** forge-stat-card-progress
 - **waarde:** 24%
 
-## Memory Stat Card
+## Geheugen statkaart
 
 **Soort:** componentvoorbeeld
 
@@ -4077,7 +4077,7 @@ Actueel geheugengebruik met één schaars koperaccent.
 ### Eigenschappen
 
 - **component:** forge-stat-card
-- **label:** Memory
+- **label:** Geheugen
 - **variant:** forge-stat-card-progress-ember
 - **waarde:** 43%
 
@@ -4427,6 +4427,159 @@ Het Forge-dashboard als importeerbaar Grafana dashboard genereren.
 - **pad:** output/products/forge-dashboard.grafana.json
 - **wereld:** beckeringh-palace
 
+## Node count
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-nodes`
+
+### Doel
+
+Aantal actieve clusternodes via Prometheus kube-state-metrics.
+
+### Eigenschappen
+
+- **eenheid:** aantal
+- **expr:** count(kube_node_info)
+
+## Cluster readiness
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-health`
+
+### Doel
+
+Of alle clusternodes de Ready-conditie dragen.
+
+### Eigenschappen
+
+- **eenheid:** tekst
+- **expr:** count(kube_node_status_condition{condition='Ready',status='true'}) == bool count(kube_node_info)
+- **mapping:** 1:Gezond, 0:Verslechterd
+
+## CPU usage
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-cpu`
+
+### Doel
+
+Gemiddeld CPU-gebruik over clusternodes via node-exporter.
+
+### Eigenschappen
+
+- **eenheid:** percentage
+- **expr:** 100 * avg(1 - rate(node_cpu_seconds_total{mode='idle'}[5m]))
+
+## Memory usage
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-memory`
+
+### Doel
+
+Gemiddeld geheugengebruik over clusternodes via node-exporter.
+
+### Eigenschappen
+
+- **eenheid:** percentage
+- **expr:** 100 * (1 - avg(node_memory_MemAvailable_bytes) / avg(node_memory_MemTotal_bytes))
+
+## Running pods
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-running`
+
+### Doel
+
+Aantal workloads in fase Running.
+
+### Eigenschappen
+
+- **eenheid:** aantal
+- **expr:** sum(kube_pod_status_phase{phase='Running'})
+
+## Pending pods
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-pending`
+
+### Doel
+
+Aantal workloads in fase Pending.
+
+### Eigenschappen
+
+- **eenheid:** aantal
+- **expr:** sum(kube_pod_status_phase{phase='Pending'})
+
+## Failed pods
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-failed`
+
+### Doel
+
+Aantal workloads in fase Failed.
+
+### Eigenschappen
+
+- **eenheid:** aantal
+- **expr:** sum(kube_pod_status_phase{phase='Failed'})
+
+## Cluster pod health
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-healthy`
+
+### Doel
+
+Aandeel workloads in fase Running ten opzichte van alle workloads.
+
+### Eigenschappen
+
+- **eenheid:** percentage
+- **expr:** 100 * sum(kube_pod_status_phase{phase='Running'}) / sum(kube_pod_status_phase)
+
+## ISMS Challenger status
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-isms`
+
+### Doel
+
+Of ISMS Challenger minstens één Running pod heeft in namespace isms-challenger.
+
+### Eigenschappen
+
+- **eenheid:** tekst
+- **expr:** sum(kube_pod_status_phase{namespace='isms-challenger',phase='Running'}) > bool 0
+- **mapping:** 1:actief, 0:gestopt
+
+## CV Tool status
+
+**Soort:** databron
+
+**Identifier:** `databron-homelab-cv`
+
+### Doel
+
+Of CV Tool minstens één Running pod heeft in namespace cvdatabase.
+
+### Eigenschappen
+
+- **eenheid:** tekst
+- **expr:** sum(kube_pod_status_phase{namespace='cvdatabase',phase='Running'}) > bool 0
+- **mapping:** 1:actief, 0:gestopt
+
 ## The Observatory
 
 **Soort:** compositie
@@ -4454,9 +4607,10 @@ Aantal actieve clusternodes.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-nodes
 - **voorbeeld:** forge-stat-card-nodes-example
 
-## Cluster Health
+## Clustergezondheid
 
 **Soort:** componentinstantie
 
@@ -4469,9 +4623,10 @@ Actuele gezondheid van het cluster.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-health
 - **voorbeeld:** forge-stat-card-health-example
 
-## CPU Usage
+## CPU-gebruik
 
 **Soort:** componentinstantie
 
@@ -4484,9 +4639,10 @@ Actueel CPU gebruik.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-cpu
 - **voorbeeld:** forge-stat-card-cpu-example
 
-## Memory
+## Geheugen
 
 **Soort:** componentinstantie
 
@@ -4499,9 +4655,10 @@ Actueel geheugengebruik.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-memory
 - **voorbeeld:** forge-stat-card-memory-example
 
-## Running
+## Actief
 
 **Soort:** componentinstantie
 
@@ -4514,9 +4671,10 @@ Aantal actieve workloads.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-running
 - **voorbeeld:** forge-status-running-example
 
-## Pending
+## In wachtrij
 
 **Soort:** componentinstantie
 
@@ -4529,9 +4687,10 @@ Aantal wachtende workloads.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-pending
 - **voorbeeld:** forge-status-pending-example
 
-## Failed
+## Mislukt
 
 **Soort:** componentinstantie
 
@@ -4544,9 +4703,10 @@ Aantal gefaalde workloads.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-failed
 - **voorbeeld:** forge-status-failed-example
 
-## Healthy
+## Gezond
 
 **Soort:** componentinstantie
 
@@ -4559,6 +4719,7 @@ Samengevatte clustergezondheid.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-healthy
 - **voorbeeld:** forge-status-info-example
 
 ## ISMS Challenger
@@ -4574,6 +4735,7 @@ Homelab applicatie voor Information Security Management.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-isms
 - **voorbeeld:** forge-app-tile-isms-example
 
 ## CV Tool
@@ -4589,6 +4751,7 @@ Homelab applicatie voor consultant CV beheer.
 ### Eigenschappen
 
 - **compositie:** emberforge-observatory
+- **databron:** databron-homelab-cv
 - **voorbeeld:** forge-app-tile-cv-example
 
 ## The Observatory Responsive

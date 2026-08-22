@@ -394,10 +394,7 @@ def naar_native_layout_html(
                 )
             regels.append("        </ul>")
             regels.append("      </nav>")
-        regels.extend([
-            f'      <p class="bp-description">{html.escape(instantie.doel)}</p>',
-            "    </section>",
-        ])
+        regels.append("    </section>")
     regels.extend([
         f"  </{container_tag}>",
         "</body>",
