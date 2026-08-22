@@ -3618,3 +3618,17 @@ renderdoel css-components {
     formaat: "css"
     pad: "output/products/components.css"
 }
+
+renderdoel emberforge-dircolors {
+    naam: "EmberForge dircolors"
+    doel: "Het opgeloste materiaalthema als GNU dircolors-bestand genereren, zodat terminalkleuren automatisch meebewegen met wijzigingen in het BAT-thema."
+    formaat: "dircolors"
+    pad: "output/products/emberforge-dircolors"
+}
+
+renderdoel emberforge-ps1 {
+    naam: "EmberForge PS1"
+    doel: "Het opgeloste materiaalthema als bash PS1-snippet genereren, zodat de promptkleuren automatisch meebewegen met wijzigingen in het BAT-thema."
+    formaat: "bash"
+    pad: "output/products/emberforge-ps1.sh"
+}

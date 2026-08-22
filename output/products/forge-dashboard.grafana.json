@@ -1233,7 +1233,7 @@
                 },
                 "size": 64,
                 "text": {
-                  "fixed": "147",
+                  "fixed": "149",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1285,7 +1285,7 @@
                 },
                 "size": 12,
                 "text": {
-                  "fixed": "30\n26\n7\n1\n7\n7\n27\n26\n3\n2\n1\n10",
+                  "fixed": "30\n26\n7\n1\n7\n7\n27\n26\n5\n2\n1\n10",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1718,7 +1718,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:dcd931de48970f0622102d479835d64bd756068cbf75b064f0429237adc9a11f"
+    "sha256:1ee0597bd516da5e1ee0ae4ce13d3919b6c1a9613abf89b55dca79d53af7e35e"
   ],
   "templating": {
     "list": []

@@ -117,7 +117,7 @@ class ProjectStatusTests(unittest.TestCase):
             self.assertEqual(93, product.project_status.overall_progress)
             self.assertEqual(10, len(product.project_status.areas))
             self.assertEqual(
-                "M11.10a", product.project_status.current_milestone.id
+                "M11.11a", product.project_status.current_milestone.id
             )
             self.assertEqual("TBD", product.project_status.next_step.id)
             self.assertEqual(
