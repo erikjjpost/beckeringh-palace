@@ -10,7 +10,7 @@ Gewogen architectuurschatting van het volledige einddoel. De expliciete productg
 
 - Actuele milestone: **M11.10a — Live Prometheus-telemetrie voor Observatory** (voltooid)
 - Verificatie: **wacht-op-menselijke-verificatie**
-- Laatst voltooid: **M11.9d — Compositiedoel verwijderd uit dashboardheader** (PR #120)
+- Laatst voltooid: **M11.10a — Live Prometheus-telemetrie voor Observatory** (PR #122)
 - Volgende stap: **TBD — Volgende milestone nog te kiezen**
 
 ## Voortgang per productgebied

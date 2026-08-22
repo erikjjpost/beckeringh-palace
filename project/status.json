@@ -13,9 +13,9 @@
     }
   },
   "last_completed_milestone": {
-    "id": "M11.9d",
-    "name": "Compositiedoel verwijderd uit dashboardheader",
-    "pull_request": 120
+    "id": "M11.10a",
+    "name": "Live Prometheus-telemetrie voor Observatory",
+    "pull_request": 122
   },
   "next_step": {
     "id": "TBD",
