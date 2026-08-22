@@ -72,12 +72,6 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertIn('data-layout-type="grid"', product.inhoud)
         self.assertIn("<h1>Forge Dashboard</h1>", product.inhoud)
-        self.assertIn(
-            "<p class=\"bp-product-purpose\">Informatiearchitectuur van de "
-            "Beckeringh Palace wereld, het Forge ontwerpsysteem en de "
-            "productfamilie.</p>",
-            product.inhoud,
-        )
         self.assertIn("@media (max-width: 960px)", product.inhoud)
         self.assertIn(
             "grid-template-columns:repeat(3,minmax(0,1fr))",

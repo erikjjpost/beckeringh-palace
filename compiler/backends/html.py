@@ -54,11 +54,6 @@ def _theme_css(product: ProductDefinition) -> str:
         "      margin: 0;",
         "      font-size: var(--bp-type-title);",
         "    }",
-        "    .bp-product-purpose {",
-        "      margin: var(--bp-spacing-small) 0 0;",
-        "      color: var(--bp-material-muted);",
-        "      font-size: var(--bp-type-body);",
-        "    }",
         "    .bp-layout { gap: var(--bp-spacing-medium); }",
         "    .bp-region { padding: var(--bp-spacing-large); }",
         "    .bp-region h2 { margin-top: 0; }",
@@ -351,16 +346,6 @@ def _render(
         titel=product.naam,
         inhoud_naam=(
             product.naam
-            if product.inhoud
-            in {
-                "project-status",
-                "design-system",
-                SVG_ASSET_CATALOG_CONTENT,
-            }
-            else None
-        ),
-        inhoud_doel=(
-            product.doel
             if product.inhoud
             in {
                 "project-status",

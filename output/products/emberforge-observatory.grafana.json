@@ -59,32 +59,6 @@
                 "width": 720
               },
               "type": "text"
-            },
-            {
-              "config": {
-                "align": "left",
-                "color": {
-                  "fixed": "#B8C5D6"
-                },
-                "size": 16,
-                "text": {
-                  "fixed": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
-                  "mode": "fixed"
-                },
-                "valign": "top"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "emberforge-observatory-grafana-purpose",
-              "placement": {
-                "height": 24,
-                "left": 776,
-                "top": 24,
-                "width": 720
-              },
-              "type": "text"
             }
           ],
           "name": "Root",
