@@ -3761,7 +3761,7 @@
   },
   {
     "eigenschappen": {
-      "doel": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.",
+      "doel": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
       "instanties": [
         "homelab-stat-nodes",
         "homelab-stat-health",

@@ -2632,7 +2632,7 @@ product forge-dashboard-grafana {
 
 compositie emberforge-observatory {
     naam: "The Observatory"
-    doel: "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert."
+    doel: "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties."
     instanties: ["homelab-stat-nodes", "homelab-stat-health", "homelab-stat-cpu", "homelab-stat-memory", "homelab-status-running", "homelab-status-pending", "homelab-status-failed", "homelab-status-healthy", "homelab-app-isms", "homelab-app-cv"]
 }
 

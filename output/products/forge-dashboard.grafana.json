@@ -38,32 +38,6 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#C9895B"
-                },
-                "size": 12,
-                "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Statische architectuursnapshot · Snapshot d8ce1638a4cf",
-                  "mode": "fixed"
-                },
-                "valign": "top"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "forge-dashboard-grafana-identity",
-              "placement": {
-                "height": 20,
-                "left": 16,
-                "top": 16,
-                "width": 720
-              },
-              "type": "text"
-            },
-            {
-              "config": {
-                "align": "left",
-                "color": {
                   "fixed": "#E6EDF5"
                 },
                 "size": 56,
@@ -81,7 +55,7 @@
               "placement": {
                 "height": 64,
                 "left": 16,
-                "top": 36,
+                "top": 16,
                 "width": 720
               },
               "type": "text"
@@ -107,7 +81,7 @@
               "placement": {
                 "height": 24,
                 "left": 776,
-                "top": 44,
+                "top": 24,
                 "width": 720
               },
               "type": "text"
@@ -1788,7 +1762,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nThe Observatory · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.\nThe Observatory Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Wallpapers · wallpaperfamilie\nOrdent de expliciete ultrawide en desktop canvasformaten als één merkgebonden familie.\nEmberForge Ultrawide Wallpaper · wallpaper\nLegt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar beeldproduct.\nEmberForge Desktop Wallpaper · wallpaper\nLegt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen expliciete geometrie.\nEmberForge Figma Master · figmamaster\nSelecteert expliciet dezelfde opgeloste ontwerpsemantiek voor een reproduceerbare Figma masterbeschrijving zonder live Figma synchronisatie.\nThe Observatory · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nThe Observatory Grafana · product\nHet native homelab overzicht als importeerbaar Grafana dashboard genereren.\nEmberForge Ultrawide Wallpaper PNG · product\nRendert het opgeloste native wallpapercontract als deterministisch 3840 bij 1080 beeldartifact.\nEmberForge Desktop Wallpaper PNG · product\nRendert de zelfstandige 1900 bij 1200 EmberForge familievariant.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.\nEmberForge SVG Asset Catalog · product\nAlle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.\nEmberForge Figma Master Manifest · product\nPubliceert het opgeloste Figma mastercontract als deterministische machineleesbare overdracht voor een latere synchronisatieadapter.",
+                  "fixed": "Forge Dashboard · compositie\nInformatiearchitectuur van de Beckeringh Palace wereld, het Forge ontwerpsysteem en de productfamilie.\nForge Dashboard Ultrawide · layout\nOrdent de drie Forge-dashboardpanelen in een semantisch grid.\nThe Observatory · compositie\nOperationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.\nThe Observatory Responsive · layout\nOrdent statistieken, statussen en applicaties op desktop en compact scherm.\nEmberForge Wallpapers · wallpaperfamilie\nOrdent de expliciete ultrawide en desktop canvasformaten als één merkgebonden familie.\nEmberForge Ultrawide Wallpaper · wallpaper\nLegt een rustige 3840 bij 1080 EmberForge wallpaper vast als reproduceerbaar beeldproduct.\nEmberForge Desktop Wallpaper · wallpaper\nLegt een rustige 1900 bij 1200 EmberForge desktopwallpaper vast met eigen expliciete geometrie.\nEmberForge Figma Master · figmamaster\nSelecteert expliciet dezelfde opgeloste ontwerpsemantiek voor een reproduceerbare Figma masterbeschrijving zonder live Figma synchronisatie.\nThe Observatory · product\nResponsief homelab overzicht van statistieken, statussen en applicaties.\nThe Observatory Grafana · product\nHet native homelab overzicht als importeerbaar Grafana dashboard genereren.\nEmberForge Ultrawide Wallpaper PNG · product\nRendert het opgeloste native wallpapercontract als deterministisch 3840 bij 1080 beeldartifact.\nEmberForge Desktop Wallpaper PNG · product\nRendert de zelfstandige 1900 bij 1200 EmberForge familievariant.\nBeckeringh Palace Projectstatus · product\nDe normatieve projectvoortgang als reproduceerbaar HTML product ontsluiten.\nEmberForge Design System Referentie · product\nTokens, primitives, componenttoestanden, voorbeelden en toegankelijkheidscontracten als één navigeerbaar product.\nEmberForge SVG Asset Catalog · product\nAlle getypeerde SVG assets als één navigeerbaar en reproduceerbaar catalogusproduct.\nEmberForge Figma Master Manifest · product\nPubliceert het opgeloste Figma mastercontract als deterministische machineleesbare overdracht voor een latere synchronisatieadapter.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1848,7 +1822,7 @@
   "tags": [
     "beckeringh-palace",
     "generated",
-    "sha256:d8ce1638a4cf5402b04a4998c32b3451ad66fa623338a0c044676c94117cb1d3"
+    "sha256:5f4ff7b57960ef306668746ffa9644eb73ee29ae5901485d051696a3c48705a8"
   ],
   "templating": {
     "list": []

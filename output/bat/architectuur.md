@@ -4435,7 +4435,7 @@ Het Forge-dashboard als importeerbaar Grafana dashboard genereren.
 
 ### Doel
 
-Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.
+Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.
 
 ### Eigenschappen
 

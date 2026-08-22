@@ -13,7 +13,7 @@ from compiler.component_html_renderer import render_component_example
 from compiler.design_components import verzamel_componenten
 from compiler.design_variants import resolveer_varianten
 from compiler.native_layout_html_renderer import naar_native_layout_html
-from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
+from compiler.product_model import ProductDefinition
 from compiler.project_status import ProjectStatus
 from compiler.svg_asset_catalog import SVG_ASSET_CATALOG_CONTENT
 from compiler.svg_asset_catalog_html_renderer import (
@@ -49,14 +49,6 @@ def _theme_css(product: ProductDefinition) -> str:
         "      background: var(--bp-material-surface);",
         "      border-left: var(--bp-border-strong) var(--bp-border-style) var(--bp-material-accent);",
         "      border-radius: var(--bp-radius-medium);",
-        "    }",
-        "    .bp-product-kicker {",
-        "      margin: 0 0 var(--bp-spacing-small);",
-        "      color: var(--bp-theme-accent);",
-        "      font-size: var(--bp-type-label);",
-        "      font-weight: 700;",
-        "      letter-spacing: .08em;",
-        "      text-transform: uppercase;",
         "    }",
         "    .bp-product-header h1 {",
         "      margin: 0;",
@@ -357,14 +349,6 @@ def _render(
         product.opgeloste_compositie,
         product.opgeloste_layout,
         titel=product.naam,
-        wereld_naam=product.thema.wereld_naam if product.thema else None,
-        thema_naam=product.thema.thema_naam if product.thema else None,
-        mode_label=product.mode_label,
-        snapshot_label=(
-            f"Snapshot {product.snapshot_id[:SNAPSHOT_ID_LENGTH]}"
-            if product.snapshot_id
-            else None
-        ),
         inhoud_naam=(
             product.naam
             if product.inhoud
