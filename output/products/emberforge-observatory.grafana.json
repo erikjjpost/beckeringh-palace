@@ -9,7 +9,7 @@
   "links": [],
   "panels": [
     {
-      "description": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.",
+      "description": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
       "gridPos": {
         "h": 4,
         "w": 24,
@@ -38,32 +38,6 @@
               "config": {
                 "align": "left",
                 "color": {
-                  "fixed": "#C9895B"
-                },
-                "size": 12,
-                "text": {
-                  "fixed": "Beckeringh Palace · Forge · Gegenereerd uit BAT · Interactief product",
-                  "mode": "fixed"
-                },
-                "valign": "top"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "emberforge-observatory-grafana-identity",
-              "placement": {
-                "height": 20,
-                "left": 16,
-                "top": 16,
-                "width": 720
-              },
-              "type": "text"
-            },
-            {
-              "config": {
-                "align": "left",
-                "color": {
                   "fixed": "#E6EDF5"
                 },
                 "size": 56,
@@ -81,7 +55,7 @@
               "placement": {
                 "height": 64,
                 "left": 16,
-                "top": 36,
+                "top": 16,
                 "width": 720
               },
               "type": "text"
@@ -94,7 +68,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties: de kamer die continu meet en signaleert.",
+                  "fixed": "Operationeel overzicht van clustercapaciteit, workloadstatus en homelab applicaties.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -107,7 +81,7 @@
               "placement": {
                 "height": 24,
                 "left": 776,
-                "top": 44,
+                "top": 24,
                 "width": 720
               },
               "type": "text"

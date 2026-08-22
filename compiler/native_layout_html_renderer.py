@@ -99,10 +99,6 @@ def naar_native_layout_html(
     compositie: ResolvedComposition,
     layout: ResolvedLayout,
     titel: str = "Beckeringh Palace product",
-    wereld_naam: str | None = None,
-    thema_naam: str | None = None,
-    mode_label: str | None = None,
-    snapshot_label: str | None = None,
     inhoud_naam: str | None = None,
     inhoud_doel: str | None = None,
     instance_content: Mapping[str, tuple[str, ...]] | None = None,
@@ -152,22 +148,6 @@ def naar_native_layout_html(
         "<body>",
         '  <header class="bp-product-header">',
     ]
-    if wereld_naam is not None and thema_naam is not None:
-        mode_suffix = (
-            f" · {html.escape(mode_label)}"
-            if mode_label is not None
-            else ""
-        )
-        snapshot_suffix = (
-            f" · {html.escape(snapshot_label)}"
-            if snapshot_label is not None
-            else ""
-        )
-        regels.append(
-            f'    <p class="bp-product-kicker">{html.escape(wereld_naam)}'
-            f' · {html.escape(thema_naam)} · Gegenereerd uit BAT'
-            f"{mode_suffix}{snapshot_suffix}</p>"
-        )
     container_tag = "form" if compositie.role == "login-formulier" else "main"
     composition_role_attribute = (
         f' data-composition-role="{html.escape(compositie.role)}"'

@@ -53,6 +53,30 @@ Native objecten hebben minimaal `naam` en `doel`. Identifiers zijn technisch
 stabiel. Het native layoutcontract staat in
 [product-model.md](product-model.md).
 
+### `naam` en `doel` zijn eindproducttekst, geen documentatie
+
+Renderers tonen `naam` en `doel` rechtstreeks aan de eindgebruiker: als
+paginakop, als panelbeschrijving, als productheader (zie
+`compiler/native_layout_html_renderer.py` en `compiler/backends/grafana.py`).
+Deze velden zijn dus geen interne toelichting voor BAT-auteurs, maar
+zichtbare copy in het eindproduct.
+
+Daaruit volgt: `naam` en `doel` bevatten nooit
+
+- zelfreferentiële taal over BAT zelf ("gegenereerd uit BAT",
+  "productdefinitie", "compositie") — dat hoort in commentaar bij het
+  `.bp`-bestand of in `docs/`, niet in wat de gebruiker leest;
+- werelduitleg of kamermetaforen uit `docs/world-bible.md` ("de kamer die
+  continu meet en signaleert") — die taal hoort in de World Bible, niet in
+  een productbeschrijving die een operator daadwerkelijk leest.
+
+Ontwerpteksten (wereldkaart, architectuurbeslissingen, milestone-proza in
+`project/status.json`) mogen die taal wel bevatten — dat zijn ontwerpen, geen
+eindproducten. Het onderscheid is waar de tekst terechtkomt: `docs/` en BAT
+Nederlandse toelichting mogen intern klinken, `naam`/`doel` op een native
+object dat een renderer publiceert moet lezen als een normaal, professioneel
+product.
+
 ## Compileren en controleren
 
 ```bash

@@ -11,7 +11,7 @@ from compiler.cir import Architectuurobject
 from compiler.design_components import ComponentAppearance, verzamel_appearances
 from compiler.design_compositions import ResolvedComponentInstance
 from compiler.layout_model import LayoutType, ResolvedLayout, ResolvedRegion
-from compiler.product_model import ProductDefinition, SNAPSHOT_ID_LENGTH
+from compiler.product_model import ProductDefinition
 from compiler.project_status import ProductAreaStatus, ProjectStatus
 from compiler.theme_resolution import ResolvedTheme
 
@@ -470,7 +470,6 @@ def _dashboard_header(
     achtergrond = _themakleur(thema, "materiaal", "surface")
     padding = _pixels(thema.spacing.medium, "spacing.medium")
     titelgrootte = _pixels(thema.typeschaal.title, "typeschaal.title")
-    labelgrootte = _pixels(thema.typeschaal.label, "typeschaal.label")
     bodygrootte = _pixels(thema.typeschaal.body, "typeschaal.body")
     return {
         "description": compositie_doel,
@@ -487,36 +486,6 @@ def _dashboard_header(
                     {
                         "config": {
                             "align": "left",
-                            "color": {"fixed": accent},
-                            "size": labelgrootte,
-                            "text": {
-                                "fixed": (
-                                    f"{thema.wereld_naam} · {thema.thema_naam} "
-                                    f"· Gegenereerd uit BAT · {product.mode_label}"
-                                    + (
-                                        f" · Snapshot "
-                                        f"{product.snapshot_id[:SNAPSHOT_ID_LENGTH]}"
-                                        if product.snapshot_id
-                                        else ""
-                                    )
-                                ),
-                                "mode": "fixed",
-                            },
-                            "valign": "top",
-                        },
-                        "constraint": {"horizontal": "left", "vertical": "top"},
-                        "name": f"{product.id}-identity",
-                        "placement": {
-                            "height": labelgrootte + 8,
-                            "left": padding,
-                            "top": padding,
-                            "width": 720,
-                        },
-                        "type": "text",
-                    },
-                    {
-                        "config": {
-                            "align": "left",
                             "color": {"fixed": voorgrond},
                             "size": titelgrootte,
                             "text": {"fixed": compositie_naam, "mode": "fixed"},
@@ -527,7 +496,7 @@ def _dashboard_header(
                         "placement": {
                             "height": titelgrootte + 8,
                             "left": padding,
-                            "top": padding + labelgrootte + 8,
+                            "top": padding,
                             "width": 720,
                         },
                         "type": "text",
@@ -545,7 +514,7 @@ def _dashboard_header(
                         "placement": {
                             "height": bodygrootte + 8,
                             "left": padding + 760,
-                            "top": padding + labelgrootte + 16,
+                            "top": padding + 8,
                             "width": 720,
                         },
                         "type": "text",

@@ -7,7 +7,6 @@ from compiler.layout_model import LayoutType
 from compiler.parser import parseer_bestand
 from compiler.product_backends import standaard_backend_registry
 from compiler.product_compiler import compileer_producten
-from compiler.product_model import SNAPSHOT_ID_LENGTH
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import analyseer
 
@@ -72,10 +71,6 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             tuple(region.instance_id for region in layout.regions),
         )
         self.assertIn('data-layout-type="grid"', product.inhoud)
-        self.assertIn(
-            "Beckeringh Palace · Forge · Gegenereerd uit BAT",
-            product.inhoud,
-        )
         self.assertIn("<h1>Forge Dashboard</h1>", product.inhoud)
         self.assertIn(
             "<p class=\"bp-product-purpose\">Informatiearchitectuur van de "
@@ -182,12 +177,6 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
         )
         self.assertIn(
             f'data-snapshot-ref="{product.definitie.snapshot_ref}"',
-            product.inhoud,
-        )
-        self.assertIn(
-            "Beckeringh Palace · Forge · Gegenereerd uit BAT · "
-            "Statische architectuursnapshot · Snapshot "
-            f"{product.definitie.snapshot_id[:SNAPSHOT_ID_LENGTH]}",
             product.inhoud,
         )
         self.assertIn(
