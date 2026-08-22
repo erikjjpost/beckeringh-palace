@@ -66,12 +66,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Beckeringh Palace Projectstatus Grafana",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-schema:2;overall-progress:92",
+      "description": "project-status-schema:2;overall-progress:93",
       "gridPos": {
         "h": 10,
         "w": 24,
@@ -104,7 +104,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Totale voortgang · 92%",
+                  "fixed": "Totale voortgang · 93%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -168,7 +168,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 552
+                "width": 558
               },
               "type": "rectangle"
             },
@@ -180,7 +180,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.9d · Compositiedoel verwijderd uit dashboardheader (voltooid) · Verificatie: geverifieerd\nVoltooid: M11.9d · Compositiedoel verwijderd uit dashboardheader (PR #120)\nVolgende stap: TBD · Volgende milestone nog te kiezen\nDe keten M11.9b (Observatory geformaliseerd), M11.9c (kickerregel verwijderd) en M11.9d (doel-paragraaf verwijderd) is afgerond en door Erik Post op 2026-08-22 live geverifieerd in zowel de gegenereerde producten als het echte Grafana-dashboard op K3s. De volgende milestone is nog niet gekozen door de Chief Architect.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.10a · Live Prometheus-telemetrie voor Observatory (voltooid) · Verificatie: wacht-op-menselijke-verificatie\nVoltooid: M11.9d · Compositiedoel verwijderd uit dashboardheader (PR #120)\nVolgende stap: TBD · Volgende milestone nog te kiezen\nM11.10a voegt het native object `databron` toe: alle tien Observatory-componentinstanties zijn nu gekoppeld aan echte PromQL-expressies tegen Prometheus/kube-state-metrics op K3s, in plaats van statische voorbeeldwaarden. De Grafana Canvas-rijhoogte is bovendien inhoudsgedreven gemaakt in plaats van een vaste aanname, wat ook een bestaande, ongemerkte overflow in het Forge Dashboard oploste. Erik Post heeft het live dashboard op 2026-08-22 bevestigd in de browser. De volgende milestone is nog niet gekozen door de Chief Architect.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -204,7 +204,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Totale voortgang · 92%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -318,7 +318,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Validatie, deterministische generatie en CI vormen een werkende kwaliteitsketen; naast het statische Figma mastermanifest wordt ook een netwerkloze, snapshotgebonden development plugin deterministisch uit hetzelfde manifest verpakt. De M11.7c verifier controleert de live toestand plus een tweede idempotente synchronisatie en logt bij mislukking de volledige fout voordat de plugin sluit. `bp.py check` kent sinds de agentcontract-validatie een precommit- en postcommitfase: `--pre-commit` draait dezelfde keten zonder werkboomeis, zodat een agent de gate ook kan draaien terwijl BAT-broncode nog bewust ongecommit staat; de standaardaanroep blijft de volledige reproduceerbaarheidscontrole eisen. CI (`.github/workflows/validate.yml`) roept diezelfde `bp.py check` letterlijk aan in plaats van de keten los te herimplementeren; de eerdere losstaande, overbodige testronde voor `test_native_product_slice.py` is verwijderd omdat de volledige testsuite die al dekt. `AGENTS.md` legt nu een `fix/<slug>`-branchroute vast naast `agent/<milestone-id>-<slug>`, zodat werk zonder milestone-ID (een geïsoleerde bugfix, een procesfix) een legitieme PR-route heeft in plaats van rechtstreeks op `main` te landen. `AGENTS.md` legt nu ook vast dat conflicten in `output/` nooit handmatig worden opgelost: de snapshot-hash herschrijft vrijwel alle gecommitte artifacts bij iedere BAT-wijziging, dus rebasen en `bp.py check` opnieuw draaien is de enige correcte conflictresolutie. `project/status.json` (schema_version 2) draagt nu een verplicht `verification`-veld per current_milestone (`automatisch`, `wacht-op-menselijke-verificatie` of `geverifieerd` met verplichte actor en datum), zichtbaar in de HTML-, Grafana- en Markdown-statusproducten, zodat een geïmplementeerde verifier niet stilzwijgend als succesvolle live verificatie kan worden gelezen. ADR-0002 legt vast dat een backend een niet-realiseerbare BAT-beeldintentie altijd expliciet weigert; de wallpaperrenderer valt bij een onbekend beeldeffect nooit meer stil terug op vlak gedrag maar faalt met een duidelijke fout, onafhankelijk van de bestaande BAT-validatie. Het legacy `model/`/`organisation/`/`proposals/`-YAML-systeem en `tools/generate.py` zijn verwijderd: dat systeem contradiceerde 'BAT is de enige normatieve bron' en werd nooit als echt BAT-product uitgedrukt. `tools/validate.py` valideert nu uitsluitend nog de actieve ontwerpbroncontracten in `project/design-inputs/`; het Second Brain-concept staat als narratief in `docs/world-model.md`, niet meer als gegenereerd artifact. Branch protection op `main` is ingeschakeld: pull request en groene `validate`-check verplicht, ook voor admins; directe pushes en force-pushes worden geweigerd. Daarmee is de agentcontract-discipline (nooit rechtstreeks op `main`) niet langer alleen gedragsafspraak. De Figma-syncplugin gebruikte `InstanceNode.mainComponent` synchroon, verboden onder `documentAccess: dynamic-page`; nu `getMainComponentAsync()`, gevonden via de echte live foutmelding dankzij de eerdere console.error-fix. Een volgende live run faalde op de idempotentiecheck (tweede sync week af van de eerste) zonder aan te geven waar; de plugin logt nu het eerste afwijkende pad en de twee waarden, zowel in de toastmelding als de console, zodat de daadwerkelijke oorzaak zichtbaar wordt in plaats van gegokt. Die diagnose wees direct de echte fout aan: `$.surfaces.0.width` week af tussen de eerste en tweede sync. Oorzaak: `swapComponent()` op een bestaande instantie behoudt de vorige grootte, inclusief de handmatige grid-stretch (column/row-span) van de vorige sync, waardoor `cellWidth` op de tweede run uit al-uitgerekte instanties werd berekend. Elke instantie wordt nu na aanmaken of swappen expliciet teruggezet naar de natuurlijke grootte van zijn component, vóór de grid-berekening. `docs/beckeringh-architectuurtaal.md` legt nu vast dat `naam`/`doel` eindproducttekst zijn, geen documentatie: renderers tonen ze rechtstreeks aan de eindgebruiker, dus zelfreferentiële taal over BAT en narratieve wereldtaal horen daar niet in thuis. De `Gegenereerd uit BAT`-kickerregel is daarom verwijderd uit zowel `compiler/native_layout_html_renderer.py` als `compiler/backends/grafana.py`; wereld-, thema-, mode- en snapshotidentiteit blijven volledig machineleesbaar via bestaande `data-*` attributen en dashboardtags, alleen de zichtbare, zelfreferentiële tekstregel is weg. Erik Post zag daarna dat de `doel`-paragraaf zelf nog steeds permanent zichtbaar stond onder de producttitel en wees op de bredere regel: tekst zonder toegevoegde waarde voor wie het product gebruikt hoort niet in de UI thuis. Die paragraaf is daarom systeembreed verwijderd uit `compiler/native_layout_html_renderer.py` en `compiler/backends/grafana.py`; `doel` blijft bestaan als verplicht BAT-veld en als Grafana-panelbeschrijving (info-icoon, alleen op hover zichtbaar). Erik Post heeft het eindresultaat live geverifieerd in zowel de gegenereerde producten als het echte `emberforge-observatory-grafana`-dashboard op K3s (opnieuw geïmporteerd na elke wijziging, verificatie afgesloten op 2026-08-22): geen kickerregel, geen doel-paragraaf, alleen de titel `The Observatory` boven de panelen.\nResterend: Meer adapters ontbreken nog. Renderercapaciteit zelf (gradients, textuur, antialiasing) is nog niet uitgebreid; ADR-0002 dwingt alleen af dat een backend expliciet weigert wanneer die capaciteit ontbreekt.",
+                  "fixed": "Onderbouwing: Validatie, deterministische generatie en CI vormen een werkende kwaliteitsketen; naast het statische Figma mastermanifest wordt ook een netwerkloze, snapshotgebonden development plugin deterministisch uit hetzelfde manifest verpakt. De M11.7c verifier controleert de live toestand plus een tweede idempotente synchronisatie en logt bij mislukking de volledige fout voordat de plugin sluit. `bp.py check` kent sinds de agentcontract-validatie een precommit- en postcommitfase: `--pre-commit` draait dezelfde keten zonder werkboomeis, zodat een agent de gate ook kan draaien terwijl BAT-broncode nog bewust ongecommit staat; de standaardaanroep blijft de volledige reproduceerbaarheidscontrole eisen. CI (`.github/workflows/validate.yml`) roept diezelfde `bp.py check` letterlijk aan in plaats van de keten los te herimplementeren; de eerdere losstaande, overbodige testronde voor `test_native_product_slice.py` is verwijderd omdat de volledige testsuite die al dekt. `AGENTS.md` legt nu een `fix/<slug>`-branchroute vast naast `agent/<milestone-id>-<slug>`, zodat werk zonder milestone-ID (een geïsoleerde bugfix, een procesfix) een legitieme PR-route heeft in plaats van rechtstreeks op `main` te landen. `AGENTS.md` legt nu ook vast dat conflicten in `output/` nooit handmatig worden opgelost: de snapshot-hash herschrijft vrijwel alle gecommitte artifacts bij iedere BAT-wijziging, dus rebasen en `bp.py check` opnieuw draaien is de enige correcte conflictresolutie. `project/status.json` (schema_version 2) draagt nu een verplicht `verification`-veld per current_milestone (`automatisch`, `wacht-op-menselijke-verificatie` of `geverifieerd` met verplichte actor en datum), zichtbaar in de HTML-, Grafana- en Markdown-statusproducten, zodat een geïmplementeerde verifier niet stilzwijgend als succesvolle live verificatie kan worden gelezen. ADR-0002 legt vast dat een backend een niet-realiseerbare BAT-beeldintentie altijd expliciet weigert; de wallpaperrenderer valt bij een onbekend beeldeffect nooit meer stil terug op vlak gedrag maar faalt met een duidelijke fout, onafhankelijk van de bestaande BAT-validatie. Het legacy `model/`/`organisation/`/`proposals/`-YAML-systeem en `tools/generate.py` zijn verwijderd: dat systeem contradiceerde 'BAT is de enige normatieve bron' en werd nooit als echt BAT-product uitgedrukt. `tools/validate.py` valideert nu uitsluitend nog de actieve ontwerpbroncontracten in `project/design-inputs/`; het Second Brain-concept staat als narratief in `docs/world-model.md`, niet meer als gegenereerd artifact. Branch protection op `main` is ingeschakeld: pull request en groene `validate`-check verplicht, ook voor admins; directe pushes en force-pushes worden geweigerd. Daarmee is de agentcontract-discipline (nooit rechtstreeks op `main`) niet langer alleen gedragsafspraak. De Figma-syncplugin gebruikte `InstanceNode.mainComponent` synchroon, verboden onder `documentAccess: dynamic-page`; nu `getMainComponentAsync()`, gevonden via de echte live foutmelding dankzij de eerdere console.error-fix. Een volgende live run faalde op de idempotentiecheck (tweede sync week af van de eerste) zonder aan te geven waar; de plugin logt nu het eerste afwijkende pad en de twee waarden, zowel in de toastmelding als de console, zodat de daadwerkelijke oorzaak zichtbaar wordt in plaats van gegokt. Die diagnose wees direct de echte fout aan: `$.surfaces.0.width` week af tussen de eerste en tweede sync. Oorzaak: `swapComponent()` op een bestaande instantie behoudt de vorige grootte, inclusief de handmatige grid-stretch (column/row-span) van de vorige sync, waardoor `cellWidth` op de tweede run uit al-uitgerekte instanties werd berekend. Elke instantie wordt nu na aanmaken of swappen expliciet teruggezet naar de natuurlijke grootte van zijn component, vóór de grid-berekening. `docs/beckeringh-architectuurtaal.md` legt nu vast dat `naam`/`doel` eindproducttekst zijn, geen documentatie: renderers tonen ze rechtstreeks aan de eindgebruiker, dus zelfreferentiële taal over BAT en narratieve wereldtaal horen daar niet in thuis. De `Gegenereerd uit BAT`-kickerregel is daarom verwijderd uit zowel `compiler/native_layout_html_renderer.py` als `compiler/backends/grafana.py`; wereld-, thema-, mode- en snapshotidentiteit blijven volledig machineleesbaar via bestaande `data-*` attributen en dashboardtags, alleen de zichtbare, zelfreferentiële tekstregel is weg. Erik Post zag daarna dat de `doel`-paragraaf zelf nog steeds permanent zichtbaar stond onder de producttitel en wees op de bredere regel: tekst zonder toegevoegde waarde voor wie het product gebruikt hoort niet in de UI thuis. Die paragraaf is daarom systeembreed verwijderd uit `compiler/native_layout_html_renderer.py` en `compiler/backends/grafana.py`; `doel` blijft bestaan als verplicht BAT-veld en als Grafana-panelbeschrijving (info-icoon, alleen op hover zichtbaar). Erik Post heeft het eindresultaat live geverifieerd in zowel de gegenereerde producten als het echte `emberforge-observatory-grafana`-dashboard op K3s (opnieuw geïmporteerd na elke wijziging, verificatie afgesloten op 2026-08-22): geen kickerregel, geen doel-paragraaf, alleen de titel `The Observatory` boven de panelen. M11.10a voegt het native object `databron` toe (`naam`, `doel`, `expr`, `eenheid`, optioneel `mapping`), samen met `compiler/data_sources.py` en `DataSourceConstraint` (BP4410-BP4415) en een nieuwe `BP3721` op `componentinstantie`. De World Model legt vast wélke PromQL-expressie bij een instantie hoort (compileertijd, reproduceerbaar); `compiler/backends/grafana.py` legt als backendconstante (`PROMETHEUS_DATASOURCE_UID`) vast wélke Prometheus-instantie die query op kijktijd uitvoert, bewust buiten `architectuur/world.bp` omdat dat een omgevingsfeit is, geen wereldfeit. Alle tien Observatory-instanties zijn zo gekoppeld aan echte Prometheus/kube-state-metrics-telemetrie; de HTML-backend consumeert `databron` niet en blijft volledig statisch en netwerkvrij, dus dezelfde compositie levert eerlijk twee verschillende garanties (snapshot vs. live) zonder tegenspraak. Een spike met een handgeschreven Canvas-paneel tegen de echte Grafana-API bevestigde eerst dat `text.mode: field` daadwerkelijk live queryresultaten rendert, inclusief `fieldConfig`-waardemappings (`1` naar `Healthy`), vóórdat dit in de compiler is gebouwd. Erik Post meldde daarna dat de statkaarten te groot waren; onderzoek wees uit dat de vaste `GRAFANA_ROW_HEIGHT`-constante nooit tegen Grafana's echte rasterschaal (30px + 8px marge per eenheid) was gevalideerd. Een eerste verkleining verhielp de te-grote kaarten maar sneed de doel-tekst af, omdat één vaste constante onmogelijk zowel Observatory's korte statkaarten als Forge Dashboard's veel langere informatiegebied-panelen kan passen. De fix is content-gedreven in plaats van geraden: `_rijhoogte_eenheden()` berekent per product de werkelijk benodigde rijhoogte uit de opgeloste Canvas-inhoud, inclusief Grafana's vaste paneelkoptekst. Dat onthulde dat Forge Dashboard's panelen al vóór deze milestone te weinig ruimte kregen (988px benodigd tegen 600px toegekend) en dus zichtbaar afgekapt waren zodra iemand het dashboard live opende; dezelfde berekening loste die vooraf onopgemerkte overflow meteen mee op. Erik Post heeft het resultaat live in de browser bevestigd op 2026-08-22. Erik Post meldde daarna twee resterende problemen op datzelfde live dashboard: elke paneltitel stond dubbel (Grafana's eigen koptekstbalk toonde exact dezelfde naam als de gebrande Canvas-heading eronder) en onder elke statkaart stond een parafrase van diezelfde naam via het nog niet aangepakte per-instantie `doel` (`Running` met eronder `Aantal actieve workloads`). Een spike tegen de echte Grafana-instantie bevestigde dat een lege paneltitel (`title` als lege string) Grafana's koptekstbalk volledig laat wegvallen; alle Grafana-panelen (dashboardheader, per-instantie, projectstatus) kregen daarom een lege titel en `GRAFANA_PANEL_HEADER_PX` ging naar 0. Het canvas-`-body`-element (`instantie.doel`) is verwijderd uit `_canvasopties`, en dezelfde `bp-description`-paragraaf is verwijderd uit de HTML-backend voor informatiegebied-gedreven producten zoals Forge Dashboard, zodat de regel 'doel is geen zichtbare UI-tekst' nu op elk niveau geldt, niet alleen de dashboardheader. Erik Post breidde de ontwerpregel daarna uit: alle eindproducttekst is Nederlands, ook waar de brondata (Kubernetes, Prometheus) Engelse termen gebruikt. Observatory's `naam`, `label`, `waarde` en databron-`mapping`-labels zijn vertaald (`Running` naar `Actief`, `CPU Usage` naar `CPU-gebruik`, waardemapping `1` naar `Gezond` in plaats van `Healthy`); eigennamen (`ISMS Challenger`, `CV Tool`) en gangbare IT-leenwoorden (`cluster`, `node`) blijven staan. Het Keycloak-loginformulier en Design System Reference's kleur-/tokennomenclatuur zijn nog niet vertaald; dat is een expliciet openstaande vervolgstap.\nResterend: Meer adapters ontbreken nog. Renderercapaciteit zelf (gradients, textuur, antialiasing) is nog niet uitgebreid; ADR-0002 dwingt alleen af dat een backend expliciet weigert wanneer die capaciteit ontbreekt.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -342,7 +342,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Compiler en reproduceerbaarheid · 99%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -480,7 +480,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Model en productcontracten · 100%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -618,12 +618,12 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Design System · 100%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
     {
-      "description": "project-status-area:dashboard;progress:90",
+      "description": "project-status-area:dashboard;progress:96",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -656,7 +656,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "Dashboard UI en Grafana · 90%",
+                  "fixed": "Dashboard UI en Grafana · 96%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -720,7 +720,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 540
+                "width": 576
               },
               "type": "rectangle"
             },
@@ -732,7 +732,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het HTML en Grafana homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde opgeloste voorbeelden, componentsemantiek en native layout.\nResterend: Operationele databroncontracten en toetsing met echte hulptechnologie ontbreken nog.",
+                  "fixed": "Onderbouwing: Het HTML en Grafana homelab dashboard componeert vier statistiekkaarten, vier statussen en twee app tegels uit dezelfde opgeloste voorbeelden, componentsemantiek en native layout. Alle tien instanties zijn nu gekoppeld aan een `databron`: het Grafana-dashboard toont live Prometheus/kube-state-metrics-telemetrie van het K3s-cluster in plaats van statische voorbeeldwaarden, terwijl het HTML-product bewust static en netwerkvrij blijft.\nResterend: Toetsing met echte hulptechnologie ontbreekt nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -756,7 +756,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Dashboard UI en Grafana · 90%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -894,7 +894,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Visuele wereld en art direction · 70%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -1032,7 +1032,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "SVG component library en icon set · 88%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -1170,7 +1170,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Logo's en wallpapers · 90%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -1308,7 +1308,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "HTML homepage · 95%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -1446,7 +1446,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "Figma masterbestand · 100%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     },
@@ -1584,7 +1584,7 @@
         },
         "showAdvancedTypes": false
       },
-      "title": "World Bible · 90%",
+      "title": "",
       "transparent": true,
       "type": "canvas"
     }
@@ -1595,9 +1595,9 @@
     "beckeringh-palace",
     "generated",
     "project-status-schema:2",
-    "overall-progress:92",
-    "milestone-verification:geverifieerd",
-    "sha256:5f4ff7b57960ef306668746ffa9644eb73ee29ae5901485d051696a3c48705a8"
+    "overall-progress:93",
+    "milestone-verification:wacht-op-menselijke-verificatie",
+    "sha256:dcd931de48970f0622102d479835d64bd756068cbf75b064f0429237adc9a11f"
   ],
   "templating": {
     "list": []

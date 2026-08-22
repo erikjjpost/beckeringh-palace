@@ -32,6 +32,11 @@ class DesignCompositionConstraint:
             for obj in context.objecten
             if obj.soort == "componentvoorbeeld"
         }
+        databronnen = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "databron"
+        }
 
         for obj in context.objecten:
             if obj.soort == "compositie":
@@ -115,6 +120,7 @@ class DesignCompositionConstraint:
                     "homepagegebied",
                     "navigatie",
                     "voorbeeld",
+                    "databron",
                 }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
@@ -209,6 +215,21 @@ class DesignCompositionConstraint:
                                 "voorbeeld", obj.bronlocatie
                             ),
                         ))
+                databron_id = obj.eigenschappen.get("databron")
+                if (
+                    "databron" in obj.eigenschappen
+                    and databron_id not in databronnen
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3721",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' verwijst naar "
+                            f"onbekende databron '{databron_id}'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "databron", obj.bronlocatie
+                        ),
+                    ))
                 metric_kind = obj.eigenschappen.get("metric-kind")
                 informatiegebied = obj.eigenschappen.get("informatiegebied")
                 if (

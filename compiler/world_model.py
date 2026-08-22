@@ -55,6 +55,7 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("component", Domeinstatus.NATIVE, "Definieert een herbruikbaar productonderdeel."),
     ObjectsoortDefinitie("toegankelijkheid", Domeinstatus.NATIVE, "Legt naam, rol, waarde, fout, disabled, focus en toetsenbordgedrag van een component vast."),
     ObjectsoortDefinitie("componentvoorbeeld", Domeinstatus.NATIVE, "Legt productgedragen voorbeeldinhoud voor één componentvariant vast."),
+    ObjectsoortDefinitie("databron", Domeinstatus.NATIVE, "Bindt een componentinstantie aan een deterministische queryexpressie voor live telemetrie."),
     ObjectsoortDefinitie("referentiesectie", Domeinstatus.NATIVE, "Ordent één semantisch deel van een native referentieproduct."),
     ObjectsoortDefinitie("informatiegebied", Domeinstatus.NATIVE, "Bundelt objectsoorten tot één benoemd informatiegebied voor producten."),
     ObjectsoortDefinitie("homepagegebied", Domeinstatus.NATIVE, "Definieert één geordend inhoudsgebied met kernboodschap en productroute voor de homepage."),

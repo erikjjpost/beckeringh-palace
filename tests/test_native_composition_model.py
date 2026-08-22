@@ -265,6 +265,60 @@ componentvoorbeeld panel-example {
             analyseer(parseer(gecombineerd), constraints=WORLD_MODEL_CONSTRAINTS)
         self.assertIn("BP3720", {item.code for item in context.exception.diagnostics})
 
+    def test_weigert_onbekende_databron(self):
+        bron = BRON.replace(
+            '    component: "forge-panel"\n    variant: "forge-panel-compact"\n}',
+            (
+                '    component: "forge-panel"\n'
+                '    variant: "forge-panel-compact"\n'
+                '    databron: "missing"\n'
+                "}"
+            ),
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3721", {item.code for item in context.exception.diagnostics})
+
+    def test_resolveert_gekoppelde_databron(self):
+        bron = (BRON + '''
+
+databron dashboard-left-databron {
+    naam: "Dashboard left metric"
+    doel: "Live telling voor linkerpaneel."
+    expr: "count(up)"
+    eenheid: "aantal"
+}
+''').replace(
+            '    component: "forge-panel"\n    variant: "forge-panel-compact"\n}',
+            (
+                '    component: "forge-panel"\n'
+                '    variant: "forge-panel-compact"\n'
+                '    databron: "dashboard-left-databron"\n'
+                "}"
+            ),
+            1,
+        )
+        model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        compositie = resolveer_composities(model.objecten)[0]
+        links = next(
+            instantie
+            for instantie in compositie.instances
+            if instantie.id == "dashboard-left"
+        )
+
+        self.assertIsNotNone(links.databron)
+        assert links.databron is not None
+        self.assertEqual("count(up)", links.databron.expr)
+        self.assertEqual("aantal", links.databron.eenheid)
+        rechts = next(
+            instantie
+            for instantie in compositie.instances
+            if instantie.id == "dashboard-right"
+        )
+        self.assertIsNone(rechts.databron)
+
     def test_weigert_onbekende_variant(self):
         bron = BRON.replace(
             '    variant: "forge-panel-compact"',

@@ -163,7 +163,7 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
             "forge-status-running-example": (
                 "forge-status",
                 "forge-status-running",
-                "Running",
+                "Actief",
                 "62",
                 None,
                 None,
@@ -183,7 +183,7 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
                 "forge-stat-card-value",
                 "Nodes",
                 "12",
-                "All Running",
+                "Allemaal actief",
                 None,
                 None,
             ),
@@ -231,7 +231,7 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
             'data-example="forge-status-running-example"',
             catalog,
         )
-        self.assertIn(">Running</span> · <span>62</span>", catalog)
+        self.assertIn(">Actief</span> · <span>62</span>", catalog)
         self.assertIn(
             'data-example="forge-app-tile-isms-example"',
             catalog,
@@ -247,7 +247,7 @@ class EmberForgeComponentFamilyMigrationTests(unittest.TestCase):
             catalog,
         )
         self.assertIn("<strong>12</strong>", catalog)
-        self.assertIn("<p>All Running</p>", catalog)
+        self.assertIn("<p>Allemaal actief</p>", catalog)
 
     def test_css_draagt_structuur_en_bronbewezen_tonen(self) -> None:
         css = naar_component_css(self.model.objecten)

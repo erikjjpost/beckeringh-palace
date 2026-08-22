@@ -181,11 +181,7 @@ class ForgeNativeLayoutMigrationTests(unittest.TestCase):
             '<li><span>token</span><span class="bp-metric-detail-value">10</span></li>',
             product.inhoud,
         )
-        self.assertIn(
-            '<p class="bp-description">De digitale wereld, haar merk en haar '
-            "reproduceerbare bronassets.</p>",
-            product.inhoud,
-        )
+        self.assertNotIn('class="bp-description"', product.inhoud)
 
 
 if __name__ == "__main__":
