@@ -1146,7 +1146,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die met verdiepte atmosferische lichtgeometrie, Palace, het gecorrigeerde beverembleem en Noorse lijnsymboliek.\nResterend: Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten.",
+                  "fixed": "Onderbouwing: Het EmberForge merkteken, woordmerk en de canonieke Circle of Fifths zijn reproduceerbare vectorgeometrie; de 3840 bij 1080 en 1900 bij 1200 familievarianten combineren die met verdiepte atmosferische lichtgeometrie, Palace, het gecorrigeerde beverembleem en Noorse lijnsymboliek. Erik Post ervoer het merkteken als hoekig en niet smooth; de acht vertices van het octagon-badge en de acht vertices van het hamer/aambeeld-silhouet zijn afgerond met een wiskundig afgeleide fillet (Q-curven op dezelfde ankerpunten, straal 9 voor het badge en 3 voor hamer/aambeeld, ruim binnen de kortste randlengte om overlap uit te sluiten). De vlamvorm gebruikte al curves en bleef ongewijzigd. Dit raakt alleen padgeometrie van het bestaande `emberforge-merkteken`-asset, geen nieuw veld of nieuwe semantiek, en cascadeert via de snapshot-hash naar alle producten die het merkteken bevatten (wallpapers, Figma-master, SVG-catalogus).\nResterend: Aanvullende merklockups en eventuele nieuwe doelcanvassen zijn nog geen compilerproducten.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1597,7 +1597,7 @@
     "project-status-schema:2",
     "overall-progress:93",
     "milestone-verification:wacht-op-menselijke-verificatie",
-    "sha256:1ee0597bd516da5e1ee0ae4ce13d3919b6c1a9613abf89b55dca79d53af7e35e"
+    "sha256:85f42cdccaf229a30942ed876d434e6015a4a2424b21d4ab79e5517ac0282547"
   ],
   "templating": {
     "list": []
