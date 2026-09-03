@@ -8,6 +8,7 @@ import re
 
 from compiler.component_css_identity import componentklasse, variantklasse
 from compiler.design_compositions import ResolvedComposition
+from compiler.svg_serialization import svg_element_lines
 from compiler.layout_model import (
     LayoutDirection,
     LayoutType,
@@ -101,6 +102,7 @@ def naar_native_layout_html(
     titel: str = "Beckeringh Palace product",
     inhoud_naam: str | None = None,
     instance_content: Mapping[str, tuple[str, ...]] | None = None,
+    snapshot_ref: str = "",
 ) -> str:
     """Vertaal resolved inhoud en layout deterministisch naar HTML en CSS."""
 
@@ -316,9 +318,28 @@ def naar_native_layout_html(
                 f"{component_accessibility_attributes}"
                 f"{information_accessibility_attribute}{style_attribute}>"
             ),
-            f"      <h2{heading_id_attribute}>"
-            f"{html.escape(instantie.naam)}</h2>",
         ])
+        if instantie.merkasset is not None:
+            regels.append('      <div class="bp-lockup">')
+            regels.extend(
+                f"        {regel}"
+                for regel in svg_element_lines(
+                    instantie.merkasset,
+                    snapshot_ref,
+                    extra_attributes=(("class", "bp-brand-mark"),),
+                    force_decorative=True,
+                )
+            )
+            regels.extend([
+                f"        <h2{heading_id_attribute}>"
+                f"{html.escape(instantie.naam)}</h2>",
+                "      </div>",
+            ])
+        else:
+            regels.append(
+                f"      <h2{heading_id_attribute}>"
+                f"{html.escape(instantie.naam)}</h2>"
+            )
         if (
             instance_content is not None
             and instantie.id in instance_content

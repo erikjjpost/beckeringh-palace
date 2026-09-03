@@ -14,6 +14,7 @@ from compiler.component_examples import (
     resolveer_componentvoorbeelden,
 )
 from compiler.data_sources import ResolvedDataSource, resolveer_databronnen
+from compiler.svg_assets import ResolvedSvgAsset, resolveer_svg_assets
 from compiler.design_variants import ResolvedComponentVariant, resolveer_varianten
 from compiler.information_architecture import (
     ResolvedContentAnchor,
@@ -62,6 +63,7 @@ class ResolvedComponentInstance:
     content_anchors: tuple[ResolvedContentAnchor, ...]
     navigation_targets: tuple[ResolvedNavigationTarget, ...]
     databron: ResolvedDataSource | None
+    merkasset: ResolvedSvgAsset | None
 
 
 @dataclass(frozen=True)
@@ -98,6 +100,7 @@ def _instantie_uit_object(
     objecten: tuple[Architectuurobject, ...],
     voorbeelden: dict[str, ResolvedComponentExample],
     databronnen: dict[str, ResolvedDataSource],
+    merkassets: dict[str, ResolvedSvgAsset],
 ) -> ResolvedComponentInstance:
     symbolen = {item.id: item for item in objecten}
     homepagegebied_waarde = obj.eigenschappen.get("homepagegebied")
@@ -277,6 +280,7 @@ def _instantie_uit_object(
             )
         ),
         databron=databronnen.get(obj.eigenschappen.get("databron")),
+        merkasset=merkassets.get(obj.eigenschappen.get("merkasset")),
     )
 
 
@@ -312,6 +316,11 @@ def resolveer_composities(
         databron.id: databron
         for databron in resolveer_databronnen(objecten)
     }
+    merkassets = {
+        asset.id: asset
+        for asset in resolveer_svg_assets(objecten)
+        if asset.rol == "logo"
+    }
     informatiegebieden = {
         gebied.id: gebied
         for gebied in resolveer_informatiegebieden(objecten)
@@ -346,6 +355,7 @@ def resolveer_composities(
                     objecten,
                     voorbeelden,
                     databronnen,
+                    merkassets,
                 )
                 for instance_id in instance_ids
             )

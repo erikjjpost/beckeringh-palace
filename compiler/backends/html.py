@@ -57,6 +57,18 @@ def _theme_css(product: ProductDefinition) -> str:
         "    .bp-layout { gap: var(--bp-spacing-medium); }",
         "    .bp-region { padding: var(--bp-spacing-large); }",
         "    .bp-region h2 { margin-top: 0; }",
+        "    .bp-lockup {",
+        "      display: flex;",
+        "      align-items: center;",
+        "      gap: var(--bp-spacing-medium);",
+        "    }",
+        "    .bp-lockup h2 { margin-top: 0; }",
+        "    .bp-brand-mark {",
+        "      flex: none;",
+        "      width: 3rem;",
+        "      height: 3rem;",
+        "      color: var(--bp-material-accent);",
+        "    }",
         "    @media (max-width: 960px) {",
         "      body { padding: var(--bp-spacing-large); }",
         "    }",
@@ -350,6 +362,7 @@ def _render(
             else None
         ),
         instance_content=instance_content,
+        snapshot_ref=product.snapshot_ref or "",
     )
     if product.inhoud == "project-status":
         if product.project_status is None:

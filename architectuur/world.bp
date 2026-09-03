@@ -3284,6 +3284,7 @@ homepagegebied homepage-terminal-area {
 componentinstantie homepage-intro {
     compositie: "beckeringh-palace-homepage-composition"
     homepagegebied: "homepage-entrance"
+    merkasset: "emberforge-merkteken"
 }
 
 componentinstantie homepage-world {

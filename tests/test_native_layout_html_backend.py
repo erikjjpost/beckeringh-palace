@@ -269,6 +269,53 @@ region stack-main {''',
         self.assertIn("<h2>Stack panel</h2>", html)
         self.assertNotIn("<h2>Stack main</h2>", html)
 
+    def test_merkasset_wordt_als_decoratieve_lockup_ingebed(self):
+        bron = (BRON + '''
+
+asset stack-panel-merkteken {
+    naam: "Testmerkteken"
+    doel: "Logo asset voor de lockup-rendering."
+    formaat: "svg"
+    rol: "logo"
+    viewbox: "0 0 24 24"
+    paden: ["M4 4 L20 20"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "1.5"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "informatief"
+    label: "Test"
+}
+''').replace(
+            '    compositie: "stack-content"\n    component: "panel"\n}',
+            (
+                '    compositie: "stack-content"\n'
+                '    component: "panel"\n'
+                '    merkasset: "stack-panel-merkteken"\n'
+                "}"
+            ),
+            1,
+        )
+        model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        producten = {
+            product.definitie.id: product.inhoud
+            for product in compileer_producten(
+                model.objecten,
+                standaard_backend_registry(),
+            )
+        }
+
+        html = producten["stack-html"]
+        self.assertIn('<div class="bp-lockup">', html)
+        self.assertIn('data-bp-asset="stack-panel-merkteken"', html)
+        self.assertIn('class="bp-brand-mark"', html)
+        self.assertIn('aria-hidden="true"', html)
+        self.assertIn("<h2>Stack panel</h2>", html)
+
+        andere_producten = producten["grid-html"]
+        self.assertNotIn('class="bp-lockup"', andere_producten)
+
 
 if __name__ == "__main__":
     unittest.main()
