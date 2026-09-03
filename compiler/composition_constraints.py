@@ -37,6 +37,11 @@ class DesignCompositionConstraint:
             for obj in context.objecten
             if obj.soort == "databron"
         }
+        merkassets = {
+            obj.id: obj
+            for obj in context.objecten
+            if obj.soort == "asset" and obj.eigenschappen.get("rol") == "logo"
+        }
 
         for obj in context.objecten:
             if obj.soort == "compositie":
@@ -121,6 +126,7 @@ class DesignCompositionConstraint:
                     "navigatie",
                     "voorbeeld",
                     "databron",
+                    "merkasset",
                 }
                 for naam in obj.eigenschappen:
                     if naam not in toegestane_velden:
@@ -228,6 +234,22 @@ class DesignCompositionConstraint:
                         ),
                         locatie=obj.eigenschaplocaties.get(
                             "databron", obj.bronlocatie
+                        ),
+                    ))
+                merkasset_id = obj.eigenschappen.get("merkasset")
+                if (
+                    "merkasset" in obj.eigenschappen
+                    and merkasset_id not in merkassets
+                ):
+                    diagnostics.append(Diagnostic(
+                        code="BP3724",
+                        boodschap=(
+                            f"Componentinstantie '{obj.id}' verwijst naar "
+                            f"onbekend of niet-logo asset '{merkasset_id}' via "
+                            "'merkasset'"
+                        ),
+                        locatie=obj.eigenschaplocaties.get(
+                            "merkasset", obj.bronlocatie
                         ),
                     ))
                 metric_kind = obj.eigenschappen.get("metric-kind")

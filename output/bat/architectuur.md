@@ -5636,6 +5636,7 @@ Introduceert de ontwerpregel achter alle Beckeringh Palace producten.
 
 - **compositie:** beckeringh-palace-homepage-composition
 - **homepagegebied:** homepage-entrance
+- **merkasset:** emberforge-merkteken
 
 ## Digitale wereld
 

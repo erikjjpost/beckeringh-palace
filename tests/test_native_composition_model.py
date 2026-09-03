@@ -319,6 +319,101 @@ databron dashboard-left-databron {
         )
         self.assertIsNone(rechts.databron)
 
+    def test_weigert_onbekend_of_niet_logo_merkasset(self):
+        bron = BRON.replace(
+            '    component: "forge-panel"\n    variant: "forge-panel-compact"\n}',
+            (
+                '    component: "forge-panel"\n'
+                '    variant: "forge-panel-compact"\n'
+                '    merkasset: "missing"\n'
+                "}"
+            ),
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3724", {item.code for item in context.exception.diagnostics})
+
+    def test_weigert_merkasset_zonder_logo_rol(self):
+        bron = (BRON + '''
+
+asset dashboard-left-icoon {
+    naam: "Testicoon"
+    doel: "Niet-logo asset voor de merkasset-constraint."
+    formaat: "svg"
+    rol: "icoon"
+    viewbox: "0 0 24 24"
+    paden: ["M4 4 L20 20"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "1.5"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "decoratief"
+}
+''').replace(
+            '    component: "forge-panel"\n    variant: "forge-panel-compact"\n}',
+            (
+                '    component: "forge-panel"\n'
+                '    variant: "forge-panel-compact"\n'
+                '    merkasset: "dashboard-left-icoon"\n'
+                "}"
+            ),
+            1,
+        )
+        with self.assertRaises(SemantischeFout) as context:
+            analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+
+        self.assertIn("BP3724", {item.code for item in context.exception.diagnostics})
+
+    def test_resolveert_gekoppeld_merkasset(self):
+        bron = (BRON + '''
+
+asset dashboard-left-merkteken {
+    naam: "Testmerkteken"
+    doel: "Logo asset voor de merkasset-constraint."
+    formaat: "svg"
+    rol: "logo"
+    viewbox: "0 0 24 24"
+    paden: ["M4 4 L20 20"]
+    vulling: "none"
+    lijn: "currentColor"
+    lijndikte: "1.5"
+    lijneinde: "round"
+    lijnverbinding: "round"
+    toegankelijkheid: "informatief"
+    label: "Test"
+}
+''').replace(
+            '    component: "forge-panel"\n    variant: "forge-panel-compact"\n}',
+            (
+                '    component: "forge-panel"\n'
+                '    variant: "forge-panel-compact"\n'
+                '    merkasset: "dashboard-left-merkteken"\n'
+                "}"
+            ),
+            1,
+        )
+        model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+        compositie = resolveer_composities(model.objecten)[0]
+        links = next(
+            instantie
+            for instantie in compositie.instances
+            if instantie.id == "dashboard-left"
+        )
+
+        self.assertIsNotNone(links.merkasset)
+        assert links.merkasset is not None
+        self.assertEqual("dashboard-left-merkteken", links.merkasset.id)
+        self.assertEqual("logo", links.merkasset.rol)
+        rechts = next(
+            instantie
+            for instantie in compositie.instances
+            if instantie.id == "dashboard-right"
+        )
+        self.assertIsNone(rechts.merkasset)
+
     def test_weigert_onbekende_variant(self):
         bron = BRON.replace(
             '    variant: "forge-panel-compact"',

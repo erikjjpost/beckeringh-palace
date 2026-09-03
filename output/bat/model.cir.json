@@ -4698,7 +4698,8 @@
   {
     "eigenschappen": {
       "compositie": "beckeringh-palace-homepage-composition",
-      "homepagegebied": "homepage-entrance"
+      "homepagegebied": "homepage-entrance",
+      "merkasset": "emberforge-merkteken"
     },
     "id": "homepage-intro",
     "soort": "componentinstantie"
