@@ -86,18 +86,19 @@ gebeurt. Dit is ook het bestaande native merk `emberforge` in BAT — de
 identiteit die nu al de wallpapers, het designsysteem en de SVG-assetfamilies
 draagt.
 
-### The Library — AI Services, LLMs & RAG Systems
+### The Loom — AI Services, LLMs & RAG Systems
 
 AI-diensten en kennissystemen. Narratief het tegenhangerdeel van de
 bestaande, aan Second Brain gekoppelde **The Library**-representatie in
 `docs/world-model.md` — daar is Library de representatie van Second Brain
-zelf (het bewaarde weten); hier, in de smederij, is Library de plek waar dat
-weten wordt *uitgevoerd*: modellen die draaien, embeddings die worden
-opgevraagd, retrieval dat plaatsvindt. Kort gezegd: de Archive/Second Brain
-boven de grond bewaart wat er geweten wordt, de Library onder de grond is
-waar het werkend wordt gemaakt. Twee verschillende rollen die toevallig
-dezelfde naam dragen; bij verdere uitwerking moet dat ontdubbeld worden,
-bijvoorbeeld door de ondergrondse rol een eigen naam te geven.
+zelf (het bewaarde weten); hier, in de smederij, is de Loom de plek waar dat
+weten wordt *uitgevoerd*: opgehaalde kennisdraden die tot een antwoord worden
+geweven — modellen die draaien, embeddings die worden opgevraagd, retrieval
+dat plaatsvindt. Kort gezegd: de Archive/Second Brain boven de grond bewaart
+wat er geweten wordt, de Loom onder de grond weeft dat weten tot iets
+werkends. De naam sluit aan bij het bestaande Noorse vlechtmotief dat al door
+wallpapers en assets loopt, en houdt de twee rollen — bewaren boven de grond,
+verweven eronder — voor het eerst uit elkaar.
 
 ### The Workshop — Development, CI/CD & Automation
 
@@ -167,7 +168,7 @@ volledig als reproduceerbaar BAT-product bestaat.
 | Entrance to EmberForge / EmberForge zelf | bestaand native merk (`emberforge`) |
 | Archive | narratief (Second Brain-tekst in `world-model.md`), geen eigen product |
 | Gatehouse | gedeeltelijk (Keycloak-login-product), geen eigen kamer-object |
-| Harbor, Library, Workshop, Vault, Forge Hall, Machine Hall, Waterworks | narratief uitgewerkt (2026-08-21), nog geen BAT-product of -object |
+| Harbor, Loom, Workshop, Vault, Forge Hall, Machine Hall, Waterworks | narratief uitgewerkt (2026-08-21), nog geen BAT-product of -object |
 
 ## Wat dit document niet doet
 
