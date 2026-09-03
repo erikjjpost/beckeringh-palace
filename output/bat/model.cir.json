@@ -4430,6 +4430,7 @@
       "component": "forge-panel",
       "compositie": "forge-design-system-reference-composition",
       "doel": "Navigeerbare referentie voor het opgeloste EmberForge ontwerpsysteem.",
+      "merkasset": "emberforge-merkteken",
       "naam": "EmberForge ontwerpcontract",
       "navigatie": [
         "css-components",
