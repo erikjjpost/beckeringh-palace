@@ -5317,6 +5317,7 @@ Navigeerbare referentie voor het opgeloste EmberForge ontwerpsysteem.
 
 - **component:** forge-panel
 - **compositie:** forge-design-system-reference-composition
+- **merkasset:** emberforge-merkteken
 - **navigatie:** css-components, css-tokens, json-tokens
 - **variant:** forge-panel-compact
 

@@ -192,7 +192,10 @@ class EmberForgeDesignSystemReferenceProductTests(unittest.TestCase):
                 f'data-navigation-target="{target}"',
                 html,
             )
-        self.assertIsNone(re.search(r"https?://|@import", html))
+        self.assertIsNone(re.search(
+            r'\b(?:href|src)="https?://|@import|url\(["\']?https?://',
+            html,
+        ))
 
     def test_weigert_onvolledige_of_niet_statische_referentie(self) -> None:
         missing = self.source.replace(

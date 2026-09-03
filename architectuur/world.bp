@@ -3105,6 +3105,7 @@ componentinstantie forge-design-system-reference-content {
     component: "forge-panel"
     variant: "forge-panel-compact"
     navigatie: ["css-components", "css-tokens", "json-tokens"]
+    merkasset: "emberforge-merkteken"
 }
 
 layout forge-design-system-reference-stack {
