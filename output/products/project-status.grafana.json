@@ -180,7 +180,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.13a · EmberForge-merkteken in de Design System Referentie (voltooid) · Verificatie: wacht-op-menselijke-verificatie\nVoltooid: M11.10a · Live Prometheus-telemetrie voor Observatory (PR #122)\nVolgende stap: TBD · Volgende milestone nog te kiezen\nM11.13a hergebruikt het `merkasset`-veld en de `BP3724`-constraint uit M11.12a zonder nieuwe compilercode: `forge-design-system-reference-content` krijgt `merkasset: \"emberforge-merkteken\"`, zodat de Design System Referentie dezelfde merklockup toont als de homepage-hero. Onderweg bleek `tests/test_emberforge_design_system_reference_product.py`'s 'geen externe runtime'-regex te breed: hij herkende de verplichte, altijd-statische SVG-namespace (`xmlns=\"http://www.w3.org/2000/svg\"`) ten onrechte als externe referentie. De regex is versmald naar `href=`/`src=`/`@import`/CSS-`url()` met een echt protocol, zodat hij ontladen resources blijft vangen zonder de namespace-declaratie te blokkeren. De wereldsymboliek staat nu op twee productsurfaces (homepage-hero, design-system-referentie); routekaarten en overige homepagegebieden blijven open. De volgende milestone is nog niet gekozen door de Chief Architect.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.13a · EmberForge-merkteken in de Design System Referentie (voltooid) · Verificatie: geverifieerd\nVoltooid: M11.10a · Live Prometheus-telemetrie voor Observatory (PR #122)\nVolgende stap: TBD · Volgende milestone nog te kiezen\nM11.13a hergebruikt het `merkasset`-veld en de `BP3724`-constraint uit M11.12a zonder nieuwe compilercode: `forge-design-system-reference-content` krijgt `merkasset: \"emberforge-merkteken\"`, zodat de Design System Referentie dezelfde merklockup toont als de homepage-hero. Onderweg bleek `tests/test_emberforge_design_system_reference_product.py`'s 'geen externe runtime'-regex te breed: hij herkende de verplichte, altijd-statische SVG-namespace (`xmlns=\"http://www.w3.org/2000/svg\"`) ten onrechte als externe referentie. De regex is versmald naar `href=`/`src=`/`@import`/CSS-`url()` met een echt protocol, zodat hij ontladen resources blijft vangen zonder de namespace-declaratie te blokkeren. De wereldsymboliek staat nu op twee productsurfaces (homepage-hero, design-system-referentie); routekaarten en overige homepagegebieden blijven open. De volgende milestone is nog niet gekozen door de Chief Architect.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1596,7 +1596,7 @@
     "generated",
     "project-status-schema:2",
     "overall-progress:93",
-    "milestone-verification:wacht-op-menselijke-verificatie",
+    "milestone-verification:geverifieerd",
     "sha256:d446ac06fa50470d0233a440b93f668a0638066d79d964040179eec2d37fbcde"
   ],
   "templating": {
