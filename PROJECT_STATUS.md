@@ -10,7 +10,7 @@ Gewogen architectuurschatting van het volledige einddoel. De expliciete productg
 
 - Actuele milestone: **M11.14a — Ontwerpregel 1 per kamer samengebracht in World Bible** (voltooid)
 - Verificatie: **wacht-op-menselijke-verificatie**
-- Laatst voltooid: **M11.10a — Live Prometheus-telemetrie voor Observatory** (PR #122)
+- Laatst voltooid: **M11.13a — EmberForge-merkteken in de Design System Referentie** (PR #127)
 - Volgende stap: **TBD — Volgende milestone nog te kiezen**
 
 ## Voortgang per productgebied
