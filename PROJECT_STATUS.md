@@ -9,7 +9,7 @@
 Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.
 
 - Actuele milestone: **M11.13a — EmberForge-merkteken in de Design System Referentie** (voltooid)
-- Verificatie: **wacht-op-menselijke-verificatie**
+- Verificatie: **geverifieerd** (Erik Post, 2026-09-16)
 - Laatst voltooid: **M11.10a — Live Prometheus-telemetrie voor Observatory** (PR #122)
 - Volgende stap: **TBD — Volgende milestone nog te kiezen**
 
