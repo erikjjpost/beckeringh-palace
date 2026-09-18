@@ -13,9 +13,9 @@
     }
   },
   "last_completed_milestone": {
-    "id": "M11.10a",
-    "name": "Live Prometheus-telemetrie voor Observatory",
-    "pull_request": 122
+    "id": "M11.13a",
+    "name": "EmberForge-merkteken in de Design System Referentie",
+    "pull_request": 127
   },
   "next_step": {
     "id": "TBD",
