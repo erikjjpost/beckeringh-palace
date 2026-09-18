@@ -170,6 +170,32 @@ volledig als reproduceerbaar BAT-product bestaat.
 | Gatehouse | gedeeltelijk (Keycloak-login-product), geen eigen kamer-object |
 | Harbor, Loom, Workshop, Vault, Forge Hall, Machine Hall, Waterworks | narratief uitgewerkt (2026-08-21), nog geen BAT-product of -object |
 
+## Ontwerpregel 1 per kamer
+
+Ontwerpregel 1 (`docs/world-model.md`: "een native objectsoort moet
+aantoonbaar nodig zijn voor minstens één productrenderer") staat tot nu toe
+verspreid als losse toetsing per kamer, ingebed in de eigen paragraaf
+hierboven. Deze tabel brengt die toetsingen samen op één plek, zodat een
+volgende kamerbeslissing niet elke paragraaf opnieuw hoeft te doorzoeken.
+"Niet getoetst" betekent hier expliciet: geen rekengat-onderzoek gedaan,
+niet stilzwijgend "geen rekengat" — dat onderscheid is deze tabel zelf, geen
+nieuwe uitkomst.
+
+| Kamer | Getoetst? | Uitkomst |
+|---|---|---|
+| Great Hall | ja (bij Forge Dashboard) | geen apart rekengat; bestaand `compositie`/`component`/`layout`/`product`-pad drukt het al uit |
+| Observatory | ja (M11.9b, promotie naar `emberforge-observatory`) | geen apart rekengat; zelfde generieke pad als Great Hall |
+| Circle of Fifths | ja (aanleiding voor `muziekcirkel`) | wél een rekengat gevonden — enige kamer met een eigen native objectsoort |
+| The Loom (naamgeving) | ja (M11.6f, `muziekcirkel`-precedent als vergelijkingsmateriaal) | geen apart rekengat; kleuren/typografie lopen al mee via de bestaande component→appearance→thema-keten |
+| Harbor | nee | narratief; Figma-syncplugin is functioneel vergelijkbaar maar hoort vandaag bij `compiler`/`figma`, geen kamertoetsing gedaan |
+| Archive | nee | narratief (Second Brain-tekst in `world-model.md`), geen kamertoetsing gedaan |
+| Gatehouse | nee | Keycloak-login is de dichtstbijzijnde productsurface, geen kamertoetsing gedaan |
+| Workshop | nee | beschrijft de bestaande agentwerkwijze (`AGENTS.md`), geen kamertoetsing gedaan |
+| Vault | nee | credential-discipline bestaat al buiten BAT, geen kamertoetsing gedaan |
+| Forge Hall | nee | correspondeert met het K3s-cluster zelf, geen kamertoetsing gedaan |
+| Machine Hall | nee | correspondeert met Proxmox/bare metal, geen kamertoetsing gedaan |
+| Waterworks | nee | correspondeert met de `output/`-herbouwdiscipline, geen kamertoetsing gedaan |
+
 ## Wat dit document niet doet
 
 Dit is beschrijvend narratief, geen native BAT-objectsoort. Geen van de
