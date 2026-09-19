@@ -4503,6 +4503,7 @@
       "component": "forge-panel",
       "compositie": "emberforge-svg-asset-catalog-composition",
       "doel": "Navigeerbare previews en contractmetadata van alle getypeerde SVG assets.",
+      "merkasset": "emberforge-merkteken",
       "naam": "Native SVG assets",
       "variant": "forge-panel-compact"
     },

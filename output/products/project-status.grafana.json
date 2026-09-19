@@ -180,7 +180,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.14a · Ontwerpregel 1 per kamer samengebracht in World Bible (voltooid) · Verificatie: wacht-op-menselijke-verificatie\nVoltooid: M11.13a · EmberForge-merkteken in de Design System Referentie (PR #127)\nVolgende stap: TBD · Volgende milestone nog te kiezen\nM11.14a voegt een nieuwe sectie 'Ontwerpregel 1 per kamer' toe aan `docs/world-bible.md`: één tabel die samenbrengt welke van de 12 kamers al getoetst zijn tegen ontwerpregel 1 (aantoonbaar rekengat nodig voor een nieuwe native objectsoort) en wat de uitkomst was, in plaats van dat verspreid als losse zinnen in elke kamerparagraaf te laten staan. Puur documentatie/consolidatie, geen nieuw BAT-object, geen compilerwijziging. Erik wees expliciet Grafana-branding (Observatory/Forge Dashboard) af als vervolgstap: die dashboards blijven bewust functioneel en zonder opsmuk. Zijstap gesignaleerd, niet in deze milestone opgelost: `last_completed_milestone` staat nog op M11.10a terwijl M11.11a/M11.12a/M11.13a inmiddels alle drie current_milestone zijn geweest en verificatie hebben (gehad) — de doorschuif-PR's daarvoor zijn nooit gedaan. De volgende milestone is nog niet gekozen door de Chief Architect.",
+                  "fixed": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.\nActueel: M11.15a · EmberForge-merkteken in de SVG Assetcatalogus (voltooid) · Verificatie: wacht-op-menselijke-verificatie\nVoltooid: M11.13a · EmberForge-merkteken in de Design System Referentie (PR #127)\nVolgende stap: TBD · Volgende milestone nog te kiezen\nM11.15a hergebruikt het `merkasset`-veld en de `BP3724`-constraint (M11.12a/M11.13a) een derde keer, zonder nieuwe compilercode: `emberforge-svg-asset-catalog-content` krijgt `merkasset: \"emberforge-merkteken\"`. Beide EmberForge-referentieproducten (Design System Referentie, SVG Assetcatalogus) dragen nu dezelfde merklockup als de homepage-hero. M11.14a (World Bible-consolidatie) wacht nog los op Eriks verificatie, onafhankelijk van deze milestone-telling. Overwogen en afgewezen: Keycloak-login (drie `voorbeeld`-gebaseerde forminstanties, geen losstaande hero-instantie — zou een nieuwe layoutregio vereisen, geen kleine hergebruik-slice meer) en de Terminal (enige instantie, maar thematisch ongepast: een terminalvenster hoort geen browserpagina-achtige merklockup naast de titel). Grafana-dashboards (Observatory, Forge Dashboard) blijven expliciet buiten scope — Erik wil die functioneel en zonder opsmuk. De volgende milestone is nog niet gekozen door de Chief Architect.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -899,7 +899,7 @@
       "type": "canvas"
     },
     {
-      "description": "project-status-area:svg-library;progress:89",
+      "description": "project-status-area:svg-library;progress:90",
       "gridPos": {
         "h": 12,
         "w": 12,
@@ -932,7 +932,7 @@
                 },
                 "size": 32,
                 "text": {
-                  "fixed": "SVG component library en icon set · 89%",
+                  "fixed": "SVG component library en icon set · 90%",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -996,7 +996,7 @@
                 "height": 10,
                 "left": 16,
                 "top": 60,
-                "width": 534
+                "width": 540
               },
               "type": "rectangle"
             },
@@ -1008,7 +1008,7 @@
                 },
                 "size": 16,
                 "text": {
-                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie wereldassets zonder vulling, waaronder het compacte EmberForge beverembleem met smidshamer en aambeeld. M11.13a gaf het `emberforge-merkteken`-logo een tweede plaatsing buiten de wallpapers: de Design System Referentie draagt nu dezelfde merklockup als de homepage-hero, via het herbruikte `merkasset`-veld zonder nieuwe compilercode.\nResterend: Aanvullende merklockups (bijv. woordmerk als alternatieve variant) en een bredere iconenbibliotheek ontbreken nog.",
+                  "fixed": "Onderbouwing: BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie wereldassets zonder vulling, waaronder het compacte EmberForge beverembleem met smidshamer en aambeeld. M11.13a gaf het `emberforge-merkteken`-logo een tweede plaatsing buiten de wallpapers: de Design System Referentie draagt nu dezelfde merklockup als de homepage-hero, via het herbruikte `merkasset`-veld zonder nieuwe compilercode. M11.15a gaf het merkteken een derde plaatsing: de SVG Assetcatalogus toont nu dezelfde merklockup als de homepage-hero en de Design System Referentie, zonder nieuwe compilercode.\nResterend: Aanvullende merklockups (bijv. woordmerk als alternatieve variant) en een bredere iconenbibliotheek ontbreken nog.",
                   "mode": "fixed"
                 },
                 "valign": "top"
@@ -1597,7 +1597,7 @@
     "project-status-schema:2",
     "overall-progress:93",
     "milestone-verification:wacht-op-menselijke-verificatie",
-    "sha256:d446ac06fa50470d0233a440b93f668a0638066d79d964040179eec2d37fbcde"
+    "sha256:9ef87cf17043d402edfe72f504be04fcdbddb6193abe734819b54e5c33842fa3"
   ],
   "templating": {
     "list": []

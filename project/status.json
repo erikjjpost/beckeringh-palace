@@ -3,8 +3,8 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.14a",
-    "name": "Ontwerpregel 1 per kamer samengebracht in World Bible",
+    "id": "M11.15a",
+    "name": "EmberForge-merkteken in de SVG Assetcatalogus",
     "state": "voltooid",
     "verification": {
       "state": "wacht-op-menselijke-verificatie",
@@ -20,7 +20,7 @@
   "next_step": {
     "id": "TBD",
     "name": "Volgende milestone nog te kiezen",
-    "purpose": "M11.14a voegt een nieuwe sectie 'Ontwerpregel 1 per kamer' toe aan `docs/world-bible.md`: één tabel die samenbrengt welke van de 12 kamers al getoetst zijn tegen ontwerpregel 1 (aantoonbaar rekengat nodig voor een nieuwe native objectsoort) en wat de uitkomst was, in plaats van dat verspreid als losse zinnen in elke kamerparagraaf te laten staan. Puur documentatie/consolidatie, geen nieuw BAT-object, geen compilerwijziging. Erik wees expliciet Grafana-branding (Observatory/Forge Dashboard) af als vervolgstap: die dashboards blijven bewust functioneel en zonder opsmuk. Zijstap gesignaleerd, niet in deze milestone opgelost: `last_completed_milestone` staat nog op M11.10a terwijl M11.11a/M11.12a/M11.13a inmiddels alle drie current_milestone zijn geweest en verificatie hebben (gehad) — de doorschuif-PR's daarvoor zijn nooit gedaan. De volgende milestone is nog niet gekozen door de Chief Architect."
+    "purpose": "M11.15a hergebruikt het `merkasset`-veld en de `BP3724`-constraint (M11.12a/M11.13a) een derde keer, zonder nieuwe compilercode: `emberforge-svg-asset-catalog-content` krijgt `merkasset: \"emberforge-merkteken\"`. Beide EmberForge-referentieproducten (Design System Referentie, SVG Assetcatalogus) dragen nu dezelfde merklockup als de homepage-hero. M11.14a (World Bible-consolidatie) wacht nog los op Eriks verificatie, onafhankelijk van deze milestone-telling. Overwogen en afgewezen: Keycloak-login (drie `voorbeeld`-gebaseerde forminstanties, geen losstaande hero-instantie — zou een nieuwe layoutregio vereisen, geen kleine hergebruik-slice meer) en de Terminal (enige instantie, maar thematisch ongepast: een terminalvenster hoort geen browserpagina-achtige merklockup naast de titel). Grafana-dashboards (Observatory, Forge Dashboard) blijven expliciet buiten scope — Erik wil die functioneel en zonder opsmuk. De volgende milestone is nog niet gekozen door de Chief Architect."
   },
   "areas": [
     {
@@ -66,9 +66,9 @@
     {
       "id": "svg-library",
       "name": "SVG component library en icon set",
-      "progress": 89,
+      "progress": 90,
       "weight": 10,
-      "evidence": "BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie wereldassets zonder vulling, waaronder het compacte EmberForge beverembleem met smidshamer en aambeeld. M11.13a gaf het `emberforge-merkteken`-logo een tweede plaatsing buiten de wallpapers: de Design System Referentie draagt nu dezelfde merklockup als de homepage-hero, via het herbruikte `merkasset`-veld zonder nieuwe compilercode.",
+      "evidence": "BAT valideert viewbox, padgeometrie, paint, lijnstijl, rol en toegankelijkheid en publiceert naast twee assetfamilies ook generieke vectorglyphs, een herbruikbare lichtschijf en drie wereldassets zonder vulling, waaronder het compacte EmberForge beverembleem met smidshamer en aambeeld. M11.13a gaf het `emberforge-merkteken`-logo een tweede plaatsing buiten de wallpapers: de Design System Referentie draagt nu dezelfde merklockup als de homepage-hero, via het herbruikte `merkasset`-veld zonder nieuwe compilercode. M11.15a gaf het merkteken een derde plaatsing: de SVG Assetcatalogus toont nu dezelfde merklockup als de homepage-hero en de Design System Referentie, zonder nieuwe compilercode.",
       "remaining": "Aanvullende merklockups (bijv. woordmerk als alternatieve variant) en een bredere iconenbibliotheek ontbreken nog."
     },
     {
