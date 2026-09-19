@@ -3148,6 +3148,7 @@ componentinstantie emberforge-svg-asset-catalog-content {
     compositie: "emberforge-svg-asset-catalog-composition"
     component: "forge-panel"
     variant: "forge-panel-compact"
+    merkasset: "emberforge-merkteken"
 }
 
 layout emberforge-svg-asset-catalog-stack {

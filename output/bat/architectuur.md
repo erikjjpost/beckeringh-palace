@@ -5401,6 +5401,7 @@ Navigeerbare previews en contractmetadata van alle getypeerde SVG assets.
 
 - **component:** forge-panel
 - **compositie:** emberforge-svg-asset-catalog-composition
+- **merkasset:** emberforge-merkteken
 - **variant:** forge-panel-compact
 
 ## EmberForge SVG Asset Catalog Stack
