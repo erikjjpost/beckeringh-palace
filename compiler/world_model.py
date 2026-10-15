@@ -60,6 +60,8 @@ _OBJECTSOORTEN = (
     ObjectsoortDefinitie("informatiegebied", Domeinstatus.NATIVE, "Bundelt objectsoorten tot één benoemd informatiegebied voor producten."),
     ObjectsoortDefinitie("homepagegebied", Domeinstatus.NATIVE, "Definieert één geordend inhoudsgebied met kernboodschap en productroute voor de homepage."),
     ObjectsoortDefinitie("compositie", Domeinstatus.NATIVE, "Bundelt benoemde componentinstanties tot productinhoud."),
+    ObjectsoortDefinitie("presentatie", Domeinstatus.NATIVE, "Bundelt een expliciete, geordende lijst dia's tot één presentatie."),
+    ObjectsoortDefinitie("dia", Domeinstatus.NATIVE, "Koppelt één benoemde presentatiedia aan een bestaande compositie en layout."),
     ObjectsoortDefinitie("componentinstantie", Domeinstatus.NATIVE, "Beschrijft één benoemd gebruik van een component in een compositie."),
     ObjectsoortDefinitie("layout", Domeinstatus.NATIVE, "Beschrijft backend-onafhankelijke layoutintentie."),
     ObjectsoortDefinitie("region", Domeinstatus.NATIVE, "Plaatst een component expliciet binnen een native layout."),

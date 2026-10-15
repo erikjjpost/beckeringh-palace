@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from pathlib import PurePosixPath
 
 from compiler.backend_discovery import backend_namen
+from compiler.cir import Architectuurobject
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
 from compiler.figma_master import (
@@ -13,6 +14,50 @@ from compiler.figma_master import (
     FIGMA_MASTER_SUFFIX,
 )
 from compiler.wallpaper_products import WALLPAPER_CONTENT
+
+
+def _instanties_komen_niet_overeen(
+    compositie_obj: Architectuurobject,
+    layout_obj: Architectuurobject,
+    regions: dict[str, Architectuurobject],
+) -> bool:
+    """Bepaal of compositie en layout niet exact dezelfde instanties delen.
+
+    Gedeeld door `ProductDefinitionConstraint` (BP3507) en
+    `PresentationConstraint` (BP4434): beide koppelen een bestaande
+    compositie aan een bestaande layout en vereisen exact dezelfde
+    componentinstanties in beide.
+    """
+    region_ids = layout_obj.eigenschappen.get("regions")
+    composition_instances = compositie_obj.eigenschappen.get("instanties")
+    kan_vergelijken = (
+        isinstance(region_ids, list)
+        and all(
+            isinstance(region_id, str) and region_id in regions
+            for region_id in region_ids
+        )
+        and isinstance(composition_instances, list)
+        and all(
+            isinstance(instance_id, str)
+            for instance_id in composition_instances
+        )
+    )
+    layout_instances = (
+        [
+            regions[region_id].eigenschappen.get("instantie")
+            for region_id in region_ids
+        ]
+        if kan_vergelijken
+        else []
+    )
+    kan_vergelijken = kan_vergelijken and all(
+        isinstance(instance_id, str)
+        for instance_id in layout_instances
+    )
+    return bool(kan_vergelijken) and (
+        set(layout_instances) != set(composition_instances)
+        or len(layout_instances) != len(composition_instances)
+    )
 
 
 @dataclass(frozen=True)
@@ -196,35 +241,8 @@ class ProductDefinitionConstraint:
                 if layout in layouts and compositie in composities:
                     layout_obj = layouts[layout]
                     compositie_obj = composities[compositie]
-                    region_ids = layout_obj.eigenschappen.get("regions")
-                    composition_instances = compositie_obj.eigenschappen.get("instanties")
-                    kan_vergelijken = (
-                        isinstance(region_ids, list)
-                        and all(
-                            isinstance(region_id, str) and region_id in regions
-                            for region_id in region_ids
-                        )
-                        and isinstance(composition_instances, list)
-                        and all(
-                            isinstance(instance_id, str)
-                            for instance_id in composition_instances
-                        )
-                    )
-                    layout_instances = (
-                        [
-                            regions[region_id].eigenschappen.get("instantie")
-                            for region_id in region_ids
-                        ]
-                        if kan_vergelijken
-                        else []
-                    )
-                    kan_vergelijken = kan_vergelijken and all(
-                        isinstance(instance_id, str)
-                        for instance_id in layout_instances
-                    )
-                    if kan_vergelijken and (
-                        set(layout_instances) != set(composition_instances)
-                        or len(layout_instances) != len(composition_instances)
+                    if _instanties_komen_niet_overeen(
+                        compositie_obj, layout_obj, regions
                     ):
                         diagnostics.append(Diagnostic(
                             code="BP3507",

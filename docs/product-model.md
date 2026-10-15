@@ -201,6 +201,63 @@ terug naar diezelfde layout. Daardoor ontstaan geen impliciete regionselecties.
 De onderliggende componentdefinitie wordt via de componentinstantie opgelost en
 wordt niet opnieuw in de region gedeclareerd.
 
+### `presentatie`
+
+M11.16a modelleert een presentatie als een geordende, wederkerige lijst
+dia's, zonder renderer of producttype. Iedere presentatie vereist:
+
+- `naam` en `doel`;
+- `dias`: een niet-lege, unieke en geordende lijst dia-id's.
+
+De lijst is de normatieve en wederkerige lidmaatschapsdeclaratie, exact zoals
+`wallpaper.lagen`. Een dia die niet in deze lijst staat, behoort niet
+impliciet tot de presentatie.
+
+```bp
+presentatie keynote {
+    naam: "Keynote"
+    doel: "Ordent de intro- en slotdia."
+    dias: ["dia-intro", "dia-slot"]
+}
+```
+
+### `dia`
+
+Iedere native dia vereist:
+
+- `naam` en `doel`;
+- `presentatie`: de presentatie waar deze dia bij hoort;
+- `compositie`: een bestaande compositie;
+- `layout`: een bestaande layout.
+
+De referentie naar `presentatie` is wederkerig: de presentatie noemt de dia
+en de dia verwijst terug naar diezelfde presentatie, exact zoals
+`wallpaperlaag.wallpaper` dat doet. Een dia hergebruikt het bestaande
+compositie/layoutcontract 1 op 1, zoals een `product` dat al doet: compositie
+en layout van dezelfde dia moeten exact dezelfde componentinstanties
+bevatten, dezelfde regel als de bestaande productvalidatie (BP3507). Niets
+verplicht dat een compositie of layout aan slechts één dia of product
+toebehoort; hergebruik tussen meerdere dia's, of tussen een dia en een
+regulier product, is uitdrukkelijk toegestaan.
+
+```bp
+dia dia-intro {
+    naam: "Intro"
+    doel: "Opent de presentatie."
+    presentatie: "keynote"
+    compositie: "intro-content"
+    layout: "intro-layout"
+}
+```
+
+De resolver levert `ResolvedDia` (id, naam, doel, opgeloste compositie,
+opgeloste layout) en `ResolvedPresentation` (id, naam, doel, geordende
+dia's) op. Beide hergebruiken de bestaande `resolveer_composities` en
+`resolveer_layouts`; er bestaat geen tweede compositie- of layoutresolver
+voor presentaties. Deze milestone voegt bewust geen renderer, backend,
+`inhoud: "presentation"` of concreet BAT-voorbeeld in
+`architectuur/world.bp` toe; dat volgt in M11.16b.
+
 ### `asset`
 
 M11.5a begrenst het native assetobject tot veilig genereerbare SVG
@@ -1183,6 +1240,36 @@ Figma bestand in plaats van alleen een eigenschap van de adapterplanning. De
 visuele beoordeling van het resultaat blijft een expliciete externe
 lifecyclecontrole en kan niet door de netwerkloze adapter worden vervangen.
 
+M11.16a introduceert `presentatie` en `dia` als het kleinste complete
+domeincontract voor een geordende diaserie, naar het precedent van M9.0a (de
+native layout-engine werd zonder renderer als volwaardige, zelfstandige
+milestone geaccepteerd). Een `presentatie` noemt een expliciete, geordende en
+unieke lijst `dia`'s met wederkerig lidmaatschap, exact zoals
+`wallpaper.lagen`/`wallpaperlaag.plaatsingen` dat al doen. Een `dia` verwijst
+terug naar precies die presentatie (exact zoals `wallpaperlaag.wallpaper`
+dat doet) en hergebruikt daarnaast het bestaande compositie/layoutcontract 1
+op 1, zoals een `product` dat al doet: compositie en layout van dezelfde dia
+moeten exact dezelfde componentinstanties bevatten. Die vergelijking is nu
+een gedeelde hulpfunctie (`_instanties_komen_niet_overeen` in
+`compiler/product_definition_constraints.py`) in plaats van gedupliceerde
+logica, gebruikt door zowel de bestaande productvalidatie (BP3507) als de
+nieuwe dia-validatie (BP4434).
+
+`compiler/presentations.py` levert `ResolvedDia` en `ResolvedPresentation` op
+en hergebruikt daarvoor `resolveer_composities`/`resolveer_layouts`; er
+bestaat geen tweede compositie- of layoutresolver voor presentaties. Niets
+in het contract verplicht dat een compositie of layout aan precies één dia
+of product toebehoort: hergebruik tussen meerdere dia's, of tussen een dia en
+een regulier product, is uitdrukkelijk toegestaan, net zoals composities nu
+al door meerdere HTML- en Grafana-producten worden gedeeld.
+
+Deze milestone voegt bewust geen renderer, backend, `product`-koppeling
+(`inhoud: "presentation"`) of concreet BAT-voorbeeld in
+`architectuur/world.bp` toe. Het domeincontract is bewezen via semantische
+validatie (`compiler/presentation_constraints.py`, `BP4420`-`BP4434`) en
+`tests/test_native_presentation_model.py`. M11.16b koppelt een presentatie
+aan een echt renderbaar product, naar het precedent van M9.0a naar M9.0b.
+
 ## Diagnostics
 
 | Code | Betekenis |
@@ -1418,3 +1505,12 @@ lifecyclecontrole en kan niet door de netwerkloze adapter worden vervangen.
 | `BP4413` | Databron staat `mapping` alleen toe bij eenheid `tekst` |
 | `BP4414` | Databron mist een geldige `mapping`-lijst |
 | `BP4415` | Databron met eenheid `tekst` mist `mapping` |
+| `BP4420` | Presentatie heeft een onbekende eigenschap |
+| `BP4421` | Presentatie mist een geldige niet-lege, unieke, geordende dialijst |
+| `BP4422` | Presentatie verwijst naar een onbekende dia |
+| `BP4423` | Presentatie en dia's zijn niet exact wederkerig |
+| `BP4430` | Dia heeft een onbekende eigenschap |
+| `BP4431` | Dia verwijst naar een onbekende presentatie |
+| `BP4432` | Dia verwijst naar een onbekende of ontbrekende compositie |
+| `BP4433` | Dia verwijst naar een onbekende of ontbrekende layout |
+| `BP4434` | Dia vereist exact dezelfde componentinstanties in compositie en layout |
