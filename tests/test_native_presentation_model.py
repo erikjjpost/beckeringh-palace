@@ -3,7 +3,7 @@ from __future__ import annotations
 import unittest
 
 from compiler.parser import parseer
-from compiler.presentations import resolveer_presentaties
+from compiler.presentations import DiaFormaat, resolveer_presentaties
 from compiler.product_constraints import WORLD_MODEL_CONSTRAINTS
 from compiler.semantic import SemantischeFout, analyseer
 
@@ -82,6 +82,7 @@ dia dia-slot {
     presentatie: "keynote"
     compositie: "closing-content"
     layout: "closing-layout"
+    formaat: "afsluiting"
 }
 dia dia-intro {
     naam: "Intro"
@@ -89,6 +90,7 @@ dia dia-intro {
     presentatie: "keynote"
     compositie: "intro-content"
     layout: "intro-layout"
+    formaat: "cover"
 }
 '''
 
@@ -128,9 +130,11 @@ class NativePresentationModelTests(unittest.TestCase):
         self.assertEqual("closing-content", dia_slot.opgeloste_compositie.id)
         self.assertEqual("closing-layout", dia_slot.opgeloste_layout.id)
         self.assertEqual("Slot", dia_slot.naam)
+        self.assertEqual(DiaFormaat.AFSLUITING, dia_slot.formaat)
         self.assertEqual("intro-content", dia_intro.opgeloste_compositie.id)
         self.assertEqual("intro-layout", dia_intro.opgeloste_layout.id)
         self.assertEqual("Intro", dia_intro.naam)
+        self.assertEqual(DiaFormaat.COVER, dia_intro.formaat)
 
     def test_weigert_onbekende_eigenschap_op_presentatie_en_dia(self) -> None:
         self.assertIn(
@@ -240,6 +244,32 @@ layout intro-layout {''',
         )
 
         self.assertIn("BP4434", self._diagnostic_codes(bron))
+
+    def test_weigert_onbekend_formaat_op_dia(self) -> None:
+        self.assertIn(
+            "BP4435",
+            self._diagnostic_codes(
+                BRON.replace('formaat: "cover"', 'formaat: "diavoorstelling"')
+            ),
+        )
+
+    def test_weigert_ontbrekend_formaat_op_dia(self) -> None:
+        self.assertIn(
+            "BP4435",
+            self._diagnostic_codes(
+                BRON.replace('\n    formaat: "cover"', "")
+            ),
+        )
+
+    def test_accepteert_ieder_toegestaan_diaformaat(self) -> None:
+        for formaat in DiaFormaat:
+            bron = BRON.replace('formaat: "cover"', f'formaat: "{formaat.value}"')
+            model = analyseer(parseer(bron), constraints=WORLD_MODEL_CONSTRAINTS)
+            presentatie = resolveer_presentaties(model.objecten)[0]
+            dia_intro = next(
+                dia for dia in presentatie.dias if dia.id == "dia-intro"
+            )
+            self.assertEqual(formaat, dia_intro.formaat)
 
 
 if __name__ == "__main__":

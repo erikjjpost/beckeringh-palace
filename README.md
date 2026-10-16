@@ -28,8 +28,10 @@ De repository bevat nu:
   waarden, assets, componentvarianten, composities en layouts als een statisch
   machineleesbaar manifest publiceert;
 - een native presentatie/dia-domeincontract dat een geordende diaserie
-  bouwt uit bestaande, hergebruikte composities en layouts (renderer en
-  producttype volgen in een vervolgmilestone);
+  bouwt uit bestaande, hergebruikte composities en layouts, met een gesloten
+  dia-archetype (`formaat`: cover, sectie, kaartengrid, vergelijking,
+  tijdlijn, citaat, afsluiting) zodat dia's onderling onderscheidbaar blijven
+  (renderer en producttype volgen in een vervolgmilestone);
 - statische snapshotidentiteit voor verificatie en rollback;
 - generatie van Markdown, Mermaid, CSS, HTML en importeerbare Grafana JSON;
 - reproduceerbaarheidscontrole in lokale tooling en CI.

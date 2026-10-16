@@ -5,11 +5,14 @@ from dataclasses import dataclass
 
 from compiler.constraints import ConstraintContext
 from compiler.diagnostics import Diagnostic
+from compiler.presentations import DiaFormaat
 from compiler.product_definition_constraints import _instanties_komen_niet_overeen
 
 
 PRESENTATION_FIELDS = frozenset({"naam", "doel", "dias"})
-DIA_FIELDS = frozenset({"naam", "doel", "presentatie", "compositie", "layout"})
+DIA_FIELDS = frozenset({
+    "naam", "doel", "presentatie", "compositie", "layout", "formaat",
+})
 
 
 def _geldige_geordende_lijst(waarde: object) -> bool:
@@ -191,6 +194,21 @@ class PresentationConstraint:
                         "componentinstanties in compositie en layout"
                     ),
                     locatie=dia.bronlocatie,
+                ))
+
+            formaat_waarde = dia.eigenschappen.get("formaat")
+            try:
+                DiaFormaat(str(formaat_waarde))
+            except ValueError:
+                diagnostics.append(Diagnostic(
+                    code="BP4435",
+                    boodschap=(
+                        f"Dia '{dia.id}' heeft onbekend formaat "
+                        f"'{formaat_waarde}'"
+                    ),
+                    locatie=dia.eigenschaplocaties.get(
+                        "formaat", dia.bronlocatie
+                    ),
                 ))
 
         return tuple(diagnostics)

@@ -36,7 +36,7 @@ De native objectsoorten zijn:
 | `componentinstantie` | benoemd gebruik van een component in één compositie |
 | `compositie` | geordende productinhoud zonder layoutpresentatie |
 | `presentatie` | geordende, wederkerige lijst dia's die samen één presentatie vormen |
-| `dia` | wederkerige presentatiedia die één bestaande compositie en layout hergebruikt |
+| `dia` | wederkerige presentatiedia met een gesloten dia-archetype (`formaat`) die één bestaande compositie en layout hergebruikt |
 | `layout` | backend-onafhankelijke plaatsingsintentie |
 | `region` | expliciete plaats van een componentinstantie binnen een native layout |
 | `product` | koppeling van wereld, compositie, layout, backend en artifactpad |
@@ -130,6 +130,16 @@ bestaande productvalidatie (BP3507). De resolver introduceert geen tweede
 compositie- of layoutresolver; `ResolvedDia` en `ResolvedPresentation`
 hergebruiken `resolveer_composities`/`resolveer_layouts` en ordenen alleen de
 reeds opgeloste resultaten per dia.
+
+Compositie en layout dragen echter uitsluitend concrete inhoud en plaatsing,
+nooit welk soort dia dit is; zonder die semantiek is iedere dia voor een
+toekomstige renderer ononderscheidbaar van een dashboardpaneel. Elke `dia`
+draagt daarom ook een verplicht `formaat`: een gesloten opsomming van zeven
+dia-archetypen (cover, sectie, kaartengrid, vergelijking, tijdlijn, citaat,
+afsluiting), naar hetzelfde precedent als `layout.type`. Geen vrije string,
+geen impliciete standaardwaarde; een onbekende of ontbrekende waarde wordt
+semantisch geweigerd. `formaat` blijft backend-onafhankelijke metadata en
+kiest zelf geen renderer of visuele vertaling.
 
 Deze milestone voegt bewust geen renderer, backend, `product`-koppeling
 (`inhoud: "presentation"`) of concreet BAT-voorbeeld in

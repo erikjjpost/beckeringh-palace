@@ -228,7 +228,9 @@ Iedere native dia vereist:
 - `naam` en `doel`;
 - `presentatie`: de presentatie waar deze dia bij hoort;
 - `compositie`: een bestaande compositie;
-- `layout`: een bestaande layout.
+- `layout`: een bestaande layout;
+- `formaat`: exact `cover`, `sectie`, `kaartengrid`, `vergelijking`,
+  `tijdlijn`, `citaat` of `afsluiting`.
 
 De referentie naar `presentatie` is wederkerig: de presentatie noemt de dia
 en de dia verwijst terug naar diezelfde presentatie, exact zoals
@@ -240,6 +242,14 @@ verplicht dat een compositie of layout aan slechts één dia of product
 toebehoort; hergebruik tussen meerdere dia's, of tussen een dia en een
 regulier product, is uitdrukkelijk toegestaan.
 
+Compositie en layout dragen uitsluitend concrete inhoud en plaatsing; zij
+bevatten geen semantiek over wát voor dia dit is. Zonder die semantiek is
+iedere dia voor een toekomstige renderer ononderscheidbaar van een
+dashboardpaneel, en dat is precies wat `formaat` oplost: een gesloten,
+expliciet vocabulaire van dia-archetypen, naar hetzelfde precedent als
+`layout.type`. Geen vrije string, geen impliciete standaardwaarde, en een
+onbekende waarde wordt semantisch geweigerd (BP4435).
+
 ```bp
 dia dia-intro {
     naam: "Intro"
@@ -247,16 +257,20 @@ dia dia-intro {
     presentatie: "keynote"
     compositie: "intro-content"
     layout: "intro-layout"
+    formaat: "cover"
 }
 ```
 
-De resolver levert `ResolvedDia` (id, naam, doel, opgeloste compositie,
-opgeloste layout) en `ResolvedPresentation` (id, naam, doel, geordende
-dia's) op. Beide hergebruiken de bestaande `resolveer_composities` en
-`resolveer_layouts`; er bestaat geen tweede compositie- of layoutresolver
+De resolver levert `ResolvedDia` (id, naam, doel, formaat, opgeloste
+compositie, opgeloste layout) en `ResolvedPresentation` (id, naam, doel,
+geordende dia's) op. Beide hergebruiken de bestaande `resolveer_composities`
+en `resolveer_layouts`; er bestaat geen tweede compositie- of layoutresolver
 voor presentaties. Deze milestone voegt bewust geen renderer, backend,
 `inhoud: "presentation"` of concreet BAT-voorbeeld in
-`architectuur/world.bp` toe; dat volgt in M11.16b.
+`architectuur/world.bp` toe; dat volgt in M11.16b. `formaat` draagt geen
+rendererlogica en kiest zelf geen visuele vertaling: het is uitsluitend
+getypeerde, backend-onafhankelijke metadata die een toekomstige renderer kan
+lezen.
 
 ### `asset`
 
@@ -1255,6 +1269,19 @@ een gedeelde hulpfunctie (`_instanties_komen_niet_overeen` in
 logica, gebruikt door zowel de bestaande productvalidatie (BP3507) als de
 nieuwe dia-validatie (BP4434).
 
+Compositie en layout alleen laten echter geen enkele dia van een ander
+onderscheiden: beide dragen alleen concrete inhoud en plaatsing, nooit welk
+soort dia dit is. Zonder die semantiek is iedere dia voor een toekomstige
+renderer ononderscheidbaar van een dashboardpaneel. `dia` krijgt daarom in
+dezelfde milestone een verplicht `formaat`-veld (`DiaFormaat` in
+`compiler/presentations.py`): een gesloten opsomming van zeven dia-
+archetypen (cover, sectie, kaartengrid, vergelijking, tijdlijn, citaat,
+afsluiting), naar het precedent van `layout.type` — geen vrije string, geen
+impliciete standaardwaarde, een onbekende of ontbrekende waarde wordt
+semantisch geweigerd (BP4435). `formaat` is backend-onafhankelijke
+metadata; deze milestone voegt nog steeds geen renderer toe en kiest zelf
+geen visuele vertaling per archetype.
+
 `compiler/presentations.py` levert `ResolvedDia` en `ResolvedPresentation` op
 en hergebruikt daarvoor `resolveer_composities`/`resolveer_layouts`; er
 bestaat geen tweede compositie- of layoutresolver voor presentaties. Niets
@@ -1263,10 +1290,20 @@ of product toebehoort: hergebruik tussen meerdere dia's, of tussen een dia en
 een regulier product, is uitdrukkelijk toegestaan, net zoals composities nu
 al door meerdere HTML- en Grafana-producten worden gedeeld.
 
+Elke dia draagt daarnaast een verplicht `formaat`: een gesloten opsomming
+van zeven dia-archetypen (cover, sectie, kaartengrid, vergelijking,
+tijdlijn, citaat, afsluiting; `DiaFormaat` in `compiler/presentations.py`),
+naar hetzelfde precedent als `layout.type`. Compositie en layout dragen
+uitsluitend concrete inhoud en plaatsing, nooit welk soort dia dit is; zonder
+`formaat` is iedere dia voor een toekomstige renderer ononderscheidbaar van
+een dashboardpaneel. Een onbekende of ontbrekende waarde wordt semantisch
+geweigerd (BP4435); `formaat` blijft backend-onafhankelijke metadata zonder
+eigen rendererlogica.
+
 Deze milestone voegt bewust geen renderer, backend, `product`-koppeling
 (`inhoud: "presentation"`) of concreet BAT-voorbeeld in
 `architectuur/world.bp` toe. Het domeincontract is bewezen via semantische
-validatie (`compiler/presentation_constraints.py`, `BP4420`-`BP4434`) en
+validatie (`compiler/presentation_constraints.py`, `BP4420`-`BP4435`) en
 `tests/test_native_presentation_model.py`. M11.16b koppelt een presentatie
 aan een echt renderbaar product, naar het precedent van M9.0a naar M9.0b.
 
@@ -1514,3 +1551,4 @@ aan een echt renderbaar product, naar het precedent van M9.0a naar M9.0b.
 | `BP4432` | Dia verwijst naar een onbekende of ontbrekende compositie |
 | `BP4433` | Dia verwijst naar een onbekende of ontbrekende layout |
 | `BP4434` | Dia vereist exact dezelfde componentinstanties in compositie en layout |
+| `BP4435` | Dia heeft een onbekend of ontbrekend formaat |

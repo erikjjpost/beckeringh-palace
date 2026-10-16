@@ -2,11 +2,32 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from enum import Enum
 from typing import Iterable
 
 from compiler.cir import Architectuurobject
 from compiler.design_compositions import ResolvedComposition, resolveer_composities
 from compiler.layout_model import ResolvedLayout, resolveer_layouts
+
+
+class DiaFormaat(str, Enum):
+    """De native dia-archetypen: een gecontroleerd, gesloten vocabulaire.
+
+    Een dia hergebruikt het compositie/layoutcontract 1 op 1 voor haar
+    concrete inhoud en plaatsing, maar dat contract draagt geen semantiek
+    over wát voor dia dit is. Zonder die semantiek is iedere dia voor een
+    toekomstige renderer ononderscheidbaar van een dashboardpaneel. Formaat
+    lost dat op als expliciet, gesloten veld, naar hetzelfde precedent als
+    `layout.type`: geen vrije string, geen impliciete standaardwaarde.
+    """
+
+    COVER = "cover"
+    SECTIE = "sectie"
+    KAARTENGRID = "kaartengrid"
+    VERGELIJKING = "vergelijking"
+    TIJDLIJN = "tijdlijn"
+    CITAAT = "citaat"
+    AFSLUITING = "afsluiting"
 
 
 @dataclass(frozen=True)
@@ -16,6 +37,7 @@ class ResolvedDia:
     id: str
     naam: str
     doel: str
+    formaat: DiaFormaat
     opgeloste_compositie: ResolvedComposition
     opgeloste_layout: ResolvedLayout
 
@@ -51,6 +73,13 @@ def _dia_uit_object(
     compositie_id = _tekst(obj, "compositie")
     layout_id = _tekst(obj, "layout")
     try:
+        formaat = DiaFormaat(_tekst(obj, "formaat"))
+    except ValueError as exc:
+        raise PresentationResolutionError(
+            f"Dia '{obj.id}' heeft onbekend formaat "
+            f"'{obj.eigenschappen.get('formaat')}'"
+        ) from exc
+    try:
         opgeloste_compositie = composities[compositie_id]
     except KeyError as exc:
         raise PresentationResolutionError(
@@ -66,6 +95,7 @@ def _dia_uit_object(
         id=obj.id,
         naam=_tekst(obj, "naam"),
         doel=_tekst(obj, "doel"),
+        formaat=formaat,
         opgeloste_compositie=opgeloste_compositie,
         opgeloste_layout=opgeloste_layout,
     )
