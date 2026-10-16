@@ -26,6 +26,8 @@ class WorldModelBoundaryTests(unittest.TestCase):
                 "componentinstantie",
                 "compositie",
                 "databron",
+                "dia",
+                "presentatie",
                 "homepagegebied",
                 "figmamaster",
                 "informatiegebied",

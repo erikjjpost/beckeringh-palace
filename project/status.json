@@ -3,11 +3,11 @@
   "project": "Beckeringh Palace",
   "overall_method": "Gewogen architectuurschatting van het volledige einddoel. De expliciete productgebiedgewichten tellen samen op tot 100%; het totaal wordt deterministisch afgerond op een geheel percentage.",
   "current_milestone": {
-    "id": "M11.15a",
-    "name": "EmberForge-merkteken in de SVG Assetcatalogus",
+    "id": "M11.16a",
+    "name": "Native presentatie/dia-domeincontract",
     "state": "voltooid",
     "verification": {
-      "state": "wacht-op-menselijke-verificatie",
+      "state": "automatisch",
       "actor": null,
       "date": null
     }
@@ -18,9 +18,9 @@
     "pull_request": 127
   },
   "next_step": {
-    "id": "TBD",
-    "name": "Volgende milestone nog te kiezen",
-    "purpose": "M11.15a hergebruikt het `merkasset`-veld en de `BP3724`-constraint (M11.12a/M11.13a) een derde keer, zonder nieuwe compilercode: `emberforge-svg-asset-catalog-content` krijgt `merkasset: \"emberforge-merkteken\"`. Beide EmberForge-referentieproducten (Design System Referentie, SVG Assetcatalogus) dragen nu dezelfde merklockup als de homepage-hero. M11.14a (World Bible-consolidatie) wacht nog los op Eriks verificatie, onafhankelijk van deze milestone-telling. Overwogen en afgewezen: Keycloak-login (drie `voorbeeld`-gebaseerde forminstanties, geen losstaande hero-instantie — zou een nieuwe layoutregio vereisen, geen kleine hergebruik-slice meer) en de Terminal (enige instantie, maar thematisch ongepast: een terminalvenster hoort geen browserpagina-achtige merklockup naast de titel). Grafana-dashboards (Observatory, Forge Dashboard) blijven expliciet buiten scope — Erik wil die functioneel en zonder opsmuk. De volgende milestone is nog niet gekozen door de Chief Architect."
+    "id": "M11.16b",
+    "name": "Presentatie/dia-renderer en producttype-koppeling",
+    "purpose": "M11.16a voegt `presentatie` en `dia` toe als het kleinste complete domeincontract voor een geordende diaserie, naar het precedent van M9.0a (native layout-engine zonder renderer werd als volwaardige, zelfstandige milestone geaccepteerd). Een `presentatie` noemt een expliciete, geordende, unieke en wederkerige lijst `dia`'s, exact zoals `wallpaper.lagen` dat doet. Een `dia` verwijst terug naar precies die presentatie (zoals `wallpaperlaag.wallpaper`) en hergebruikt het bestaande compositie/layoutcontract 1 op 1: compositie en layout van dezelfde dia moeten exact dezelfde componentinstanties bevatten, dezelfde regel als de bestaande productvalidatie (BP3507), nu geëxtraheerd naar een gedeelde hulpfunctie in plaats van gedupliceerd. `compiler/presentations.py` hergebruikt `resolveer_composities`/`resolveer_layouts`; er bestaat geen tweede resolver. Compositie en layout dragen echter uitsluitend concrete inhoud en plaatsing, nooit welk soort dia dit is; zonder die semantiek is iedere dia voor een toekomstige renderer ononderscheidbaar van een dashboardpaneel (Erik Post, letterlijk: \"zoals het nu wordt geïmplementeerd krijg je knijter saaie presentaties\"). M11.16a is daarom vóór het mergen van PR #134 bijgesteld met een verplicht `formaat`-veld op `dia`: een gesloten opsomming van zeven dia-archetypen (cover, sectie, kaartengrid, vergelijking, tijdlijn, citaat, afsluiting; `DiaFormaat` in `compiler/presentations.py`), naar het precedent van `layout.type`. Een onbekende of ontbrekende waarde wordt semantisch geweigerd (BP4435). `formaat` blijft backend-onafhankelijke metadata zonder eigen rendererlogica. Deze milestone voegt nog steeds bewust geen renderer, backend, `inhoud: \"presentation\"`-koppeling of concreet BAT-voorbeeld toe; dat is M11.16b. M11.14a (World Bible-consolidatie, PR #130) en M11.15a (SVG Assetcatalogus-merkteken, PR #132) wachten beide nog los op Eriks verificatie, onafhankelijk van deze milestone-telling. De volgende milestone na M11.16b is nog niet gekozen door de Chief Architect."
   },
   "areas": [
     {
@@ -36,8 +36,8 @@
       "name": "World Model en productcontracten",
       "progress": 100,
       "weight": 10,
-      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies, een merkgebonden wallpaperfamilie, een functionele muziekcirkel en expliciete Palace-, bever- en Noorse wereldsymboliek.",
-      "remaining": "Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist."
+      "evidence": "Het world model draagt thema's, informatiearchitectuur, designsystemcontracten, drie EmberForge productsurfaces, twee SVG assetfamilies, een merkgebonden wallpaperfamilie, een functionele muziekcirkel en expliciete Palace-, bever- en Noorse wereldsymboliek. M11.16a voegt `presentatie` en `dia` toe als zelfstandig domeincontract voor een geordende diaserie die bestaande composities en layouts hergebruikt, inclusief een verplicht `formaat`-archetype per dia zodat dia's onderling onderscheidbaar blijven, semantische validatie (`BP4420`-`BP4435`) en resolver (`compiler/presentations.py`).",
+      "remaining": "Nieuwe productcontracten worden alleen toegevoegd wanneer een concrete productsurface aantoonbaar nieuwe semantiek vereist. M11.16a heeft bewust nog geen renderer, backend of producttype-koppeling; die volgen in M11.16b."
     },
     {
       "id": "design-system",

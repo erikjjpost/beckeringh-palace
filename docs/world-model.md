@@ -35,6 +35,8 @@ De native objectsoorten zijn:
 | `referentiesectie` | geordend semantisch deel van een native referentieproduct |
 | `componentinstantie` | benoemd gebruik van een component in één compositie |
 | `compositie` | geordende productinhoud zonder layoutpresentatie |
+| `presentatie` | geordende, wederkerige lijst dia's die samen één presentatie vormen |
+| `dia` | wederkerige presentatiedia met een gesloten dia-archetype (`formaat`) die één bestaande compositie en layout hergebruikt |
 | `layout` | backend-onafhankelijke plaatsingsintentie |
 | `region` | expliciete plaats van een componentinstantie binnen een native layout |
 | `product` | koppeling van wereld, compositie, layout, backend en artifactpad |
@@ -113,6 +115,37 @@ rendererlogica. Het verwijst uitsluitend naar één wereld en expliciete native
 assets, componenten, varianten, composities en layouts. De
 `figma-manifest` backend publiceert die opgeloste selectie als statisch JSON
 contract. Live synchronisatie naar Figma valt buiten deze milestone.
+
+M11.16a voegt `presentatie` en `dia` toe als het kleinste complete
+domeincontract voor een geordende diaserie, naar het precedent van M9.0a
+(de native layout-engine werd zonder renderer als volwaardige, zelfstandige
+milestone geaccepteerd). Een `presentatie` noemt een expliciete, geordende en
+unieke lijst `dia`'s; het lidmaatschap is wederkerig, exact zoals
+`wallpaper.lagen`/`wallpaperlaag.plaatsingen` dat al doen. Een `dia` verwijst
+op haar beurt terug naar precies die presentatie, exact zoals
+`wallpaperlaag.wallpaper` dat doet, en hergebruikt daarnaast het bestaande
+compositie/layoutcontract 1 op 1: compositie en layout van dezelfde dia
+moeten exact dezelfde componentinstanties bevatten, dezelfde regel als de
+bestaande productvalidatie (BP3507). De resolver introduceert geen tweede
+compositie- of layoutresolver; `ResolvedDia` en `ResolvedPresentation`
+hergebruiken `resolveer_composities`/`resolveer_layouts` en ordenen alleen de
+reeds opgeloste resultaten per dia.
+
+Compositie en layout dragen echter uitsluitend concrete inhoud en plaatsing,
+nooit welk soort dia dit is; zonder die semantiek is iedere dia voor een
+toekomstige renderer ononderscheidbaar van een dashboardpaneel. Elke `dia`
+draagt daarom ook een verplicht `formaat`: een gesloten opsomming van zeven
+dia-archetypen (cover, sectie, kaartengrid, vergelijking, tijdlijn, citaat,
+afsluiting), naar hetzelfde precedent als `layout.type`. Geen vrije string,
+geen impliciete standaardwaarde; een onbekende of ontbrekende waarde wordt
+semantisch geweigerd. `formaat` blijft backend-onafhankelijke metadata en
+kiest zelf geen renderer of visuele vertaling.
+
+Deze milestone voegt bewust geen renderer, backend, `product`-koppeling
+(`inhoud: "presentation"`) of concreet BAT-voorbeeld in
+`architectuur/world.bp` toe. Het domeincontract wordt bewezen via semantische
+validatie en tests. Een vervolgmilestone (M11.16b) koppelt een presentatie aan
+een echt renderbaar product, naar het precedent van M9.0a naar M9.0b.
 
 ## Niet native
 
