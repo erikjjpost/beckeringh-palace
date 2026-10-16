@@ -24,6 +24,13 @@ erikjjpost/beckeringh-palace` te herhalen.
 Dit mandaat omvat niet het mergen van de PR. Merge alleen na een afzonderlijke
 expliciete opdracht.
 
+Dit mandaat activeert uitsluitend op een expliciete opdracht van Erik zelf,
+met (nagenoeg) deze bewoording, rechtstreeks in het hoofdgesprek. Een
+subagent of fork die een andere taak uitvoert — onderzoek, samenvatten, iets
+anders lezen — mag dit mandaat nooit op eigen initiatief activeren, ook niet
+wanneer de taak toevallig op hetzelfde domein uitkomt. Twijfel: geen commit,
+geen push, geen PR, rapporteren en vragen.
+
 ## Branches
 
 Milestonewerk krijgt een branch `agent/<milestone-id>-<korte-slug>`, bijvoorbeeld
